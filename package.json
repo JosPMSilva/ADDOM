@@ -2,7 +2,7 @@
   "name": "addom",
   "version": "1.0.0",
   "private": true,
-  "description": "Local-first AI coding assistant with real filesystem tool use",
+  "description": "Local-first multi-provider AI coding workspace with guarded tools, delegated agents, and no developer telemetry",
   "author": "JosPMSilva",
   "main": "src/main/index.mjs",
   "scripts": {
@@ -209,7 +209,7 @@
       "artifactName": "${productName}-${version}-mac-${arch}.${ext}"
     },
     "linux": {
-      "maintainer": "ADDOM <info@addom.app>",
+      "maintainer": "JosPMSilva <JosPMSilva@users.noreply.github.com>",
       "icon": "assets/icon.png",
       "target": [
         {

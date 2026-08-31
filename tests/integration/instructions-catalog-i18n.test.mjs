@@ -51,3 +51,15 @@ test('major non-English locales use localized guide titles', () => {
     assert.notEqual(guideBlock.openGuide, 'Open Guide', `guide CTA still English for ${locale}`)
   }
 })
+
+test('usage guide reflects the current Settings and Agents surfaces in every locale', () => {
+  assert.equal(INSTRUCTIONS_CATALOG.version, '2026.08.31.1')
+  assert.equal(INSTRUCTIONS_CATALOG.lastUpdated, '2026-08-31')
+  assert.ok(INSTRUCTIONS_CATALOG.sections.some((section) => section.id === 'providers-and-agents'))
+
+  for (const locale of EXPOSED_LOCALES) {
+    const serialized = JSON.stringify(getLocalizedInstructionsCatalog(locale))
+    assert.doesNotMatch(serialized, /providers-and-moa|Tools & Safety|Data & Privacy|Knowledge Base|\bMoA\b/i, `stale guide copy for ${locale}`)
+    assert.match(serialized, /General, Appearance, Terminal, Agents, Providers, Safety, and Data/, `missing current Settings categories for ${locale}`)
+  }
+})

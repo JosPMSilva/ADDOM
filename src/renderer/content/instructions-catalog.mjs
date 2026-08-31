@@ -1,6 +1,6 @@
 export const INSTRUCTIONS_CATALOG = {
-  version: '2026.04.18.1',
-  lastUpdated: '2026-04-18',
+  version: '2026.08.31.1',
+  lastUpdated: '2026-08-31',
   title: 'Using ADDOM',
   description: 'A current guide to the real ADDOM workflow: workspace setup, chat execution, editor tooling, memory, provider setup, and data controls.',
   sections: [
@@ -20,7 +20,7 @@ export const INSTRUCTIONS_CATALOG = {
       items: [
         'Pick a provider and model in the composer rail before sending. If a previously selected model disappears, refresh provider data and choose a new one.',
         'Execute is the normal tool-using mode. Plan is tool-free planning. Thinking is brainstorming only and does not execute tools.',
-        'The composer supports text, images, and file attachments when the selected model allows them. Some attachments can also be added to the OpenAI project knowledge base.',
+        'The composer supports text, images, and file attachments when the selected model allows them. Some attachments can also be added to OpenAI Project Knowledge.',
         'The chat header keeps the current thread, permission mode, terminal activity, and git summary visible while you work.',
       ],
     },
@@ -55,22 +55,22 @@ export const INSTRUCTIONS_CATALOG = {
       ],
     },
     {
-      id: 'providers-and-moa',
-      title: 'Providers, Knowledge Base, And MoA',
+      id: 'providers-and-agents',
+      title: 'Providers, Project Knowledge, And Agents',
       items: [
         'Provider settings support saved API keys and, for OpenAI, either API key access or account-based access depending how the provider is configured.',
         'OpenRouter catalog visibility can hide noisy namespaces while still allowing explicit route selection.',
-        'OpenAI Knowledge Base is project-scoped. Files uploaded there are separate from normal chat attachments and are used for hosted file_search retrieval.',
-        'OpenAI account mode does not currently support hosted project knowledge-base assets. Use OpenAI API key mode for that panel.',
-        'MoA is optional. When enabled, it adds agent configuration in Settings, a side panel in Chat, and direct-agent quick actions in Execute mode.',
+        'OpenAI Project Knowledge is project-scoped. Files uploaded there are separate from normal chat attachments and are used for hosted file_search retrieval.',
+        'OpenAI account mode does not currently support hosted Project Knowledge assets. Use OpenAI API key mode for that panel.',
+        'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
       ],
     },
     {
       id: 'settings-and-data',
       title: 'Settings And Data Controls',
       items: [
-        'Settings covers language, project folder, assistant prompt appendix, UI scaling, updates, provider setup, tools and safety, memory and continuity, MoA, and data privacy controls.',
-        'Data And Privacy can export the current thread, import thread JSON, clear thread or project history, delete saved API keys, clean provider-budget or spillover data, or fully reset local ADDOM data.',
+        'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+        'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
         'Some settings apply immediately, while a few shell-level changes may still require restarting the app.',
       ],
     },

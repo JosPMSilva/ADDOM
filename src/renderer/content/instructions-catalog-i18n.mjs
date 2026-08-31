@@ -47,7 +47,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           'Wählen Sie vor dem Senden im Composer-Rail einen Provider und ein Modell. Wenn ein zuvor gewähltes Modell verschwindet, aktualisieren Sie die Provider-Daten und wählen Sie ein neues Modell.',
           'Execute ist der normale Modus mit Werkzeugen. Plan ist werkzeugfrei und dient der Planung. Thinking ist nur für Brainstorming und führt keine Werkzeuge aus.',
-          'Der Composer unterstützt Text-, Bild- und Dateianhänge, wenn das gewählte Modell sie zulässt. Einige Anhänge können auch zur OpenAI Knowledge Base des Projekts hinzugefügt werden.',
+          'Der Composer unterstützt Text-, Bild- und Dateianhänge, wenn das gewählte Modell sie zulässt. Einige Anhänge können auch zu OpenAI Project Knowledge hinzugefügt werden.',
           'Der Chat-Header hält den aktuellen Thread, den permission mode, die Terminal-Aktivität und die Git-Zusammenfassung während der Arbeit sichtbar.',
         ],
       },
@@ -78,21 +78,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Kontext- und Continuity-Anzeigen im Chat helfen zu erklären, wie viel Zustand zwischen Turns übernommen wird.',
         ],
       },
-      'providers-and-moa': {
-        title: 'Provider, Knowledge Base und MoA',
+      'providers-and-agents': {
+        title: 'Provider, Project Knowledge und Agents',
         items: [
           'Die Provider-Einstellungen unterstützen gespeicherte API Keys und bei OpenAI je nach Konfiguration entweder API-Key-Zugriff oder konto-basierten Zugriff.',
           'Mit der OpenRouter catalog visibility können laute Namespaces ausgeblendet werden, ohne die explizite Routenauswahl zu verlieren.',
-          'Die OpenAI Knowledge Base ist projektbezogen. Dorthin hochgeladene Dateien sind getrennt von normalen Chat-Anhängen und werden für gehostete file_search-Abrufe verwendet.',
-          'Der OpenAI-Konto-Modus unterstützt derzeit keine gehosteten Projekt-Assets in der Knowledge Base. Verwenden Sie dafür den OpenAI-API-Key-Modus.',
-          'MoA ist optional. Wenn es aktiviert ist, kommen Agent-Konfigurationen in Settings, ein Seitenpanel in Chat und Direct-Agent-Quick-Actions im Execute-Modus hinzu.',
+          'OpenAI Project Knowledge ist projektbezogen. Dorthin hochgeladene Dateien sind getrennt von normalen Chat-Anhängen und werden für gehostete file_search-Abrufe verwendet.',
+          'Der OpenAI-Konto-Modus unterstützt derzeit keine gehosteten Project-Knowledge-Assets. Verwenden Sie dafür den OpenAI-API-Key-Modus.',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings und Datenkontrollen',
         items: [
-          'Settings umfasst jetzt Sprache, Projektordner, Assistant Prompt Appendix, UI Scaling, Updates, Provider-Einrichtung, Tools & Safety, Memory & Continuity, MoA und Data & Privacy.',
-          'Data & Privacy kann den aktuellen Thread exportieren, Thread-JSON importieren, Thread- oder Projekt-Historie löschen, gespeicherte API Keys entfernen, Provider-Budget- oder Spillover-Daten bereinigen oder alle lokalen ADDOM-Daten vollständig zurücksetzen.',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           'Einige Einstellungen wirken sofort, während bestimmte Shell-nahe Änderungen weiterhin einen Neustart der App erfordern können.',
         ],
       },
@@ -126,7 +126,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           'Elige un provider y un modelo en el composer rail antes de enviar. Si un modelo seleccionado deja de estar disponible, actualiza los datos del provider y elige otro.',
           'Execute es el modo normal con tools. Plan es planificación sin tools. Thinking es solo para brainstorming y no ejecuta tools.',
-          'El Composer admite texto, imágenes y archivos adjuntos cuando el modelo seleccionado lo permite. Algunos adjuntos también pueden añadirse a la OpenAI Knowledge Base del proyecto.',
+          'El Composer admite texto, imágenes y archivos adjuntos cuando el modelo seleccionado lo permite. Algunos adjuntos también pueden añadirse a OpenAI Project Knowledge.',
           'El encabezado de Chat mantiene visibles el thread actual, el permission mode, la actividad del terminal y el resumen de git mientras trabajas.',
         ],
       },
@@ -157,21 +157,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Los indicadores de contexto y Continuity en Chat ayudan a explicar cuánto estado anterior se arrastra entre turnos.',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers, Knowledge Base y MoA',
+      'providers-and-agents': {
+        title: 'Providers, Project Knowledge y Agents',
         items: [
           'Los ajustes de providers admiten API Keys guardadas y, en OpenAI, acceso por API key o por cuenta según cómo esté configurado el provider.',
           'La visibilidad del catálogo de OpenRouter puede ocultar namespaces ruidosos sin perder la selección explícita de rutas.',
-          'La OpenAI Knowledge Base tiene alcance de proyecto. Los archivos subidos allí están separados de los adjuntos normales de Chat y se usan para retrieval con file_search alojado.',
-          'El modo de cuenta de OpenAI no admite todavía assets alojados de Knowledge Base del proyecto. Para ese panel usa el modo OpenAI API key.',
-          'MoA es opcional. Al activarlo se añaden la configuración de agents en Settings, un panel lateral en Chat y acciones rápidas de agents directos en Execute.',
+          'OpenAI Project Knowledge tiene alcance de proyecto. Los archivos subidos allí están separados de los adjuntos normales de Chat y se usan para retrieval con file_search alojado.',
+          'El modo de cuenta de OpenAI no admite todavía assets alojados de Project Knowledge. Para ese panel usa el modo OpenAI API key.',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings y controles de datos',
         items: [
-          'Settings ahora cubre idioma, carpeta del proyecto, Assistant Prompt Appendix, UI Scaling, updates, configuración de providers, Tools & Safety, Memory & Continuity, MoA y Data & Privacy.',
-          'Data & Privacy puede exportar el thread actual, importar JSON de threads, borrar el historial del thread o del proyecto, eliminar API Keys guardadas, limpiar datos de presupuestos de provider o spillover, o restablecer por completo los datos locales de ADDOM.',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           'Algunos ajustes se aplican al momento, mientras que ciertos cambios a nivel de shell todavía pueden requerir reiniciar la app.',
         ],
       },
@@ -205,7 +205,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           'Escolha um provider e um modelo no composer rail antes de enviar. Se um modelo selecionado desaparecer, atualize os dados do provider e escolha outro.',
           'Execute é o modo normal com tools. Plan é planejamento sem tools. Thinking serve apenas para brainstorming e não executa tools.',
-          'O Composer aceita texto, imagens e arquivos anexados quando o modelo selecionado permite. Alguns anexos também podem ser adicionados à OpenAI Knowledge Base do projeto.',
+          'O Composer aceita texto, imagens e arquivos anexados quando o modelo selecionado permite. Alguns anexos também podem ser adicionados ao OpenAI Project Knowledge.',
           'O cabeçalho do Chat mantém visíveis o thread atual, o permission mode, a atividade do terminal e o resumo do git enquanto você trabalha.',
         ],
       },
@@ -236,21 +236,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Indicadores de contexto e Continuity no Chat ajudam a explicar quanto estado anterior está sendo carregado entre os turns.',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers, Knowledge Base e MoA',
+      'providers-and-agents': {
+        title: 'Providers, Project Knowledge e Agents',
         items: [
           'As configurações de providers aceitam API Keys salvas e, no caso de OpenAI, acesso por API key ou por conta, dependendo de como o provider está configurado.',
           'A visibilidade do catálogo do OpenRouter pode ocultar namespaces barulhentos sem perder a seleção explícita de rotas.',
-          'A OpenAI Knowledge Base é vinculada ao projeto. Os arquivos enviados para lá ficam separados dos anexos normais do Chat e são usados para retrieval com file_search hospedado.',
-          'O modo de conta da OpenAI ainda não oferece suporte a assets hospedados da Knowledge Base do projeto. Para esse painel, use o modo OpenAI API key.',
-          'MoA é opcional. Quando ativado, ele adiciona configuração de agents em Settings, um painel lateral no Chat e ações rápidas de agents diretos no modo Execute.',
+          'O OpenAI Project Knowledge é vinculado ao projeto. Os arquivos enviados para lá ficam separados dos anexos normais do Chat e são usados para retrieval com file_search hospedado.',
+          'O modo de conta da OpenAI ainda não oferece suporte a assets hospedados do Project Knowledge. Para esse painel, use o modo OpenAI API key.',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings e controles de dados',
         items: [
-          'Settings agora cobre idioma, pasta do projeto, Assistant Prompt Appendix, UI Scaling, updates, configuração de providers, Tools & Safety, Memory & Continuity, MoA e Data & Privacy.',
-          'Data & Privacy pode exportar o thread atual, importar JSON de thread, limpar histórico do thread ou do projeto, excluir API Keys salvas, limpar dados de orçamento de provider ou spillover, ou redefinir completamente os dados locais do ADDOM.',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           'Algumas configurações se aplicam imediatamente, enquanto certas mudanças no nível do shell ainda podem exigir reiniciar o app.',
         ],
       },
@@ -284,7 +284,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           'Choisissez un provider et un modèle dans le composer rail avant d’envoyer. Si un modèle précédemment choisi disparaît, actualisez les données du provider et choisissez-en un autre.',
           'Execute est le mode normal avec tools. Plan sert à planifier sans tools. Thinking sert uniquement au brainstorming et n’exécute pas de tools.',
-          'Le Composer prend en charge le texte, les images et les pièces jointes quand le modèle sélectionné le permet. Certaines pièces jointes peuvent aussi être ajoutées à la OpenAI Knowledge Base du projet.',
+          'Le Composer prend en charge le texte, les images et les pièces jointes quand le modèle sélectionné le permet. Certaines pièces jointes peuvent aussi être ajoutées à OpenAI Project Knowledge.',
           'L’en-tête de Chat garde visibles le thread courant, le permission mode, l’activité du terminal et le résumé git pendant le travail.',
         ],
       },
@@ -315,21 +315,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Les indicateurs de contexte et de Continuity dans Chat aident à comprendre quelle part de l’état précédent est réinjectée entre les turns.',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers, Knowledge Base et MoA',
+      'providers-and-agents': {
+        title: 'Providers, Project Knowledge et Agents',
         items: [
           'Les paramètres des providers prennent en charge les API Keys enregistrées et, pour OpenAI, un accès par API key ou par compte selon la configuration du provider.',
           'La visibilité du catalogue OpenRouter peut masquer des namespaces bruyants sans retirer la sélection explicite de route.',
-          'La OpenAI Knowledge Base est liée au projet. Les fichiers envoyés là sont séparés des pièces jointes normales de Chat et servent au retrieval hébergé avec file_search.',
-          'Le mode compte OpenAI ne prend pas encore en charge les assets de Knowledge Base hébergés au niveau projet. Utilisez le mode OpenAI API key pour ce panneau.',
-          'MoA est optionnel. Lorsqu’il est activé, il ajoute la configuration des agents dans Settings, un panneau latéral dans Chat et des actions rapides d’agents directs en mode Execute.',
+          'OpenAI Project Knowledge est lié au projet. Les fichiers envoyés là sont séparés des pièces jointes normales de Chat et servent au retrieval hébergé avec file_search.',
+          'Le mode compte OpenAI ne prend pas encore en charge les assets Project Knowledge hébergés. Utilisez le mode OpenAI API key pour ce panneau.',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings et contrôles de données',
         items: [
-          'Settings couvre désormais la langue, le dossier projet, l’Assistant Prompt Appendix, UI Scaling, les updates, la configuration des providers, Tools & Safety, Memory & Continuity, MoA et Data & Privacy.',
-          'Data & Privacy peut exporter le thread courant, importer un JSON de thread, effacer l’historique du thread ou du projet, supprimer les API Keys enregistrées, nettoyer les données de budget provider ou de spillover, ou réinitialiser complètement les données locales d’ADDOM.',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           'Certains réglages s’appliquent immédiatement, tandis que certains changements au niveau shell peuvent encore nécessiter un redémarrage de l’app.',
         ],
       },
@@ -363,7 +363,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           'Scegli un provider e un modello nel composer rail prima di inviare. Se un modello selezionato in precedenza scompare, aggiorna i dati del provider e scegline un altro.',
           'Execute è la modalità normale con tools. Plan è pianificazione senza tools. Thinking serve solo per brainstorming e non esegue tools.',
-          'Il Composer supporta testo, immagini e allegati quando il modello selezionato lo consente. Alcuni allegati possono anche essere aggiunti alla OpenAI Knowledge Base del progetto.',
+          'Il Composer supporta testo, immagini e allegati quando il modello selezionato lo consente. Alcuni allegati possono anche essere aggiunti a OpenAI Project Knowledge.',
           'L’intestazione di Chat mantiene visibili il thread corrente, il permission mode, l’attività del terminale e il riepilogo git mentre lavori.',
         ],
       },
@@ -394,21 +394,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Gli indicatori di contesto e Continuity in Chat aiutano a capire quanto stato precedente viene portato avanti tra i turni.',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers, Knowledge Base e MoA',
+      'providers-and-agents': {
+        title: 'Providers, Project Knowledge e Agents',
         items: [
           'Le impostazioni dei providers supportano API Keys salvate e, per OpenAI, accesso via API key o via account a seconda della configurazione del provider.',
           'La visibilità del catalogo OpenRouter può nascondere namespace rumorosi senza perdere la selezione esplicita delle route.',
-          'La OpenAI Knowledge Base è legata al progetto. I file caricati lì sono separati dagli allegati normali di Chat e vengono usati per il retrieval ospitato con file_search.',
-          'La modalità account di OpenAI non supporta ancora gli asset ospitati della Knowledge Base di progetto. Per quel pannello usa la modalità OpenAI API key.',
-          'MoA è opzionale. Quando è abilitato aggiunge la configurazione degli agenti in Settings, un pannello laterale in Chat e azioni rapide di agenti diretti in modalità Execute.',
+          'OpenAI Project Knowledge è legato al progetto. I file caricati lì sono separati dagli allegati normali di Chat e vengono usati per il retrieval ospitato con file_search.',
+          'La modalità account di OpenAI non supporta ancora gli asset ospitati di Project Knowledge. Per quel pannello usa la modalità OpenAI API key.',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings e controlli dei dati',
         items: [
-          'Settings ora copre lingua, cartella del progetto, Assistant Prompt Appendix, UI Scaling, updates, configurazione dei providers, Tools & Safety, Memory & Continuity, MoA e Data & Privacy.',
-          'Data & Privacy può esportare il thread corrente, importare JSON di thread, cancellare la cronologia del thread o del progetto, eliminare API Keys salvate, pulire i dati di budget provider o di spillover oppure reimpostare completamente i dati locali di ADDOM.',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           'Alcune impostazioni si applicano subito, mentre certi cambiamenti a livello di shell possono ancora richiedere il riavvio dell’app.',
         ],
       },
@@ -442,7 +442,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           'Kies een provider en model in de composer rail voordat je verzendt. Als een eerder gekozen model verdwijnt, vernieuw dan de providergegevens en kies een nieuw model.',
           'Execute is de normale modus met tools. Plan is toolvrije planning. Thinking is alleen voor brainstormen en voert geen tools uit.',
-          'De Composer ondersteunt tekst, afbeeldingen en bestandsbijlagen wanneer het geselecteerde model dat toelaat. Sommige bijlagen kunnen ook aan de OpenAI Knowledge Base van het project worden toegevoegd.',
+          'De Composer ondersteunt tekst, afbeeldingen en bestandsbijlagen wanneer het geselecteerde model dat toelaat. Sommige bijlagen kunnen ook aan OpenAI Project Knowledge worden toegevoegd.',
           'De Chat-header houdt de huidige thread, de permission mode, terminalactiviteit en git-samenvatting zichtbaar terwijl je werkt.',
         ],
       },
@@ -473,21 +473,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Context- en Continuity-indicatoren in Chat helpen uitleggen hoeveel eerdere staat tussen turns wordt meegenomen.',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers, Knowledge Base en MoA',
+      'providers-and-agents': {
+        title: 'Providers, Project Knowledge en Agents',
         items: [
           'Providerinstellingen ondersteunen opgeslagen API Keys en voor OpenAI, afhankelijk van de configuratie, toegang via API key of account.',
           'OpenRouter-cataloguszichtbaarheid kan drukke namespaces verbergen zonder expliciete routeselectie weg te nemen.',
-          'De OpenAI Knowledge Base is projectspecifiek. Bestanden die daarheen worden geüpload staan los van gewone Chat-bijlagen en worden gebruikt voor gehoste file_search-retrieval.',
-          'OpenAI-accountmodus ondersteunt momenteel geen gehoste project-assets voor de Knowledge Base. Gebruik voor dat panel de OpenAI API key-modus.',
-          'MoA is optioneel. Als het is ingeschakeld, voegt het agentconfiguratie in Settings, een zijpaneel in Chat en snelle directe agentacties in Execute-modus toe.',
+          'OpenAI Project Knowledge is projectspecifiek. Bestanden die daarheen worden geüpload staan los van gewone Chat-bijlagen en worden gebruikt voor gehoste file_search-retrieval.',
+          'OpenAI-accountmodus ondersteunt momenteel geen gehoste Project Knowledge-assets. Gebruik voor dat panel de OpenAI API key-modus.',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings en datacontroles',
         items: [
-          'Settings omvat nu taal, projectmap, Assistant Prompt Appendix, UI Scaling, updates, providerinstelling, Tools & Safety, Memory & Continuity, MoA en Data & Privacy.',
-          'Data & Privacy kan de huidige thread exporteren, thread-JSON importeren, thread- of projectgeschiedenis wissen, opgeslagen API Keys verwijderen, providerbudget- of spillovergegevens opschonen of alle lokale ADDOM-gegevens volledig resetten.',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           'Sommige instellingen werken direct, terwijl bepaalde wijzigingen op shellniveau nog steeds een herstart van de app kunnen vereisen.',
         ],
       },
@@ -521,7 +521,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           'Przed wysłaniem wybierz provider i model w composer rail. Jeśli wcześniej wybrany model zniknie, odśwież dane providera i wybierz nowy model.',
           'Execute to normalny tryb z tools. Plan służy do planowania bez tools. Thinking służy tylko do brainstormingu i nie uruchamia tools.',
-          'Composer obsługuje tekst, obrazy i załączniki, jeśli wybrany model na to pozwala. Niektóre załączniki można też dodać do projektowej OpenAI Knowledge Base.',
+          'Composer obsługuje tekst, obrazy i załączniki, jeśli wybrany model na to pozwala. Niektóre załączniki można też dodać do OpenAI Project Knowledge.',
           'Nagłówek Chat utrzymuje widoczny bieżący thread, permission mode, aktywność terminala i podsumowanie git podczas pracy.',
         ],
       },
@@ -552,21 +552,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Wskaźniki context i Continuity w Chat pomagają zrozumieć, ile wcześniejszego stanu jest przenoszone między turns.',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers, Knowledge Base i MoA',
+      'providers-and-agents': {
+        title: 'Providers, Project Knowledge i Agents',
         items: [
           'Ustawienia providers obsługują zapisane API Keys oraz, w przypadku OpenAI, dostęp przez API key lub konto w zależności od konfiguracji providera.',
           'Widoczność katalogu OpenRouter może ukrywać hałaśliwe namespaces bez utraty jawnego wyboru trasy.',
-          'OpenAI Knowledge Base jest powiązana z projektem. Pliki przesłane tam są oddzielone od zwykłych załączników Chat i służą do hostowanego retrieval z file_search.',
-          'Tryb konta OpenAI nie obsługuje jeszcze hostowanych assets projektowej Knowledge Base. Dla tego panelu użyj trybu OpenAI API key.',
-          'MoA jest opcjonalne. Po włączeniu dodaje konfigurację agentów w Settings, panel boczny w Chat i szybkie akcje bezpośrednich agentów w trybie Execute.',
+          'OpenAI Project Knowledge jest powiązane z projektem. Pliki przesłane tam są oddzielone od zwykłych załączników Chat i służą do hostowanego retrieval z file_search.',
+          'Tryb konta OpenAI nie obsługuje jeszcze hostowanych assets Project Knowledge. Dla tego panelu użyj trybu OpenAI API key.',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings i kontrola danych',
         items: [
-          'Settings obejmuje teraz język, folder projektu, Assistant Prompt Appendix, UI Scaling, updates, konfigurację providers, Tools & Safety, Memory & Continuity, MoA i Data & Privacy.',
-          'Data & Privacy może eksportować bieżący thread, importować thread JSON, czyścić historię thread lub projektu, usuwać zapisane API Keys, czyścić dane budżetów providerów lub spillover albo całkowicie resetować lokalne dane ADDOM.',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           'Część ustawień działa od razu, ale niektóre zmiany na poziomie shella nadal mogą wymagać restartu aplikacji.',
         ],
       },
@@ -600,7 +600,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           'Göndermeden önce composer rail üzerinde bir provider ve model seçin. Daha önce seçilmiş bir model kaybolursa provider verilerini yenileyin ve yeni bir model seçin.',
           'Execute araç kullanan normal moddur. Plan araçsız planlama yapar. Thinking yalnızca beyin fırtınası içindir ve araç çalıştırmaz.',
-          'Seçili model izin veriyorsa Composer metin, görsel ve dosya eklerini destekler. Bazı ekler projenin OpenAI Knowledge Base bölümüne de eklenebilir.',
+          'Seçili model izin veriyorsa Composer metin, görsel ve dosya eklerini destekler. Bazı ekler OpenAI Project Knowledge bölümüne de eklenebilir.',
           'Chat başlığı siz çalışırken mevcut thread’i, permission mode’u, terminal etkinliğini ve git özetini görünür tutar.',
         ],
       },
@@ -631,21 +631,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Chat içindeki context ve Continuity göstergeleri, önceki durumun turns arasında ne kadar taşındığını açıklamaya yardımcı olur.',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers, Knowledge Base ve MoA',
+      'providers-and-agents': {
+        title: 'Providers, Project Knowledge ve Agents',
         items: [
           'Provider ayarları kayıtlı API Keys desteği sunar ve OpenAI için yapılandırmaya bağlı olarak API key veya hesap tabanlı erişim sağlar.',
           'OpenRouter catalog visibility, açık rota seçimini korurken gürültülü namespace’leri gizleyebilir.',
-          'OpenAI Knowledge Base proje kapsamlıdır. Buraya yüklenen dosyalar normal Chat eklerinden ayrıdır ve barındırılan file_search retrieval için kullanılır.',
-          'OpenAI hesap modu şu anda proje kapsamlı barındırılan Knowledge Base assets desteği sunmuyor. Bu panel için OpenAI API key modunu kullanın.',
-          'MoA isteğe bağlıdır. Etkinleştirildiğinde Settings içinde agent yapılandırması, Chat içinde yan panel ve Execute modunda direct-agent hızlı eylemleri eklenir.',
+          'OpenAI Project Knowledge proje kapsamlıdır. Buraya yüklenen dosyalar normal Chat eklerinden ayrıdır ve barındırılan file_search retrieval için kullanılır.',
+          'OpenAI hesap modu şu anda barındırılan Project Knowledge assets desteği sunmuyor. Bu panel için OpenAI API key modunu kullanın.',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings ve veri kontrolleri',
         items: [
-          'Settings artık dil, proje klasörü, Assistant Prompt Appendix, UI Scaling, updates, provider kurulumu, Tools & Safety, Memory & Continuity, MoA ve Data & Privacy bölümlerini kapsar.',
-          'Data & Privacy mevcut thread’i dışa aktarabilir, thread JSON içe aktarabilir, thread veya proje geçmişini temizleyebilir, kayıtlı API Keys’i silebilir, provider bütçesi veya spillover verilerini temizleyebilir ya da tüm yerel ADDOM verilerini tamamen sıfırlayabilir.',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           'Bazı ayarlar hemen uygulanır; ancak shell düzeyindeki bazı değişiklikler için uygulamanın yeniden başlatılması gerekebilir.',
         ],
       },
@@ -679,7 +679,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           'Перед відправленням виберіть provider і модель у composer rail. Якщо раніше вибрана модель зникла, оновіть дані provider і виберіть іншу модель.',
           'Execute — це звичайний режим із tools. Plan — планування без tools. Thinking призначений лише для brainstorming і не запускає tools.',
-          'Composer підтримує текст, зображення та вкладення, якщо вибрана модель це дозволяє. Деякі вкладення також можна додати до OpenAI Knowledge Base проєкту.',
+          'Composer підтримує текст, зображення та вкладення, якщо вибрана модель це дозволяє. Деякі вкладення також можна додати до OpenAI Project Knowledge.',
           'Заголовок Chat тримає видимими поточний thread, permission mode, активність terminal і зведення git під час роботи.',
         ],
       },
@@ -710,21 +710,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Індикатори context і Continuity у Chat допомагають зрозуміти, скільки попереднього стану переноситься між turns.',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers, Knowledge Base і MoA',
+      'providers-and-agents': {
+        title: 'Providers, Project Knowledge і Agents',
         items: [
           'Налаштування providers підтримують збережені API Keys, а для OpenAI — доступ через API key або через акаунт залежно від конфігурації provider.',
           'Видимість каталогу OpenRouter може приховувати шумні namespaces без втрати явного вибору route.',
-          'OpenAI Knowledge Base прив’язана до проєкту. Файли, завантажені туди, відокремлені від звичайних вкладень Chat і використовуються для hosted retrieval через file_search.',
-          'Режим акаунта OpenAI поки що не підтримує hosted assets проєктної Knowledge Base. Для цієї панелі використовуйте режим OpenAI API key.',
-          'MoA — опціональна можливість. Після ввімкнення вона додає конфігурацію agents у Settings, бічну панель у Chat і швидкі direct-agent дії в режимі Execute.',
+          'OpenAI Project Knowledge прив’язане до проєкту. Файли, завантажені туди, відокремлені від звичайних вкладень Chat і використовуються для hosted retrieval через file_search.',
+          'Режим акаунта OpenAI поки що не підтримує hosted assets Project Knowledge. Для цієї панелі використовуйте режим OpenAI API key.',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings and data controls',
         items: [
-          'Settings тепер охоплює мову, папку проєкту, Assistant Prompt Appendix, UI Scaling, updates, налаштування providers, Tools & Safety, Memory & Continuity, MoA і Data & Privacy.',
-          'Data & Privacy може експортувати поточний thread, імпортувати thread JSON, очищати історію thread або проєкту, видаляти збережені API Keys, чистити дані бюджету provider або spillover, або повністю скидати локальні дані ADDOM.',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           'Частина налаштувань застосовується одразу, але деякі зміни на рівні shell усе ще можуть вимагати перезапуску застосунку.',
         ],
       },
@@ -758,7 +758,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           'Pilih provider dan model di composer rail sebelum mengirim. Jika model yang sebelumnya dipilih hilang, segarkan data provider dan pilih model lain.',
           'Execute adalah mode normal yang memakai tools. Plan adalah perencanaan tanpa tools. Thinking hanya untuk brainstorming dan tidak menjalankan tools.',
-          'Composer mendukung teks, gambar, dan lampiran file saat model yang dipilih mengizinkannya. Beberapa lampiran juga bisa ditambahkan ke OpenAI Knowledge Base proyek.',
+          'Composer mendukung teks, gambar, dan lampiran file saat model yang dipilih mengizinkannya. Beberapa lampiran juga bisa ditambahkan ke OpenAI Project Knowledge.',
           'Header Chat menampilkan thread saat ini, permission mode, aktivitas terminal, dan ringkasan git saat Anda bekerja.',
         ],
       },
@@ -789,21 +789,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Indikator context dan Continuity di Chat membantu menjelaskan seberapa banyak state sebelumnya yang dibawa antarturn.',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers, Knowledge Base, dan MoA',
+      'providers-and-agents': {
+        title: 'Providers, Project Knowledge, dan Agents',
         items: [
           'Pengaturan providers mendukung API Keys yang disimpan dan, untuk OpenAI, akses berbasis API key atau akun tergantung konfigurasi provider.',
           'Visibilitas katalog OpenRouter dapat menyembunyikan namespace yang berisik tanpa menghilangkan pemilihan route secara eksplisit.',
-          'OpenAI Knowledge Base bersifat per proyek. File yang diunggah ke sana terpisah dari lampiran Chat biasa dan digunakan untuk hosted file_search retrieval.',
-          'Mode akun OpenAI saat ini belum mendukung hosted project assets untuk Knowledge Base. Gunakan mode OpenAI API key untuk panel tersebut.',
-          'MoA bersifat opsional. Saat diaktifkan, fitur ini menambahkan konfigurasi agent di Settings, panel samping di Chat, dan aksi cepat direct-agent di mode Execute.',
+          'OpenAI Project Knowledge bersifat per proyek. File yang diunggah ke sana terpisah dari lampiran Chat biasa dan digunakan untuk hosted file_search retrieval.',
+          'Mode akun OpenAI saat ini belum mendukung hosted Project Knowledge assets. Gunakan mode OpenAI API key untuk panel tersebut.',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings dan kontrol data',
         items: [
-          'Settings sekarang mencakup bahasa, folder proyek, Assistant Prompt Appendix, UI Scaling, updates, pengaturan provider, Tools & Safety, Memory & Continuity, MoA, dan Data & Privacy.',
-          'Data & Privacy dapat mengekspor thread saat ini, mengimpor thread JSON, menghapus riwayat thread atau proyek, menghapus API Keys yang disimpan, membersihkan data anggaran provider atau spillover, atau mereset seluruh data lokal ADDOM.',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           'Sebagian pengaturan berlaku langsung, tetapi beberapa perubahan tingkat shell masih dapat memerlukan restart aplikasi.',
         ],
       },
@@ -837,7 +837,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           'Chọn provider và model trên composer rail trước khi gửi. Nếu model đã chọn trước đó biến mất, hãy làm mới dữ liệu provider và chọn model khác.',
           'Execute là chế độ bình thường có dùng tools. Plan là chế độ lập kế hoạch không dùng tools. Thinking chỉ dành cho brainstorming và không chạy tools.',
-          'Composer hỗ trợ văn bản, hình ảnh và tệp đính kèm nếu model đang chọn cho phép. Một số tệp đính kèm cũng có thể được thêm vào OpenAI Knowledge Base của dự án.',
+          'Composer hỗ trợ văn bản, hình ảnh và tệp đính kèm nếu model đang chọn cho phép. Một số tệp đính kèm cũng có thể được thêm vào OpenAI Project Knowledge.',
           'Phần đầu Chat luôn hiển thị thread hiện tại, permission mode, hoạt động terminal và tóm tắt git trong lúc bạn làm việc.',
         ],
       },
@@ -868,21 +868,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Các chỉ báo context và Continuity trong Chat giúp giải thích lượng trạng thái trước đó đang được mang sang giữa các turns.',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers, Knowledge Base và MoA',
+      'providers-and-agents': {
+        title: 'Providers, Project Knowledge và Agents',
         items: [
           'Phần cài đặt providers hỗ trợ API Keys đã lưu và, với OpenAI, hỗ trợ truy cập bằng API key hoặc tài khoản tùy theo cấu hình provider.',
           'Tùy chọn hiển thị danh mục OpenRouter có thể ẩn các namespace quá ồn mà vẫn giữ khả năng chọn route một cách tường minh.',
-          'OpenAI Knowledge Base có phạm vi theo dự án. Các tệp tải lên ở đây tách biệt với tệp đính kèm Chat thông thường và được dùng cho hosted file_search retrieval.',
-          'Chế độ tài khoản OpenAI hiện chưa hỗ trợ hosted project assets cho Knowledge Base. Hãy dùng chế độ OpenAI API key cho panel đó.',
-          'MoA là tùy chọn. Khi bật, nó sẽ thêm phần cấu hình agent trong Settings, panel bên ở Chat và các thao tác nhanh direct-agent trong chế độ Execute.',
+          'OpenAI Project Knowledge có phạm vi theo dự án. Các tệp tải lên ở đây tách biệt với tệp đính kèm Chat thông thường và được dùng cho hosted file_search retrieval.',
+          'Chế độ tài khoản OpenAI hiện chưa hỗ trợ hosted Project Knowledge assets. Hãy dùng chế độ OpenAI API key cho panel đó.',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings and data controls',
         items: [
-          'Settings hiện bao gồm ngôn ngữ, thư mục dự án, Assistant Prompt Appendix, UI Scaling, updates, thiết lập provider, Tools & Safety, Memory & Continuity, MoA và Data & Privacy.',
-          'Data & Privacy có thể xuất thread hiện tại, nhập thread JSON, xóa lịch sử thread hoặc dự án, xóa API Keys đã lưu, dọn dữ liệu ngân sách provider hoặc spillover, hoặc đặt lại hoàn toàn dữ liệu cục bộ của ADDOM.',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           'Một số thiết lập có hiệu lực ngay lập tức, trong khi một số thay đổi ở mức shell vẫn có thể yêu cầu khởi động lại ứng dụng.',
         ],
       },
@@ -916,7 +916,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           '送信前に composer rail で provider と model を選択します。以前選んだ model が消えた場合は provider 情報を更新して別の model を選んでください。',
           'Execute は通常の tool 実行モードです。Plan は tool を使わない計画モードです。Thinking はブレインストーミング専用で、tool は実行しません。',
-          '選択した model が対応していれば、Composer はテキスト、画像、ファイル添付を扱えます。一部の添付ファイルはプロジェクトの OpenAI Knowledge Base にも追加できます。',
+          '選択した model が対応していれば、Composer はテキスト、画像、ファイル添付を扱えます。一部の添付ファイルは OpenAI Project Knowledge にも追加できます。',
           'Chat ヘッダーには、現在の thread、permission mode、terminal の状態、git の概要が常に表示されます。',
         ],
       },
@@ -947,21 +947,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Chat の context と Continuity の表示は、過去の状態が turns をまたいでどれだけ引き継がれているかを説明する助けになります。',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers、Knowledge Base、MoA',
+      'providers-and-agents': {
+        title: 'Providers、Project Knowledge、Agents',
         items: [
           'provider 設定では保存済み API Keys を扱えます。OpenAI では設定に応じて API key アクセスまたはアカウントアクセスを使えます。',
           'OpenRouter catalog visibility を使うと、明示的な route 選択を残したまま、ノイズの多い namespace を非表示にできます。',
-          'OpenAI Knowledge Base はプロジェクト単位です。ここにアップロードしたファイルは通常の Chat 添付と分離され、hosted file_search retrieval に使われます。',
-          'OpenAI の account mode は現在、プロジェクト用の hosted Knowledge Base assets に対応していません。このパネルでは OpenAI API key mode を使ってください。',
-          'MoA は任意機能です。有効化すると Settings の agent 設定、Chat のサイドパネル、Execute モードの direct-agent クイック操作が追加されます。',
+          'OpenAI Project Knowledge はプロジェクト単位です。ここにアップロードしたファイルは通常の Chat 添付と分離され、hosted file_search retrieval に使われます。',
+          'OpenAI の account mode は現在、hosted Project Knowledge assets に対応していません。このパネルでは OpenAI API key mode を使ってください。',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings、データ管理',
         items: [
-          'Settings では 、言語、プロジェクトフォルダ、Assistant Prompt Appendix、UI Scaling、updates、provider 設定、Tools & Safety、Memory & Continuity、MoA、Data & Privacy を扱います。',
-          'Data & Privacy では現在の thread のエクスポート、thread JSON のインポート、thread / project 履歴の削除、保存済み API Keys の削除、provider budget / spillover データの掃除、ADDOM のローカルデータの完全リセットができます。',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           '一部の設定はすぐに反映されますが、shell レベルの変更はアプリ再起動が必要な場合があります。',
         ],
       },
@@ -995,7 +995,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           '보내기 전에 composer rail에서 provider와 model을 선택하세요. 이전에 선택한 model이 사라졌다면 provider 데이터를 새로고침하고 다른 model을 선택하면 됩니다.',
           'Execute는 일반적인 tool 실행 모드입니다. Plan은 tool 없이 계획만 세우는 모드입니다. Thinking은 브레인스토밍 전용이며 tool을 실행하지 않습니다.',
-          '선택한 model이 허용하면 Composer는 텍스트, 이미지, 파일 첨부를 지원합니다. 일부 첨부 파일은 프로젝트의 OpenAI Knowledge Base에도 추가할 수 있습니다.',
+          '선택한 model이 허용하면 Composer는 텍스트, 이미지, 파일 첨부를 지원합니다. 일부 첨부 파일은 OpenAI Project Knowledge에도 추가할 수 있습니다.',
           'Chat 헤더에는 현재 thread, permission mode, terminal 상태, git 요약이 작업 중에도 계속 표시됩니다.',
         ],
       },
@@ -1026,21 +1026,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Chat의 context 및 Continuity 표시기는 이전 상태가 turns 사이에서 얼마나 이어지는지 이해하는 데 도움을 줍니다.',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers, Knowledge Base, MoA',
+      'providers-and-agents': {
+        title: 'Providers, Project Knowledge, Agents',
         items: [
           'provider 설정은 저장된 API Keys를 지원하며, OpenAI는 구성에 따라 API key 접근 또는 계정 기반 접근을 지원합니다.',
           'OpenRouter catalog visibility를 사용하면 명시적 route 선택은 유지한 채 시끄러운 namespace를 숨길 수 있습니다.',
-          'OpenAI Knowledge Base는 프로젝트 범위입니다. 여기 업로드한 파일은 일반 Chat 첨부와 분리되며 hosted file_search retrieval에 사용됩니다.',
-          'OpenAI account mode는 현재 프로젝트용 hosted Knowledge Base assets를 지원하지 않습니다. 이 패널에서는 OpenAI API key mode를 사용하세요.',
-          'MoA는 선택 기능입니다. 켜면 Settings의 agent 구성, Chat의 사이드 패널, Execute 모드의 direct-agent 빠른 작업이 추가됩니다.',
+          'OpenAI Project Knowledge는 프로젝트 범위입니다. 여기 업로드한 파일은 일반 Chat 첨부와 분리되며 hosted file_search retrieval에 사용됩니다.',
+          'OpenAI account mode는 현재 hosted Project Knowledge assets를 지원하지 않습니다. 이 패널에서는 OpenAI API key mode를 사용하세요.',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings and data controls',
         items: [
-          'Settings는 언어, 프로젝트 폴더, Assistant Prompt Appendix, UI Scaling, updates, provider 설정, Tools & Safety, Memory & Continuity, MoA, Data & Privacy를 다룹니다.',
-          'Data & Privacy에서는 현재 thread 내보내기, thread JSON 가져오기, thread/프로젝트 기록 삭제, 저장된 API Keys 삭제, provider budget/spillover 데이터 정리, ADDOM 로컬 데이터 전체 초기화를 수행할 수 있습니다.',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           '일부 설정은 바로 적용되지만, shell 수준의 일부 변경은 여전히 앱 재시작이 필요할 수 있습니다.',
         ],
       },
@@ -1074,7 +1074,7 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
         items: [
           '发送前请先在 composer rail 中选择 provider 和 model。如果之前选中的 model 不再可用，请刷新 provider 数据并重新选择。',
           'Execute 是正常的工具执行模式。Plan 用于不运行工具的规划。Thinking 只用于头脑风暴，不会执行工具。',
-          '如果所选 model 支持，Composer 可以处理文本、图片和文件附件。部分附件还可以加入项目的 OpenAI Knowledge Base。',
+          '如果所选 model 支持，Composer 可以处理文本、图片和文件附件。部分附件还可以加入 OpenAI Project Knowledge。',
           'Chat 顶部会一直显示当前 thread、permission mode、terminal 活动以及 git 摘要，方便你边做边看。',
         ],
       },
@@ -1105,21 +1105,21 @@ const LOCALIZED_GUIDE_COPY = Object.freeze({
           'Chat 中的 context 和 Continuity 指示器可以帮助解释有多少历史状态被跨 turns 继续带入。',
         ],
       },
-      'providers-and-moa': {
-        title: 'Providers、Knowledge Base 与 MoA',
+      'providers-and-agents': {
+        title: 'Providers、Project Knowledge 与 Agents',
         items: [
           'provider 设置支持保存 API Keys；对于 OpenAI，则会根据配置使用 API key 访问或账号访问。',
           'OpenRouter catalog visibility 可以隐藏噪声较大的 namespace，同时保留显式 route 选择能力。',
-          'OpenAI Knowledge Base 是项目级的。上传到这里的文件与普通 Chat 附件分离，用于托管的 file_search retrieval。',
-          'OpenAI account mode 目前不支持项目级托管 Knowledge Base assets。该面板请改用 OpenAI API key mode。',
-          'MoA 是可选功能。开启后，它会在 Settings 中增加 agent 配置，在 Chat 中增加侧边面板，并在 Execute 模式下提供 direct-agent 快捷操作。',
+          'OpenAI Project Knowledge 是项目级的。上传到这里的文件与普通 Chat 附件分离，用于托管的 file_search retrieval。',
+          'OpenAI account mode 目前不支持托管的 Project Knowledge assets。该面板请改用 OpenAI API key mode。',
+          'Agent delegation is optional. Configure roles and capacity in Settings > Agents; delegated work appears in the Agents panel and returns to the root assistant for synthesis.',
         ],
       },
       'settings-and-data': {
         title: 'Settings 与数据控制',
         items: [
-          'Settings 现在涵盖 、语言、项目文件夹、Assistant Prompt Appendix、UI Scaling、updates、provider 设置、Tools & Safety、Memory & Continuity、MoA 和 Data & Privacy。',
-          'Data & Privacy 可以导出当前 thread、导入 thread JSON、清理 thread 或项目历史、删除已保存的 API Keys、清理 provider budget 或 spillover 数据，或彻底重置本地 ADDOM 数据。',
+          'Settings is organized into General, Appearance, Terminal, Agents, Providers, Safety, and Data.',
+          'Data can export or import thread JSON, delete thread or project history, remove saved API keys, clean local runtime data, or reset the local profile.',
           '部分设置会立即生效，但某些 shell 级别的更改仍可能需要重启应用。',
         ],
       },

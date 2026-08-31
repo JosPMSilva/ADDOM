@@ -17,14 +17,14 @@ function run(root, command, args) {
   })
 }
 
-function createFixture({ trackTarget }) {
+function createFixture({ trackTarget, markdown = '# Review\n\n[Local evidence](../ignored/evidence.txt)\n' }) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'addom-doc-links-'))
   fs.mkdirSync(path.join(root, 'docs'), { recursive: true })
   fs.mkdirSync(path.join(root, 'ignored'), { recursive: true })
   fs.mkdirSync(path.join(root, 'scripts'), { recursive: true })
   fs.writeFileSync(
     path.join(root, 'docs', 'review.md'),
-    '# Review\n\n[Local evidence](../ignored/evidence.txt)\n'
+    markdown
   )
   fs.writeFileSync(path.join(root, 'ignored', 'evidence.txt'), 'evidence\n')
   fs.writeFileSync(
@@ -32,10 +32,12 @@ function createFixture({ trackTarget }) {
     checkerSource
   )
   fs.writeFileSync(path.join(root, '.gitignore'), trackTarget ? '' : '/ignored/\n')
+  fs.writeFileSync(path.join(root, 'package.json'), JSON.stringify({ scripts: { dev: 'vite' } }, null, 2))
 
   assert.equal(run(root, 'git', ['init', '--quiet']).status, 0)
   const tracked = [
     '.gitignore',
+    'package.json',
     'docs/review.md',
     'scripts/check-doc-links.mjs'
   ]
@@ -50,6 +52,20 @@ test('docs link checker rejects local targets that are absent from a clean check
     const result = run(root, process.execPath, ['scripts/check-doc-links.mjs'])
     assert.notEqual(result.status, 0)
     assert.match(result.stderr, /\[untracked_file\]/)
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true })
+  }
+})
+
+test('docs link checker rejects npm commands that are not declared by the package', () => {
+  const root = createFixture({
+    trackTarget: true,
+    markdown: '# Review\n\nRun `npm run missing:script` before publishing.\n',
+  })
+  try {
+    const result = run(root, process.execPath, ['scripts/check-doc-links.mjs'])
+    assert.notEqual(result.status, 0)
+    assert.match(result.stderr, /\[missing_npm_script\]/)
   } finally {
     fs.rmSync(root, { recursive: true, force: true })
   }
