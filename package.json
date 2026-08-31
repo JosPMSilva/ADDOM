@@ -150,7 +150,7 @@
     "rehype-highlight": "^7.0.2",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
-    "smol-toml": "^1.6.0",
+    "smol-toml": "^1.8.0",
     "typescript": "^5.9.3",
     "undici": "^6.28.0",
     "unified": "^11.0.5",
