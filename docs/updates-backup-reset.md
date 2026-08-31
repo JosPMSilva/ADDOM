@@ -20,7 +20,7 @@ Provides update controls, thread export/import, and scoped data reset actions.
 4. Install update when download completes.
 
 ### 2. Export Thread Backup
-1. Open `Settings > Data & Privacy`.
+1. Open `Settings > Data`.
 2. Export current thread backup.
 3. Save file in a secure location.
 
@@ -28,7 +28,7 @@ Agent Runs associated with the thread remain local runtime records. The thread e
 format does not promise a portable provider-native child session.
 
 ### 3. Import Thread Backup
-1. Open import action in Data & Privacy section.
+1. Open the restore action in the Data category.
 2. Select valid exported payload.
 3. Confirm import target project/thread behavior.
 
@@ -40,9 +40,8 @@ format does not promise a portable provider-native child session.
 - Clear memory and transcript workspace-wide:
   - broadest reset scope; use only intentionally.
 
-Schema v21 keeps `moa_transactions_legacy_backup_v21` as rollback evidence after importing
-valid legacy summaries into root-only Agent Runs. The active runtime never reads this
-backup; it may be removed after migration rollback signoff.
+Older profiles may retain a legacy migration backup. The active Agent Run runtime does
+not read that backup; ADDOM preserves it only as local rollback evidence.
 
 ## Common Pitfalls
 ### What Can Go Wrong

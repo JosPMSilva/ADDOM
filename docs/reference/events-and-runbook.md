@@ -72,7 +72,10 @@ Documents the major event types shown during chat turns and how they map to runb
 - `chat:compliance-event`
 - `chat:notice`
 
-## MoA Event Family
+## Agent Event Family
+
+The persisted `moa:*` names below are legacy internal event identifiers. They belong to
+the current Agents runtime and remain stable for stored event compatibility.
 - `agents:fanout-confirm-request`
 - `moa:delegation-planned`
 - `moa:delegation-cost-warning`
@@ -85,12 +88,12 @@ Documents the major event types shown during chat turns and how they map to runb
 - `moa:worker-file-staged`
 - `moa:delegation-done`
 
-## MoA Status Semantics
+## Agent Status Semantics
 - `timeout`: delegation or agent work exceeded the hard configured time budget.
 - `stale`: the delegated agent stream stopped producing progress before the hard delegation deadline was reached.
 - `completed_with_errors`: delegation finished, but at least one agent did not complete cleanly.
 
-## MoA Recovery Semantics
+## Agent Recovery Semantics
 - `moa:agent-recovery`: loop guard tripped, ADDOM narrowed the tool surface for one explicit retry, and the event is shown in the runbook before the worker either recovers or fails.
 
 ## Runbook UI Notes
@@ -126,9 +129,9 @@ Documents the major event types shown during chat turns and how they map to runb
 ## Related Settings
 - Command safety detail mode.
 - Memory/continuity policy.
-- MoA policy and budget settings.
+- Agent capacity, policy, and budget settings.
 
 ## Related References
 - [window.addom API](./window-addom-api.md)
 - [Chat Guide](../chat-guide.md)
-- [MoA Guide](../moa-guide.md)
+- [Agents Guide](../agents-guide.md)

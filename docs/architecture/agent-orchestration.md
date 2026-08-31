@@ -156,7 +156,8 @@ making failed or unavailable children explicit.
 
 ## Related Docs
 
-- [Agents Guide](../moa-guide.md)
+- [Agents Guide](../agents-guide.md)
+- [Agent Delegation Workflow](./agent-delegation-workflow.md)
 - [Settings Reference](../settings-reference.md)
 - [window.addom API](../reference/window-addom-api.md)
 - [Events and Runbook](../reference/events-and-runbook.md)

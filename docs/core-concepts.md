@@ -8,7 +8,7 @@
 - Basic familiarity with "project folder", "thread", and "model".
 
 ## What This Feature Does
-Explains the core objects and flows used across the app so behavior in Chat, Editor, Memory, and MoA is predictable.
+Explains the core objects and flows used across the app so behavior in Chat, Editor, Memory, and Agents is predictable.
 
 ## Core Model
 
@@ -38,7 +38,7 @@ Explains the core objects and flows used across the app so behavior in Chat, Edi
 - Permission mode and runtime guardrails determine when execution pauses for approval versus continuing automatically.
 
 ### Artifacts and Revisions
-- AI file writes and staged worker changes become artifact revisions.
+- AI file writes and isolated agent changes become artifact revisions.
 - You can compare, apply, rollback, and delete revision history.
 
 ### Memory and Continuity
@@ -46,10 +46,12 @@ Explains the core objects and flows used across the app so behavior in Chat, Edi
 - Continuity packages relevant context into later turns.
 - Compression archives older auto logs while preserving auditability.
 
-### MoA (Mixture of Agents)
-- Orchestrator can delegate parallel tasks to configured agent roles.
-- Agent writes are staged as artifacts unless explicitly applied.
-- Cost and budget controls protect against unbounded usage.
+### Agents
+- The root assistant can delegate scoped work to configured agent roles.
+- ADDOM generates the available-role catalog and resolves requested roles before execution.
+- Child permissions cannot exceed the root turn's permission ceiling.
+- Agent writes use isolated workspaces and return through a reviewed integration path.
+- Capacity, cost, token, and duration limits protect against unbounded usage.
 
 ## Step-by-Step Tasks
 1. Open a project from Projects in the main shell.
@@ -70,7 +72,7 @@ Explains the core objects and flows used across the app so behavior in Chat, Edi
 - Chat mode.
 - Permission mode and guardrails.
 - Memory compression and continuity policy.
-- MoA enablement, roles, and budget policy.
+- Agent delegation, roles, capacity, and advanced limits.
 
 ## Related References
 - [Settings Catalog](./reference/settings-catalog.md)

@@ -227,7 +227,6 @@ If a renderer change needs one of these tests removed, replace the guard with a 
 
 ## Maintenance Note
 
-The Phase 1 target-state notes and later-phase deletion reminders were removed from this document after the renderer unification landed.
 
 The active source of truth is now:
 

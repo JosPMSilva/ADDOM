@@ -2,7 +2,7 @@
 
 ## Who This Is For
 - Users sending images and files in chat prompts.
-- Users configuring local fallback extraction for unsupported file models.
+- Users working with optional local fallback extraction for unsupported file models.
 
 ## Prerequisites
 - Active thread in chat.
@@ -23,13 +23,14 @@ Attachments let you include image or file inputs in prompts, with independent ca
 - If images are blocked but files are allowed, attach remains available for files.
 - Unsupported pending items are blocked at send-time with clear notices.
 
-### 3. Use Local Fallback Extraction (Optional)
-1. Open `Settings > Providers & Models > Local Attachment Text Extraction`.
-2. Enable fallback extraction.
-3. Click `Re-check runtime`.
-4. If runtime ready, unsupported files can be converted to text for fallback mode.
+### 3. Understand Local Fallback Extraction
 
-### 4. Runtime Setup (MarkItDown)
+Local text extraction exists as an advanced runtime capability, but the current
+Settings interface does not expose a control for enabling it. When the profile has
+the capability enabled and its runtime is ready, supported files can be converted to
+bounded text for models without native file input.
+
+### 4. Runtime Dependency (MarkItDown)
 - Windows:
   - `py -m pip install --user markitdown`
 - macOS/Linux:
