@@ -1,54 +1,88 @@
 # ADDOM
 
-Local-first AI coding assistant with real filesystem tool use.
+Local-first desktop workspace for multi-provider AI coding, with guarded tools, an integrated editor, memory, and delegated agents. No telemetry or data collection by the ADDOM developer.
 
-## What It Is
+## Project Status
 
-ADDOM is an Electron desktop app for AI-assisted coding with:
+ADDOM is alpha software and currently distributed source-first. The repository prepares Windows, macOS, and Linux build targets, while terminal sessions and packaged smoke verification are presently Windows-first. Signed installers and public releases are not available yet.
 
-- multi-provider chat
-- real project file tools
-- a built-in Monaco editor
-- local memory and artifact history
-- MoA orchestration for delegated workflows
+## Why ADDOM
 
-## Quick Start
+ADDOM keeps the coding workspace on your computer while letting you choose among supported cloud and local model providers. It combines conversation, project-aware tools, reviewable changes, and agent delegation in one Electron application.
+
+Current capabilities include:
+
+- multi-provider chat with provider and model selection per thread
+- guarded filesystem, search, command, and terminal tools
+- an integrated Monaco editor, change review, and artifact history
+- local thread history, project memory, attachments, and settings
+- configurable agent roles with bounded permissions and isolated write workflows
+- API-key, supported account-authentication, and local-provider connections
+
+## Run From Source
+
+### Prerequisites
+
+- Node.js 24
+- npm
+- Git
+- platform build prerequisites required by Electron native dependencies
 
 ```powershell
-npm install
+git clone https://github.com/JosPMSilva/ADDOM.git
+cd ADDOM
+npm ci
 npm run dev
-npm run test:integration
 ```
 
-Build targets:
+`npm ci` installs Electron and validates the portable native assets used by development, tests, and packaging.
+
+## First Run
+
+1. Open **Settings > Providers** and configure an API key, a supported account connection, or an available local provider.
+2. Select **Projects > Open folder** and choose the project ADDOM may work with.
+3. Create or select a thread.
+4. Choose the provider, model, chat mode, and permission mode in the composer.
+5. Start with a scoped request, such as asking ADDOM to inspect a file and explain an issue.
+
+For approval behavior and a fuller walkthrough, see the [Quickstart](./docs/quickstart.md).
+
+## Privacy And Provider Boundaries
+
+Project records, thread history, credentials, settings, attachments, and local memory are stored on the device. ADDOM does not include remote telemetry.
+
+Using a remote model still sends the prompt and selected context to that provider. Tool results, hosted provider tools, MCP integrations, and files explicitly added to Project Knowledge may also leave the device according to the selected provider or service. Review provider terms and the active permission mode before working with sensitive repositories.
+
+## Verification And Builds
 
 ```powershell
-npm run build:win
-npm run build:mac
-npm run build:linux
+npm run check:syntax
+npm run check:eslint
+npm run i18n:check
+npm run check:docs-links
+npm run test:integration
+npm run build:renderer
 ```
 
-## Native Module Runtime Note
-
-This repo switches `better-sqlite3` between Node and Electron runtimes automatically:
-
-- `npm run dev` prepares the Electron-native build before launching the app
-- `npm run test:integration` switches to the Node-native build, runs tests, and restores the Electron-native build afterward
+Platform package commands are `npm run build:win`, `npm run build:mac`, and `npm run build:linux`. Build a platform target on its native host; generated packages are unsigned unless signing is configured externally.
 
 ## Documentation
 
-- Full docs index: [docs/README.md](./docs/README.md)
-- Contributor workflow: [CONTRIBUTING.md](./CONTRIBUTING.md)
-- Security reporting: [SECURITY.md](./SECURITY.md)
-- Ongoing release notes: [CHANGELOG.md](./CHANGELOG.md)
+- [docs/README.md](./docs/README.md) — documentation index
+- [CONTRIBUTING.md](./CONTRIBUTING.md) — contributor workflow
+- [SECURITY.md](./SECURITY.md) — security reporting policy
+- [CHANGELOG.md](./CHANGELOG.md) — release notes
+- [DESIGN.md](./DESIGN.md) — visual design contract
 
 ## Architecture At A Glance
 
-- `src/main` contains Electron main-process logic, IPC handlers, tools, persistence, and platform integrations.
-- `src/renderer` contains the React UI, state stores, editor surfaces, and settings flows.
-- `src/preload` exposes the versioned `window.addom` bridge to the renderer.
-- `src/common` holds truly shared cross-process logic such as model registry and compliance policy helpers.
+- `src/main` owns Electron integration, persistence, providers, tools, agents, credentials, and privileged operations.
+- `src/preload` exposes the narrow, versioned `window.addom` bridge.
+- `src/renderer` contains the React interface, editor, settings, and projected application state.
+- `src/common` contains cross-process contracts and shared policy logic.
+
+See [Agent Orchestration Architecture](./docs/architecture/agent-orchestration.md) and the [window.addom API reference](./docs/reference/window-addom-api.md) for deeper implementation detail.
 
 ## License
 
-MIT. See [LICENSE](./LICENSE).
+ADDOM is released under the MIT License. See [LICENSE](./LICENSE).

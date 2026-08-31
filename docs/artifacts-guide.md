@@ -55,9 +55,9 @@ Explicit editor saves are also tracked as artifact revisions with source `manual
 
 ## Related Settings
 - Data reset controls in Settings.
-- MoA staged writes behavior (if enabled).
+- Delegated-agent write integration (if enabled).
 
 ## Related References
 - [Events and Runbook](./reference/events-and-runbook.md)
-- [MoA Guide](./moa-guide.md)
+- [Agents Guide](./agents-guide.md)
 - [window.addom API](./reference/window-addom-api.md)

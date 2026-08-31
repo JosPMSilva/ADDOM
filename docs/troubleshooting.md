@@ -44,7 +44,7 @@ Actions:
 2. Switch to model with native modality support.
 3. If using fallback extraction:
    - install MarkItDown runtime
-   - re-check runtime in settings
+   - confirm the advanced profile enables extraction and restart ADDOM so runtime readiness is reprobed
 4. Re-send prompt.
 
 ### 4. Editor and File Sync Issues

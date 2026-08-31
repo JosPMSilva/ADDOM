@@ -122,7 +122,7 @@ Language-service availability is detected per workspace and shown directly in th
    - `#anchor` links scroll inside the preview.
 5. Image behavior in this release:
    - `http/https/data/blob` images render in preview.
-   - local workspace relative images show a placeholder message (follow-up release).
+   - local workspace-relative images currently show a placeholder instead of rendering inline.
 
 ## External File Change Handling
 - Editor listens for external file change events.
@@ -177,7 +177,7 @@ Language-service availability is detected per workspace and shown directly in th
 - No selection context for AI-on-selection commands.
   - Fix: select code before running action.
 - Local markdown image path does not render.
-  - Fix: expected for current MVP; use external/data image source or open image file directly.
+  - Fix: use an external or data image source, or open the image file directly.
 
 ## Related Settings
 - `inlineCompletionEnabled`

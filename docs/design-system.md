@@ -41,13 +41,12 @@ The active direction is:
 
 ```powershell
 npm run design:lint
-npm run design:spec
-npm run design:diff -- .\DESIGN.before.md .\DESIGN.md
+npm run check:docs-links
 ```
 
-The scripts pin the upstream CLI version verified in this repo on 2026-04-23:
-
-- `@google/design.md@0.1.1`
+`design:lint` records that the design contract is Markdown and therefore has no
+separate source linter. `check:docs-links` validates its local references and every
+other public documentation link.
 
 ## Scope
 

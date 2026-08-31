@@ -1,7 +1,6 @@
 ﻿# ADDOM Execution Contract Spec
 
-Date: 2026-03-07
-Branch context: `fix/regressions-editor-composer`
+Updated: 2026-08-31
 
 ## Purpose
 
@@ -10,7 +9,7 @@ Define the internal execution contract that chat turns, provider adapters, deleg
 ## User-facing settings
 
 - `permissionMode`
-  - values: `ask | autonomy`
+  - values: `ask | autonomy | full_access`
   - the only user-facing execution-mode source of truth
 - `riskyActionPolicy`
   - current value: `prompt_first_risky_use`
@@ -171,7 +170,7 @@ Current verification state:
   - verified for real PTY-backed `cmd`
   - verified for real PTY-backed `powershell.exe`
   - verified for redraw-heavy output and fullscreen TUI-style flows in direct PTY smoke
-  - `pwsh` remains host-dependent and was not installed on the validation machine used for the latest Phase 5 run
+  - additional shells remain host-dependent
 - macOS:
   - renderer path is prepared for native Option/dead-key composition by keeping `macOptionIsMeta` disabled
   - still rollout-gated pending live packaged/runtime validation with `zsh`/`bash` and physical keyboard checks
@@ -188,7 +187,7 @@ Current operator controls:
 ## Worker and delegation contract
 
 - `DelegationExecutionProfile`
-  - the orchestrator delegates tasks against configured MoA roles, not hidden fallback routes
+  - the orchestrator delegates tasks against configured Agent roles, not hidden fallback routes
   - provider/model choice for a role is explicit in Settings
 - `WorkerExecutionProfile`
   - resolves its own adapter profile and tool surface on the configured provider/model route
@@ -234,8 +233,8 @@ Each execute turn should capture:
 - Provider and model routing
   - `src/main/api-clients/provider-model-adapters.mjs`
   - `src/main/chat/tool-surface-selection.mjs`
-- Worker and MoA execution
+- Agent execution and delegation
   - `src/main/moa/moa-policy.mjs`
-  - `src/main/moa/worker-runtime-tooling.mjs`
-  - `src/main/moa/worker-runtime.mjs`
+  - `src/main/moa/agent-runtime-tooling.mjs`
+  - `src/main/moa/agent-runtime.mjs`
   - `src/main/moa/staged-write-pipeline.mjs`
