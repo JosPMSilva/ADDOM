@@ -446,7 +446,7 @@ Apply **one concept, one owner** to settings hierarchy. The category title and d
 
 Provider settings must cover API keys, account auth, OpenRouter catalog visibility, provider logos, OpenAI Project Knowledge, account limitations, and advanced notices without turning into a dashboard.
 
-Agents settings must cover custom instructions plus Agents/MoA enablement, skill catalog, template gallery, role forms, validation, and delete confirmation as compact preference/list/form surfaces. Dormant tier and policy controls remain hidden until they are intentionally wired into production.
+Agents settings must cover custom instructions, agent delegation, the skill catalog, role forms, validation, and delete confirmation as compact preference/list/form surfaces. Dormant controls remain hidden until they are intentionally wired into production.
 
 ## Onboarding
 

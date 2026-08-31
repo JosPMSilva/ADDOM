@@ -1,58 +1,76 @@
 # Contributing
 
-Contributions should keep behavior, documentation, and test coverage aligned in the same change cycle.
+Thank you for helping improve ADDOM. Keep implementation, tests, user-visible copy, and documentation aligned in the same change.
 
-Please report security vulnerabilities through the private process described in
-[SECURITY.md](./SECURITY.md), not through a public issue.
+Report security vulnerabilities through the private process in [SECURITY.md](./SECURITY.md), not through a public issue.
 
 ## Prerequisites
 
-- Node.js
+- Node.js 24
 - npm
-- platform-native build prerequisites required by Electron and native modules such as `better-sqlite3`
-
-Native module rebuilds are part of normal development in this repo.
+- Git
+- platform build prerequisites required by Electron and its native dependencies
 
 ## Local Development
 
 ```powershell
-npm install
+git clone https://github.com/JosPMSilva/ADDOM.git
+cd ADDOM
+npm ci
 npm run dev
 ```
 
-`npm run dev` starts the Vite renderer and the Electron app together after preparing the Electron-native runtime.
+`npm ci` runs the repository's installation checks, downloads Electron, installs the local Git hooks, and validates the portable Electron-native assets. `npm run dev` starts Vite and Electron together.
 
-## Tests and Checks
+## Change Workflow
+
+1. Inspect the relevant process boundary and nearby tests before editing.
+2. Add or update focused regression coverage for deterministic behavior changes.
+3. Keep privileged filesystem, process, credential, and provider operations in the main process.
+4. Expose renderer capabilities only through explicit preload contracts.
+5. Update every supported locale when user-visible copy changes.
+6. Run focused checks first, then the broader checks appropriate to the changed surface.
+
+Avoid mixing unrelated cleanup into a contribution. Remove obsolete paths made unnecessary by the change instead of preserving duplicate implementations.
+
+## Tests And Checks
+
+Useful focused and repository-wide commands include:
 
 ```powershell
-npm run test:integration
+npm run check:node-syntax
+npm run check:renderer-syntax
+npm run check:eslint
+npm run i18n:check
 npm run check:docs-links
 npm run check:max-lines
+npm run test:integration
+npm run build:renderer
 ```
 
-Run the relevant focused tests for the area you changed, then run the broader integration suite before closing the work.
+Use `npm run check:syntax` to run every syntax check. Run `npm run check:renderer` for the renderer contract group, and run the relevant focused `node --test ...` command while iterating on a regression.
 
-`npm run check:max-lines` is the default 800-line source guard. It scans `src`, excludes generated assets, and caps documented legacy source hotspots at their current line counts so they cannot grow. Run `$env:STRICT_MAX_LINES='1'; npm run check:max-lines` to fail on every source file still above 800 lines, including grandfathered entries. Run `$env:CHECK_TESTS_AND_SCRIPTS='1'; npm run check:max-lines` when you also want to include `tests` and `scripts` in the inventory pass.
+`npm run check:max-lines` is the 800-line source guard. It scans `src`, excludes generated assets, and prevents documented legacy hotspots from growing. In PowerShell, use `$env:STRICT_MAX_LINES='1'; npm run check:max-lines` to include all existing source hotspots, or `$env:CHECK_TESTS_AND_SCRIPTS='1'; npm run check:max-lines` to include tests and scripts in the inventory pass.
 
-## Native Runtime Workflow
+## Native Dependencies
 
-Plain Node integration tests and Electron development do not share the same native `better-sqlite3` binary. The repo scripts handle that switch for you:
+ADDOM uses prepared native assets for Electron development, plain Node tests, and packaging. The repository scripts select and validate the required asset without rewriting the installed dependency tree. Use the documented `npm run dev`, `npm run test:integration`, and build commands instead of manually rebuilding native modules.
 
-- `npm run dev` prepares the Electron-native runtime
-- `npm run test:integration` prepares the Node-native runtime, runs tests, then restores the Electron-native runtime
+## Packaging
 
-Avoid manually rebuilding native modules unless you are debugging the runtime switch itself.
+```powershell
+npm run build:win
+npm run build:mac
+npm run build:linux
+```
 
-## Change Expectations
-
-- Update docs when behavior or workflows change.
-- Keep or add tests for feature changes and regressions.
-- Avoid growing already-large files without a strong reason.
-- Prefer small, boundary-respecting changes; stricter SRP and file-size reduction work is planned separately.
+Build each platform target on its native host. The default configuration does not publish artifacts and does not provide signing credentials; signing and release publication must be configured by the maintainer.
 
 ## Architecture Boundaries
 
-- Keep renderer-only logic in `src/renderer`.
-- Keep Electron, filesystem, process, and IPC implementation details in `src/main`.
-- Use `src/preload` for the renderer bridge instead of direct Electron access from the UI.
-- Put logic in `src/common` only when it is genuinely shared across processes.
+- `src/main`: Electron main-process logic, provider adapters, tools, persistence, credentials, agents, and platform integration.
+- `src/preload`: the narrow renderer bridge.
+- `src/renderer`: React UI, state projection, editor, and settings flows.
+- `src/common`: contracts and logic genuinely shared across processes.
+
+Keep pull requests reviewable, explain user-visible behavior changes, and include the verification commands you ran.
