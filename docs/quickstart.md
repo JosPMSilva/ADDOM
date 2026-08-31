@@ -1,81 +1,79 @@
 # Quickstart
 
-## Who This Is For
-- First-time ADDOM users.
-- Returning users who want the fastest safe setup path.
+This guide takes a fresh ADDOM checkout from launch to a first safe project task.
 
 ## Prerequisites
+
 - A local project folder.
-- At least one provider API key (unless using a local/no-key provider).
-- Internet access for remote providers.
+- One usable provider connection: an API key, a supported account connection, or an available local provider.
+- Internet access when using a remote provider.
 
-## What This Feature Does
-Guides you from fresh launch to first successful assisted edit with approvals and verification.
+## 1. Start ADDOM
 
-## Step-by-Step Tasks
+From the repository root:
 
-### 1. Launch and Choose a Project
-1. Open ADDOM.
-2. In the main shell, click `Projects`, choose `Open folder`, and select a folder.
-3. Continue in the normal workspace flow; ADDOM no longer includes a guided setup wizard.
+```powershell
+npm ci
+npm run dev
+```
 
-### 2. Configure Provider Access
-1. Open `Settings`.
-2. Go to `Providers & Models`.
-3. Add API key under `API Keys`.
-4. Select provider/model in Chat header.
+ADDOM opens directly into its normal shell. There is no separate setup wizard, and Settings is available before a project is opened.
 
-### 3. Confirm Safety Defaults
-1. In the chat header, leave `Permission mode` on `Ask` unless you want workspace autonomy.
-2. In `Settings > Tools & Safety`, verify `Guardrails & Diagnostics` is on its default compact state.
-3. Leave defaults if unsure.
+## 2. Configure A Provider
 
-### 4. Send Your First Prompt
-1. Open `Chat`.
-2. Ensure mode is `Execute`.
-3. Ask a concrete coding task (for example, "Read X file and explain issue Y").
+1. Open **Settings**.
+2. Select **Providers**.
+3. Configure an API key, connect a supported account, or confirm that a local provider is available.
+4. For OpenRouter, use **Manage visibility** to choose which catalog routes appear in the model selector.
 
-### 5. Handle Tool Approval
-1. When approval overlay appears, review:
-   - tool name
-   - target file/path
-   - proposed command/input
-2. Approve or deny.
-3. Keyboard shortcuts: `Enter` to approve, `Esc` to deny.
+OpenAI Project Knowledge is a separate hosted feature. It currently requires OpenAI API-key authentication; normal local attachments do not become hosted knowledge unless you explicitly add them.
 
-### 6. Review Results
-1. Inspect turn runbook in timeline.
-2. Open `Files changed` card for modified files.
-3. Open `Artifacts` to compare revisions if needed.
+## 3. Open A Project And Thread
 
-### 7. Optional: Use Editor and Memory
-1. Open `Editor` and verify changes.
-2. Use `Ctrl/Cmd+S` to save.
-3. Open `Memory` to inspect saved context and nodes.
+1. Select **Projects > Open folder**.
+2. Choose the project ADDOM may inspect or modify.
+3. Create or select a thread.
+4. Choose a provider and model from the composer controls.
 
-## Common Pitfalls
-### What Can Go Wrong
-- No provider key configured:
-  - Symptom: stream error or missing model execution.
-  - Fix: add key in `Settings > Providers & Models`.
-- Wrong mode selected:
-  - Symptom: assistant plans but does not execute tools.
-  - Fix: switch to `Execute`.
-- Denied approval and no action:
-  - Symptom: task stalls.
-  - Fix: rerun with approval or request alternative approach.
-- No active thread:
-  - Symptom: composer or thread commands disabled.
-  - Fix: create/select a thread first.
+## 4. Choose Execution Boundaries
 
-## Related Settings
-- `chatMode`
-- `permissionMode`
-- `riskyActionPolicy`
-- `commandSafety`
+Select a chat mode and permission mode in the composer:
 
-## Related References
+- **Plan** develops an approach without applying project changes.
+- **Execute** allows tools within the selected permission policy.
+- **Ask** requests approval for guarded actions and is the recommended starting permission.
+- **Autonomy** reduces routine interruptions inside the active project.
+- **Full Access** permits the broadest supported tool scope but does not bypass hard-deny policy.
+
+Review the active controls under **Settings > Safety**. Child agents inherit the root task's permission ceiling and cannot widen it.
+
+## 5. Send A Scoped Request
+
+Start with a concrete task, for example:
+
+> Read `src/main/index.mjs` and explain how startup errors are handled. Do not change files.
+
+For an editing task, name the expected outcome and any important constraints. ADDOM shows tool activity in the timeline and surfaces approvals when the selected policy requires them.
+
+## 6. Review The Result
+
+1. Inspect the runbook and tool results in the timeline.
+2. Review **Files changed** and any generated artifacts.
+3. Open the integrated editor to inspect or refine files.
+4. If agents were delegated, open the **Agents** panel to inspect role assignment, progress, and results returned to the root assistant.
+
+## Common Problems
+
+- **No model can run:** confirm the provider connection in **Settings > Providers**, then reselect the provider and model.
+- **The assistant only plans:** switch the composer from **Plan** to **Execute**.
+- **A guarded action is waiting:** approve it, deny it, or ask for a safer alternative.
+- **Project tools are unavailable:** open a project and make sure a thread is selected.
+- **A model is hidden:** review provider availability or the OpenRouter visibility manager.
+
+## Related Guides
+
 - [Chat Guide](./chat-guide.md)
 - [Tools and Approvals](./tools-and-approvals.md)
 - [Workspace and Threads](./workspace-threads-guide.md)
-- [window.addom API](./reference/window-addom-api.md)
+- [Settings Reference](./settings-reference.md)
+- [Agents Guide](./agents-guide.md)

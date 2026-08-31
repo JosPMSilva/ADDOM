@@ -7,10 +7,12 @@
 ## Prerequisites
 - Chat mode set to `Execute`.
 - Provider/model selected.
-- Permission mode selected (`Ask` or `Autonomy`).
+- Permission mode selected (`Ask`, `Autonomy`, or `Full Access`).
 
 ## What This Feature Does
-ADDOM tools let the assistant read/write files, run commands, use git helpers, fetch web pages, and delegate MoA tasks. Tool execution is approval-gated and policy-controlled.
+ADDOM tools let the assistant read or write files, run commands, use git helpers,
+fetch web pages, and delegate work to configured agents. Tool execution remains
+policy-controlled and pauses for approval when the selected mode and risk require it.
 
 ## Step-by-Step Tasks
 
@@ -21,7 +23,7 @@ ADDOM tools let the assistant read/write files, run commands, use git helpers, f
 - Terminal tools: `terminal_session_open|attach|write|resize|signal|close`.
 - Web tool: `fetch_page`.
 - Browser tool: `browser_action`.
-- MoA tools: delegate agents and apply staged revisions.
+- Agent tools: inspect the generated role catalog, delegate tasks, and apply staged revisions.
 
 ### 2. Review Approval Prompts
 1. Inspect tool name, input, target path, and risk.
@@ -32,9 +34,9 @@ ADDOM tools let the assistant read/write files, run commands, use git helpers, f
 5. For denied steps, assistant may continue with alternatives or request clarification.
 
 ### 3. Use Command Safety Controls
-1. Open `Settings > Tools & Safety`.
-2. Confirm the saved `Permission mode` default matches how you want execute turns to behave.
-3. Use `Guardrails & Diagnostics` only when you need to inspect backend status or approval counters.
+1. Open `Settings > Safety`.
+2. Confirm the saved execution mode matches how you want Execute turns to behave.
+3. Review `Guardrails` to understand which actions still require approval or remain blocked.
 
 ### 4. Run Background Commands Properly
 1. Use background mode for servers/watchers.
@@ -67,6 +69,7 @@ When multiple threads execute concurrently:
 - `permissionMode` is the user-facing execution control:
   - `Ask`: prompt before risky actions.
   - `Autonomy`: auto-allow audited safe reads inside the workspace and prompt on first risky network or install action.
+  - `Full Access`: allow the broadest supported scope without bypassing hard-deny policy.
 - In `Autonomy`, audited read-only probes such as `git_status`, `git_diff`, `git_log`, and workspace read/search tools can proceed without extra approval.
 - User-denied approvals do not automatically mark the whole turn as failed.
 - First risky web fetches and project dependency installs are remembered per project for the current app session only.
@@ -93,18 +96,18 @@ When multiple threads execute concurrently:
   - explicit rollout env: `ADDOM_TERMINAL_SESSIONS_ROLLOUT=off|windows_only|all`
 - Current rollout is Windows-first:
   - Windows has direct PTY validation for `cmd`, `powershell.exe`, redraw-heavy output, and a fullscreen TUI-style flow
-  - `pwsh` remains a host dependency and was not present on the latest Windows validation machine
-  - macOS and Linux remain explicitly gated until live packaged/runtime verification is recorded for those targets
+  - additional shells remain dependent on what is installed on the host
+  - macOS and Linux remain explicitly rollout-gated pending live packaged/runtime verification
 
 ### Terminal Capability Matrix
 
-| Category | Current capability | Planned category |
-| --- | --- | --- |
-| Approval family | `terminal_session_*` tools use the terminal-session approval identity, separate from `run_command`. | Keep new AI terminal tools inside the same explicit family. |
-| Model tools | Current tools: open, read snapshot, attach, write, resize, signal, close. | Add list, wait-for-output, and structured snapshot modes. |
-| Runtime gating | Terminal tool exposure is removed when PTY runtime health is failed or disabled. | Keep command-palette and orchestration guidance aligned with the same runtime health. |
-| Renderer surface | Live output is raw PTY bytes rendered by xterm; archived output is read-only. | Add search, clear, zoom, link handling, and richer clipboard actions without replacing xterm. |
-| User-to-AI context | Closed-session archives can produce memory candidates; live output requires manual copy. | Add explicit live output actions for chat, explanation, summarization, and memory. |
+| Category | Current capability |
+| --- | --- |
+| Approval family | `terminal_session_*` tools use the terminal-session approval identity, separate from `run_command`. |
+| Model tools | Open, read snapshot, attach, write, resize, signal, and close. |
+| Runtime gating | Terminal tool exposure is removed when PTY runtime health is failed or disabled. |
+| Renderer surface | Live output is raw PTY bytes rendered by xterm; archived output is read-only. |
+| User-to-AI context | Closed-session archives can produce memory candidates; live output requires manual copy. |
 
 ## Stop Behavior
 - Stop is a soft-stop request, not a hard rollback barrier.

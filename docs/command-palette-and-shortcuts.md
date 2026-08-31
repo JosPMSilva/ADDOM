@@ -37,18 +37,13 @@ Command Palette centralizes navigation and common actions across chat, editor, a
 - Open thread selector
 - Open background jobs
 - Open direct agents menu
-- Toggle MoA
+- Toggle agent delegation
 - Inject memory/artifacts context when provider-switch hint is active
 - Open Terminal
 
 ### 4. Use Terminal Commands
-- Current command palette exposure:
-  - Open Terminal
-- Planned terminal command categories:
-  - Focus/open/browse terminal surfaces
-  - Create, close, duplicate, rename, and switch sessions
-  - Take over, hand back, interrupt, and terminate sessions
-  - Search, clear, copy, paste, zoom, and send output to chat
+- The current command-palette action opens the Terminal surface.
+- Session creation, switching, takeover, signaling, and closure are available from the Terminal UI when the runtime is supported.
 
 ### 5. Use Editor Commands
 - Format document when the active file has an active formatter route
@@ -104,7 +99,7 @@ Command Palette centralizes navigation and common actions across chat, editor, a
   - Fix: search by aliases shown in command definitions (for example "autofix", "outline", "switch project").
 
 ## Related Settings
-- MoA enablement (affects MoA-related commands).
+- Agent delegation enablement (affects agent-related commands).
 - Editor capabilities and open tab state.
 
 ## Related References

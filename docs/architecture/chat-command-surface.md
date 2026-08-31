@@ -128,5 +128,5 @@ To add a new slash command cleanly:
 
 ## Related Docs
 - [Chat Guide](../chat-guide.md)
-- [MoA Guide](../moa-guide.md)
+- [Agents Guide](../agents-guide.md)
 - [window.addom API](../reference/window-addom-api.md)

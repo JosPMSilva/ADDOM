@@ -4,7 +4,9 @@ This changelog is maintained going forward from the current repository baseline.
 
 ## Unreleased
 
-- Documentation and architecture snapshot updates will be tracked here as new changes land.
+- Reworked public setup, contribution, privacy, provider, and platform guidance against the current application.
+- Updated the in-app Usage Guide and every locale override to the current Settings, Project Knowledge, and Agents surfaces.
+- Added documentation drift checks for local links and documented npm scripts.
 
 ## 1.0.0
 

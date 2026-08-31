@@ -98,4 +98,4 @@ Destructive actions require confirmation. Read the confirmation scope before con
 
 - [Tool Catalog](./reference/tool-catalog.md)
 - [Attachments Guide](./attachments-guide.md)
-- [Subagents Guide](./moa-guide.md)
+- [Agents Guide](./agents-guide.md)

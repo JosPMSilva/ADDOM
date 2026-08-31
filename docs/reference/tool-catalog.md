@@ -36,7 +36,8 @@ Lists user-facing tools, intent, risk level, and operational notes.
 | `git_log` | Show commit history | Low | Read-only history inspection. |
 | `git_commit` | Create commit | High | Modifies repository history. |
 | `git_checkout_file` | Restore file from ref | High | Overwrites working tree file. |
-| `delegate_to_workers` | Fan out to MoA agent roles | Low | Parallel orchestration entrypoint. |
+| `agent_catalog` | Read the sanitized configured-role catalog | Low | Read-only, provider-neutral discovery owned by ADDOM. |
+| `delegate_tasks` | Delegate task briefs to configured roles | Low | Single model-facing entrypoint; ADDOM resolves the execution plan. |
 | `apply_artifact_revision` | Apply staged artifact revision | High | Writes staged revision to disk. |
 | `fetch_page` | Fetch public web page content | Medium | Network-bound tool; URL must be public. |
 | `browser_action` | Drive a real browser session for navigation, clicking, typing, screenshots, and page inspection | High | Approval-gated; can use bundled Chromium when prepared. |
@@ -46,7 +47,8 @@ Lists user-facing tools, intent, risk level, and operational notes.
 - Tools appear only on executable turns (`chatMode = execute`).
 - The resolved provider/model adapter and tool surface determine whether ADDOM-native or provider-native tools are exposed.
 - `permissionMode` affects when approval prompts appear, not whether file tools exist in the catalog.
-- MoA tools appear only when MoA is enabled in relevant mode.
+- Agent tools appear only in Execute mode when delegation is enabled and the runtime can provide a valid catalog.
+- `delegate_to_agents` is the internal executor mapped from `delegate_tasks`; it is not exposed as a second model-facing route.
 - Browser automation can use a bundled Playwright Chromium runtime when present, or fall back to a supported system browser.
 
 ## Common Pitfalls

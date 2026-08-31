@@ -101,8 +101,7 @@ test('release build scripts route multi-target packaging through the host-aware 
   assert.equal(String(scripts['build:runtime-assets'] || '').includes('check:syntax'), false)
   assert.equal(String(scripts['build:runtime-assets'] || '').includes('check:renderer'), false)
   assert.equal(String(scripts['build:runtime-assets'] || '').includes('check:eslint'), false)
-  assert.doesNotMatch(ciWorkflowSource, /actions\/setup-node@v5/)
-  assert.match(ciWorkflowSource, /actions\/setup-node@v6/)
+  assert.match(ciWorkflowSource, /actions\/setup-node@[a-f0-9]{40} # v7/)
   assert.match(ciWorkflowSource, /Reject high-severity dependency advisories[\s\S]*npm audit --audit-level=high/)
   assert.match(String(scripts['build:win'] || ''), /npm run test:live-smoke:packaged/)
   assert.match(String(scripts['build:dir'] || ''), /npm run test:live-smoke:packaged/)
@@ -232,10 +231,37 @@ test('manual release artifact workflow packages native targets without publishin
   assert.match(workflowSource, /os: ubuntu-latest[\s\S]*target: --linux[\s\S]*arch: --x64/)
   assert.match(workflowSource, /os: macos-15-intel[\s\S]*target: --mac[\s\S]*arch: --x64/)
   assert.match(workflowSource, /os: macos-15[\s\S]*target: --mac[\s\S]*arch: --arm64/)
-  assert.equal((workflowSource.match(/actions\/upload-artifact@v4/g) || []).length, 1)
+  assert.equal((workflowSource.match(/actions\/upload-artifact@[a-f0-9]{40} # v7/g) || []).length, 1)
   assert.match(workflowSource, /if-no-files-found: error/)
   assert.match(workflowSource, /retention-days: 30/)
   assert.match(workflowSource, /electron-builder[^\r\n]+--publish never/)
+})
+
+test('CI packaging prepares current legal artifacts before packaging', () => {
+  const workflowSource = fs.readFileSync(
+    path.join(ROOT, '.github', 'workflows', 'ci-cross-platform.yml'),
+    'utf8',
+  )
+  const packageJob = workflowSource.slice(workflowSource.indexOf('\n  package:'))
+
+  assert.match(packageJob, /npm run build:runtime-assets[\s\S]*electron-builder/)
+  assert.doesNotMatch(packageJob, /run: npm run legal:check/)
+})
+
+test('GitHub workflows pin every external action to an immutable commit', () => {
+  const workflowDir = path.join(ROOT, '.github', 'workflows')
+  const workflowSources = fs.readdirSync(workflowDir)
+    .filter((fileName) => fileName.endsWith('.yml') || fileName.endsWith('.yaml'))
+    .map((fileName) => fs.readFileSync(path.join(workflowDir, fileName), 'utf8'))
+
+  const actionRefs = workflowSources.flatMap((source) => (
+    [...source.matchAll(/^\s*uses:\s*([^\s#]+)(?:\s+#.*)?$/gm)].map((match) => match[1])
+  ))
+
+  assert.ok(actionRefs.length > 0)
+  for (const actionRef of actionRefs) {
+    assert.match(actionRef, /^[^@\s]+@[a-f0-9]{40}$/)
+  }
 })
 
 test('electron-builder runtime patch forces traversal collector behind a repo-owned env flag', () => {

@@ -13,6 +13,12 @@ const extraMarkdownFiles = [
 
 const issues = []
 let totalLinksChecked = 0
+const packageJsonPath = path.join(repoRoot, 'package.json')
+const declaredNpmScripts = new Set(
+  fs.existsSync(packageJsonPath)
+    ? Object.keys(JSON.parse(fs.readFileSync(packageJsonPath, 'utf8')).scripts || {})
+    : []
+)
 const trackedRepoPaths = new Set(
   execFileSync('git', ['ls-files', '-z'], {
     cwd: repoRoot,
@@ -148,9 +154,21 @@ function validateFile(filePath) {
   const source = fs.readFileSync(filePath, 'utf8')
   const lines = source.split(/\r?\n/)
   const linkPattern = /(?<!!)\[[^\]]*\]\(([^)]+)\)/g
+  const npmRunPattern = /\bnpm\s+run\s+([A-Za-z0-9:_-]+)/g
 
   for (let index = 0; index < lines.length; index += 1) {
     const line = lines[index]
+    for (const match of line.matchAll(npmRunPattern)) {
+      const scriptName = match[1]
+      if (declaredNpmScripts.has(scriptName)) continue
+      issues.push({
+        type: 'missing_npm_script',
+        source: toRepoRelative(filePath),
+        line: index + 1,
+        target: scriptName,
+        resolved: 'package.json#scripts'
+      })
+    }
     for (const match of line.matchAll(linkPattern)) {
       const raw = match[1]
       const normalized = normalizeTarget(raw)
