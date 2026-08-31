@@ -144,7 +144,7 @@
     "openai": "^6.25.0",
     "playwright-core": "^1.58.2",
     "prettier": "^3.8.1",
-    "pyright": "^1.1.408",
+    "pyright": "^1.1.413",
     "react-i18next": "^17.0.2",
     "react-markdown": "^10.1.0",
     "rehype-highlight": "^7.0.2",
