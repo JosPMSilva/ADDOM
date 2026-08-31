@@ -84,7 +84,7 @@ jobs:
         run: node scripts/check-ci-package-output.mjs
 
       - name: Upload release files
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.artifact_name }}
           path: ${{ matrix.artifact_path }}
