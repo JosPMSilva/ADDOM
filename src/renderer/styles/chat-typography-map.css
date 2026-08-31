@@ -1,0 +1,347 @@
+/* Shared prose variants */
+
+.prose-chat.chat-typo-content-prose {
+  --chat-prose-role-body-size: var(--chat-prose-body-size);
+  --chat-prose-role-body-line: var(--chat-prose-body-line);
+  --chat-prose-role-paragraph-gap: var(--chat-prose-paragraph-gap);
+  --chat-prose-role-h1-size: var(--chat-prose-h1-size);
+  --chat-prose-role-h2-size: var(--chat-prose-h2-size);
+  --chat-prose-role-h3-size: var(--chat-prose-h3-size);
+  --chat-prose-role-inline-code-size: var(--chat-prose-inline-code-size);
+}
+
+.prose-chat.chat-typo-exec-reasoning-prose {
+  --chat-prose-role-body-size: var(--chat-prose-body-size);
+  --chat-prose-role-body-line: var(--chat-prose-body-line);
+  --chat-prose-role-paragraph-gap: var(--chat-prose-paragraph-gap);
+  --chat-prose-role-h1-size: var(--chat-prose-h1-size);
+  --chat-prose-role-h2-size: var(--chat-prose-h2-size);
+  --chat-prose-role-h3-size: var(--chat-prose-h3-size);
+  --chat-prose-role-inline-code-size: var(--chat-prose-inline-code-size);
+}
+
+.prose-chat.chat-typo-agent-task {
+  --chat-prose-role-body-size: var(--chat-agent-task-size);
+  --chat-prose-role-body-line: var(--chat-agent-task-line);
+}
+
+.prose-chat.chat-typo-agent-result {
+  --chat-prose-role-body-size: var(--chat-agent-result-size);
+  --chat-prose-role-body-line: var(--chat-agent-result-line);
+  --chat-prose-role-h1-size: var(--chat-agent-result-h1-size);
+  --chat-prose-role-h2-size: var(--chat-agent-result-h2-size);
+  --chat-prose-role-h3-size: var(--chat-agent-result-h3-size);
+  --chat-prose-role-inline-code-size: var(--chat-agent-inline-code-size);
+}
+
+.chat-typo-code-label {
+  font-size: var(--chat-code-label-size);
+  line-height: var(--chat-code-label-line);
+  font-weight: 450;
+  color: var(--color-text-subtle);
+}
+
+.chat-typo-code-body {
+  font-family: var(--font-mono);
+  font-size: var(--chat-code-body-size);
+  line-height: var(--chat-code-body-line);
+  font-weight: 450;
+}
+
+[data-chat-render="code-block"] .chat-typo-code-body.hljs {
+  padding: 0;
+  background: transparent;
+}
+
+/* Message bubble roles */
+
+.chat-typo-user-body {
+  font-size: var(--chat-user-body-size);
+  line-height: var(--chat-user-body-line);
+}
+
+.chat-typo-user-attachment-badge {
+  font-size: var(--chat-user-attachment-badge-size);
+}
+
+.chat-typo-user-attachment-title {
+  font-size: var(--chat-user-attachment-title-size);
+}
+
+.chat-typo-user-attachment-meta {
+  font-size: var(--chat-user-attachment-meta-size);
+}
+
+.chat-typo-error-body {
+  font-size: var(--chat-error-body-size);
+  line-height: var(--chat-error-body-line);
+}
+
+.chat-typo-plan-toggle {
+  font-size: var(--chat-plan-toggle-size);
+  line-height: var(--chat-plan-toggle-line);
+}
+
+.chat-typo-image-preview-close {
+  font-size: var(--chat-image-preview-close-size);
+}
+
+.chat-typo-attachment-modal-title {
+  font-size: var(--chat-attachment-modal-title-size);
+  line-height: var(--chat-attachment-modal-title-line);
+}
+
+.chat-typo-attachment-modal-file {
+  font-size: var(--chat-attachment-modal-file-size);
+  line-height: var(--chat-attachment-modal-file-line);
+}
+
+.chat-typo-attachment-modal-body {
+  font-size: var(--chat-attachment-modal-body-size);
+  line-height: var(--chat-attachment-modal-body-line);
+}
+
+.chat-typo-attachment-modal-close {
+  font-size: var(--chat-attachment-modal-close-size);
+}
+
+.chat-typo-attachment-modal-cancel {
+  font-size: var(--chat-attachment-modal-cancel-size);
+}
+
+.chat-typo-attachment-modal-confirm {
+  font-size: var(--chat-attachment-modal-confirm-size);
+}
+
+/* Chat-adjacent cards */
+
+.chat-typo-web-preview-title {
+  font-size: var(--chat-web-preview-title-size);
+}
+
+.chat-typo-web-preview-meta {
+  font-size: var(--chat-web-preview-meta-size);
+  line-height: var(--chat-web-preview-meta-line);
+}
+
+.chat-typo-web-preview-excerpt {
+  font-size: var(--chat-web-preview-excerpt-size);
+  line-height: var(--chat-web-preview-excerpt-line);
+}
+
+.chat-typo-web-preview-action {
+  font-size: var(--chat-web-preview-action-size);
+}
+
+.chat-typo-tool-activity-milestone-badge {
+  font-size: var(--chat-tool-activity-milestone-badge-size);
+}
+
+.chat-typo-tool-activity-milestone-detail {
+  font-size: var(--chat-tool-activity-milestone-detail-size);
+  line-height: var(--chat-tool-activity-milestone-detail-line);
+}
+
+.chat-typo-tool-activity-body {
+  font-size: var(--chat-tool-activity-body-size);
+  line-height: var(--chat-tool-activity-body-line);
+}
+
+.chat-typo-tool-activity-badge {
+  font-size: var(--chat-tool-activity-badge-size);
+}
+
+.chat-typo-tool-activity-detail {
+  font-size: var(--chat-tool-activity-detail-size);
+  line-height: var(--chat-tool-activity-detail-line);
+}
+
+.chat-typo-tool-activity-toggle {
+  font-size: var(--chat-tool-activity-toggle-size);
+}
+
+.chat-typo-runbook-section-label {
+  font-size: var(--chat-runbook-section-label-size);
+}
+
+.chat-typo-runbook-header-meta {
+  font-size: var(--chat-runbook-header-meta-size);
+}
+
+.chat-typo-runbook-header-detail {
+  font-size: var(--chat-runbook-header-detail-size);
+}
+
+.chat-typo-runbook-summary {
+  font-size: var(--chat-runbook-summary-size);
+  line-height: var(--chat-runbook-summary-line);
+}
+
+.chat-typo-runbook-filter {
+  font-size: var(--chat-runbook-filter-size);
+}
+
+.chat-typo-file-changes-menu-item {
+  font-size: var(--chat-file-changes-menu-item-size);
+}
+
+.chat-typo-file-changes-preview-message {
+  font-size: var(--chat-file-changes-preview-message-size);
+}
+
+.chat-typo-file-changes-preview-body {
+  font-size: var(--chat-file-changes-preview-body-size);
+  line-height: var(--chat-file-changes-preview-body-line);
+}
+
+.chat-typo-file-changes-header {
+  font-size: var(--chat-file-changes-header-size);
+}
+
+.chat-typo-file-changes-row {
+  font-size: var(--chat-file-changes-row-size);
+  line-height: var(--chat-file-changes-row-line);
+}
+
+.chat-typo-file-changes-file-title {
+  font-size: var(--chat-file-changes-file-title-size);
+}
+
+.chat-typo-file-changes-file-meta {
+  font-size: var(--chat-file-changes-file-meta-size);
+}
+
+.chat-typo-file-changes-feedback {
+  font-size: var(--chat-file-changes-feedback-size);
+}
+
+.chat-typo-conflict-diff-label {
+  font-size: var(--chat-conflict-diff-label-size);
+}
+
+.chat-typo-conflict-diff-body {
+  font-size: var(--chat-conflict-diff-body-size);
+  line-height: var(--chat-conflict-diff-body-line);
+}
+
+.chat-typo-conflict-resolved {
+  font-size: var(--chat-conflict-resolved-size);
+}
+
+.chat-typo-conflict-header-path {
+  font-size: var(--chat-conflict-header-path-size);
+}
+
+.chat-typo-conflict-header-meta {
+  font-size: var(--chat-conflict-header-meta-size);
+}
+
+.chat-typo-conflict-debug {
+  font-size: var(--chat-conflict-debug-size);
+}
+
+.chat-typo-conflict-toggle {
+  font-size: var(--chat-conflict-toggle-size);
+}
+
+.chat-typo-conflict-status {
+  font-size: var(--chat-conflict-status-size);
+  line-height: var(--chat-conflict-status-line);
+}
+
+.chat-typo-conflict-action {
+  font-size: var(--chat-conflict-action-size);
+}
+
+.chat-typo-conflict-hint {
+  font-size: var(--chat-conflict-hint-size);
+}
+
+.chat-typo-conflict-explanation {
+  font-size: var(--chat-conflict-explanation-size);
+  line-height: var(--chat-conflict-explanation-line);
+}
+
+/* Execution stream roles */
+
+.chat-typo-exec-header-title {
+  font-size: var(--chat-exec-header-title-size);
+}
+
+.chat-typo-exec-header-status {
+  font-size: var(--chat-exec-header-status-size);
+}
+
+.chat-typo-exec-header-meta {
+  font-size: var(--chat-exec-header-meta-size);
+}
+
+.chat-typo-exec-row-label {
+  font-size: var(--chat-exec-row-label-size);
+  line-height: var(--chat-exec-row-label-line);
+}
+
+/* Cursor-inspired L2 hierarchy: verb dimmest, identity mid, reasoning brighter secondary. */
+.chat-typo-exec-row-verb {
+  color: var(--color-text-tertiary);
+}
+
+.chat-typo-exec-row-identity {
+  color: var(--color-text-subtle);
+}
+
+.chat-typo-exec-row-detail {
+  font-size: var(--chat-exec-row-detail-size);
+  line-height: var(--chat-exec-row-detail-line);
+}
+
+.chat-typo-exec-compaction-label {
+  font-size: var(--chat-exec-row-label-size);
+  line-height: var(--chat-exec-row-label-line);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.chat-typo-exec-row-toggle {
+  font-size: var(--chat-exec-row-toggle-size);
+  line-height: var(--chat-exec-row-toggle-line);
+}
+
+.chat-typo-exec-row-preview {
+  font-size: var(--chat-exec-row-preview-size);
+  line-height: var(--chat-exec-row-preview-line);
+}
+
+.chat-typo-exec-output-badge {
+  font-size: var(--chat-exec-output-badge-size);
+}
+
+.chat-typo-exec-output-label {
+  font-size: var(--chat-exec-output-label-size);
+}
+
+.chat-typo-exec-output-meta {
+  font-size: var(--chat-exec-output-meta-size);
+}
+
+.chat-typo-exec-output-body {
+  font-size: var(--chat-exec-output-body-size);
+  line-height: var(--chat-exec-output-body-line);
+}
+
+.chat-typo-exec-reasoning-toggle {
+  font-size: var(--chat-exec-reasoning-toggle-size);
+}
+
+.chat-typo-exec-reasoning-milestone {
+  font-size: var(--chat-exec-reasoning-milestone-size);
+  line-height: var(--chat-exec-reasoning-milestone-line);
+}
+
+/* Agent stream roles */
+
+.chat-typo-agent-label {
+  font-size: var(--chat-agent-label-size);
+  line-height: var(--chat-agent-label-line);
+}

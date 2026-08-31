@@ -1,0 +1,144 @@
+{
+  "openai": {
+    "id": "openai",
+    "env": "OPENAI_API_KEY",
+    "npm": "@ai-sdk/openai",
+    "name": "OpenAI",
+    "doc": "https://platform.openai.com/docs/models",
+    "models": {
+      "gpt-5.4": {
+        "id": "gpt-5.4",
+        "name": "GPT-5.4",
+        "family": "gpt",
+        "attachment": true,
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "temperature": true,
+        "knowledge": "2025-12",
+        "release_date": "2026-02-20",
+        "last_updated": "2026-03-06",
+        "modalities": {
+          "input": ["text", "image"],
+          "output": ["text"]
+        },
+        "open_weights": false,
+        "cost": {
+          "input": 2.5,
+          "output": 15,
+          "cache_read": 0.25
+        },
+        "limit": {
+          "context": 1050000,
+          "output": 128000
+        }
+      }
+    }
+  },
+  "anthropic": {
+    "id": "anthropic",
+    "env": "ANTHROPIC_API_KEY",
+    "npm": "@ai-sdk/anthropic",
+    "name": "Anthropic",
+    "doc": "https://docs.anthropic.com/en/docs/about-claude/models",
+    "models": {
+      "claude-sonnet-4-6": {
+        "id": "claude-sonnet-4-6",
+        "name": "Claude Sonnet 4.6",
+        "family": "claude-sonnet",
+        "attachment": true,
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "knowledge": "2025-03",
+        "release_date": "2026-02-15",
+        "last_updated": "2026-02-23",
+        "modalities": {
+          "input": ["text", "image", "pdf"],
+          "output": ["text"]
+        },
+        "open_weights": false,
+        "cost": {
+          "input": 3,
+          "output": 15,
+          "cache_read": 0.3,
+          "cache_write": 3.75
+        },
+        "limit": {
+          "context": 200000,
+          "output": 64000
+        }
+      }
+    }
+  },
+  "google": {
+    "id": "google",
+    "env": "GOOGLE_GENERATIVE_AI_API_KEY",
+    "npm": "@ai-sdk/google",
+    "name": "Google",
+    "doc": "https://ai.google.dev/gemini-api/docs/models",
+    "models": {
+      "gemini-2.5-pro": {
+        "id": "gemini-2.5-pro",
+        "name": "Gemini 2.5 Pro",
+        "family": "gemini",
+        "attachment": true,
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "knowledge": "2025-05",
+        "release_date": "2025-05-01",
+        "last_updated": "2025-05-01",
+        "modalities": {
+          "input": ["text", "image", "file"],
+          "output": ["text"]
+        },
+        "open_weights": false,
+        "cost": {
+          "input": 1.25,
+          "output": 10
+        },
+        "limit": {
+          "context": 1048576,
+          "output": 65536
+        }
+      }
+    }
+  },
+  "moonshotai": {
+    "id": "moonshotai",
+    "env": "MOONSHOT_API_KEY",
+    "npm": "@ai-sdk/openai-compatible",
+    "api": "https://api.moonshot.ai/v1",
+    "name": "Moonshot AI",
+    "doc": "https://platform.moonshot.ai/docs/introduction",
+    "models": {
+      "kimi-k2.5": {
+        "id": "kimi-k2.5",
+        "name": "Kimi K2.5",
+        "family": "kimi",
+        "attachment": true,
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "knowledge": "2025-09",
+        "release_date": "2025-09-01",
+        "last_updated": "2025-09-02",
+        "modalities": {
+          "input": ["text", "image"],
+          "output": ["text"]
+        },
+        "open_weights": false,
+        "cost": {
+          "input": 0.6,
+          "output": 3,
+          "cache_read": 0.1
+        },
+        "limit": {
+          "context": 262144,
+          "output": 32000
+        }
+      }
+    }
+  }
+}

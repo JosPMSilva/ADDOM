@@ -1,0 +1,11 @@
+$accent: #16a34a;
+$panel: #0f172a;
+
+.fixture-panel {
+  background: $panel;
+  border: 1px solid $accent;
+
+  .fixture-title {
+    color: $accent;
+  }
+}

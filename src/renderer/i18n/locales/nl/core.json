@@ -1,0 +1,2265 @@
+{
+  "app": {
+    "workspacePanelSkeleton": {
+      "ariaLabel": "{{panelLabel}} laden",
+      "text": "{{panelLabel}} laden..."
+    },
+    "workspaceBootError": {
+      "title": "Opstarten van Workspace mislukt",
+      "message": "ADDOM kan de workspace-caches die vereist zijn voor dit paneel niet voorbereiden.",
+      "retry": "Probeer opnieuw op te starten"
+    },
+    "leaveWorkspace": {
+      "title": "Niet-opgeslagen wijzigingen",
+      "message": "You have unsaved files. Choose how to proceed before switching projects.",
+      "noUnsavedFiles": "Geen niet-opgeslagen bestanden.",
+      "cancel": "Annuleren",
+      "discardAndLeave": "Discard & Switch",
+      "saving": "Opslaan...",
+      "saveAllAndLeave": "Save All & Switch"
+    },
+    "confirmDialog": {
+      "messageFallback": "Weet u zeker dat u wilt doorgaan?",
+      "cancel": "Annuleren",
+      "confirm": "Bevestigen"
+    },
+    "panelLabels": {
+      "chat": "Chat-paneel",
+      "editor": "Editor-paneel",
+      "sourceControl": "Wijzigingenpaneel",
+      "artifacts": "Artifacts-paneel",
+      "memory": "geheugen-paneel",
+      "settings": "Paneel Instellingen",
+      "agents": "Agentspaneel",
+      "projectEntry": "Project entry"
+    }
+  },
+  "companionDock": {
+    "resize": "Formaat van begeleidend paneel wijzigen",
+    "views": "Begeleidende weergaven",
+    "restoreSplit": "Gesplitste weergave herstellen",
+    "focus": "Begeleidend paneel maximaliseren",
+    "close": "Begeleidende weergave sluiten",
+    "document": {
+      "search": "Document doorzoeken",
+      "missing": "Dit document bestaat niet meer.",
+      "tooLarge": "Dit document is te groot voor een voorbeeld.",
+      "unavailable": "Dit document kon niet worden geladen.",
+      "changed": "Bijwerken…",
+      "status": "Markdown-document",
+      "openInEditor": "Openen in editor",
+      "reveal": "Weergeven in bestandsverkenner",
+      "reload": "Document opnieuw laden",
+      "loading": "Document laden…",
+      "retry": "Opnieuw proberen",
+        "implementPlan": "Implement",
+        "changePlaceholder": "Describe the change…",
+        "resizeChangeEditor": "Resize change editor",
+        "addChange": "Add change",
+        "annotateChange": "Annotate change",
+        "reviewHint": "Hover a paragraph to suggest a change.",
+        "changeCount": "{{count}} changes",
+        "undoLastChange": "Undo latest change",
+        "submitChanges": "Submit changes",
+        "pendingChanges": "Pending plan changes",
+        "removeChange": "Remove change"
+    }
+  },
+  "startup": {
+    "bootstrapFailure": {
+      "eyebrow": "Startup failed",
+      "title": "ADDOM could not finish starting.",
+      "messageFallback": "Renderer bootstrap failed",
+      "reload": "Reload app"
+    }
+  },
+  "sourceControl": {
+    "openProject": "Open een projectmap om de wijzigingen te bekijken.",
+    "navigationFailed": "Kan het geselecteerde bestand van Source Control niet openen.",
+    "refresh": "Vernieuwen",
+    "loading": "Wijzigingen laden...",
+    "noRepo": "Deze workspace bevindt zich niet in een git-repository.",
+    "clean": "Boom schoon werken.",
+    "emptyFilter": "Er zijn geen bestanden die overeenkomen met het huidige filter.",
+    "filters": {
+      "all": "Alle",
+      "staged": "Staged",
+      "unstaged": "Unstaged",
+      "conflicted": "Conflicten",
+      "untracked": "Niet gevolgd"
+    },
+    "search": {
+      "label": "Gewijzigde bestanden zoeken",
+      "placeholder": "Gewijzigde bestanden zoeken"
+    },
+    "groups": {
+      "staged": "Staged",
+      "unstaged": "Unstaged"
+    },
+    "actions": {
+      "stageFile": "Bestand stagen",
+      "unstageFile": "Bestand unstagen",
+      "stageAll": "Alles stagen",
+      "unstageAll": "Alles unstagen"
+    },
+    "summary": {
+      "title": "Veranderingen",
+      "branch": "Branch: {{branch}}",
+      "repoState": "{{repoRoot}}",
+      "chips": {
+        "staged": "Staged",
+        "unstaged": "Unstaged",
+        "conflicts": "Conflicten"
+      }
+    },
+    "commit": {
+      "title": "Commit",
+      "description": "Creëert alleen een commit van staged-wijzigingen.",
+      "pending": "Committing...",
+      "action": "Commit",
+      "placeholder": "Commit-bericht",
+      "disabledPlaceholder": "Stage files to enable commit authoring"
+    },
+    "entry": {
+      "renameFrom": "van {{path}}"
+    },
+    "detail": {
+      "stage": "Stage: {{scope}}",
+      "loading": "SCM-detail laden...",
+      "title": "SCM-detail",
+      "path": "Pad:",
+      "previousPath": "Vorig pad:",
+      "previewSource": "Voorbeeldbron:",
+      "indexCommit": "Index commit:",
+      "worktreeCommit": "Worktree commit:",
+      "dirtyWorktree": "Dirty worktree:",
+      "actions": {
+        "restoring": "Herstellen...",
+        "restoreFile": "Bestand herstellen",
+        "unstaging": "Unstaging...",
+        "unstageDeletion": "Unstage verwijderen",
+        "unstageRename": "Unstage hernoemen"
+      }
+    },
+    "common": {
+      "yes": "Ja",
+      "no": "Nee"
+    }
+  },
+  "terminal": {
+    "common": {
+      "cancel": "Annuleren",
+      "user": "Gebruiker",
+      "ai": "AI",
+      "session": "Sessie",
+      "host": "Gastheer",
+      "workspace": "Workspace",
+      "shell": "shell",
+      "terminal": "terminal",
+      "terminalTitle": "Terminal",
+      "threadPrefix": "gesprek",
+      "status": {
+        "closing": "Sluiten",
+        "ended": "Beëindigd",
+        "closed": "Gesloten",
+        "live": "Live",
+        "failed": "Mislukt",
+        "terminated": "Beëindigd"
+      },
+      "timestamp": {
+        "closedPrefix": "Gesloten",
+        "startedPrefix": "Gestart"
+      },
+      "suggestion": {
+        "dismissed": "Afgewezen",
+        "suggested": "Voorgesteld",
+        "none": "Geen suggestie"
+      }
+    },
+    "banner": {
+      "thisPlatform": "dit platform",
+      "anotherPlatform": "een ander platform",
+      "runtimeDisabled": "Runtime uitgeschakeld",
+      "disabledByEnv": "De overschrijving van ADDOM_DISABLE_TERMINAL_SESSIONS is ingeschakeld.",
+      "rolloutDisabled": "Uitrol uitgeschakeld",
+      "disabledByRollout": "Terminal-sessies zijn uitgeschakeld door het huidige implementatiebeleid.",
+      "platformGated": "Platform afgesloten",
+      "platformGatedDetail": "{{platform}} bevindt zich nog steeds achter de uitrol. Verpakte verificatie wordt alleen geregistreerd voor {{allowedLabel}}.",
+      "unsupportedPlatform": "Niet-ondersteund platform",
+      "unsupportedPlatformDetail": "{{platform}} valt buiten de ondersteunde PTY-doelset voor terminal-sessies.",
+      "disabledGeneric": "Terminal-sessies zijn uitgeschakeld op deze runtime.",
+      "runtimeFailed": "Runtime is mislukt",
+      "failedDetail": "De statuscontrole van PTY runtime is mislukt.",
+      "checkingRuntime": "runtime controleren",
+      "checkingRuntimeDetail": "ADDOM verifieert PTY-ondersteuning voor deze app runtime.",
+      "runtimeReady": "Runtime klaar",
+      "runtimeReadyDetail": "Voor deze workspace zijn interactieve terminal-sessies beschikbaar.",
+      "lastActionFailed": "Laatste actie mislukt"
+    },
+    "viewport": {
+      "sessionState": {
+        "archived": "Gearchiveerd",
+        "ended": "Beëindigd",
+        "closed": "Gesloten",
+        "live": "Live"
+      },
+      "workspaceShell": "Workspace shell",
+      "startTitle": "Start een terminal-sessie",
+      "unavailableTitle": "Chat terminal is niet beschikbaar",
+      "startDescription": "Open hier een terminal om logs te inspecteren, projectopdrachten uit te voeren of AI verder te laten gaan vanaf dezelfde shell.",
+      "unavailableDescription": "Terminal-sessies zijn nog niet beschikbaar in deze runtime.",
+      "startingSession": "Sessie starten...",
+      "createSession": "Sessie maken",
+      "readOnly": "Alleen-lezen",
+      "model": "model",
+      "workspaceRoot": "workspace-wortel",
+      "trimmed": "Bijgesneden",
+      "clickToFocus": "Klik om scherp te stellen",
+      "activateSurface": "Activeer oppervlak",
+      "aria": {
+        "archivedViewport": "Gearchiveerd terminal-viewport",
+        "interactiveViewport": "Interactieve terminal-viewport",
+        "terminalActions": "Terminal-acties"
+      },
+      "context": {
+        "copy": "Kopiëren",
+        "paste": "Plakken",
+        "selectAll": "Alles selecteren",
+        "buffer": "Buffer",
+        "copyVisibleOutput": "Copy visible output",
+        "copyFullScrollback": "Copy full scrollback",
+        "pasteAsSingleLine": "Paste as single line",
+        "clear": "Wissen",
+        "zoomIn": "Inzoomen",
+        "zoomOut": "Uitzoomen",
+        "zoomReset": "Zoom resetten",
+        "terminalFontSize": "{{size}}px",
+        "sendOutputToChat": "Send output to chat",
+        "explainLastError": "Explain last error",
+        "summarizeSession": "Summarize session",
+        "saveSnapshotToMemory": "Save snapshot to notes",
+        "cut": "Selectie knippen"
+      },
+      "search": {
+        "placeholder": "Terminaluitvoer doorzoeken",
+        "previous": "Vorige overeenkomst",
+        "next": "Volgende overeenkomst",
+        "close": "Zoeken sluiten",
+        "noMatches": "Geen overeenkomsten",
+        "resultCount": "{{current}}/{{total}}"
+      },
+      "pasteConfirm": {
+        "title": "Confirm large paste",
+        "message": "Paste {{count}} lines into the terminal? This can run multiple commands at once."
+      }
+    },
+    "dock": {
+      "state": {
+        "approval": "Goedkeuring",
+        "approvalSuffix": "goedkeuring",
+        "denied": "Geweigerd",
+        "userTakeover": "Gebruiker bestuurt",
+        "aiWaiting": "AI wachten",
+        "aiControlling": "AI bestuurt",
+        "running": "Rennen"
+      },
+      "announcements": {
+        "userTakeoverActive": "De gebruiker heeft de controle.",
+        "takeoverRequired": "Neem deze terminal over om te beginnen met typen."
+      },
+      "resize": "Formaat van terminal-dock wijzigen",
+      "tablistAriaLabel": "gesprek terminal-sessies",
+      "unread": "Ongelezen",
+      "terminalSessions": "Terminal-sessies",
+      "workspaceRoot": "workspace-wortel",
+      "control": {
+        "aiControlsShell": "AI bestuurt deze shell. Neem het over voordat u typt.",
+        "userControlsShell": "Momenteel bestuur je deze shell.",
+        "typingBlockedUntilTakeover": "Typen is geblokkeerd totdat u de overname bevestigt.",
+        "aiWaitingForUser": "AI wacht op bevestiging van de gebruiker voordat hij verdergaat."
+      },
+      "browser": {
+        "title": "Terminal-browser",
+        "subtitle": "Huidige gesprek / Overige live / Geschiedenis",
+        "sections": {
+          "currentThread": "Huidige gesprek",
+          "otherLive": "Andere live",
+          "history": "Geschiedenis"
+        },
+        "empty": {
+          "currentThread": "Er zijn nog geen live of lopende terminal-sessies aan deze gesprek gekoppeld.",
+          "otherLive": "Geen enkel ander gesprek heeft momenteel actieve terminalactiviteit.",
+          "history": "Er is nog geen gearchiveerde terminal-geschiedenis beschikbaar voor deze workspace."
+        },
+        "fields": {
+          "thread": "gesprek",
+          "scope": "Domein",
+          "updated": "Bijgewerkt"
+        },
+        "requestedIn": "Aangevraagd in {{section}}",
+        "suggestionFallback": "Tijdlijnsuggestiekaarten blijven gescheiden van deze browser.",
+        "crossThread": {
+          "title": "Cross-gesprek-sessie",
+          "description": "Bekijk hier de metadata en gebruik daarna {{openThreadLabel}} om vanuit het bijbehorende chatgesprek te inspecteren of te communiceren."
+        },
+        "selectSession": "Selecteer een terminal-sessie",
+        "actions": {
+          "openThread": "Open gesprek",
+          "savedToMemory": "Opgeslagen in geheugen",
+          "noMemorySummary": "Geen geheugen-samenvatting",
+          "saveToThreadMemory": "Save to conversation notes",
+          "saveToProjectMemory": "Save to project notes",
+          "deletingArchive": "Verwijderen...",
+          "deleteArchive": "Archief verwijderen",
+          "openTerminal": "Open terminal",
+          "backToDock": "Terug naar dok",
+          "browseSessions": "Blader door sessies",
+          "handBackToAi": "Controle teruggeven aan AI",
+          "confirmTakeover": "Bevestig overname",
+          "takeOver": "Overnemen",
+          "expandBrowser": "Vouw de terminal-browser uit",
+          "collapseBrowser": "Vouw de terminal-browser samen",
+          "expand": "Uitbreiden",
+          "collapse": "Instorten",
+          "openTerminalActions": "Terminal menu",
+          "terminalDockActions": "Terminal dockacties",
+          "closeBrowser": "Sluit browser",
+          "interrupt": "Onderbreken",
+          "stopInput": "Stop de invoer",
+          "closeSession": "Sessie sluiten",
+          "archiveSession": "Archief sessie",
+          "hideTerminal": "terminal verbergen",
+          "dismiss": "Afwijzen",
+          "forceTerminate": "Forceer beëindiging",
+          "killProcess": "Dood proces",
+          "renameSession": "Rename session",
+          "editTitle": "Edit title",
+          "duplicateSession": "Duplicate session",
+          "sameCwdShell": "Same cwd and shell",
+          "newAtProjectRoot": "New at project root",
+          "newFromCurrentCwd": "New from current cwd",
+          "newFromEditorCwd": "New from editor folder",
+          "currentCwd": "Current cwd",
+          "editorFolder": "Editor folder",
+          "defaultShell": "Default shell",
+          "newWithShell": "New with shell",
+          "sendOutputToChat": "Send output to chat",
+          "explainLastError": "Explain last error",
+          "summarizeSession": "Summarize session",
+          "saveSnapshotToMemory": "Save snapshot to notes",
+          "prefillComposer": "Prefill composer",
+          "recentOutput": "Recent output",
+          "boundedOutput": "Bounded output",
+          "threadMemory": "Conversation notes"
+        }
+      },
+      "confirm": {
+        "forceTerminateHost": {
+          "title": "Host Terminal geforceerd beëindigen",
+          "message": "Deze host-scoped terminal-sessie geforceerd beëindigen? Dit zal het onderliggende proces onmiddellijk doden."
+        },
+        "forceTerminate": {
+          "title": "Forceer beëindiging Terminal",
+          "message": "Deze terminal-sessie geforceerd beëindigen? Dit zal het onderliggende proces onmiddellijk doden."
+        },
+        "deleteArchive": {
+          "title": "Gearchiveerde Terminal-sessie verwijderen",
+          "message": "Deze gearchiveerde terminal-sessie verwijderen?\n\nHiermee wordt alleen het bewaarde archiefrecord verwijderd en dit kan niet ongedaan worden gemaakt.",
+          "confirm": "Archief verwijderen"
+        }
+      },
+      "prompts": {
+        "renameSession": "Rename terminal session"
+      },
+      "actions": {
+        "openTerminal": "Terminal openen",
+        "backToDock": "Terug naar dock",
+        "browseSessions": "Sessies bekijken",
+        "handBackToAi": "Teruggeven aan AI",
+        "confirmTakeover": "Overname bevestigen",
+        "takeOver": "Overnemen",
+        "expandBrowser": "Terminalbrowser uitvouwen",
+        "collapseBrowser": "Terminalbrowser samenvouwen",
+        "expand": "Uitvouwen",
+        "collapse": "Samenvouwen",
+        "openTerminalActions": "Terminal menu",
+        "terminalDockActions": "Terminaldock-acties",
+        "closeBrowser": "Browser sluiten",
+        "renameSession": "Sessie hernoemen",
+        "editTitle": "Titel bewerken",
+        "duplicateSession": "Sessie dupliceren",
+        "sameCwdShell": "Zelfde cwd en shell",
+        "newAtProjectRoot": "Nieuw in projectroot",
+        "newFromCurrentCwd": "Nieuw vanuit huidige cwd",
+        "newFromEditorCwd": "Nieuw vanuit editormap",
+        "currentCwd": "Huidige cwd",
+        "editorFolder": "Editormap",
+        "defaultShell": "Standaardshell",
+        "newWithShell": "Nieuw met shell",
+        "interrupt": "Onderbreken",
+        "stopInput": "Invoer stoppen",
+        "closeSession": "Sessie sluiten",
+        "archiveSession": "Sessie archiveren",
+        "hideTerminal": "Terminal verbergen",
+        "dismiss": "Sluiten",
+        "forceTerminate": "Force terminate",
+        "killProcess": "Kill process"
+      }
+    },
+    "globalIndicator": {
+      "threadCount": "{{count}} conversation{{suffix}}",
+      "liveCount": "{{count}} live-terminal{{suffix}}",
+      "priority": {
+        "approval": "Goedkeuring nodig",
+        "waiting": "Wachten op gebruiker"
+      }
+    },
+    "pendingApproval": {
+      "title": "Terminal waiting for approval",
+      "scopeLabel": "Scope",
+      "scopeHost": "Host access",
+      "scopeWorkspace": "Workspace",
+      "directoryLabel": "Directory",
+      "workspaceRoot": "workspace root"
+    }
+  },
+  "editor": {
+    "fileTree": {
+      "projectFallback": "Project",
+      "syncing": "Synchroniseren",
+      "openProjectFolder": "Projectmap openen",
+      "refresh": "Bestandsboom vernieuwen",
+      "ariaLabel": "{{projectName}}-bestanden",
+      "loading": "Laden...",
+      "emptyProject": "Leeg project.",
+      "binaryTitle": "{{path}} (kan binair bestand niet openen)"
+    },
+    "emptyState": {
+      "title": "Selecteer een bestand uit de boomstructuur om het te openen",
+      "shortcutHint": "Ctrl+S om op te slaan | klik op x om het tabblad te sluiten"
+    },
+    "loadingPane": "Laden...",
+    "panel": {
+      "thisFile": "dit bestand",
+      "closeDirty": {
+        "title": "Niet-opgeslagen wijzigingen",
+        "message": "Wijzigingen in {{fileLabel}} opslaan voordat u sluit?",
+        "confirm": "Opslaan en sluiten",
+        "cancel": "Meer opties"
+      },
+      "saveFailed": {
+        "title": "Opslaan mislukt",
+        "message": "Het bestand kon niet worden opgeslagen."
+      },
+      "discard": {
+        "title": "Wijzigingen weggooien?",
+        "message": "Niet-opgeslagen wijzigingen in {{fileLabel}} verwijderen en sluiten?",
+        "confirm": "Wijzigingen negeren",
+        "cancel": "Blijf bewerken"
+      },
+      "formatActionTitle": "Document opmaken met de actieve formatteerroute (Shift+Alt+F)",
+      "formatUnavailableTitle": "Opmaak is niet beschikbaar voor het huidige bestand",
+      "fixActionTitle": "Pas automatisch repareerbare problemen uit de actieve codeactie provider toe",
+      "fixUnavailableTitle": "Codeacties zijn niet beschikbaar voor het huidige bestand",
+      "serviceNotice": {
+        "providerDegraded": "{{providerLabel}} is verslechterd. Editor-functies zijn mogelijk beperkt.",
+        "providerUnavailable": "{{providerLabel}} is niet beschikbaar. Editor-functies zijn mogelijk beperkt.",
+        "genericUnavailable": "Sommige editorservices zijn momenteel niet beschikbaar."
+      },
+      "emptyProject": "Open een projectmap om de editor te gebruiken.",
+      "resizeFileTree": "Formaat van bestandsboom wijzigen",
+      "fileWatcherCap": "Bestandswatcher heeft maplimiet bereikt ({{watchedCount}}/{{maxDirectories}}). Sommige mappen worden niet actief gecontroleerd op externe bewerkingen.",
+      "dismiss": "Afwijzen",
+      "externalChangeDetected": "Externe wijziging gedetecteerd voor {{filePath}}. Uw niet-opgeslagen bewerkingen zijn bewaard gebleven.",
+      "reloadFromDisk": "Herladen vanaf schijf",
+      "resizeMarkdownPreview": "Formaat van markdown-voorbeeldvenster wijzigen",
+      "errors": {
+        "noProjectOrTabSelected": "Geen project of tabblad geselecteerd."
+      }
+    },
+    "tabBar": {
+      "openTabsAriaLabel": "Editor-tabbladen openen",
+      "fallbackFileLabel": "bestand",
+      "fallbackTabLabel": "tabblad",
+      "saveTabAriaLabel": "Bewaar {{fileLabel}}",
+      "unsavedChangesTitle": "Niet-opgeslagen wijzigingen: klik om op te slaan",
+      "externalChangedTitle": "Externe bestandswijziging gedetecteerd",
+      "problemSummaryTitle": "{{count}}-probleem{{suffix}} ({{error}}-fout{{errorSuffix}}, {{warning}}-waarschuwing{{warningSuffix}}, {{info}}-info)",
+      "closeTabAriaLabel": "Sluit {{tabLabel}}",
+      "aiActionsTitle": "AI-acties voor geselecteerde code",
+      "aiDraftHint": "Concepten naar Chat met behulp van de huidige selectie en context in de buurt.",
+      "preview": "Voorbeeld",
+      "fix": "Repareren",
+      "format": "Formaat",
+      "auto": "Auto",
+      "togglePreviewTitle": "Voorbeeld van prijsverlaging in-/uitschakelen (Ctrl/Cmd+Shift+V)",
+      "toggleFormatOnSaveTitle": "Schakel formatteren in bij opslaan wanneer het huidige bestand een actieve formatteerroute heeft",
+      "aiSelection": {
+        "explain": {
+          "label": "Uitleggen",
+          "title": "Leg de geselecteerde code in Chat uit",
+          "description": "Verklaar gedrag, aannames en risico's."
+        },
+        "fix": {
+          "label": "Repareren",
+          "title": "Herstel de geselecteerde code in Chat",
+          "description": "Los bugs/problemen op in de geselecteerde code."
+        },
+        "refactor": {
+          "label": "Refactor",
+          "title": "Refactoreer de geselecteerde code in Chat",
+          "description": "Refactoreer met behoud van gedrag."
+        },
+        "tests": {
+          "label": "Testen",
+          "title": "Genereer tests voor geselecteerde code in Chat",
+          "description": "Schrijf tests voor de geselecteerde code."
+        }
+      }
+    },
+    "diagnostics": {
+      "currentFile": "Huidig ​​bestand",
+      "common": {
+        "expand": "Uitbreiden",
+        "collapse": "Instorten"
+      },
+      "filters": {
+        "all": "Alle",
+        "errors": "Fouten",
+        "warnings": "Waarschuwingen",
+        "info": "Info"
+      },
+      "severity": {
+        "error": "Fout",
+        "warning": "Waarschuwing",
+        "info": "Info",
+        "hint": "Tip"
+      },
+      "problems": {
+        "title": "Problemen",
+        "errorCount": "{{count}}-fout{{suffix}}",
+        "warningCount": "{{count}} waarschuwing{{suffix}}",
+        "infoCount": "{{count}}-info",
+        "none": "Geen problemen",
+        "expandTitle": "Vouw het paneel Problemen uit",
+        "collapseTitle": "Deelvenster Problemen samenvouwen",
+        "setDefaultStateTitle": "Stel de standaardstatus van het paneel Problemen in",
+        "defaultCollapsed": "Standaard samengevouwen",
+        "noMatch": "Er zijn geen problemen die overeenkomen met het huidige filter.",
+        "noneInFile": "Geen problemen in dit bestand."
+      },
+      "outline": {
+        "title": "Overzicht",
+        "expandTitle": "Vouw de omtrek uit",
+        "collapseTitle": "Overzicht samenvouwen",
+        "filterSymbols": "Symbolen filteren",
+        "symbolCount": "{{count}}-symbool{{suffix}}",
+        "refreshing": "Verfrissend...",
+        "setupTitle": "Installatie",
+        "hintCount": "{{count}} hint{{suffix}}",
+        "dismissSetupHintTitle": "Negeer de {{actionLabel}}-installatiehint",
+        "unavailableForFileType": "Overzicht is nog niet beschikbaar voor dit bestandstype.",
+        "loadingSymbols": "Symbolen laden...",
+        "noneAvailable": "Geen overzicht beschikbaar.",
+        "noMatch": "Er zijn geen symbolen die overeenkomen met het huidige filter.",
+        "noneDetected": "Er zijn geen symbolen gedetecteerd in dit bestand.",
+        "symbolFallback": "Symbool",
+        "messages": {
+          "serviceUnavailable": "Symbolen zijn niet beschikbaar omdat de editorservice niet gereed is.",
+          "loadFailed": "Kan symbolen niet laden.",
+          "realProviderMissing": "Dit bestand blijft alleen syntaxis omdat er geen echte provider beschikbaar is voor deze taal.",
+          "formatOnlyLanguage": "Deze taal blijft momenteel alleen syntaxis in de editor.",
+          "missingBinary": "{{providerLabel}} is niet gevonden in dit project of op PATH.",
+          "providerUnavailable": "{{providerLabel}} is niet beschikbaar voor symbolen in dit bestand.",
+          "providerDegraded": "{{providerLabel}} is minder goed voor symbolen in dit bestand.",
+          "providerRequestFailed": "{{providerLabel}} is mislukt tijdens het laden van symbolen voor dit bestand.",
+          "unsupportedFile": "Overzicht is niet beschikbaar voor dit bestandstype.",
+          "unsupported": "Overzicht is niet beschikbaar voor dit bestand."
+        }
+      },
+      "setupHints": {
+        "messages": {
+          "formatting": {
+            "realProviderMissing": "Voor het formatteren is een echte provider voor dit bestand vereist.",
+            "biomeConfigRequired": "Voor het formatteren is een project Biome-configuratie vereist.",
+            "ruffConfigRequired": "Voor het formatteren is een project Ruff-configuratie vereist.",
+            "clangFormatConfigRequired": "Voor het formatteren is een project.clang-format of _clang-format config vereist.",
+            "javaProjectContextRequired": "Voor het formatteren is een Maven- of Gradle-projectcontext vereist (pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts).",
+            "dotnetProjectRequired": "Voor het formatteren is een echte.csproj- of.sln-context vereist.",
+            "missingBinary": "{{providerLabel}} is niet gevonden in dit project of op PATH.",
+            "providerUnavailable": "{{providerLabel}} is niet beschikbaar voor dit bestand.",
+            "providerDegraded": "{{providerLabel}} is verminderd voor dit bestand.",
+            "providerRequestFailed": "{{providerLabel}} is mislukt tijdens het weergeven van dit bestand.",
+            "formatOnlyLanguage": "Deze taal is momenteel alleen geschikt voor opmaak."
+          },
+          "codeActions": {
+            "realProviderMissing": "Codeacties vereisen een echte provider voor dit bestand.",
+            "eslintProjectRequired": "Codeacties vereisen een projectgeconfigureerde ESLint provider.",
+            "ruffConfigRequired": "Codeacties vereisen een project Ruff-configuratie.",
+            "clangTidyConfigRequired": "Codeacties vereisen een project.clang-tidy-configuratie.",
+            "clangCompileContextRequired": "Voor codeacties is compile_commands.json of compile_flags.txt vereist.",
+            "javaProjectContextRequired": "Codeacties vereisen een Maven- of Gradle-projectcontext (pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts).",
+            "dotnetProjectRequired": "Codeacties vereisen een echte.csproj- of.sln-context.",
+            "javaNotInstalled": "Er is geen bruikbare JDK gevonden op PATH of JAVA_HOME. jdtls vereist Java.",
+            "dotnetNotInstalled": "dotnet is niet gevonden op PATH.",
+            "missingBinary": "{{providerLabel}} is niet gevonden in dit project of op PATH.",
+            "providerUnavailable": "{{providerLabel}} is niet beschikbaar voor dit bestand.",
+            "providerDegraded": "{{providerLabel}} is verminderd voor dit bestand.",
+            "providerRequestFailed": "{{providerLabel}} is mislukt tijdens het weergeven van dit bestand.",
+            "formatOnlyLanguage": "Deze taal is momenteel alleen geschikt voor opmaak."
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "Instellingen",
+    "navigationTitle": "Instellingen navigatie",
+    "overviewTitle": "Overzicht",
+    "controls": {
+      "expandAll": "Alles uitvouwen",
+      "collapseAll": "Alles samenvouwen"
+    },
+    "counts": {
+      "sectionOne": "1 sectie",
+      "sectionOther": "{{count}}-secties",
+      "visibleSectionOne": "1 zichtbaar gedeelte",
+      "visibleSectionOther": "{{count}} zichtbare secties"
+    },
+    "common": {
+      "yes": "Ja",
+      "no": "Nee",
+      "completed": "VOLTOOID",
+      "inProgress": "IN UITVOERING",
+      "ready": "Klaar",
+      "notReady": "Niet klaar",
+      "savedOnly": "alleen opgeslagen",
+      "unknown": "onbekend",
+      "checking": "Controleren...",
+      "disabled": "Gehandicapt"
+    }
+  },
+  "artifacts": {
+    "emptyProject": "Open een projectmap om de artefactgeschiedenis te bekijken.",
+    "trackedFilesTitle": "Bijgehouden bestanden",
+    "scope": {
+      "label": "Artefactbereik",
+      "entireProject": "Project",
+      "thisThread": "Thread",
+      "resultCount": "{{count}} bestanden"
+    },
+    "loadingTrackedFiles": "Bijgehouden bestanden laden...",
+    "emptyTrackedFiles": "Er zijn nog geen versiebestanden. Hier verschijnen AI-bestandsschrijfbewerkingen en codesuggesties.",
+    "deleteRevisionDialog": {
+      "title": "Revisie verwijderen",
+      "message": "Verwijder rev {{rev}} ({{source}}) voor:\n{{filePath}}\n\nDit kan niet ongedaan worden gemaakt.",
+      "confirm": "Revisie verwijderen",
+      "cancel": "Annuleren"
+    },
+    "deleteHistoryDialog": {
+      "title": "Revisiegeschiedenis verwijderen",
+      "message": "Verwijder alle revisiegeschiedenis voor:\n{{filePath}}\n\nHet bestand op schijf wordt NIET verwijderd.",
+      "confirm": "Geschiedenis verwijderen",
+      "cancel": "Annuleren"
+    },
+    "selectFile": "Selecteer een bestand om de revisiegeschiedenis ervan te bekijken.",
+    "labels": {
+      "fromBase": "Van (basis)",
+      "toHead": "Naar (hoofd)",
+      "base": "baseren",
+      "head": "hoofd"
+    },
+    "deleteRevisionTitle": "Verwijder deze revisie",
+    "deleteFileHistoryTitle": "Verwijder alle geschiedenis voor dit bestand",
+    "selectRevisions": "Selecteer hierboven revisies om te vergelijken.",
+    "revisionSource": {
+      "baseline": "basislijn",
+      "rollback": "terugdraaien",
+      "suggestion": "suggestie",
+      "aiWrite": "AI schrijf"
+    },
+    "revisionOrigin": {
+      "thread": "Thread {{threadTitle}}",
+      "deletedThread": "Verwijderde thread {{threadTitle}} · {{date}}"
+    },
+    "suggestionBadge": "suggestie",
+    "revisionCountOne": "{{count}} rev",
+    "revisionCountOther": "{{count}} toeren",
+    "footer": {
+      "suggestionPending": "Deze revisie is nog niet naar schijf geschreven",
+      "apply": "Toepassen op schijf",
+      "applying": "Toepassen...",
+      "rollbackNotice": "Terugdraaien herstelt versie {{rev}} naar schijf",
+      "rollback": "Terugdraaien naar de basis",
+      "rollingBack": "Terugrollen..."
+    },
+    "picker": {
+      "placeholder": "-{{label}}-",
+      "empty": "- nieuw bestand (leeg) -",
+      "notOnDisk": "niet op schijf",
+      "option": "toerental {{rev}} - {{source}}{{notOnDisk}} - {{date}}",
+      "optionWithProvenance": "toerental {{rev}} - {{source}}{{notOnDisk}} - {{date}} · {{provenance}}"
+    },
+    "action": {
+      "rollbackSuccess": "Teruggedraaid naar rev {{rev}}. Nieuwe rev {{newRev}} opgenomen.",
+      "rollbackFailed": "Terugdraaien is mislukt.",
+      "applySuccess": "Toegepast op schijf. Nieuwe toerental {{newRev}} opgenomen.",
+      "applyFailed": "Toepassen mislukt.",
+      "revisionDeleted": "Rev {{rev}} verwijderd."
+    },
+    "diffLoading": "Verschil laden...",
+    "diffTimeout": "Diff runtime kan niet worden geïnitialiseerd. Laad de app opnieuw."
+  },
+  "workspaceDisposal": {
+    "activeMessage": "Actief werk moet stoppen voordat deze gegevens kunnen worden verwijderd.",
+    "threadDeleteActiveMessage": "Actief werk in deze [[canon:thread]] wordt vóór het verwijderen gestopt.",
+    "stopAndDelete": "Stoppen en verwijderen",
+    "stopAndRemove": "Stoppen en weghalen",
+    "stopAndClear": "Stoppen en wissen",
+    "stopAndArchive": "Stoppen en archiveren"
+  },
+  "threadDrawer": {
+    "title": "Threads",
+    "threadCount": "{{count}} threads",
+    "previewRole": {
+      "user": "Jij",
+      "assistant": "AI"
+    },
+    "activity": {
+      "needsInput": "Invoer nodig",
+      "sessionFailed": "Mislukt",
+      "sessionCompleted": "Voltooid",
+      "sessionActive": "Sessie actief",
+      "sessionStale": "Sessie oud",
+      "pendingApproval": "In afwachting van goedkeuring",
+      "sessionBlocked": "Sessie geblokkeerd",
+      "idle": "Inactief",
+      "pendingBadge": "In behandeling",
+      "blockedBadge": "Geblokkeerd"
+    },
+    "fallbackTitle": "Zonder titel gesprek",
+    "renameTitle": "Hernoem gesprek",
+    "deleteTitle": "gesprek verwijderen",
+    "searchPlaceholder": "Gesprekken zoeken...",
+    "newThreadTitle": "Nieuwe gesprek",
+    "newThread": "Nieuw",
+    "emptySearch": "Geen overeenkomende gesprekken.",
+    "empty": "Er zijn nog geen gesprekken.",
+    "createThread": "Maak een gesprek",
+    "loadMore": "Meer gesprekken laden ({{count}} verborgen)",
+    "resizeTitle": "Sleep om het formaat te wijzigen"
+  },
+  "backgroundJobs": {
+    "status": {
+      "polling": "Polling",
+      "cancelRequested": "Annuleren aangevraagd",
+      "completed": "Voltooid",
+      "failed": "Mislukt",
+      "cancelled": "Geannuleerd",
+      "orphaned": "Wees",
+      "queued": "In de wachtrij"
+    },
+    "title": "[[canon:background_jobs]]",
+    "runningJobs": "Taken uitvoeren: {{count}}",
+    "updated": "{{time}} bijgewerkt",
+    "refresh": "Vernieuwen",
+    "close": "Dichtbij",
+    "description": "Stop met langlopende lokale opdrachten of losse OpenAI-achtergrondreacties wanneer ze niet langer nodig zijn.",
+    "stopAll": "Stop alles",
+    "stopping": "Stoppen...",
+    "loading": "Achtergrondtaken laden...",
+    "empty": "Er worden momenteel geen achtergrondtaken uitgevoerd.",
+    "table": {
+      "job": "Functie",
+      "task": "Taak",
+      "runtime": "Runtime",
+      "context": "Context",
+      "action": "Actie"
+    },
+    "statusLabel": "status: {{status}}",
+    "openAiResponse": "OpenAI achtergrondreactie",
+    "detachedOpenAiResponse": "Vrijstaande OpenAI-reactie",
+    "emptyCommand": "(leeg)",
+    "stop": "Stop"
+  },
+  "chat": {
+    "planDirection": {
+      "questionNavigation": "Vragen over de planrichting",
+      "goToQuestion": "Ga naar vraag {{count}}",
+      "continue": "Doorgaan",
+      "changeAnswer": "Antwoord wijzigen",
+      "customPlaceholder": "Of beschrijf een andere richting",
+      "customAnswer": "Aangepast richtingsantwoord",
+      "recommendedShort": "Aanbevolen",
+      "synthesizing": "Richting bijwerken op basis van je keuzes…",
+      "synthesisFailed": "De richting kon niet worden bijgewerkt.",
+      "retryDraft": "Planconcept opnieuw proberen",
+      "retry": "Opnieuw proberen",
+      "reviewChoices": "Keuzes bekijken",
+      "change": "Richting wijzigen",
+      "changeFeedback": "Feedback op richting",
+      "changePlaceholder": "Wat moet er aan deze richting veranderen?",
+      "updateDirection": "Richting bijwerken",
+      "creating": "Het beheerde Markdown-plan wordt gemaakt…",
+      "recommended": "Aanbevolen:",
+      "recommendationDetail": "{{profile}} - {{rationale}}",
+      "create": "Plan maken",
+      "profileMenu": "Profielen voor planopstelling",
+      "profiles": {
+        "implementation": "Implementatieplan",
+        "technicalDesign": "Technisch ontwerp",
+        "investigation": "Onderzoeksplan",
+        "deepImplementation": "Uitgebreid implementatieplan"
+      },
+      "errors": {
+        "answerSave": "The direction answer could not be saved.",
+        "profileUnavailable": "The selected plan profile was unavailable.",
+        "changeFailed": "The direction feedback could not be saved.",
+        "retryFailed": "The direction update could not be retried."
+      }
+    },
+    "emptyState": {
+      "title": "Nog geen berichten",
+      "planDescription": "[[canon:plan]]-modus is actief. [[canon:ask]] voor een gestructureerd plan en gebruik vervolgens interactieve keuzes in het antwoord om het pad te bepalen.",
+      "thinkingDescription": "[[canon:thinking]]-modus is actief. Brainstorm hier over opties en afwegingen en schakel vervolgens over naar [[canon:execute]] wanneer u klaar bent om te implementeren.",
+      "executeDescription": "Selecteer een provider en begin met chatten. Gebruik de header [[canon:permission_mode]]-besturing om te schakelen tussen [[canon:ask]], [[canon:autonomy]] en [[canon:full_access]] voor uitvoeringsbeurten.",
+      "needsProviderSetup": "Verbind de OpenAI-accountauthenticatie of voeg een API key toe in Instellingen en selecteer vervolgens een provider om te starten."
+    },
+    "composer": {
+      "placeholder": {
+        "selectProvider": "Selecteer een provider om te starten...",
+        "selectThread": "Select or create a conversation to continue...",
+        "streaming": "AI denkt...",
+        "plan": "Vraag om een plan... (voer in om te verzenden, Shift+Enter voor nieuwe regel)",
+        "thinking": "Brainstorm over ideeën, afwegingen en richting... (Enter om te verzenden, Shift+Enter voor nieuwe regel)",
+        "execute": "Vraag alles over uw project... (voer in om te verzenden, Shift+Enter voor nieuwe regel)"
+      },
+      "blockLabels": {
+        "code": "Code",
+        "text": "Tekst"
+      },
+      "codeLanguage": "Codetaal",
+      "openAdvancedEditor": "Open de geavanceerde code-editor",
+      "advanced": "Geavanceerd",
+      "removeBlock": "Blok verwijderen",
+      "removeCodeBlock": "Codeblok verwijderen",
+      "removeTextBlock": "Tekstblok verwijderen",
+      "codePlaceholder": "Code...",
+      "insertSnippet": "Fragment invoegen",
+      "codeSnippet": "Codefragment",
+      "textSnippet": "Tekstfragment"
+    },
+    "controlRail": {
+      "quickActionsTitle": "[[canon:quick_actions]]",
+      "refreshModels": "Ververs models",
+      "refreshingModels": "models vernieuwen",
+      "refreshing": "Verfrissend...",
+      "openBackgroundJobs": "Open [[canon:background_jobs]]",
+      "backgroundJobs": "[[canon:background_jobs]]",
+      "agents": "Agenten",
+      "directAgentsMenu": "Menu voor agentselectie",
+      "moreActions": "Meer acties",
+      "stopResponse": "Reactie stoppen",
+      "sendMessage": "Bericht verzenden",
+      "sendEnter": "Verzenden (invoeren)",
+      "attach": {
+        "filesImagesDisabled": "Bestanden bijvoegen (afbeeldingen uitgeschakeld voor deze model)",
+        "images": "Afbeeldingen bijvoegen",
+        "files": "Bestanden bijvoegen"
+      },
+      "collaborationMode": {
+        "defaultLabel": "[[canon:native_collaboration_mode]]",
+        "buttonTitle": "[[canon:native_collaboration_mode]]: {{value}}",
+        "optionsAriaLabel": "[[canon:native_collaboration_mode]]-opties"
+      },
+      "reasoningEffort": {
+        "providerDefault": "Provider standaard",
+        "xhigh": "Xhoog",
+        "buttonTitle": "[[canon:reasoning_effort]]: {{value}}. Bepaalt hoeveel redenering de model toepast.",
+        "buttonAriaLabel": "[[canon:reasoning_effort]]: {{value}}",
+        "optionsAriaLabel": "[[canon:reasoning_effort]]-opties"
+      },
+      "processingMode": {
+        "fast": "Snel",
+        "standard": "Standaard",
+        "enable": "Snelle verwerking gebruiken",
+        "disable": "Standaardverwerking gebruiken",
+        "pricingNote": "Snelle verwerking kan premiumprijzen gebruiken.",
+        "returnedMode": "Het laatste antwoord gebruikte {{mode}} verwerking."
+      },
+      "rateLimits": {
+        "title": "[[canon:rate_limits]]",
+        "remainingTitle": "Resterende limieten voor OpenAI-rekeningtarieven",
+        "weekly": "Wekelijks",
+        "primary": "Primair",
+        "secondary": "Secundair"
+      }
+    },
+    "moaToggle": {
+      "activeTitle": "[[canon:moa]]-modus actief - klik om uit te schakelen",
+      "enableTitle": "[[canon:moa]] inschakelen (orkestratie met meerdere agenten)"
+    },
+    "threadModals": {
+      "common": {
+        "close": "Dichtbij",
+        "closeModal": "Sluit gesprek modaal",
+        "cancel": "Annuleren"
+      },
+      "create": {
+        "title": "Maak gesprek aan",
+        "description": "Voer een titel in voor het nieuwe gesprek gesprek.",
+        "placeholder": "Nieuwe gesprek",
+        "confirm": "Creëren"
+      },
+      "rename": {
+        "title": "Hernoem gesprek",
+        "description": "Update de titel voor het huidige gesprek gesprek.",
+        "placeholder": "gesprek-titel",
+        "confirm": "Redden"
+      },
+      "clear": {
+        "deleteTitle": "gesprek verwijderen",
+        "deleteMessage": "Deze [[canon:thread]]{{threadTitle}} verwijderen? Het gesprek, de bijlagen en de [[canon:thread]]-activiteit worden verwijderd. Projectbestanden, artefacten en bewaard geheugen blijven beschikbaar.",
+        "deleteConfirm": "gesprek verwijderen"
+      }
+    },
+    "providerSwitchContextBanner": {
+      "title": "Provider/model geschakeld",
+      "previousProvider": "vorige provider",
+      "newProvider": "nieuwe provider",
+      "movedFrom": "Verplaatst van",
+      "movedTo": "naar",
+      "continuityHint": "Voeg context toe vóór uw volgende beurt om te voorkomen dat de projectcontinuïteit verloren gaat.",
+      "injectMemory": "Injecteer geheugen",
+      "injectArtifacts": "Injecteer [[canon:artifacts]]",
+      "injectBoth": "Injecteer beide",
+      "dismiss": "Afwijzen"
+    },
+    "contextMeter": {
+      "toggleDetails": "Contextdetails schakelen",
+      "expandDetails": "Vouw de details van de contextmeter uit",
+      "collapseDetails": "Details van de contextmeter samenvouwen",
+      "visibleMetrics": "Zichtbare statistieken",
+      "chooseVisibleMetrics": "Kies zichtbare statistieken",
+      "showAll": "Toon alles",
+      "hideAll": "Alles verbergen",
+      "noMetricsSelected": "Geen statistieken geselecteerd.",
+      "title": {
+        "available": "Laatste beurt {{turnTokens}}/{{modelLimit}} tokens ({{percent}}%)",
+        "unavailable": "Gebruik van laatste beurt niet beschikbaar (limiet {{modelLimit}} token)",
+        "limitUnavailable": "Contextlimiet niet beschikbaar voor deze model",
+        "contextLeftAvailable": "Context links {{remaining}}/{{modelLimit}} tokens ({{percent}}%)",
+        "contextLeftFallback": "Resterende context {{remaining}}/{{modelLimit}} tokens ({{percent}}%, leeg gesprek)",
+        "contextLeftUnavailable": "Resterende context niet beschikbaar (limiet {{modelLimit}} tokens; bezetting van het gesprek niet beschikbaar)",
+        "contextLeftRecalculating": "Resterende context wordt na compactie herberekend (limiet {{modelLimit}} tokens)"
+      },
+      "values": {
+        "left": "links",
+        "occupancyUnavailable": "bezetting van het gesprek niet beschikbaar",
+        "limitUnknown": "limiet onbekend",
+        "notAvailable": "n.v.t",
+        "recalculating": "opnieuw berekenen..."
+      },
+      "metrics": {
+        "used": "gesprek evt.",
+        "usedEstimated": "gesprek evt. (schatting)",
+        "usedMapped": "gesprek evt. (in kaart gebracht)",
+        "remaining": "Context links",
+        "limit": "Beperken",
+        "turn": "Laatste beurt",
+        "spendRoll": "Sessie-uitgaven",
+        "inputNoCache": "Invoer (geen cache)",
+        "cacheRead": "Cache lezen",
+        "cacheWrite": "Cache schrijven",
+        "turnEstTok": "Draai naar tok",
+        "turnEstUsd": "Draai est usd",
+        "costConf": "Kostenconf",
+        "continuity": "Continuïteit",
+        "packet": "Pakket",
+        "drift": "Drift",
+        "compactionDelta": "Verdichtingsdelta"
+      }
+    },
+    "cursor": {
+      "fullAccessRequired": "Cursor runs only with Full Access.",
+      "useFullAccess": "Use Full Access"
+    },
+    "composerArea": {
+      "selectProvider": "Selecteer hieronder een provider om te beginnen met chatten.",
+      "selectThread": "Selecteer of maak een gesprek voordat u berichten verzendt.",
+      "selectedModelMissing": "De geselecteerde model is mogelijk niet beschikbaar. Vernieuw samengestelde modellen vanuit het actiemenu.",
+      "addApiKey": "Voeg een API key toe in Instellingen om te starten.",
+      "switchToExecute": "Schakel over naar [[canon:execute]]",
+      "imagesDisabled": "Afbeeldingen zijn uitgeschakeld voor deze model. Bestandsbijlagen blijven ingeschakeld.",
+      "pipeline": {
+        "stepRunning": "Pipeline step {{currentStep}}/{{totalSteps}}: {{stepName}}",
+        "completed": "Pipeline complete",
+        "failedAt": "Pipeline failed at {{stepName}}",
+        "cancelled": "Pipeline cancelled",
+        "starting": "Starting pipeline ({{totalSteps}} steps)..."
+      },
+      "council": {
+        "completed": "Raad voltooid ({{successCount}}/{{memberCount}} succesvol)",
+        "failed": "De Raad is mislukt",
+        "cancelled": "Raad geannuleerd",
+        "running": "Raad actief ({{memberCount}}-lid{{suffix}})..."
+      }
+    },
+    "permissionMode": {
+      "planActive": "[[canon:plan]]-modus: onderzoeks- en plangereedschappen zijn beschikbaar; projectwijzigingen zijn geblokkeerd.",
+      "thinkingActive": "[[canon:thinking]]-modus: lees- en onderzoeksgereedschappen zijn beschikbaar; projectwijzigingen zijn geblokkeerd.",
+      "planDormant": "De [[canon:plan]]-modus schakelt de uitvoering van gereedschap uit voor deze beurt.",
+      "thinkingDormant": "De [[canon:thinking]]-modus schakelt de uitvoering van gereedschap uit voor deze beurt.",
+      "label": "Toestemming",
+      "groupAriaLabel": "Toestemmingsmodus",
+      "optionsAriaLabel": "Opties voor toestemmingsmodus",
+      "helpers": {
+        "ask": "Prompt vóór risicovolle acties",
+        "autonomy": "Act inside workspace Guardrails",
+        "fullAccess": "Uitvoering van tools op hostniveau"
+      }
+    },
+    "dispatchConfirmation": {
+      "dispatchFailed": "Verzending mislukt.",
+      "executed": "Verzending uitgevoerd",
+      "executedDescription": "{{count}}-agent{{suffix}} verzonden. De resultaten verschijnen hieronder zodra de agenten klaar zijn.",
+      "failed": "Verzending mislukt",
+      "unknownError": "Onbekende fout.",
+      "retry": "Opnieuw proberen",
+      "title": "Taakverzendingsplan",
+      "selected": "{{selected}}/{{total}} geselecteerd",
+      "dispatching": "Verzending...",
+      "executeTasks": "Voer de {{count}}-taak{{suffix}} uit"
+    },
+    "questionUser": {
+      "clarificationNeeded": "Verduidelijking nodig",
+      "waitingOnYou": "Ik wacht op jou",
+      "recommended": "Aanbevolen",
+      "yourAnswer": "Jouw antwoord",
+      "answerPlaceholder": "Typ je antwoord…",
+      "answerHint": "Stuur hier snel een antwoord of ga door met bewerken in de onderstaande componist.",
+      "sending": "Verzenden...",
+      "sendAnswer": "Verzenden",
+      "sendAnswerTitle": "Antwoord verzenden (Enter)"
+    },
+    "runbook": {
+      "status": {
+        "cancelled": "geannuleerd",
+        "finishedWithErrors": "klaar met fouten",
+        "finishedWithWarnings": "klaar met waarschuwingen",
+        "finished": "afgerond",
+        "running": "rennen"
+      },
+      "filters": {
+        "all": "Alle",
+        "commands": "Commando's",
+        "usage": "Gebruik",
+        "reasoning": "Redenering",
+        "approvals": "Goedkeuringen"
+      },
+      "aria": {
+        "collapse": "Turn runbook samenvouwen",
+        "expand": "Vouw beurt runbook uit"
+      },
+      "summary": {
+        "actions": "acties {{count}}",
+        "commands": "commando's {{count}}",
+        "files": "bestanden {{count}}",
+        "usage": "gebruik {{count}}"
+      },
+      "sections": {
+        "actions": "Acties",
+        "commands": "Commando's",
+        "usage": "Gebruik"
+      }
+    },
+    "fileChanges": {
+      "header": "Bestanden gewijzigd: {{count}}",
+      "unknownFile": "Onbekend bestand",
+      "updatedAgo": "bijgewerkte {{time}}",
+      "changeType": {
+        "applied": "Toegepast",
+        "modified": "Gewijzigd",
+        "edited": "Bewerkt",
+        "deleted": "Verwijderd",
+        "renamed": "Hernoemd",
+        "rolledBack": "Terug gerold",
+        "created": "Gemaakt"
+      },
+      "syncStatus": {
+        "deleted": "verwijderd",
+        "undone": "ongedaan gemaakt",
+        "conflict": "conflict"
+      },
+      "reason": {
+        "changedSinceTurn": "Gewijzigd sinds deze beurt",
+        "missingRevisionMetadata": "Ontbrekende revisiemetagegevens"
+      },
+      "actions": {
+        "fallbackAction": "Actie",
+        "openInEditor": "Openen in editor",
+        "openInDocumentViewer": "Openen in documentviewer",
+        "openArtifacts": "Open [[canon:artifacts]]",
+        "copyPath": "Kopieer pad",
+        "deleting": "Verwijderen...",
+        "deleteFile": "Bestand verwijderen",
+        "undoing": "Ongedaan maken...",
+        "undoChange": "Wijziging ongedaan maken",
+        "menuTitle": "Bestandsacties"
+      },
+      "preview": {
+        "loading": "Wijzigingen laden...",
+        "noChangedLines": "Geen gewijzigde regels om te bekijken.",
+        "collapse": "Voorbeeld samenvouwen",
+        "expand": "Voorbeeld uitvouwen",
+        "collapseForFile": "Voorbeeld samenvouwen voor {{path}}",
+        "expandForFile": "Voorbeeld voor {{path}} uitvouwen",
+        "fileChangeFallback": "bestand wijzigen",
+        "limited": "voorbeeld beperkt",
+        "limitWithLineCount": "De bestandsgrootte overschrijdt de previewlimieten ({{lineCount}}-regels). Open in editor of [[canon:artifacts]] om wijzigingen te bekijken.",
+        "limitNoLineCount": "De bestandsgrootte overschrijdt de previewlimieten. Voorbeeld is uitgeschakeld boven {{maxLines}}-regels."
+      },
+      "dialogs": {
+        "undoOne": {
+          "title": "Bestandswijziging ongedaan maken",
+          "message": "De vorige versie van {{path}} herstellen?",
+          "confirm": "Wijziging ongedaan maken"
+        },
+        "deleteOne": {
+          "title": "Verwijder het aangemaakte bestand",
+          "message": "{{path}} verwijderen? Hierdoor wordt het bestand dat in deze beurt is gemaakt, van de schijf verwijderd.",
+          "confirm": "Bestand verwijderen"
+        },
+        "undoAll": {
+          "title": "Bestandswijzigingen ongedaan maken",
+          "message": "De vorige versie voor {{count}}-bestand{{suffix}} herstellen?",
+          "confirm": "Wijzigingen ongedaan maken"
+        },
+        "deleteAll": {
+          "title": "Verwijder gemaakte bestanden",
+          "message": "{{count}}-bestand{{suffix}} verwijderen dat in deze beurt is gemaakt? Hierdoor worden ze van de schijf verwijderd.",
+          "confirm": "Bestanden verwijderen"
+        }
+      },
+      "feedback": {
+        "clipboardUnavailable": "Klembord is niet beschikbaar in deze omgeving.",
+        "copiedPath": "Gekopieerd pad: {{path}}",
+        "copyFailed": "Kan het bestandspad niet kopiëren.",
+        "undoUnavailable": "Ongedaan maken is niet beschikbaar voor dit item (ontbrekende revisiemetagegevens).",
+        "undoSucceeded": "{{path}} ongedaan gemaakt.",
+        "undoFailed": "Ongedaan maken is mislukt.",
+        "deleteUnavailable": "Verwijderen is niet beschikbaar voor dit item (ontbrekende revisiemetagegevens).",
+        "deleteSucceeded": "Gemaakt bestand {{path}} verwijderd.",
+        "deleteFailed": "Verwijderen is mislukt.",
+        "conflict": "{{path}}: gewijzigd sinds deze beurt.",
+        "actionFailed": "{{path}}: {{message}}",
+        "undoAllUnavailable": "Maak alles ongedaan (ontbrekende revisiemetagegevens).",
+        "undoAllSummary": "Alles ongedaan maken: {{success}} geslaagd{{conflicts}}{{failed}}{{skipped}}.",
+        "undoAllFailed": "Alles ongedaan maken is mislukt.",
+        "deleteAllUnavailable": "Verwijder alle niet-beschikbare (ontbrekende revisie-metagegevens).",
+        "deleteAllSummary": "Aangemaakte bestanden verwijderen: {{success}} geslaagd{{conflicts}}{{failed}}{{skipped}}.",
+        "deleteAllFailed": "Het verwijderen van gemaakte bestanden is mislukt."
+      },
+      "activity": {
+        "undoOne": "Bestandswijziging ongedaan gemaakt: {{path}}",
+        "deleteOne": "Gemaakt bestand verwijderd: {{path}}",
+        "undoAll": "Alle bestandswijzigingen ongedaan maken ({{success}} geslaagd{{conflicts}}{{failed}}{{skipped}})",
+        "deleteAll": "Gemaakte bestanden verwijderd ({{success}} geslaagd{{conflicts}}{{failed}}{{skipped}})"
+      },
+      "bulkActions": {
+        "undoingTitle": "Bestandswijzigingen ongedaan maken",
+        "undoTitle": "Bestandswijzigingen uit deze beurt ongedaan maken",
+        "deletingTitle": "Gemaakte bestanden verwijderen",
+        "deleteTitle": "Verwijder gemaakte bestanden uit deze beurt"
+      }
+    },
+    "roleConfirmation": {
+      "title": "[[canon:ai_generated_agent_role]]",
+      "saveRole": "[[canon:save_role]]",
+      "saveRoleAndContinue": "[[canon:save_role_continue]]",
+      "useForDelegation": "[[canon:use_for_delegation]]",
+      "saving": "Besparing...",
+      "starting": "Beginnen...",
+      "saved": "Rol \"{{name}}\" opgeslagen",
+      "usedForDelegation": "Rol \"{{name}}\" gebruikt voor deze delegatie",
+      "savedDescription": "Per direct beschikbaar voor delegatie.",
+      "usedTemporaryDescription": "Deze tijdelijke rol wordt automatisch verwijderd nadat de delegatie is voltooid.",
+      "roleName": "[[canon:role_name]]",
+      "instructions": "Instructies",
+      "noInstructions": "Geen instructies",
+      "provider": "Provider",
+      "model": "model",
+      "selectProvider": "Selecteer provider...",
+      "selectModel": "Selecteer model...",
+      "modelIdPlaceholder": "model-id",
+      "emptyValue": "—",
+      "stagedWrites": {
+        "title": "Staged-bestand schrijft",
+        "enabledDescription": "Ingeschakeld voor deze rol. Met behulp hiervan kunnen stage-bestandswijzigingen plaatsvinden tijdens het delegeren.",
+        "disabledDescription": "Gehandicapt. Deze rol kan alleen analyses en aanbevelingen opleveren."
+      },
+      "allowStagedWrites": {
+        "title": "Sta het schrijven van staged-bestanden toe",
+        "description": "Agent kan suggesties stage [[canon:write_file]]."
+      },
+      "preview": "Voorbeeld",
+      "edit": "Bewerking",
+      "dismiss": "Afwijzen",
+      "errors": {
+        "roleNameRequired": "Rolnaam is vereist.",
+        "providerRequired": "Provider is vereist.",
+        "modelRequired": "model is vereist.",
+        "saveFailed": "Kan rol niet opslaan.",
+        "useTemporaryFailed": "Kan de tijdelijke rol niet gebruiken."
+      }
+    },
+    "writeConflict": {
+      "resolved": "{{path}} opgelost",
+      "conflictBadge": "conflict",
+      "showDebugInfo": "Foutopsporingsinformatie weergeven",
+      "hideDebugInfo": "Foutopsporingsinformatie verbergen",
+      "hideDetails": "Details verbergen",
+      "viewChanges": "Bekijk wat er is veranderd",
+      "loading": "Laden...",
+      "loadingPreviews": "Voorvertoningen laden...",
+      "previewUnavailable": "Voorbeeld niet beschikbaar.",
+      "aiMerge": "AI samenvoegen",
+      "dismiss": "Afwijzen",
+      "confirm": "Bevestigen",
+      "noModelSelected": "Geen model geselecteerd",
+      "generatingMerge": "Samenvoeging genereren...",
+      "retry": "Opnieuw proberen",
+      "tryAgain": "Probeer het opnieuw",
+      "accept": "Accepteren",
+      "labels": {
+        "yoursVsBase": "Uw wijzigingen versus basis",
+        "theirsVsBase": "Andere veranderingen versus basis"
+      },
+      "errors": {
+        "unknown": "Onbekende fout",
+        "requestFailed": "Verzoek mislukt",
+        "applyFailed": "Kan samenvoegresolutie niet toepassen.",
+        "mergeFailed": "Samenvoegen mislukt.",
+        "revisionPreviewUnavailable": "Revisievoorbeeld is niet beschikbaar in deze renderersessie.",
+        "loadRevisionPreviewFailed": "Kan revisievoorbeeld niet laden.",
+        "loadRevisionContextFailed": "Kan revisiecontext niet laden."
+      }
+    },
+    "attachments": {
+      "actions": {
+        "menuAriaLabel": "Acties voor bijlage {{name}}",
+        "showInFolder": "Weergeven in map",
+        "copy": "Kopiëren",
+        "saveAs": "Opslaan als...",
+        "openWith": "Openen met",
+        "defaultApp": "Standaardapp",
+        "chooseAnotherApp": "Andere app kiezen...",
+        "copyFailed": "Deze bijlage kon niet worden gekopieerd.",
+        "showInFolderFailed": "Deze bijlage kon niet in de map worden weergegeven.",
+        "saveFailed": "Deze bijlage kon niet worden opgeslagen.",
+        "openWithFailed": "Deze bijlage kon niet met de geselecteerde app worden geopend."
+      },
+      "common": {
+        "close": "Dichtbij",
+        "cancel": "Annuleren"
+      },
+      "errors": {
+        "cachedOpenFailed": "Kan het bijlagebestand in de cache niet openen.",
+        "unavailable": "Bijlage geopend is niet beschikbaar in deze build.",
+        "historyUnavailable": "Deze bijlage kan niet opnieuw worden geopend omdat de gegevens ervan niet beschikbaar zijn in de tijdlijngeschiedenis.",
+        "openFailed": "Kan bijlagebestand niet openen."
+      },
+      "labels": {
+        "pdfAttachment": "PDF-bijlage",
+        "attachedImage": "Bijgevoegde afbeelding",
+        "attachedFile": "Bijgevoegd bestand"
+      },
+      "image": {
+        "unavailable": "Afbeeldingsbijlage niet beschikbaar.",
+        "open": "Open {{label}}",
+        "previewAriaLabel": "Afbeeldingsvoorbeeld",
+        "closePreviewAriaLabel": "Afbeeldingsvoorbeeld sluiten"
+      },
+      "file": {
+        "openPdfViewer": "Open PDF in de viewer",
+        "openAttachedFile": "Open bijgevoegd bestand",
+        "openPdfAttachment": "PDF-bijlage openen",
+        "openFileAttachment": "Bestandsbijlage openen",
+        "clickOpenViewer": "Klik om te openen in de viewer",
+        "clickOpenFile": "Klik om het bestand te openen"
+      },
+      "dialogs": {
+        "openFileAriaLabel": "Bestandsbevestiging openen",
+        "openPdfTitle": "PDF openen in uw standaardviewer?",
+        "closeFileOpenAriaLabel": "Sluit bestand open bevestiging",
+        "openPdfDescription": "Dit bestand wordt buiten ADDOM geopend met behulp van de PDF-systeemtoepassing van uw systeem.",
+        "openPdfConfirm": "PDF openen"
+      }
+    },
+    "planRequests": {
+      "label": {
+        "memoryReview": "Inject saved context",
+        "artifactReview": "[[canon:artifacts]]-context injecteren",
+        "webIngest": "Website innemen",
+        "runRequest": "Verzoek uitvoeren"
+      },
+      "summary": {
+        "from": "van #{{value}}",
+        "to": "naar #{{value}}",
+        "tags": "Trefwoorden: {{value}}",
+        "sources": "bronnen: {{value}}",
+        "limit": "limiet {{value}}",
+        "files": "bestanden: {{value}}",
+        "latestOnly": "alleen laatste",
+        "revisionsPerFile": "revisies/bestand: {{value}}",
+        "fromRev": "vanaf rev {{value}}",
+        "toRev": "toerental {{value}}"
+      }
+    },
+    "toolExecution": {
+      "runningCommandWithCommand": "Opdracht uitvoeren: {{command}}",
+      "runningCommand": "Opdracht uitvoeren...",
+      "renameFile": "Actief: hernoem_bestand - {{oldPath}} -> {{newPath}}",
+      "browsingUrl": "Browsen: {{url}}",
+      "browserActionWithAction": "Browser: {{action}}",
+      "browserAction": "Browseractie",
+      "runningToolWithPath": "Actief: {{toolName}} - {{filePath}}",
+      "runningTool": "Actief: {{toolName}}",
+      "result": {
+        "browserDenied": "browser_action - geweigerd",
+        "browserFailed": "browser_action - mislukt",
+        "browserDone": "browser_action - klaar",
+        "toolDenied": "{{toolName}} - geweigerd",
+        "toolFailed": "{{toolName}} - mislukt",
+        "toolDone": "{{toolName}} - klaar"
+      }
+    },
+    "mcpElicitation": {
+      "sendFailed": "Dit antwoord kon niet worden verzonden."
+    },
+    "diff": {
+      "addedLine": "Toegevoegde regel",
+      "removedLine": "Verwijderde regel"
+    },
+    "providerTerms": {
+      "providerFallback": "deze provider",
+      "title": "Voordat je {{providerName}} gebruikt",
+      "lead": "Jij bent verantwoordelijk voor de voorwaarden van deze provider. Prompts en toolactiviteit kunnen deze machine verlaten.",
+      "cancel": "Annuleren",
+      "openTerms": "Voorwaarden openen",
+      "continue": "Doorgaan"
+    }
+  },
+  "toolApprovalOverlay": {
+    "header": {
+      "title": "AI wil:",
+      "reviewFileChanges": "Controleer de voorgestelde bestandswijzigingen en keur ze vervolgens goed of weiger ze",
+      "reviewDiff": "Bekijk het verschil hieronder en keur het vervolgens goed of weiger het",
+      "approveFilesystem": "Geef toestemming om deze actie op uw bestandssysteem toe te staan",
+      "expiresIn": "Verloopt in {{time}}"
+    },
+    "footer": {
+      "expired": "Approval expired",
+      "enterDisabled": "Enter-snelkoppeling uitgeschakeld voor verhoogde goedkeuringen",
+      "shortcuts": "Sneltoetsen: Voer toestaan, Esc weigeren in",
+      "submitting": "Submitting approval..."
+    },
+    "actions": {
+      "deny": "Weigeren (Esc)",
+      "allowForSession": "Sessie toestaan",
+      "allowForSessionTitle": "Sta deze goedkeuring toe en onthoud deze voor de huidige app-sessie, indien ondersteund",
+      "openGuardrails": "Open Guardrails settings",
+      "openGuardrailsTitle": "Cancel this approval and open Guardrails settings",
+      "allowHostFallback": "Host-fallback toestaan",
+      "allowHostFallbackTitle": "Terugval van host toestaan ​​(one-shot)",
+      "allowHostFullAccessThisTurn": "Geef host volledige toegang (deze beurt)",
+      "allowHostFullAccessThisTurnTitle": "Geef de host volledige toegang voor de rest van deze beurt",
+      "allowHostFullAccess": "Geef host volledige toegang",
+      "allowHostFullAccessTitle": "Host volledige toegang verlenen (one-shot)",
+      "allowWslCompatibility": "Sta compatibiliteitsrun WSL toe",
+      "allowWslCompatibilityTitle": "Sta een eenmalige WSL-compatibiliteitsrun toe",
+      "allowDisabledWslTitle": "Gebruik expliciete WSL-compatibiliteitsgoedkeuring voor deze opdracht",
+      "allowDisabledHostTitle": "Gebruik expliciete actie voor volledige toegang tot de host voor deze opdracht",
+      "allowTitle": "Toestaan ​​(Enter)",
+      "allowDisabled": "Toestaan ​​(uitgeschakeld)",
+      "allowCaution": "Toestaan ​​(let op)",
+      "allow": "Toestaan"
+    },
+    "review": {
+      "grantedRoot": "Toegegeven wortel",
+      "empty": "In dit goedkeuringsverzoek zijn geen bestandswijzigingen opgenomen.",
+      "file": "Bestand",
+      "unknownPath": "(onbekend pad)",
+      "noDiff": "Er is geen diff opgegeven voor deze bestandswijziging."
+    },
+    "policy": {
+      "runCommandTitle": "Voer het opdrachtbeleid uit",
+      "browserActionTitle": "Browseractiebeleid",
+      "warnings": "Waarschuwingen",
+      "hints": "Tips",
+      "explicitHostElevation": "Expliciete hosthoogte vereist",
+      "explicitHostElevationDescription": "Deze opdracht overschrijdt het `workspace_safe`-beleid. Gebruik de speciale eenmalige actie host_full_access om door te gaan.",
+      "explicitWslApproval": "Expliciete WSL-compatibiliteitsgoedkeuring vereist",
+      "explicitWslApprovalDescription": "WSL is geen beveiligingsgrens. Deze goedkeuring erkent een compatibiliteitsrun met bereikbaarheid van het hostbestandssysteem, en niet een ingeperkte sandbox."
+    },
+    "diff": {
+      "file": "bestand",
+      "newFile": "nieuw bestand",
+      "noChanges": "Geen wijzigingen gedetecteerd."
+    },
+    "risk": {
+      "readOnly": "Alleen-lezen",
+      "writesFile": "Schrijft bestand",
+      "runsCode": "Voert code uit"
+    },
+    "intent": {
+      "runCommand": "Run command",
+      "localShell": "Run local shell command",
+      "openTerminal": "Open terminal",
+      "useTerminal": "Use terminal",
+      "useBrowser": "Use browser",
+      "reviewFileChanges": "Review file changes",
+      "createDirectory": "Create directory",
+      "scopeSandboxUnavailable": "Sandbox unavailable; host fallback is available.",
+      "scopeInstallSandbox": "Runs in the install sandbox.",
+      "scopeHostAccess": "Requires host access.",
+      "scopeWorkspaceShell": "Runs in the workspace shell.",
+      "scopeBrowserTarget": "Target: {{target}}",
+      "scopeTerminalHostPath": "Opens against a host path.",
+      "scopeWorkingDirectory": "Working directory: {{cwd}}",
+      "warningExplicitHost": "This needs an explicit host access decision.",
+      "warningExplicitWsl": "WSL can reach host files. Use the explicit WSL action only if that is intended.",
+      "warningSandboxFallback": "The sandbox route is unavailable. Host fallback is a one-time exception.",
+      "warningPrivateNetwork": "This targets a local or private network address.",
+      "warningTerminalOutsideWorkspace": "This terminal opens outside the workspace."
+    },
+    "production": {
+      "deny": "Deny",
+      "allowForSession": "Allow for session",
+      "openGuardrails": "Settings",
+      "allowHostFallback": "Host fallback",
+      "allowHostFullAccessThisTurn": "Host this turn",
+      "allowHostFullAccess": "Host once",
+      "allowWslCompatibility": "WSL once",
+      "allowDisabled": "Choose explicit action",
+      "allowCaution": "Allow",
+      "allow": "Allow",
+      "explicitActionRequired": "Use an explicit approval action for this request.",
+      "browserRisk": "External action",
+      "reviewRisk": "Review",
+      "details": "Details",
+      "requestData": "Request data"
+    },
+    "productionPolicy": {
+      "command": "Command policy",
+      "browser": "Browser policy",
+      "terminal": "Terminal policy",
+      "hostAccessRequired": "Host access required",
+      "hostAccessDescription": "Use an explicit host action if this should run outside workspace-safe limits.",
+      "wslCompatibility": "WSL compatibility",
+      "wslDescription": "WSL can reach host files. Use the WSL action only when that is intended.",
+      "notes": "Notes"
+    }
+  },
+  "common": {
+    "close": "Dichtbij",
+    "clear": "Duidelijk",
+    "clearAll": "Alles wissen",
+    "cancel": "Annuleren"
+  },
+  "settingsInstructions": {
+    "title": "Gebruik ADDOM",
+    "updated": "Laatst bijgewerkte {{date}}",
+    "description": "Een beknopte gids over het huidige gedrag van de ADDOM, standaardveiligheidsinstellingen en waar u moet zoeken als u een opfriscursus nodig heeft.",
+    "sections": {
+      "chat-modes": {
+        "title": "Chat-modi",
+        "items": {
+          "0": "Met `[[canon:execute]]` kan ADDOM ingeschakelde tools gebruiken onder de geselecteerde [[canon:permission_mode]] (`[[canon:ask]]`, `[[canon:autonomy]]` of `[[canon:full_access]]`).",
+          "1": "`[[canon:plan]]` houdt de beurt zonder gereedschap en richt zich op opties, vragen en volgende stappen.",
+          "2": "`[[canon:thinking]]` is voor brainstormen en afwegingen zonder gereedschapsuitvoering.",
+          "3": "Als u `[[canon:implement_plan]]` kiest, wordt de chat vóór verzending teruggeschakeld naar `[[canon:execute]]`."
+        }
+      },
+      "tool-approvals": {
+        "title": "Gereedschapsgoedkeuringen",
+        "items": {
+          "0": "`[[canon:ask]]` geeft prompts vóór risicovolle acties, `[[canon:autonomy]]` onderdrukt routinematige prompts en `[[canon:full_access]]` staat tool-uitvoering op hostniveau toe voor de beurt.",
+          "1": "Zelfs in `[[canon:full_access]]` zijn destructieve opdrachtblokkeerlijsten nog steeds van toepassing op duidelijk gevaarlijke hostbewerkingen.",
+          "2": "Opdrachtaanvragen worden gecontroleerd aan de hand van uw opdrachtveiligheidsbeleid voordat ze kunnen worden uitgevoerd.",
+          "3": "Achtergrondopdrachten verschijnen in `[[canon:background_jobs]]`, waar u ze kunt inspecteren of stoppen."
+        }
+      },
+      "memory": {
+        "title": "geheugen-gedrag",
+        "items": {
+          "0": "Project geheugen slaat notities, samenvattingen en automatisch vastgelegde context lokaal op in SQLite.",
+          "1": "Oudere automatische logboeken kunnen worden gecomprimeerd na de drempel die u in Instellingen heeft ingesteld.",
+          "2": "Gecomprimeerde vermeldingen worden gearchiveerd, niet verwijderd en kunnen nog steeds worden bekeken.",
+          "3": "geheugen-activiteit is zichtbaar in chat en in het geheugen-paneel."
+        }
+      },
+      "continuity": {
+        "title": "[[canon:continuity_engine]]",
+        "items": {
+          "0": "Continuïteit houdt doelen, beslissingen, open loops, fouten en bestandsreferenties bij over de beurten.",
+          "1": "Het ophaalbereik is standaard ingesteld op `gesprek + project` en kan worden afgestemd in Instellingen.",
+          "2": "Profielen zoals `economy`, `balanced` en `deep` bepalen hoeveel continuïteit er wordt geïnjecteerd.",
+          "3": "Continuïteitsgebeurtenissen verschijnen in de tijdlijn tijdens het ophalen, samenstellen van pakketten of het comprimeren.",
+          "4": "Driftcontroles kunnen waarschuwen wanneer een nieuwe afslag in strijd lijkt te zijn met de gevestigde context."
+        }
+      },
+      "artifacts": {
+        "title": "[[canon:artifacts]]-gedrag",
+        "items": {
+          "0": "Elke goedgekeurde AI-bestandsschrijfbewerking creëert een artefactrevisie voor dat bestand.",
+          "1": "[[canon:artifacts]] ondersteunt diff-beoordeling, terugdraaien/toepassen en revisie-metagegevens.",
+          "2": "De artefactcontext kan een begrensde revisiegeschiedenis omvatten, niet alleen de nieuwste versie."
+        }
+      },
+      "workspace": {
+        "title": "[[canon:workspace]] Volharding",
+        "items": {
+          "0": "Projecten, gesprekken en tijdlijngebeurtenissen blijven lokaal opgeslagen in SQLite.",
+          "1": "Als u overschakelt naar provider of model, blijft de actieve gesprek actief en kunnen context-bootstrap-acties worden aangeboden.",
+          "2": "Resetbedieningen ondersteunen het wissen op gesprek-niveau, projectniveau en volledige workspace-clearing."
+        }
+      },
+      "commands": {
+        "title": "[[canon:background_jobs]]",
+        "items": {
+          "0": "Langdurige taken zoals ontwikkelservers, watchers en losgekoppelde OpenAI-reacties kunnen op de achtergrond worden uitgevoerd, zodat chat kan doorgaan.",
+          "1": "Gebruik `[[canon:background_jobs]]` om de uitvoer te inspecteren, een taak te stoppen of achtergrondactiviteiten te bekijken.",
+          "2": "Aanhoudende opdrachtuitvoer wordt ingekort om de tijdlijnen responsief te houden."
+        }
+      },
+      "command-palette": {
+        "title": "[[canon:command_palette]]",
+        "items": {
+          "0": "Open de algemene `[[canon:command_palette]]` met `Ctrl+Shift+P` om naar acties in ADDOM te zoeken.",
+          "1": "Gebruik `Up` en `Down` om te navigeren, `Enter` om uit te voeren en `Esc` om te sluiten.",
+          "2": "Commando's kunnen worden doorzocht op titel en aliassen zoals `switch project`, `autofix` of `outline`.",
+          "3": "Uitgeschakelde opdrachten blijven zichtbaar met een reden, zoals geen actieve gesprek of geen geopend editortabblad.",
+          "4": "Recente opdrachten worden weergegeven als de zoekopdracht leeg is, voor snellere herhaalworkflows."
+        }
+      },
+      "streaming-responses": {
+        "title": "Reacties streamen",
+        "items": {
+          "0": "Assistent-antwoorden stromen naar de chat als antwoordbrokken in plaats van te wachten tot de volledige beurt is afgelopen.",
+          "1": "De chunkgrootte en cadans zijn afhankelijk van de provider en model en zijn geen exacte tokenizer-eenheden.",
+          "2": "ADDOM versoepelt de levering van chunks in de gebruikersinterface om flikkering te verminderen en tegelijkertijd de realtime voortgang te behouden.",
+          "3": "Redeneringstekst verschijnt alleen wanneer de provider deze openbaar maakt; ADDOM verzint geen verborgen gedachtegang."
+        }
+      },
+      "runbook": {
+        "title": "Draai [[canon:runbook]] Transparantie",
+        "items": {
+          "0": "Elke model-beurt is gegroepeerd in een samengevouwen `Turn [[canon:runbook]]` in chat met chronologische acties.",
+          "1": "[[canon:runbook]]'s omvatten goedkeuringen, opdrachtstappen, bestandswijzigingen, gebruiksupdates en turn-status.",
+          "2": "Beurten met bestandsschrijfbewerkingen tonen een `Files changed`-kaart met +/- tellingen per bestand, voorbeelden en beoordelingsacties.",
+          "3": "Tot acties voor ongedaan maken behoren onder meer conflictwachters zoals `Changed since this turn` om onveilige terugkeer te voorkomen.",
+          "4": "De redeneringstekst die in de gebruikersinterface wordt weergegeven, is alleen voor provider; ADDOM verzint nooit een verborgen gedachtegang."
+        }
+      },
+      "moa": {
+        "title": "[[canon:moa]]-modus",
+        "items": {
+          "0": "`[[canon:moa]]` delegeert parallelle agenttaken terwijl de orkestrator de uiteindelijke autoriteit behoudt.",
+          "1": "Agentrollen worden geconfigureerd in Instellingen en kunnen sjablonen gebruiken als bewerkbare uitgangspunten.",
+          "2": "Delegaties handhaven limieten zoals taaklimieten, time-outs, token-budgetten en uitvoerafkapping.",
+          "3": "Begrotingswaarschuwingen kunnen een expliciete keuze vereisen voordat een dure delegatie doorgaat.",
+          "4": "Het schrijven van agentbestanden is optioneel, standaard uitgeschakeld en staged als artefactsuggesties in plaats van directe schijfschrijfbewerkingen.",
+          "5": "Alleen de orkestrator kan revisies van de staged-agent voltooien via expliciete toepassingsacties.",
+          "6": "[[canon:moa]]-levenscyclusgebeurtenissen zijn zichtbaar in zowel het [[canon:runbook]]- als het [[canon:moa]]-paneel.",
+          "7": "[[canon:moa]] kan aanzienlijk meer tokens verbruiken dan een beurt met één agent, dus houd het beleid en de gebruiksstatistieken in de gaten."
+        }
+      }
+    }
+  },
+  "commandPalette": {
+    "searchPlaceholder": "Typ een opdracht of zoek...",
+    "results": {
+      "commands": "Commando's",
+      "recentAndCommands": "Recente + opdrachten",
+      "shown": "{{count}} afgebeeld"
+    },
+    "filters": {
+      "all": "Alle",
+      "recent": "Recent",
+      "filterByCategory": "Filteropdrachten op {{label}}"
+    },
+    "categories": {
+      "ariaLabel": "Commandocategorieën",
+      "navigation": "Navigatie",
+      "chat": "Chat",
+      "editor": "Editor",
+      "memory": "geheugen",
+      "terminal": "Terminal"
+    },
+    "empty": {
+      "title": "Er zijn geen opdrachten die overeenkomen met uw zoekopdracht.",
+      "description": "Probeer een ander trefwoord of een andere alias."
+    },
+    "hint": {
+      "enter": "Binnenkomen"
+    },
+    "reasons": {
+      "open_a_project_first": "Open eerst een project",
+      "no_active_thread": "Geen actief gesprek",
+      "thread_has_no_messages_yet": "Dit gesprek heeft nog geen berichten",
+      "open_select_a_thread_first": "Open of selecteer eerst een gesprek",
+      "direct_agents_are_only_available_in_execute_mode": "Agenten zijn alleen beschikbaar in de [[canon:execute]]-modus",
+      "enable_moa_first": "Schakel eerst [[canon:moa]] in",
+      "wait_for_the_current_response_to_finish": "Wacht tot het huidige antwoord is voltooid",
+      "provider_model_switch_context_banner_is_not_active": "De contextbanner van de Provider/model-schakelaar is niet actief",
+      "open_a_file_in_editor_first": "Open eerst een bestand in Editor",
+      "open_a_markdown_file_in_editor_first": "Open eerst een Markdown-bestand in Editor",
+      "open_the_editor_and_select_code_first": "Open de Editor en selecteer eerst code",
+      "formatting_is_unavailable_for_the_current_file": "Opmaak is niet beschikbaar voor het huidige bestand",
+      "code_actions_are_unavailable_for_the_current_file": "Codeacties zijn niet beschikbaar voor het huidige bestand",
+      "no_terminal_session_selected": "Geen terminalsessie geselecteerd",
+      "terminal_session_is_not_running": "Terminalsessie is niet actief",
+      "terminal_is_already_controlled_by_you": "Terminal wordt al door jou bestuurd",
+      "terminal_is_already_controlled_by_ai": "Terminal wordt al door AI bestuurd",
+      "terminal_is_not_controlled_by_you": "Terminal wordt niet door jou bestuurd",
+      "terminal_is_not_controlled_by_ai": "Terminal wordt niet door AI bestuurd",
+      "terminal_cannot_be_interrupted": "Terminal kan niet worden onderbroken",
+      "terminal_cannot_be_closed": "Terminal kan niet worden gesloten",
+      "terminal_cannot_be_terminated": "Terminal cannot be terminated",
+      "no_terminal_dock_open": "Geen terminaldock geopend"
+    },
+    "commands": {
+      "nav": {
+        "chat": {
+          "title": "Ga naar Chat"
+        },
+        "editor": {
+          "title": "Ga naar Redacteur"
+        },
+        "artifacts": {
+          "title": "Ga naar [[canon:artifacts]]"
+        },
+        "memory": {
+          "title": "Ga naar geheugen"
+        },
+        "settings": {
+          "title": "Ga naar Instellingen"
+        },
+        "openProjectFolder": {
+          "title": "Open de projectmap"
+        },
+        "sidebar": {
+          "toggle": {
+            "expandTitle": "Vouw zijbalk uit",
+            "collapseTitle": "Zijbalk samenvouwen"
+          }
+        },
+        "projectEntry": {
+          "title": "Open Projects"
+        }
+      },
+      "chat": {
+        "thread": {
+          "new": {
+            "title": "Nieuwe gesprek"
+          },
+          "rename": {
+            "title": "Hernoem de huidige gesprek"
+          },
+          "delete": {
+            "title": "Huidige gesprek verwijderen"
+          },
+          "clear": {
+            "title": "Huidig ​​gesprek wissen"
+          }
+        },
+        "focusComposer": {
+          "title": "Focus Chat Componist"
+        },
+        "jumpToLatest": {
+          "title": "Ga naar het laatste bericht"
+        },
+        "openThreadSelector": {
+          "title": "Open gesprek-kiezer"
+        },
+        "openBackgroundJobs": {
+          "title": "Open [[canon:background_jobs]]"
+        },
+        "openDirectAgents": {
+          "title": "Open het Direct Agents-menu"
+        },
+        "toggleMoa": {
+          "title": "Schakel de [[canon:moa]]-modus in"
+        },
+        "inject": {
+          "memory": {
+            "title": "Injecteer geheugen in Chat"
+          },
+          "artifacts": {
+            "title": "Injecteer [[canon:artifacts]] in Chat"
+          },
+          "both": {
+            "title": "Injecteer geheugen + [[canon:artifacts]]"
+          }
+        }
+      },
+      "editor": {
+        "formatDocument": {
+          "title": "Documentformaat"
+        },
+        "fixAutofixable": {
+          "title": "Los problemen op die door Auto kunnen worden opgelost"
+        },
+        "toggleProblemsPanel": {
+          "title": "Schakel het paneel Problemen in"
+        },
+        "toggleOutlinePanel": {
+          "title": "Schakel het overzichtspaneel in"
+        },
+        "markdownPreview": {
+          "toggle": {
+            "title": "Markdown: Voorbeeld schakelen"
+          },
+          "open": {
+            "title": "Markdown: Open voorbeeld aan de zijkant"
+          }
+        },
+        "aiSelection": {
+          "explain": {
+            "title": "AI op selectie: leg uit"
+          },
+          "fix": {
+            "title": "AI bij selectie: opgelost"
+          },
+          "refactor": {
+            "title": "AI op selectie: Refactor"
+          },
+          "tests": {
+            "title": "AI op selectie: genereer tests"
+          }
+        }
+      },
+      "memory": {
+        "exportProjectJson": {
+          "title": "Projectcontext JSON exporteren",
+          "alerts": {
+            "failedTitle": "Exporteren is mislukt",
+            "failedMessage": "Kan context JSON niet exporteren: {{error}}",
+            "completedTitle": "Exporteren voltooid",
+            "completedMessage": "Geëxporteerde context JSON.\n\nBestand: {{filePath}}\ngeheugen-knooppunten: {{memoryNodeCount}}\nArtefactbestanden: {{artifactFileCount}}\nArtefactrevisies: {{artifactRevisionCount}}"
+          }
+        },
+        "openPanel": {
+          "title": "Open notes panel"
+        }
+      },
+      "terminal": {
+        "focus": {
+          "title": "Terminal focussen"
+        },
+        "new": {
+          "title": "Nieuwe terminal"
+        },
+        "browseSessions": {
+          "title": "Terminalsessies bekijken"
+        },
+        "takeOver": {
+          "title": "Terminal overnemen"
+        },
+        "handBack": {
+          "title": "Terminal teruggeven aan AI"
+        },
+        "interrupt": {
+          "title": "Terminal onderbreken"
+        },
+        "close": {
+          "title": "Terminalsessie sluiten"
+        },
+        "hide": {
+          "title": "Terminaldock verbergen"
+        }
+      }
+    }
+  },
+  "executionStream": {
+    "showEarlier": "Toon {{count}} eerder evenement{{suffix}}",
+    "thought": {
+      "verb": "Overwogen",
+      "briefly": "kort",
+      "show": "Redenering tonen",
+      "hide": "Redenering verbergen"
+    },
+    "transport": {
+      "startingTurn": "Startbeurt"
+    },
+    "compaction": {
+      "requested": "Context comprimeren...",
+      "running": "Context comprimeren...",
+      "applied": "OpenAI verdichting toegepast",
+      "failed": "OpenAI-verdichting mislukt",
+      "milestoneTitle": "Context gecomprimeerd vóór de volgende beurt",
+      "milestoneDetail": {
+        "codexThreadCompaction": "Codex rekening gesprek verdichting",
+        "providerServerSide": "OpenAI compactie op de server",
+        "manualServerSide": "OpenAI handmatige compactie op de server"
+      }
+    },
+    "progress": {
+      "navigate": "Navigeren",
+      "click": "Klikelement",
+      "type": "Tekst typen",
+      "select": "Optie selecteren",
+      "screenshot": "Schermafbeelding vastleggen",
+      "runningTool": "Met {{toolName}}",
+      "working": "Werken",
+      "terminalOpen": "Opening terminal",
+      "terminalOpenNamed": "Opening {{terminalLabel}}",
+      "terminalRead": "Reading terminal output",
+      "terminalReadNamed": "Reading output from {{terminalLabel}}",
+      "terminalAttach": "Reusing terminal session",
+      "terminalWrite": "Writing to terminal",
+      "terminalWriteNamed": "Writing to {{terminalLabel}}",
+      "terminalWait": "Waiting for terminal output",
+      "terminalWaitNamed": "Waiting for output from {{terminalLabel}}",
+      "terminalResize": "Resizing terminal session",
+      "terminalResizeNamed": "Resizing {{terminalLabel}}",
+      "terminalSignal": "Signaling terminal session",
+      "terminalSignalNamed": "Signaling {{terminalLabel}}",
+      "terminalClose": "Closing terminal session",
+      "terminalCloseNamed": "Closing {{terminalLabel}}"
+    },
+    "result": {
+      "listDirectory": "Vermeld {{countPrefix}}in {{pathLabel}}",
+      "createDirectory": "Map {{pathLabel}} aangemaakt",
+      "writeFile": "Schreef {{pathLabel}}",
+      "editFile": "{{pathLabel}} bijgewerkt",
+      "readFile": "Lees {{pathLabel}}",
+      "deleteFile": "{{pathLabel}} verwijderd",
+      "rollbackFile": "{{pathLabel}} teruggedraaid",
+      "renameFile": "Hernoemd tot {{oldPath}} in {{newPath}}",
+      "searchCode": "{{countPrefix}} gevonden voor \"{{query}}\" in {{searchPath}}",
+      "grepFile": "Er zijn overeenkomsten gevonden voor \"{{pattern}}\" in {{pathLabel}}",
+      "findFiles": "Er zijn overeenkomsten gevonden voor \"{{pattern}}\"",
+      "fetchPage": "{{hostLabel}} opgehaald",
+      "navigate": "Navigatie voltooid",
+      "click": "Klik op voltooid",
+      "type": "Typen voltooid",
+      "select": "Selectie voltooid",
+      "screenshot": "Screenshot gemaakt",
+      "browserAction": "Browseractie voltooid",
+      "gitStatusFailed": "Git-status mislukt",
+      "gitStatusDone": "Git-status voltooid",
+      "gitDiffFailed": "Git diff mislukt",
+      "gitDiffReady": "Git diff gereed",
+      "gitLogFailed": "Git-logboek is mislukt",
+      "gitLogReady": "Git-geschiedenis geladen",
+      "gitCommitFailed": "Commit is mislukt",
+      "gitCommitCreated": "Commit gemaakt",
+      "restoreFile": "{{pathLabel}} hersteld van {{refValue}}",
+      "commandDone": "Opdracht voltooid in {{commandScope}}",
+      "commandFailed": "Opdracht mislukt in {{commandScope}}",
+      "commandDenied": "Commando geweigerd in {{commandScope}}",
+      "revisionApplyFailed": "Het toepassen van de herziening is mislukt",
+      "revisionApplied": "Revisie toegepast",
+      "planUpdated": "Plan bijgewerkt",
+      "planUpdatedBatch": "Plan bijgewerkt ({{count}} wijzigingen)",
+      "genericToolResult": "{{toolName}} {{verb}}",
+      "actionFinished": "Actie voltooid",
+      "ranCommand": "Ran commando",
+      "terminalOpen": "Opened terminal",
+      "terminalOpenNamed": "Opened {{terminalLabel}}",
+      "terminalRead": "Read terminal output",
+      "terminalReadNamed": "Read output from {{terminalLabel}}",
+      "terminalAttach": "Reused terminal session in chat terminal dock",
+      "terminalAttachNamed": "Reused {{terminalLabel}} in chat terminal dock",
+      "terminalWrite": "Wrote to terminal",
+      "terminalWriteNamed": "Wrote to {{terminalLabel}}",
+      "terminalWait": "Waited for terminal output",
+      "terminalWaitNamed": "Waited for output in {{terminalLabel}}",
+      "terminalWaitMatched": "Matched expected terminal output",
+      "terminalWaitMatchedNamed": "Matched expected output in {{terminalLabel}}",
+      "terminalWaitTimedOut": "Timed out waiting for terminal output",
+      "terminalWaitTimedOutNamed": "Timed out waiting for {{terminalLabel}}",
+      "terminalResize": "Terminal session resized",
+      "terminalResizeNamed": "Resized {{terminalLabel}}",
+      "terminalSignal": "Terminal session signaled",
+      "terminalSignalNamed": "Signaled {{terminalLabel}}",
+      "terminalClose": "Closed terminal",
+      "terminalCloseNamed": "Closed {{terminalLabel}}"
+    },
+    "warning": {
+      "compactionFailed": "Contextverdichting is mislukt",
+      "generic": "Waarschuwing"
+    },
+    "error": {
+      "toolFailed": "{{toolName}} is mislukt",
+      "actionFailed": "Actie mislukt"
+    },
+    "header": {
+      "title": "Uitvoeringsstroom",
+      "show": "Live uitvoeringsstroom weergeven",
+      "hide": "Live-uitvoeringsstroom verbergen",
+      "awaitingFirstEvent": "In afwachting van het eerste evenement",
+      "eventCount": "{{count}}-evenement{{suffix}}",
+      "hiddenSummary": "Toont de nieuwste {{visibleItemCount}}-evenementen. {{hiddenItemCount}} eerdere gebeurtenis{{eventSuffix}} verborgen.",
+      "hiddenSummaryPinned": "Toont de nieuwste {{visibleTailItemCount}}-gebeurtenissen plus {{pinnedArchiveCount}} samengevouwen eerder redeneerblok{{archiveSuffix}}. {{hiddenItemCount}} eerdere gebeurtenis{{eventSuffix}} verborgen.",
+      "status": {
+        "failed": "mislukt",
+        "completed": "voltooid",
+        "started": "begonnen",
+        "generic": "{{status}}"
+      }
+    },
+    "output": {
+      "openCopyOptions": "Kopieeropties openen",
+      "copyCommand": "Kopieer opdracht",
+      "copyVisibleOutput": "Kopieer zichtbare uitvoer",
+      "copyPersistedPreview": "Kopieer het persistente voorbeeld",
+      "commandOutput": "Commando-uitvoer",
+      "showCommandOutput": "Toon opdrachtuitvoer",
+      "hideCommandOutput": "Opdrachtuitvoer verbergen",
+      "truncated": "Uitvoer afgekapt"
+    },
+    "bridge": {
+      "native": {
+        "activity": "Codex app-serveractiviteit",
+        "webSearch": "Codex app-server zoeken op internet",
+        "command": "Codex app-serveropdracht: {{commandName}}",
+        "fileChangeOne": "Codex app-serverbestand wijzigen",
+        "fileChangeOther": "Codex app-serverbestandswijzigingen",
+        "mcpTool": "Codex app-server MCP tool: {{toolName}}",
+        "imageView": "Codex app-server afbeeldingsweergave",
+        "planGenerated": "Codex app-serverplan gegenereerd",
+        "reviewMode": "Activiteit in de beoordelingsmodus Codex"
+      },
+      "source": {
+        "urlTitle": "Bron: {{title}}",
+        "urlCaptured": "Bron-URL vastgelegd",
+        "documentTitle": "Brondocument: {{title}}",
+        "documentCaptured": "Brondocument vastgelegd"
+      },
+      "providerTool": {
+        "modelRerouted": "Model omgeleid",
+        "configWarning": "Configuratiewaarschuwing",
+        "hook": "Hook",
+        "autoApprovalReview": "Automatische goedkeuringscontrole",
+        "providerError": "Providerfout",
+        "input": "Provider gereedschapinvoer: {{toolName}}",
+        "running": "Provider gereedschap draait: {{toolName}}",
+        "collectingInput": "Gereedschapsinvoer voor provider verzamelen...",
+        "imageGenerated": "Afbeelding gegenereerd door de tool OpenAI provider.",
+        "output": "Provider gereedschapsuitvoer: {{toolName}}"
+      },
+      "continuity": {
+        "responseTracked": "OpenAI-reactie bijgehouden: {{responseId}}",
+        "metadataReceived": "OpenAI-metagegevens van het antwoord ontvangen"
+      },
+      "websocket": {
+        "transportUpdate": "OpenAI WebSocket-transportupdate",
+        "reconnecting": "Opnieuw verbinding maken... {{attempt}}/{{maxAttempts}}",
+        "recoveringStoredResponse": "Herstellen van het uiteindelijke antwoord uit de opgeslagen status",
+        "recoveredStoredResponse": "Het laatste antwoord uit de opgeslagen staat hersteld",
+        "storedRecoveryFailed": "Herstel van opgeslagen respons is mislukt",
+        "recovered": "Opnieuw verbonden na nieuwe poging {{attempt}}/{{maxAttempts}}",
+        "bypassed": "Voor deze beurt wordt gebruik gemaakt van het standaard OpenAI-transport",
+        "fallback": "Terugvallend op de standaard OpenAI-stream",
+        "exhausted": "Uitgeput opnieuw aansluiten ({{attempt}}/{{maxAttempts}})",
+        "cancelled": "Opnieuw verbinden geannuleerd ({{attempt}}/{{maxAttempts}})"
+      },
+      "background": {
+        "queued": "OpenAI-achtergrondantwoord in de wachtrij geplaatst",
+        "completed": "OpenAI-achtergrondreactie voltooid",
+        "failed": "OpenAI achtergrondreactie mislukt.",
+        "cancelled": "Achtergrondreactie OpenAI is geannuleerd.",
+        "noteQueued": "OpenAI-achtergrondantwoord in de wachtrij geplaatst. Open Jobs om de voortgang te volgen of te stoppen.",
+        "noTextOutput": "OpenAI-achtergrondreactie voltooid zonder tekstuitvoer.",
+        "errorPrefix": "Fout: {{message}}"
+      }
+    }
+  },
+  "memoryPanel": {
+    "title": "geheugen",
+    "visibleCount": {
+      "eventOne": "{{count}}-gebeurtenis",
+      "eventOther": "{{count}}-gebeurtenissen",
+      "nodeOne": "{{count}}-knooppunt",
+      "nodeOther": "{{count}}-knooppunten"
+    },
+    "controls": {
+      "showArchived": "Gearchiveerd weergeven",
+      "includeGlobal": "Globaal opnemen",
+      "exportJsonTitle": "geheugen-logboeken en artifacts exporteren naar JSON",
+      "exporting": "Exporteren...",
+      "exportJson": "JSON exporteren",
+      "addNode": "Node toevoegen"
+    },
+    "tabs": {
+      "memory": "Duurzaam geheugen",
+      "history": "gespreksgeschiedenis"
+    },
+    "export": {
+      "completedTitle": "Exporteren voltooid",
+      "completedMessage": "Geëxporteerde context JSON.\n\nBestand: {{filePath}}\ngeheugen-knooppunten: {{memoryNodeCount}}\nArtefactbestanden: {{artifactFileCount}}\nArtefactrevisies: {{artifactRevisionCount}}",
+      "failedTitle": "Exporteren is mislukt",
+      "failedMessage": "Kan context JSON niet exporteren: {{message}}"
+    },
+    "search": {
+      "placeholder": "Zoeken geheugen...",
+      "searching": "Zoeken...",
+      "resultOne": "{{count}}-resultaat",
+      "resultOther": "{{count}}-resultaten"
+    },
+    "compression": {
+      "latestBatchTitle": "Laatste compressiebatch",
+      "summary": "Gecomprimeerd logt #{{rangeStart}} tot #{{rangeEnd}} in het samenvattingsknooppunt ({{archivedCount}} gearchiveerd).",
+      "jumpToSummary": "Ga naar Samenvatting",
+      "dismiss": "Afwijzen"
+    },
+    "loading": {
+      "memory": "geheugen laden...",
+      "threadHistory": "gesprek-geschiedenis laden..."
+    },
+    "sections": {
+      "pinned": "Vastgezet",
+      "allNodes": "Alle geheugen-knooppunten"
+    },
+    "embedder": {
+      "downloading": "model {{progress}}% downloaden",
+      "loading": "model laden...",
+      "unavailable": "Insluiten niet beschikbaar"
+    },
+    "source": {
+      "userMemory": "Gebruiker geheugen",
+      "workspaceEvent": "Workspace-gebeurtenis",
+      "terminalSummary": "Terminal-samenvatting",
+      "validatedDecision": "Gevalideerde beslissing",
+      "referenceNote": "Referentie opmerking"
+    },
+    "provenance": {
+      "ariaLabel": "geheugen herkomst",
+      "origin": "Oorsprong",
+      "terminalSession": "Geaccepteerd terminal-samenvatting",
+      "session": "Sessie",
+      "thread": "gesprek",
+      "saved": "Opgeslagen"
+    },
+    "badges": {
+      "global": "mondiaal",
+      "archived": "gearchiveerd",
+      "deletedThread": "Verwijderde thread"
+    },
+    "meta": {
+      "deletedThreadOrigin": "{{threadTitle}} · verwijderd {{time}}"
+    },
+    "actions": {
+      "unpin": "Losmaken",
+      "pin": "Pin",
+      "edit": "Bewerking",
+      "delete": "Verwijderen",
+      "showLess": "Laat minder zien",
+      "showMore": "Laat meer zien",
+      "continue": "Doorgaan",
+      "continueDraft": "Doorgaan vanuit de opgeslagen context."
+    },
+    "scoreRef": "{{score}}% ref",
+    "history": {
+      "userMessage": "Gebruikersbericht",
+      "assistantMessage": "Assistent bericht",
+      "emptyTitle": "Nog geen gesprek-geschiedenis",
+      "noActiveThreadTitle": "Geen actieve gesprek geselecteerd",
+      "emptyDescription": "Transcriptgebeurtenissen van gebruikers en assistenten voor deze gesprek worden hier weergegeven.",
+      "noActiveThreadDescription": "Open of maak een gesprek om de transcriptiegeschiedenis ervan te inspecteren."
+    },
+    "addForm": {
+      "title": "Nieuwe geheugenknooppunt toevoegen",
+      "topicPlaceholder": "Onderwerp / titel",
+      "contentPlaceholder": "Schrijf alle contexten, feiten of instructies op...",
+      "tagsPlaceholder": "Tags (door komma's gescheiden)",
+      "saveAsGlobal": "Opslaan als persistent globaal geheugen",
+      "saving": "Besparing...",
+      "saveNode": "Bewaar Node"
+    },
+    "editForm": {
+      "title": "Bewerk geheugenknooppunt",
+      "closeAriaLabel": "Sluit de geheugen-knooppunteditor",
+      "topicPlaceholder": "Onderwerp",
+      "contentPlaceholder": "Inhoud",
+      "tagsPlaceholder": "Tags (door komma's gescheiden)",
+      "saving": "Besparing...",
+      "saveChanges": "Wijzigingen opslaan"
+    },
+    "empty": {
+      "searchTitle": "Geen overeenkomende herinneringen",
+      "title": "Nog geen herinneringen",
+      "searchDescription": "Probeer een andere zoekterm of wis de zoekopdracht om alle geheugen-knooppunten te zien.",
+      "description": "Duurzaam geheugen slaat expliciete aantekeningen, workspace-gebeurtenissen, geaccepteerde terminal-samenvattingen, gevalideerde beslissingen en referentienotities op. Raw chat wordt nu live in de geschiedenis van gesprek."
+    }
+  },
+  "workspaceRail": {
+    "title": "Projecten",
+    "ariaLabel": "Projecten en threads",
+    "show": "Projecten en threads tonen",
+    "showWithActivityOne": "Projecten en threads tonen. {{count}} verborgen thread; hoogste prioriteit: {{activity}}.",
+    "showWithActivityOther": "Projecten en threads tonen. {{count}} verborgen threads; hoogste prioriteit: {{activity}}.",
+    "hide": "Projecten en threads verbergen",
+    "resize": "Grootte van projecten en threads wijzigen",
+    "close": "Projecten en threads sluiten"
+  },
+  "projectEntry": {
+    "browserPreviewLimitation": {
+      "title": "Desktop workspace required",
+      "message": "Opening a project requires the Electron workspace bridge. Use the desktop app or an Electron-backed smoke run for this flow."
+    },
+    "clearProjectHistoryDialog": {
+      "title": "Clear project transcript history",
+      "message": "Clear transcript history for project \"{{name}}\"?\n\nThis does not delete project files.",
+      "confirm": "Clear history",
+      "cancel": "Cancel"
+    },
+    "archiveProjectDialog": {
+      "title": "Actief werk stoppen en project archiveren?",
+      "message": "Actief werk in ‘{{name}}’ wordt gestopt voordat het project naar Archief gaat.",
+      "cancel": "Annuleren"
+    },
+    "removeProjectDialog": {
+      "title": "Remove from ADDOM?",
+      "message": "\"{{name}}\" and all of its ADDOM history, Memory, Artifacts, and recovery data will be removed. Project files are unchanged.",
+      "path": "Folder: {{path}}",
+      "confirm": "Remove from ADDOM",
+      "failureTitle": "Could not remove from ADDOM",
+      "failureMessage": "Nothing was removed from ADDOM. Try again.",
+      "cancel": "Cancel"
+    },
+    "eyebrow": "Workspace",
+    "title": "Open a project",
+    "newProject": "Nieuw project",
+    "newThreadInProject": "Nieuwe thread in {{name}}",
+    "openFolder": "Open folder",
+    "projectActions": {
+      "openFolder": "Open folder",
+      "archiveProject": "Project archiveren",
+      "clearHistory": "Clear history",
+      "removeProject": "Remove from ADDOM",
+      "ariaLabel": "Project actions for {{name}}",
+      "restoreToRecent": "Restore to Recent"
+    },
+    "archive": {
+      "title": "Archive",
+      "toggle": "Toggle Archive"
+    },
+    "projectDisclosure": {
+      "expand": "Expand {{name}}",
+      "collapse": "Collapse {{name}}"
+    },
+    "recentProjects": {
+      "title": "Recent projects",
+      "description": "Pick up a workspace with its threads and local context.",
+      "projectCount": "{count, plural, one {# project} other {# projecten}}",
+      "fallbackProjectName": "Project",
+      "recent": "Recent",
+      "threadCount": "{{count}} gesprekken",
+      "open": "Open"
+    },
+    "empty": {
+      "title": "No recent projects",
+      "description": "Open a folder to start working in the main workspace."
+    },
+    "home": {
+      "placeholder": "Beschrijf een taak om te beginnen",
+      "noProject": "Geen project",
+      "projectMenu": "Doelproject kiezen",
+      "start": "Taak starten",
+      "commandsHint": "Opdrachten"
+    }
+  },
+  "agents": {
+    "fanoutConfirmation": {
+      "title": "Launch {{count}} agents?",
+      "description": "The orchestrator requested more agents than your {{limit}}-agent confirmation limit.",
+      "stopTurn": "Stop turn",
+      "limit": "Limit to {{count}}",
+      "launch": "Launch {{count}}"
+    }
+  },
+  "agentNavigator": {
+    "title": "Agents",
+    "close": "Agents sluiten",
+    "settings": "Agentinstellingen",
+    "sectionActive": "Actief",
+    "sectionDone": "Klaar · {{count}}",
+    "emptyActive": "Geen actieve agents",
+    "emptyThread": "Geen agents in dit gesprek.",
+    "showMore": "Nog {{count}} tonen",
+    "expand": "Uitvouwen",
+    "collapse": "Samenvouwen",
+    "hidden": "+{{count}}",
+    "partialVisibility": "door provider beheerd, gedeeltelijk zichtbaar",
+    "age": {
+      "seconds": "{{count}} s",
+      "minutes": "{{count}} min",
+      "hours": "{{count}} u",
+      "days": "{{count}} d"
+    },
+    "status": {
+      "queued": "In wachtrij",
+      "running": "Actief",
+      "waiting": "Wachten",
+      "paused": "Gepauzeerd",
+      "approval_required": "Goedkeuring vereist",
+      "cancelling": "Annuleren",
+      "completed": "Voltooid",
+      "failed": "Mislukt",
+      "cancelled": "Geannuleerd"
+    },
+    "live": {
+      "selected": "{{label}} · {{status}}",
+      "attention": "{{label}} needs attention · {{status}}"
+    }
+  },
+  "agentConversation": {
+    "back": "Terug",
+    "rootLabel": "Gesprek",
+    "regionLabel": "Agentgesprek",
+    "loading": "Transcript laden…",
+    "empty": "Nog geen transcript vastgelegd.",
+    "loadMore": "Meer activiteit laden",
+    "unavailableTitle": "Agent niet beschikbaar",
+    "unavailableBody": "Deze agent maakt geen deel meer uit van de run.",
+    "error": "Kon het transcript van deze agent niet laden.",
+    "actions": {
+      "menu": "Agentacties",
+      "message": "Bericht",
+      "messagePrompt": "Bericht aan deze agent",
+      "messageDescription": "Stuur een vervolginstructie naar de actieve agent.",
+      "messagePlaceholder": "Schrijf een beknopte instructie…",
+      "cancel": "Annuleren",
+      "send": "Versturen",
+      "sending": "Versturen…",
+      "failure": "De agentactie kon niet worden voltooid.",
+      "interrupt": "Onderbreken",
+      "retry": "Opnieuw proberen",
+      "promote": "Doorgaan als projectthread"
+    },
+    "origin": {
+      "label": "Vertakt van {{role}} · Beurt {{turn}}",
+      "inspect": "Bron bekijken",
+      "unavailable": "Bron niet beschikbaar",
+      "artifacts": "{{count}} niet-samengevoegde bronartefacten",
+      "failure": "De bronagent kon niet worden geopend."
+    }
+  },
+  "agentStream": {
+    "title": "Agents · {{count}}",
+    "open": "Openen",
+    "delegationEchoSuppressed": "Delegatie voltooid. Open Agents voor de details."
+  },
+  "agentTrigger": {
+    "idle": "Agents",
+    "active": "Agents · {{count}} active",
+    "approval": "Agents · needs approval",
+    "failed": "Agents · {{count}} failed",
+    "open": "Open Agents",
+    "close": "Close Agents"
+  }
+}

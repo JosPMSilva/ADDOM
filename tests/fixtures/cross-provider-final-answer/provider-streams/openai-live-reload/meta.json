@@ -1,0 +1,30 @@
+{
+  "fixtureId": "provider-openai-live-reload",
+  "kind": "provider_stream",
+  "title": "OpenAI live reload stream",
+  "sourceClass": "synthetic-provider-shape",
+  "provider": "openai",
+  "model": "gpt-5.4",
+  "streamShape": "append-delta",
+  "scenario": "live_reload",
+  "semanticOwnership": "provider-stream",
+  "contentFile": "stream.json",
+  "contentSha256": "54679c60a7e46ad0991e9a5f2cecfda58e3683ff56c456c1da148de8d7634cd9",
+  "captureProvenance": {
+    "source": "synthetic",
+    "captureMode": "repo-authored",
+    "sourceFiles": [
+      "runbook.md"
+    ],
+    "notes": "Structured synthetic provider stream fixture."
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ],
+  "sourceContentSha256": "54679c60a7e46ad0991e9a5f2cecfda58e3683ff56c456c1da148de8d7634cd9",
+  "expectedFinalMarkdownSha256": "efee83e84010248c6f8fdfaed665e9f3013fca158f73245bee535de278ae3ccc"
+}

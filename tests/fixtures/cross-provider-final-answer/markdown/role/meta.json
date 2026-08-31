@@ -1,0 +1,27 @@
+{
+  "fixtureId": "markdown-role",
+  "kind": "markdown",
+  "title": "Role fixture",
+  "sourceClass": "repo-derived",
+  "provider": "repo",
+  "model": "repo-derived",
+  "streamShape": "none",
+  "semanticOwnership": "final-answer",
+  "contentFile": "content.md",
+  "sourceContentSha256": "2cb9a44d112a67825e4add63b93732e8d02e20f122d722dfb5fb781406aee746",
+  "contentSha256": "2cb9a44d112a67825e4add63b93732e8d02e20f122d722dfb5fb781406aee746",
+  "captureProvenance": {
+    "source": "repo-derived",
+    "captureMode": "read-only",
+    "sourceFiles": [
+      "runbook.md"
+    ]
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ]
+}

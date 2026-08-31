@@ -1,0 +1,937 @@
+{
+  "shell": {
+    "badges": {
+      "projectRootSet": "zestaw główny projektu",
+      "projectRootMissing": "Brak katalogu głównego projektu",
+      "languageSystem": "język: systemowy",
+      "languageNamed": "język: {{label}}",
+      "updatesNamed": "aktualizacje: {{status}}",
+      "updatesIdle": "aktualizacje są bezczynne",
+      "uiScale": "interfejs użytkownika {{percent}}%{{modeSuffix}}",
+      "uiScaleAutoSuffix": "automatyczny",
+      "typographyScale": "tekst {{percent}}%",
+      "providersCount": "{{count}} providers",
+      "configuredCount": "Skonfigurowano {{count}}",
+      "noProvidersConfigured": "nie skonfigurowano providers",
+      "permissionMode": "pozwolenie: {{mode}}",
+      "liveStreamOn": "transmisja na żywo",
+      "liveStreamOff": "transmisja na żywo wyłączona",
+      "debugVisible": "debugowanie widoczne",
+      "debugHidden": "debugowanie ukryte",
+      "compressionOn": "kompresja włączona",
+      "compressionOff": "kompresja wyłączona",
+      "threshold": "próg {{value}}",
+      "globalMemoryContextOn": "globalny kontekst pamięci włączony",
+      "globalMemoryContextOff": "globalny kontekst pamięci wyłączony",
+      "enabled": "włączony",
+      "disabled": "wyłączony",
+      "rolesCount": "Role {{count}}",
+      "tier": "poziom: {{tier}}",
+      "projectSelected": "wybrany projekt",
+      "noActiveProject": "brak aktywnego projektu",
+      "threadSelected": "Wybrano rozmowa",
+      "noActiveThread": "brak aktywnego rozmowa"
+    }
+  },
+  "categories": {
+    "general": {
+      "label": "Ogólne",
+      "description": "Language, product guidance, updates, and app information."
+    },
+    "appearance": {
+      "label": "Wygląd",
+      "description": "Choose a theme, interface density, reading scale, and workspace tone."
+    },
+    "terminal": {
+      "label": "Terminal",
+      "description": "Configure terminal type, shell, working folder, and interaction behavior."
+    },
+    "agents": {
+      "label": "Agenci",
+      "description": "Set persistent instructions and manage Subagent roles."
+    },
+    "providers": {
+      "label": "Providers",
+      "description": "Provider connections, credentials, OpenAI account access, and Project Knowledge when enabled."
+    },
+    "toolsSafety": {
+      "label": "Safety",
+      "description": "Execution mode and concise guardrail behavior."
+    },
+    "dataPrivacy": {
+      "label": "Data",
+      "description": "Export, restore, delete, or reset local ADDOM data."
+    }
+  },
+  "sections": {
+    "general": {
+      "instructions": {
+        "title": "Przewodnik użytkowania",
+        "summary": "Otwórz przewodnik w aplikacji dotyczący bieżącego zachowania, domyślnych ustawień bezpieczeństwa i przepływów pracy."
+      },
+      "language": {
+        "title": "Język",
+        "summary": "Select the ADDOM app language."
+      },
+      "projectFolder": {
+        "title": "Folder projektu",
+        "summary": "Wybierz aktywny katalog główny projektu dla narzędzi plikowych i poleceń shell."
+      },
+      "assistantPrompt": {
+        "title": "Custom instructions",
+        "summary": "Add persistent guidance to each chat turn."
+      },
+      "uiScaling": {
+        "title": "Skalowanie interfejsu użytkownika",
+        "summary": "Adjust shell density and chat text size."
+      },
+      "updates": {
+        "title": "Aktualizacje",
+        "summary": "Sprawdź, pobierz i zainstaluj aktualizacje ADDOM."
+      },
+      "about": {
+        "title": "O",
+        "summary": "Informacje o wersji i kompilacji."
+      },
+      "terminal": {
+        "title": "Terminal",
+        "summary": "Set terminal font, shell, start folder, and copy behavior."
+      },
+      "appearanceMode": {
+        "title": "Theme",
+        "summary": "Choose light, dark, or system appearance."
+      },
+      "backgroundTone": {
+        "title": "Background",
+        "summary": "Choose a gray workspace tone."
+      }
+    },
+    "providers": {
+      "apiKeys": {
+        "title": "API Keys",
+        "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project Knowledge",
+        "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+      }
+    },
+    "toolsSafety": {
+      "executionMode": {
+        "title": "Tryb wykonania",
+        "summary": "Choose how much ADDOM should pause before running tools."
+      },
+      "commandSafety": {
+        "title": "Guardrails",
+        "summary": "Hard guardrails and first-risky-use behavior."
+      }
+    },
+    "moa": {
+      "agents": {
+        "title": "Agent roles",
+        "summary": "Configure agent roles, models, skills, and instructions."
+      }
+    },
+    "dataPrivacy": {
+      "resetCleanup": {
+        "title": "Resetuj i czyść",
+        "summary": "Eksportuj/importuj rozmowa JSON i wykonaj czyszczenie w rozmowa, projekcie lub zakresie workspace."
+      }
+    }
+  },
+  "common": {
+    "permissionRow": {
+      "alwaysOn": "Zawsze włączone",
+      "toggleSetting": "Przełącz ustawienie",
+      "unavailable": "Nie płynny",
+      "clickToDisable": "Kliknij, aby wyłączyć",
+      "clickToEnable": "Kliknij, aby włączyć"
+    }
+  },
+  "alerts": {
+    "executionModeSaveFailed": {
+      "title": "Zapisanie trybu wykonania nie powiodło się",
+      "message": "ADDOM could not persist the selected access mode. The UI was reset to the last saved value."
+    },
+    "languageSaveFailed": {
+      "title": "Zapisywanie języka nie powiodło się",
+      "message": "ADDOM nie mógł zachować wybranego języka aplikacji."
+    },
+    "restartRequired": {
+      "title": "Wymagane ponowne uruchomienie",
+      "message": "Działający proces główny ADDOM nie potwierdził nowych ustawień skalowania interfejsu użytkownika. Uruchom ponownie aplikację, aby główny proces ponownie załadował zaktualizowane procedury obsługi ustawień."
+    },
+    "uiScalingSaveFailed": {
+      "title": "Zapisywanie skalowania interfejsu użytkownika nie powiodło się",
+      "message": "ADDOM nie mógł zachować wybranych ustawień skalowania interfejsu użytkownika."
+    },
+    "appearanceSaveFailed": {
+      "title": "Theme Save Failed",
+      "message": "ADDOM could not persist the selected theme."
+    },
+    "backgroundToneSaveFailed": {
+      "title": "Background Tone Save Failed",
+      "message": "ADDOM could not persist the selected background tone."
+    },
+    "backgroundToneRestartRequired": {
+      "message": "The running ADDOM main process did not acknowledge the new background tone. Restart the app so the main process reloads the updated settings handlers."
+    }
+  },
+  "blocks": {
+    "instructions": {
+      "title": "Przewodnik użytkowania",
+      "description": "Przejrzyj bieżące zachowanie ADDOM, domyślne ustawienia bezpieczeństwa i wskazówki dotyczące przepływu pracy.",
+      "guideLabel": "Przewodnik w aplikacji",
+      "guideVersion": "Wersja {{version}}",
+      "guideUpdated": "Zaktualizowano {{date}}",
+      "openGuide": "Otwórz przewodnik",
+      "note": "Skorzystaj z tego przewodnika jako krótkiego odniesienia do aktualnego zachowania trybów, zatwierdzeń, memory, [[canon:artifacts]] i [[canon:moa]] chat."
+    },
+    "projectFolder": {
+      "title": "Folder główny projektu",
+      "description": "Wybierz aktywny katalog główny projektu, którego ADDOM używa dla narzędzi plikowych i poleceń shell.",
+      "currentProjectPath": "Bieżąca ścieżka projektu",
+      "noProjectDirectorySelected": "Nie wybrano katalogu projektu",
+      "changeFolder": "Zmień folder"
+    },
+    "executionMode": {
+      "title": "Tryb wykonania",
+      "description": "Powierzchnia pomocnicza dla domyślnego trybu [[canon:ask]] / [[canon:autonomy]] / [[canon:full_access]] używanego przy wykonywaniu zakrętów.",
+      "noticeLabel": "[[canon:info]]",
+      "currentDefault": "Bieżące ustawienie domyślne:",
+      "mode": {
+        "ask": "[[canon:ask]]",
+        "autonomy": "[[canon:autonomy]]",
+        "fullAccess": "[[canon:full_access]]"
+      },
+      "summary": {
+        "ask": "Wykonywanie tur jest kontynuowane normalnie w przypadku działań bezpiecznych dla workspace i wstrzymuje się, gdy bardziej ryzykowne kroki dotyczące sieci, instalacji lub mające wpływ na host wymagają zatwierdzenia.",
+        "autonomy": "Tury Execute mogą działać w obrębie workspace Guardrails bez rutynowego potwierdzenia. Twarde blokady i działania poza zakresem nadal są wyraźnie pokazywane.",
+        "fullAccess": "Wykonaj włącza narzędzia automatycznego zatwierdzania dla tej sesji, podczas gdy wyraźna twarda polityka zaprzecza, że ​​nadal blokuje niebezpieczne ścieżki."
+      },
+      "notice": "Wykonuj tury, korzystając z zapisanej wartości domyślnej. Tryby Planowania i Myślenia zachowują te same ustawienia domyślne w chat, ale nie uruchamiają narzędzi na ślepo."
+    },
+    "assistantPrompt": {
+      "title": "Custom instructions",
+      "description": "Add persistent guidance to each chat turn.",
+      "placeholder": "Przykład: Wybierz TypeScript. Utrzymuj minimalne zmiany w kodzie i najpierw testuj. Nie używaj Tailwinda.",
+      "save": "Save instructions"
+    },
+    "language": {
+      "title": "Język",
+      "description": "Wybierz język aplikacji ADDOM tylko dla powierzchni interfejsu renderującego.",
+      "appLanguage": "Język aplikacji",
+      "systemDefaultDescription": "Domyślne ustawienia systemu są zgodne z językiem systemu operacyjnego. Odpowiedzi Asystenta, zachowanie [[canon:backend]], polecenia i informacje techniczne tokens pozostają w kanonicznym języku angielskim.",
+      "savedSetting": "Zapisane ustawienie",
+      "currentRendererLocale": "Bieżące ustawienia regionalne modułu renderującego",
+      "systemResolvedNotice": "Język Twojego systemu jest obecnie rozpoznawany jako {{label}}. Jeśli te ustawienia regionalne nie zostały jeszcze dostarczone, ADDOM powraca do języka angielskiego.",
+      "validationOnlyNotice": "{{label}} to ustawienia regionalne sprawdzania poprawności. Pozostaje ukryta w normalnych ustawieniach wersji i powinna być włączana tylko podczas sprawdzania lokalizacji.",
+      "savedOnlyNotice": "{{label}} jest zapisany, ale ADDOM obecnie dostarcza tylko ciągi renderujące w języku angielskim. Interfejs użytkownika pozostaje w języku angielskim do czasu dostarczenia tej lokalizacji."
+    },
+    "apiKeys": {
+      "title": "API Keys i tożsamości",
+      "description": "Skonfiguruj zdalne poświadczenia i tożsamość provider. Lokalne providers, takie jak Ollama, mogą nie wymagać kluczy.",
+      "noProviders": "Brak dostępnego providers do skonfigurowania.",
+      "cursor": {
+        "accountMethod": "Cursor account",
+        "runtimeReady": "Runtime {{version}} is ready",
+        "runtimeMissing": "Cursor Agent runtime is not installed.",
+        "installRuntime": "Install runtime",
+        "installingRuntime": "Installing runtime",
+        "checkRuntime": "Check runtime",
+        "executionScope": "Composer 2.5 runs in Chat Execute with Full Access.",
+        "accountConnected": "Cursor account connected",
+        "accountDisconnected": "Cursor account not connected",
+        "connect": "Connect account",
+        "disconnect": "Disconnect",
+        "disconnectTitle": "Disconnect Cursor?",
+        "disconnectMessage": "ADDOM will stop using this Cursor account until you reconnect. Your API key and project files are unchanged.",
+        "apiKeyLabel": "Cursor API key",
+        "actionFailed": "Cursor could not complete this action."
+      },
+      "loginErrors": {
+        "callbackPortInUse": "Lokalny port wywołania zwrotnego logowania OpenAI jest już używany. Ponów próbę logowania lub zamknij proces powodujący konflikt i spróbuj ponownie.",
+        "consentDenied": "Krok zgody przeglądarki OpenAI został anulowany lub odrzucony. Rozpocznij proces logowania ponownie, aby ponowić próbę.",
+        "callbackNotCompleted": "Logowanie do przeglądarki OpenAI nie zakończyło wywołania zwrotnego hosta lokalnego. Ponów próbę logowania i zakończ zgodę przed powrotem do ADDOM.",
+        "browserOpenFailed": "ADDOM nie mógł automatycznie otworzyć strony logowania OpenAI. Użyj ponownie Otwórz przeglądarkę lub Skopiuj link do logowania.",
+        "missingAuthUrl": "Link do logowania OpenAI nie jest już dostępny. Rozpocznij proces logowania ponownie, aby poprosić o nowy link do przeglądarki.",
+        "bridgeProcessExited": "Lokalny Codex runtime zatrzymał się podczas oczekiwania na wywołanie zwrotne przeglądarki OpenAI. Rozpocznij ponownie proces logowania.",
+        "loginTimedOut": "Upłynął limit czasu logowania OpenAI przed zakończeniem wywołania zwrotnego przeglądarki. Rozpocznij proces logowania ponownie, aby ponowić próbę."
+      },
+      "loginAlerts": {
+        "unavailable": "Logowanie do konta OpenAI jest niedostępne",
+        "callbackPortInUse": "Lokalny port wywołania zwrotnego jest zajęty",
+        "consentDenied": "Odmowa zgody przeglądarki",
+        "callbackNotCompleted": "Niekompletne wywołanie zwrotne przeglądarki",
+        "browserOpenFailed": "Uruchomienie przeglądarki nie powiodło się",
+        "missingAuthUrl": "Link do logowania jest niedostępny",
+        "bridgeProcessExited": "Codex Runtime Zatrzymany",
+        "loginTimedOut": "Upłynął limit czasu logowania"
+      },
+      "account": {
+        "connected": "Sesja konta OpenAI jest połączona.",
+        "waitingForCallback": "Zakończ logowanie i wyrażaj zgodę w przeglądarce, a następnie wróć po zakończeniu wywołania zwrotnego localhost.",
+        "waitingForBrowser": "ADDOM oczekuje na rozpoczęcie procesu logowania do przeglądarki.",
+        "notCompleted": "Logowanie do konta OpenAI nie zostało jeszcze zakończone.",
+        "storedKeyInactive": "Zapisany API key pozostaje dostępny, ale nieaktywny.",
+        "preparingRuntime": "Przygotowanie Codex runtime",
+        "reconnect": "Na nowo połączyć",
+        "continueInBrowser": "Kontynuuj w przeglądarce",
+        "openBrowserAgain": "Otwórz ponownie przeglądarkę",
+        "copyLoginLink": "Skopiuj link do logowania",
+        "copiedLink": "Skopiowany link"
+      },
+      "accessMethod": {
+        "label": "Sign in with",
+        "apiKey": "API key",
+        "openAiAccount": "Konto OpenAI",
+        "selectedAccount": "Using your OpenAI account.",
+        "selectedApiKey": "Using an API key."
+      },
+      "localProvider": {
+        "label": "Lokalny provider",
+        "downloadTitle": "Pobierz {{name}}",
+        "running": "Running - {{count}} model{{suffix}}",
+        "notRunning": "Nie biegam"
+      },
+      "removeDialog": {
+        "title": "Usuń API Key",
+        "message": "Usunąć API key dla {{name}}?",
+        "confirm": "Usuń klucz"
+      },
+      "disconnectDialog": {
+        "title": "Odłącz konto OpenAI",
+        "message": "Odłączyć zapisaną sesję konta OpenAI dla tego profilu ADDOM?",
+        "confirm": "Odłączyć"
+      },
+      "copyFailed": {
+        "title": "Kopiowanie nie powiodło się",
+        "message": "ADDOM nie mógł skopiować linku logowania do konta OpenAI do schowka."
+      },
+      "apiKeyInput": {
+        "placeholder": "Wklej swój API key...",
+        "save": "Zapisz klucz",
+        "getKeyTitle": "Zdobądź API key z {{name}}"
+      },
+      "configured": "Skonfigurowane",
+      "saved": "Zapisano",
+      "replaceKey": "Wymień klucz",
+      "recommendedAccount": {
+        "title": "Recommended for OpenAI",
+        "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+        "action": "Use OpenAI account"
+      }
+    },
+    "chatTypography": {
+      "title": "Tekst chat",
+      "description": "Zastosuj jeden globalny współczynnik skali do zmapowanych powierzchni tekstowych chat.",
+      "globalScaleFactor": "Globalny współczynnik skali",
+      "globalScaleDescription": "To wspólnie skaluje zmapowane tokeny tekstowe chat. Domyślne wartości dla elementów pozostają poza Ustawieniami.",
+      "typographyScale": "Skala tekstu",
+      "range": "Zakres {{min}}% do {{max}}%",
+      "reset": "Nastawić",
+      "notice": "Skala dotyczy zmapowanych tokenów tekstowych używanych już w wiadomościach użytkownika, wyjściu orkiestratora, agentach, strumieniu wykonania i kartach obok chat."
+    },
+    "uiScaling": {
+      "description": "Steruj gęstością ADDOM shell i skalowaniem tekstu chat z jednego miejsca.",
+      "appShellDensity": "Aplikacja shell gęstość",
+      "appShellDensityDescription": "Tryb [[canon:auto]] podąża za efektywną rzutnią po skalowaniu systemu operacyjnego. Tryb [[canon:manual]] przypina gęstość shell na wyświetlaczach.",
+      "effective": "Efektywny {{percent}}%",
+      "auto": "[[canon:auto]]",
+      "manual": "[[canon:manual]]",
+      "autoModeDescription": "Tryb [[canon:auto]] utrzymuje geometrię shell wyrównaną w konfiguracjach 1080p i 4K, reagując na rzeczywistą rzutnię CSS.",
+      "manualModeDescription": "Tryb [[canon:manual]] jest przydatny, jeśli chcesz mieć stałą gęstość shell niezależnie od skalowania wyświetlacza.",
+      "shellScale": "Skala Shell",
+      "shellScaleDescription": "Skaluje to geometrię shell tokens używaną przez pasek boczny, szufladę rozmowa, szynę [[canon:moa]] i szerokość zawartości chat.",
+      "chatTypographyScale": "Skala tekstu",
+      "chatTypographyScaleDescription": "Dopasuj rozmiar tekstu chat razem z gęstością shell, aby stroić obie warstwy jednocześnie.",
+      "range": "Zakres {{min}}% do {{max}}%",
+      "reset": "Nastawić",
+      "notice": "Zakotwiczone panele pozostają wyrównane, ponieważ szerokości i szyny treści shell skalują się na podstawie tych samych wspólnych ustawień model, zamiast zwijać się niezależnie."
+    },
+    "commandSafety": {
+      "title": "Guardrails i diagnostyka",
+      "description": "Hard guardrails stay on in all access modes. [[canon:ask]], [[canon:autonomy]], and [[canon:full_access]] only change when approvals interrupt a turn.",
+      "common": {
+        "unknown": "nieznany"
+      },
+      "approvalRuleLabels": {
+        "readFile": "Czytaj pliki",
+        "writeFile": "Zapisz pliki",
+        "listDirectory": "Lista katalogów",
+        "searchCode": "Wyszukaj kod",
+        "applyArtifactRevision": "Zastosuj poprawki artefaktów",
+        "toolOperation": "Obsługa narzędzia",
+        "projectReadonlyShell": "Uruchom polecenia shell projektu tylko do odczytu",
+        "projectBuildTest": "Uruchom polecenia kompilacji/testowania projektu",
+        "projectMutation": "Uruchom polecenia mutacji projektu",
+        "processControl": "Uruchom polecenia sterujące procesem projektu",
+        "projectDependencyInstallSandboxed": "Uruchom sandboxed instalacje zależności projektu",
+        "projectDependencyInstall": "Uruchom instalacje zależności projektu",
+        "runCommandOperations": "Uruchom operacje poleceń"
+      },
+      "riskyActionApprovals": {
+        "title": "Zezwolenia na ryzykowne działania",
+        "description": "Pierwsze ryzykowne pobrania sieciowe i instalacje zależności projektu mogą zostać zapamiętane dla aktywnego projektu podczas tej sesji aplikacji. Ścieżki poza workspace, działania destrukcyjne, instalacje globalne i podwyższony dostęp do hosta nadal wymagają wyraźnej zgody.",
+        "activeProjectScope": "Aktywny zakres sesji projektowej:",
+        "noActiveWorkspace": "Nie wykryto jeszcze aktywnego workspace. Ryzykowne działanie o zasięgu sesji memory rozpoczyna się po otwarciu katalogu głównego projektu."
+      },
+      "modeEffect": {
+        "title": "Działanie trybu",
+        "description": "[[canon:ask]] wstrzymuje ryzykowne działania. [[canon:autonomy]] utrzymuje rutynową pracę w workspace i przerywa tylko przy pierwszym ryzykownym użyciu sieci/instalacji albo ścisłych blokadach Guardrails. [[canon:full_access]] automatycznie zatwierdza rutynowe wykonanie, a jawne wyniki zasad hard-deny nadal blokują."
+      }
+    },
+    "moaAgents": {
+      "title": "Agent roles",
+      "description": "Create and manage the agent roles ADDOM can delegate work to.",
+      "roles": {
+        "guidance": "Nazwy ról muszą być unikalne. Identyfikatory ról są generowane i niezmienne.",
+        "idLabel": "id:",
+        "writesLabel": "pisze:",
+        "templateLabel": "szablon:",
+        "edit": "Redagować",
+        "delete": "Usuwać",
+        "newRole": "Nowa rola agenta",
+        "addRole": "+ Dodaj rolę agenta",
+        "removeDialog": {
+          "title": "Usuń rolę agenta",
+          "message": "Usunąć tę rolę agenta?",
+          "confirm": "Usuń rolę"
+        },
+        "editRoleTitle": "Edit agent role",
+        "addRoleTitle": "Add agent role",
+        "namePlaceholder": "Role name (e.g. Security Reviewer)",
+        "providerPlaceholder": "Select provider...",
+        "modelPlaceholder": "Select model...",
+        "modelIdPlaceholder": "Model ID (e.g. gpt-4o)",
+        "openRouterRoutePlaceholder": "Or enter a custom OpenRouter route ID",
+        "sourceTemplateLabel": "Source template:",
+        "hideAdvancedInstructions": "Hide advanced role instructions",
+        "showAdvancedInstructions": "Advanced role instructions",
+        "instructionsPlaceholder": "Optional instructions for this agent role (max 2000 chars)",
+        "saveChanges": "Save changes",
+        "addRoleAction": "Add role"
+      },
+      "templateGallery": {
+        "loading": "Ładowanie katalogu umiejętności...",
+        "title": "Katalog umiejętności",
+        "skillCount": "Umiejętności {{count}}",
+        "searchPlaceholder": "Szukaj umiejętności...",
+        "clearSearch": "Wyczyść wyszukiwanie umiejętności",
+        "searchResults": "Wynik {{count}}{{suffix}} dla „{{query}}”{{categorySuffix}}",
+        "inCategory": "w {{category}}",
+        "emptySearch": "Żadne umiejętności nie pasują do Twojego wyszukiwania.",
+        "canWrite": "Potrafię pisać",
+        "readOnly": "Tylko do odczytu",
+        "added": "W dodatku",
+        "use": "Używać",
+        "update": "Aktualizuj",
+        "categories": {
+          "all": "Wszystko",
+          "security": "Bezpieczeństwo",
+          "frontend": "[[canon:frontend]]",
+          "backend": "[[canon:backend]]",
+          "quality": "Jakość",
+          "engineering": "Inżynieria",
+          "devops": "DevOps",
+          "testing": "Testowanie",
+          "content": "Treść",
+          "web": "Sieć",
+          "performance": "Wydajność",
+          "desktop": "Pulpit",
+          "general": "Ogólne"
+        }
+      },
+      "runtime": {
+        "title": "Agent settings",
+        "description": "Control delegation and capacity without changing your saved roles.",
+        "enabled": "Enable agents",
+        "disabled": "Agent delegation is disabled.",
+        "summary": "{{profile}} capacity · {{count}} active at once",
+        "delegation": "Agent delegation",
+        "delegationEnabled": "ADDOM can delegate work to the roles below.",
+        "delegationDisabled": "Roles stay available to configure while delegation is off.",
+        "profile": "Capacity",
+        "profileDescription": "Sets sensible limits for parallel and nested agents.",
+        "advanced": "Advanced limits",
+        "advancedSummary": "{{count}} active · depth {{depth}}",
+        "fanoutConfirmationThreshold": "Ask before launching more than",
+        "agentsUnit": "agents",
+        "providerOverrides": "Provider overrides",
+        "noProviderOverrides": "No provider-specific limits.",
+        "addProviderOverride": "Add provider override…",
+        "removeOverride": "Remove",
+        "discard": "Discard",
+        "saveChanges": "Save changes",
+        "isolationDescription": "Agent file changes stay isolated until the orchestrator integrates them.",
+        "limits": {
+          "maxLiveAgents": "Active at once",
+          "maxDepth": "Nesting depth",
+          "maxDescendants": "Agents per run",
+          "maxTotalTokens": "Token budget",
+          "maxCostUsd": "Cost budget",
+          "maxDurationMs": "Time budget"
+        }
+      }
+    },
+    "openRouterCatalogVisibility": {
+      "title": "Widoczność katalogu OpenRouter",
+      "description": "Kontroluj, które rodziny i trasy OpenRouter pojawiają się na powierzchniach przeglądania chat i [[canon:moa]].",
+      "notAvailable": "OpenRouter nie jest dostępny w bieżącym manifeście provider.",
+      "loading": "Ładowanie katalogu OpenRouter...",
+      "browsingVisibility": "Widoczność przeglądania OpenRouter",
+      "browsingVisibilityDescription": "Ukryj rodziny provider lub pojedyncze trasy przed przeglądaniem bez usuwania jawnej obsługi tras niestandardowych.",
+      "counts": {
+        "filtered": "Pokazano {{shown}}, włączono {{enabled}}",
+        "default": "{{enabled}} / {{total}} włączone"
+      },
+      "filtersTitle": "Filtry",
+      "filters": {
+        "reviewedOnly": "Tylko recenzowane",
+        "anyTools": "Wszelkie narzędzia",
+        "reasoning": "Rozumowanie",
+        "vision": "Wizja"
+      },
+      "quickActionsTitle": "Szybkie działania",
+      "quickActions": {
+        "showAll": "Pokaż wszystko",
+        "hideAll": "Ukryj wszystko",
+        "reset": "Nastawić"
+      },
+      "searchPlaceholder": "Wyszukaj przestrzenie nazw OpenRouter lub identyfikatory tras",
+      "empty": "Żadna trasa OpenRouter nie pasuje do bieżącego wyszukiwania.",
+      "clearSearch": "Wyczyść wyszukiwanie",
+      "namespaceRow": {
+        "collapse": "Zwiń przestrzeń nazw",
+        "expand": "Rozwiń przestrzeń nazw",
+        "filteredCount": "Pokazano {{shown}}/{{total}}",
+        "enabledCount": "{{enabled}}/{{total}} włączone",
+        "visibilityAriaLabel": "Widoczność przestrzeni nazw {{label}}"
+      },
+      "modelRow": {
+        "visibilityAriaLabel": "Widoczność {{label}}"
+      },
+      "inlineTitle": "Catalog visibility",
+      "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+      "showInlineAction": "Manage visibility",
+      "hideInlineAction": "Hide controls"
+    },
+    "dataReset": {
+      "title": "Resetowanie i czyszczenie danych",
+      "description": "Eksportuj kopie zapasowe rozmowa, wyczyść zapisaną historię lub zresetuj lokalne dane ADDOM.",
+      "migrationTitle": "Aktywna migracja rozmowa",
+      "migrationDescription": "Wyeksportuj aktywny chat bezpośrednio do przenośnej kopii zapasowej JSON lub przywróć historię lokalnie.",
+      "exportCurrentThread": "Export Current Conversation",
+      "restoreFromJson": "Przywróć z JSON",
+      "noActiveConversation": "Nie wybrano żadnej aktywnej rozmowy do wyeksportowania.",
+      "localProfileResetTitle": "Resetowanie profilu lokalnego",
+      "localProfileResetDescription": "Usuń zapisane API keys provider lub całkowicie zresetuj lokalny profil ADDOM. Pełny reset usuwa lokalną historię, models w cache, załączniki i zapisane settings, a następnie ponownie uruchamia aplikację.",
+      "profile": "Profil:",
+      "providers": "Providers:",
+      "providersStored": "{{count}} zapisane",
+      "memoryIndex": "Indeks Memory:",
+      "indexed": "Indeksowane",
+      "empty": "Pusty",
+      "settings": "Ustawienia:",
+      "present": "Obecny",
+      "attachments": "Załączniki:",
+      "cached": "Buforowane",
+      "modelCache": "Pamięć podręczna model:",
+      "mounted": "Zmontowany",
+      "providerBudget": {
+        "title": "Adaptacyjne budżety Provider",
+        "description": "Sprawdź wyuczony stan budżetu provider i usuń nieaktualną historię budżetu adaptacyjnego bez ujawniania surowych nagłówków provider lub tożsamości poświadczeń.",
+        "refresh": "Odświeżać",
+        "total": "{{count}} się nauczył",
+        "active": "{{count}} aktywny",
+        "stale": "{{count}} jest przestarzały",
+        "expired": "{{count}} wygasło",
+        "pruneEligible": "{{count}} gotowy do czyszczenia",
+        "lastObserved": "Ostatnia obserwacja: {{value}}",
+        "lastResolved": "Ostatnio rozwiązany: {{value}}",
+        "emptyState": "Dla tego profilu nie zarejestrowano jeszcze żadnych poznanych profili budżetowych provider.",
+        "cleanupAction": "Sprzątanie wyuczonych budżetów",
+        "resetAction": "Zresetuj wyuczone budżety",
+        "never": "Nigdy",
+        "recent": "Ostatni"
+      },
+      "spillover": {
+        "title": "Przeniesienie wyniku narzędzia",
+        "description": "Sprawdź utrwalone miejsce przechowywania wyników narzędzi, usuń wygasłe wpisy i wyczyść korzeń wycieków bez ujawniania surowych treści wyjściowych.",
+        "refresh": "Odświeżać",
+        "files": "Pliki {{count}}",
+        "zeroBytes": "0 B",
+        "bytesValue": "{{count}} {{unit}}",
+        "retentionValue": "Pliki {{files}} / {{bytes}} / {{days}} dni",
+        "sessionCleanupAt": "To czyszczenie sesji: {{value}}",
+        "sessionCleanupResult": "To czyszczenie sesji usunęło pliki {{files}} / {{bytes}}.",
+        "sessionEmptyState": "W tej sesji aplikacji nie uruchomiono jeszcze żadnego czyszczenia skutków ubocznych.",
+        "emptyState": "W tej chwili dla tego profilu nie istnieją żadne utrwalone pliki pośrednie z wynikami narzędzi.",
+        "cleanupAction": "Przytnij nadmiar",
+        "resetAction": "Wyczyść przelew",
+        "rootPath": "Korzeń przelewowy: {{path}}",
+        "states": {
+          "none": "Brak stanu czyszczenia sesji",
+          "sessionNone": "W tej sesji nie jest uruchamiane żadne czyszczenie",
+          "pruned": "Przycięty",
+          "prunedWithFailures": "Przycięty niepowodzeniami",
+          "retentionExceeded": "Przekroczono retencję",
+          "prunedRetentionExceeded": "Przycięty, retencja nadal przekroczona",
+          "failed": "Czyszczenie nie powiodło się",
+          "cleared": "Wyczyszczone"
+        }
+      },
+      "deleteSavedApiKeys": "Usuń zapisane klucze API",
+      "resetLocalProfileAndRestart": "Zresetuj profil lokalny i uruchom ponownie",
+      "importFallbackTitle": "Zaimportowano rozmowa",
+      "dialogs": {
+        "deleteApiKeys": {
+          "title": "Usuń API Keys",
+          "message": "Usunąć teraz wszystkie zapisane klucze API z tego urządzenia? Rozmowy, memory, artifacts i ustawienia pozostaną. Tego nie można cofnąć.",
+          "confirm": "Usuń API Keys"
+        },
+        "cleanupProviderBudgets": {
+          "title": "Oczyszczanie wyuczonych budżetów",
+          "message": "Usunąć nieprawidłowe lub dawno nieużywane, wygasłe, wyuczone profile budżetowe provider? Ostatnio aktywne profile pozostaną.",
+          "confirm": "Posprzątać"
+        },
+        "resetProviderBudgets": {
+          "title": "Zresetuj poznane budżety",
+          "message": "Usunąć wszystkie poznane profile budżetowe provider z tego profilu? Spowoduje to usunięcie historii budżetu adaptacyjnego do czasu zarejestrowania nowych obserwacji.",
+          "confirm": "Zresetuj budżety"
+        },
+        "cleanupToolResultSpillover": {
+          "title": "Przytnij rozsypkę",
+          "message": "Czy usunąć z tego profilu pliki wynikowe narzędzia, które utraciły ważność lub przekroczyły budżet? Pozostaną niedawne skutki uboczne wymagane w ramach bieżącej polityki przechowywania.",
+          "confirm": "Przytnij rozsypkę"
+        },
+        "resetToolResultSpillover": {
+          "title": "Wyczyść przelew",
+          "message": "Usunąć wszystkie utrwalone pliki wyników dodatkowych narzędzi z tego profilu? Nie zmienia to zasad przechowywania i nie można tego cofnąć.",
+          "confirm": "Wyczyść przelew"
+        },
+        "deleteAllLocalData": {
+          "title": "Usuń wszystkie dane lokalne",
+          "message": "Usunąć wszystkie lokalne dane ADDOM dla tego profilu i uruchomić ponownie? Spowoduje to usunięcie API keys, rozmów, logów Memory, Artifacts, sesji projektu, załączników z cache, lokalnego cache model i settings. Najpierw wyeksportuj wszystko, czego potrzebujesz. Tej operacji nie można cofnąć.",
+          "confirm": "Usuń i uruchom ponownie"
+        }
+      },
+      "feedback": {
+        "deleteFailed": {
+          "title": "Usuwanie nie powiodło się"
+        },
+        "refreshFailed": {
+          "title": "Odświeżanie nie powiodło się",
+          "providerBudgetDefaultMessage": "Nie można odświeżyć poznanego podsumowania budżetu provider.",
+          "spilloverDefaultMessage": "Nie można odświeżyć podsumowania wyników narzędzia."
+        },
+        "localDataApiUnavailable": "Dane lokalne API są niedostępne.",
+        "apiKeysDeleted": {
+          "title": "API Keys Usunięto",
+          "message": "Przechowywane klucze API zostały usunięte z tego urządzenia."
+        },
+        "deleteApiKeysFailed": "Nie udało się usunąć kluczy API: {{message}}",
+        "refreshProviderBudgetFailed": "Nie udało się odświeżyć poznanych budżetów provider: {{message}}",
+        "refreshToolResultSpilloverFailed": "Nie udało się odświeżyć efektu rozlania wyników narzędzia: {{message}}",
+        "providerBudgetCleanupComplete": {
+          "title": "Czyszczenie zakończone",
+          "message": "Usunięto wyuczone profile budżetu {{count}}."
+        },
+        "providerBudgetCleanupFailed": "Nie udało się wyczyścić wyuczonych budżetów provider: {{message}}",
+        "toolResultSpilloverCleanupComplete": {
+          "title": "Przycinanie zakończone",
+          "message": "Usunięto pliki dodatkowe {{count}}."
+        },
+        "toolResultSpilloverCleanupFailed": "Nie udało się oczyścić efektu rozlania wyników narzędzia: {{message}}",
+        "resetFailed": {
+          "title": "Resetowanie nie powiodło się"
+        },
+        "deleteLocalDataFailed": "Nie udało się usunąć danych lokalnych: {{message}}",
+        "providerBudgetResetComplete": {
+          "title": "Resetowanie zakończone",
+          "message": "Usunięto wyuczone profile budżetu {{count}}."
+        },
+        "providerBudgetResetFailed": "Nie udało się zresetować poznanych budżetów provider: {{message}}",
+        "toolResultSpilloverResetComplete": {
+          "title": "Rozlanie usunięte",
+          "message": "Usunięto pliki dodatkowe {{count}}."
+        },
+        "toolResultSpilloverResetFailed": "Nie udało się usunąć efektu rozlania wyników narzędzia: {{message}}",
+        "exportComplete": {
+          "title": "Eksport zakończony",
+          "copiedMessage": "rozmowa wyeksportowano. JSON skopiowano do schowka i rozpoczęło się pobieranie.",
+          "downloadMessage": "Utworzono eksport rozmowa i rozpoczęto pobieranie."
+        },
+        "exportFailed": {
+          "title": "Eksport nie powiódł się",
+          "message": "Nie udało się wyeksportować rozmowa: {{message}}"
+        },
+        "invalidJson": {
+          "title": "Nieprawidłowy JSON",
+          "message": "Nieprawidłowy ładunek JSON."
+        },
+        "importComplete": {
+          "title": "Import zakończony",
+          "messageOne": "Zaimportowano rozmowa „{{title}}” ze zdarzeniem {{count}}.",
+          "messageOther": "Zaimportowano rozmowa „{{title}}” ze zdarzeniami {{count}}."
+        },
+        "importFailed": {
+          "title": "Import nie powiódł się",
+          "message": "Nie udało się zaimportować rozmowa: {{message}}"
+        }
+      },
+      "exportPreflight": {
+        "kicker": "Eksportuj wstępną inspekcję",
+        "title": "Przypomnienie o zgodności przed eksportem",
+        "description": "Eksporty Thread są przenośne. Nie używaj eksportu do zabronionej destylacji, zbioru wzorcowego lub przepływów pracy z obejściem zasad provider.",
+        "preserveCitationsLabel": "Zachowaj cytaty i metadane atrybucji podczas eksportu",
+        "preserveCitationsHint": "Zalecane dla providers/models z terminami wrażliwymi na atrybucję.",
+        "strictConfirmLabel": "Potwierdzam, że ten eksport dotyczy przepływu pracy zgodnego z warunkami w tej sesji.",
+        "strictConfirmHint": "Tryb ścisły wymaga wyraźnego potwierdzenia przed eksportem.",
+        "exporting": "Eksportowanie...",
+        "continueExport": "Kontynuuj eksport"
+      },
+      "importThread": {
+        "kicker": "Import rozmowa",
+        "title": "Importuj rozmowa JSON",
+        "description": "Wklej wcześniej wyeksportowany ładunek rozmowa, aby zaimportować go do aktywnego projektu.",
+        "fieldLabel": "JSON eksportu rozmowy",
+        "placeholder": "{\"thread\": {...}, \"events\": [...]}",
+        "importing": "Importowanie...",
+        "confirm": "Zaimportuj rozmowa"
+      }
+    },
+    "updates": {
+      "title": "Aktualizacje",
+      "description": "ADDOM automatycznie sprawdza dostępność aktualizacji po uruchomieniu. Kontrolujesz, kiedy aktualizacje są pobierane i instalowane.",
+      "status": {
+        "upToDate": "Aktualne",
+        "checking": "Sprawdzam dostępność aktualizacji...",
+        "latest": "Korzystasz z najnowszej wersji",
+        "available": "Dostępna aktualizacja - v{{version}}",
+        "downloading": "Pobieram... {{percent}}%",
+        "readyToInstall": "v{{version}} gotowy do instalacji",
+        "error": "Błąd aktualizacji: {{message}}"
+      },
+      "actions": {
+        "checkForUpdates": "Sprawdź aktualizacje",
+        "download": "Pobierz v{{version}}",
+        "restartAndInstall": "Uruchom ponownie i zainstaluj"
+      }
+    },
+    "about": {
+      "title": "O",
+      "tagline": "Lokalny asystent kodowania AI | BYOK | Brak telemetrii",
+      "copyright": "Copyright (c) 2026 ADDOM contributors.",
+      "licenseLineOne": "Licencjonowane na warunkach licencji MIT.",
+      "licenseLineTwo": "Szczegóły znajdują się w pliku LICENSE.",
+      "openSourceNotices": "Powiadomienia o otwartym kodzie źródłowym",
+      "thirdPartyInventory": "Zasoby strony trzeciej",
+      "openLegalDocumentError": "Nie można otworzyć dokumentu prawnego.",
+      "legalDocumentsUnavailable": "Dokumenty prawne niedostępne: {{error}}"
+    },
+    "openAiKnowledgeBase": {
+      "title": "Project knowledge",
+      "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+      "notices": {
+        "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+        "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+        "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+      },
+      "projectScope": "Zakres projektu",
+      "noActiveProjectSelected": "Nie wybrano aktywnego projektu",
+      "filesLabel": "Uploaded files",
+      "storeLabel": "Sklep:",
+      "quickSetup": "Szybka konfiguracja",
+      "ready": "Ready",
+      "actionNeeded": "Action needed",
+      "nextStepLabel": "Następny krok:",
+      "nextStep": {
+        "addApiKey": "Dodaj OpenAI API key.",
+        "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+        "openProjectWorkspace": "Otwórz projekt workspace.",
+        "uploadFiles": "Prześlij pliki, które chcesz przeszukiwać.",
+        "createVectorStore": "Prepare project knowledge storage.",
+        "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+        "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+        "readyForRetrieval": "Project knowledge is ready for retrieval."
+      },
+      "quickFacts": {
+        "key": "Klawisz:",
+        "connected": "Połączony",
+        "missing": "Zaginiony",
+        "access": "Dostęp:",
+        "account": "Konto",
+        "apiKey": "API key",
+        "project": "Projekt:",
+        "active": "Aktywny",
+        "uploads": "Przesłane pliki:",
+        "attached": "Przyłączony:"
+      },
+      "actions": {
+        "refresh": "Odświeżać",
+        "uploadFiles": "Upload files",
+        "reuseVectorStore": "Refresh project knowledge",
+        "createVectorStore": "Prepare project knowledge",
+        "attachFiles": "Attach files",
+        "attachFilesWithCount": "Attach files ({{count}})",
+        "deleteVectorStore": "Reset project knowledge",
+        "remove": "Usunąć"
+      },
+      "uploadedFilesTitle": "Uploaded files",
+      "pendingAttachLabel": "Needs attach",
+      "emptyFiles": "No project knowledge files uploaded yet.",
+      "fileState": {
+        "attached": "Przyłączony",
+        "uploadedOnly": "Uploaded only"
+      },
+      "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly.",
+      "attachedFilesLabel": "Attached files"
+    },
+    "terminal": {
+      "title": "Terminal",
+      "description": "Zachowaj ostrożne domyślne ustawienia terminala bez zmiany globalnej typografii aplikacji.",
+      "fontSizeLabel": "Rozmiar czcionki",
+      "fontSizeDescription": "Bazowy rozmiar czcionki xterm dla nowych i aktywnych powierzchni terminala.",
+      "fontFamilyLabel": "Rodzina czcionek",
+      "fontFamilyDescription": "Wybierz czcionkę terminala używaną przez xterm.",
+      "scrollbackLabel": "Liczba linii scrollback",
+      "scrollbackDescription": "Ile historii terminala xterm przechowuje w pamięci.",
+      "scrollbackHint": "linii",
+      "defaultShellLabel": "Domyślna powłoka",
+      "defaultShellDescription": "Domyślna powłoka używana, gdy nowy terminal nie żąda konkretnej powłoki.",
+      "defaultCwdBehaviorLabel": "Domyślne zachowanie cwd",
+      "defaultCwdBehaviorDescription": "Wybierz, skąd uruchamiają się nowe terminale, gdy nie podano jawnego cwd.",
+      "copyOnSelectionLabel": "Kopiuj przy zaznaczeniu",
+      "copyOnSelectionDescription": "Kopiuj zaznaczenie terminala do schowka natychmiast po zaznaczeniu tekstu.",
+      "pasteConfirmationLabel": "Potwierdzenie dużego wklejania",
+      "pasteConfirmationDescription": "Proś o potwierdzenie przy wielowierszowym wklejaniu po osiągnięciu tej liczby linii.",
+      "zeroDisablesHint": "0 wyłącza monit",
+      "cwdBehavior": {
+        "project_root": "Główny katalog projektu",
+        "editor_folder": "Folder edytora",
+        "session_cwd": "Bieżący cwd sesji"
+      },
+      "fontFamilyOptions": {
+        "geist_mono": "Geist Mono",
+        "jetbrains_mono": "JetBrains Mono",
+        "fira_code": "Fira Code",
+        "cascadia_code": "Cascadia Code",
+        "system_mono": "System monospace"
+      },
+      "shellOptions": {
+        "default": "Domyślne systemowe",
+        "cmd": "Command Prompt",
+        "powershell": "Windows PowerShell",
+        "pwsh": "PowerShell 7+",
+        "bash": "Bash",
+        "zsh": "Zsh",
+        "git_bash": "Git Bash",
+        "wsl": "WSL"
+      },
+      "advancedDetailsTitle": "Terminal history and paste safety"
+    },
+    "appearanceMode": {
+      "description": "Choose a light or dark interface, or follow your system setting.",
+      "mode": "Color theme",
+      "modeDescription": "Updates the entire app, including editors and terminals.",
+      "selected": "Selected {{name}}",
+      "systemResolved": "System currently uses {{name}}.",
+      "modes": {
+        "dark": "Dark",
+        "light": "Light",
+        "system": "System"
+      }
+    },
+    "backgroundTone": {
+      "darkOnly": "Workspace tones are available when the resolved theme is Dark.",
+      "description": "Choose a gray workspace tone. Graphite matches the current ADDOM default.",
+      "tone": "Workspace tone",
+      "toneDescription": "Shifts the shared surface, panel, and border stack together.",
+      "selected": "Selected {{name}}",
+      "tones": {
+        "obsidian": "Obsidian",
+        "charcoal": "Charcoal",
+        "graphite": "Graphite",
+        "slate": "Slate",
+        "ash": "Ash"
+      }
+    }
+  },
+  "settings": {
+    "categories": {
+      "providers": {
+        "description": "Provider connections, model availability, and project knowledge controls when advanced OpenAI hosted tools are enabled."
+      }
+    },
+    "sections": {
+      "providers": {
+        "apiKeys": {
+          "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+        },
+        "openAiKnowledgeBase": {
+          "title": "Project Knowledge",
+          "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+        }
+      }
+    },
+    "blocks": {
+      "apiKeys": {
+        "accessMethod": {
+          "label": "Sign in with",
+          "selectedAccount": "Using your OpenAI account.",
+          "selectedApiKey": "Using an API key."
+        },
+        "localProvider": {
+          "running": "Running - {{count}} model{{suffix}}"
+        },
+        "recommendedAccount": {
+          "title": "Recommended for OpenAI",
+          "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+          "action": "Use OpenAI account"
+        }
+      },
+      "openRouterCatalogVisibility": {
+        "inlineTitle": "Catalog visibility",
+        "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+        "showInlineAction": "Manage visibility",
+        "hideInlineAction": "Hide controls"
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project knowledge",
+        "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+        "notices": {
+          "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+          "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+          "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+        },
+        "filesLabel": "Uploaded files",
+        "attachedFilesLabel": "Attached files",
+        "ready": "Ready",
+        "actionNeeded": "Action needed",
+        "pendingAttachLabel": "Needs attach",
+        "nextStep": {
+          "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+          "createVectorStore": "Prepare project knowledge storage.",
+          "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+          "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+          "readyForRetrieval": "Project knowledge is ready for retrieval."
+        },
+        "actions": {
+          "uploadFiles": "Upload files",
+          "reuseVectorStore": "Refresh project knowledge",
+          "createVectorStore": "Prepare project knowledge",
+          "attachFiles": "Attach files",
+          "attachFilesWithCount": "Attach files ({{count}})",
+          "deleteVectorStore": "Reset project knowledge"
+        },
+        "uploadedFilesTitle": "Uploaded files",
+        "emptyFiles": "No project knowledge files uploaded yet.",
+        "fileState": {
+          "uploadedOnly": "Uploaded only"
+        },
+        "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly."
+      }
+    }
+  }
+}

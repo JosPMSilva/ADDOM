@@ -1,0 +1,30 @@
+{
+  "fixtureId": "provider-openai-account-append-delta",
+  "kind": "provider_stream",
+  "title": "OpenAI append-delta account stream",
+  "sourceClass": "synthetic-provider-shape",
+  "provider": "openai",
+  "model": "gpt-5.4",
+  "streamShape": "append-delta",
+  "scenario": "live",
+  "semanticOwnership": "provider-stream",
+  "contentFile": "stream.json",
+  "contentSha256": "42d5f7880fdf683491e3933a13457d563ba0c0c3a65004d9244cd0c3dd0116c9",
+  "captureProvenance": {
+    "source": "synthetic",
+    "captureMode": "repo-authored",
+    "sourceFiles": [
+      "runbook.md"
+    ],
+    "notes": "Structured synthetic provider stream fixture."
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ],
+  "sourceContentSha256": "42d5f7880fdf683491e3933a13457d563ba0c0c3a65004d9244cd0c3dd0116c9",
+  "expectedFinalMarkdownSha256": "1ae196efbb4967be7498035a02e070742a55523a9f03ec814297264c61e40d98"
+}

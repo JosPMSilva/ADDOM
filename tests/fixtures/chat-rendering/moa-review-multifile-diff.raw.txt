@@ -1,0 +1,174 @@
+Heads-up: The MoA worker review couldn’t run because no worker roles are configured in your environment (preflight failure). Nothing was staged or applied. I proceeded to open the site locally in Chrome.
+
+What I did
+- Attempted MoA review: failed (no workers configured), so no changes were proposed/applied by workers.
+- Opened index.html in Chrome. If Chrome isn’t installed, it opened in your default browser. Tell me if nothing popped up and I’ll retry with a different path.
+
+Manual quick review (since MoA wasn’t available)
+- Accessibility: Good landmarks, skip link, and labels. Add aria-pressed to the theme toggle, Escape-to-close for mobile nav, and ensure focus-visible outlines. Optional: manage aria-hidden for the collapsed mobile menu.
+- Security: Add a basic CSP and referrer policy. You’re not using target=_blank, so no rel=noopener changes needed.
+- Performance: Fonts are fine with display=swap. Add reduced-motion fallbacks (avoid hover transforms/blur). No render-blocking JS issues.
+- Cross-browser: color-mix and backdrop-filter gracefully degrade in some browsers; add safe fallbacks.
+- SEO: Title/description are solid. Add robots and optional Twitter card/meta. Canonical can wait until you have a real URL.
+
+Proposed minimal diffs (review and I’ll apply them on approval)
+
+index.html
+--- a/index.html
++++ b/index.html
+@@
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>ADDOM — Local‑first AI Coding Assistant</title>
+   <meta name="description" content="ADDOM is a local‑first AI coding assistant embedded in your desktop IDE. Ship faster with privacy, precision, and powerful tool orchestration." />
++  <meta name="robots" content="index, follow" />
++  <meta name="referrer" content="strict-origin-when-cross-origin" />
++  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'none'; upgrade-insecure-requests" />
++  <!-- Optional after deploy: <link rel="canonical" href="https://your-domain.example/" /> -->
+   <meta name="theme-color" content="#0f172a" />
+   <meta property="og:title" content="ADDOM — Local‑first AI Coding Assistant" />
+   <meta property="og:description" content="Local‑first, privacy‑respecting, and tool‑aware. Build better software with an AI that works inside your IDE." />
+   <meta property="og:type" content="website" />
+   <meta property="og:image" content="" />
++  <meta name="twitter:card" content="summary_large_image" />
++  <meta name="twitter:title" content="ADDOM — Local‑first AI Coding Assistant" />
++  <meta name="twitter:description" content="Local‑first, privacy‑respecting, and tool‑aware. Build better software with an AI that works inside your IDE." />
+@@
+-      <button id="themeToggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle theme">
++      <button id="themeToggle" class="icon-btn" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
+         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1zm0 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm8-4a1 1 0 0 1 1 1 1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1zM5 12a1 1 0 0 1 1-1H7a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1zm11.66 6.66a1 1 0 0 1 1.41 0l.7.7a1 1 0 1 1-1.41 1.42l-.7-.71a1 1 0 0 1 0-1.41zM4.23 4.23a1 1 0 0 1 1.41 0l.71.71A1 1 0 1 1 4.94 7.06l-.71-.71a1 1 0 0 1 0-1.41zM4.23 19.77a1 1 0 0 1 1.41 0l.71-.71a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1-1.41 0zM17.66 6.34a1 1 0 0 1 1.41 0l.7-.71a1 1 0 0 1 1.42 1.41l-.71.71a1 1 0 0 1-1.41 0z"/></svg>
+       </button>
+@@
+   <script src="script.js"></script>
++  <noscript><div class="muted" style="padding:1rem;text-align:center">JavaScript is off. Theme toggle and mobile menu will be limited.</div></noscript>
+ </body>
+
+styles.css
+--- a/styles.css
++++ b/styles.css
+@@
+ :root {
++  color-scheme: dark light;
+   --bg: #0b1020;
+   --bg-elev: #0f172a;
+@@
+ :root.light {
++  color-scheme: light dark;
+   --bg: #f8fafc;
+   --bg-elev: #ffffff;
+@@
+ .site-header {
+   position: sticky; top: 0; z-index: 50;
++  background-color: var(--bg); /* fallback */
+   background: color-mix(in srgb, var(--bg) 92%, transparent);
+   backdrop-filter: blur(10px);
+   border-bottom: 1px solid var(--border);
+ }
+@@
+ .hero {
+   position: relative;
+   padding: 5rem 0 3rem;
++  background-color: var(--bg); /* fallback */
+   background: radial-gradient(1200px 600px at 20% 10%, color-mix(in srgb, var(--brand) 35%, transparent), transparent 60%),
+               radial-gradient(1000px 600px at 90% -10%, color-mix(in srgb, var(--brand-2) 35%, transparent), transparent 60%);
+ }
+@@
+ .nav-list { display: flex; gap: 1rem; align-items: center; list-style: none; margin: 0; padding: 0; }
+ .nav-list a { color: var(--text); text-decoration: none; padding: .5rem .75rem; border-radius: .5rem; }
+ .nav-list a:hover { background: var(--glass); }
++/* Ensure visibility if color-mix not supported */
++.nav-list { background-color: transparent; }
+@@
+ .glass { background: var(--glass); border: 1px solid var(--border); backdrop-filter: blur(10px); }
+@@
++/* Focus visibility */
++a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
++  outline: 2px solid var(--brand-2);
++  outline-offset: 2px;
++}
++
++/* Reduced motion preferences */
++@media (prefers-reduced-motion: reduce) {
++  .btn:hover { transform: none; }
++  .glass { backdrop-filter: none; }
++}
++
++/* Backdrop-filter fallback */
++@supports not (backdrop-filter: blur(10px)) {
++  .glass { backdrop-filter: none; }
++}
+
+script.js
+--- a/script.js
++++ b/script.js
+@@
+   const themeToggle = document.getElementById('themeToggle');
+   const navToggle = document.querySelector('.nav-toggle');
+   const navList = document.getElementById('nav-menu');
+   const prefKey = 'addom-theme';
++  const mql = window.matchMedia && window.matchMedia('(max-width: 640px)');
+@@
+   const saved = localStorage.getItem(prefKey);
+   if (saved === 'light') root.classList.add('light');
+   if (!saved) {
+     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+       root.classList.add('light');
+     }
+   }
++  // Reflect theme toggle state
++  if (themeToggle) {
++    themeToggle.setAttribute('aria-pressed', root.classList.contains('light') ? 'true' : 'false');
++  }
+@@
+   themeToggle?.addEventListener('click', () => {
+     const isLight = root.classList.toggle('light');
+     localStorage.setItem(prefKey, isLight ? 'light' : 'dark');
++    themeToggle?.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+   });
+ 
+   // Mobile nav
+-  navToggle?.addEventListener('click', () => {
++  function updateMenuA11y() {
++    if (!navList) return;
++    if (mql && mql.matches) {
++      const opened = navList.classList.contains('open');
++      navList.setAttribute('aria-hidden', opened ? 'false' : 'true');
++    } else {
++      navList.removeAttribute('aria-hidden');
++    }
++  }
++  updateMenuA11y();
++  mql?.addEventListener?.('change', updateMenuA11y);
++
++  navToggle?.addEventListener('click', () => {
+     const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+     navToggle.setAttribute('aria-expanded', String(!expanded));
+     navList?.classList.toggle('open');
++    updateMenuA11y();
+   });
+ 
+   // Auto-close nav on link click (mobile)
+   navList?.addEventListener('click', (e) => {
+     if (e.target.closest('a')) {
+       navList.classList.remove('open');
+       navToggle?.setAttribute('aria-expanded', 'false');
++      updateMenuA11y();
+     }
+   });
+ 
++  // Close nav with Escape
++  document.addEventListener('keydown', (e) => {
++    if (e.key === 'Escape' && navList?.classList.contains('open')) {
++      navList.classList.remove('open');
++      navToggle?.setAttribute('aria-expanded', 'false');
++      updateMenuA11y();
++    }
++  });
++
+   // Current year in footer
+   const y = document.getElementById('year');
+   if (y) y.textContent = new Date().getFullYear();
+ })();
+
+Want me to apply these patches now and reload the page?
+- Yes: I’ll write the changes and refresh your open tab.
+- Also, if you’d like me to re-run the MoA review, please enable/configure the MoA worker roles (Accessibility/Security/Performance/SEO/CrossBrowser) and I’ll run it again before opening.

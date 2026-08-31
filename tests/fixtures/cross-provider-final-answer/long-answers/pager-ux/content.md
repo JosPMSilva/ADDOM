@@ -1,0 +1,74 @@
+## Pipeline (transferable IA)
+
+Runtime ACP / xAI session updates → session-routed handler → `AcpUpdateTracker` mutates an ordered `ScrollbackState` of typed blocks → layout fold (`GroupSpan`) projects density → `EntryRenderer` paints conversation rows. Approvals and questions sit as overlays + chrome flags on the owning turn, not as free-floating global modals. Subagents are lifecycle rows in the parent transcript plus a nested inspectable view.
+
+---
+
+## Terminal-specific vs transferable
+
+| Terminal-specific (reject / adapt lightly) | Transferable IA (adopt / adapt) |
+|---|---|
+| ratatui/`virtual_y` row math, sticky TUI headers, PTY harness, OSC bell/title/progress | Ordered append-only transcript of typed entries |
+| Minimal-mode “commit to native scrollback” + expand ring | Lazy measure near viewport; dirty-height incremental layout |
+| Crossterm focus / Tab focus-scrollback | Prompt ↔ transcript focus modes; turn/response navigation |
+| Vim/alt-screen selection chrome | Block inspection surface; expand/collapse density folds |
+
+---
+
+## Evidence table
+
+| Concern | Path · symbols | What it does |
+|---|---|---|
+| Runtime → state | `crates/codegen/xai-grok-pager/src/app/acp_handler/mod.rs` · `handle`; `session_notification.rs` · `handle_session_notification`, `drop_unexpected_replay`, `advance_reconnect_cursor` | Routes ACP / xAI updates by `REDACTED_SESSION_ID` (incl. inactive agents); dedups; gates unexpected replay |
+| Stream → rows | `…/acp/tracker.rs` · `AcpUpdateTracker::handle_update`, `handle_thought_chunk`, `handle_tool_call`, `handle_agent_chunk`, `finish_thinking`, `pre_create_thinking`, `finish_turn` | Chronological placement: thinking before tools; tools close open agent-msg; agent text finishes thinking; turn finish collapses runners |
+| Transcript model | `…/scrollback/state/mod.rs` · `ScrollbackState`; `entry.rs` · `ScrollbackEntry`; `block.rs` · `RenderBlock` | `IndexMap<EntryId, ScrollbackEntry>` insertion-order history; running/flashing/dirty sets |
+| Reasoning / tools / final | same tracker + `…/scrollback/state/nav.rs` · `response_anchor_in_range`, `rebuild_turns` | Turns keyed by `UserPrompt`; final answer = trailing non-empty `AgentMessage` after tools/thinking |
+| Approvals | `…/acp_handler/permissions.rs` · `handle_permission_request`, `enqueue_permission`; `…/views/permission_view.rs` · `PermissionViewState`; `ScrollbackState::set_pending_user_input` | Per-agent FIFO queue; YOLO auto-allow; attention notify on empty→non-empty; pending chrome breaks verb folds |
+| Plan approval | `…/views/plan_approval_view.rs` · `plan_approval_status_label` | Distinct “waiting on plan” status from tool permission |
+| Subagent lifecycle | `session_notification.rs` · `SubagentSpawned` / `SubagentFinished` arms; `…/scrollback/blocks/subagent.rs` · `SubagentBlock`, `SubagentBlockKind`; `…/app/subagent.rs` · `SubagentInfo`; `…/acp_handler/subagent_activity.rs` · `sync_subagent_activity`, `subagent_activity_label` | Parent row + registry; blocking mutates Started; background appends Completed/Failed; live activity fan-out to row + tasks pane |
+| Inspection | `…/views/block_viewer.rs`; `…/app/agent_view/render.rs` · `open_subagent_fullscreen`; `…/views/tasks_pane.rs` | Ctrl-F / Enter drill-in; fullscreen child transcript; grouped tasks list with collapse |
+| Collapse / group | `…/scrollback/state/groups.rs` · `GroupSpan`, `GroupKind`, `scan`, `apply`, `project_to_layout`; `verb_group.rs` · `run_step`, `verb_group_header_label`, `truncation_header_label` | Verb-run fold first (“Read N…”); then “N more” truncation via `group_max_visible`; thinking can claim into runs without labeling |
+| Focus / nav | `…/scrollback/state/selection.rs` · `select_next`/`select_prev`; `nav.rs` · `next_turn`/`prev_turn`/`next_response`/`prev_response`; `…/app/dispatch/router.rs` · `Action::FocusScrollback` | Entry selection, turn jumps, response anchors; Tab → scrollback |
+| Attention | `…/notifications/focus.rs` · `FocusTracker::{should_notify,recap_due}`; `…/notifications/mod.rs` · `NotificationService::notify`, `NotificationEventKind::ApprovalRequired`; `…/notifications/title.rs` | Unfocused idle gate; approval rate-limit; title blink / OSC (terminal) |
+| Transcript reload | `…/app/agent_view/session.rs` · `begin_session_reload`, `finish_session_reload`, `apply_reload_outcome`, `finalize_reload_and_maybe_adopt`, `adopt_running_prompt`; `ScrollbackState::append_entries_from`, `fresh_continuation` | Stash live scrollback → replay into fresh state; success+replay replaces; success+cursor appends tail; failure restores stash; adopt in-flight prompt after finalize |
+| Density / scale | `LayoutCache` / `settle_visible_measurements` / `compute_paint_window` in `…/scrollback/state/layout.rs`; `group_max_visible`; `dirty_heights`; `usize` `scroll_offset`/`virtual_y` | Lazy exact measure near viewport; incremental extend; fold thresholds; long-session height beyond `u16` |
+| Unit / layout tests | `acp/tracker.rs` `mod tests`; `scrollback/state/{groups,verb_group,selection,nav,mod}.rs` tests; `acp_handler/tests/{subagents,permissions,reconnect,turn_completion}.rs`; `dispatch/tests/{session/load,transcript}.rs` | Tracker chronology, fold/truncation, reload gates, subagent spawn/finish |
+| PTY / e2e | `tests/pty_e2e/verb_group_*_pty.rs`, `show_thinking_blocks_toggle_*`, `tab_focuses_scrollback_*`, `reparked_wait_repushes_buried_marker.rs`, `wheel_*streaming*`; `settings_e2e.rs` (settings snapshots-as-asserts) | Fold/expand, thinking toggle, focus, wait markers, stream+scroll under real PTY |
+
+---
+
+## UX strengths
+
+- Clear chronology: reasoning → tools → answer, with thinking auto-collapse and empty thinking removed.
+- Dual density: verb aggregation for readable summaries + truncation budget for long tool runs; chrome (approvals/hooks) never swallowed by folds.
+- Subagents stay in-timeline with live activity, not only a side list; inspection is explicit.
+- Reload is outcome-trichotomous (full replay / cursor append / restore) instead of naïve clear+replay.
+- Session-routed updates keep background agents’ transcripts coherent when inactive.
+
+## UX weaknesses
+
+- Fold model is dense (verb vs truncation vs transparent members) — easy to mis-tune; settings (`group_tool_verbs`, `group_max_visible`, `show_thinking_blocks`) interact.
+- Approvals are queue+overlay, not always a durable transcript event — history of “what was approved when” is weaker than tool rows.
+- Attention stack is terminal-heavy (bell/OSC/title); web/desktop needs a different channel.
+- Large-run scaling still keeps full entry models in memory; folds hide paint cost more than storage.
+
+---
+
+## Lessons for ADDOM
+
+| Lesson | Class |
+|---|---|
+| Typed chronological transcript (user / thinking / tool / agent / subagent lifecycle) as single ordered model | **Adopt concept** |
+| Tracker rules: finish thinking before tool/answer; one open streaming agent message; suppress plumbing tools from the main list | **Adopt concept** |
+| Density: aggregate consecutive safe tool/subagent steps under a live summary header; separate “budget hide” for overlong runs; never fold pending approval chrome | **Adapt** (DOM/virtual list instead of `virtual_y`) |
+| Subagent: parent lifecycle row + nested inspect view + activity fan-out to list and row | **Adapt** |
+| Permission FIFO on owning session; notify only empty→pending; YOLO doesn’t steal Always | **Adapt** (desktop notifications vs OSC) |
+| Unfocused attention + optional recap-on-return | **Adapt** |
+| Reconnect reload: stash → stage replay → trichotomy merge; adopt running turn only if not already terminal in replay | **Adopt concept** |
+| Turn/response navigation (jump to prompt vs final answer) | **Improve** if ADDOM only has linear scroll today |
+| Lazy measure / dirty invalidation for long sessions | **Adapt** (windowing / virtualization) |
+| Elm-style Action→Effect dispatch for UI side effects | **Already covered** if ADDOM already uses unidirectional state; else **Adapt** |
+| Ratatui/PTY/OSC/sticky TUI chrome / minimal native-scrollback commit | **Reject** |
+| Copying Grok’s exact fold heuristics and settings surface without product validation | **Reject** (too TUI-coupled; validate thresholds in ADDOM UX) |
+
+No files were modified; no network or mutating commands were used.

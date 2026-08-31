@@ -1,0 +1,2265 @@
+{
+  "app": {
+    "workspacePanelSkeleton": {
+      "ariaLabel": "{{panelLabel}} yükleniyor",
+      "text": "{{panelLabel}} yükleniyor..."
+    },
+    "workspaceBootError": {
+      "title": "Workspace önyüklemesi başarısız oldu",
+      "message": "ADDOM, bu panel için gereken workspace önbelleklerini hazırlayamadı.",
+      "retry": "Önyüklemeyi yeniden dene"
+    },
+    "leaveWorkspace": {
+      "title": "Kaydedilmemiş Değişiklikler",
+      "message": "You have unsaved files. Choose how to proceed before switching projects.",
+      "noUnsavedFiles": "Kaydedilmemiş dosya yok.",
+      "cancel": "İptal",
+      "discardAndLeave": "Discard & Switch",
+      "saving": "Kaydediliyor...",
+      "saveAllAndLeave": "Save All & Switch"
+    },
+    "confirmDialog": {
+      "messageFallback": "Devam etmek istediğinizden emin misiniz?",
+      "cancel": "İptal",
+      "confirm": "Onayla"
+    },
+    "panelLabels": {
+      "chat": "Chat paneli",
+      "editor": "Editör paneli",
+      "sourceControl": "Değişiklikler paneli",
+      "artifacts": "Artifacts paneli",
+      "memory": "bellek paneli",
+      "settings": "Ayarlar paneli",
+      "agents": "Aracı paneli",
+      "projectEntry": "Project entry"
+    }
+  },
+  "companionDock": {
+    "resize": "Yardımcı paneli yeniden boyutlandır",
+    "views": "Yardımcı görünümler",
+    "restoreSplit": "Bölünmüş görünümü geri yükle",
+    "focus": "Yardımcı panele odaklan",
+    "close": "Yardımcı görünümü kapat",
+    "document": {
+      "search": "Belgede ara",
+      "missing": "Bu belge artık mevcut değil.",
+      "tooLarge": "Bu belge önizleme için çok büyük.",
+      "unavailable": "Bu belge yüklenemedi.",
+      "changed": "Güncelleniyor…",
+      "status": "Markdown belgesi",
+      "openInEditor": "Düzenleyicide aç",
+      "reveal": "Dosya gezgininde göster",
+      "reload": "Belgeyi yeniden yükle",
+      "loading": "Belge yükleniyor…",
+      "retry": "Yeniden dene",
+        "implementPlan": "Implement",
+        "changePlaceholder": "Describe the change…",
+        "resizeChangeEditor": "Resize change editor",
+        "addChange": "Add change",
+        "annotateChange": "Annotate change",
+        "reviewHint": "Hover a paragraph to suggest a change.",
+        "changeCount": "{{count}} changes",
+        "undoLastChange": "Undo latest change",
+        "submitChanges": "Submit changes",
+        "pendingChanges": "Pending plan changes",
+        "removeChange": "Remove change"
+    }
+  },
+  "startup": {
+    "bootstrapFailure": {
+      "eyebrow": "Startup failed",
+      "title": "ADDOM could not finish starting.",
+      "messageFallback": "Renderer bootstrap failed",
+      "reload": "Reload app"
+    }
+  },
+  "sourceControl": {
+    "openProject": "Değişiklikleri incelemek için bir proje klasörü açın.",
+    "navigationFailed": "Seçilen dosya Source Control'den açılamadı.",
+    "refresh": "Yenile",
+    "loading": "Değişiklikler yükleniyor...",
+    "noRepo": "Bu workspace, bir git deposunun içinde değil.",
+    "clean": "Ağaç temiz çalışıyor.",
+    "emptyFilter": "Geçerli filtreyle eşleşen dosya yok.",
+    "filters": {
+      "all": "Tüm",
+      "staged": "Staged",
+      "unstaged": "Unstaged",
+      "conflicted": "Çatışmalar",
+      "untracked": "Takip edilmiyor"
+    },
+    "search": {
+      "label": "Değiştirilen dosyaları ara",
+      "placeholder": "Değiştirilen dosyaları ara"
+    },
+    "groups": {
+      "staged": "Staged",
+      "unstaged": "Unstaged"
+    },
+    "actions": {
+      "stageFile": "Dosyayı stage'e al",
+      "unstageFile": "Dosyayı stage'den çıkar",
+      "stageAll": "Tümünü stage'e al",
+      "unstageAll": "Tümünü stage'den çıkar"
+    },
+    "summary": {
+      "title": "Değişiklikler",
+      "branch": "Branch: {{branch}}",
+      "repoState": "{{repoRoot}}",
+      "chips": {
+        "staged": "Staged",
+        "unstaged": "Unstaged",
+        "conflicts": "Çatışmalar"
+      }
+    },
+    "commit": {
+      "title": "Commit",
+      "description": "Yalnızca staged değişikliklerinden bir commit oluşturur.",
+      "pending": "Committing...",
+      "action": "Commit",
+      "placeholder": "Commit mesajı",
+      "disabledPlaceholder": "Stage files to enable commit authoring"
+    },
+    "entry": {
+      "renameFrom": "{{path}}'den itibaren"
+    },
+    "detail": {
+      "stage": "Stage: {{scope}}",
+      "loading": "SCM ayrıntısı yükleniyor...",
+      "title": "SCM ayrıntısı",
+      "path": "Yol:",
+      "previousPath": "Önceki yol:",
+      "previewSource": "Önizleme kaynağı:",
+      "indexCommit": "Dizin commit:",
+      "worktreeCommit": "Worktree commit:",
+      "dirtyWorktree": "Dirty worktree:",
+      "actions": {
+        "restoring": "Geri yükleniyor...",
+        "restoreFile": "Dosyayı geri yükle",
+        "unstaging": "Unstaging...",
+        "unstageDeletion": "Unstage deletion",
+        "unstageRename": "Unstage yeniden adlandır"
+      }
+    },
+    "common": {
+      "yes": "Evet",
+      "no": "HAYIR"
+    }
+  },
+  "terminal": {
+    "common": {
+      "cancel": "İptal etmek",
+      "user": "Kullanıcı",
+      "ai": "yapay zeka",
+      "session": "Oturum",
+      "host": "Ev sahibi",
+      "workspace": "Workspace",
+      "shell": "shell",
+      "terminal": "terminal",
+      "terminalTitle": "Terminal",
+      "threadPrefix": "Thread",
+      "status": {
+        "closing": "Kapanış",
+        "ended": "Sona erdi",
+        "closed": "Kapalı",
+        "live": "Canlı",
+        "failed": "Arızalı",
+        "terminated": "Feshedildi"
+      },
+      "timestamp": {
+        "closedPrefix": "Kapalı",
+        "startedPrefix": "Başlatıldı"
+      },
+      "suggestion": {
+        "dismissed": "Görevden alındı",
+        "suggested": "Önerilen",
+        "none": "Öneri yok"
+      }
+    },
+    "banner": {
+      "thisPlatform": "bu platform",
+      "anotherPlatform": "başka bir platform",
+      "runtimeDisabled": "Runtime devre dışı",
+      "disabledByEnv": "ADDOM_DISABLE_TERMINAL_SESSIONS geçersiz kılma açık.",
+      "rolloutDisabled": "Kullanıma sunma devre dışı bırakıldı",
+      "disabledByRollout": "Terminal oturumları mevcut kullanıma sunma ilkesi tarafından devre dışı bırakıldı.",
+      "platformGated": "Platform kapılı",
+      "platformGatedDetail": "{{platform}} hala piyasaya sürülmenin gerisinde. Paketlenmiş doğrulama yalnızca {{allowedLabel}} için kaydedilir.",
+      "unsupportedPlatform": "Desteklenmeyen platform",
+      "unsupportedPlatformDetail": "{{platform}}, terminal oturumları için desteklenen PTY hedef kümesinin dışında.",
+      "disabledGeneric": "Terminal oturumları bu runtime'de devre dışı bırakıldı.",
+      "runtimeFailed": "Runtime başarısız oldu",
+      "failedDetail": "PTY runtime durum denetimi başarısız oldu.",
+      "checkingRuntime": "runtime kontrol ediliyor",
+      "checkingRuntimeDetail": "ADDOM, bu uygulama runtime için PTY desteğini doğruluyor.",
+      "runtimeReady": "Runtime hazır",
+      "runtimeReadyDetail": "Bu workspace için etkileşimli terminal oturumları mevcuttur.",
+      "lastActionFailed": "Son işlem başarısız oldu"
+    },
+    "viewport": {
+      "sessionState": {
+        "archived": "Arşivlendi",
+        "ended": "Sona erdi",
+        "closed": "Kapalı",
+        "live": "Canlı"
+      },
+      "workspaceShell": "Workspace shell",
+      "startTitle": "terminal oturumu başlatın",
+      "unavailableTitle": "Chat terminal kullanılamıyor",
+      "startDescription": "Günlükleri incelemek, proje komutlarını çalıştırmak veya yapay zekanın aynı shell'den devam etmesine izin vermek için burada bir terminal açın.",
+      "unavailableDescription": "Terminal oturumları henüz bu runtime'de mevcut değil.",
+      "startingSession": "Oturum başlatılıyor...",
+      "createSession": "Oturum oluştur",
+      "readOnly": "Salt okunur",
+      "model": "model",
+      "workspaceRoot": "workspace kökü",
+      "trimmed": "Kırpılmış",
+      "clickToFocus": "Odaklanmak için tıklayın",
+      "activateSurface": "Yüzeyi etkinleştir",
+      "aria": {
+        "archivedViewport": "Arşivlenmiş terminal görünüm alanı",
+        "interactiveViewport": "Etkileşimli terminal görünüm portu",
+        "terminalActions": "Terminal eylemleri"
+      },
+      "context": {
+        "copy": "Kopyala",
+        "paste": "Yapıştır",
+        "selectAll": "Tümünü seç",
+        "buffer": "Arabellek",
+        "copyVisibleOutput": "Copy visible output",
+        "copyFullScrollback": "Copy full scrollback",
+        "pasteAsSingleLine": "Paste as single line",
+        "clear": "Temizle",
+        "zoomIn": "Zoom in",
+        "zoomOut": "Zoom out",
+        "zoomReset": "Reset zoom",
+        "terminalFontSize": "{{size}}px",
+        "sendOutputToChat": "Send output to chat",
+        "explainLastError": "Explain last error",
+        "summarizeSession": "Summarize session",
+        "saveSnapshotToMemory": "Save snapshot to notes",
+        "cut": "Cut selection"
+      },
+      "search": {
+        "placeholder": "Search terminal output",
+        "previous": "Previous match",
+        "next": "Next match",
+        "close": "Aramay? kapat",
+        "noMatches": "No matches",
+        "resultCount": "{{current}}/{{total}}"
+      },
+      "pasteConfirm": {
+        "title": "Confirm large paste",
+        "message": "Paste {{count}} lines into the terminal? This can run multiple commands at once."
+      }
+    },
+    "dock": {
+      "state": {
+        "approval": "Onay",
+        "approvalSuffix": "onay",
+        "denied": "Reddedildi",
+        "userTakeover": "Kullanıcı yönetiyor",
+        "aiWaiting": "yapay zeka bekliyor",
+        "aiControlling": "YZ yönetiyor",
+        "running": "Koşma"
+      },
+      "announcements": {
+        "userTakeoverActive": "Bu terminali şu anda kullanıcı kontrol ediyor.",
+        "takeoverRequired": "Yazmaya başlamak için bu terminal'yi devralın."
+      },
+      "resize": "terminal bağlantı noktasını yeniden boyutlandır",
+      "tablistAriaLabel": "Thread terminal oturumları",
+      "unread": "Okunmamış",
+      "terminalSessions": "Terminal Oturumları",
+      "workspaceRoot": "workspace kökü",
+      "control": {
+        "aiControlsShell": "Yapay zeka bu shell'yi kontrol ediyor. Yazmadan önce devralın.",
+        "userControlsShell": "Şu anda bu shell'yi kontrol ediyorsunuz.",
+        "typingBlockedUntilTakeover": "Devralmayı onaylayana kadar yazmanız engellenir.",
+        "aiWaitingForUser": "AI, devam etmeden önce kullanıcının onayını bekliyor."
+      },
+      "browser": {
+        "title": "Terminal tarayıcı",
+        "subtitle": "Güncel Thread / Diğer Canlı / Geçmiş",
+        "sections": {
+          "currentThread": "Güncel Thread",
+          "otherLive": "Diğer Canlı",
+          "history": "Tarih"
+        },
+        "empty": {
+          "currentThread": "Bu thread'ye henüz canlı veya beklemede olan terminal oturumu eklenmemiş.",
+          "otherLive": "Şu anda başka hiçbir threads canlı terminal etkinliğine sahip değil.",
+          "history": "Bu workspace için henüz arşivlenmiş bir terminal geçmişi mevcut değil."
+        },
+        "fields": {
+          "thread": "Thread",
+          "scope": "Kapsam",
+          "updated": "Güncellendi"
+        },
+        "requestedIn": "{{section}} cinsinden talep edildi",
+        "suggestionFallback": "Zaman çizelgesi öneri kartları bu tarayıcıdan ayrı kalır.",
+        "crossThread": {
+          "title": "Çapraz thread oturumu",
+          "description": "Buradaki meta verilere göz atın, ardından sahibi olan chat thread'yi incelemek veya onunla etkileşimde bulunmak için {{openThreadLabel}}'yi kullanın."
+        },
+        "selectSession": "Bir terminal oturumu seçin",
+        "actions": {
+          "openThread": "Open thread",
+          "savedToMemory": "bellek konumuna kaydedildi",
+          "noMemorySummary": "bellek özeti yok",
+          "saveToThreadMemory": "Save to conversation notes",
+          "saveToProjectMemory": "Save to project notes",
+          "deletingArchive": "Siliniyor...",
+          "deleteArchive": "Arşivi sil",
+          "openTerminal": "terminal'yi açın",
+          "backToDock": "Dock'a geri dön",
+          "browseSessions": "Oturumlara göz at",
+          "handBackToAi": "Kontrolü AI'ya geri ver",
+          "confirmTakeover": "Devralmayı onayla",
+          "takeOver": "Devral",
+          "expandBrowser": "terminal tarayıcısını genişletin",
+          "collapseBrowser": "terminal tarayıcıyı daralt",
+          "expand": "Genişletmek",
+          "collapse": "Yıkılmak",
+          "openTerminalActions": "Terminal menu",
+          "terminalDockActions": "Terminal yerleştirme işlemleri",
+          "closeBrowser": "Tarayıcıyı kapat",
+          "interrupt": "Yarıda kesmek",
+          "stopInput": "Girişi durdur",
+          "closeSession": "Oturumu kapat",
+          "archiveSession": "Arşiv oturumu",
+          "hideTerminal": "terminal'yi gizle",
+          "dismiss": "Azletmek",
+          "forceTerminate": "Sonlandırmaya zorla",
+          "killProcess": "Süreci sonlandır",
+          "renameSession": "Rename session",
+          "editTitle": "Edit title",
+          "duplicateSession": "Duplicate session",
+          "sameCwdShell": "Same cwd and shell",
+          "newAtProjectRoot": "New at project root",
+          "newFromCurrentCwd": "New from current cwd",
+          "newFromEditorCwd": "New from editor folder",
+          "currentCwd": "Current cwd",
+          "editorFolder": "Editor folder",
+          "defaultShell": "Default shell",
+          "newWithShell": "New with shell",
+          "sendOutputToChat": "Send output to chat",
+          "explainLastError": "Explain last error",
+          "summarizeSession": "Summarize session",
+          "saveSnapshotToMemory": "Save snapshot to notes",
+          "prefillComposer": "Prefill composer",
+          "recentOutput": "Recent output",
+          "boundedOutput": "Bounded output",
+          "threadMemory": "Conversation notes"
+        }
+      },
+      "confirm": {
+        "forceTerminateHost": {
+          "title": "Ana Bilgisayarı Sonlandırmaya Zorla Terminal",
+          "message": "Bu ana bilgisayar kapsamlı terminal oturumu zorla sonlandırılsın mı? Bu, altta yatan süreci anında öldürecektir."
+        },
+        "forceTerminate": {
+          "title": "Sonlandırmayı Zorla Terminal",
+          "message": "Bu terminal oturumu zorla sonlandırılsın mı? Bu, altta yatan süreci anında öldürecektir."
+        },
+        "deleteArchive": {
+          "title": "Arşivlenen Terminal Oturumunu Sil",
+          "message": "Bu arşivlenmiş terminal oturumu silinsin mi?\n\nBu, yalnızca tutulan arşiv kaydını kaldırır ve geri alınamaz.",
+          "confirm": "Arşivi Sil"
+        }
+      },
+      "prompts": {
+        "renameSession": "Rename terminal session"
+      },
+      "actions": {
+        "openTerminal": "Terminali a?",
+        "backToDock": "Back to dock",
+        "browseSessions": "Browse sessions",
+        "handBackToAi": "Kontrolü AI'ya geri ver",
+        "confirmTakeover": "Devralmay? onayla",
+        "takeOver": "Devral",
+        "expandBrowser": "Expand terminal browser",
+        "collapseBrowser": "Collapse terminal browser",
+        "expand": "Expand",
+        "collapse": "Daralt",
+        "openTerminalActions": "Terminal menu",
+        "terminalDockActions": "Terminal dock eylemleri",
+        "closeBrowser": "Close browser",
+        "renameSession": "Rename session",
+        "editTitle": "Edit title",
+        "duplicateSession": "Duplicate session",
+        "sameCwdShell": "Ayn? cwd ve shell",
+        "newAtProjectRoot": "New at project root",
+        "newFromCurrentCwd": "New from current cwd",
+        "newFromEditorCwd": "New from editor folder",
+        "currentCwd": "Current cwd",
+        "editorFolder": "Editor folder",
+        "defaultShell": "Default shell",
+        "newWithShell": "Shell ile yeni",
+        "interrupt": "Kes",
+        "stopInput": "Stop input",
+        "closeSession": "Oturumu kapat",
+        "archiveSession": "Archive session",
+        "hideTerminal": "Terminali gizle",
+        "dismiss": "Kapat",
+        "forceTerminate": "Force terminate",
+        "killProcess": "Kill process"
+      }
+    },
+    "globalIndicator": {
+      "threadCount": "{{count}} conversation{{suffix}}",
+      "liveCount": "{{count}} canlı terminal{{suffix}}",
+      "priority": {
+        "approval": "Onay gerekiyor",
+        "waiting": "Kullanıcı bekleniyor"
+      }
+    },
+    "pendingApproval": {
+      "title": "Terminal waiting for approval",
+      "scopeLabel": "Scope",
+      "scopeHost": "Host access",
+      "scopeWorkspace": "Workspace",
+      "directoryLabel": "Directory",
+      "workspaceRoot": "workspace root"
+    }
+  },
+  "editor": {
+    "fileTree": {
+      "projectFallback": "Proje",
+      "syncing": "Senkronizasyon",
+      "openProjectFolder": "Proje klasörünü aç",
+      "refresh": "Dosya ağacını yenile",
+      "ariaLabel": "{{projectName}} dosyaları",
+      "loading": "Yükleniyor...",
+      "emptyProject": "Boş proje.",
+      "binaryTitle": "{{path}} (ikili dosya açılamıyor)"
+    },
+    "emptyState": {
+      "title": "Açmak için ağaçtan bir dosya seçin",
+      "shortcutHint": "Kaydetmek için Ctrl+S | Sekmeyi kapatmak için x'e tıklayın"
+    },
+    "loadingPane": "Yükleniyor...",
+    "panel": {
+      "thisFile": "bu dosya",
+      "closeDirty": {
+        "title": "Kaydedilmemiş değişiklikler",
+        "message": "Kapatmadan önce değişiklikler {{fileLabel}}'ye kaydedilsin mi?",
+        "confirm": "Kaydet ve Kapat",
+        "cancel": "Daha Fazla Seçenek"
+      },
+      "saveFailed": {
+        "title": "Kaydetme başarısız oldu",
+        "message": "Dosya kaydedilemedi."
+      },
+      "discard": {
+        "title": "Değişiklikler silinsin mi?",
+        "message": "{{fileLabel}}'deki kaydedilmemiş değişiklikler atılıp kapatılsın mı?",
+        "confirm": "Değişiklikleri İptal Et",
+        "cancel": "Düzenlemeye Devam Edin"
+      },
+      "formatActionTitle": "Belgeyi etkin biçimlendirici rotasıyla biçimlendirin (Shift+Alt+F)",
+      "formatUnavailableTitle": "Geçerli dosya için biçimlendirme kullanılamıyor",
+      "fixActionTitle": "Etkin kod eylemi provider'den otomatik olarak düzeltilebilen sorunları uygulayın",
+      "fixUnavailableTitle": "Geçerli dosya için kod eylemleri kullanılamıyor",
+      "serviceNotice": {
+        "providerDegraded": "{{providerLabel}} bozulmuş. Düzenleyici özellikleri sınırlı olabilir.",
+        "providerUnavailable": "{{providerLabel}} kullanılamıyor. Düzenleyici özellikleri sınırlı olabilir.",
+        "genericUnavailable": "Bazı editör hizmetleri şu anda kullanılamıyor."
+      },
+      "emptyProject": "Düzenleyiciyi kullanmak için bir proje klasörü açın.",
+      "resizeFileTree": "Dosya ağacını yeniden boyutlandır",
+      "fileWatcherCap": "Dosya izleyici dizin sınırına ulaştı ({{watchedCount}}/{{maxDirectories}}). Bazı klasörler harici düzenlemeler açısından aktif olarak izlenmiyor.",
+      "dismiss": "Azletmek",
+      "externalChangeDetected": "{{filePath}} için harici değişiklik algılandı. Kaydedilmemiş düzenlemeleriniz korundu.",
+      "reloadFromDisk": "Diskten Yeniden Yükle",
+      "resizeMarkdownPreview": "İşaretleme önizleme bölmesini yeniden boyutlandır",
+      "errors": {
+        "noProjectOrTabSelected": "Hiçbir proje veya sekme seçilmedi."
+      }
+    },
+    "tabBar": {
+      "openTabsAriaLabel": "Düzenleyici sekmelerini aç",
+      "fallbackFileLabel": "dosya",
+      "fallbackTabLabel": "sekme",
+      "saveTabAriaLabel": "{{fileLabel}}'yi kaydet",
+      "unsavedChangesTitle": "Kaydedilmemiş değişiklikler - kaydetmek için tıklayın",
+      "externalChangedTitle": "Harici dosya değişikliği algılandı",
+      "problemSummaryTitle": "{{count}} sorunu{{suffix}} ({{error}} hatası{{errorSuffix}}, {{warning}} uyarı{{warningSuffix}}, {{info}} bilgisi)",
+      "closeTabAriaLabel": "{{tabLabel}}'yi kapatın",
+      "aiActionsTitle": "Seçilen kod için AI eylemleri",
+      "aiDraftHint": "Geçerli seçimi ve yakındaki bağlamı kullanarak Chat'ye taslaklar.",
+      "preview": "Önizleme",
+      "fix": "Düzeltmek",
+      "format": "Biçim",
+      "auto": "Auto",
+      "togglePreviewTitle": "Markdown önizlemesini değiştir (Ctrl/Cmd+Shift+V)",
+      "toggleFormatOnSaveTitle": "Geçerli dosyanın etkin bir formatlayıcı rotası olduğunda kaydetme sırasında formatı değiştir",
+      "aiSelection": {
+        "explain": {
+          "label": "Açıklamak",
+          "title": "Chat'de seçilen kodu açıklayın",
+          "description": "Davranışı, varsayımları ve riskleri açıklayın."
+        },
+        "fix": {
+          "label": "Düzeltmek",
+          "title": "Chat'de seçilen kodu düzeltin",
+          "description": "Seçilen koddaki hataları/sorunları düzeltin."
+        },
+        "refactor": {
+          "label": "Yeniden düzenleme",
+          "title": "Chat'de seçilen kodu yeniden düzenleyin",
+          "description": "Davranışı korurken yeniden düzenleme yapın."
+        },
+        "tests": {
+          "label": "Testler",
+          "title": "Chat'de seçilen kod için testler oluşturun",
+          "description": "Seçilen kod için testler yazın."
+        }
+      }
+    },
+    "diagnostics": {
+      "currentFile": "Geçerli dosya",
+      "common": {
+        "expand": "Genişletmek",
+        "collapse": "Yıkılmak"
+      },
+      "filters": {
+        "all": "Tüm",
+        "errors": "Hatalar",
+        "warnings": "Uyarılar",
+        "info": "Bilgi"
+      },
+      "severity": {
+        "error": "Hata",
+        "warning": "Uyarı",
+        "info": "Bilgi",
+        "hint": "İpucu"
+      },
+      "problems": {
+        "title": "Sorunlar",
+        "errorCount": "{{count}} hatası{{suffix}}",
+        "warningCount": "{{count}} uyarı{{suffix}}",
+        "infoCount": "{{count}} bilgisi",
+        "none": "Sorun yok",
+        "expandTitle": "Sorunlar panelini genişlet",
+        "collapseTitle": "Sorunları Daralt paneli",
+        "setDefaultStateTitle": "Sorunlar panelinin varsayılan durumunu ayarlama",
+        "defaultCollapsed": "Varsayılan daraltıldı",
+        "noMatch": "Mevcut filtreyle eşleşen hiçbir sorun yok.",
+        "noneInFile": "Bu dosyada sorun yok."
+      },
+      "outline": {
+        "title": "Taslak",
+        "expandTitle": "Anahattı genişlet",
+        "collapseTitle": "Anahattı daralt",
+        "filterSymbols": "Sembolleri filtrele",
+        "symbolCount": "{{count}} sembolü{{suffix}}",
+        "refreshing": "Yenileniyor...",
+        "setupTitle": "Kurmak",
+        "hintCount": "{{count}} ipucu{{suffix}}",
+        "dismissSetupHintTitle": "{{actionLabel}} kurulum ipucunu kapat",
+        "unavailableForFileType": "Anahat henüz bu dosya türü için kullanılamıyor.",
+        "loadingSymbols": "Semboller yükleniyor...",
+        "noneAvailable": "Anahat mevcut değil.",
+        "noMatch": "Geçerli filtreyle eşleşen sembol yok.",
+        "noneDetected": "Bu dosyada sembol algılanmadı.",
+        "symbolFallback": "Sembol",
+        "messages": {
+          "serviceUnavailable": "Düzenleyici hizmeti hazır olmadığından simgeler kullanılamıyor.",
+          "loadFailed": "Semboller yüklenemedi.",
+          "realProviderMissing": "Bu dosya yalnızca söz dizimi olarak kalır çünkü bu dil için gerçek bir provider mevcut değildir.",
+          "formatOnlyLanguage": "Bu dil şu anda düzenleyicide yalnızca söz dizimi olarak kalıyor.",
+          "missingBinary": "{{providerLabel}} bu projede veya PATH'de bulunamadı.",
+          "providerUnavailable": "{{providerLabel}} bu dosyadaki semboller için kullanılamaz.",
+          "providerDegraded": "Bu dosyadaki semboller için {{providerLabel}}'nin derecesi düşürülmüştür.",
+          "providerRequestFailed": "Bu dosya için semboller yüklenirken {{providerLabel}} başarısız oldu.",
+          "unsupportedFile": "Anahat bu dosya türü için kullanılamıyor.",
+          "unsupported": "Bu dosya için taslak kullanılamıyor."
+        }
+      },
+      "setupHints": {
+        "messages": {
+          "formatting": {
+            "realProviderMissing": "Biçimlendirme bu dosya için gerçek bir provider gerektirir.",
+            "biomeConfigRequired": "Biçimlendirme bir proje Biome yapılandırması gerektirir.",
+            "ruffConfigRequired": "Biçimlendirme bir proje Ruff yapılandırması gerektirir.",
+            "clangFormatConfigRequired": "Biçimlendirme bir proje.clang-format veya _clang-format yapılandırması gerektirir.",
+            "javaProjectContextRequired": "Biçimlendirme bir Maven veya Gradle proje bağlamı gerektirir (pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts).",
+            "dotnetProjectRequired": "Biçimlendirme gerçek bir.csproj veya.sln bağlamı gerektirir.",
+            "missingBinary": "{{providerLabel}} bu projede veya PATH'de bulunamadı.",
+            "providerUnavailable": "{{providerLabel}} bu dosya için kullanılamıyor.",
+            "providerDegraded": "Bu dosya için {{providerLabel}}'nin kalitesi düşürüldü.",
+            "providerRequestFailed": "{{providerLabel}} bu dosyayı sunarken başarısız oldu.",
+            "formatOnlyLanguage": "Bu dil şu anda yalnızca biçimlendirme amaçlıdır."
+          },
+          "codeActions": {
+            "realProviderMissing": "Kod eylemleri, bu dosya için gerçek bir provider gerektirir.",
+            "eslintProjectRequired": "Kod eylemleri, proje tarafından yapılandırılmış bir ESLint provider gerektirir.",
+            "ruffConfigRequired": "Kod eylemleri bir proje Ruff yapılandırması gerektirir.",
+            "clangTidyConfigRequired": "Kod eylemleri bir proje.clang-tidy yapılandırması gerektirir.",
+            "clangCompileContextRequired": "Kod eylemleri compile_commands.json veya compile_flags.txt gerektirir.",
+            "javaProjectContextRequired": "Kod eylemleri bir Maven veya Gradle proje bağlamı gerektirir (pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts).",
+            "dotnetProjectRequired": "Kod eylemleri gerçek bir.csproj veya.sln bağlamı gerektirir.",
+            "javaNotInstalled": "PATH veya JAVA_HOME'da kullanılabilir bir JDK bulunamadı. jdtls Java gerektirir.",
+            "dotnetNotInstalled": "dotnet PATH'de bulunamadı.",
+            "missingBinary": "{{providerLabel}} bu projede veya PATH'de bulunamadı.",
+            "providerUnavailable": "{{providerLabel}} bu dosya için kullanılamıyor.",
+            "providerDegraded": "Bu dosya için {{providerLabel}}'nin kalitesi düşürüldü.",
+            "providerRequestFailed": "{{providerLabel}} bu dosyayı sunarken başarısız oldu.",
+            "formatOnlyLanguage": "Bu dil şu anda yalnızca biçimlendirme amaçlıdır."
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "navigationTitle": "Ayarlarda gezinme",
+    "overviewTitle": "Genel Bakış",
+    "controls": {
+      "expandAll": "Tümünü genişlet",
+      "collapseAll": "Tümünü daralt"
+    },
+    "counts": {
+      "sectionOne": "1 bölüm",
+      "sectionOther": "{{count}} bölümleri",
+      "visibleSectionOne": "1 görünür bölüm",
+      "visibleSectionOther": "{{count}} görünür bölümler"
+    },
+    "common": {
+      "yes": "Evet",
+      "no": "HAYIR",
+      "completed": "TAMAMLANMIŞ",
+      "inProgress": "DEVAM ETMEKTE",
+      "ready": "Hazır",
+      "notReady": "Hazır değil",
+      "savedOnly": "yalnızca kaydedildi",
+      "unknown": "bilinmiyor",
+      "checking": "Kontrol ediliyor...",
+      "disabled": "Engelli"
+    }
+  },
+  "artifacts": {
+    "emptyProject": "Yapı geçmişini görmek için bir proje klasörü açın.",
+    "trackedFilesTitle": "Takip edilen dosyalar",
+    "scope": {
+      "label": "Yapıt kapsamı",
+      "entireProject": "Proje",
+      "thisThread": "Konu",
+      "resultCount": "{{count}} dosya"
+    },
+    "loadingTrackedFiles": "İzlenen dosyalar yükleniyor...",
+    "emptyTrackedFiles": "Henüz sürümlendirilmiş dosya yok. AI dosyası yazar ve kod önerileri burada görünür.",
+    "deleteRevisionDialog": {
+      "title": "Revizyonu Sil",
+      "message": "Aşağıdakiler için rev {{rev}} ({{source}})'yi silin:\n{{filePath}}\n\nBu geri alınamaz.",
+      "confirm": "Revizyonu Sil",
+      "cancel": "İptal etmek"
+    },
+    "deleteHistoryDialog": {
+      "title": "Revizyon Geçmişini Sil",
+      "message": "Şunun için tüm düzeltme geçmişini silin:\n{{filePath}}\n\nDiskteki dosya SİLİNMEZ.",
+      "confirm": "Geçmişi Sil",
+      "cancel": "İptal etmek"
+    },
+    "selectFile": "Düzeltme geçmişini görüntülemek için bir dosya seçin.",
+    "labels": {
+      "fromBase": "Gönderen (taban)",
+      "toHead": "(kafa)",
+      "base": "temel",
+      "head": "KAFA"
+    },
+    "deleteRevisionTitle": "Bu düzeltmeyi sil",
+    "deleteFileHistoryTitle": "Bu dosyanın tüm geçmişini sil",
+    "selectRevisions": "Karşılaştırmak için yukarıdan revizyonları seçin.",
+    "revisionSource": {
+      "baseline": "temel çizgi",
+      "rollback": "geri alma",
+      "suggestion": "telkin",
+      "aiWrite": "Yapay zeka yazma"
+    },
+    "revisionOrigin": {
+      "thread": "İş parçacığı {{threadTitle}}",
+      "deletedThread": "Silinen iş parçacığı {{threadTitle}} · {{date}}"
+    },
+    "suggestionBadge": "telkin",
+    "revisionCountOne": "{{count}} rev",
+    "revisionCountOther": "{{count}} devirleri",
+    "footer": {
+      "suggestionPending": "Bu revizyon henüz diske yazılmadı",
+      "apply": "Diske uygula",
+      "applying": "Başvuruluyor...",
+      "rollbackNotice": "Geri alma, {{rev}} revizyonunu diske geri yükleyecektir",
+      "rollback": "Üsse geri alma",
+      "rollingBack": "Geri dönüyor..."
+    },
+    "picker": {
+      "placeholder": "- {{label}} -",
+      "empty": "- yeni dosya (boş) -",
+      "notOnDisk": "diskte değil",
+      "option": "rev {{rev}} - {{source}}{{notOnDisk}} - {{date}}",
+      "optionWithProvenance": "rev {{rev}} - {{source}}{{notOnDisk}} - {{date}} · {{provenance}}"
+    },
+    "action": {
+      "rollbackSuccess": "{{rev}} devrine geri alındı. Yeni devir {{newRev}} kaydedildi.",
+      "rollbackFailed": "Geri alma başarısız oldu.",
+      "applySuccess": "Diske uygulandı. Yeni devir {{newRev}} kaydedildi.",
+      "applyFailed": "Başvuru başarısız oldu.",
+      "revisionDeleted": "Rev {{rev}} silindi."
+    },
+    "diffLoading": "Fark yükleniyor...",
+    "diffTimeout": "Diff runtime başlatılamadı. Uygulamayı yeniden yükleyin."
+  },
+  "workspaceDisposal": {
+    "activeMessage": "Bu veriler kaldırılmadan önce etkin çalışma durdurulmalıdır.",
+    "threadDeleteActiveMessage": "Bu [[canon:thread]] içindeki etkin çalışma silme işleminden önce durdurulacaktır.",
+    "stopAndDelete": "Durdur ve sil",
+    "stopAndRemove": "Durdur ve kaldır",
+    "stopAndClear": "Durdur ve temizle",
+    "stopAndArchive": "Durdur ve arşivle"
+  },
+  "threadDrawer": {
+    "title": "Threads",
+    "threadCount": "{{count}} threads",
+    "previewRole": {
+      "user": "Sen",
+      "assistant": "yapay zeka"
+    },
+    "activity": {
+      "needsInput": "Girdi gerekiyor",
+      "sessionFailed": "Başarısız",
+      "sessionCompleted": "Tamamlandı",
+      "sessionActive": "Oturum etkin",
+      "sessionStale": "Oturum eski",
+      "pendingApproval": "Onay bekleniyor",
+      "sessionBlocked": "Oturum engellendi",
+      "idle": "Boşta",
+      "pendingBadge": "Askıda olması",
+      "blockedBadge": "Engellendi"
+    },
+    "fallbackTitle": "İsimsiz thread",
+    "renameTitle": "thread'yi yeniden adlandırın",
+    "deleteTitle": "thread'yi sil",
+    "searchPlaceholder": "threads'yi arayın...",
+    "newThreadTitle": "Yeni thread",
+    "newThread": "Yeni",
+    "emptySearch": "Aramanızla eşleşen threads yok.",
+    "empty": "Henüz threads yok.",
+    "createThread": "Bir thread oluşturun",
+    "loadMore": "Daha fazlasını yükle threads ({{count}} gizli)",
+    "resizeTitle": "Yeniden boyutlandırmak için sürükleyin"
+  },
+  "backgroundJobs": {
+    "status": {
+      "polling": "Oy verme",
+      "cancelRequested": "İptal istendi",
+      "completed": "Tamamlanmış",
+      "failed": "Arızalı",
+      "cancelled": "İptal edildi",
+      "orphaned": "Yetim",
+      "queued": "Sıraya alındı"
+    },
+    "title": "[[canon:background_jobs]]",
+    "runningJobs": "Çalışan işler: {{count}}",
+    "updated": "{{time}} güncellendi",
+    "refresh": "Yenile",
+    "close": "Kapalı",
+    "description": "Artık ihtiyaç duyulmadığında, uzun süredir devam eden yerel komutları veya ayrılmış OpenAI arka plan yanıtlarını durdurun.",
+    "stopAll": "Tümünü Durdur",
+    "stopping": "Durduruluyor...",
+    "loading": "Arka plan işleri yükleniyor...",
+    "empty": "Şu anda hiçbir arka plan işi çalışmıyor.",
+    "table": {
+      "job": "İş",
+      "task": "Görev",
+      "runtime": "Runtime",
+      "context": "Bağlam",
+      "action": "Aksiyon"
+    },
+    "statusLabel": "durum: {{status}}",
+    "openAiResponse": "OpenAI arka plan yanıtı",
+    "detachedOpenAiResponse": "Ayrılmış OpenAI yanıtı",
+    "emptyCommand": "(boş)",
+    "stop": "Durmak"
+  },
+  "chat": {
+    "planDirection": {
+      "questionNavigation": "Plan yönü soruları",
+      "goToQuestion": "{{count}}. soruya git",
+      "continue": "Devam et",
+      "changeAnswer": "Yanıtı değiştir",
+      "customPlaceholder": "Ya da başka bir yön açıklayın",
+      "customAnswer": "Özel yön yanıtı",
+      "recommendedShort": "Önerilen",
+      "synthesizing": "Seçimlerinize göre yön güncelleniyor…",
+      "synthesisFailed": "Yön güncellenemedi.",
+      "retryDraft": "Plan taslağını yeniden dene",
+      "retry": "Yeniden dene",
+      "reviewChoices": "Seçimleri gözden geçir",
+      "change": "Yönü değiştir",
+      "changeFeedback": "Yön geri bildirimi",
+      "changePlaceholder": "Bu yönde ne değişmeli?",
+      "updateDirection": "Yönü güncelle",
+      "creating": "Yönetilen Markdown planı oluşturuluyor…",
+      "recommended": "Önerilen:",
+      "recommendationDetail": "{{profile}} - {{rationale}}",
+      "create": "Plan oluştur",
+      "profileMenu": "Plan yazma profilleri",
+      "profiles": {
+        "implementation": "Uygulama planı",
+        "technicalDesign": "Teknik tasarım",
+        "investigation": "İnceleme planı",
+        "deepImplementation": "Ayrıntılı uygulama planı"
+      },
+      "errors": {
+        "answerSave": "The direction answer could not be saved.",
+        "profileUnavailable": "The selected plan profile was unavailable.",
+        "changeFailed": "The direction feedback could not be saved.",
+        "retryFailed": "The direction update could not be retried."
+      }
+    },
+    "emptyState": {
+      "title": "Henüz mesaj yok",
+      "planDescription": "[[canon:plan]] modu etkin. Yapılandırılmış bir plan için [[canon:ask]], ardından yolu yönlendirmek için yanıtta etkileşimli seçimleri kullanın.",
+      "thinkingDescription": "[[canon:thinking]] modu etkin. Burada seçenekler ve ödünleşimler üzerinde beyin fırtınası yapın, ardından uygulamaya hazır olduğunuzda [[canon:execute]]'ye geçin.",
+      "executeDescription": "Bir provider seçin ve sohbete başlayın. Dönüşleri yürütmek için [[canon:ask]], [[canon:autonomy]] ve [[canon:full_access]] arasında geçiş yapmak için [[canon:permission_mode]] başlık kontrolünü kullanın.",
+      "needsProviderSetup": "OpenAI hesap kimlik doğrulamasını bağlayın veya Ayarlar'da bir API key ekleyin, ardından başlamak için bir provider seçin."
+    },
+    "composer": {
+      "placeholder": {
+        "selectProvider": "Başlamak için bir provider seçin...",
+        "selectThread": "Select or create a conversation to continue...",
+        "streaming": "Yapay zeka düşünüyor...",
+        "plan": "Bir plan isteyin... (Göndermek için girin, yeni satır için Shift+Enter)",
+        "thinking": "Fikirler, değiş tokuşlar ve yön için beyin fırtınası yapın... (Göndermek için girin, yeni satır için Shift+Enter)",
+        "execute": "Projeniz hakkında her şeyi sorun... (Göndermek için girin, yeni satır için Shift+Enter)"
+      },
+      "blockLabels": {
+        "code": "Kod",
+        "text": "Metin"
+      },
+      "codeLanguage": "Kod dili",
+      "openAdvancedEditor": "Gelişmiş kod düzenleyiciyi aç",
+      "advanced": "Gelişmiş",
+      "removeBlock": "Bloğu kaldır",
+      "removeCodeBlock": "Kod bloğunu kaldır",
+      "removeTextBlock": "Metin bloğunu kaldır",
+      "codePlaceholder": "Kod...",
+      "insertSnippet": "Parçayı ekle",
+      "codeSnippet": "Kod pasajı",
+      "textSnippet": "Metin pasajı"
+    },
+    "controlRail": {
+      "quickActionsTitle": "[[canon:quick_actions]]",
+      "refreshModels": "models'yi yenile",
+      "refreshingModels": "Yenileyici models",
+      "refreshing": "Yenileniyor...",
+      "openBackgroundJobs": "[[canon:background_jobs]]'yi açın",
+      "backgroundJobs": "[[canon:background_jobs]]",
+      "agents": "Temsilciler",
+      "directAgentsMenu": "Temsilci seçim menüsü",
+      "moreActions": "Daha fazla işlem",
+      "stopResponse": "Yanıtı durdur",
+      "sendMessage": "Mesaj gönder",
+      "sendEnter": "Gönder (Giriş)",
+      "attach": {
+        "filesImagesDisabled": "Dosya ekleyin (görüntüler bu model için devre dışıdır)",
+        "images": "Resim ekleyin",
+        "files": "Dosya ekle"
+      },
+      "collaborationMode": {
+        "defaultLabel": "[[canon:native_collaboration_mode]]",
+        "buttonTitle": "[[canon:native_collaboration_mode]]: {{value}}",
+        "optionsAriaLabel": "[[canon:native_collaboration_mode]] seçenekleri"
+      },
+      "reasoningEffort": {
+        "providerDefault": "Provider varsayılan",
+        "xhigh": "Xyüksek",
+        "buttonTitle": "[[canon:reasoning_effort]]: {{value}}. model'nin ne kadar muhakeme uygulayacağını kontrol eder.",
+        "buttonAriaLabel": "[[canon:reasoning_effort]]: {{value}}",
+        "optionsAriaLabel": "[[canon:reasoning_effort]] seçenekleri"
+      },
+      "processingMode": {
+        "fast": "Hızlı",
+        "standard": "Standart",
+        "enable": "Hızlı işlemeyi kullan",
+        "disable": "Standart işlemeyi kullan",
+        "pricingNote": "Hızlı işleme premium fiyatlandırma kullanabilir.",
+        "returnedMode": "Son yanıt {{mode}} işlemeyi kullandı."
+      },
+      "rateLimits": {
+        "title": "[[canon:rate_limits]]",
+        "remainingTitle": "OpenAI hesap oranı limitleri kaldı",
+        "weekly": "Haftalık",
+        "primary": "Öncelik",
+        "secondary": "İkincil"
+      }
+    },
+    "moaToggle": {
+      "activeTitle": "[[canon:moa]] modu etkin - devre dışı bırakmak için tıklayın",
+      "enableTitle": "[[canon:moa]]'yi (Çok Aracılı Düzenleme) etkinleştirin"
+    },
+    "threadModals": {
+      "common": {
+        "close": "Kapalı",
+        "closeModal": "[[canon:thread]] modelini kapat",
+        "cancel": "İptal etmek"
+      },
+      "create": {
+        "title": "[[canon:thread]]'yi oluşturun",
+        "description": "Yeni görüşme için bir başlık girin [[canon:thread]].",
+        "placeholder": "Yeni [[canon:thread]]",
+        "confirm": "Yaratmak"
+      },
+      "rename": {
+        "title": "[[canon:thread]]'yi yeniden adlandırın",
+        "description": "Mevcut görüşmenin başlığını güncelleyin [[canon:thread]].",
+        "placeholder": "[[canon:thread]] başlığı",
+        "confirm": "Kaydetmek"
+      },
+      "clear": {
+        "deleteTitle": "[[canon:thread]]'yi sil",
+        "deleteMessage": "Bu [[canon:thread]]{{threadTitle}} silinsin mi? Konuşma, ekler ve [[canon:thread]] etkinliği kaldırılacak. Proje dosyaları, Artefaktlar ve korunan Bellek kalacaktır.",
+        "deleteConfirm": "[[canon:thread]]'yi sil"
+      }
+    },
+    "providerSwitchContextBanner": {
+      "title": "Provider/model anahtarlandı",
+      "previousProvider": "önceki provider",
+      "newProvider": "yeni provider",
+      "movedFrom": "Şuradan taşındı:",
+      "movedTo": "ile",
+      "continuityHint": "Proje sürekliliğini kaybetmemek için bir sonraki turdan önce bağlamı enjekte edin.",
+      "injectMemory": "bellek'yi enjekte edin",
+      "injectArtifacts": "[[canon:artifacts]]'yi enjekte edin",
+      "injectBoth": "Her ikisini de enjekte edin",
+      "dismiss": "Azletmek"
+    },
+    "contextMeter": {
+      "toggleDetails": "Bağlam ayrıntılarını değiştir",
+      "expandDetails": "Bağlam ölçer ayrıntılarını genişlet",
+      "collapseDetails": "Bağlam ölçer ayrıntılarını daralt",
+      "visibleMetrics": "Görünür Metrikler",
+      "chooseVisibleMetrics": "Görünür metrikleri seçin",
+      "showAll": "Tümünü göster",
+      "hideAll": "Tümünü gizle",
+      "noMetricsSelected": "Hiçbir ölçüm seçilmedi.",
+      "title": {
+        "available": "Son dönüş {{turnTokens}}/{{modelLimit}} tokens ({{percent}}%)",
+        "unavailable": "Son dönüş kullanımı mevcut değil ({{modelLimit}} token sınırı)",
+        "limitUnavailable": "Bu model için bağlam sınırı mevcut değil",
+        "contextLeftAvailable": "Bağlam sol {{remaining}}/{{modelLimit}} tokens ({{percent}}%)",
+        "contextLeftFallback": "Bağlam sol {{remaining}}/{{modelLimit}} tokens ({{percent}}%, boş thread)",
+        "contextLeftUnavailable": "Bağlam kullanılamıyor kaldı ({{modelLimit}} token sınırı; thread doluluk durumu mevcut değil)",
+        "contextLeftRecalculating": "Sıkıştırmadan sonra kalan bağlam yeniden hesaplanıyor ({{modelLimit}} token sınırı)"
+      },
+      "values": {
+        "left": "sol",
+        "occupancyUnavailable": "thread doluluk durumu mevcut değil",
+        "limitUnknown": "sınır bilinmiyor",
+        "notAvailable": "yok",
+        "recalculating": "yeniden hesaplanıyor..."
+      },
+      "metrics": {
+        "used": "Thread oc.",
+        "usedEstimated": "Thread oc. (Avustralya, Brezilya ve Kuzey Amerika ülkelerinin kullandığı saat uygulaması.)",
+        "usedMapped": "Thread oc. (haritalanmış)",
+        "remaining": "Bağlam kaldı",
+        "limit": "Sınır",
+        "turn": "Son dönüş",
+        "spendRoll": "Oturum harcaması",
+        "inputNoCache": "Giriş (önbellek yok)",
+        "cacheRead": "Önbellek okuma",
+        "cacheWrite": "Önbelleğe yazma",
+        "turnEstTok": "Bunu çevir",
+        "turnEstUsd": "Tahmini ABD Doları çevirin",
+        "costConf": "Maliyet yapılandırması",
+        "continuity": "Süreklilik",
+        "packet": "Paket",
+        "drift": "Sürüklenme",
+        "compactionDelta": "Sıkıştırma deltası"
+      }
+    },
+    "cursor": {
+      "fullAccessRequired": "Cursor runs only with Full Access.",
+      "useFullAccess": "Use Full Access"
+    },
+    "composerArea": {
+      "selectProvider": "Sohbete başlamak için aşağıdan bir provider seçin.",
+      "selectThread": "Mesaj göndermeden önce bir thread seçin veya oluşturun.",
+      "selectedModelMissing": "Seçilen model kullanılamayabilir. Eylemler menüsünden seçilen modeller'yi yenileyin.",
+      "addApiKey": "Başlamak için Ayarlar'a bir API key ekleyin.",
+      "switchToExecute": "[[canon:execute]]'ye geçiş yapın",
+      "imagesDisabled": "Bu model için resimler devre dışı bırakıldı. Dosya ekleri etkin durumda kalır.",
+      "pipeline": {
+        "stepRunning": "Pipeline step {{currentStep}}/{{totalSteps}}: {{stepName}}",
+        "completed": "Pipeline complete",
+        "failedAt": "Pipeline failed at {{stepName}}",
+        "cancelled": "Pipeline cancelled",
+        "starting": "Starting pipeline ({{totalSteps}} steps)..."
+      },
+      "council": {
+        "completed": "Konsey tamamlandı ({{successCount}}/{{memberCount}} başarılı)",
+        "failed": "Konsey başarısız oldu",
+        "cancelled": "Konsey iptal edildi",
+        "running": "Konsey çalışıyor ({{memberCount}} üyesi{{suffix}})..."
+      }
+    },
+    "permissionMode": {
+      "planActive": "[[canon:plan]] modu: araştırma ve planlama araçları kullanılabilir; proje değişiklikleri engellenir.",
+      "thinkingActive": "[[canon:thinking]] modu: okuma ve araştırma araçları kullanılabilir; proje değişiklikleri engellenir.",
+      "planDormant": "[[canon:plan]] modu bu dönüş için takımın yürütülmesini devre dışı bırakır.",
+      "thinkingDormant": "[[canon:thinking]] modu bu dönüş için takımın yürütülmesini devre dışı bırakır.",
+      "label": "İzin",
+      "groupAriaLabel": "İzin modu",
+      "optionsAriaLabel": "İzin modu seçenekleri",
+      "helpers": {
+        "ask": "Riskli eylemlerden önce sor",
+        "autonomy": "Act inside workspace Guardrails",
+        "fullAccess": "Ana bilgisayar düzeyinde araç yürütme"
+      }
+    },
+    "dispatchConfirmation": {
+      "dispatchFailed": "Gönderim başarısız oldu.",
+      "executed": "Gönderim Gerçekleştirildi",
+      "executedDescription": "{{count}} temsilcisi{{suffix}} gönderildi. Temsilciler tamamlandığında sonuçlar aşağıda görünecektir.",
+      "failed": "Gönderim Başarısız",
+      "unknownError": "Bilinmeyen hata.",
+      "retry": "Yeniden dene",
+      "title": "Görev Dağıtım Planı",
+      "selected": "{{selected}}/{{total}} seçildi",
+      "dispatching": "Gönderiliyor...",
+      "executeTasks": "{{count}} görevini yürütün{{suffix}}"
+    },
+    "questionUser": {
+      "clarificationNeeded": "Açıklama Gerekli",
+      "waitingOnYou": "Seni Bekliyorum",
+      "recommended": "Tavsiye edilen",
+      "yourAnswer": "Cevabınız",
+      "answerPlaceholder": "Cevabınızı yazın…",
+      "answerHint": "Buraya hızlı bir yanıt gönderin veya aşağıdaki oluşturucuda düzenlemeye devam edin.",
+      "sending": "Gönderiliyor...",
+      "sendAnswer": "Gönder",
+      "sendAnswerTitle": "Yanıt gönder (Enter)"
+    },
+    "runbook": {
+      "status": {
+        "cancelled": "iptal edildi",
+        "finishedWithErrors": "hatalarla bitti",
+        "finishedWithWarnings": "uyarılarla tamamlandı",
+        "finished": "bitti",
+        "running": "koşma"
+      },
+      "filters": {
+        "all": "Tüm",
+        "commands": "Komutlar",
+        "usage": "Kullanım",
+        "reasoning": "muhakeme",
+        "approvals": "Onaylar"
+      },
+      "aria": {
+        "collapse": "Dönüşü daralt runbook",
+        "expand": "runbook dönüşünü genişletin"
+      },
+      "summary": {
+        "actions": "eylemler {{count}}",
+        "commands": "komutlar {{count}}",
+        "files": "dosyalar {{count}}",
+        "usage": "kullanım {{count}}"
+      },
+      "sections": {
+        "actions": "Eylemler",
+        "commands": "Komutlar",
+        "usage": "Kullanım"
+      }
+    },
+    "fileChanges": {
+      "header": "Dosyalar değiştirildi: {{count}}",
+      "unknownFile": "Bilinmeyen dosya",
+      "updatedAgo": "güncellendi {{time}}",
+      "changeType": {
+        "applied": "Uygulandı",
+        "modified": "Değiştirildi",
+        "edited": "Düzenlendi",
+        "deleted": "Silindi",
+        "renamed": "Yeniden adlandırıldı",
+        "rolledBack": "Geri alındı",
+        "created": "Oluşturuldu"
+      },
+      "syncStatus": {
+        "deleted": "silindi",
+        "undone": "geri alındı",
+        "conflict": "anlaşmazlık"
+      },
+      "reason": {
+        "changedSinceTurn": "Bu dönüşten bu yana değişti",
+        "missingRevisionMetadata": "Revizyon meta verileri eksik"
+      },
+      "actions": {
+        "fallbackAction": "Aksiyon",
+        "openInEditor": "Düzenleyicide aç",
+        "openInDocumentViewer": "Belge görüntüleyicide aç",
+        "openArtifacts": "[[canon:artifacts]]'yi açın",
+        "copyPath": "Yolu kopyala",
+        "deleting": "Siliniyor...",
+        "deleteFile": "Dosyayı sil",
+        "undoing": "Geri alınıyor...",
+        "undoChange": "Değişikliği geri al",
+        "menuTitle": "Dosya eylemleri"
+      },
+      "preview": {
+        "loading": "Değişiklikler yükleniyor...",
+        "noChangedLines": "Önizlenecek değiştirilen satır yok.",
+        "collapse": "Önizlemeyi daralt",
+        "expand": "Önizlemeyi genişlet",
+        "collapseForFile": "{{path}} için önizlemeyi daralt",
+        "expandForFile": "{{path}} için önizlemeyi genişlet",
+        "fileChangeFallback": "dosya değişikliği",
+        "limited": "önizleme sınırlı",
+        "limitWithLineCount": "Dosya boyutu önizleme sınırlarını ({{lineCount}} satırları) aşıyor. Değişiklikleri incelemek için düzenleyicide veya [[canon:artifacts]]'de açın.",
+        "limitNoLineCount": "Dosya boyutu önizleme sınırlarını aşıyor. {{maxLines}} satırlarının üzerinde önizleme devre dışı bırakılır."
+      },
+      "dialogs": {
+        "undoOne": {
+          "title": "Dosya Değişikliğini Geri Al",
+          "message": "{{path}}'nin önceki sürümü geri yüklensin mi?",
+          "confirm": "Değişikliği Geri Al"
+        },
+        "deleteOne": {
+          "title": "Oluşturulan Dosyayı Sil",
+          "message": "{{path}} silinsin mi? Bu, bu sırada oluşturulan dosyayı diskten kaldırır.",
+          "confirm": "Dosyayı Sil"
+        },
+        "undoAll": {
+          "title": "Dosya Değişikliklerini Geri Al",
+          "message": "{{count}} dosyası{{suffix}} için önceki sürüm geri yüklensin mi?",
+          "confirm": "Değişiklikleri Geri Al"
+        },
+        "deleteAll": {
+          "title": "Oluşturulan Dosyaları Sil",
+          "message": "Bu sırada oluşturulan {{count}} dosyası{{suffix}} silinsin mi? Bu onları diskten kaldırır.",
+          "confirm": "Dosyaları Sil"
+        }
+      },
+      "feedback": {
+        "clipboardUnavailable": "Pano bu ortamda kullanılamıyor.",
+        "copiedPath": "Kopyalanan yol: {{path}}",
+        "copyFailed": "Dosya yolu kopyalanamadı.",
+        "undoUnavailable": "Geri alma bu giriş için kullanılamıyor (revizyon meta verileri eksik).",
+        "undoSucceeded": "{{path}} düzeltildi.",
+        "undoFailed": "Geri alma başarısız oldu.",
+        "deleteUnavailable": "Bu giriş için silme işlemi kullanılamıyor (revizyon meta verileri eksik).",
+        "deleteSucceeded": "Oluşturulan dosya {{path}} silindi.",
+        "deleteFailed": "Silinemedi.",
+        "conflict": "{{path}}: Bu turdan bu yana değişti.",
+        "actionFailed": "{{path}}: {{message}}",
+        "undoAllUnavailable": "Kullanılamayanların tümünü geri alın (eksik revizyon meta verileri).",
+        "undoAllSummary": "Tümünü geri al: {{success}} başarılı oldu{{conflicts}}{{failed}}{{skipped}}.",
+        "undoAllFailed": "Tümü geri alınamadı.",
+        "deleteAllUnavailable": "Kullanılamayanların tümünü silin (eksik revizyon meta verileri).",
+        "deleteAllSummary": "Oluşturulan dosyaları silin: {{success}} başarılı{{conflicts}}{{failed}}{{skipped}}.",
+        "deleteAllFailed": "Oluşturulan dosyalar silinemedi."
+      },
+      "activity": {
+        "undoOne": "Geri alınan dosya değişikliği: {{path}}",
+        "deleteOne": "Oluşturulan dosya silindi: {{path}}",
+        "undoAll": "Tüm dosya değişikliklerini geri al ({{success}} başarılı{{conflicts}}{{failed}}{{skipped}})",
+        "deleteAll": "Oluşturulan dosyalar silindi ({{success}} başarılı{{conflicts}}{{failed}}{{skipped}})"
+      },
+      "bulkActions": {
+        "undoingTitle": "Dosya değişikliklerini geri alma",
+        "undoTitle": "Bu dönüşten itibaren dosya değişikliklerini geri al",
+        "deletingTitle": "Oluşturulan dosyaları silme",
+        "deleteTitle": "Bu dönüşten itibaren oluşturulan dosyaları sil"
+      }
+    },
+    "roleConfirmation": {
+      "title": "[[canon:ai_generated_agent_role]]",
+      "saveRole": "[[canon:save_role]]",
+      "saveRoleAndContinue": "[[canon:save_role_continue]]",
+      "useForDelegation": "[[canon:use_for_delegation]]",
+      "saving": "Kaydediliyor...",
+      "starting": "Başlangıç...",
+      "saved": "\"{{name}}\" rolü kaydedildi",
+      "usedForDelegation": "Bu yetkilendirme için \"{{name}}\" rolü kullanıldı",
+      "savedDescription": "Hemen delegasyona hazır.",
+      "usedTemporaryDescription": "Bu geçici rol, yetkilendirme tamamlandıktan sonra otomatik olarak kaldırılacaktır.",
+      "roleName": "[[canon:role_name]]",
+      "instructions": "Talimatlar",
+      "noInstructions": "Talimat yok",
+      "provider": "Provider",
+      "model": "model",
+      "selectProvider": "provider'yi seçin...",
+      "selectModel": "model'yi seçin...",
+      "modelIdPlaceholder": "model Kimliği",
+      "emptyValue": "—",
+      "stagedWrites": {
+        "title": "Staged dosyası yazıyor",
+        "enabledDescription": "Bu rol için etkinleştirildi. Bunu kullanarak, yetkilendirme sırasında stage dosyasında değişiklik yapılabilir.",
+        "disabledDescription": "Engelli. Bu rol yalnızca analiz ve öneriler getirebilir."
+      },
+      "allowStagedWrites": {
+        "title": "staged dosyasının yazılmasına izin ver",
+        "description": "Temsilci stage [[canon:write_file]] önerilerde bulunabilir."
+      },
+      "preview": "Önizleme",
+      "edit": "Düzenlemek",
+      "dismiss": "Azletmek",
+      "errors": {
+        "roleNameRequired": "Rol adı gerekli.",
+        "providerRequired": "Provider gereklidir.",
+        "modelRequired": "model gereklidir.",
+        "saveFailed": "Rol kaydedilemedi.",
+        "useTemporaryFailed": "Geçici rol kullanılamadı."
+      }
+    },
+    "writeConflict": {
+      "resolved": "Çözüldü {{path}}",
+      "conflictBadge": "anlaşmazlık",
+      "showDebugInfo": "Hata ayıklama bilgilerini göster",
+      "hideDebugInfo": "Hata ayıklama bilgilerini gizle",
+      "hideDetails": "Ayrıntıları gizle",
+      "viewChanges": "Nelerin değiştiğini görüntüle",
+      "loading": "Yükleniyor...",
+      "loadingPreviews": "Önizlemeler yükleniyor...",
+      "previewUnavailable": "Önizleme kullanılamıyor.",
+      "aiMerge": "Yapay Zeka Birleştirme",
+      "dismiss": "Azletmek",
+      "confirm": "Onaylamak",
+      "noModelSelected": "model seçilmedi",
+      "generatingMerge": "Birleştirme oluşturuluyor...",
+      "retry": "Yeniden dene",
+      "tryAgain": "Tekrar deneyin",
+      "accept": "Kabul etmek",
+      "labels": {
+        "yoursVsBase": "Değişiklikleriniz ve temel",
+        "theirsVsBase": "Diğer değişiklikler ve temel"
+      },
+      "errors": {
+        "unknown": "Bilinmeyen hata",
+        "requestFailed": "İstek başarısız oldu",
+        "applyFailed": "Birleştirme çözünürlüğü uygulanamadı.",
+        "mergeFailed": "Birleştirme başarısız oldu.",
+        "revisionPreviewUnavailable": "Bu oluşturucu oturumunda revizyon önizlemesi kullanılamıyor.",
+        "loadRevisionPreviewFailed": "Revizyon önizlemesi yüklenemedi.",
+        "loadRevisionContextFailed": "Revizyon içeriği yüklenemedi."
+      }
+    },
+    "attachments": {
+      "actions": {
+        "menuAriaLabel": "{{name}} eki için işlemler",
+        "showInFolder": "Klasörde göster",
+        "copy": "Kopyala",
+        "saveAs": "Farklı kaydet...",
+        "openWith": "Birlikte aç",
+        "defaultApp": "Varsayılan uygulama",
+        "chooseAnotherApp": "Başka bir uygulama seç...",
+        "copyFailed": "Bu ek kopyalanamadı.",
+        "showInFolderFailed": "Bu ek klasöründe gösterilemedi.",
+        "saveFailed": "Bu ek kaydedilemedi.",
+        "openWithFailed": "Bu ek seçilen uygulamayla açılamadı."
+      },
+      "common": {
+        "close": "Kapalı",
+        "cancel": "İptal etmek"
+      },
+      "errors": {
+        "cachedOpenFailed": "Önbelleğe alınmış ek dosyası açılamıyor.",
+        "unavailable": "Bu yapıda ek açık özelliği kullanılamıyor.",
+        "historyUnavailable": "Bu ek, verileri zaman çizelgesi geçmişinde bulunmadığından yeniden açılamıyor.",
+        "openFailed": "Ek dosyası açılamıyor."
+      },
+      "labels": {
+        "pdfAttachment": "PDF eki",
+        "attachedImage": "Ekli resim",
+        "attachedFile": "Ekli dosya"
+      },
+      "image": {
+        "unavailable": "Resim eki kullanılamıyor.",
+        "open": "{{label}}'yi açın",
+        "previewAriaLabel": "Resim önizlemesi",
+        "closePreviewAriaLabel": "Resim önizlemesini kapat"
+      },
+      "file": {
+        "openPdfViewer": "PDF'yi görüntüleyicide aç",
+        "openAttachedFile": "Ekli dosyayı aç",
+        "openPdfAttachment": "PDF ekini aç",
+        "openFileAttachment": "Dosya ekini aç",
+        "clickOpenViewer": "Görüntüleyicide açmak için tıklayın",
+        "clickOpenFile": "Dosyayı açmak için tıklayın"
+      },
+      "dialogs": {
+        "openFileAriaLabel": "Dosya onayını aç",
+        "openPdfTitle": "PDF varsayılan görüntüleyicinizde açılsın mı?",
+        "closeFileOpenAriaLabel": "Dosya açma onayını kapat",
+        "openPdfDescription": "Bu dosya, sisteminizin PDF uygulamasını kullanarak ADDOM dışında açılacaktır.",
+        "openPdfConfirm": "PDF'yi aç"
+      }
+    },
+    "planRequests": {
+      "label": {
+        "memoryReview": "Inject saved context",
+        "artifactReview": "[[canon:artifacts]] Bağlamını Enjekte Et",
+        "webIngest": "Web Sitesini Al",
+        "runRequest": "İsteği Çalıştır"
+      },
+      "summary": {
+        "from": "#{{value}}'den itibaren",
+        "to": "#{{value}}'ye",
+        "tags": "Etiketler: {{value}}",
+        "sources": "kaynaklar: {{value}}",
+        "limit": "{{value}} sınırı",
+        "files": "dosyalar: {{value}}",
+        "latestOnly": "yalnızca en yeni",
+        "revisionsPerFile": "revizyonlar/dosya: {{value}}",
+        "fromRev": "Rev {{value}}'den itibaren",
+        "toRev": "{{value}}'yi revize etmek"
+      }
+    },
+    "toolExecution": {
+      "runningCommandWithCommand": "Çalıştırma komutu: {{command}}",
+      "runningCommand": "Komut çalıştırılıyor...",
+      "renameFile": "Çalıştırılıyor: rename_file - {{oldPath}} -> {{newPath}}",
+      "browsingUrl": "Göz atılıyor: {{url}}",
+      "browserActionWithAction": "Tarayıcı: {{action}}",
+      "browserAction": "Tarayıcı eylemi",
+      "runningToolWithPath": "Çalıştırma: {{toolName}} - {{filePath}}",
+      "runningTool": "Çalıştırılıyor: {{toolName}}",
+      "result": {
+        "browserDenied": "tarayıcı_aksiyonu - reddedildi",
+        "browserFailed": "tarayıcı_aksiyonu - başarısız oldu",
+        "browserDone": "tarayıcı_aksiyonu - tamamlandı",
+        "toolDenied": "{{toolName}} - reddedildi",
+        "toolFailed": "{{toolName}} - başarısız oldu",
+        "toolDone": "{{toolName}} - tamamlandı"
+      }
+    },
+    "mcpElicitation": {
+      "sendFailed": "Bu yanıt gönderilemedi."
+    },
+    "diff": {
+      "addedLine": "Eklenen satır",
+      "removedLine": "Kaldırılan satır"
+    },
+    "providerTerms": {
+      "providerFallback": "bu sağlayıcı",
+      "title": "{{providerName}} kullanmadan önce",
+      "lead": "Bu sağlayıcının şartlarından siz sorumlusunuz. İstemler ve araç etkinliği bu makineden ayrılabilir.",
+      "cancel": "İptal",
+      "openTerms": "Şartları aç",
+      "continue": "Devam"
+    }
+  },
+  "toolApprovalOverlay": {
+    "header": {
+      "title": "Yapay Zeka şunları yapmak istiyor:",
+      "reviewFileChanges": "Önerilen dosya değişikliklerini inceleyin, ardından onaylayın veya reddedin",
+      "reviewDiff": "Aşağıdaki farkı inceleyin, ardından onaylayın veya reddedin",
+      "approveFilesystem": "Dosya sisteminizde bu eyleme izin vermek için onaylayın",
+      "expiresIn": "{{time}} tarihinde sona eriyor"
+    },
+    "footer": {
+      "expired": "Approval expired",
+      "enterDisabled": "Yükseltilmiş onaylar için devre dışı bırakılan kısayolu girin",
+      "shortcuts": "Kısayollar: İzin ver, Esc reddet girin",
+      "submitting": "Submitting approval..."
+    },
+    "actions": {
+      "deny": "Reddet (Esc)",
+      "allowForSession": "Oturuma İzin Ver",
+      "allowForSessionTitle": "Desteklendiğinde mevcut uygulama oturumu için bu onaya izin verin ve bu onayı hatırlayın",
+      "openGuardrails": "Open Guardrails settings",
+      "openGuardrailsTitle": "Cancel this approval and open Guardrails settings",
+      "allowHostFallback": "Ana Bilgisayar Geri Dönüşüne İzin Ver",
+      "allowHostFallbackTitle": "Ana makine geri dönüşüne izin ver (tek seferlik)",
+      "allowHostFullAccessThisTurn": "Ana Bilgisayara Tam Erişime İzin Ver (Bu Sıra)",
+      "allowHostFullAccessThisTurnTitle": "Bu turun geri kalanı boyunca toplantı sahibinin tam erişimine izin ver",
+      "allowHostFullAccess": "Ana Bilgisayara Tam Erişime İzin Ver",
+      "allowHostFullAccessTitle": "Ana makineye tam erişime izin ver (tek seferlik)",
+      "allowWslCompatibility": "WSL Uyumluluk Çalıştırmasına İzin Ver",
+      "allowWslCompatibilityTitle": "Tek seferlik WSL uyumluluk çalışmasına izin ver",
+      "allowDisabledWslTitle": "Bu komut için açık WSL uyumluluk onayını kullanın",
+      "allowDisabledHostTitle": "Bu komut için açık ana bilgisayar tam erişim eylemini kullan",
+      "allowTitle": "İzin ver (Giriş)",
+      "allowDisabled": "İzin ver (devre dışı)",
+      "allowCaution": "İzin ver (dikkat)",
+      "allow": "İzin vermek"
+    },
+    "review": {
+      "grantedRoot": "Verilen Kök",
+      "empty": "Bu onay isteğine herhangi bir dosya değişikliği dahil edilmedi.",
+      "file": "Dosya",
+      "unknownPath": "(bilinmeyen yol)",
+      "noDiff": "Bu dosya değişikliği için fark sağlanmadı."
+    },
+    "policy": {
+      "runCommandTitle": "Komut Politikasını Çalıştır",
+      "browserActionTitle": "Tarayıcı Eylem Politikası",
+      "warnings": "Uyarılar",
+      "hints": "İpuçları",
+      "explicitHostElevation": "Açık Ana Bilgisayar Yükseltmesi Gerekli",
+      "explicitHostElevationDescription": "Bu komut `workspace_safe` politikasını aşıyor. Devam etmek için özel tek seferlik Host_full_access eylemini kullanın.",
+      "explicitWslApproval": "Açık WSL Uyumluluk Onayı Gerekli",
+      "explicitWslApprovalDescription": "WSL bir güvenlik sınırı değildir. Bu onay, içerilen sandbox'yi değil, ana bilgisayar dosya sisteminin erişilebilirliğiyle yapılan bir uyumluluk çalışmasını onaylar."
+    },
+    "diff": {
+      "file": "dosya",
+      "newFile": "yeni dosya",
+      "noChanges": "Hiçbir değişiklik algılanmadı."
+    },
+    "risk": {
+      "readOnly": "Salt okunur",
+      "writesFile": "Dosya yazar",
+      "runsCode": "Kodu çalıştırır"
+    },
+    "intent": {
+      "runCommand": "Run command",
+      "localShell": "Run local shell command",
+      "openTerminal": "Open terminal",
+      "useTerminal": "Use terminal",
+      "useBrowser": "Use browser",
+      "reviewFileChanges": "Review file changes",
+      "createDirectory": "Create directory",
+      "scopeSandboxUnavailable": "Sandbox unavailable; host fallback is available.",
+      "scopeInstallSandbox": "Runs in the install sandbox.",
+      "scopeHostAccess": "Requires host access.",
+      "scopeWorkspaceShell": "Runs in the workspace shell.",
+      "scopeBrowserTarget": "Target: {{target}}",
+      "scopeTerminalHostPath": "Opens against a host path.",
+      "scopeWorkingDirectory": "Working directory: {{cwd}}",
+      "warningExplicitHost": "This needs an explicit host access decision.",
+      "warningExplicitWsl": "WSL can reach host files. Use the explicit WSL action only if that is intended.",
+      "warningSandboxFallback": "The sandbox route is unavailable. Host fallback is a one-time exception.",
+      "warningPrivateNetwork": "This targets a local or private network address.",
+      "warningTerminalOutsideWorkspace": "This terminal opens outside the workspace."
+    },
+    "production": {
+      "deny": "Deny",
+      "allowForSession": "Allow for session",
+      "openGuardrails": "Settings",
+      "allowHostFallback": "Host fallback",
+      "allowHostFullAccessThisTurn": "Host this turn",
+      "allowHostFullAccess": "Host once",
+      "allowWslCompatibility": "WSL once",
+      "allowDisabled": "Choose explicit action",
+      "allowCaution": "Allow",
+      "allow": "Allow",
+      "explicitActionRequired": "Use an explicit approval action for this request.",
+      "browserRisk": "External action",
+      "reviewRisk": "Review",
+      "details": "Details",
+      "requestData": "Request data"
+    },
+    "productionPolicy": {
+      "command": "Command policy",
+      "browser": "Browser policy",
+      "terminal": "Terminal policy",
+      "hostAccessRequired": "Host access required",
+      "hostAccessDescription": "Use an explicit host action if this should run outside workspace-safe limits.",
+      "wslCompatibility": "WSL compatibility",
+      "wslDescription": "WSL can reach host files. Use the WSL action only when that is intended.",
+      "notes": "Notes"
+    }
+  },
+  "common": {
+    "close": "Kapalı",
+    "clear": "Temizlemek",
+    "clearAll": "Tümünü temizle",
+    "cancel": "İptal etmek"
+  },
+  "settingsInstructions": {
+    "title": "ADDOM'yi kullanma",
+    "updated": "Son güncelleme {{date}}",
+    "description": "Güncel ADDOM davranışı, güvenlik varsayılanları ve bilgileri tazelemeye ihtiyaç duyduğunuzda nereye bakmanız gerektiği konusunda kısa bir kılavuz.",
+    "sections": {
+      "chat-modes": {
+        "title": "Chat Modları",
+        "items": {
+          "0": "`[[canon:execute]]`, ADDOM'nin seçilen [[canon:permission_mode]] (`[[canon:ask]]`, `[[canon:autonomy]]` veya `[[canon:full_access]]`) altında etkinleştirilmiş araçları kullanmasına olanak tanır.",
+          "1": "`[[canon:plan]]`, dönüşleri alet gerektirmez ve seçeneklere, sorulara ve sonraki adımlara odaklanır.",
+          "2": "`[[canon:thinking]]`, araç çalıştırmaya gerek kalmadan beyin fırtınası ve ödünleşimler içindir.",
+          "3": "`[[canon:implement_plan]]`'nin seçilmesi, göndermeden önce chat'yi tekrar `[[canon:execute]]`'ye geçirir."
+        }
+      },
+      "tool-approvals": {
+        "title": "Takım Onayları",
+        "items": {
+          "0": "`[[canon:ask]]` riskli eylemlerden önce istemde bulunur, `[[canon:autonomy]]` rutin istemleri bastırır ve `[[canon:full_access]]` dönüş için ana bilgisayar düzeyinde araç yürütme olanağı sağlar.",
+          "1": "`[[canon:full_access]]`'de bile, yıkıcı komut engelleme listeleri açıkça tehlikeli ana bilgisayar işlemleri için hâlâ geçerlidir.",
+          "2": "Komut istekleri, çalıştırılmadan önce komut güvenliği politikanıza göre kontrol edilir.",
+          "3": "Arka plan komutları `[[canon:background_jobs]]`'de görünür ve burada bunları inceleyebilir veya durdurabilirsiniz."
+        }
+      },
+      "memory": {
+        "title": "bellek Davranışı",
+        "items": {
+          "0": "Project bellek, notları, özetleri ve otomatik olarak günlüğe kaydedilen içeriği SQLite'da yerel olarak saklar.",
+          "1": "Daha eski otomatik günlükler, Ayarlar'da belirlediğiniz eşikten sonra sıkıştırılabilir.",
+          "2": "Sıkıştırılmış girişler arşivlenir, silinmez ve yine de incelenebilir.",
+          "3": "bellek etkinliği chat'de ve bellek panelinde görülebilir."
+        }
+      },
+      "continuity": {
+        "title": "[[canon:continuity_engine]]",
+        "items": {
+          "0": "Süreklilik, sıralar arasında hedefleri, kararları, açık döngüleri, hataları ve dosya referanslarını takip eder.",
+          "1": "Alma kapsamı varsayılan olarak `thread + project`'dir ve Ayarlar'dan ayarlanabilir.",
+          "2": "`economy`, `balanced` ve `deep` gibi profiller ne kadar sürekliliğin enjekte edildiğini kontrol eder.",
+          "3": "Süreklilik olayları, alma, paket oluşturma veya sıkıştırma çalıştırıldığında zaman çizelgesinde görünür.",
+          "4": "Drift kontrolleri, yeni bir dönüşün yerleşik bağlamla çeliştiği görüldüğünde uyarı verebilir."
+        }
+      },
+      "artifacts": {
+        "title": "[[canon:artifacts]] Davranışı",
+        "items": {
+          "0": "Onaylanan her AI dosyası yazımı, o dosya için bir yapıt revizyonu oluşturur.",
+          "1": "[[canon:artifacts]] fark incelemesini, geri alma/uygulama ve revizyon meta verilerini destekler.",
+          "2": "Yapı bağlamı yalnızca en son sürümü değil, sınırlı revizyon geçmişini de içerebilir."
+        }
+      },
+      "workspace": {
+        "title": "[[canon:workspace]] Kalıcılık",
+        "items": {
+          "0": "Projeler, threads ve zaman çizelgesi olayları SQLite'da yerel olarak varlığını sürdürür.",
+          "1": "provider veya model'nin değiştirilmesi, thread'nin etkin kalmasını sağlar ve bağlam önyükleme eylemleri sunabilir.",
+          "2": "Sıfırlama kontrolleri thread düzeyinde, proje düzeyinde ve tam workspace temizlemeyi destekler."
+        }
+      },
+      "commands": {
+        "title": "[[canon:background_jobs]]",
+        "items": {
+          "0": "Geliştirici sunucuları, izleyiciler ve bağımsız OpenAI yanıtları gibi uzun süre çalışan görevler, chat'nin devam edebilmesi için arka planda çalışabilir.",
+          "1": "Çıktıyı incelemek, bir görevi durdurmak veya arka plan etkinliğini incelemek için `[[canon:background_jobs]]`'yi kullanın.",
+          "2": "Kalıcı komut çıktısı, zaman çizelgelerinin duyarlı kalmasını sağlayacak şekilde kesilir."
+        }
+      },
+      "command-palette": {
+        "title": "[[canon:command_palette]]",
+        "items": {
+          "0": "ADDOM genelinde eylemleri aramak için genel `[[canon:command_palette]]`'yi `Ctrl+Shift+P` ile açın.",
+          "1": "Gezinmek için `Up` ve `Down`'yi, çalıştırmak için `Enter`'yi ve kapatmak için `Esc`'yi kullanın.",
+          "2": "Komutlar, `switch project`, `autofix` veya `outline` gibi başlığa ve takma adlara göre aranabilir.",
+          "3": "Devre dışı bırakılan komutlar, etkin thread olmaması veya açık düzenleyici sekmesinin olmaması gibi bir nedenle görünür kalır.",
+          "4": "Daha hızlı tekrarlanan iş akışları için arama boş olduğunda en son komutlar gösterilir."
+        }
+      },
+      "streaming-responses": {
+        "title": "Yanıt Akışı",
+        "items": {
+          "0": "Asistan yanıtları, tüm turun bitmesini beklemek yerine yanıt parçaları olarak chat'ye aktarır.",
+          "1": "Parça boyutu ve tempo provider ve model'ye bağlıdır ve tam tokenizer birimleri değildir.",
+          "2": "ADDOM, gerçek zamanlı ilerlemeyi korurken titremeyi azaltmak için kullanıcı arayüzünde parça dağıtımını pürüzsüzleştirir.",
+          "3": "Akıl yürütme metni yalnızca provider onu ortaya çıkardığında görünür; ADDOM gizli düşünce zinciri oluşturmaz."
+        }
+      },
+      "runbook": {
+        "title": "[[canon:runbook]] Şeffaflığını Çevirin",
+        "items": {
+          "0": "Her model dönüşü, kronolojik eylemlerle chat'de daraltılmış bir `Turn [[canon:runbook]]` olarak gruplandırılır.",
+          "1": "[[canon:runbook]]'ler onayları, komut adımlarını, dosya değişikliklerini, kullanım güncellemelerini ve dönüş durumunu içerir.",
+          "2": "Dosya yazma işlemleriyle birlikte dosya başına +/- sayımlar, önizlemeler ve inceleme eylemleri içeren bir `Files changed` kartı gösterilir.",
+          "3": "Geri alma eylemleri, güvenli olmayan geri dönüşleri önlemek için `Changed since this turn` gibi çakışma korumalarını içerir.",
+          "4": "Kullanıcı arayüzünde gösterilen gerekçe metni yalnızca provider'dir; ADDOM hiçbir zaman gizli düşünce zinciri üretmez."
+        }
+      },
+      "moa": {
+        "title": "[[canon:moa]] Modu",
+        "items": {
+          "0": "`[[canon:moa]]` paralel aracı görevlerini devreder ve orkestratör nihai yetkiyi elinde tutar.",
+          "1": "Aracı rolleri Ayarlar'da yapılandırılır ve şablonları düzenlenebilir başlangıç ​​noktaları olarak kullanabilir.",
+          "2": "Yetkilendirmeler, görev sınırları, zaman aşımları, token bütçeleri ve çıktı kesintisi gibi sınırları zorunlu kılar.",
+          "3": "Bütçe uyarıları, pahalı bir delegasyon yapılmadan önce açık bir seçim yapılmasını gerektirebilir.",
+          "4": "Aracı dosyası yazma işlemleri isteğe bağlıdır, varsayılan olarak devre dışıdır ve staged doğrudan disk yazmaları yerine yapay öneriler olarak kullanılır.",
+          "5": "Yalnızca orkestratör staged aracı revizyonlarını açık uygulama eylemleri aracılığıyla sonlandırabilir.",
+          "6": "[[canon:moa]] yaşam döngüsü olayları hem [[canon:runbook]] hem de [[canon:moa]] panelinde görülebilir.",
+          "7": "[[canon:moa]], tek aracılı bir dönüşe göre önemli ölçüde daha fazla tokens tüketebilir; bu nedenle politikayı ve kullanım ölçümlerini izleyin."
+        }
+      }
+    }
+  },
+  "commandPalette": {
+    "searchPlaceholder": "Bir komut yazın veya arayın...",
+    "results": {
+      "commands": "Komutlar",
+      "recentAndCommands": "En Son + Komutlar",
+      "shown": "{{count}} gösterilmiştir"
+    },
+    "filters": {
+      "all": "Tüm",
+      "recent": "Son",
+      "filterByCategory": "Komutları {{label}}'ye göre filtreleyin"
+    },
+    "categories": {
+      "ariaLabel": "Komut kategorileri",
+      "navigation": "Navigasyon",
+      "chat": "Chat",
+      "editor": "Editör",
+      "memory": "bellek",
+      "terminal": "Terminal"
+    },
+    "empty": {
+      "title": "Aramanızla eşleşen komut yok.",
+      "description": "Farklı bir anahtar kelime veya takma ad deneyin."
+    },
+    "hint": {
+      "enter": "Girmek"
+    },
+    "reasons": {
+      "open_a_project_first": "Önce bir proje açın",
+      "no_active_thread": "Aktif thread yok",
+      "thread_has_no_messages_yet": "[[canon:thread]]'den henüz mesaj yok",
+      "open_select_a_thread_first": "Önce bir thread açın/seçin",
+      "direct_agents_are_only_available_in_execute_mode": "Aracılar yalnızca [[canon:execute]] modunda kullanılabilir",
+      "enable_moa_first": "Önce [[canon:moa]]'yi etkinleştirin",
+      "wait_for_the_current_response_to_finish": "Mevcut yanıtın bitmesini bekleyin",
+      "provider_model_switch_context_banner_is_not_active": "Provider/model anahtar bağlam başlığı etkin değil",
+      "open_a_file_in_editor_first": "Önce Editör'de bir dosya açın",
+      "open_a_markdown_file_in_editor_first": "Önce Editör'de bir Markdown dosyasını açın",
+      "open_the_editor_and_select_code_first": "Editör'ü açın ve önce kodu seçin",
+      "formatting_is_unavailable_for_the_current_file": "Geçerli dosya için biçimlendirme kullanılamıyor",
+      "code_actions_are_unavailable_for_the_current_file": "Geçerli dosya için kod eylemleri kullanılamıyor",
+      "no_terminal_session_selected": "No terminal session selected",
+      "terminal_session_is_not_running": "Terminal session is not running",
+      "terminal_is_already_controlled_by_you": "Terminal is already controlled by you",
+      "terminal_is_already_controlled_by_ai": "Terminal is already controlled by AI",
+      "terminal_is_not_controlled_by_you": "Terminal is not controlled by you",
+      "terminal_is_not_controlled_by_ai": "Terminal is not controlled by AI",
+      "terminal_cannot_be_interrupted": "Terminal cannot be interrupted",
+      "terminal_cannot_be_closed": "Terminal cannot be closed",
+      "terminal_cannot_be_terminated": "Terminal cannot be terminated",
+      "no_terminal_dock_open": "No terminal dock open"
+    },
+    "commands": {
+      "nav": {
+        "chat": {
+          "title": "Chat'ye gidin"
+        },
+        "editor": {
+          "title": "Editöre Git"
+        },
+        "artifacts": {
+          "title": "[[canon:artifacts]]'ye gidin"
+        },
+        "memory": {
+          "title": "bellek'ye gidin"
+        },
+        "settings": {
+          "title": "Ayarlar'a gidin"
+        },
+        "openProjectFolder": {
+          "title": "Proje Klasörünü Aç"
+        },
+        "sidebar": {
+          "toggle": {
+            "expandTitle": "Kenar Çubuğunu Genişlet",
+            "collapseTitle": "Kenar Çubuğunu Daralt"
+          }
+        },
+        "projectEntry": {
+          "title": "Open Projects"
+        }
+      },
+      "chat": {
+        "thread": {
+          "new": {
+            "title": "Yeni Thread"
+          },
+          "rename": {
+            "title": "Mevcut Thread'yi Yeniden Adlandırın"
+          },
+          "delete": {
+            "title": "Mevcut Thread'yi Sil"
+          },
+          "clear": {
+            "title": "Mevcut Konuşmayı Temizle"
+          }
+        },
+        "focusComposer": {
+          "title": "Odak Chat Oluşturucu"
+        },
+        "jumpToLatest": {
+          "title": "En Son Mesaja Atla"
+        },
+        "openThreadSelector": {
+          "title": "Thread Seçiciyi Aç"
+        },
+        "openBackgroundJobs": {
+          "title": "[[canon:background_jobs]]'yi açın"
+        },
+        "openDirectAgents": {
+          "title": "Doğrudan Temsilciler Menüsünü Aç"
+        },
+        "toggleMoa": {
+          "title": "[[canon:moa]] Modunu Değiştir"
+        },
+        "inject": {
+          "memory": {
+            "title": "bellek'yi Chat'ye enjekte edin"
+          },
+          "artifacts": {
+            "title": "[[canon:artifacts]]'yi Chat'ye enjekte edin"
+          },
+          "both": {
+            "title": "bellek + [[canon:artifacts]]'yi enjekte edin"
+          }
+        }
+      },
+      "editor": {
+        "formatDocument": {
+          "title": "Belgeyi Biçimlendir"
+        },
+        "fixAutofixable": {
+          "title": "Auto ile çözülebilir Sorunları Düzeltin"
+        },
+        "toggleProblemsPanel": {
+          "title": "Sorunlar Panelini Değiştir"
+        },
+        "toggleOutlinePanel": {
+          "title": "Anahat Panelini Değiştir"
+        },
+        "markdownPreview": {
+          "toggle": {
+            "title": "Markdown: Önizlemeyi Değiştir"
+          },
+          "open": {
+            "title": "Markdown: Önizlemeyi Yan Tarafa Aç"
+          }
+        },
+        "aiSelection": {
+          "explain": {
+            "title": "Seçimde Yapay Zeka: Açıklama"
+          },
+          "fix": {
+            "title": "Seçimde Yapay Zeka: Düzeltme"
+          },
+          "refactor": {
+            "title": "Seçimde Yapay Zeka: Yeniden Düzenleme"
+          },
+          "tests": {
+            "title": "Seçimde Yapay Zeka: Testler Oluşturun"
+          }
+        }
+      },
+      "memory": {
+        "exportProjectJson": {
+          "title": "Proje İçeriğini Dışa Aktar JSON",
+          "alerts": {
+            "failedTitle": "Dışa aktarma başarısız oldu",
+            "failedMessage": "Bağlam dışa aktarılamadı JSON: {{error}}",
+            "completedTitle": "Dışa aktarma tamamlandı",
+            "completedMessage": "Dışa aktarılan içerik JSON.\n\nDosya: {{filePath}}\nbellek düğümleri: {{memoryNodeCount}}\nYapı dosyaları: {{artifactFileCount}}\nYapı revizyonları: {{artifactRevisionCount}}"
+          }
+        },
+        "openPanel": {
+          "title": "Open notes panel"
+        }
+      },
+      "terminal": {
+        "focus": {
+          "title": "Terminale odaklan"
+        },
+        "new": {
+          "title": "Yeni terminal"
+        },
+        "browseSessions": {
+          "title": "Browse Terminal Sessions"
+        },
+        "takeOver": {
+          "title": "Terminali devral"
+        },
+        "handBack": {
+          "title": "Hand Back Terminal to AI"
+        },
+        "interrupt": {
+          "title": "Interrupt Terminal"
+        },
+        "close": {
+          "title": "Terminal oturumunu kapat"
+        },
+        "hide": {
+          "title": "Hide Terminal Dock"
+        }
+      }
+    }
+  },
+  "executionStream": {
+    "showEarlier": "{{count}} önceki olayı göster{{suffix}}",
+    "thought": {
+      "verb": "Akıl yürüttü",
+      "briefly": "kısaca",
+      "show": "Akıl yürütmeyi göster",
+      "hide": "Akıl yürütmeyi gizle"
+    },
+    "transport": {
+      "startingTurn": "Başlangıç ​​dönüşü"
+    },
+    "compaction": {
+      "requested": "Bağlam sıkıştırılıyor...",
+      "running": "Bağlam sıkıştırılıyor...",
+      "applied": "OpenAI sıkıştırma uygulandı",
+      "failed": "OpenAI sıkıştırması başarısız oldu",
+      "milestoneTitle": "Bir sonraki turdan önce içerik sıkıştırıldı",
+      "milestoneDetail": {
+        "codexThreadCompaction": "Codex hesabı thread sıkıştırma",
+        "providerServerSide": "OpenAI sunucu tarafı sıkıştırma",
+        "manualServerSide": "OpenAI manuel sunucu tarafı sıkıştırma"
+      }
+    },
+    "progress": {
+      "navigate": "Gezinme",
+      "click": "Tıklama öğesi",
+      "type": "Metin yazmak",
+      "select": "Seçenek seçme",
+      "screenshot": "Ekran görüntüsü alınıyor",
+      "runningTool": "{{toolName}}'nin çalıştırılması",
+      "working": "Çalışma",
+      "terminalOpen": "Opening terminal",
+      "terminalOpenNamed": "Opening {{terminalLabel}}",
+      "terminalRead": "Reading terminal output",
+      "terminalReadNamed": "Reading output from {{terminalLabel}}",
+      "terminalAttach": "Reusing terminal session",
+      "terminalWrite": "Writing to terminal",
+      "terminalWriteNamed": "Writing to {{terminalLabel}}",
+      "terminalWait": "Waiting for terminal output",
+      "terminalWaitNamed": "Waiting for output from {{terminalLabel}}",
+      "terminalResize": "Resizing terminal session",
+      "terminalResizeNamed": "Resizing {{terminalLabel}}",
+      "terminalSignal": "Signaling terminal session",
+      "terminalSignalNamed": "Signaling {{terminalLabel}}",
+      "terminalClose": "Closing terminal session",
+      "terminalCloseNamed": "Closing {{terminalLabel}}"
+    },
+    "result": {
+      "listDirectory": "{{countPrefix}}'de {{pathLabel}}'de listelenmiştir",
+      "createDirectory": "{{pathLabel}} klasörü oluşturuldu",
+      "writeFile": "{{pathLabel}} yazıldı",
+      "editFile": "{{pathLabel}} güncellendi",
+      "readFile": "{{pathLabel}}'yi okuyun",
+      "deleteFile": "{{pathLabel}} silindi",
+      "rollbackFile": "{{pathLabel}} geri alındı",
+      "renameFile": "{{oldPath}}, {{newPath}} olarak yeniden adlandırıldı",
+      "searchCode": "{{searchPath}}'de \"{{query}}\" için {{countPrefix}} bulundu",
+      "grepFile": "{{pathLabel}}'de \"{{pattern}}\" için eşleşmeler bulundu",
+      "findFiles": "\"{{pattern}}\" için eşleşmeler bulundu",
+      "fetchPage": "{{hostLabel}} getirildi",
+      "navigate": "Gezinme tamamlandı",
+      "click": "Tamamlandı'yı tıklayın",
+      "type": "Yazma tamamlandı",
+      "select": "Seçim tamamlandı",
+      "screenshot": "Ekran görüntüsü alındı",
+      "browserAction": "Tarayıcı işlemi tamamlandı",
+      "gitStatusFailed": "Git durumu başarısız oldu",
+      "gitStatusDone": "Git durumu tamamlandı",
+      "gitDiffFailed": "Git farkı başarısız oldu",
+      "gitDiffReady": "Git fark hazır",
+      "gitLogFailed": "Git günlüğü başarısız oldu",
+      "gitLogReady": "Git geçmişi yüklendi",
+      "gitCommitFailed": "Commit başarısız oldu",
+      "gitCommitCreated": "Commit oluşturuldu",
+      "restoreFile": "{{pathLabel}}, {{refValue}}'den geri yüklendi",
+      "commandDone": "Komut {{commandScope}}'de tamamlandı",
+      "commandFailed": "{{commandScope}}'de komut başarısız oldu",
+      "commandDenied": "{{commandScope}}'de komut reddedildi",
+      "revisionApplyFailed": "Düzeltme başvurusu başarısız oldu",
+      "revisionApplied": "Düzeltme uygulandı",
+      "planUpdated": "Plan güncellendi",
+      "planUpdatedBatch": "Plan güncellendi ({{count}} değişiklik)",
+      "genericToolResult": "{{toolName}} {{verb}}",
+      "actionFinished": "İşlem tamamlandı",
+      "ranCommand": "Çalıştır komutu",
+      "terminalOpen": "Opened terminal",
+      "terminalOpenNamed": "Opened {{terminalLabel}}",
+      "terminalRead": "Read terminal output",
+      "terminalReadNamed": "Read output from {{terminalLabel}}",
+      "terminalAttach": "Reused terminal session in chat terminal dock",
+      "terminalAttachNamed": "Reused {{terminalLabel}} in chat terminal dock",
+      "terminalWrite": "Wrote to terminal",
+      "terminalWriteNamed": "Wrote to {{terminalLabel}}",
+      "terminalWait": "Waited for terminal output",
+      "terminalWaitNamed": "Waited for output in {{terminalLabel}}",
+      "terminalWaitMatched": "Matched expected terminal output",
+      "terminalWaitMatchedNamed": "Matched expected output in {{terminalLabel}}",
+      "terminalWaitTimedOut": "Timed out waiting for terminal output",
+      "terminalWaitTimedOutNamed": "Timed out waiting for {{terminalLabel}}",
+      "terminalResize": "Terminal session resized",
+      "terminalResizeNamed": "Resized {{terminalLabel}}",
+      "terminalSignal": "Terminal session signaled",
+      "terminalSignalNamed": "Signaled {{terminalLabel}}",
+      "terminalClose": "Closed terminal",
+      "terminalCloseNamed": "Closed {{terminalLabel}}"
+    },
+    "warning": {
+      "compactionFailed": "Bağlam sıkıştırması başarısız oldu",
+      "generic": "Uyarı"
+    },
+    "error": {
+      "toolFailed": "{{toolName}} başarısız oldu",
+      "actionFailed": "İşlem başarısız oldu"
+    },
+    "header": {
+      "title": "Yürütme Akışı",
+      "show": "Canlı yürütme akışını göster",
+      "hide": "Canlı yürütme akışını gizle",
+      "awaitingFirstEvent": "İlk etkinliği bekliyoruz",
+      "eventCount": "{{count}} olayı{{suffix}}",
+      "hiddenSummary": "En son {{visibleItemCount}} etkinlikleri gösteriliyor. {{hiddenItemCount}} önceki olay{{eventSuffix}} gizli.",
+      "hiddenSummaryPinned": "En son {{visibleTailItemCount}} olaylarını ve {{pinnedArchiveCount}}'yi gösteren, önceki akıl yürütme bloğu{{archiveSuffix}}'yi daralttı. {{hiddenItemCount}} önceki olay{{eventSuffix}} gizli.",
+      "status": {
+        "failed": "arızalı",
+        "completed": "tamamlanmış",
+        "started": "başladı",
+        "generic": "{{status}}"
+      }
+    },
+    "output": {
+      "openCopyOptions": "Kopyalama seçeneklerini aç",
+      "copyCommand": "Komutu kopyala",
+      "copyVisibleOutput": "Görünür çıktıyı kopyala",
+      "copyPersistedPreview": "Kalıcı önizlemeyi kopyala",
+      "commandOutput": "Komut çıkışı",
+      "showCommandOutput": "Komut çıktısını göster",
+      "hideCommandOutput": "Komut çıktısını gizle",
+      "truncated": "Çıkış kesildi"
+    },
+    "bridge": {
+      "native": {
+        "activity": "Codex uygulama sunucusu etkinliği",
+        "webSearch": "Codex uygulama sunucusu web araması",
+        "command": "Codex uygulama sunucusu komutu: {{commandName}}",
+        "fileChangeOne": "Codex uygulama sunucusu dosya değişikliği",
+        "fileChangeOther": "Codex uygulama sunucusu dosyası değişiklikleri",
+        "mcpTool": "Codex uygulama sunucusu MCP aracı: {{toolName}}",
+        "imageView": "Codex uygulama sunucusu resim görünümü",
+        "planGenerated": "Codex uygulama sunucusu planı oluşturuldu",
+        "reviewMode": "Codex inceleme modu etkinliği"
+      },
+      "source": {
+        "urlTitle": "Kaynak: {{title}}",
+        "urlCaptured": "Kaynak URL'si yakalandı",
+        "documentTitle": "Kaynak belge: {{title}}",
+        "documentCaptured": "Kaynak belge ele geçirildi"
+      },
+      "providerTool": {
+        "modelRerouted": "Model yeniden yönlendirildi",
+        "configWarning": "Yapılandırma uyarısı",
+        "hook": "Kanca",
+        "autoApprovalReview": "Otomatik onay incelemesi",
+        "providerError": "Sağlayıcı hatası",
+        "input": "Provider takım girişi: {{toolName}}",
+        "running": "Provider takım çalıştırma: {{toolName}}",
+        "collectingInput": "provider takım girişi toplanıyor...",
+        "imageGenerated": "OpenAI provider aracı tarafından oluşturulan görüntü.",
+        "output": "Provider takım çıkışı: {{toolName}}"
+      },
+      "continuity": {
+        "responseTracked": "OpenAI yanıtı izlendi: {{responseId}}",
+        "metadataReceived": "OpenAI yanıt meta verileri alındı"
+      },
+      "websocket": {
+        "transportUpdate": "OpenAI WebSocket aktarım güncellemesi",
+        "reconnecting": "Yeniden bağlanılıyor... {{attempt}}/{{maxAttempts}}",
+        "recoveringStoredResponse": "Nihai yanıtı depolanan durumdan kurtarma",
+        "recoveredStoredResponse": "Saklanan durumdan son yanıt kurtarıldı",
+        "storedRecoveryFailed": "Saklanan yanıt kurtarma işlemi başarısız oldu",
+        "recovered": "{{attempt}}/{{maxAttempts}} yeniden denendikten sonra yeniden bağlanıldı",
+        "bypassed": "Bu dönüş için standart OpenAI aktarımını kullanma",
+        "fallback": "Standart OpenAI akışına geri dönme",
+        "exhausted": "Yeniden bağlantı bitti ({{attempt}}/{{maxAttempts}})",
+        "cancelled": "Yeniden bağlanma iptal edildi ({{attempt}}/{{maxAttempts}})"
+      },
+      "background": {
+        "queued": "OpenAI arka plan yanıtı sıraya alındı",
+        "completed": "OpenAI arka plan yanıtı tamamlandı",
+        "failed": "OpenAI arka plan yanıtı başarısız oldu.",
+        "cancelled": "OpenAI arka plan yanıtı iptal edildi.",
+        "noteQueued": "OpenAI arka plan yanıtı sıraya alındı. İlerlemeyi izlemek veya durdurmak için İşler'i açın.",
+        "noTextOutput": "OpenAI arka plan yanıtı metin çıkışı olmadan tamamlandı.",
+        "errorPrefix": "Hata: {{message}}"
+      }
+    }
+  },
+  "memoryPanel": {
+    "title": "bellek",
+    "visibleCount": {
+      "eventOne": "{{count}} olayı",
+      "eventOther": "{{count}} etkinlikleri",
+      "nodeOne": "{{count}} düğümü",
+      "nodeOther": "{{count}} düğümleri"
+    },
+    "controls": {
+      "showArchived": "Arşivlenenleri göster",
+      "includeGlobal": "Globali dahil et",
+      "exportJsonTitle": "bellek günlüklerini ve artifacts'yi JSON'ye aktarın",
+      "exporting": "Dışa aktarılıyor...",
+      "exportJson": "JSON'yi dışa aktar",
+      "addNode": "Node'yi ekleyin"
+    },
+    "tabs": {
+      "memory": "Dayanıklı bellek",
+      "history": "[[canon:thread_history]]"
+    },
+    "export": {
+      "completedTitle": "Dışa aktarma tamamlandı",
+      "completedMessage": "Dışa aktarılan içerik JSON.\n\nDosya: {{filePath}}\nbellek düğümleri: {{memoryNodeCount}}\nYapı dosyaları: {{artifactFileCount}}\nYapı revizyonları: {{artifactRevisionCount}}",
+      "failedTitle": "Dışa aktarma başarısız oldu",
+      "failedMessage": "Bağlam dışa aktarılamadı JSON: {{message}}"
+    },
+    "search": {
+      "placeholder": "bellek'yi arayın...",
+      "searching": "Arama...",
+      "resultOne": "{{count}} sonucu",
+      "resultOther": "{{count}} sonuçları"
+    },
+    "compression": {
+      "latestBatchTitle": "En son sıkıştırma partisi",
+      "summary": "Sıkıştırılmış günlükler #{{rangeStart}} - #{{rangeEnd}} özet düğümüne ({{archivedCount}} arşivlendi).",
+      "jumpToSummary": "Özete Git",
+      "dismiss": "Azletmek"
+    },
+    "loading": {
+      "memory": "bellek yükleniyor...",
+      "threadHistory": "thread geçmişi yükleniyor..."
+    },
+    "sections": {
+      "pinned": "Sabitlendi",
+      "allNodes": "Tüm bellek Düğümleri"
+    },
+    "embedder": {
+      "downloading": "model {{progress}}% indiriliyor",
+      "loading": "model yükleniyor...",
+      "unavailable": "Yerleştirme kullanılamıyor"
+    },
+    "source": {
+      "userMemory": "Kullanıcı bellek",
+      "workspaceEvent": "Workspace olayı",
+      "terminalSummary": "Terminal özeti",
+      "validatedDecision": "Doğrulanmış karar",
+      "referenceNote": "Referans notu"
+    },
+    "provenance": {
+      "ariaLabel": "bellek menşei",
+      "origin": "Menşei",
+      "terminalSession": "Kabul edilen terminal özeti",
+      "session": "Oturum",
+      "thread": "Thread",
+      "saved": "Kaydedildi"
+    },
+    "badges": {
+      "global": "küresel",
+      "archived": "arşivlendi",
+      "deletedThread": "Silinen iş parçacığı"
+    },
+    "meta": {
+      "deletedThreadOrigin": "{{threadTitle}} · {{time}} tarihinde silindi"
+    },
+    "actions": {
+      "unpin": "Sabitlemeyi kaldır",
+      "pin": "Sabitle",
+      "edit": "Düzenlemek",
+      "delete": "Silmek",
+      "showLess": "Daha az göster",
+      "showMore": "Daha fazlasını göster",
+      "continue": "Devam et",
+      "continueDraft": "Kaydedilen bağlamdan devam et."
+    },
+    "scoreRef": "{{score}}% ref",
+    "history": {
+      "userMessage": "Kullanıcı mesajı",
+      "assistantMessage": "Asistan mesajı",
+      "emptyTitle": "Henüz thread geçmişi yok",
+      "noActiveThreadTitle": "Aktif thread seçilmedi",
+      "emptyDescription": "Bu thread için kullanıcı ve asistan transkript etkinlikleri burada görünecektir.",
+      "noActiveThreadDescription": "Transkript geçmişini incelemek için bir thread açın veya oluşturun."
+    },
+    "addForm": {
+      "title": "Yeni Memory Node Ekle",
+      "topicPlaceholder": "Konu / başlık",
+      "contentPlaceholder": "Herhangi bir bağlamı, gerçekleri veya talimatları yazın...",
+      "tagsPlaceholder": "Etiketler (virgülle ayrılmış)",
+      "saveAsGlobal": "Kalıcı global bellek olarak kaydet",
+      "saving": "Kaydediliyor...",
+      "saveNode": "Node'yi kaydet"
+    },
+    "editForm": {
+      "title": "Memory Node'yi düzenleyin",
+      "closeAriaLabel": "bellek düğüm düzenleyicisini kapatın",
+      "topicPlaceholder": "Başlık",
+      "contentPlaceholder": "İçerik",
+      "tagsPlaceholder": "Etiketler (virgülle ayrılmış)",
+      "saving": "Kaydediliyor...",
+      "saveChanges": "Değişiklikleri Kaydet"
+    },
+    "empty": {
+      "searchTitle": "Eşleşen anı yok",
+      "title": "Henüz anı yok",
+      "searchDescription": "Farklı bir arama terimi deneyin veya tüm bellek düğümlerini görmek için aramayı temizleyin.",
+      "description": "Dayanıklı memory, açık notları, workspace olaylarını, kabul edilen terminal özetlerini, doğrulanmış kararları ve referans notlarını saklar. Ham chat artık thread geçmişinde yayınlanıyor."
+    }
+  },
+  "workspaceRail": {
+    "title": "Projeler",
+    "ariaLabel": "Projeler ve ileti dizileri",
+    "show": "Projeleri ve ileti dizilerini göster",
+    "showWithActivityOne": "Projeleri ve ileti dizilerini göster. {{count}} gizli ileti dizisi; en yüksek öncelik: {{activity}}.",
+    "showWithActivityOther": "Projeleri ve ileti dizilerini göster. {{count}} gizli ileti dizisi; en yüksek öncelik: {{activity}}.",
+    "hide": "Projeleri ve ileti dizilerini gizle",
+    "resize": "Projeleri ve ileti dizilerini yeniden boyutlandır",
+    "close": "Projeleri ve ileti dizilerini kapat"
+  },
+  "projectEntry": {
+    "browserPreviewLimitation": {
+      "title": "Desktop workspace required",
+      "message": "Opening a project requires the Electron workspace bridge. Use the desktop app or an Electron-backed smoke run for this flow."
+    },
+    "clearProjectHistoryDialog": {
+      "title": "Clear project transcript history",
+      "message": "Clear transcript history for project \"{{name}}\"?\n\nThis does not delete project files.",
+      "confirm": "Clear history",
+      "cancel": "Cancel"
+    },
+    "archiveProjectDialog": {
+      "title": "Etkin çalışma durdurulup proje arşivlensin mi?",
+      "message": "\"{{name}}\" içindeki etkin çalışma, proje Arşiv'e taşınmadan önce durdurulacaktır.",
+      "cancel": "İptal"
+    },
+    "removeProjectDialog": {
+      "title": "Remove from ADDOM?",
+      "message": "\"{{name}}\" and all of its ADDOM history, Memory, Artifacts, and recovery data will be removed. Project files are unchanged.",
+      "path": "Folder: {{path}}",
+      "confirm": "Remove from ADDOM",
+      "failureTitle": "Could not remove from ADDOM",
+      "failureMessage": "Nothing was removed from ADDOM. Try again.",
+      "cancel": "Cancel"
+    },
+    "eyebrow": "Workspace",
+    "title": "Open a project",
+    "newProject": "Yeni proje",
+    "newThreadInProject": "{{name}} içinde yeni konu",
+    "openFolder": "Open folder",
+    "projectActions": {
+      "openFolder": "Open folder",
+      "archiveProject": "Projeyi arşivle",
+      "clearHistory": "Clear history",
+      "removeProject": "Remove from ADDOM",
+      "ariaLabel": "Project actions for {{name}}",
+      "restoreToRecent": "Restore to Recent"
+    },
+    "archive": {
+      "title": "Archive",
+      "toggle": "Toggle Archive"
+    },
+    "projectDisclosure": {
+      "expand": "Expand {{name}}",
+      "collapse": "Collapse {{name}}"
+    },
+    "recentProjects": {
+      "title": "Recent projects",
+      "description": "Pick up a workspace with its threads and local context.",
+      "projectCount": "{count, plural, other {# proje}}",
+      "fallbackProjectName": "Project",
+      "recent": "Recent",
+      "threadCount": "{count, plural, other {# thread}}",
+      "open": "Open"
+    },
+    "empty": {
+      "title": "No recent projects",
+      "description": "Open a folder to start working in the main workspace."
+    },
+    "home": {
+      "placeholder": "Çalışmaya başlamak için bir görev tanımlayın",
+      "noProject": "Proje yok",
+      "projectMenu": "Hedef projeyi seçin",
+      "start": "Görevi başlat",
+      "commandsHint": "Komutlar"
+    }
+  },
+  "agents": {
+    "fanoutConfirmation": {
+      "title": "Launch {{count}} agents?",
+      "description": "The orchestrator requested more agents than your {{limit}}-agent confirmation limit.",
+      "stopTurn": "Stop turn",
+      "limit": "Limit to {{count}}",
+      "launch": "Launch {{count}}"
+    }
+  },
+  "agentNavigator": {
+    "title": "Aracılar",
+    "close": "Aracıları kapat",
+    "settings": "Aracı ayarları",
+    "sectionActive": "Etkin",
+    "sectionDone": "Tamamlanan · {{count}}",
+    "emptyActive": "Etkin aracı yok",
+    "emptyThread": "Bu konuda aracı yok.",
+    "showMore": "{{count}} tane daha göster",
+    "expand": "Genişlet",
+    "collapse": "Daralt",
+    "hidden": "+{{count}}",
+    "partialVisibility": "sağlayıcı tarafından yönetiliyor, kısmi görünürlük",
+    "age": {
+      "seconds": "{{count}} sn",
+      "minutes": "{{count}} dk",
+      "hours": "{{count}} sa",
+      "days": "{{count}} g"
+    },
+    "status": {
+      "queued": "Sırada",
+      "running": "Çalışıyor",
+      "waiting": "Bekliyor",
+      "paused": "Duraklatıldı",
+      "approval_required": "Onay gerekiyor",
+      "cancelling": "İptal ediliyor",
+      "completed": "Tamamlandı",
+      "failed": "Başarısız",
+      "cancelled": "İptal edildi"
+    },
+    "live": {
+      "selected": "{{label}} · {{status}}",
+      "attention": "{{label}} needs attention · {{status}}"
+    }
+  },
+  "agentConversation": {
+    "back": "Geri",
+    "rootLabel": "Konu",
+    "regionLabel": "Aracı konuşması",
+    "loading": "Döküm yükleniyor…",
+    "empty": "Henüz kayıtlı döküm yok.",
+    "loadMore": "Daha fazla etkinlik yükle",
+    "unavailableTitle": "Aracı kullanılamıyor",
+    "unavailableBody": "Bu aracı artık bu çalıştırmanın parçası değil.",
+    "error": "Bu aracının dökümü yüklenemedi.",
+    "actions": {
+      "menu": "Ajan işlemleri",
+      "message": "Mesaj",
+      "messagePrompt": "Bu ajana mesaj gönder",
+      "messageDescription": "Çalışan ajana bir takip talimatı gönderin.",
+      "messagePlaceholder": "Kısa bir talimat yazın…",
+      "cancel": "İptal",
+      "send": "Gönder",
+      "sending": "Gönderiliyor…",
+      "failure": "Ajan işlemi tamamlanamadı.",
+      "interrupt": "Durdur",
+      "retry": "Yeniden dene",
+      "promote": "Proje ileti dizisi olarak devam et"
+    },
+    "origin": {
+      "label": "{{role}} kaynağından dallandı · Tur {{turn}}",
+      "inspect": "Kaynağı incele",
+      "unavailable": "Kaynak kullanılamıyor",
+      "artifacts": "{{count}} birleştirilmemiş kaynak yapıtı",
+      "failure": "Kaynak ajan açılamadı."
+    }
+  },
+  "agentStream": {
+    "title": "Aracılar · {{count}}",
+    "open": "Aç",
+    "delegationEchoSuppressed": "Delegasyon tamamlandı. Ayrıntılar için Agents'i açın."
+  },
+  "agentTrigger": {
+    "idle": "Agents",
+    "active": "Agents · {{count}} active",
+    "approval": "Agents · needs approval",
+    "failed": "Agents · {{count}} failed",
+    "open": "Open Agents",
+    "close": "Close Agents"
+  }
+}

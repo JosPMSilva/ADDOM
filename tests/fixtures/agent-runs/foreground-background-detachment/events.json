@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "foreground-background-detachment",
+  "events": [
+    { "ordinal": 1, "eventId": "<event-001>", "timestamp": "<timestamp-001>", "source": "synthetic_contract", "kind": "attempt_started", "runId": "<run-root>", "nodeId": "<node-child-001>", "parentNodeId": "<node-root>", "payload": { "attemptId": "<attempt-001>", "executionMode": "foreground" } },
+    { "ordinal": 2, "eventId": "<event-002>", "timestamp": "<timestamp-002>", "source": "synthetic_contract", "kind": "attempt_detached", "runId": "<run-root>", "nodeId": "<node-child-001>", "parentNodeId": "<node-root>", "payload": { "attemptId": "<attempt-001>", "from": "foreground", "to": "background" } },
+    { "ordinal": 3, "eventId": "<event-003>", "timestamp": "<timestamp-003>", "source": "synthetic_contract", "kind": "attempt_completed", "runId": "<run-root>", "nodeId": "<node-child-001>", "parentNodeId": "<node-root>", "payload": { "attemptId": "<attempt-001>", "executionMode": "background", "status": "completed" } }
+  ]
+}

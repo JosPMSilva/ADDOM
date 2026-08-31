@@ -1,0 +1,27 @@
+{
+  "fixtureId": "markdown-patch",
+  "kind": "markdown",
+  "title": "Patch fixture",
+  "sourceClass": "repo-derived",
+  "provider": "repo",
+  "model": "repo-derived",
+  "streamShape": "none",
+  "semanticOwnership": "final-answer",
+  "contentFile": "content.md",
+  "sourceContentSha256": "a458bc9ddb2c255fdd02596a6ad8f9bee14d4a79b8d12cb2a312313a597eb077",
+  "contentSha256": "a458bc9ddb2c255fdd02596a6ad8f9bee14d4a79b8d12cb2a312313a597eb077",
+  "captureProvenance": {
+    "source": "repo-derived",
+    "captureMode": "read-only",
+    "sourceFiles": [
+      "runbook.md"
+    ]
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ]
+}

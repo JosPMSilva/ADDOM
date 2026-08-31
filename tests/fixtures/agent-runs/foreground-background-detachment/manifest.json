@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "foreground-background-detachment",
+  "sourceClass": "synthetic_contract",
+  "captureDate": "2026-07-22",
+  "providerRuntimeClass": "managed_agent_contract",
+  "synthetic": true,
+  "networkRequired": false,
+  "sourceReferences": ["docs/architecture/agent-orchestration.md"],
+  "sanitization": { "method": "original_synthetic_fixture", "privatePromptRemoved": true, "identifiersPlaceholdered": true, "pathsNormalized": true },
+  "contentHashAlgorithm": "sha256-canonical-json-v1",
+  "contentHash": "de0da60bd15eaf8563594cf85e1048ef425532d76cc3efe9a2bb1aa2f6f93ddc",
+  "coverage": ["foreground_background_detachment"],
+  "expectedCapabilities": { "addressableChildIdentity": true, "nodeScopedStream": true, "nodeCancellation": true, "rootFinalAuthority": true },
+  "currentContract": { "identity": "future_contract", "stream": "future_contract", "cancellation": "future_contract", "rootFinalAuthority": "required" },
+  "knownGaps": ["Foreground and background are not canonical attempt states yet."]
+}

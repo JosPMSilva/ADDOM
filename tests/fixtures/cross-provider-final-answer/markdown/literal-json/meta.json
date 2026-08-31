@@ -1,0 +1,27 @@
+{
+  "fixtureId": "markdown-literal-json",
+  "kind": "markdown",
+  "title": "Literal JSON fixture",
+  "sourceClass": "repo-derived",
+  "provider": "repo",
+  "model": "repo-derived",
+  "streamShape": "none",
+  "semanticOwnership": "final-answer",
+  "contentFile": "content.md",
+  "sourceContentSha256": "c00e594d36196fa53d5d9b389aff7f6b09f2c602b23d6dd22db35609aefc2da0",
+  "contentSha256": "c00e594d36196fa53d5d9b389aff7f6b09f2c602b23d6dd22db35609aefc2da0",
+  "captureProvenance": {
+    "source": "repo-derived",
+    "captureMode": "read-only",
+    "sourceFiles": [
+      "runbook.md"
+    ]
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ]
+}

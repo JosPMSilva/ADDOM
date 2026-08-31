@@ -1,0 +1,19 @@
+{
+  "id": "moa-review-multifile-diff",
+  "description": "Raw assistant message with prose bullets plus unfenced multi-file patch proposal that previously fragmented into lists/paragraphs in the renderer.",
+  "expectedSegmentOrder": [
+    "prose_markdown",
+    "file_label",
+    "diff_block",
+    "file_label",
+    "diff_block",
+    "file_label",
+    "diff_block",
+    "prose_markdown"
+  ],
+  "expectedPatchFiles": [
+    "index.html",
+    "styles.css",
+    "script.js"
+  ]
+}

@@ -1,0 +1,145 @@
+name: CI Cross Platform
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Reject high-severity dependency advisories
+        run: |
+          npm audit --audit-level=high --json > npm-audit.json || {
+            cat npm-audit.json
+            exit 1
+          }
+
+      - name: Rebuild Native Modules
+        run: npm run native:node
+
+      - name: Check syntax
+        run: npm run check:syntax
+
+      - name: Check renderer
+        run: npm run check:renderer
+
+      - name: Check ESLint
+        run: npm run check:eslint
+
+      - name: Check max lines
+        run: npm run check:max-lines
+
+      - name: Check runtime deps
+        run: npm run check:runtime-deps
+
+      - name: Build renderer
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+        run: npm run build:renderer
+
+      - name: Check bundle size
+        run: npm run check:bundle-size
+
+      - name: Check docs links
+        run: npm run check:docs-links
+
+      - name: Verify generated model catalog artifacts
+        run: npm run catalog:check:generated
+
+  integration:
+    needs: validate
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run integration tests
+        run: npm run test:integration
+
+  package:
+    needs: [validate, integration]
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Rebuild Native Modules
+        run: npm run native:node
+
+      - name: Check third-party compliance
+        if: matrix.os == 'windows-latest'
+        run: npm run legal:check
+
+      - name: Build Windows app
+        if: matrix.os == 'windows-latest'
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+        run: |
+          npm run build:runtime-assets
+          npm run make-icon
+          npx vite build
+          npx cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 electron-builder --win --config electron-builder.config.cjs --publish never
+          npm run test:live-smoke:packaged
+
+      - name: Build macOS app
+        if: matrix.os == 'macos-latest'
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+        run: |
+          npm run build:runtime-assets
+          npm run make-icon
+          npx vite build
+          npx cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 electron-builder --mac --config electron-builder.config.cjs --publish never
+
+      - name: Build Linux app
+        if: matrix.os == 'ubuntu-latest'
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+        run: |
+          npm run build:runtime-assets
+          npm run make-icon
+          npx vite build
+          npx cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 electron-builder --linux --config electron-builder.config.cjs --publish never
+          xvfb-run -a npm run test:live-smoke:packaged
+
+      - name: Verify compiled app
+        run: node scripts/check-ci-package-output.mjs

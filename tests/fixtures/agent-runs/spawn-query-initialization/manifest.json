@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "spawn-query-initialization",
+  "sourceClass": "synthetic_contract",
+  "captureDate": "2026-07-22",
+  "providerRuntimeClass": "managed_agent_contract",
+  "synthetic": true,
+  "networkRequired": false,
+  "sourceReferences": ["docs/architecture/agent-orchestration.md"],
+  "sanitization": { "method": "original_synthetic_fixture", "privatePromptRemoved": true, "identifiersPlaceholdered": true, "pathsNormalized": true },
+  "contentHashAlgorithm": "sha256-canonical-json-v1",
+  "contentHash": "b09e7df8561c467d57cbd267ba425a9e3ab4746784eda43459a720904b7d1ccc",
+  "coverage": ["spawn_query_during_initialization", "failure"],
+  "expectedCapabilities": { "addressableChildIdentity": true, "nodeScopedStream": true, "nodeCancellation": true, "rootFinalAuthority": true },
+  "currentContract": { "identity": "future_contract", "stream": "future_contract", "cancellation": "future_contract", "rootFinalAuthority": "required" },
+  "knownGaps": ["Queued and starting attempts are not yet durably queryable."]
+}

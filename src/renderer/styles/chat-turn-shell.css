@@ -1,0 +1,23 @@
+/* Turn shell: execution → answer → files, with stronger turn separation. */
+
+[data-turn-shell='true'] {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.75rem;
+}
+
+[data-turn-shell='true'] > [data-turn-shell-slot='execution'] + [data-turn-shell-slot='answer'] {
+  margin-top: 0.5rem;
+}
+
+[data-turn-shell='true'] > [data-turn-shell-slot='answer'] + [data-turn-shell-slot='files'],
+[data-turn-shell='true'] > [data-turn-shell-slot='execution'] + [data-turn-shell-slot='files'] {
+  margin-top: 1.25rem;
+}
+
+[data-turn-shell-slot='files'][data-turn-shell-files-pulse='true'] {
+  outline: 1px solid color-mix(in srgb, var(--color-border-strong) 55%, transparent);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+  transition: outline-color 200ms ease;
+}

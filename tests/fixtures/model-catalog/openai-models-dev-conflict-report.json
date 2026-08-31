@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-03-15T00:20:03.844Z",
+  "vendorRoot": "C:\\Users\\example\\Documents\\ADDOM\\vendor\\models.dev-portable\\providers",
+  "providers": [
+    {
+      "providerId": "openai",
+      "upstreamProviderId": "openai",
+      "addomModelCount": 19,
+      "modelsDevModelCount": 44,
+      "conflictingModelCount": 0,
+      "onlyInAddom": [],
+      "onlyInModelsDev": [
+        "codex-mini-latest",
+        "gpt-3.5-turbo",
+        "gpt-4-turbo",
+        "gpt-4.1-nano",
+        "gpt-4",
+        "gpt-4o-2024-05-13",
+        "gpt-4o-2024-08-06",
+        "gpt-4o-2024-11-20",
+        "gpt-4o",
+        "gpt-5-chat-latest",
+        "gpt-5.1-chat-latest",
+        "gpt-5.2-chat-latest",
+        "gpt-5.2-pro",
+        "o1-mini",
+        "o1-preview",
+        "o1-pro",
+        "o1",
+        "o3-deep-research",
+        "o3-mini",
+        "o3-pro",
+        "o3",
+        "o4-mini-deep-research",
+        "text-embedding-3-large",
+        "text-embedding-3-small",
+        "text-embedding-ada-002"
+      ],
+      "conflicts": []
+    }
+  ],
+  "summary": {
+    "providerCount": 1,
+    "conflictingProviders": 0,
+    "conflictingModels": 0,
+    "onlyInAddom": 0,
+    "onlyInModelsDev": 25
+  }
+}

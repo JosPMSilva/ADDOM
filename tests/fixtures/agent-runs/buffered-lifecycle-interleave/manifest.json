@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "buffered-lifecycle-interleave",
+  "sourceClass": "synthetic_contract",
+  "captureDate": "2026-07-22",
+  "providerRuntimeClass": "canonical_event_contract",
+  "synthetic": true,
+  "networkRequired": false,
+  "sourceReferences": ["docs/architecture/agent-orchestration.md"],
+  "sanitization": { "method": "original_synthetic_fixture", "privatePromptRemoved": true, "identifiersPlaceholdered": true, "pathsNormalized": true },
+  "contentHashAlgorithm": "sha256-canonical-json-v1",
+  "contentHash": "37b6a516c7c62d4bcc082d29d54906144fce6a233d9dbc3cf40869083e153037",
+  "coverage": ["buffered_chunk_lifecycle_interleave", "delayed_events"],
+  "expectedCapabilities": { "addressableChildIdentity": true, "nodeScopedStream": true, "nodeCancellation": true, "rootFinalAuthority": true },
+  "currentContract": { "identity": "future_contract", "stream": "future_fifo_contract", "cancellation": "future_contract", "rootFinalAuthority": "required" },
+  "knownGaps": ["All node event kinds do not yet share one durable FIFO ordering domain."]
+}

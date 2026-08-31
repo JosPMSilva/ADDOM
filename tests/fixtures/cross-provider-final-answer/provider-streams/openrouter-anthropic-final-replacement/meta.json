@@ -1,0 +1,30 @@
+{
+  "fixtureId": "provider-openrouter-anthropic-final-replacement",
+  "kind": "provider_stream",
+  "title": "OpenRouter Anthropic final replacement stream",
+  "sourceClass": "synthetic-provider-shape",
+  "provider": "openrouter",
+  "model": "anthropic/claude-3.5-sonnet",
+  "streamShape": "final-replacement",
+  "scenario": "live",
+  "semanticOwnership": "provider-stream",
+  "contentFile": "stream.json",
+  "contentSha256": "0db5995e419b22f53bf42b2e42607a567b1fbdafb30712402934e62c30fbbbf2",
+  "captureProvenance": {
+    "source": "synthetic",
+    "captureMode": "repo-authored",
+    "sourceFiles": [
+      "runbook.md"
+    ],
+    "notes": "Structured synthetic provider stream fixture."
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ],
+  "sourceContentSha256": "0db5995e419b22f53bf42b2e42607a567b1fbdafb30712402934e62c30fbbbf2",
+  "expectedFinalMarkdownSha256": "f7e6dd6d25a9faa6973be156f4e7db183ff0689c73642211636ca9fe63939ba3"
+}

@@ -1,0 +1,27 @@
+{
+  "fixtureId": "markdown-prose",
+  "kind": "markdown",
+  "title": "Prose fixture",
+  "sourceClass": "repo-derived",
+  "provider": "repo",
+  "model": "repo-derived",
+  "streamShape": "none",
+  "semanticOwnership": "final-answer",
+  "contentFile": "content.md",
+  "sourceContentSha256": "1d7c3ad6f7c1731d851204b81f388decccdf229d9d45af1d271c2d4e88e4647e",
+  "contentSha256": "1d7c3ad6f7c1731d851204b81f388decccdf229d9d45af1d271c2d4e88e4647e",
+  "captureProvenance": {
+    "source": "repo-derived",
+    "captureMode": "read-only",
+    "sourceFiles": [
+      "runbook.md"
+    ]
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ]
+}

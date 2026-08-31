@@ -1,0 +1,161 @@
+{
+  "fixtureId": "provider-cursor-duplicate",
+  "title": "Cursor duplicate delivery stream",
+  "provider": "cursor",
+  "model": "composer-2.5",
+  "streamShape": "append-delta",
+  "scenario": "duplicate_delivery",
+  "events": [
+    {
+      "eventId": "provider-cursor-duplicate-evt-001-raw",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "commentary",
+      "text": "Planning cursor duplicate delivery stream.\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-002-raw",
+      "kind": "reasoning",
+      "phase": "reasoning",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "reasoning",
+      "text": "Normalizing append-delta delivery.\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-003",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-cursor-duplicate-part-001",
+      "text": "# Cursor duplicate delivery stream\n\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-004",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-cursor-duplicate-part-002",
+      "text": "Duplicate-delivery stream that repeats canonical parts before the normalized replay is applied.\n\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-dup",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-cursor-duplicate-part-002",
+      "text": "Duplicate-delivery stream that repeats canonical parts before the normalized replay is applied.\n\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-005",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-cursor-duplicate-part-003",
+      "text": "- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-006",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 6,
+      "appendOrder": 6,
+      "ownership": "final-document",
+      "partId": "provider-cursor-duplicate-part-004",
+      "text": "| Field | Value |\n| --- | --- |\n| Provider | cursor |\n| Stream | append-delta |\n\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-007",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 7,
+      "appendOrder": 7,
+      "ownership": "final-document",
+      "partId": "provider-cursor-duplicate-part-005",
+      "text": "```ts\nconst ready = true;\n```\n"
+    }
+  ],
+  "canonicalEvents": [
+    {
+      "eventId": "provider-cursor-duplicate-evt-001",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "commentary",
+      "text": "Planning cursor duplicate delivery stream.\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-002",
+      "kind": "reasoning",
+      "phase": "reasoning",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "reasoning",
+      "text": "Normalizing append-delta delivery.\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-003",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-cursor-duplicate-part-001",
+      "text": "# Cursor duplicate delivery stream\n\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-004",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-cursor-duplicate-part-002",
+      "text": "Duplicate-delivery stream that repeats canonical parts before the normalized replay is applied.\n\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-005",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-cursor-duplicate-part-003",
+      "text": "- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-006",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 6,
+      "appendOrder": 6,
+      "ownership": "final-document",
+      "partId": "provider-cursor-duplicate-part-004",
+      "text": "| Field | Value |\n| --- | --- |\n| Provider | cursor |\n| Stream | append-delta |\n\n"
+    },
+    {
+      "eventId": "provider-cursor-duplicate-evt-007",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 7,
+      "appendOrder": 7,
+      "ownership": "final-document",
+      "partId": "provider-cursor-duplicate-part-005",
+      "text": "```ts\nconst ready = true;\n```\n"
+    }
+  ],
+  "expectedFinalMarkdown": "# Cursor duplicate delivery stream\n\nDuplicate-delivery stream that repeats canonical parts before the normalized replay is applied.\n\n- First bullet\n- Second bullet\n\n| Field | Value |\n| --- | --- |\n| Provider | cursor |\n| Stream | append-delta |\n\n```ts\nconst ready = true;\n```\n",
+  "expectedFinalMarkdownSha256": "b6b682ae2c305378fd6928b5679f24c1b9d8c23c914e2f3f6ed02c5892847093",
+  "expectedFinalOwnership": "final-document"
+}

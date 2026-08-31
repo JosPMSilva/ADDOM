@@ -1,0 +1,3464 @@
+{
+  "schemaVersion": 1,
+  "surfaces": [
+    "win",
+    "mac",
+    "linux",
+    "installer",
+    "dir"
+  ],
+  "documents": {
+    "thirdPartyNotices": "legal/THIRD_PARTY_NOTICES.txt",
+    "shippedInventory": "legal/shipped-third-party-inventory.json"
+  },
+  "items": [
+    {
+      "id": "npm:@ai-sdk/anthropic@3.0.46",
+      "name": "@ai-sdk/anthropic",
+      "version": "3.0.46",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:@ai-sdk/gateway@3.0.53",
+      "name": "@ai-sdk/gateway",
+      "version": "3.0.53",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:@ai-sdk/google@3.0.30",
+      "name": "@ai-sdk/google",
+      "version": "3.0.30",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:@ai-sdk/groq@3.0.24",
+      "name": "@ai-sdk/groq",
+      "version": "3.0.24",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:@ai-sdk/mistral@3.0.20",
+      "name": "@ai-sdk/mistral",
+      "version": "3.0.20",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:@ai-sdk/openai-compatible@2.0.30",
+      "name": "@ai-sdk/openai-compatible",
+      "version": "2.0.30",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:@ai-sdk/openai@3.0.30",
+      "name": "@ai-sdk/openai",
+      "version": "3.0.30",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:@ai-sdk/perplexity@3.0.19",
+      "name": "@ai-sdk/perplexity",
+      "version": "3.0.19",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:@ai-sdk/provider-utils@4.0.15",
+      "name": "@ai-sdk/provider-utils",
+      "version": "4.0.15",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:@ai-sdk/provider@3.0.8",
+      "name": "@ai-sdk/provider",
+      "version": "3.0.8",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:@ai-sdk/xai@3.0.57",
+      "name": "@ai-sdk/xai",
+      "version": "3.0.57",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:@babel/runtime@7.29.2",
+      "name": "@babel/runtime",
+      "version": "7.29.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/babel/babel.git"
+    },
+    {
+      "id": "npm:@biomejs/biome@1.9.4",
+      "name": "@biomejs/biome",
+      "version": "1.9.4",
+      "license": "MIT OR Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/biomejs/biome.git"
+    },
+    {
+      "id": "npm:@eslint-community/eslint-utils@4.9.1",
+      "name": "@eslint-community/eslint-utils",
+      "version": "4.9.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/eslint-community/eslint-utils"
+    },
+    {
+      "id": "npm:@eslint-community/regexpp@4.12.2",
+      "name": "@eslint-community/regexpp",
+      "version": "4.12.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/eslint-community/regexpp"
+    },
+    {
+      "id": "npm:@eslint/config-array@0.21.2",
+      "name": "@eslint/config-array",
+      "version": "0.21.2",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/eslint/rewrite.git"
+    },
+    {
+      "id": "npm:@eslint/config-helpers@0.4.2",
+      "name": "@eslint/config-helpers",
+      "version": "0.4.2",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/eslint/rewrite.git"
+    },
+    {
+      "id": "npm:@eslint/core@0.17.0",
+      "name": "@eslint/core",
+      "version": "0.17.0",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/eslint/rewrite.git"
+    },
+    {
+      "id": "npm:@eslint/eslintrc@3.3.6",
+      "name": "@eslint/eslintrc",
+      "version": "3.3.6",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "eslint/eslintrc"
+    },
+    {
+      "id": "npm:@eslint/js@9.39.5",
+      "name": "@eslint/js",
+      "version": "9.39.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/eslint/eslint.git"
+    },
+    {
+      "id": "npm:@eslint/object-schema@2.1.7",
+      "name": "@eslint/object-schema",
+      "version": "2.1.7",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/eslint/rewrite.git"
+    },
+    {
+      "id": "npm:@eslint/plugin-kit@0.4.1",
+      "name": "@eslint/plugin-kit",
+      "version": "0.4.1",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/eslint/rewrite.git"
+    },
+    {
+      "id": "npm:@huggingface/jinja@0.5.9",
+      "name": "@huggingface/jinja",
+      "version": "0.5.9",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/huggingface/huggingface.js.git"
+    },
+    {
+      "id": "npm:@huggingface/tokenizers@0.1.3",
+      "name": "@huggingface/tokenizers",
+      "version": "0.1.3",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/huggingface/tokenizers.js.git"
+    },
+    {
+      "id": "npm:@huggingface/transformers@4.2.0",
+      "name": "@huggingface/transformers",
+      "version": "4.2.0",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/huggingface/transformers.js.git"
+    },
+    {
+      "id": "npm:@humanfs/core@0.19.1",
+      "name": "@humanfs/core",
+      "version": "0.19.1",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/humanwhocodes/humanfs.git"
+    },
+    {
+      "id": "npm:@humanfs/node@0.16.7",
+      "name": "@humanfs/node",
+      "version": "0.16.7",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/humanwhocodes/humanfs.git"
+    },
+    {
+      "id": "npm:@humanwhocodes/module-importer@1.0.1",
+      "name": "@humanwhocodes/module-importer",
+      "version": "1.0.1",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/humanwhocodes/module-importer.git"
+    },
+    {
+      "id": "npm:@humanwhocodes/retry@0.4.3",
+      "name": "@humanwhocodes/retry",
+      "version": "0.4.3",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/humanwhocodes/retry.git"
+    },
+    {
+      "id": "npm:@img/colour@1.1.0",
+      "name": "@img/colour",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/lovell/colour.git"
+    },
+    {
+      "id": "npm:@monaco-editor/loader@1.7.0",
+      "name": "@monaco-editor/loader",
+      "version": "1.7.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/suren-atoyan/monaco-loader.git"
+    },
+    {
+      "id": "npm:@monaco-editor/react@4.7.0",
+      "name": "@monaco-editor/react",
+      "version": "4.7.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/suren-atoyan/monaco-react.git"
+    },
+    {
+      "id": "npm:@opentelemetry/api@1.9.0",
+      "name": "@opentelemetry/api",
+      "version": "1.9.0",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "open-telemetry/opentelemetry-js"
+    },
+    {
+      "id": "npm:@protobufjs/aspromise@1.1.2",
+      "name": "@protobufjs/aspromise",
+      "version": "1.1.2",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/dcodeIO/protobuf.js.git"
+    },
+    {
+      "id": "npm:@protobufjs/base64@1.1.2",
+      "name": "@protobufjs/base64",
+      "version": "1.1.2",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/dcodeIO/protobuf.js.git"
+    },
+    {
+      "id": "npm:@protobufjs/codegen@2.0.5",
+      "name": "@protobufjs/codegen",
+      "version": "2.0.5",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/dcodeIO/protobuf.js.git"
+    },
+    {
+      "id": "npm:@protobufjs/eventemitter@1.1.1",
+      "name": "@protobufjs/eventemitter",
+      "version": "1.1.1",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/dcodeIO/protobuf.js.git"
+    },
+    {
+      "id": "npm:@protobufjs/fetch@1.1.1",
+      "name": "@protobufjs/fetch",
+      "version": "1.1.1",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/dcodeIO/protobuf.js.git"
+    },
+    {
+      "id": "npm:@protobufjs/float@1.0.2",
+      "name": "@protobufjs/float",
+      "version": "1.0.2",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/dcodeIO/protobuf.js.git"
+    },
+    {
+      "id": "npm:@protobufjs/path@1.1.2",
+      "name": "@protobufjs/path",
+      "version": "1.1.2",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/dcodeIO/protobuf.js.git"
+    },
+    {
+      "id": "npm:@protobufjs/pool@1.1.0",
+      "name": "@protobufjs/pool",
+      "version": "1.1.0",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/dcodeIO/protobuf.js.git"
+    },
+    {
+      "id": "npm:@protobufjs/utf8@1.1.2",
+      "name": "@protobufjs/utf8",
+      "version": "1.1.2",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/protobufjs/protobuf.js.git"
+    },
+    {
+      "id": "npm:@standard-schema/spec@1.1.0",
+      "name": "@standard-schema/spec",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/standard-schema/standard-schema"
+    },
+    {
+      "id": "npm:@types/debug@4.1.12",
+      "name": "@types/debug",
+      "version": "4.1.12",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    {
+      "id": "npm:@types/estree-jsx@1.0.5",
+      "name": "@types/estree-jsx",
+      "version": "1.0.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    {
+      "id": "npm:@types/estree@1.0.8",
+      "name": "@types/estree",
+      "version": "1.0.8",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    {
+      "id": "npm:@types/hast@3.0.4",
+      "name": "@types/hast",
+      "version": "3.0.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    {
+      "id": "npm:@types/json-schema@7.0.15",
+      "name": "@types/json-schema",
+      "version": "7.0.15",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    {
+      "id": "npm:@types/mdast@4.0.4",
+      "name": "@types/mdast",
+      "version": "4.0.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    {
+      "id": "npm:@types/ms@2.1.0",
+      "name": "@types/ms",
+      "version": "2.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    {
+      "id": "npm:@types/node@24.10.13",
+      "name": "@types/node",
+      "version": "24.10.13",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    {
+      "id": "npm:@types/unist@2.0.11",
+      "name": "@types/unist",
+      "version": "2.0.11",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    {
+      "id": "npm:@types/unist@3.0.3",
+      "name": "@types/unist",
+      "version": "3.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    {
+      "id": "npm:@typescript-eslint/eslint-plugin@8.68.0",
+      "name": "@typescript-eslint/eslint-plugin",
+      "version": "8.68.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/typescript-eslint/typescript-eslint.git"
+    },
+    {
+      "id": "npm:@typescript-eslint/parser@8.68.0",
+      "name": "@typescript-eslint/parser",
+      "version": "8.68.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/typescript-eslint/typescript-eslint.git"
+    },
+    {
+      "id": "npm:@typescript-eslint/project-service@8.68.0",
+      "name": "@typescript-eslint/project-service",
+      "version": "8.68.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/typescript-eslint/typescript-eslint.git"
+    },
+    {
+      "id": "npm:@typescript-eslint/scope-manager@8.68.0",
+      "name": "@typescript-eslint/scope-manager",
+      "version": "8.68.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/typescript-eslint/typescript-eslint.git"
+    },
+    {
+      "id": "npm:@typescript-eslint/tsconfig-utils@8.68.0",
+      "name": "@typescript-eslint/tsconfig-utils",
+      "version": "8.68.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/typescript-eslint/typescript-eslint.git"
+    },
+    {
+      "id": "npm:@typescript-eslint/type-utils@8.68.0",
+      "name": "@typescript-eslint/type-utils",
+      "version": "8.68.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/typescript-eslint/typescript-eslint.git"
+    },
+    {
+      "id": "npm:@typescript-eslint/types@8.68.0",
+      "name": "@typescript-eslint/types",
+      "version": "8.68.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/typescript-eslint/typescript-eslint.git"
+    },
+    {
+      "id": "npm:@typescript-eslint/typescript-estree@8.68.0",
+      "name": "@typescript-eslint/typescript-estree",
+      "version": "8.68.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/typescript-eslint/typescript-eslint.git"
+    },
+    {
+      "id": "npm:@typescript-eslint/utils@8.68.0",
+      "name": "@typescript-eslint/utils",
+      "version": "8.68.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/typescript-eslint/typescript-eslint.git"
+    },
+    {
+      "id": "npm:@typescript-eslint/visitor-keys@8.68.0",
+      "name": "@typescript-eslint/visitor-keys",
+      "version": "8.68.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/typescript-eslint/typescript-eslint.git"
+    },
+    {
+      "id": "npm:@ungap/structured-clone@1.3.0",
+      "name": "@ungap/structured-clone",
+      "version": "1.3.0",
+      "license": "ISC",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ungap/structured-clone.git"
+    },
+    {
+      "id": "npm:@vercel/oidc@3.1.0",
+      "name": "@vercel/oidc",
+      "version": "3.1.0",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/vercel.git"
+    },
+    {
+      "id": "npm:@xterm/addon-fit@0.11.0",
+      "name": "@xterm/addon-fit",
+      "version": "0.11.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/xtermjs/xterm.js/tree/master/addons/addon-fit"
+    },
+    {
+      "id": "npm:@xterm/addon-search@0.16.0",
+      "name": "@xterm/addon-search",
+      "version": "0.16.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/xtermjs/xterm.js/tree/master/addons/addon-search"
+    },
+    {
+      "id": "npm:@xterm/addon-web-links@0.12.0",
+      "name": "@xterm/addon-web-links",
+      "version": "0.12.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/xtermjs/xterm.js/tree/master/addons/addon-web-links"
+    },
+    {
+      "id": "npm:@xterm/xterm@6.0.0",
+      "name": "@xterm/xterm",
+      "version": "6.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/xtermjs/xterm.js"
+    },
+    {
+      "id": "bundled:chromium-notice-bundle",
+      "name": "Chromium Notice Bundle",
+      "version": "via Electron runtime",
+      "license": "Chromium third-party notices bundle",
+      "classification": "bundled_runtime",
+      "sourceRef": "https://chromium.googlesource.com/chromium/src.git"
+    },
+    {
+      "id": "bundled:electron-runtime",
+      "name": "Electron Runtime",
+      "version": "44.1.0",
+      "license": "MIT",
+      "classification": "bundled_runtime",
+      "sourceRef": "https://github.com/electron/electron"
+    },
+    {
+      "id": "vendored:geist-fonts",
+      "name": "Geist Sans and Geist Mono",
+      "version": "vendored snapshot",
+      "license": "SIL OFL 1.1",
+      "classification": "vendored_asset",
+      "sourceRef": "https://github.com/vercel/geist-font"
+    },
+    {
+      "id": "vendored:inter-font",
+      "name": "Inter",
+      "version": "vendored snapshot",
+      "license": "SIL OFL 1.1",
+      "classification": "vendored_asset",
+      "sourceRef": "https://github.com/rsms/inter"
+    },
+    {
+      "id": "vendored:jetbrains-mono-font",
+      "name": "JetBrains Mono",
+      "version": "vendored snapshot",
+      "license": "SIL OFL 1.1",
+      "classification": "vendored_asset",
+      "sourceRef": "https://github.com/JetBrains/JetBrainsMono"
+    },
+    {
+      "id": "vendored:phosphor",
+      "name": "Phosphor Icons",
+      "version": "2024",
+      "license": "MIT",
+      "classification": "vendored_asset",
+      "sourceRef": "https://github.com/phosphor-icons/core"
+    },
+    {
+      "id": "npm:acorn-jsx@5.3.2",
+      "name": "acorn-jsx",
+      "version": "5.3.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/acornjs/acorn-jsx"
+    },
+    {
+      "id": "npm:acorn@8.18.0",
+      "name": "acorn",
+      "version": "8.18.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/acornjs/acorn.git"
+    },
+    {
+      "id": "npm:adm-zip@0.6.0",
+      "name": "adm-zip",
+      "version": "0.6.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/cthackers/adm-zip.git"
+    },
+    {
+      "id": "npm:ai@6.0.97",
+      "name": "ai",
+      "version": "6.0.97",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:ajv@6.15.0",
+      "name": "ajv",
+      "version": "6.15.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/ajv-validator/ajv.git"
+    },
+    {
+      "id": "npm:ansi-styles@4.3.0",
+      "name": "ansi-styles",
+      "version": "4.3.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "chalk/ansi-styles"
+    },
+    {
+      "id": "npm:argparse@2.0.1",
+      "name": "argparse",
+      "version": "2.0.1",
+      "license": "Python-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "nodeca/argparse"
+    },
+    {
+      "id": "npm:array-buffer-byte-length@1.0.2",
+      "name": "array-buffer-byte-length",
+      "version": "1.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/array-buffer-byte-length.git"
+    },
+    {
+      "id": "npm:array-includes@3.1.9",
+      "name": "array-includes",
+      "version": "3.1.9",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/es-shims/array-includes.git"
+    },
+    {
+      "id": "npm:array.prototype.findlast@1.2.5",
+      "name": "array.prototype.findlast",
+      "version": "1.2.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/es-shims/Array.prototype.findLast.git"
+    },
+    {
+      "id": "npm:array.prototype.flat@1.3.3",
+      "name": "array.prototype.flat",
+      "version": "1.3.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/es-shims/Array.prototype.flat.git"
+    },
+    {
+      "id": "npm:array.prototype.flatmap@1.3.3",
+      "name": "array.prototype.flatmap",
+      "version": "1.3.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/es-shims/Array.prototype.flatMap.git"
+    },
+    {
+      "id": "npm:array.prototype.tosorted@1.1.4",
+      "name": "array.prototype.tosorted",
+      "version": "1.1.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/es-shims/Array.prototype.toSorted.git"
+    },
+    {
+      "id": "npm:arraybuffer.prototype.slice@1.0.4",
+      "name": "arraybuffer.prototype.slice",
+      "version": "1.0.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/es-shims/ArrayBuffer.prototype.slice.git"
+    },
+    {
+      "id": "npm:async-function@1.0.0",
+      "name": "async-function",
+      "version": "1.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/async-function.git"
+    },
+    {
+      "id": "npm:available-typed-arrays@1.0.7",
+      "name": "available-typed-arrays",
+      "version": "1.0.7",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/available-typed-arrays.git"
+    },
+    {
+      "id": "npm:bail@2.0.2",
+      "name": "bail",
+      "version": "2.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/bail"
+    },
+    {
+      "id": "npm:balanced-match@1.0.2",
+      "name": "balanced-match",
+      "version": "1.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
+    },
+    {
+      "id": "npm:balanced-match@4.0.3",
+      "name": "balanced-match",
+      "version": "4.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/juliangruber/balanced-match.git"
+    },
+    {
+      "id": "npm:better-sqlite3@13.0.3",
+      "name": "better-sqlite3",
+      "version": "13.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/WiseLibs/better-sqlite3.git"
+    },
+    {
+      "id": "npm:boolean@3.2.0",
+      "name": "boolean",
+      "version": "3.2.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/thenativeweb/boolean.git"
+    },
+    {
+      "id": "npm:brace-expansion@1.1.18",
+      "name": "brace-expansion",
+      "version": "1.1.18",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.18.tgz"
+    },
+    {
+      "id": "npm:brace-expansion@5.0.9",
+      "name": "brace-expansion",
+      "version": "5.0.9",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/juliangruber/brace-expansion.git"
+    },
+    {
+      "id": "npm:builder-util-runtime@9.7.0",
+      "name": "builder-util-runtime",
+      "version": "9.7.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/electron-userland/electron-builder.git"
+    },
+    {
+      "id": "npm:call-bind-apply-helpers@1.0.2",
+      "name": "call-bind-apply-helpers",
+      "version": "1.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/call-bind-apply-helpers.git"
+    },
+    {
+      "id": "npm:call-bind@1.0.8",
+      "name": "call-bind",
+      "version": "1.0.8",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/call-bind.git"
+    },
+    {
+      "id": "npm:call-bound@1.0.4",
+      "name": "call-bound",
+      "version": "1.0.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/call-bound.git"
+    },
+    {
+      "id": "npm:callsites@3.1.0",
+      "name": "callsites",
+      "version": "3.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/callsites"
+    },
+    {
+      "id": "npm:ccount@2.0.1",
+      "name": "ccount",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/ccount"
+    },
+    {
+      "id": "npm:chalk@4.1.2",
+      "name": "chalk",
+      "version": "4.1.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "chalk/chalk"
+    },
+    {
+      "id": "npm:character-entities-html4@2.1.0",
+      "name": "character-entities-html4",
+      "version": "2.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/character-entities-html4"
+    },
+    {
+      "id": "npm:character-entities-legacy@3.0.0",
+      "name": "character-entities-legacy",
+      "version": "3.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/character-entities-legacy"
+    },
+    {
+      "id": "npm:character-entities@2.0.2",
+      "name": "character-entities",
+      "version": "2.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/character-entities"
+    },
+    {
+      "id": "npm:character-reference-invalid@2.0.1",
+      "name": "character-reference-invalid",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/character-reference-invalid"
+    },
+    {
+      "id": "npm:color-convert@2.0.1",
+      "name": "color-convert",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "Qix-/color-convert"
+    },
+    {
+      "id": "npm:color-name@1.1.4",
+      "name": "color-name",
+      "version": "1.1.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git@github.com:colorjs/color-name.git"
+    },
+    {
+      "id": "npm:comma-separated-tokens@2.0.3",
+      "name": "comma-separated-tokens",
+      "version": "2.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/comma-separated-tokens"
+    },
+    {
+      "id": "npm:concat-map@0.0.1",
+      "name": "concat-map",
+      "version": "0.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/substack/node-concat-map.git"
+    },
+    {
+      "id": "npm:cross-spawn@7.0.6",
+      "name": "cross-spawn",
+      "version": "7.0.6",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git@github.com:moxystudio/node-cross-spawn.git"
+    },
+    {
+      "id": "npm:data-view-buffer@1.0.2",
+      "name": "data-view-buffer",
+      "version": "1.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/data-view-buffer.git"
+    },
+    {
+      "id": "npm:data-view-byte-length@1.0.2",
+      "name": "data-view-byte-length",
+      "version": "1.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/data-view-byte-length.git"
+    },
+    {
+      "id": "npm:data-view-byte-offset@1.0.1",
+      "name": "data-view-byte-offset",
+      "version": "1.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/data-view-byte-offset.git"
+    },
+    {
+      "id": "npm:debug@4.4.3",
+      "name": "debug",
+      "version": "4.4.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/debug-js/debug.git"
+    },
+    {
+      "id": "npm:decode-named-character-reference@1.3.0",
+      "name": "decode-named-character-reference",
+      "version": "1.3.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/decode-named-character-reference"
+    },
+    {
+      "id": "npm:deep-is@0.1.4",
+      "name": "deep-is",
+      "version": "0.1.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "http://github.com/thlorenz/deep-is.git"
+    },
+    {
+      "id": "npm:define-data-property@1.1.4",
+      "name": "define-data-property",
+      "version": "1.1.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/define-data-property.git"
+    },
+    {
+      "id": "npm:define-properties@1.2.1",
+      "name": "define-properties",
+      "version": "1.2.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/ljharb/define-properties.git"
+    },
+    {
+      "id": "npm:dequal@2.0.3",
+      "name": "dequal",
+      "version": "2.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "lukeed/dequal"
+    },
+    {
+      "id": "npm:detect-libc@2.1.2",
+      "name": "detect-libc",
+      "version": "2.1.2",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/lovell/detect-libc.git"
+    },
+    {
+      "id": "npm:detect-node@2.1.0",
+      "name": "detect-node",
+      "version": "2.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/iliakan/detect-node"
+    },
+    {
+      "id": "npm:devlop@1.1.0",
+      "name": "devlop",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/devlop"
+    },
+    {
+      "id": "npm:doctrine@2.1.0",
+      "name": "doctrine",
+      "version": "2.1.0",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "eslint/doctrine"
+    },
+    {
+      "id": "npm:dompurify@3.4.14",
+      "name": "dompurify",
+      "version": "3.4.14",
+      "license": "(MPL-2.0 OR Apache-2.0)",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/cure53/DOMPurify.git"
+    },
+    {
+      "id": "npm:dunder-proto@1.0.1",
+      "name": "dunder-proto",
+      "version": "1.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/es-shims/dunder-proto.git"
+    },
+    {
+      "id": "npm:electron-updater@6.8.9",
+      "name": "electron-updater",
+      "version": "6.8.9",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/electron-userland/electron-builder.git"
+    },
+    {
+      "id": "npm:es-abstract@1.24.1",
+      "name": "es-abstract",
+      "version": "1.24.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/ljharb/es-abstract.git"
+    },
+    {
+      "id": "npm:es-define-property@1.0.1",
+      "name": "es-define-property",
+      "version": "1.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/es-define-property.git"
+    },
+    {
+      "id": "npm:es-errors@1.3.0",
+      "name": "es-errors",
+      "version": "1.3.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/es-errors.git"
+    },
+    {
+      "id": "npm:es-iterator-helpers@1.2.2",
+      "name": "es-iterator-helpers",
+      "version": "1.2.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/es-shims/iterator-helpers.git"
+    },
+    {
+      "id": "npm:es-object-atoms@1.1.1",
+      "name": "es-object-atoms",
+      "version": "1.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/es-object-atoms.git"
+    },
+    {
+      "id": "npm:es-set-tostringtag@2.1.0",
+      "name": "es-set-tostringtag",
+      "version": "2.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/es-shims/es-set-tostringtag.git"
+    },
+    {
+      "id": "npm:es-shim-unscopables@1.1.0",
+      "name": "es-shim-unscopables",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/es-shim-unscopables.git"
+    },
+    {
+      "id": "npm:es-to-primitive@1.3.0",
+      "name": "es-to-primitive",
+      "version": "1.3.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/ljharb/es-to-primitive.git"
+    },
+    {
+      "id": "npm:es6-error@4.1.1",
+      "name": "es6-error",
+      "version": "4.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/bjyoungblood/es6-error.git"
+    },
+    {
+      "id": "npm:escape-string-regexp@4.0.0",
+      "name": "escape-string-regexp",
+      "version": "4.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/escape-string-regexp"
+    },
+    {
+      "id": "npm:escape-string-regexp@5.0.0",
+      "name": "escape-string-regexp",
+      "version": "5.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/escape-string-regexp"
+    },
+    {
+      "id": "npm:eslint-plugin-react-hooks@5.2.0",
+      "name": "eslint-plugin-react-hooks",
+      "version": "5.2.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/facebook/react.git"
+    },
+    {
+      "id": "npm:eslint-plugin-react@7.37.5",
+      "name": "eslint-plugin-react",
+      "version": "7.37.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/jsx-eslint/eslint-plugin-react"
+    },
+    {
+      "id": "npm:eslint-scope@8.4.0",
+      "name": "eslint-scope",
+      "version": "8.4.0",
+      "license": "BSD-2-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/eslint/js.git"
+    },
+    {
+      "id": "npm:eslint-visitor-keys@3.4.3",
+      "name": "eslint-visitor-keys",
+      "version": "3.4.3",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "eslint/eslint-visitor-keys"
+    },
+    {
+      "id": "npm:eslint-visitor-keys@4.2.1",
+      "name": "eslint-visitor-keys",
+      "version": "4.2.1",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/eslint/js.git"
+    },
+    {
+      "id": "npm:eslint-visitor-keys@5.0.1",
+      "name": "eslint-visitor-keys",
+      "version": "5.0.1",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/eslint/js.git"
+    },
+    {
+      "id": "npm:eslint@9.39.5",
+      "name": "eslint",
+      "version": "9.39.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "eslint/eslint"
+    },
+    {
+      "id": "npm:espree@10.4.0",
+      "name": "espree",
+      "version": "10.4.0",
+      "license": "BSD-2-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/eslint/js.git"
+    },
+    {
+      "id": "npm:esquery@1.7.0",
+      "name": "esquery",
+      "version": "1.7.0",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/estools/esquery.git"
+    },
+    {
+      "id": "npm:esrecurse@4.3.0",
+      "name": "esrecurse",
+      "version": "4.3.0",
+      "license": "BSD-2-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/estools/esrecurse.git"
+    },
+    {
+      "id": "npm:estraverse@5.3.0",
+      "name": "estraverse",
+      "version": "5.3.0",
+      "license": "BSD-2-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "http://github.com/estools/estraverse.git"
+    },
+    {
+      "id": "npm:estree-util-is-identifier-name@3.0.0",
+      "name": "estree-util-is-identifier-name",
+      "version": "3.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/estree-util-is-identifier-name"
+    },
+    {
+      "id": "npm:esutils@2.0.3",
+      "name": "esutils",
+      "version": "2.0.3",
+      "license": "BSD-2-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "http://github.com/estools/esutils.git"
+    },
+    {
+      "id": "npm:eventsource-parser@3.0.6",
+      "name": "eventsource-parser",
+      "version": "3.0.6",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+ssh://git@github.com/rexxars/eventsource-parser.git"
+    },
+    {
+      "id": "npm:extend@3.0.2",
+      "name": "extend",
+      "version": "3.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/justmoon/node-extend.git"
+    },
+    {
+      "id": "npm:fast-deep-equal@3.1.3",
+      "name": "fast-deep-equal",
+      "version": "3.1.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/epoberezkin/fast-deep-equal.git"
+    },
+    {
+      "id": "npm:fast-json-stable-stringify@2.1.0",
+      "name": "fast-json-stable-stringify",
+      "version": "2.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/epoberezkin/fast-json-stable-stringify.git"
+    },
+    {
+      "id": "npm:fast-levenshtein@2.0.6",
+      "name": "fast-levenshtein",
+      "version": "2.0.6",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/hiddentao/fast-levenshtein.git"
+    },
+    {
+      "id": "npm:fdir@6.5.0",
+      "name": "fdir",
+      "version": "6.5.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/thecodrr/fdir.git"
+    },
+    {
+      "id": "npm:file-entry-cache@8.0.0",
+      "name": "file-entry-cache",
+      "version": "8.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "jaredwray/file-entry-cache"
+    },
+    {
+      "id": "npm:find-up@5.0.0",
+      "name": "find-up",
+      "version": "5.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/find-up"
+    },
+    {
+      "id": "npm:flat-cache@4.0.1",
+      "name": "flat-cache",
+      "version": "4.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "jaredwray/flat-cache"
+    },
+    {
+      "id": "npm:flatbuffers@25.9.23",
+      "name": "flatbuffers",
+      "version": "25.9.23",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/google/flatbuffers.git"
+    },
+    {
+      "id": "npm:flatted@3.4.3",
+      "name": "flatted",
+      "version": "3.4.3",
+      "license": "ISC",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/WebReflection/flatted.git"
+    },
+    {
+      "id": "npm:for-each@0.3.5",
+      "name": "for-each",
+      "version": "0.3.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/Raynos/for-each.git"
+    },
+    {
+      "id": "npm:fs-extra@10.1.0",
+      "name": "fs-extra",
+      "version": "10.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/jprichardson/node-fs-extra"
+    },
+    {
+      "id": "npm:function-bind@1.1.2",
+      "name": "function-bind",
+      "version": "1.1.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/Raynos/function-bind.git"
+    },
+    {
+      "id": "npm:function.prototype.name@1.1.8",
+      "name": "function.prototype.name",
+      "version": "1.1.8",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/es-shims/Function.prototype.name.git"
+    },
+    {
+      "id": "npm:functions-have-names@1.2.3",
+      "name": "functions-have-names",
+      "version": "1.2.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/functions-have-names.git"
+    },
+    {
+      "id": "npm:generator-function@2.0.1",
+      "name": "generator-function",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/TimothyGu/generator-function.git"
+    },
+    {
+      "id": "npm:get-intrinsic@1.3.0",
+      "name": "get-intrinsic",
+      "version": "1.3.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/get-intrinsic.git"
+    },
+    {
+      "id": "npm:get-proto@1.0.1",
+      "name": "get-proto",
+      "version": "1.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/get-proto.git"
+    },
+    {
+      "id": "npm:get-symbol-description@1.1.0",
+      "name": "get-symbol-description",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/get-symbol-description.git"
+    },
+    {
+      "id": "npm:glob-parent@6.0.2",
+      "name": "glob-parent",
+      "version": "6.0.2",
+      "license": "ISC",
+      "classification": "shipped_runtime",
+      "sourceRef": "gulpjs/glob-parent"
+    },
+    {
+      "id": "npm:global-agent@3.0.0",
+      "name": "global-agent",
+      "version": "3.0.0",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/gajus/global-agent"
+    },
+    {
+      "id": "npm:globals@14.0.0",
+      "name": "globals",
+      "version": "14.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/globals"
+    },
+    {
+      "id": "npm:globals@15.15.0",
+      "name": "globals",
+      "version": "15.15.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/globals"
+    },
+    {
+      "id": "npm:globalthis@1.0.4",
+      "name": "globalthis",
+      "version": "1.0.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/ljharb/System.global.git"
+    },
+    {
+      "id": "npm:gopd@1.2.0",
+      "name": "gopd",
+      "version": "1.2.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/gopd.git"
+    },
+    {
+      "id": "npm:graceful-fs@4.2.11",
+      "name": "graceful-fs",
+      "version": "4.2.11",
+      "license": "ISC",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/isaacs/node-graceful-fs"
+    },
+    {
+      "id": "npm:guid-typescript@1.0.9",
+      "name": "guid-typescript",
+      "version": "1.0.9",
+      "license": "ISC",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/NicolasDeveloper/guid-typescript"
+    },
+    {
+      "id": "npm:has-bigints@1.1.0",
+      "name": "has-bigints",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/has-bigints.git"
+    },
+    {
+      "id": "npm:has-flag@4.0.0",
+      "name": "has-flag",
+      "version": "4.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/has-flag"
+    },
+    {
+      "id": "npm:has-property-descriptors@1.0.2",
+      "name": "has-property-descriptors",
+      "version": "1.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/has-property-descriptors.git"
+    },
+    {
+      "id": "npm:has-proto@1.2.0",
+      "name": "has-proto",
+      "version": "1.2.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/has-proto.git"
+    },
+    {
+      "id": "npm:has-symbols@1.1.0",
+      "name": "has-symbols",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/has-symbols.git"
+    },
+    {
+      "id": "npm:has-tostringtag@1.0.2",
+      "name": "has-tostringtag",
+      "version": "1.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/has-tostringtag.git"
+    },
+    {
+      "id": "npm:hasown@2.0.4",
+      "name": "hasown",
+      "version": "2.0.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/hasOwn.git"
+    },
+    {
+      "id": "npm:hast-util-is-element@3.0.0",
+      "name": "hast-util-is-element",
+      "version": "3.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/hast-util-is-element"
+    },
+    {
+      "id": "npm:hast-util-to-jsx-runtime@2.3.6",
+      "name": "hast-util-to-jsx-runtime",
+      "version": "2.3.6",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/hast-util-to-jsx-runtime"
+    },
+    {
+      "id": "npm:hast-util-to-text@4.0.2",
+      "name": "hast-util-to-text",
+      "version": "4.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/hast-util-to-text"
+    },
+    {
+      "id": "npm:hast-util-whitespace@3.0.0",
+      "name": "hast-util-whitespace",
+      "version": "3.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/hast-util-whitespace"
+    },
+    {
+      "id": "npm:highlight.js@11.11.1",
+      "name": "highlight.js",
+      "version": "11.11.1",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/highlightjs/highlight.js.git"
+    },
+    {
+      "id": "npm:html-parse-stringify@3.0.1",
+      "name": "html-parse-stringify",
+      "version": "3.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/henrikjoreteg/html-parse-stringify"
+    },
+    {
+      "id": "npm:html-url-attributes@3.0.1",
+      "name": "html-url-attributes",
+      "version": "3.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/rehypejs/rehype-minify/tree/main/packages/html-url-attributes"
+    },
+    {
+      "id": "npm:i18next-icu@2.4.3",
+      "name": "i18next-icu",
+      "version": "2.4.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/i18next/i18next-icu"
+    },
+    {
+      "id": "npm:i18next@26.0.3",
+      "name": "i18next",
+      "version": "26.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/i18next/i18next.git"
+    },
+    {
+      "id": "npm:ignore@5.3.2",
+      "name": "ignore",
+      "version": "5.3.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git@github.com:kaelzhang/node-ignore.git"
+    },
+    {
+      "id": "npm:ignore@7.0.5",
+      "name": "ignore",
+      "version": "7.0.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git@github.com:kaelzhang/node-ignore.git"
+    },
+    {
+      "id": "npm:import-fresh@3.3.1",
+      "name": "import-fresh",
+      "version": "3.3.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/import-fresh"
+    },
+    {
+      "id": "npm:imurmurhash@0.1.4",
+      "name": "imurmurhash",
+      "version": "0.1.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/jensyt/imurmurhash-js"
+    },
+    {
+      "id": "npm:inline-style-parser@0.2.7",
+      "name": "inline-style-parser",
+      "version": "0.2.7",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/remarkablemark/inline-style-parser.git"
+    },
+    {
+      "id": "npm:internal-slot@1.1.0",
+      "name": "internal-slot",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/internal-slot.git"
+    },
+    {
+      "id": "npm:is-alphabetical@2.0.1",
+      "name": "is-alphabetical",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/is-alphabetical"
+    },
+    {
+      "id": "npm:is-alphanumerical@2.0.1",
+      "name": "is-alphanumerical",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/is-alphanumerical"
+    },
+    {
+      "id": "npm:is-array-buffer@3.0.5",
+      "name": "is-array-buffer",
+      "version": "3.0.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/is-array-buffer.git"
+    },
+    {
+      "id": "npm:is-async-function@2.1.1",
+      "name": "is-async-function",
+      "version": "2.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/is-async-function.git"
+    },
+    {
+      "id": "npm:is-bigint@1.1.0",
+      "name": "is-bigint",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/is-bigint.git"
+    },
+    {
+      "id": "npm:is-boolean-object@1.2.2",
+      "name": "is-boolean-object",
+      "version": "1.2.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/is-boolean-object.git"
+    },
+    {
+      "id": "npm:is-callable@1.2.7",
+      "name": "is-callable",
+      "version": "1.2.7",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/is-callable.git"
+    },
+    {
+      "id": "npm:is-core-module@2.16.1",
+      "name": "is-core-module",
+      "version": "2.16.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/is-core-module.git"
+    },
+    {
+      "id": "npm:is-data-view@1.0.2",
+      "name": "is-data-view",
+      "version": "1.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/is-data-view.git"
+    },
+    {
+      "id": "npm:is-date-object@1.1.0",
+      "name": "is-date-object",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/is-date-object.git"
+    },
+    {
+      "id": "npm:is-decimal@2.0.1",
+      "name": "is-decimal",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/is-decimal"
+    },
+    {
+      "id": "npm:is-extglob@2.1.1",
+      "name": "is-extglob",
+      "version": "2.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "jonschlinkert/is-extglob"
+    },
+    {
+      "id": "npm:is-finalizationregistry@1.1.1",
+      "name": "is-finalizationregistry",
+      "version": "1.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/is-finalizationregistry.git"
+    },
+    {
+      "id": "npm:is-generator-function@1.1.2",
+      "name": "is-generator-function",
+      "version": "1.1.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/is-generator-function.git"
+    },
+    {
+      "id": "npm:is-glob@4.0.3",
+      "name": "is-glob",
+      "version": "4.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "micromatch/is-glob"
+    },
+    {
+      "id": "npm:is-hexadecimal@2.0.1",
+      "name": "is-hexadecimal",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/is-hexadecimal"
+    },
+    {
+      "id": "npm:is-map@2.0.3",
+      "name": "is-map",
+      "version": "2.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/is-map.git"
+    },
+    {
+      "id": "npm:is-negative-zero@2.0.3",
+      "name": "is-negative-zero",
+      "version": "2.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/is-negative-zero.git"
+    },
+    {
+      "id": "npm:is-number-object@1.1.1",
+      "name": "is-number-object",
+      "version": "1.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/is-number-object.git"
+    },
+    {
+      "id": "npm:is-plain-obj@4.1.0",
+      "name": "is-plain-obj",
+      "version": "4.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/is-plain-obj"
+    },
+    {
+      "id": "npm:is-regex@1.2.1",
+      "name": "is-regex",
+      "version": "1.2.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/is-regex.git"
+    },
+    {
+      "id": "npm:is-set@2.0.3",
+      "name": "is-set",
+      "version": "2.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/is-set.git"
+    },
+    {
+      "id": "npm:is-shared-array-buffer@1.0.4",
+      "name": "is-shared-array-buffer",
+      "version": "1.0.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/is-shared-array-buffer.git"
+    },
+    {
+      "id": "npm:is-string@1.1.1",
+      "name": "is-string",
+      "version": "1.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/is-string.git"
+    },
+    {
+      "id": "npm:is-symbol@1.1.1",
+      "name": "is-symbol",
+      "version": "1.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/is-symbol.git"
+    },
+    {
+      "id": "npm:is-typed-array@1.1.15",
+      "name": "is-typed-array",
+      "version": "1.1.15",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/is-typed-array.git"
+    },
+    {
+      "id": "npm:is-weakmap@2.0.2",
+      "name": "is-weakmap",
+      "version": "2.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/is-weakmap.git"
+    },
+    {
+      "id": "npm:is-weakref@1.1.1",
+      "name": "is-weakref",
+      "version": "1.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/is-weakref.git"
+    },
+    {
+      "id": "npm:is-weakset@2.0.4",
+      "name": "is-weakset",
+      "version": "2.0.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/is-weakset.git"
+    },
+    {
+      "id": "npm:isarray@2.0.5",
+      "name": "isarray",
+      "version": "2.0.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/juliangruber/isarray.git"
+    },
+    {
+      "id": "npm:isexe@2.0.0",
+      "name": "isexe",
+      "version": "2.0.0",
+      "license": "ISC",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/isaacs/isexe.git"
+    },
+    {
+      "id": "npm:iterator.prototype@1.1.5",
+      "name": "iterator.prototype",
+      "version": "1.1.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/Iterator.prototype.git"
+    },
+    {
+      "id": "npm:js-tokens@4.0.0",
+      "name": "js-tokens",
+      "version": "4.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "lydell/js-tokens"
+    },
+    {
+      "id": "npm:js-yaml@4.3.2",
+      "name": "js-yaml",
+      "version": "4.3.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "nodeca/js-yaml"
+    },
+    {
+      "id": "npm:json-buffer@3.0.1",
+      "name": "json-buffer",
+      "version": "3.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/dominictarr/json-buffer.git"
+    },
+    {
+      "id": "npm:json-schema-traverse@0.4.1",
+      "name": "json-schema-traverse",
+      "version": "0.4.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/epoberezkin/json-schema-traverse.git"
+    },
+    {
+      "id": "npm:json-schema@0.4.0",
+      "name": "json-schema",
+      "version": "0.4.0",
+      "license": "(AFL-2.1 OR BSD-3-Clause)",
+      "classification": "shipped_runtime",
+      "sourceRef": "http://github.com/kriszyp/json-schema"
+    },
+    {
+      "id": "npm:json-stable-stringify-without-jsonify@1.0.1",
+      "name": "json-stable-stringify-without-jsonify",
+      "version": "1.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/samn/json-stable-stringify.git"
+    },
+    {
+      "id": "npm:json-stringify-safe@5.0.1",
+      "name": "json-stringify-safe",
+      "version": "5.0.1",
+      "license": "ISC",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/isaacs/json-stringify-safe"
+    },
+    {
+      "id": "npm:jsonfile@6.2.1",
+      "name": "jsonfile",
+      "version": "6.2.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git@github.com:jprichardson/node-jsonfile.git"
+    },
+    {
+      "id": "npm:jsx-ast-utils@3.3.5",
+      "name": "jsx-ast-utils",
+      "version": "3.3.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/jsx-eslint/jsx-ast-utils"
+    },
+    {
+      "id": "npm:keyv@4.5.4",
+      "name": "keyv",
+      "version": "4.5.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/jaredwray/keyv.git"
+    },
+    {
+      "id": "npm:lazy-val@1.0.5",
+      "name": "lazy-val",
+      "version": "1.0.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "develar/lazy-val"
+    },
+    {
+      "id": "npm:levn@0.4.1",
+      "name": "levn",
+      "version": "0.4.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/gkz/levn.git"
+    },
+    {
+      "id": "npm:locate-path@6.0.0",
+      "name": "locate-path",
+      "version": "6.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/locate-path"
+    },
+    {
+      "id": "npm:lodash.escaperegexp@4.1.2",
+      "name": "lodash.escaperegexp",
+      "version": "4.1.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "lodash/lodash"
+    },
+    {
+      "id": "npm:lodash.isequal@4.5.0",
+      "name": "lodash.isequal",
+      "version": "4.5.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "lodash/lodash"
+    },
+    {
+      "id": "npm:lodash.merge@4.6.2",
+      "name": "lodash.merge",
+      "version": "4.6.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "lodash/lodash"
+    },
+    {
+      "id": "npm:long@5.3.2",
+      "name": "long",
+      "version": "5.3.2",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/dcodeIO/long.js.git"
+    },
+    {
+      "id": "npm:longest-streak@3.1.0",
+      "name": "longest-streak",
+      "version": "3.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/longest-streak"
+    },
+    {
+      "id": "npm:loose-envify@1.4.0",
+      "name": "loose-envify",
+      "version": "1.4.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/zertosh/loose-envify.git"
+    },
+    {
+      "id": "npm:lowlight@3.3.0",
+      "name": "lowlight",
+      "version": "3.3.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/lowlight"
+    },
+    {
+      "id": "npm:markdown-table@3.0.4",
+      "name": "markdown-table",
+      "version": "3.0.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/markdown-table"
+    },
+    {
+      "id": "npm:marked@14.0.0",
+      "name": "marked",
+      "version": "14.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/markedjs/marked.git"
+    },
+    {
+      "id": "npm:matcher@3.0.0",
+      "name": "matcher",
+      "version": "3.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/matcher"
+    },
+    {
+      "id": "npm:math-intrinsics@1.1.0",
+      "name": "math-intrinsics",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/es-shims/math-intrinsics.git"
+    },
+    {
+      "id": "npm:mdast-util-find-and-replace@3.0.2",
+      "name": "mdast-util-find-and-replace",
+      "version": "3.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-find-and-replace"
+    },
+    {
+      "id": "npm:mdast-util-from-markdown@2.0.2",
+      "name": "mdast-util-from-markdown",
+      "version": "2.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-from-markdown"
+    },
+    {
+      "id": "npm:mdast-util-gfm-autolink-literal@2.0.1",
+      "name": "mdast-util-gfm-autolink-literal",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-gfm-autolink-literal"
+    },
+    {
+      "id": "npm:mdast-util-gfm-footnote@2.1.0",
+      "name": "mdast-util-gfm-footnote",
+      "version": "2.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-gfm-footnote"
+    },
+    {
+      "id": "npm:mdast-util-gfm-strikethrough@2.0.0",
+      "name": "mdast-util-gfm-strikethrough",
+      "version": "2.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-gfm-strikethrough"
+    },
+    {
+      "id": "npm:mdast-util-gfm-table@2.0.0",
+      "name": "mdast-util-gfm-table",
+      "version": "2.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-gfm-table"
+    },
+    {
+      "id": "npm:mdast-util-gfm-task-list-item@2.0.0",
+      "name": "mdast-util-gfm-task-list-item",
+      "version": "2.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-gfm-task-list-item"
+    },
+    {
+      "id": "npm:mdast-util-gfm@3.1.0",
+      "name": "mdast-util-gfm",
+      "version": "3.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-gfm"
+    },
+    {
+      "id": "npm:mdast-util-mdx-expression@2.0.1",
+      "name": "mdast-util-mdx-expression",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-mdx-expression"
+    },
+    {
+      "id": "npm:mdast-util-mdx-jsx@3.2.0",
+      "name": "mdast-util-mdx-jsx",
+      "version": "3.2.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-mdx-jsx"
+    },
+    {
+      "id": "npm:mdast-util-mdxjs-esm@2.0.1",
+      "name": "mdast-util-mdxjs-esm",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-mdxjs-esm"
+    },
+    {
+      "id": "npm:mdast-util-phrasing@4.1.0",
+      "name": "mdast-util-phrasing",
+      "version": "4.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-phrasing"
+    },
+    {
+      "id": "npm:mdast-util-to-hast@13.2.1",
+      "name": "mdast-util-to-hast",
+      "version": "13.2.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-to-hast"
+    },
+    {
+      "id": "npm:mdast-util-to-markdown@2.1.2",
+      "name": "mdast-util-to-markdown",
+      "version": "2.1.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-to-markdown"
+    },
+    {
+      "id": "npm:mdast-util-to-string@4.0.0",
+      "name": "mdast-util-to-string",
+      "version": "4.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/mdast-util-to-string"
+    },
+    {
+      "id": "npm:micromark-core-commonmark@2.0.3",
+      "name": "micromark-core-commonmark",
+      "version": "2.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-core-commonmark"
+    },
+    {
+      "id": "npm:micromark-extension-gfm-autolink-literal@2.1.0",
+      "name": "micromark-extension-gfm-autolink-literal",
+      "version": "2.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "micromark/micromark-extension-gfm-autolink-literal"
+    },
+    {
+      "id": "npm:micromark-extension-gfm-footnote@2.1.0",
+      "name": "micromark-extension-gfm-footnote",
+      "version": "2.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "micromark/micromark-extension-gfm-footnote"
+    },
+    {
+      "id": "npm:micromark-extension-gfm-strikethrough@2.1.0",
+      "name": "micromark-extension-gfm-strikethrough",
+      "version": "2.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "micromark/micromark-extension-gfm-strikethrough"
+    },
+    {
+      "id": "npm:micromark-extension-gfm-table@2.1.1",
+      "name": "micromark-extension-gfm-table",
+      "version": "2.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "micromark/micromark-extension-gfm-table"
+    },
+    {
+      "id": "npm:micromark-extension-gfm-tagfilter@2.0.0",
+      "name": "micromark-extension-gfm-tagfilter",
+      "version": "2.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "micromark/micromark-extension-gfm-tagfilter"
+    },
+    {
+      "id": "npm:micromark-extension-gfm-task-list-item@2.1.0",
+      "name": "micromark-extension-gfm-task-list-item",
+      "version": "2.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "micromark/micromark-extension-gfm-task-list-item"
+    },
+    {
+      "id": "npm:micromark-extension-gfm@3.0.0",
+      "name": "micromark-extension-gfm",
+      "version": "3.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "micromark/micromark-extension-gfm"
+    },
+    {
+      "id": "npm:micromark-factory-destination@2.0.1",
+      "name": "micromark-factory-destination",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-factory-destination"
+    },
+    {
+      "id": "npm:micromark-factory-label@2.0.1",
+      "name": "micromark-factory-label",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-factory-label"
+    },
+    {
+      "id": "npm:micromark-factory-space@2.0.1",
+      "name": "micromark-factory-space",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-factory-space"
+    },
+    {
+      "id": "npm:micromark-factory-title@2.0.1",
+      "name": "micromark-factory-title",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-factory-title"
+    },
+    {
+      "id": "npm:micromark-factory-whitespace@2.0.1",
+      "name": "micromark-factory-whitespace",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-factory-whitespace"
+    },
+    {
+      "id": "npm:micromark-util-character@2.1.1",
+      "name": "micromark-util-character",
+      "version": "2.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-character"
+    },
+    {
+      "id": "npm:micromark-util-chunked@2.0.1",
+      "name": "micromark-util-chunked",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-chunked"
+    },
+    {
+      "id": "npm:micromark-util-classify-character@2.0.1",
+      "name": "micromark-util-classify-character",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-classify-character"
+    },
+    {
+      "id": "npm:micromark-util-combine-extensions@2.0.1",
+      "name": "micromark-util-combine-extensions",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-combine-extensions"
+    },
+    {
+      "id": "npm:micromark-util-decode-numeric-character-reference@2.0.2",
+      "name": "micromark-util-decode-numeric-character-reference",
+      "version": "2.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-decode-numeric-character-reference"
+    },
+    {
+      "id": "npm:micromark-util-decode-string@2.0.1",
+      "name": "micromark-util-decode-string",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-decode-string"
+    },
+    {
+      "id": "npm:micromark-util-encode@2.0.1",
+      "name": "micromark-util-encode",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-encode"
+    },
+    {
+      "id": "npm:micromark-util-html-tag-name@2.0.1",
+      "name": "micromark-util-html-tag-name",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-html-tag-name"
+    },
+    {
+      "id": "npm:micromark-util-normalize-identifier@2.0.1",
+      "name": "micromark-util-normalize-identifier",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-normalize-identifier"
+    },
+    {
+      "id": "npm:micromark-util-resolve-all@2.0.1",
+      "name": "micromark-util-resolve-all",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-resolve-all"
+    },
+    {
+      "id": "npm:micromark-util-sanitize-uri@2.0.1",
+      "name": "micromark-util-sanitize-uri",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-sanitize-uri"
+    },
+    {
+      "id": "npm:micromark-util-subtokenize@2.1.0",
+      "name": "micromark-util-subtokenize",
+      "version": "2.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-subtokenize"
+    },
+    {
+      "id": "npm:micromark-util-symbol@2.0.1",
+      "name": "micromark-util-symbol",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-symbol"
+    },
+    {
+      "id": "npm:micromark-util-types@2.0.2",
+      "name": "micromark-util-types",
+      "version": "2.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark-util-types"
+    },
+    {
+      "id": "npm:micromark@4.0.2",
+      "name": "micromark",
+      "version": "4.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/micromark/micromark/tree/main/packages/micromark"
+    },
+    {
+      "id": "npm:minimatch@10.2.6",
+      "name": "minimatch",
+      "version": "10.2.6",
+      "license": "BlueOak-1.0.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git@github.com:isaacs/minimatch"
+    },
+    {
+      "id": "npm:minimatch@3.1.5",
+      "name": "minimatch",
+      "version": "3.1.5",
+      "license": "ISC",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://registry.npmjs.org/minimatch/-/minimatch-3.1.5.tgz"
+    },
+    {
+      "id": "vendored:models-dev",
+      "name": "models.dev catalog and provider logos",
+      "version": "vendored snapshot",
+      "license": "MIT",
+      "classification": "vendored_asset",
+      "sourceRef": "https://github.com/anomalyco/models.dev"
+    },
+    {
+      "id": "npm:monaco-editor@0.56.0",
+      "name": "monaco-editor",
+      "version": "0.56.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/microsoft/monaco-editor"
+    },
+    {
+      "id": "npm:ms@2.1.3",
+      "name": "ms",
+      "version": "2.1.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "vercel/ms"
+    },
+    {
+      "id": "npm:natural-compare@1.4.0",
+      "name": "natural-compare",
+      "version": "1.4.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/litejs/natural-compare-lite.git"
+    },
+    {
+      "id": "npm:node-addon-api@7.1.1",
+      "name": "node-addon-api",
+      "version": "7.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/nodejs/node-addon-api.git"
+    },
+    {
+      "id": "npm:node-addon-api@8.9.2",
+      "name": "node-addon-api",
+      "version": "8.9.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/nodejs/node-addon-api.git"
+    },
+    {
+      "id": "npm:node-exports-info@1.6.0",
+      "name": "node-exports-info",
+      "version": "1.6.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/node-exports-info.git"
+    },
+    {
+      "id": "npm:node-pty@1.1.0",
+      "name": "node-pty",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/microsoft/node-pty.git"
+    },
+    {
+      "id": "npm:object-assign@4.1.1",
+      "name": "object-assign",
+      "version": "4.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/object-assign"
+    },
+    {
+      "id": "npm:object-inspect@1.13.4",
+      "name": "object-inspect",
+      "version": "1.13.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/object-inspect.git"
+    },
+    {
+      "id": "npm:object-keys@1.1.1",
+      "name": "object-keys",
+      "version": "1.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/ljharb/object-keys.git"
+    },
+    {
+      "id": "npm:object.assign@4.1.7",
+      "name": "object.assign",
+      "version": "4.1.7",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/ljharb/object.assign.git"
+    },
+    {
+      "id": "npm:object.entries@1.1.9",
+      "name": "object.entries",
+      "version": "1.1.9",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/es-shims/Object.entries.git"
+    },
+    {
+      "id": "npm:object.fromentries@2.0.8",
+      "name": "object.fromentries",
+      "version": "2.0.8",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/es-shims/Object.fromEntries.git"
+    },
+    {
+      "id": "npm:object.values@1.2.1",
+      "name": "object.values",
+      "version": "1.2.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/es-shims/Object.values.git"
+    },
+    {
+      "id": "npm:onnxruntime-common@1.24.0-dev.20251116-b39e144322",
+      "name": "onnxruntime-common",
+      "version": "1.24.0-dev.20251116-b39e144322",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/Microsoft/onnxruntime.git"
+    },
+    {
+      "id": "npm:onnxruntime-common@1.24.3",
+      "name": "onnxruntime-common",
+      "version": "1.24.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/Microsoft/onnxruntime.git"
+    },
+    {
+      "id": "npm:onnxruntime-node@1.24.3",
+      "name": "onnxruntime-node",
+      "version": "1.24.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/Microsoft/onnxruntime.git"
+    },
+    {
+      "id": "npm:onnxruntime-web@1.26.0-dev.20260416-b7804b056c",
+      "name": "onnxruntime-web",
+      "version": "1.26.0-dev.20260416-b7804b056c",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/Microsoft/onnxruntime.git"
+    },
+    {
+      "id": "npm:openai@6.25.0",
+      "name": "openai",
+      "version": "6.25.0",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "github:openai/openai-node"
+    },
+    {
+      "id": "npm:optionator@0.9.4",
+      "name": "optionator",
+      "version": "0.9.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/gkz/optionator.git"
+    },
+    {
+      "id": "npm:own-keys@1.0.1",
+      "name": "own-keys",
+      "version": "1.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/own-keys.git"
+    },
+    {
+      "id": "npm:p-limit@3.1.0",
+      "name": "p-limit",
+      "version": "3.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/p-limit"
+    },
+    {
+      "id": "npm:p-locate@5.0.0",
+      "name": "p-locate",
+      "version": "5.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/p-locate"
+    },
+    {
+      "id": "npm:parent-module@1.0.1",
+      "name": "parent-module",
+      "version": "1.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/parent-module"
+    },
+    {
+      "id": "npm:parse-entities@4.0.2",
+      "name": "parse-entities",
+      "version": "4.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/parse-entities"
+    },
+    {
+      "id": "npm:path-exists@4.0.0",
+      "name": "path-exists",
+      "version": "4.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/path-exists"
+    },
+    {
+      "id": "npm:path-key@3.1.1",
+      "name": "path-key",
+      "version": "3.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/path-key"
+    },
+    {
+      "id": "npm:path-parse@1.0.7",
+      "name": "path-parse",
+      "version": "1.0.7",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/jbgutierrez/path-parse.git"
+    },
+    {
+      "id": "npm:picomatch@4.0.5",
+      "name": "picomatch",
+      "version": "4.0.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "micromatch/picomatch"
+    },
+    {
+      "id": "npm:platform@1.3.6",
+      "name": "platform",
+      "version": "1.3.6",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "bestiejs/platform.js"
+    },
+    {
+      "id": "npm:playwright-core@1.58.2",
+      "name": "playwright-core",
+      "version": "1.58.2",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/microsoft/playwright.git"
+    },
+    {
+      "id": "npm:possible-typed-array-names@1.1.0",
+      "name": "possible-typed-array-names",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/possible-typed-array-names.git"
+    },
+    {
+      "id": "npm:prelude-ls@1.2.1",
+      "name": "prelude-ls",
+      "version": "1.2.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/gkz/prelude-ls.git"
+    },
+    {
+      "id": "npm:prettier@3.8.1",
+      "name": "prettier",
+      "version": "3.8.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "prettier/prettier"
+    },
+    {
+      "id": "npm:prop-types@15.8.1",
+      "name": "prop-types",
+      "version": "15.8.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "facebook/prop-types"
+    },
+    {
+      "id": "npm:property-information@7.1.0",
+      "name": "property-information",
+      "version": "7.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/property-information"
+    },
+    {
+      "id": "npm:protobufjs@7.6.6",
+      "name": "protobufjs",
+      "version": "7.6.6",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "protobufjs/protobuf.js"
+    },
+    {
+      "id": "npm:punycode@2.3.1",
+      "name": "punycode",
+      "version": "2.3.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/mathiasbynens/punycode.js.git"
+    },
+    {
+      "id": "npm:pyright@1.1.408",
+      "name": "pyright",
+      "version": "1.1.408",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/Microsoft/pyright"
+    },
+    {
+      "id": "npm:react-i18next@17.0.2",
+      "name": "react-i18next",
+      "version": "17.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/i18next/react-i18next.git"
+    },
+    {
+      "id": "npm:react-is@16.13.1",
+      "name": "react-is",
+      "version": "16.13.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/facebook/react.git"
+    },
+    {
+      "id": "npm:react-markdown@10.1.0",
+      "name": "react-markdown",
+      "version": "10.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "remarkjs/react-markdown"
+    },
+    {
+      "id": "npm:reflect.getprototypeof@1.0.10",
+      "name": "reflect.getprototypeof",
+      "version": "1.0.10",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/es-shims/Reflect.getPrototypeOf.git"
+    },
+    {
+      "id": "npm:regexp.prototype.flags@1.5.4",
+      "name": "regexp.prototype.flags",
+      "version": "1.5.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/es-shims/RegExp.prototype.flags.git"
+    },
+    {
+      "id": "npm:rehype-highlight@7.0.2",
+      "name": "rehype-highlight",
+      "version": "7.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "rehypejs/rehype-highlight"
+    },
+    {
+      "id": "npm:remark-gfm@4.0.1",
+      "name": "remark-gfm",
+      "version": "4.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "remarkjs/remark-gfm"
+    },
+    {
+      "id": "npm:remark-parse@11.0.0",
+      "name": "remark-parse",
+      "version": "11.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/remarkjs/remark/tree/main/packages/remark-parse"
+    },
+    {
+      "id": "npm:remark-rehype@11.1.2",
+      "name": "remark-rehype",
+      "version": "11.1.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "remarkjs/remark-rehype"
+    },
+    {
+      "id": "npm:remark-stringify@11.0.0",
+      "name": "remark-stringify",
+      "version": "11.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/remarkjs/remark/tree/main/packages/remark-stringify"
+    },
+    {
+      "id": "npm:resolve-from@4.0.0",
+      "name": "resolve-from",
+      "version": "4.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/resolve-from"
+    },
+    {
+      "id": "npm:resolve@2.0.0-next.6",
+      "name": "resolve",
+      "version": "2.0.0-next.6",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "ssh://github.com/browserify/resolve.git"
+    },
+    {
+      "id": "npm:roarr@2.15.4",
+      "name": "roarr",
+      "version": "2.15.4",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "git@github.com:gajus/roarr.git"
+    },
+    {
+      "id": "npm:safe-array-concat@1.1.3",
+      "name": "safe-array-concat",
+      "version": "1.1.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/safe-array-concat.git"
+    },
+    {
+      "id": "npm:safe-push-apply@1.0.0",
+      "name": "safe-push-apply",
+      "version": "1.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/safe-push-apply.git"
+    },
+    {
+      "id": "npm:safe-regex-test@1.1.0",
+      "name": "safe-regex-test",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/safe-regex-test.git"
+    },
+    {
+      "id": "npm:sax@1.4.4",
+      "name": "sax",
+      "version": "1.4.4",
+      "license": "BlueOak-1.0.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/isaacs/sax-js.git"
+    },
+    {
+      "id": "npm:semver-compare@1.0.0",
+      "name": "semver-compare",
+      "version": "1.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/substack/semver-compare.git"
+    },
+    {
+      "id": "npm:semver@6.3.1",
+      "name": "semver",
+      "version": "6.3.1",
+      "license": "ISC",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://registry.npmjs.org/semver/-/semver-6.3.1.tgz"
+    },
+    {
+      "id": "npm:semver@7.7.4",
+      "name": "semver",
+      "version": "7.7.4",
+      "license": "ISC",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://registry.npmjs.org/semver/-/semver-7.7.4.tgz"
+    },
+    {
+      "id": "npm:semver@7.8.5",
+      "name": "semver",
+      "version": "7.8.5",
+      "license": "ISC",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://registry.npmjs.org/semver/-/semver-7.8.5.tgz"
+    },
+    {
+      "id": "npm:serialize-error@7.0.1",
+      "name": "serialize-error",
+      "version": "7.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/serialize-error"
+    },
+    {
+      "id": "npm:set-function-length@1.2.2",
+      "name": "set-function-length",
+      "version": "1.2.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/set-function-length.git"
+    },
+    {
+      "id": "npm:set-function-name@2.0.2",
+      "name": "set-function-name",
+      "version": "2.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/set-function-name.git"
+    },
+    {
+      "id": "npm:set-proto@1.0.0",
+      "name": "set-proto",
+      "version": "1.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/set-proto.git"
+    },
+    {
+      "id": "npm:sharp@0.35.4",
+      "name": "sharp",
+      "version": "0.35.4",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/lovell/sharp.git"
+    },
+    {
+      "id": "npm:shebang-command@2.0.0",
+      "name": "shebang-command",
+      "version": "2.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "kevva/shebang-command"
+    },
+    {
+      "id": "npm:shebang-regex@3.0.0",
+      "name": "shebang-regex",
+      "version": "3.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/shebang-regex"
+    },
+    {
+      "id": "npm:side-channel-list@1.0.1",
+      "name": "side-channel-list",
+      "version": "1.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/side-channel-list.git"
+    },
+    {
+      "id": "npm:side-channel-map@1.0.1",
+      "name": "side-channel-map",
+      "version": "1.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/side-channel-map.git"
+    },
+    {
+      "id": "npm:side-channel-weakmap@1.0.2",
+      "name": "side-channel-weakmap",
+      "version": "1.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/side-channel-weakmap.git"
+    },
+    {
+      "id": "npm:side-channel@1.1.1",
+      "name": "side-channel",
+      "version": "1.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/side-channel.git"
+    },
+    {
+      "id": "npm:smol-toml@1.6.1",
+      "name": "smol-toml",
+      "version": "1.6.1",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "github:squirrelchat/smol-toml"
+    },
+    {
+      "id": "npm:space-separated-tokens@2.0.2",
+      "name": "space-separated-tokens",
+      "version": "2.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/space-separated-tokens"
+    },
+    {
+      "id": "npm:sprintf-js@1.1.3",
+      "name": "sprintf-js",
+      "version": "1.1.3",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/alexei/sprintf.js.git"
+    },
+    {
+      "id": "npm:state-local@1.0.7",
+      "name": "state-local",
+      "version": "1.0.7",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/suren-atoyan/state-local"
+    },
+    {
+      "id": "npm:stop-iteration-iterator@1.1.0",
+      "name": "stop-iteration-iterator",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/stop-iteration-iterator.git"
+    },
+    {
+      "id": "npm:string.prototype.matchall@4.0.12",
+      "name": "string.prototype.matchall",
+      "version": "4.0.12",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/es-shims/String.prototype.matchAll.git"
+    },
+    {
+      "id": "npm:string.prototype.repeat@1.0.0",
+      "name": "string.prototype.repeat",
+      "version": "1.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/mathiasbynens/String.prototype.repeat.git"
+    },
+    {
+      "id": "npm:string.prototype.trim@1.2.10",
+      "name": "string.prototype.trim",
+      "version": "1.2.10",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/es-shims/String.prototype.trim.git"
+    },
+    {
+      "id": "npm:string.prototype.trimend@1.0.9",
+      "name": "string.prototype.trimend",
+      "version": "1.0.9",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/es-shims/String.prototype.trimEnd.git"
+    },
+    {
+      "id": "npm:string.prototype.trimstart@1.0.8",
+      "name": "string.prototype.trimstart",
+      "version": "1.0.8",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/es-shims/String.prototype.trimStart.git"
+    },
+    {
+      "id": "npm:stringify-entities@4.0.4",
+      "name": "stringify-entities",
+      "version": "4.0.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/stringify-entities"
+    },
+    {
+      "id": "npm:strip-json-comments@3.1.1",
+      "name": "strip-json-comments",
+      "version": "3.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/strip-json-comments"
+    },
+    {
+      "id": "npm:style-to-js@1.1.21",
+      "name": "style-to-js",
+      "version": "1.1.21",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/remarkablemark/style-to-js.git"
+    },
+    {
+      "id": "npm:style-to-object@1.0.14",
+      "name": "style-to-object",
+      "version": "1.0.14",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/remarkablemark/style-to-object.git"
+    },
+    {
+      "id": "npm:supports-color@7.2.0",
+      "name": "supports-color",
+      "version": "7.2.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "chalk/supports-color"
+    },
+    {
+      "id": "npm:supports-preserve-symlinks-flag@1.0.0",
+      "name": "supports-preserve-symlinks-flag",
+      "version": "1.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/node-supports-preserve-symlinks-flag.git"
+    },
+    {
+      "id": "npm:tiny-typed-emitter@2.1.0",
+      "name": "tiny-typed-emitter",
+      "version": "2.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/binier/tiny-typed-emitter.git"
+    },
+    {
+      "id": "npm:tinyglobby@0.2.15",
+      "name": "tinyglobby",
+      "version": "0.2.15",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/SuperchupuDev/tinyglobby.git"
+    },
+    {
+      "id": "npm:trim-lines@3.0.1",
+      "name": "trim-lines",
+      "version": "3.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/trim-lines"
+    },
+    {
+      "id": "npm:trough@2.2.0",
+      "name": "trough",
+      "version": "2.2.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/trough"
+    },
+    {
+      "id": "npm:ts-api-utils@2.5.0",
+      "name": "ts-api-utils",
+      "version": "2.5.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/JoshuaKGoldberg/ts-api-utils"
+    },
+    {
+      "id": "npm:type-check@0.4.0",
+      "name": "type-check",
+      "version": "0.4.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/gkz/type-check.git"
+    },
+    {
+      "id": "npm:type-fest@0.13.1",
+      "name": "type-fest",
+      "version": "0.13.1",
+      "license": "(MIT OR CC0-1.0)",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/type-fest"
+    },
+    {
+      "id": "npm:typed-array-buffer@1.0.3",
+      "name": "typed-array-buffer",
+      "version": "1.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/typed-array-buffer.git"
+    },
+    {
+      "id": "npm:typed-array-byte-length@1.0.3",
+      "name": "typed-array-byte-length",
+      "version": "1.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/typed-array-byte-length.git"
+    },
+    {
+      "id": "npm:typed-array-byte-offset@1.0.4",
+      "name": "typed-array-byte-offset",
+      "version": "1.0.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/typed-array-byte-offset.git"
+    },
+    {
+      "id": "npm:typed-array-length@1.0.7",
+      "name": "typed-array-length",
+      "version": "1.0.7",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/typed-array-length.git"
+    },
+    {
+      "id": "npm:typescript@5.9.3",
+      "name": "typescript",
+      "version": "5.9.3",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/microsoft/TypeScript.git"
+    },
+    {
+      "id": "npm:unbox-primitive@1.1.0",
+      "name": "unbox-primitive",
+      "version": "1.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/ljharb/unbox-primitive.git"
+    },
+    {
+      "id": "npm:undici-types@7.16.0",
+      "name": "undici-types",
+      "version": "7.16.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/nodejs/undici.git"
+    },
+    {
+      "id": "npm:undici@6.28.0",
+      "name": "undici",
+      "version": "6.28.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/nodejs/undici.git"
+    },
+    {
+      "id": "npm:unified@11.0.5",
+      "name": "unified",
+      "version": "11.0.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "unifiedjs/unified"
+    },
+    {
+      "id": "npm:unist-util-find-after@5.0.0",
+      "name": "unist-util-find-after",
+      "version": "5.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/unist-util-find-after"
+    },
+    {
+      "id": "npm:unist-util-is@6.0.1",
+      "name": "unist-util-is",
+      "version": "6.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/unist-util-is"
+    },
+    {
+      "id": "npm:unist-util-position@5.0.0",
+      "name": "unist-util-position",
+      "version": "5.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/unist-util-position"
+    },
+    {
+      "id": "npm:unist-util-stringify-position@4.0.0",
+      "name": "unist-util-stringify-position",
+      "version": "4.0.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/unist-util-stringify-position"
+    },
+    {
+      "id": "npm:unist-util-visit-parents@6.0.2",
+      "name": "unist-util-visit-parents",
+      "version": "6.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/unist-util-visit-parents"
+    },
+    {
+      "id": "npm:unist-util-visit@5.1.0",
+      "name": "unist-util-visit",
+      "version": "5.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "syntax-tree/unist-util-visit"
+    },
+    {
+      "id": "npm:universalify@2.0.1",
+      "name": "universalify",
+      "version": "2.0.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/RyanZim/universalify.git"
+    },
+    {
+      "id": "npm:uri-js@4.4.1",
+      "name": "uri-js",
+      "version": "4.4.1",
+      "license": "BSD-2-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "http://github.com/garycourt/uri-js"
+    },
+    {
+      "id": "npm:use-sync-external-store@1.6.0",
+      "name": "use-sync-external-store",
+      "version": "1.6.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/facebook/react.git"
+    },
+    {
+      "id": "npm:vfile-message@4.0.3",
+      "name": "vfile-message",
+      "version": "4.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "vfile/vfile-message"
+    },
+    {
+      "id": "npm:vfile@6.0.3",
+      "name": "vfile",
+      "version": "6.0.3",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "vfile/vfile"
+    },
+    {
+      "id": "npm:void-elements@3.1.0",
+      "name": "void-elements",
+      "version": "3.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "pugjs/void-elements"
+    },
+    {
+      "id": "npm:which-boxed-primitive@1.1.1",
+      "name": "which-boxed-primitive",
+      "version": "1.1.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/which-boxed-primitive.git"
+    },
+    {
+      "id": "npm:which-builtin-type@1.2.1",
+      "name": "which-builtin-type",
+      "version": "1.2.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/which-builtin-type.git"
+    },
+    {
+      "id": "npm:which-collection@1.0.2",
+      "name": "which-collection",
+      "version": "1.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/inspect-js/which-collection.git"
+    },
+    {
+      "id": "npm:which-typed-array@1.1.20",
+      "name": "which-typed-array",
+      "version": "1.1.20",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/inspect-js/which-typed-array.git"
+    },
+    {
+      "id": "npm:which@2.0.2",
+      "name": "which",
+      "version": "2.0.2",
+      "license": "ISC",
+      "classification": "shipped_runtime",
+      "sourceRef": "git://github.com/isaacs/node-which.git"
+    },
+    {
+      "id": "npm:word-wrap@1.2.5",
+      "name": "word-wrap",
+      "version": "1.2.5",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "jonschlinkert/word-wrap"
+    },
+    {
+      "id": "npm:yocto-queue@0.1.0",
+      "name": "yocto-queue",
+      "version": "0.1.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "sindresorhus/yocto-queue"
+    },
+    {
+      "id": "npm:zod@3.25.76",
+      "name": "zod",
+      "version": "3.25.76",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/colinhacks/zod.git"
+    },
+    {
+      "id": "npm:zustand@5.0.11",
+      "name": "zustand",
+      "version": "5.0.11",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/pmndrs/zustand.git"
+    },
+    {
+      "id": "npm:zwitch@2.0.4",
+      "name": "zwitch",
+      "version": "2.0.4",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "wooorm/zwitch"
+    }
+  ]
+}

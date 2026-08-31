@@ -1,0 +1,2265 @@
+{
+  "app": {
+    "workspacePanelSkeleton": {
+      "ariaLabel": "Đang tải {{panelLabel}}",
+      "text": "Đang tải {{panelLabel}}..."
+    },
+    "workspaceBootError": {
+      "title": "Khởi động Workspace không thành công",
+      "message": "ADDOM không thể chuẩn bị bộ đệm workspace cần thiết cho bảng này.",
+      "retry": "Thử khởi động lại"
+    },
+    "leaveWorkspace": {
+      "title": "Những thay đổi chưa được lưu",
+      "message": "You have unsaved files. Choose how to proceed before switching projects.",
+      "noUnsavedFiles": "Không có tập tin nào chưa được lưu.",
+      "cancel": "Hủy",
+      "discardAndLeave": "Discard & Switch",
+      "saving": "Đang lưu...",
+      "saveAllAndLeave": "Save All & Switch"
+    },
+    "confirmDialog": {
+      "messageFallback": "Bạn có chắc chắn muốn tiếp tục không?",
+      "cancel": "Hủy",
+      "confirm": "Xác nhận"
+    },
+    "panelLabels": {
+      "chat": "Bảng điều khiển Chat",
+      "editor": "Bảng soạn thảo",
+      "sourceControl": "Bảng thay đổi",
+      "artifacts": "Bảng điều khiển Artifacts",
+      "memory": "Bảng điều khiển b? nh?",
+      "settings": "Bảng cài đặt",
+      "agents": "Bảng tác nhân",
+      "projectEntry": "Project entry"
+    }
+  },
+  "companionDock": {
+    "resize": "Đổi kích thước bảng đồng hành",
+    "views": "Các chế độ xem đồng hành",
+    "restoreSplit": "Khôi phục chế độ xem chia đôi",
+    "focus": "Tập trung bảng đồng hành",
+    "close": "Đóng chế độ xem đồng hành",
+    "document": {
+      "search": "Tìm kiếm tài liệu",
+      "missing": "Tài liệu này không còn tồn tại.",
+      "tooLarge": "Tài liệu này quá lớn để xem trước.",
+      "unavailable": "Không thể tải tài liệu này.",
+      "changed": "Đang cập nhật…",
+      "status": "Tài liệu Markdown",
+      "openInEditor": "Mở trong trình chỉnh sửa",
+      "reveal": "Hiển thị trong trình duyệt tệp",
+      "reload": "Tải lại tài liệu",
+      "loading": "Đang tải tài liệu…",
+      "retry": "Thử lại",
+        "implementPlan": "Implement",
+        "changePlaceholder": "Describe the change…",
+        "resizeChangeEditor": "Resize change editor",
+        "addChange": "Add change",
+        "annotateChange": "Annotate change",
+        "reviewHint": "Hover a paragraph to suggest a change.",
+        "changeCount": "{{count}} changes",
+        "undoLastChange": "Undo latest change",
+        "submitChanges": "Submit changes",
+        "pendingChanges": "Pending plan changes",
+        "removeChange": "Remove change"
+    }
+  },
+  "startup": {
+    "bootstrapFailure": {
+      "eyebrow": "Startup failed",
+      "title": "ADDOM could not finish starting.",
+      "messageFallback": "Renderer bootstrap failed",
+      "reload": "Reload app"
+    }
+  },
+  "sourceControl": {
+    "openProject": "Mở thư mục dự án để kiểm tra các thay đổi.",
+    "navigationFailed": "Không thể mở tệp đã chọn từ Source Control.",
+    "refresh": "Làm cho khỏe lại",
+    "loading": "Đang tải các thay đổi...",
+    "noRepo": "workspace này không nằm trong kho lưu trữ git.",
+    "clean": "Cây làm việc sạch sẽ.",
+    "emptyFilter": "Không có tệp nào phù hợp với bộ lọc hiện tại.",
+    "filters": {
+      "all": "Tất cả",
+      "staged": "Staged",
+      "unstaged": "Unstaged",
+      "conflicted": "Xung đột",
+      "untracked": "Không bị theo dõi"
+    },
+    "search": {
+      "label": "Tìm kiếm tập tin đã thay đổi",
+      "placeholder": "Tìm kiếm tập tin đã thay đổi"
+    },
+    "groups": {
+      "staged": "Staged",
+      "unstaged": "Unstaged"
+    },
+    "actions": {
+      "stageFile": "Đưa tệp vào stage",
+      "unstageFile": "Bỏ tệp khỏi stage",
+      "stageAll": "Đưa tất cả vào stage",
+      "unstageAll": "Bỏ tất cả khỏi stage"
+    },
+    "summary": {
+      "title": "Thay đổi",
+      "branch": "Branch: {{branch}}",
+      "repoState": "{{repoRoot}}",
+      "chips": {
+        "staged": "Staged",
+        "unstaged": "Unstaged",
+        "conflicts": "Xung đột"
+      }
+    },
+    "commit": {
+      "title": "Commit",
+      "description": "Tạo commit chỉ từ các thay đổi staged.",
+      "pending": "Committing...",
+      "action": "Commit",
+      "placeholder": "Tin nhắn Commit",
+      "disabledPlaceholder": "Stage files to enable commit authoring"
+    },
+    "entry": {
+      "renameFrom": "từ {{path}}"
+    },
+    "detail": {
+      "stage": "Stage: {{scope}}",
+      "loading": "Đang tải chi tiết SCM...",
+      "title": "Chi tiết SCM",
+      "path": "Con đường:",
+      "previousPath": "Đường dẫn trước:",
+      "previewSource": "Nguồn xem trước:",
+      "indexCommit": "Chỉ số commit:",
+      "worktreeCommit": "Worktree commit:",
+      "dirtyWorktree": "Dirty worktree:",
+      "actions": {
+        "restoring": "Đang khôi phục...",
+        "restoreFile": "Khôi phục tập tin",
+        "unstaging": "Unstaging...",
+        "unstageDeletion": "Unstage deletion",
+        "unstageRename": "đổi tên Unstage"
+      }
+    },
+    "common": {
+      "yes": "Đúng",
+      "no": "KHÔNG"
+    }
+  },
+  "terminal": {
+    "common": {
+      "cancel": "Hủy bỏ",
+      "user": "người dùng",
+      "ai": "trí tuệ nhân tạo",
+      "session": "Phiên họp",
+      "host": "Chủ nhà",
+      "workspace": "Workspace",
+      "shell": "shell",
+      "terminal": "terminal",
+      "terminalTitle": "Terminal",
+      "threadPrefix": "Thread",
+      "status": {
+        "closing": "Đóng cửa",
+        "ended": "Đã kết thúc",
+        "closed": "Đã đóng",
+        "live": "Sống",
+        "failed": "Thất bại",
+        "terminated": "Đã chấm dứt"
+      },
+      "timestamp": {
+        "closedPrefix": "Đã đóng",
+        "startedPrefix": "Đã bắt đầu"
+      },
+      "suggestion": {
+        "dismissed": "Bị loại bỏ",
+        "suggested": "được đề xuất",
+        "none": "Không có gợi ý"
+      }
+    },
+    "banner": {
+      "thisPlatform": "nền tảng này",
+      "anotherPlatform": "nền tảng khác",
+      "runtimeDisabled": "Runtime bị vô hiệu hóa",
+      "disabledByEnv": "Ghi đè ADDOM_DISABLE_TERMINAL_SESSIONS đang bật.",
+      "rolloutDisabled": "Đã tắt triển khai",
+      "disabledByRollout": "Phiên Terminal bị vô hiệu hóa theo chính sách triển khai hiện tại.",
+      "platformGated": "Sân ga có cổng",
+      "platformGatedDetail": "{{platform}} vẫn chưa được triển khai. Xác minh trọn gói chỉ được ghi lại cho {{allowedLabel}}.",
+      "unsupportedPlatform": "Nền tảng không được hỗ trợ",
+      "unsupportedPlatformDetail": "{{platform}} nằm ngoài mục tiêu PTY được hỗ trợ cho các phiên terminal.",
+      "disabledGeneric": "Phiên Terminal bị tắt trên runtime này.",
+      "runtimeFailed": "Runtime không thành công",
+      "failedDetail": "Kiểm tra tình trạng PTY runtime không thành công.",
+      "checkingRuntime": "Đang kiểm tra runtime",
+      "checkingRuntimeDetail": "ADDOM đang xác minh hỗ trợ PTY cho ứng dụng runtime này.",
+      "runtimeReady": "Runtime đã sẵn sàng",
+      "runtimeReadyDetail": "Các phiên terminal tương tác có sẵn cho workspace này.",
+      "lastActionFailed": "Hành động cuối cùng không thành công"
+    },
+    "viewport": {
+      "sessionState": {
+        "archived": "Đã lưu trữ",
+        "ended": "Đã kết thúc",
+        "closed": "Đã đóng",
+        "live": "Sống"
+      },
+      "workspaceShell": "Workspace shell",
+      "startTitle": "Bắt đầu phiên terminal",
+      "unavailableTitle": "Chat terminal không có sẵn",
+      "startDescription": "Mở terminal tại đây để kiểm tra nhật ký, chạy lệnh dự án hoặc để AI tiếp tục từ cùng một shell.",
+      "unavailableDescription": "Phiên Terminal chưa có sẵn trong runtime này.",
+      "startingSession": "Bắt đầu phiên...",
+      "createSession": "Tạo phiên",
+      "readOnly": "Chỉ đọc",
+      "model": "Model",
+      "workspaceRoot": "Gốc workspace",
+      "trimmed": "Đã cắt tỉa",
+      "clickToFocus": "Bấm để tập trung",
+      "activateSurface": "Kích hoạt bề mặt",
+      "aria": {
+        "archivedViewport": "Đã lưu trữ khung nhìn terminal",
+        "interactiveViewport": "Khung nhìn tương tác terminal",
+        "terminalActions": "Hành động Terminal"
+      },
+      "context": {
+        "copy": "Sao chép",
+        "paste": "Dán",
+        "selectAll": "Chọn tất cả",
+        "buffer": "Bộ đệm",
+        "copyVisibleOutput": "Copy visible output",
+        "copyFullScrollback": "Copy full scrollback",
+        "pasteAsSingleLine": "Paste as single line",
+        "clear": "Clear",
+        "zoomIn": "Zoom in",
+        "zoomOut": "Thu nh?",
+        "zoomReset": "Reset zoom",
+        "terminalFontSize": "{{size}}px",
+        "sendOutputToChat": "Send output to chat",
+        "explainLastError": "Explain last error",
+        "summarizeSession": "Summarize session",
+        "saveSnapshotToMemory": "Save snapshot to notes",
+        "cut": "Cut selection"
+      },
+      "search": {
+        "placeholder": "Search terminal output",
+        "previous": "Previous match",
+        "next": "Next match",
+        "close": "Close search",
+        "noMatches": "No matches",
+        "resultCount": "{{current}}/{{total}}"
+      },
+      "pasteConfirm": {
+        "title": "Confirm large paste",
+        "message": "Paste {{count}} lines into the terminal? This can run multiple commands at once."
+      }
+    },
+    "dock": {
+      "state": {
+        "approval": "Sự chấp thuận",
+        "approvalSuffix": "sự chấp thuận",
+        "denied": "Từ chối",
+        "userTakeover": "Người dùng đang điều khiển",
+        "aiWaiting": "AI đang chờ",
+        "aiControlling": "AI đang điều khiển",
+        "running": "Đang chạy"
+      },
+      "announcements": {
+        "userTakeoverActive": "Người dùng đang điều khiển terminal này.",
+        "takeoverRequired": "Sử dụng terminal này để bắt đầu nhập."
+      },
+      "resize": "Thay đổi kích thước dock terminal",
+      "tablistAriaLabel": "Phiên Thread terminal",
+      "unread": "Chưa đọc",
+      "terminalSessions": "Phiên Terminal",
+      "workspaceRoot": "Gốc workspace",
+      "control": {
+        "aiControlsShell": "AI điều khiển chiếc shell này. Kiểm soát trước khi gõ.",
+        "userControlsShell": "Bạn hiện đang điều khiển chiếc shell này.",
+        "typingBlockedUntilTakeover": "Việc gõ bị chặn cho đến khi bạn xác nhận việc tiếp quản.",
+        "aiWaitingForUser": "AI đang chờ xác nhận của người dùng trước khi tiếp tục."
+      },
+      "browser": {
+        "title": "Trình duyệt Terminal",
+        "subtitle": "Thread hiện tại / Trực tiếp khác / Lịch sử",
+        "sections": {
+          "currentThread": "Thread hiện tại",
+          "otherLive": "Trực tiếp khác",
+          "history": "Lịch sử"
+        },
+        "empty": {
+          "currentThread": "Chưa có phiên terminal trực tiếp hoặc đang chờ xử lý nào được đính kèm vào thread này.",
+          "otherLive": "Hiện tại không có threads nào khác có hoạt động terminal trực tiếp.",
+          "history": "Chưa có lịch sử terminal được lưu trữ nào cho workspace này."
+        },
+        "fields": {
+          "thread": "Thread",
+          "scope": "Phạm vi",
+          "updated": "Đã cập nhật"
+        },
+        "requestedIn": "Đã yêu cầu trong {{section}}",
+        "suggestionFallback": "Thẻ gợi ý dòng thời gian tách biệt với trình duyệt này.",
+        "crossThread": {
+          "title": "Phiên thread chéo",
+          "description": "Duyệt siêu dữ liệu tại đây, sau đó sử dụng {{openThreadLabel}} để kiểm tra hoặc tương tác từ chat thread sở hữu."
+        },
+        "selectSession": "Chọn phiên terminal",
+        "actions": {
+          "openThread": "Open thread",
+          "savedToMemory": "Đã lưu vào b? nh?",
+          "noMemorySummary": "Không có bản tóm tắt b? nh?",
+          "saveToThreadMemory": "Save to conversation notes",
+          "saveToProjectMemory": "Save to project notes",
+          "deletingArchive": "Đang xóa...",
+          "deleteArchive": "Xóa kho lưu trữ",
+          "openTerminal": "Mở terminal",
+          "backToDock": "Quay lại bến tàu",
+          "browseSessions": "Duyệt phiên",
+          "handBackToAi": "Trả quyền điều khiển cho AI",
+          "confirmTakeover": "Xác nhận tiếp quản",
+          "takeOver": "Tiếp quản",
+          "expandBrowser": "Mở rộng trình duyệt terminal",
+          "collapseBrowser": "Thu gọn trình duyệt terminal",
+          "expand": "Mở rộng",
+          "collapse": "Sụp đổ",
+          "openTerminalActions": "Terminal menu",
+          "terminalDockActions": "Hoạt động của đế Terminal",
+          "closeBrowser": "Đóng trình duyệt",
+          "interrupt": "Ngắt",
+          "stopInput": "Dừng nhập",
+          "closeSession": "Đóng phiên",
+          "archiveSession": "Phiên lưu trữ",
+          "hideTerminal": "Ẩn terminal",
+          "dismiss": "Miễn nhiệm",
+          "forceTerminate": "Buộc chấm dứt",
+          "killProcess": "Quá trình tiêu diệt",
+          "renameSession": "Rename session",
+          "editTitle": "Edit title",
+          "duplicateSession": "Duplicate session",
+          "sameCwdShell": "Same cwd and shell",
+          "newAtProjectRoot": "New at project root",
+          "newFromCurrentCwd": "New from current cwd",
+          "newFromEditorCwd": "New from editor folder",
+          "currentCwd": "Current cwd",
+          "editorFolder": "Editor folder",
+          "defaultShell": "Default shell",
+          "newWithShell": "New with shell",
+          "sendOutputToChat": "Send output to chat",
+          "explainLastError": "Explain last error",
+          "summarizeSession": "Summarize session",
+          "saveSnapshotToMemory": "Save snapshot to notes",
+          "prefillComposer": "Prefill composer",
+          "recentOutput": "Recent output",
+          "boundedOutput": "Bounded output",
+          "threadMemory": "Conversation notes"
+        }
+      },
+      "confirm": {
+        "forceTerminateHost": {
+          "title": "Buộc chấm dứt máy chủ Terminal",
+          "message": "Buộc chấm dứt phiên terminal trong phạm vi máy chủ này? Điều này sẽ ngay lập tức giết chết quá trình cơ bản."
+        },
+        "forceTerminate": {
+          "title": "Buộc chấm dứt Terminal",
+          "message": "Buộc chấm dứt phiên terminal này? Điều này sẽ ngay lập tức giết chết quá trình cơ bản."
+        },
+        "deleteArchive": {
+          "title": "Xóa phiên Terminal đã lưu trữ",
+          "message": "Xóa phiên terminal đã lưu trữ này?\n\nThao tác này chỉ xóa bản ghi lưu trữ được giữ lại và không thể hoàn tác.",
+          "confirm": "Xóa kho lưu trữ"
+        }
+      },
+      "prompts": {
+        "renameSession": "Rename terminal session"
+      },
+      "actions": {
+        "openTerminal": "M? terminal",
+        "backToDock": "Back to dock",
+        "browseSessions": "Browse sessions",
+        "handBackToAi": "Trả quyền điều khiển cho AI",
+        "confirmTakeover": "Confirm takeover",
+        "takeOver": "Take over",
+        "expandBrowser": "Expand terminal browser",
+        "collapseBrowser": "Collapse terminal browser",
+        "expand": "Expand",
+        "collapse": "Collapse",
+        "openTerminalActions": "Terminal menu",
+        "terminalDockActions": "Terminal dock actions",
+        "closeBrowser": "Close browser",
+        "renameSession": "Rename session",
+        "editTitle": "Edit title",
+        "duplicateSession": "Duplicate session",
+        "sameCwdShell": "Same cwd and shell",
+        "newAtProjectRoot": "New at project root",
+        "newFromCurrentCwd": "New from current cwd",
+        "newFromEditorCwd": "New from editor folder",
+        "currentCwd": "Current cwd",
+        "editorFolder": "Editor folder",
+        "defaultShell": "Default shell",
+        "newWithShell": "New with shell",
+        "interrupt": "Interrupt",
+        "stopInput": "Stop input",
+        "closeSession": "Close session",
+        "archiveSession": "Archive session",
+        "hideTerminal": "Hide terminal",
+        "dismiss": "B? qua",
+        "forceTerminate": "Force terminate",
+        "killProcess": "Kill process"
+      }
+    },
+    "globalIndicator": {
+      "threadCount": "{{count}} conversation{{suffix}}",
+      "liveCount": "{{count}} live terminal{{suffix}}",
+      "priority": {
+        "approval": "Cần phê duyệt",
+        "waiting": "Đang chờ người dùng"
+      }
+    },
+    "pendingApproval": {
+      "title": "Terminal waiting for approval",
+      "scopeLabel": "Scope",
+      "scopeHost": "Host access",
+      "scopeWorkspace": "Workspace",
+      "directoryLabel": "Directory",
+      "workspaceRoot": "workspace root"
+    }
+  },
+  "editor": {
+    "fileTree": {
+      "projectFallback": "Dự án",
+      "syncing": "Đang đồng bộ hóa",
+      "openProjectFolder": "Mở thư mục dự án",
+      "refresh": "Làm mới cây tập tin",
+      "ariaLabel": "Các tập tin {{projectName}}",
+      "loading": "Đang tải...",
+      "emptyProject": "Dự án trống.",
+      "binaryTitle": "{{path}} (không thể mở tệp nhị phân)"
+    },
+    "emptyState": {
+      "title": "Chọn một tập tin từ cây để mở nó",
+      "shortcutHint": "Ctrl+S để tiết kiệm | nhấp vào x để đóng tab"
+    },
+    "loadingPane": "Đang tải...",
+    "panel": {
+      "thisFile": "tập tin này",
+      "closeDirty": {
+        "title": "Những thay đổi chưa được lưu",
+        "message": "Lưu các thay đổi vào {{fileLabel}} trước khi đóng?",
+        "confirm": "Lưu & Đóng",
+        "cancel": "Tùy chọn khác"
+      },
+      "saveFailed": {
+        "title": "Lưu không thành công",
+        "message": "Không thể lưu tập tin."
+      },
+      "discard": {
+        "title": "Hủy thay đổi?",
+        "message": "Hủy các thay đổi chưa được lưu trong {{fileLabel}} và đóng nó?",
+        "confirm": "Hủy thay đổi",
+        "cancel": "Tiếp tục chỉnh sửa"
+      },
+      "formatActionTitle": "Định dạng tài liệu với lộ trình định dạng hoạt động (Shift+Alt+F)",
+      "formatUnavailableTitle": "Định dạng không có sẵn cho tệp hiện tại",
+      "fixActionTitle": "Áp dụng các sự cố có thể tự động khắc phục từ hành động mã đang hoạt động provider",
+      "fixUnavailableTitle": "Hành động mã không có sẵn cho tệp hiện tại",
+      "serviceNotice": {
+        "providerDegraded": "{{providerLabel}} bị xuống cấp. Tính năng soạn thảo có thể bị hạn chế.",
+        "providerUnavailable": "{{providerLabel}} không có sẵn. Tính năng soạn thảo có thể bị hạn chế.",
+        "genericUnavailable": "Một số dịch vụ biên tập hiện không khả dụng."
+      },
+      "emptyProject": "Mở thư mục dự án để sử dụng trình chỉnh sửa.",
+      "resizeFileTree": "Thay đổi kích thước cây tập tin",
+      "fileWatcherCap": "Trình xem tệp đã đạt đến giới hạn thư mục ({{watchedCount}}/{{maxDirectories}}). Một số thư mục không được tích cực theo dõi các chỉnh sửa bên ngoài.",
+      "dismiss": "Miễn nhiệm",
+      "externalChangeDetected": "Đã phát hiện thay đổi bên ngoài đối với {{filePath}}. Các chỉnh sửa chưa lưu của bạn vẫn được giữ nguyên.",
+      "reloadFromDisk": "Tải lại từ đĩa",
+      "resizeMarkdownPreview": "Thay đổi kích thước khung xem trước đánh dấu",
+      "errors": {
+        "noProjectOrTabSelected": "Không có dự án hoặc tab nào được chọn."
+      }
+    },
+    "tabBar": {
+      "openTabsAriaLabel": "Mở tab soạn thảo",
+      "fallbackFileLabel": "tài liệu",
+      "fallbackTabLabel": "tab",
+      "saveTabAriaLabel": "Lưu {{fileLabel}}",
+      "unsavedChangesTitle": "Những thay đổi chưa được lưu - nhấp để lưu",
+      "externalChangedTitle": "Đã phát hiện thay đổi tệp bên ngoài",
+      "problemSummaryTitle": "Sự cố {{count}}{{suffix}} (Lỗi {{error}}{{errorSuffix}}, {{warning}} cảnh báo{{warningSuffix}}, thông tin {{info}})",
+      "closeTabAriaLabel": "Đóng {{tabLabel}}",
+      "aiActionsTitle": "Hành động AI cho mã đã chọn",
+      "aiDraftHint": "Bản nháp tới Chat bằng cách sử dụng lựa chọn hiện tại và bối cảnh lân cận.",
+      "preview": "Xem trước",
+      "fix": "Sửa chữa",
+      "format": "Định dạng",
+      "auto": "Auto",
+      "togglePreviewTitle": "Chuyển đổi bản xem trước đánh dấu (Ctrl/Cmd+Shift+V)",
+      "toggleFormatOnSaveTitle": "Chuyển đổi định dạng khi lưu khi tệp hiện tại có tuyến định dạng đang hoạt động",
+      "aiSelection": {
+        "explain": {
+          "label": "Giải thích",
+          "title": "Giải thích mã đã chọn trong Chat",
+          "description": "Giải thích hành vi, giả định và rủi ro."
+        },
+        "fix": {
+          "label": "Sửa chữa",
+          "title": "Sửa mã đã chọn trong Chat",
+          "description": "Sửa lỗi/sự cố trong mã đã chọn."
+        },
+        "refactor": {
+          "label": "Tái cấu trúc",
+          "title": "Tái cấu trúc mã đã chọn trong Chat",
+          "description": "Tái cấu trúc trong khi bảo tồn hành vi."
+        },
+        "tests": {
+          "label": "Kiểm tra",
+          "title": "Tạo thử nghiệm cho mã đã chọn trong Chat",
+          "description": "Viết bài kiểm tra cho mã đã chọn."
+        }
+      }
+    },
+    "diagnostics": {
+      "currentFile": "tập tin hiện tại",
+      "common": {
+        "expand": "Mở rộng",
+        "collapse": "Sụp đổ"
+      },
+      "filters": {
+        "all": "Tất cả",
+        "errors": "Lỗi",
+        "warnings": "Cảnh báo",
+        "info": "Thông tin"
+      },
+      "severity": {
+        "error": "Lỗi",
+        "warning": "Cảnh báo",
+        "info": "Thông tin",
+        "hint": "Gợi ý"
+      },
+      "problems": {
+        "title": "Vấn đề",
+        "errorCount": "Lỗi {{count}}{{suffix}}",
+        "warningCount": "Cảnh báo {{count}}{{suffix}}",
+        "infoCount": "Thông tin {{count}}",
+        "none": "Không có vấn đề gì",
+        "expandTitle": "Mở rộng bảng Vấn đề",
+        "collapseTitle": "Thu gọn bảng vấn đề",
+        "setDefaultStateTitle": "Đặt trạng thái mặc định của bảng Sự cố",
+        "defaultCollapsed": "Đã thu gọn mặc định",
+        "noMatch": "Không có vấn đề nào phù hợp với bộ lọc hiện tại.",
+        "noneInFile": "Không có vấn đề trong tập tin này."
+      },
+      "outline": {
+        "title": "phác thảo",
+        "expandTitle": "Mở rộng phác thảo",
+        "collapseTitle": "Thu gọn đề cương",
+        "filterSymbols": "Lọc ký hiệu",
+        "symbolCount": "Ký hiệu {{count}}{{suffix}}",
+        "refreshing": "Đang làm mới...",
+        "setupTitle": "Cài đặt",
+        "hintCount": "Gợi ý {{count}}{{suffix}}",
+        "dismissSetupHintTitle": "Loại bỏ gợi ý thiết lập {{actionLabel}}",
+        "unavailableForFileType": "Outline chưa có sẵn cho loại tệp này.",
+        "loadingSymbols": "Đang tải biểu tượng...",
+        "noneAvailable": "Không có đề cương có sẵn.",
+        "noMatch": "Không có ký hiệu nào khớp với bộ lọc hiện tại.",
+        "noneDetected": "Không tìm thấy biểu tượng nào trong tập tin này.",
+        "symbolFallback": "Biểu tượng",
+        "messages": {
+          "serviceUnavailable": "Các biểu tượng không có sẵn vì dịch vụ soạn thảo chưa sẵn sàng.",
+          "loadFailed": "Không tải được biểu tượng.",
+          "realProviderMissing": "Tệp này chỉ có cú pháp vì không có provider thực sự cho ngôn ngữ này.",
+          "formatOnlyLanguage": "Ngôn ngữ này hiện chỉ có cú pháp trong trình chỉnh sửa.",
+          "missingBinary": "{{providerLabel}} không được tìm thấy trong dự án này hoặc trên PATH.",
+          "providerUnavailable": "{{providerLabel}} không có sẵn cho các ký hiệu trong tệp này.",
+          "providerDegraded": "{{providerLabel}} bị xuống cấp đối với các ký hiệu trong tệp này.",
+          "providerRequestFailed": "{{providerLabel}} không thành công khi tải ký hiệu cho tệp này.",
+          "unsupportedFile": "Dàn bài không có sẵn cho loại tệp này.",
+          "unsupported": "Đề cương không có sẵn cho tệp này."
+        }
+      },
+      "setupHints": {
+        "messages": {
+          "formatting": {
+            "realProviderMissing": "Việc định dạng yêu cầu provider thực cho tệp này.",
+            "biomeConfigRequired": "Việc định dạng yêu cầu cấu hình Biome của dự án.",
+            "ruffConfigRequired": "Việc định dạng yêu cầu cấu hình Ruff của dự án.",
+            "clangFormatConfigRequired": "Việc định dạng yêu cầu cấu hình dự án.clang-format hoặc _clang-format.",
+            "javaProjectContextRequired": "Việc định dạng yêu cầu bối cảnh dự án Maven hoặc Gradle (pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts).",
+            "dotnetProjectRequired": "Việc định dạng yêu cầu ngữ cảnh.csproj hoặc.sln thực.",
+            "missingBinary": "{{providerLabel}} không được tìm thấy trong dự án này hoặc trên PATH.",
+            "providerUnavailable": "{{providerLabel}} không có sẵn cho tệp này.",
+            "providerDegraded": "{{providerLabel}} bị xuống cấp đối với tệp này.",
+            "providerRequestFailed": "{{providerLabel}} không thành công khi phân phát tệp này.",
+            "formatOnlyLanguage": "Ngôn ngữ này hiện chỉ có định dạng."
+          },
+          "codeActions": {
+            "realProviderMissing": "Các hành động mã yêu cầu provider thực cho tệp này.",
+            "eslintProjectRequired": "Các hành động mã yêu cầu ESLint provider được cấu hình theo dự án.",
+            "ruffConfigRequired": "Các hành động mã yêu cầu cấu hình Ruff của dự án.",
+            "clangTidyConfigRequired": "Các hành động mã yêu cầu cấu hình.clang-tidy của dự án.",
+            "clangCompileContextRequired": "Các hành động mã yêu cầu phải có biên dịch_commands.json hoặc biên dịch_flags.txt.",
+            "javaProjectContextRequired": "Các hành động mã yêu cầu ngữ cảnh dự án Maven hoặc Gradle (pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts).",
+            "dotnetProjectRequired": "Các hành động mã yêu cầu ngữ cảnh.csproj hoặc.sln thực.",
+            "javaNotInstalled": "Không tìm thấy JDK có thể sử dụng được trên PATH hoặc JAVA_HOME. jdtls yêu cầu Java.",
+            "dotnetNotInstalled": "dotnet không được tìm thấy trên PATH.",
+            "missingBinary": "{{providerLabel}} không được tìm thấy trong dự án này hoặc trên PATH.",
+            "providerUnavailable": "{{providerLabel}} không có sẵn cho tệp này.",
+            "providerDegraded": "{{providerLabel}} bị xuống cấp đối với tệp này.",
+            "providerRequestFailed": "{{providerLabel}} không thành công khi phân phát tệp này.",
+            "formatOnlyLanguage": "Ngôn ngữ này hiện chỉ có định dạng."
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "navigationTitle": "Điều hướng cài đặt",
+    "overviewTitle": "Tổng quan",
+    "controls": {
+      "expandAll": "Mở rộng tất cả",
+      "collapseAll": "Thu gọn tất cả"
+    },
+    "counts": {
+      "sectionOne": "1 phần",
+      "sectionOther": "Phần {{count}}",
+      "visibleSectionOne": "1 phần hiển thị",
+      "visibleSectionOther": "Phần hiển thị {{count}}"
+    },
+    "common": {
+      "yes": "Đúng",
+      "no": "KHÔNG",
+      "completed": "HOÀN THÀNH",
+      "inProgress": "ĐANG TIẾN HÀNH",
+      "ready": "Sẵn sàng",
+      "notReady": "Chưa sẵn sàng",
+      "savedOnly": "chỉ được lưu",
+      "unknown": "không rõ",
+      "checking": "Đang kiểm tra...",
+      "disabled": "Tàn tật"
+    }
+  },
+  "artifacts": {
+    "emptyProject": "Mở thư mục dự án để xem lịch sử tạo tác.",
+    "trackedFilesTitle": "Các tập tin được theo dõi",
+    "scope": {
+      "label": "Phạm vi tạo tác",
+      "entireProject": "Dự án",
+      "thisThread": "Luồng",
+      "resultCount": "{{count}} tệp"
+    },
+    "loadingTrackedFiles": "Đang tải các tập tin được theo dõi...",
+    "emptyTrackedFiles": "Chưa có tập tin phiên bản nào. Việc ghi tệp AI và gợi ý mã sẽ xuất hiện ở đây.",
+    "deleteRevisionDialog": {
+      "title": "Xóa bản sửa đổi",
+      "message": "Xóa phiên bản {{rev}} ({{source}}) cho:\n{{filePath}}\n\nĐiều này không thể hoàn tác được.",
+      "confirm": "Xóa bản sửa đổi",
+      "cancel": "Hủy bỏ"
+    },
+    "deleteHistoryDialog": {
+      "title": "Xóa lịch sử sửa đổi",
+      "message": "Xóa tất cả lịch sử sửa đổi cho:\n{{filePath}}\n\nTệp trên đĩa KHÔNG bị xóa.",
+      "confirm": "Xóa lịch sử",
+      "cancel": "Hủy bỏ"
+    },
+    "selectFile": "Chọn một tập tin để xem lịch sử sửa đổi của nó.",
+    "labels": {
+      "fromBase": "Từ (cơ sở)",
+      "toHead": "Đến (đầu)",
+      "base": "căn cứ",
+      "head": "cái đầu"
+    },
+    "deleteRevisionTitle": "Xóa bản sửa đổi này",
+    "deleteFileHistoryTitle": "Xóa tất cả lịch sử cho tập tin này",
+    "selectRevisions": "Chọn các bản sửa đổi ở trên để so sánh.",
+    "revisionSource": {
+      "baseline": "đường cơ sở",
+      "rollback": "quay lại",
+      "suggestion": "gợi ý",
+      "aiWrite": "AI viết"
+    },
+    "revisionOrigin": {
+      "thread": "Luồng {{threadTitle}}",
+      "deletedThread": "Luồng đã xóa {{threadTitle}} · {{date}}"
+    },
+    "suggestionBadge": "gợi ý",
+    "revisionCountOne": "Phiên bản {{count}}",
+    "revisionCountOther": "Vòng quay {{count}}",
+    "footer": {
+      "suggestionPending": "Bản sửa đổi này chưa được ghi vào đĩa",
+      "apply": "Áp dụng vào đĩa",
+      "applying": "Đang áp dụng...",
+      "rollbackNotice": "Rollback sẽ khôi phục rev {{rev}} vào đĩa",
+      "rollback": "Quay trở lại cơ sở",
+      "rollingBack": "Quay lại..."
+    },
+    "picker": {
+      "placeholder": "- {{label}} -",
+      "empty": "- tập tin mới (trống) -",
+      "notOnDisk": "không có trên đĩa",
+      "option": "vòng quay {{rev}} - {{source}}{{notOnDisk}} - {{date}}",
+      "optionWithProvenance": "vòng quay {{rev}} - {{source}}{{notOnDisk}} - {{date}} · {{provenance}}"
+    },
+    "action": {
+      "rollbackSuccess": "Đã quay trở lại vòng quay {{rev}}. Bản ghi {{newRev}} vòng quay mới được ghi lại.",
+      "rollbackFailed": "Khôi phục không thành công.",
+      "applySuccess": "Áp dụng vào đĩa. Bản ghi {{newRev}} vòng quay mới được ghi lại.",
+      "applyFailed": "Áp dụng không thành công.",
+      "revisionDeleted": "Rev {{rev}} đã bị xóa."
+    },
+    "diffLoading": "Đang tải khác biệt...",
+    "diffTimeout": "Diff runtime không khởi tạo được. Tải lại ứng dụng."
+  },
+  "workspaceDisposal": {
+    "activeMessage": "Phải dừng công việc đang chạy trước khi có thể xóa dữ liệu này.",
+    "threadDeleteActiveMessage": "Công việc đang chạy trong [[canon:thread]] này sẽ dừng trước khi xóa.",
+    "stopAndDelete": "Dừng và xóa",
+    "stopAndRemove": "Dừng và gỡ",
+    "stopAndClear": "Dừng và dọn",
+    "stopAndArchive": "Dừng và lưu trữ"
+  },
+  "threadDrawer": {
+    "title": "Threads",
+    "threadCount": "{{count}} threads",
+    "previewRole": {
+      "user": "Bạn",
+      "assistant": "trí tuệ nhân tạo"
+    },
+    "activity": {
+      "needsInput": "Cần phản hồi",
+      "sessionFailed": "Thất bại",
+      "sessionCompleted": "Hoàn tất",
+      "sessionActive": "Phiên đang hoạt động",
+      "sessionStale": "Phiên cũ",
+      "pendingApproval": "Đang chờ phê duyệt",
+      "sessionBlocked": "Phiên bị chặn",
+      "idle": "Nhàn rỗi",
+      "pendingBadge": "Chưa giải quyết",
+      "blockedBadge": "Bị chặn"
+    },
+    "fallbackTitle": "thread không tên",
+    "renameTitle": "Đổi tên thread",
+    "deleteTitle": "Xóa thread",
+    "searchPlaceholder": "Tìm kiếm threads...",
+    "newThreadTitle": "thread mới",
+    "newThread": "Mới",
+    "emptySearch": "Không có threads phù hợp với tìm kiếm của bạn.",
+    "empty": "Chưa có threads.",
+    "createThread": "Tạo thread",
+    "loadMore": "Tải thêm threads ({{count}} ẩn)",
+    "resizeTitle": "Kéo để thay đổi kích thước"
+  },
+  "backgroundJobs": {
+    "status": {
+      "polling": "Bỏ phiếu",
+      "cancelRequested": "Đã yêu cầu hủy",
+      "completed": "Hoàn thành",
+      "failed": "Thất bại",
+      "cancelled": "Đã hủy",
+      "orphaned": "mồ côi",
+      "queued": "Đã xếp hàng"
+    },
+    "title": "[[canon:background_jobs]]",
+    "runningJobs": "Công việc đang chạy: {{count}}",
+    "updated": "Đã cập nhật {{time}}",
+    "refresh": "Làm cho khỏe lại",
+    "close": "Đóng",
+    "description": "Dừng các lệnh cục bộ chạy dài hoặc các phản hồi nền OpenAI tách rời khi chúng không còn cần thiết nữa.",
+    "stopAll": "Dừng tất cả",
+    "stopping": "Đang dừng...",
+    "loading": "Đang tải công việc nền...",
+    "empty": "Hiện không có công việc nền nào đang chạy.",
+    "table": {
+      "job": "Công việc",
+      "task": "Nhiệm vụ",
+      "runtime": "Runtime",
+      "context": "Bối cảnh",
+      "action": "Hoạt động"
+    },
+    "statusLabel": "trạng thái: {{status}}",
+    "openAiResponse": "Phản hồi nền OpenAI",
+    "detachedOpenAiResponse": "Phản hồi OpenAI tách rời",
+    "emptyCommand": "(trống)",
+    "stop": "Dừng lại"
+  },
+  "chat": {
+    "planDirection": {
+      "questionNavigation": "Câu hỏi về hướng kế hoạch",
+      "goToQuestion": "Đến câu hỏi {{count}}",
+      "continue": "Tiếp tục",
+      "changeAnswer": "Đổi câu trả lời",
+      "customPlaceholder": "Hoặc mô tả một hướng khác",
+      "customAnswer": "Câu trả lời hướng tùy chỉnh",
+      "recommendedShort": "Đề xuất",
+      "synthesizing": "Đang cập nhật hướng theo lựa chọn của bạn…",
+      "synthesisFailed": "Không thể cập nhật hướng.",
+      "retryDraft": "Thử lại bản nháp kế hoạch",
+      "retry": "Thử lại",
+      "reviewChoices": "Xem lại lựa chọn",
+      "change": "Đổi hướng",
+      "changeFeedback": "Phản hồi về hướng",
+      "changePlaceholder": "Hướng này cần thay đổi điều gì?",
+      "updateDirection": "Cập nhật hướng",
+      "creating": "Đang tạo kế hoạch Markdown được quản lý…",
+      "recommended": "Đề xuất:",
+      "recommendationDetail": "{{profile}} - {{rationale}}",
+      "create": "Tạo kế hoạch",
+      "profileMenu": "Hồ sơ soạn kế hoạch",
+      "profiles": {
+        "implementation": "Kế hoạch triển khai",
+        "technicalDesign": "Thiết kế kỹ thuật",
+        "investigation": "Kế hoạch điều tra",
+        "deepImplementation": "Kế hoạch triển khai chi tiết"
+      },
+      "errors": {
+        "answerSave": "The direction answer could not be saved.",
+        "profileUnavailable": "The selected plan profile was unavailable.",
+        "changeFailed": "The direction feedback could not be saved.",
+        "retryFailed": "The direction update could not be retried."
+      }
+    },
+    "emptyState": {
+      "title": "Chưa có tin nhắn nào",
+      "planDescription": "Chế độ [[canon:plan]] đang hoạt động. [[canon:ask]] cho một kế hoạch có cấu trúc, sau đó sử dụng các lựa chọn tương tác trong phản hồi để định hướng đường dẫn.",
+      "thinkingDescription": "Chế độ [[canon:thinking]] đang hoạt động. Hãy suy nghĩ về các lựa chọn và sự cân bằng ở đây, sau đó chuyển sang [[canon:execute]] khi sẵn sàng triển khai.",
+      "executeDescription": "Chọn provider và bắt đầu trò chuyện. Sử dụng điều khiển [[canon:permission_mode]] tiêu đề để chuyển đổi giữa [[canon:ask]], [[canon:autonomy]] và [[canon:full_access]] cho các lượt thực thi.",
+      "needsProviderSetup": "Kết nối xác thực tài khoản OpenAI hoặc thêm API key trong Cài đặt, sau đó chọn provider để bắt đầu."
+    },
+    "composer": {
+      "placeholder": {
+        "selectProvider": "Chọn provider để bắt đầu...",
+        "selectThread": "Select or create a conversation to continue...",
+        "streaming": "AI đang suy nghĩ...",
+        "plan": "Yêu cầu một kế hoạch... (Nhập để gửi, Shift+Enter cho dòng mới)",
+        "thinking": "Lên ý tưởng, cân bằng và định hướng... (Nhập để gửi, Shift+Enter cho dòng mới)",
+        "execute": "Hỏi bất cứ điều gì về dự án của bạn... (Nhập để gửi, Shift+Enter cho dòng mới)"
+      },
+      "blockLabels": {
+        "code": "Mã số",
+        "text": "Chữ"
+      },
+      "codeLanguage": "Ngôn ngữ mã",
+      "openAdvancedEditor": "Mở trình soạn thảo mã nâng cao",
+      "advanced": "Trình độ cao",
+      "removeBlock": "Xóa khối",
+      "removeCodeBlock": "Xóa khối mã",
+      "removeTextBlock": "Xóa khối văn bản",
+      "codePlaceholder": "Mã số...",
+      "insertSnippet": "Chèn đoạn trích",
+      "codeSnippet": "Đoạn mã",
+      "textSnippet": "Đoạn văn bản"
+    },
+    "controlRail": {
+      "quickActionsTitle": "[[canon:quick_actions]]",
+      "refreshModels": "Làm mới models",
+      "refreshingModels": "Làm mới models",
+      "refreshing": "Đang làm mới...",
+      "openBackgroundJobs": "Mở [[canon:background_jobs]]",
+      "backgroundJobs": "[[canon:background_jobs]]",
+      "agents": "Đại lý",
+      "directAgentsMenu": "Menu chọn tác nhân",
+      "moreActions": "Thêm hành động",
+      "stopResponse": "Dừng phản hồi",
+      "sendMessage": "Gửi tin nhắn",
+      "sendEnter": "Gửi (Nhập)",
+      "attach": {
+        "filesImagesDisabled": "Đính kèm tệp (hình ảnh bị tắt đối với model này)",
+        "images": "Đính kèm hình ảnh",
+        "files": "Đính kèm tập tin"
+      },
+      "collaborationMode": {
+        "defaultLabel": "[[canon:native_collaboration_mode]]",
+        "buttonTitle": "[[canon:native_collaboration_mode]]: {{value}}",
+        "optionsAriaLabel": "Tùy chọn [[canon:native_collaboration_mode]]"
+      },
+      "reasoningEffort": {
+        "providerDefault": "Provider mặc định",
+        "xhigh": "Xhigh",
+        "buttonTitle": "[[canon:reasoning_effort]]: {{value}}. Kiểm soát mức độ áp dụng lý luận của model.",
+        "buttonAriaLabel": "[[canon:reasoning_effort]]: {{value}}",
+        "optionsAriaLabel": "Tùy chọn [[canon:reasoning_effort]]"
+      },
+      "processingMode": {
+        "fast": "Nhanh",
+        "standard": "Tiêu chuẩn",
+        "enable": "Dùng xử lý nhanh",
+        "disable": "Dùng xử lý tiêu chuẩn",
+        "pricingNote": "Xử lý nhanh có thể áp dụng mức giá cao cấp.",
+        "returnedMode": "Phản hồi gần nhất đã dùng xử lý {{mode}}."
+      },
+      "rateLimits": {
+        "title": "[[canon:rate_limits]]",
+        "remainingTitle": "Giới hạn tỷ lệ tài khoản OpenAI còn lại",
+        "weekly": "hàng tuần",
+        "primary": "Sơ đẳng",
+        "secondary": "Sơ trung"
+      }
+    },
+    "moaToggle": {
+      "activeTitle": "Chế độ [[canon:moa]] đang hoạt động - nhấp để tắt",
+      "enableTitle": "Kích hoạt [[canon:moa]] (Điều phối đa tác nhân)"
+    },
+    "threadModals": {
+      "common": {
+        "close": "Đóng",
+        "closeModal": "Đóng phương thức [[canon:thread]]",
+        "cancel": "Hủy bỏ"
+      },
+      "create": {
+        "title": "Tạo [[canon:thread]]",
+        "description": "Nhập tiêu đề cho cuộc trò chuyện mới [[canon:thread]].",
+        "placeholder": "[[canon:thread]] mới",
+        "confirm": "Tạo nên"
+      },
+      "rename": {
+        "title": "Đổi tên [[canon:thread]]",
+        "description": "Cập nhật tiêu đề cho cuộc trò chuyện hiện tại [[canon:thread]].",
+        "placeholder": "Tiêu đề [[canon:thread]]",
+        "confirm": "Cứu"
+      },
+      "clear": {
+        "deleteTitle": "Xóa [[canon:thread]]",
+        "deleteMessage": "Xóa [[canon:thread]] này{{threadTitle}}? Cuộc trò chuyện, tệp đính kèm và hoạt động của [[canon:thread]] sẽ bị xóa. Tệp dự án, Artifact và Memory được giữ lại sẽ vẫn còn.",
+        "deleteConfirm": "Xóa [[canon:thread]]"
+      }
+    },
+    "providerSwitchContextBanner": {
+      "title": "Provider/Model đã chuyển đổi",
+      "previousProvider": "trước provider",
+      "newProvider": "provider mới",
+      "movedFrom": "Đã chuyển từ",
+      "movedTo": "ĐẾN",
+      "continuityHint": "Đưa bối cảnh vào trước lượt tiếp theo của bạn để tránh mất tính liên tục của dự án.",
+      "injectMemory": "Tiêm b? nh?",
+      "injectArtifacts": "Tiêm [[canon:artifacts]]",
+      "injectBoth": "Tiêm cả hai",
+      "dismiss": "Miễn nhiệm"
+    },
+    "contextMeter": {
+      "toggleDetails": "Chuyển đổi chi tiết ngữ cảnh",
+      "expandDetails": "Mở rộng chi tiết đồng hồ đo ngữ cảnh",
+      "collapseDetails": "Thu gọn thông tin chi tiết về thước đo ngữ cảnh",
+      "visibleMetrics": "Số liệu hiển thị",
+      "chooseVisibleMetrics": "Chọn số liệu hiển thị",
+      "showAll": "Hiển thị tất cả",
+      "hideAll": "Ẩn tất cả",
+      "noMetricsSelected": "Không có số liệu nào được chọn.",
+      "title": {
+        "available": "Lượt mới nhất {{turnTokens}}/{{modelLimit}} tokens ({{percent}}%)",
+        "unavailable": "Việc sử dụng lượt mới nhất không khả dụng (giới hạn {{modelLimit}} token)",
+        "limitUnavailable": "Giới hạn ngữ cảnh không có sẵn cho model này",
+        "contextLeftAvailable": "Ngữ cảnh bên trái {{remaining}}/{{modelLimit}} tokens ({{percent}}%)",
+        "contextLeftFallback": "Ngữ cảnh còn lại {{remaining}}/{{modelLimit}} tokens ({{percent}}%, thread trống)",
+        "contextLeftUnavailable": "Không có ngữ cảnh (giới hạn {{modelLimit}} token; không có số lượng người sử dụng thread)",
+        "contextLeftRecalculating": "Ngữ cảnh còn lại đang được tính lại sau khi nén gọn (giới hạn {{modelLimit}} token)"
+      },
+      "values": {
+        "left": "bên trái",
+        "occupancyUnavailable": "Không có chỗ ở thread",
+        "limitUnknown": "giới hạn không xác định",
+        "notAvailable": "không có",
+        "recalculating": "đang tính lại..."
+      },
+      "metrics": {
+        "used": "Thread xảy ra.",
+        "usedEstimated": "Thread xảy ra. (ước tính)",
+        "usedMapped": "Thread xảy ra. (được ánh xạ)",
+        "remaining": "Ngữ cảnh bên trái",
+        "limit": "Giới hạn",
+        "turn": "Lượt mới nhất",
+        "spendRoll": "Chi tiêu phiên",
+        "inputNoCache": "Đầu vào (không có bộ đệm)",
+        "cacheRead": "Đọc bộ nhớ đệm",
+        "cacheWrite": "Ghi bộ nhớ đệm",
+        "turnEstTok": "Turn est tok",
+        "turnEstUsd": "Đổi est usd",
+        "costConf": "Cấu hình chi phí",
+        "continuity": "Tính liên tục",
+        "packet": "Gói",
+        "drift": "Trôi",
+        "compactionDelta": "Đồng bằng nén"
+      }
+    },
+    "cursor": {
+      "fullAccessRequired": "Cursor runs only with Full Access.",
+      "useFullAccess": "Use Full Access"
+    },
+    "composerArea": {
+      "selectProvider": "Chọn provider bên dưới để bắt đầu trò chuyện.",
+      "selectThread": "Chọn hoặc tạo thread trước khi gửi tin nhắn.",
+      "selectedModelMissing": "model đã chọn có thể không khả dụng. Làm mới models được quản lý từ menu hành động.",
+      "addApiKey": "Thêm API key vào Cài đặt để bắt đầu.",
+      "switchToExecute": "Chuyển sang [[canon:execute]]",
+      "imagesDisabled": "Hình ảnh bị tắt đối với model này. Tệp đính kèm vẫn được bật.",
+      "pipeline": {
+        "stepRunning": "Pipeline step {{currentStep}}/{{totalSteps}}: {{stepName}}",
+        "completed": "Pipeline complete",
+        "failedAt": "Pipeline failed at {{stepName}}",
+        "cancelled": "Pipeline cancelled",
+        "starting": "Starting pipeline ({{totalSteps}} steps)..."
+      },
+      "council": {
+        "completed": "Hội đồng hoàn thành ({{successCount}}/{{memberCount}} thành công)",
+        "failed": "Hội đồng thất bại",
+        "cancelled": "Hội đồng bị hủy bỏ",
+        "running": "Hội đồng đang điều hành (thành viên {{memberCount}}{{suffix}})..."
+      }
+    },
+    "permissionMode": {
+      "planActive": "Chế độ [[canon:plan]]: có thể dùng công cụ nghiên cứu và lập kế hoạch; các thay đổi dự án bị chặn.",
+      "thinkingActive": "Chế độ [[canon:thinking]]: có thể dùng công cụ đọc và nghiên cứu; các thay đổi dự án bị chặn.",
+      "planDormant": "Chế độ [[canon:plan]] vô hiệu hóa việc thực thi công cụ cho lượt này.",
+      "thinkingDormant": "Chế độ [[canon:thinking]] vô hiệu hóa việc thực thi công cụ cho lượt này.",
+      "label": "Sự cho phép",
+      "groupAriaLabel": "Chế độ cấp phép",
+      "optionsAriaLabel": "Tùy chọn chế độ cấp phép",
+      "helpers": {
+        "ask": "Nhắc nhở trước những hành động nguy hiểm",
+        "autonomy": "Act inside workspace Guardrails",
+        "fullAccess": "Thực thi công cụ cấp máy chủ"
+      }
+    },
+    "dispatchConfirmation": {
+      "dispatchFailed": "Gửi đi không thành công.",
+      "executed": "Đã thực hiện công văn",
+      "executedDescription": "Đặc vụ {{count}}{{suffix}} được phái đi. Kết quả sẽ xuất hiện bên dưới khi các đại lý hoàn thành.",
+      "failed": "Gửi không thành công",
+      "unknownError": "Lỗi không xác định.",
+      "retry": "Thử lại",
+      "title": "Kế hoạch điều động nhiệm vụ",
+      "selected": "Đã chọn {{selected}}/{{total}}",
+      "dispatching": "Đang gửi...",
+      "executeTasks": "Thực hiện nhiệm vụ {{count}}{{suffix}}"
+    },
+    "questionUser": {
+      "clarificationNeeded": "Cần làm rõ",
+      "waitingOnYou": "Đang Chờ Bạn",
+      "recommended": "Khuyến khích",
+      "yourAnswer": "Câu trả lời của bạn",
+      "answerPlaceholder": "Nhập câu trả lời…",
+      "answerHint": "Gửi câu trả lời nhanh tại đây hoặc tiếp tục chỉnh sửa trong trình soạn thảo bên dưới.",
+      "sending": "Đang gửi...",
+      "sendAnswer": "Gửi",
+      "sendAnswerTitle": "Gửi câu trả lời (Enter)"
+    },
+    "runbook": {
+      "status": {
+        "cancelled": "đã hủy bỏ",
+        "finishedWithErrors": "kết thúc với lỗi",
+        "finishedWithWarnings": "kết thúc với các cảnh báo",
+        "finished": "hoàn thành",
+        "running": "đang chạy"
+      },
+      "filters": {
+        "all": "Tất cả",
+        "commands": "Lệnh",
+        "usage": "Cách sử dụng",
+        "reasoning": "Lý luận",
+        "approvals": "Phê duyệt"
+      },
+      "aria": {
+        "collapse": "Thu gọn lần lượt runbook",
+        "expand": "Mở rộng lượt runbook"
+      },
+      "summary": {
+        "actions": "hành động {{count}}",
+        "commands": "lệnh {{count}}",
+        "files": "tập tin {{count}}",
+        "usage": "cách sử dụng {{count}}"
+      },
+      "sections": {
+        "actions": "hành động",
+        "commands": "Lệnh",
+        "usage": "Cách sử dụng"
+      }
+    },
+    "fileChanges": {
+      "header": "Tập tin đã thay đổi: {{count}}",
+      "unknownFile": "Tệp không xác định",
+      "updatedAgo": "đã cập nhật {{time}}",
+      "changeType": {
+        "applied": "Đã áp dụng",
+        "modified": "Đã sửa đổi",
+        "edited": "Đã chỉnh sửa",
+        "deleted": "Đã xóa",
+        "renamed": "Đã đổi tên",
+        "rolledBack": "cuộn lại",
+        "created": "Tạo"
+      },
+      "syncStatus": {
+        "deleted": "đã xóa",
+        "undone": "hoàn tác",
+        "conflict": "xung đột"
+      },
+      "reason": {
+        "changedSinceTurn": "Đã thay đổi kể từ lượt này",
+        "missingRevisionMetadata": "Thiếu siêu dữ liệu sửa đổi"
+      },
+      "actions": {
+        "fallbackAction": "Hoạt động",
+        "openInEditor": "Mở trong trình chỉnh sửa",
+        "openInDocumentViewer": "Mở trong trình xem tài liệu",
+        "openArtifacts": "Mở [[canon:artifacts]]",
+        "copyPath": "Sao chép đường dẫn",
+        "deleting": "Đang xóa...",
+        "deleteFile": "Xóa tập tin",
+        "undoing": "Đang hoàn tác...",
+        "undoChange": "Hoàn tác thay đổi",
+        "menuTitle": "Hành động tập tin"
+      },
+      "preview": {
+        "loading": "Đang tải các thay đổi...",
+        "noChangedLines": "Không có dòng thay đổi để xem trước.",
+        "collapse": "Thu gọn bản xem trước",
+        "expand": "Mở rộng bản xem trước",
+        "collapseForFile": "Thu gọn bản xem trước cho {{path}}",
+        "expandForFile": "Mở rộng bản xem trước cho {{path}}",
+        "fileChangeFallback": "thay đổi tập tin",
+        "limited": "xem trước hạn chế",
+        "limitWithLineCount": "Kích thước tệp vượt quá giới hạn xem trước (dòng {{lineCount}}). Mở trong trình chỉnh sửa hoặc [[canon:artifacts]] để kiểm tra các thay đổi.",
+        "limitNoLineCount": "Kích thước tệp vượt quá giới hạn xem trước. Xem trước bị tắt trên các dòng {{maxLines}}."
+      },
+      "dialogs": {
+        "undoOne": {
+          "title": "Hoàn tác thay đổi tập tin",
+          "message": "Khôi phục phiên bản trước của {{path}}?",
+          "confirm": "Hoàn tác thay đổi"
+        },
+        "deleteOne": {
+          "title": "Xóa tập tin đã tạo",
+          "message": "Xóa {{path}}? Thao tác này sẽ xóa tệp được tạo ở lượt này khỏi đĩa.",
+          "confirm": "Xóa tập tin"
+        },
+        "undoAll": {
+          "title": "Hoàn tác các thay đổi tệp",
+          "message": "Khôi phục phiên bản trước cho file {{count}}{{suffix}}?",
+          "confirm": "Hoàn tác các thay đổi"
+        },
+        "deleteAll": {
+          "title": "Xóa các tập tin đã tạo",
+          "message": "Xóa file {{count}} {{suffix}} được tạo ở lượt này? Điều này loại bỏ chúng khỏi đĩa.",
+          "confirm": "Xóa tập tin"
+        }
+      },
+      "feedback": {
+        "clipboardUnavailable": "Clipboard không có sẵn trong môi trường này.",
+        "copiedPath": "Đường dẫn được sao chép: {{path}}",
+        "copyFailed": "Không thể sao chép đường dẫn tệp.",
+        "undoUnavailable": "Hoàn tác không có sẵn cho mục này (thiếu siêu dữ liệu sửa đổi).",
+        "undoSucceeded": "Đã hủy {{path}}.",
+        "undoFailed": "Hoàn tác không thành công.",
+        "deleteUnavailable": "Xóa không có sẵn cho mục này (thiếu siêu dữ liệu sửa đổi).",
+        "deleteSucceeded": "Đã xóa tệp đã tạo {{path}}.",
+        "deleteFailed": "Xóa không thành công.",
+        "conflict": "{{path}}: đã thay đổi kể từ lượt này.",
+        "actionFailed": "{{path}}: {{message}}",
+        "undoAllUnavailable": "Hoàn tác tất cả không có sẵn (thiếu siêu dữ liệu sửa đổi).",
+        "undoAllSummary": "Hoàn tác tất cả: {{success}} đã thành công{{conflicts}}{{failed}}{{skipped}}.",
+        "undoAllFailed": "Hoàn tác tất cả đều thất bại.",
+        "deleteAllUnavailable": "Xóa tất cả không có sẵn (thiếu siêu dữ liệu sửa đổi).",
+        "deleteAllSummary": "Xóa các tập tin đã tạo: {{success}} đã thành công{{conflicts}}{{failed}}{{skipped}}.",
+        "deleteAllFailed": "Xóa các tập tin đã tạo không thành công."
+      },
+      "activity": {
+        "undoOne": "Đã hoàn tác thay đổi tệp: {{path}}",
+        "deleteOne": "Đã xóa tệp đã tạo: {{path}}",
+        "undoAll": "Hoàn tác tất cả các thay đổi tệp ({{success}} đã thành công{{conflicts}}{{failed}}{{skipped}})",
+        "deleteAll": "Đã xóa các tệp đã tạo ({{success}} đã thành công{{conflicts}}{{failed}}{{skipped}})"
+      },
+      "bulkActions": {
+        "undoingTitle": "Hoàn tác các thay đổi tập tin",
+        "undoTitle": "Hoàn tác các thay đổi tập tin từ lượt này",
+        "deletingTitle": "Xóa các tập tin đã tạo",
+        "deleteTitle": "Xóa các tập tin đã tạo từ lượt này"
+      }
+    },
+    "roleConfirmation": {
+      "title": "[[canon:ai_generated_agent_role]]",
+      "saveRole": "[[canon:save_role]]",
+      "saveRoleAndContinue": "[[canon:save_role_continue]]",
+      "useForDelegation": "[[canon:use_for_delegation]]",
+      "saving": "Đang lưu...",
+      "starting": "Đang bắt đầu...",
+      "saved": "Đã lưu vai trò \"{{name}}\"",
+      "usedForDelegation": "Vai trò \"{{name}}\" được sử dụng cho ủy quyền này",
+      "savedDescription": "Có sẵn để ủy quyền ngay lập tức.",
+      "usedTemporaryDescription": "Vai trò tạm thời này sẽ tự động bị xóa sau khi quá trình ủy quyền kết thúc.",
+      "roleName": "[[canon:role_name]]",
+      "instructions": "Hướng dẫn",
+      "noInstructions": "Không có hướng dẫn",
+      "provider": "Provider",
+      "model": "Model",
+      "selectProvider": "Chọn provider...",
+      "selectModel": "Chọn model...",
+      "modelIdPlaceholder": "ID Model",
+      "emptyValue": "—",
+      "stagedWrites": {
+        "title": "Ghi tập tin Staged",
+        "enabledDescription": "Đã bật cho vai trò này. Sử dụng nó có thể thay đổi tệp stage trong quá trình ủy quyền.",
+        "disabledDescription": "Tàn tật. Vai trò này chỉ có thể trả về phân tích và đề xuất."
+      },
+      "allowStagedWrites": {
+        "title": "Cho phép ghi tệp staged",
+        "description": "Đại lý có thể đề xuất stage [[canon:write_file]]."
+      },
+      "preview": "Xem trước",
+      "edit": "Biên tập",
+      "dismiss": "Miễn nhiệm",
+      "errors": {
+        "roleNameRequired": "Tên vai trò là bắt buộc.",
+        "providerRequired": "Provider là bắt buộc.",
+        "modelRequired": "Model là bắt buộc.",
+        "saveFailed": "Không lưu được vai trò.",
+        "useTemporaryFailed": "Không thể sử dụng vai trò tạm thời."
+      }
+    },
+    "writeConflict": {
+      "resolved": "Đã giải quyết {{path}}",
+      "conflictBadge": "xung đột",
+      "showDebugInfo": "Hiển thị thông tin gỡ lỗi",
+      "hideDebugInfo": "Ẩn thông tin gỡ lỗi",
+      "hideDetails": "Ẩn chi tiết",
+      "viewChanges": "Xem những gì đã thay đổi",
+      "loading": "Đang tải...",
+      "loadingPreviews": "Đang tải bản xem trước...",
+      "previewUnavailable": "Xem trước không có sẵn.",
+      "aiMerge": "Hợp nhất AI",
+      "dismiss": "Miễn nhiệm",
+      "confirm": "Xác nhận",
+      "noModelSelected": "Không có model nào được chọn",
+      "generatingMerge": "Đang tạo hợp nhất...",
+      "retry": "Thử lại",
+      "tryAgain": "Thử lại",
+      "accept": "Chấp nhận",
+      "labels": {
+        "yoursVsBase": "Những thay đổi của bạn so với cơ sở",
+        "theirsVsBase": "Những thay đổi khác so với cơ sở"
+      },
+      "errors": {
+        "unknown": "Lỗi không xác định",
+        "requestFailed": "Yêu cầu không thành công",
+        "applyFailed": "Không thể áp dụng độ phân giải hợp nhất.",
+        "mergeFailed": "Hợp nhất không thành công.",
+        "revisionPreviewUnavailable": "Bản xem trước sửa đổi không có sẵn trong phiên kết xuất này.",
+        "loadRevisionPreviewFailed": "Không thể tải bản xem trước bản sửa đổi.",
+        "loadRevisionContextFailed": "Không thể tải ngữ cảnh sửa đổi."
+      }
+    },
+    "attachments": {
+      "actions": {
+        "menuAriaLabel": "Thao tác với tệp đính kèm {{name}}",
+        "showInFolder": "Hiển thị trong thư mục",
+        "copy": "Sao chép",
+        "saveAs": "Lưu thành...",
+        "openWith": "Mở bằng",
+        "defaultApp": "Ứng dụng mặc định",
+        "chooseAnotherApp": "Chọn ứng dụng khác...",
+        "copyFailed": "Không thể sao chép tệp đính kèm này.",
+        "showInFolderFailed": "Không thể hiển thị tệp đính kèm này trong thư mục.",
+        "saveFailed": "Không thể lưu tệp đính kèm này.",
+        "openWithFailed": "Không thể mở tệp đính kèm này bằng ứng dụng đã chọn."
+      },
+      "common": {
+        "close": "Đóng",
+        "cancel": "Hủy bỏ"
+      },
+      "errors": {
+        "cachedOpenFailed": "Không thể mở tệp đính kèm được lưu trong bộ nhớ đệm.",
+        "unavailable": "Tệp đính kèm mở không có sẵn trong bản dựng này.",
+        "historyUnavailable": "Không thể mở lại tệp đính kèm này vì dữ liệu của nó không có trong lịch sử dòng thời gian.",
+        "openFailed": "Không thể mở tập tin đính kèm."
+      },
+      "labels": {
+        "pdfAttachment": "Tệp đính kèm PDF",
+        "attachedImage": "Hình ảnh đính kèm",
+        "attachedFile": "Tệp đính kèm"
+      },
+      "image": {
+        "unavailable": "Không có tệp đính kèm hình ảnh.",
+        "open": "Mở {{label}}",
+        "previewAriaLabel": "Xem trước hình ảnh",
+        "closePreviewAriaLabel": "Đóng bản xem trước hình ảnh"
+      },
+      "file": {
+        "openPdfViewer": "Mở PDF trong trình xem",
+        "openAttachedFile": "Mở tập tin đính kèm",
+        "openPdfAttachment": "Mở tệp đính kèm PDF",
+        "openFileAttachment": "Mở tệp đính kèm",
+        "clickOpenViewer": "Nhấp để mở trong trình xem",
+        "clickOpenFile": "Bấm để mở tập tin"
+      },
+      "dialogs": {
+        "openFileAriaLabel": "Xác nhận mở tập tin",
+        "openPdfTitle": "Mở PDF trong trình xem mặc định của bạn?",
+        "closeFileOpenAriaLabel": "Đóng tập tin xác nhận mở",
+        "openPdfDescription": "Tệp này sẽ mở bên ngoài ADDOM bằng ứng dụng PDF hệ thống của bạn.",
+        "openPdfConfirm": "Mở PDF"
+      }
+    },
+    "planRequests": {
+      "label": {
+        "memoryReview": "Inject saved context",
+        "artifactReview": "Tiêm bối cảnh [[canon:artifacts]]",
+        "webIngest": "Nhập trang web",
+        "runRequest": "Chạy yêu cầu"
+      },
+      "summary": {
+        "from": "từ #{{value}}",
+        "to": "tới #{{value}}",
+        "tags": "tags: {{value}}",
+        "sources": "nguồn: {{value}}",
+        "limit": "giới hạn {{value}}",
+        "files": "tập tin: {{value}}",
+        "latestOnly": "chỉ mới nhất",
+        "revisionsPerFile": "bản sửa đổi/tập tin: {{value}}",
+        "fromRev": "từ vòng quay {{value}}",
+        "toRev": "để quay lại {{value}}"
+      }
+    },
+    "toolExecution": {
+      "runningCommandWithCommand": "Lệnh chạy: {{command}}",
+      "runningCommand": "Lệnh chạy...",
+      "renameFile": "Đang chạy: đổi tên_file - {{oldPath}} -> {{newPath}}",
+      "browsingUrl": "Đang duyệt: {{url}}",
+      "browserActionWithAction": "Trình duyệt: {{action}}",
+      "browserAction": "Hành động của trình duyệt",
+      "runningToolWithPath": "Đang chạy: {{toolName}} - {{filePath}}",
+      "runningTool": "Đang chạy: {{toolName}}",
+      "result": {
+        "browserDenied": "browser_action - bị từ chối",
+        "browserFailed": "browser_action - thất bại",
+        "browserDone": "browser_action - xong",
+        "toolDenied": "{{toolName}} - bị từ chối",
+        "toolFailed": "{{toolName}} - thất bại",
+        "toolDone": "{{toolName}} - đã xong"
+      }
+    },
+    "mcpElicitation": {
+      "sendFailed": "Không thể gửi phản hồi này."
+    },
+    "diff": {
+      "addedLine": "Dòng đã thêm",
+      "removedLine": "Dòng đã xóa"
+    },
+    "providerTerms": {
+      "providerFallback": "nhà cung cấp này",
+      "title": "Trước khi dùng {{providerName}}",
+      "lead": "Bạn chịu trách nhiệm về điều khoản của nhà cung cấp này. Prompt và hoạt động công cụ có thể rời khỏi máy này.",
+      "cancel": "Hủy",
+      "openTerms": "Mở điều khoản",
+      "continue": "Tiếp tục"
+    }
+  },
+  "toolApprovalOverlay": {
+    "header": {
+      "title": "AI muốn:",
+      "reviewFileChanges": "Xem lại các thay đổi tệp được đề xuất, sau đó phê duyệt hoặc từ chối",
+      "reviewDiff": "Xem lại sự khác biệt bên dưới, sau đó phê duyệt hoặc từ chối",
+      "approveFilesystem": "Phê duyệt để cho phép hành động này trên hệ thống tệp của bạn",
+      "expiresIn": "Hết hạn vào {{time}}"
+    },
+    "footer": {
+      "expired": "Approval expired",
+      "enterDisabled": "Nhập lối tắt bị tắt để phê duyệt nâng cao",
+      "shortcuts": "Phím tắt: Nhập cho phép, Esc từ chối",
+      "submitting": "Submitting approval..."
+    },
+    "actions": {
+      "deny": "Từ chối (Esc)",
+      "allowForSession": "Cho phép phiên",
+      "allowForSessionTitle": "Cho phép và ghi nhớ phê duyệt này cho phiên ứng dụng hiện tại khi được hỗ trợ",
+      "openGuardrails": "Open Guardrails settings",
+      "openGuardrailsTitle": "Cancel this approval and open Guardrails settings",
+      "allowHostFallback": "Cho phép dự phòng máy chủ",
+      "allowHostFallbackTitle": "Cho phép dự phòng máy chủ (một lần)",
+      "allowHostFullAccessThisTurn": "Cho phép toàn quyền truy cập vào máy chủ (Lượt này)",
+      "allowHostFullAccessThisTurnTitle": "Cho phép máy chủ có toàn quyền truy cập trong phần còn lại của lượt này",
+      "allowHostFullAccess": "Cho phép máy chủ truy cập đầy đủ",
+      "allowHostFullAccessTitle": "Cho phép máy chủ truy cập đầy đủ (một lần)",
+      "allowWslCompatibility": "Cho phép chạy tương thích WSL",
+      "allowWslCompatibilityTitle": "Cho phép chạy tương thích WSL một lần",
+      "allowDisabledWslTitle": "Sử dụng phê duyệt tương thích WSL rõ ràng cho lệnh này",
+      "allowDisabledHostTitle": "Sử dụng hành động truy cập đầy đủ vào máy chủ rõ ràng cho lệnh này",
+      "allowTitle": "Cho phép (Nhập)",
+      "allowDisabled": "Cho phép (tắt)",
+      "allowCaution": "Cho phép (thận trọng)",
+      "allow": "Cho phép"
+    },
+    "review": {
+      "grantedRoot": "Cấp quyền gốc",
+      "empty": "Không có thay đổi tập tin nào được đưa vào yêu cầu phê duyệt này.",
+      "file": "Tài liệu",
+      "unknownPath": "(đường dẫn không rõ)",
+      "noDiff": "Không có sự khác biệt nào được cung cấp cho sự thay đổi tập tin này."
+    },
+    "policy": {
+      "runCommandTitle": "Chạy chính sách lệnh",
+      "browserActionTitle": "Chính sách hành động của trình duyệt",
+      "warnings": "Cảnh báo",
+      "hints": "gợi ý",
+      "explicitHostElevation": "Yêu cầu độ cao máy chủ rõ ràng",
+      "explicitHostElevationDescription": "Lệnh này vượt quá chính sách `workspace_safe`. Sử dụng hành động một lần dành riêng cho hosting_full_access để tiếp tục.",
+      "explicitWslApproval": "Yêu cầu phê duyệt tương thích rõ ràng WSL",
+      "explicitWslApprovalDescription": "WSL không phải là ranh giới bảo mật. Sự chấp thuận này thừa nhận khả năng tương thích với khả năng tiếp cận của hệ thống tệp máy chủ chứ không phải sandbox được chứa."
+    },
+    "diff": {
+      "file": "tài liệu",
+      "newFile": "tập tin mới",
+      "noChanges": "Không có thay đổi nào được phát hiện."
+    },
+    "risk": {
+      "readOnly": "Chỉ đọc",
+      "writesFile": "Ghi tập tin",
+      "runsCode": "Chạy mã"
+    },
+    "intent": {
+      "runCommand": "Run command",
+      "localShell": "Run local shell command",
+      "openTerminal": "Open terminal",
+      "useTerminal": "Use terminal",
+      "useBrowser": "Use browser",
+      "reviewFileChanges": "Review file changes",
+      "createDirectory": "Create directory",
+      "scopeSandboxUnavailable": "Sandbox unavailable; host fallback is available.",
+      "scopeInstallSandbox": "Runs in the install sandbox.",
+      "scopeHostAccess": "Requires host access.",
+      "scopeWorkspaceShell": "Runs in the workspace shell.",
+      "scopeBrowserTarget": "Target: {{target}}",
+      "scopeTerminalHostPath": "Opens against a host path.",
+      "scopeWorkingDirectory": "Working directory: {{cwd}}",
+      "warningExplicitHost": "This needs an explicit host access decision.",
+      "warningExplicitWsl": "WSL can reach host files. Use the explicit WSL action only if that is intended.",
+      "warningSandboxFallback": "The sandbox route is unavailable. Host fallback is a one-time exception.",
+      "warningPrivateNetwork": "This targets a local or private network address.",
+      "warningTerminalOutsideWorkspace": "This terminal opens outside the workspace."
+    },
+    "production": {
+      "deny": "Deny",
+      "allowForSession": "Allow for session",
+      "openGuardrails": "Settings",
+      "allowHostFallback": "Host fallback",
+      "allowHostFullAccessThisTurn": "Host this turn",
+      "allowHostFullAccess": "Host once",
+      "allowWslCompatibility": "WSL once",
+      "allowDisabled": "Choose explicit action",
+      "allowCaution": "Allow",
+      "allow": "Allow",
+      "explicitActionRequired": "Use an explicit approval action for this request.",
+      "browserRisk": "External action",
+      "reviewRisk": "Review",
+      "details": "Details",
+      "requestData": "Request data"
+    },
+    "productionPolicy": {
+      "command": "Command policy",
+      "browser": "Browser policy",
+      "terminal": "Terminal policy",
+      "hostAccessRequired": "Host access required",
+      "hostAccessDescription": "Use an explicit host action if this should run outside workspace-safe limits.",
+      "wslCompatibility": "WSL compatibility",
+      "wslDescription": "WSL can reach host files. Use the WSL action only when that is intended.",
+      "notes": "Notes"
+    }
+  },
+  "common": {
+    "close": "Đóng",
+    "clear": "Thông thoáng",
+    "clearAll": "Xóa tất cả",
+    "cancel": "Hủy bỏ"
+  },
+  "settingsInstructions": {
+    "title": "Sử dụng ADDOM",
+    "updated": "Cập nhật lần cuối {{date}}",
+    "description": "Hướng dẫn ngắn gọn về hành vi hiện tại của ADDOM, các mặc định an toàn và nơi cần tìm khi bạn cần xem lại.",
+    "sections": {
+      "chat-modes": {
+        "title": "Chế độ Chat",
+        "items": {
+          "0": "`[[canon:execute]]` cho phép ADDOM sử dụng các công cụ được kích hoạt trong [[canon:permission_mode]] đã chọn (`[[canon:ask]]`, `[[canon:autonomy]]` hoặc `[[canon:full_access]]`).",
+          "1": "`[[canon:plan]]` giúp máy tiện không cần dụng cụ tiện và tập trung vào các tùy chọn, câu hỏi cũng như các bước tiếp theo.",
+          "2": "`[[canon:thinking]]` dành cho việc động não và cân bằng mà không cần thực thi công cụ.",
+          "3": "Chọn `[[canon:implement_plan]]` sẽ chuyển chat trở lại `[[canon:execute]]` trước khi gửi."
+        }
+      },
+      "tool-approvals": {
+        "title": "Phê duyệt công cụ",
+        "items": {
+          "0": "`[[canon:ask]]` nhắc nhở trước các hành động rủi ro, `[[canon:autonomy]]` chặn các lời nhắc thông thường và `[[canon:full_access]]` cấp quyền thực thi công cụ cấp máy chủ cho lượt này.",
+          "1": "Ngay cả trong `[[canon:full_access]]`, danh sách chặn lệnh phá hoại vẫn áp dụng cho các hoạt động máy chủ nguy hiểm rõ ràng.",
+          "2": "Yêu cầu lệnh được kiểm tra theo chính sách an toàn lệnh của bạn trước khi chúng có thể chạy.",
+          "3": "Các lệnh nền xuất hiện trong `[[canon:background_jobs]]`, nơi bạn có thể kiểm tra hoặc dừng chúng."
+        }
+      },
+      "memory": {
+        "title": "Hành vi b? nh?",
+        "items": {
+          "0": "Project b? nh? lưu trữ các ghi chú, tóm tắt và ngữ cảnh được ghi tự động cục bộ trong SQLite.",
+          "1": "Nhật ký tự động cũ hơn có thể được nén sau ngưỡng bạn đặt trong Cài đặt.",
+          "2": "Các mục nén được lưu trữ, không bị xóa và vẫn có thể được xem lại.",
+          "3": "Hoạt động b? nh? hiển thị trong chat và trong bảng b? nh?."
+        }
+      },
+      "continuity": {
+        "title": "[[canon:continuity_engine]]",
+        "items": {
+          "0": "Tính liên tục theo dõi các mục tiêu, quyết định, vòng lặp mở, lỗi và tham chiếu tệp qua các lượt.",
+          "1": "Phạm vi truy xuất của nó mặc định là `thread + project` và có thể được điều chỉnh trong Cài đặt.",
+          "2": "Các cấu hình như `economy`, `balanced` và `deep` kiểm soát mức độ liên tục được đưa vào.",
+          "3": "Các sự kiện liên tục xuất hiện trong dòng thời gian khi quá trình truy xuất, xây dựng gói hoặc nén diễn ra.",
+          "4": "Việc kiểm tra độ lệch có thể cảnh báo khi một ngã rẽ mới xuất hiện xung đột với bối cảnh đã thiết lập."
+        }
+      },
+      "artifacts": {
+        "title": "Hành vi [[canon:artifacts]]",
+        "items": {
+          "0": "Mỗi lần ghi tệp AI được phê duyệt sẽ tạo ra một bản sửa đổi tạo tác cho tệp đó.",
+          "1": "[[canon:artifacts]] hỗ trợ đánh giá khác biệt, khôi phục/áp dụng và sửa đổi siêu dữ liệu.",
+          "2": "Bối cảnh tạo tác có thể bao gồm lịch sử sửa đổi giới hạn, không chỉ phiên bản mới nhất."
+        }
+      },
+      "workspace": {
+        "title": "Sự kiên trì của [[canon:workspace]]",
+        "items": {
+          "0": "Các dự án, threads và các sự kiện dòng thời gian vẫn tồn tại cục bộ trong SQLite.",
+          "1": "Việc chuyển đổi provider hoặc model sẽ giữ thread hoạt động và có thể cung cấp các hành động khởi động ngữ cảnh.",
+          "2": "Các điều khiển đặt lại hỗ trợ xóa cấp thread, cấp dự án và workspace đầy đủ."
+        }
+      },
+      "commands": {
+        "title": "[[canon:background_jobs]]",
+        "items": {
+          "0": "Các tác vụ chạy dài như máy chủ nhà phát triển, trình theo dõi và phản hồi OpenAI tách rời có thể chạy ở chế độ nền để chat có thể tiếp tục.",
+          "1": "Sử dụng `[[canon:background_jobs]]` để kiểm tra đầu ra, dừng tác vụ hoặc xem lại hoạt động nền.",
+          "2": "Đầu ra lệnh liên tục được cắt bớt để giữ cho các mốc thời gian luôn phản hồi."
+        }
+      },
+      "command-palette": {
+        "title": "[[canon:command_palette]]",
+        "items": {
+          "0": "Mở `[[canon:command_palette]]` toàn cầu bằng `Ctrl+Shift+P` để tìm kiếm các hành động trên ADDOM.",
+          "1": "Sử dụng `Up` và `Down` để điều hướng, `Enter` để chạy và `Esc` để đóng.",
+          "2": "Các lệnh có thể được tìm kiếm theo tiêu đề và bí danh, chẳng hạn như `switch project`, `autofix` hoặc `outline`.",
+          "3": "Các lệnh bị tắt vẫn hiển thị có lý do, chẳng hạn như không có thread hoạt động hoặc không có tab soạn thảo đang mở.",
+          "4": "Các lệnh gần đây được hiển thị khi tìm kiếm trống để có quy trình làm việc lặp lại nhanh hơn."
+        }
+      },
+      "streaming-responses": {
+        "title": "Truyền phản hồi",
+        "items": {
+          "0": "Các câu trả lời của Trợ lý sẽ truyền vào chat dưới dạng các đoạn phản hồi thay vì đợi toàn bộ lượt kết thúc.",
+          "1": "Kích thước chunk và nhịp phụ thuộc vào provider và model và không phải là đơn vị tokenizer chính xác.",
+          "2": "ADDOM làm mượt việc phân phối từng đoạn trong giao diện người dùng để giảm hiện tượng nhấp nháy trong khi vẫn duy trì tiến trình theo thời gian thực.",
+          "3": "Văn bản lý luận chỉ xuất hiện khi provider hiển thị nó; ADDOM không tạo ra chuỗi suy nghĩ ẩn giấu."
+        }
+      },
+      "runbook": {
+        "title": "Biến độ trong suốt của [[canon:runbook]]",
+        "items": {
+          "0": "Mỗi lượt model được nhóm thành `Turn [[canon:runbook]]` thu gọn trong chat với các hành động theo trình tự thời gian.",
+          "1": "[[canon:runbook]] bao gồm phê duyệt, các bước lệnh, thay đổi tệp, cập nhật sử dụng và trạng thái lần lượt.",
+          "2": "Lần lượt ghi tệp sẽ hiển thị thẻ `Files changed` với số lượng +/- trên mỗi tệp, xem trước và xem lại các hành động.",
+          "3": "Các hành động hoàn tác bao gồm các biện pháp bảo vệ xung đột như `Changed since this turn` để tránh việc hoàn nguyên không an toàn.",
+          "4": "Văn bản lý do hiển thị trong giao diện người dùng chỉ dành cho provider; ADDOM không bao giờ tạo ra chuỗi suy nghĩ ẩn giấu."
+        }
+      },
+      "moa": {
+        "title": "Chế độ [[canon:moa]]",
+        "items": {
+          "0": "`[[canon:moa]]` ủy quyền các nhiệm vụ tác nhân song song trong khi người điều phối giữ quyền cuối cùng.",
+          "1": "Vai trò của tổng đài viên được định cấu hình trong Cài đặt và có thể sử dụng mẫu làm điểm bắt đầu có thể chỉnh sửa.",
+          "2": "Các ủy quyền thực thi các giới hạn như giới hạn nhiệm vụ, thời gian chờ, ngân sách token và cắt bớt đầu ra.",
+          "3": "Cảnh báo về ngân sách có thể yêu cầu một sự lựa chọn rõ ràng trước khi tiến hành một cuộc ủy nhiệm tốn kém.",
+          "4": "Việc ghi tệp tác nhân là tùy chọn, bị tắt theo mặc định và staged dưới dạng đề xuất giả tạo thay vì ghi trực tiếp vào đĩa.",
+          "5": "Chỉ người điều phối mới có thể hoàn tất các bản sửa đổi tác nhân staged thông qua các hành động áp dụng rõ ràng.",
+          "6": "Các sự kiện vòng đời của [[canon:moa]] hiển thị trong cả bảng điều khiển [[canon:runbook]] và [[canon:moa]].",
+          "7": "[[canon:moa]] có thể tiêu thụ nhiều tokens hơn đáng kể so với lượt một tác nhân, vì vậy hãy theo dõi số liệu sử dụng và chính sách."
+        }
+      }
+    }
+  },
+  "commandPalette": {
+    "searchPlaceholder": "Nhập lệnh hoặc tìm kiếm...",
+    "results": {
+      "commands": "Lệnh",
+      "recentAndCommands": "Gần đây + Lệnh",
+      "shown": "{{count}} hiển thị"
+    },
+    "filters": {
+      "all": "Tất cả",
+      "recent": "Gần đây",
+      "filterByCategory": "Lệnh lọc theo {{label}}"
+    },
+    "categories": {
+      "ariaLabel": "Danh mục lệnh",
+      "navigation": "Điều hướng",
+      "chat": "Chat",
+      "editor": "Biên tập viên",
+      "memory": "b? nh?",
+      "terminal": "Terminal"
+    },
+    "empty": {
+      "title": "Không có lệnh nào phù hợp với tìm kiếm của bạn.",
+      "description": "Hãy thử một từ khóa hoặc bí danh khác."
+    },
+    "hint": {
+      "enter": "Đi vào"
+    },
+    "reasons": {
+      "open_a_project_first": "Mở một dự án đầu tiên",
+      "no_active_thread": "Không có thread hoạt động",
+      "thread_has_no_messages_yet": "[[canon:thread]] chưa có tin nhắn nào",
+      "open_select_a_thread_first": "Trước tiên hãy mở/chọn thread",
+      "direct_agents_are_only_available_in_execute_mode": "Tác nhân chỉ khả dụng ở chế độ [[canon:execute]]",
+      "enable_moa_first": "Trước tiên hãy bật [[canon:moa]]",
+      "wait_for_the_current_response_to_finish": "Đợi phản hồi hiện tại kết thúc",
+      "provider_model_switch_context_banner_is_not_active": "Biểu ngữ ngữ cảnh chuyển đổi Provider/model không hoạt động",
+      "open_a_file_in_editor_first": "Trước tiên hãy mở tệp trong Trình chỉnh sửa",
+      "open_a_markdown_file_in_editor_first": "Trước tiên hãy mở tệp Markdown trong Trình chỉnh sửa",
+      "open_the_editor_and_select_code_first": "Mở Trình chỉnh sửa và chọn mã trước",
+      "formatting_is_unavailable_for_the_current_file": "Định dạng không có sẵn cho tệp hiện tại",
+      "code_actions_are_unavailable_for_the_current_file": "Hành động mã không có sẵn cho tệp hiện tại",
+      "no_terminal_session_selected": "No terminal session selected",
+      "terminal_session_is_not_running": "Terminal session is not running",
+      "terminal_is_already_controlled_by_you": "Terminal is already controlled by you",
+      "terminal_is_already_controlled_by_ai": "Terminal is already controlled by AI",
+      "terminal_is_not_controlled_by_you": "Terminal is not controlled by you",
+      "terminal_is_not_controlled_by_ai": "Terminal is not controlled by AI",
+      "terminal_cannot_be_interrupted": "Terminal cannot be interrupted",
+      "terminal_cannot_be_closed": "Terminal cannot be closed",
+      "terminal_cannot_be_terminated": "Terminal cannot be terminated",
+      "no_terminal_dock_open": "No terminal dock open"
+    },
+    "commands": {
+      "nav": {
+        "chat": {
+          "title": "Đi đến Chat"
+        },
+        "editor": {
+          "title": "Đi tới Trình chỉnh sửa"
+        },
+        "artifacts": {
+          "title": "Đi tới [[canon:artifacts]]"
+        },
+        "memory": {
+          "title": "Đi tới b? nh?"
+        },
+        "settings": {
+          "title": "Đi tới Cài đặt"
+        },
+        "openProjectFolder": {
+          "title": "Mở thư mục dự án"
+        },
+        "sidebar": {
+          "toggle": {
+            "expandTitle": "Mở rộng thanh bên",
+            "collapseTitle": "Thu gọn thanh bên"
+          }
+        },
+        "projectEntry": {
+          "title": "Open Projects"
+        }
+      },
+      "chat": {
+        "thread": {
+          "new": {
+            "title": "Thread mới"
+          },
+          "rename": {
+            "title": "Đổi tên Thread hiện tại"
+          },
+          "delete": {
+            "title": "Xóa Thread hiện tại"
+          },
+          "clear": {
+            "title": "Xóa cuộc trò chuyện hiện tại"
+          }
+        },
+        "focusComposer": {
+          "title": "Trình soạn nhạc Focus Chat"
+        },
+        "jumpToLatest": {
+          "title": "Chuyển đến tin nhắn mới nhất"
+        },
+        "openThreadSelector": {
+          "title": "Mở Bộ chọn Thread"
+        },
+        "openBackgroundJobs": {
+          "title": "Mở [[canon:background_jobs]]"
+        },
+        "openDirectAgents": {
+          "title": "Mở Menu Đại lý Trực tiếp"
+        },
+        "toggleMoa": {
+          "title": "Chuyển đổi chế độ [[canon:moa]]"
+        },
+        "inject": {
+          "memory": {
+            "title": "Tiêm b? nh? vào Chat"
+          },
+          "artifacts": {
+            "title": "Tiêm [[canon:artifacts]] vào Chat"
+          },
+          "both": {
+            "title": "Tiêm b? nh? + [[canon:artifacts]]"
+          }
+        }
+      },
+      "editor": {
+        "formatDocument": {
+          "title": "Định dạng tài liệu"
+        },
+        "fixAutofixable": {
+          "title": "Khắc phục sự cố có thể khắc phục được Auto"
+        },
+        "toggleProblemsPanel": {
+          "title": "Chuyển đổi bảng vấn đề"
+        },
+        "toggleOutlinePanel": {
+          "title": "Chuyển đổi bảng phác thảo"
+        },
+        "markdownPreview": {
+          "toggle": {
+            "title": "Markdown: Chuyển đổi xem trước"
+          },
+          "open": {
+            "title": "Markdown: Mở bản xem trước sang một bên"
+          }
+        },
+        "aiSelection": {
+          "explain": {
+            "title": "AI về lựa chọn: Giải thích"
+          },
+          "fix": {
+            "title": "AI khi lựa chọn: Sửa"
+          },
+          "refactor": {
+            "title": "AI khi lựa chọn: Tái cấu trúc"
+          },
+          "tests": {
+            "title": "AI khi lựa chọn: Tạo bài kiểm tra"
+          }
+        }
+      },
+      "memory": {
+        "exportProjectJson": {
+          "title": "Xuất bối cảnh dự án JSON",
+          "alerts": {
+            "failedTitle": "Xuất không thành công",
+            "failedMessage": "Không thể xuất ngữ cảnh JSON: {{error}}",
+            "completedTitle": "Xuất hoàn tất",
+            "completedMessage": "Ngữ cảnh đã xuất JSON.\n\nTập tin: {{filePath}}\nCác nút b? nh?: {{memoryNodeCount}}\nTệp hiện vật: {{artifactFileCount}}\nBản sửa đổi hiện vật: {{artifactRevisionCount}}"
+          }
+        },
+        "openPanel": {
+          "title": "Open notes panel"
+        }
+      },
+      "terminal": {
+        "focus": {
+          "title": "Focus Terminal"
+        },
+        "new": {
+          "title": "New Terminal"
+        },
+        "browseSessions": {
+          "title": "Browse Terminal Sessions"
+        },
+        "takeOver": {
+          "title": "Take Over Terminal"
+        },
+        "handBack": {
+          "title": "Tr? terminal cho AI"
+        },
+        "interrupt": {
+          "title": "Interrupt Terminal"
+        },
+        "close": {
+          "title": "Close Terminal Session"
+        },
+        "hide": {
+          "title": "Hide Terminal Dock"
+        }
+      }
+    }
+  },
+  "executionStream": {
+    "showEarlier": "Hiển thị sự kiện trước đó của {{count}}{{suffix}}",
+    "thought": {
+      "verb": "Đã suy luận",
+      "briefly": "ngắn",
+      "show": "Hiện suy luận",
+      "hide": "Ẩn suy luận"
+    },
+    "transport": {
+      "startingTurn": "Bắt đầu lượt"
+    },
+    "compaction": {
+      "requested": "Đang nén ngữ cảnh...",
+      "running": "Đang nén ngữ cảnh...",
+      "applied": "Áp dụng nén OpenAI",
+      "failed": "Việc nén OpenAI không thành công",
+      "milestoneTitle": "Bối cảnh được nén trước lượt tiếp theo",
+      "milestoneDetail": {
+        "codexThreadCompaction": "Nén tài khoản Codex thread",
+        "providerServerSide": "Nén phía máy chủ OpenAI",
+        "manualServerSide": "Nén thủ công phía máy chủ OpenAI"
+      }
+    },
+    "progress": {
+      "navigate": "Điều hướng",
+      "click": "Yếu tố nhấp chuột",
+      "type": "Đang gõ văn bản",
+      "select": "Lựa chọn tùy chọn",
+      "screenshot": "Chụp ảnh màn hình",
+      "runningTool": "Đang chạy {{toolName}}",
+      "working": "Đang làm việc",
+      "terminalOpen": "Opening terminal",
+      "terminalOpenNamed": "Opening {{terminalLabel}}",
+      "terminalRead": "Reading terminal output",
+      "terminalReadNamed": "Reading output from {{terminalLabel}}",
+      "terminalAttach": "Reusing terminal session",
+      "terminalWrite": "Writing to terminal",
+      "terminalWriteNamed": "Writing to {{terminalLabel}}",
+      "terminalWait": "Waiting for terminal output",
+      "terminalWaitNamed": "Waiting for output from {{terminalLabel}}",
+      "terminalResize": "Resizing terminal session",
+      "terminalResizeNamed": "Resizing {{terminalLabel}}",
+      "terminalSignal": "Signaling terminal session",
+      "terminalSignalNamed": "Signaling {{terminalLabel}}",
+      "terminalClose": "Closing terminal session",
+      "terminalCloseNamed": "Closing {{terminalLabel}}"
+    },
+    "result": {
+      "listDirectory": "Đã niêm yết {{countPrefix}}in {{pathLabel}}",
+      "createDirectory": "Đã tạo thư mục {{pathLabel}}",
+      "writeFile": "Đã viết {{pathLabel}}",
+      "editFile": "Đã cập nhật {{pathLabel}}",
+      "readFile": "Đọc {{pathLabel}}",
+      "deleteFile": "Đã xóa {{pathLabel}}",
+      "rollbackFile": "Đã quay lại {{pathLabel}}",
+      "renameFile": "Đã đổi tên {{oldPath}} thành {{newPath}}",
+      "searchCode": "Đã tìm thấy {{countPrefix}}cho \"{{query}}\" trong {{searchPath}}",
+      "grepFile": "Đã tìm thấy kết quả phù hợp cho \"{{pattern}}\" trong {{pathLabel}}",
+      "findFiles": "Đã tìm thấy kết quả phù hợp với \"{{pattern}}\"",
+      "fetchPage": "Đã tìm nạp {{hostLabel}}",
+      "navigate": "Điều hướng hoàn tất",
+      "click": "Nhấp vào hoàn thành",
+      "type": "Đánh máy hoàn tất",
+      "select": "Lựa chọn hoàn tất",
+      "screenshot": "Đã chụp ảnh màn hình",
+      "browserAction": "Hành động của trình duyệt đã hoàn tất",
+      "gitStatusFailed": "Trạng thái Git không thành công",
+      "gitStatusDone": "Trạng thái Git đã hoàn tất",
+      "gitDiffFailed": "Khác biệt Git không thành công",
+      "gitDiffReady": "Git đã sẵn sàng",
+      "gitLogFailed": "Nhật ký Git không thành công",
+      "gitLogReady": "Đã tải lịch sử Git",
+      "gitCommitFailed": "Commit không thành công",
+      "gitCommitCreated": "Commit đã được tạo",
+      "restoreFile": "Đã khôi phục {{pathLabel}} từ {{refValue}}",
+      "commandDone": "Lệnh kết thúc trong {{commandScope}}",
+      "commandFailed": "Lệnh không thành công trong {{commandScope}}",
+      "commandDenied": "Lệnh bị từ chối trong {{commandScope}}",
+      "revisionApplyFailed": "Áp dụng sửa đổi không thành công",
+      "revisionApplied": "Đã áp dụng bản sửa đổi",
+      "planUpdated": "Đã cập nhật kế hoạch",
+      "planUpdatedBatch": "Đã cập nhật kế hoạch ({{count}} thay đổi)",
+      "genericToolResult": "{{toolName}} {{verb}}",
+      "actionFinished": "Hành động đã hoàn tất",
+      "ranCommand": "Chạy lệnh",
+      "terminalOpen": "Opened terminal",
+      "terminalOpenNamed": "Opened {{terminalLabel}}",
+      "terminalRead": "Read terminal output",
+      "terminalReadNamed": "Read output from {{terminalLabel}}",
+      "terminalAttach": "Reused terminal session in chat terminal dock",
+      "terminalAttachNamed": "Reused {{terminalLabel}} in chat terminal dock",
+      "terminalWrite": "Wrote to terminal",
+      "terminalWriteNamed": "Wrote to {{terminalLabel}}",
+      "terminalWait": "Waited for terminal output",
+      "terminalWaitNamed": "Waited for output in {{terminalLabel}}",
+      "terminalWaitMatched": "Matched expected terminal output",
+      "terminalWaitMatchedNamed": "Matched expected output in {{terminalLabel}}",
+      "terminalWaitTimedOut": "Timed out waiting for terminal output",
+      "terminalWaitTimedOutNamed": "Timed out waiting for {{terminalLabel}}",
+      "terminalResize": "Terminal session resized",
+      "terminalResizeNamed": "Resized {{terminalLabel}}",
+      "terminalSignal": "Terminal session signaled",
+      "terminalSignalNamed": "Signaled {{terminalLabel}}",
+      "terminalClose": "Closed terminal",
+      "terminalCloseNamed": "Closed {{terminalLabel}}"
+    },
+    "warning": {
+      "compactionFailed": "Nén bối cảnh không thành công",
+      "generic": "Cảnh báo"
+    },
+    "error": {
+      "toolFailed": "{{toolName}} không thành công",
+      "actionFailed": "Hành động không thành công"
+    },
+    "header": {
+      "title": "Luồng thực thi",
+      "show": "Hiển thị luồng thực thi trực tiếp",
+      "hide": "Ẩn luồng thực thi trực tiếp",
+      "awaitingFirstEvent": "Đang chờ sự kiện đầu tiên",
+      "eventCount": "Sự kiện {{count}}{{suffix}}",
+      "hiddenSummary": "Hiển thị các sự kiện {{visibleItemCount}} mới nhất. {{hiddenItemCount}} sự kiện trước đó{{eventSuffix}} bị ẩn.",
+      "hiddenSummaryPinned": "Hiển thị các sự kiện {{visibleTailItemCount}} mới nhất cộng với {{pinnedArchiveCount}} đã thu gọn khối lý luận trước đó{{archiveSuffix}}. {{hiddenItemCount}} sự kiện trước đó{{eventSuffix}} bị ẩn.",
+      "status": {
+        "failed": "thất bại",
+        "completed": "hoàn thành",
+        "started": "bắt đầu",
+        "generic": "{{status}}"
+      }
+    },
+    "output": {
+      "openCopyOptions": "Mở tùy chọn sao chép",
+      "copyCommand": "Sao chép lệnh",
+      "copyVisibleOutput": "Sao chép đầu ra hiển thị",
+      "copyPersistedPreview": "Sao chép bản xem trước liên tục",
+      "commandOutput": "Đầu ra lệnh",
+      "showCommandOutput": "Hiển thị đầu ra lệnh",
+      "hideCommandOutput": "Ẩn đầu ra lệnh",
+      "truncated": "Đầu ra bị cắt ngắn"
+    },
+    "bridge": {
+      "native": {
+        "activity": "Hoạt động của máy chủ ứng dụng Codex",
+        "webSearch": "Tìm kiếm trên web máy chủ ứng dụng Codex",
+        "command": "Lệnh máy chủ ứng dụng Codex: {{commandName}}",
+        "fileChangeOne": "Thay đổi tệp máy chủ ứng dụng Codex",
+        "fileChangeOther": "Thay đổi tệp máy chủ ứng dụng Codex",
+        "mcpTool": "Máy chủ ứng dụng Codex Công cụ MCP: {{toolName}}",
+        "imageView": "Chế độ xem hình ảnh máy chủ ứng dụng Codex",
+        "planGenerated": "Đã tạo gói máy chủ ứng dụng Codex",
+        "reviewMode": "Hoạt động chế độ xem lại Codex"
+      },
+      "source": {
+        "urlTitle": "Nguồn: {{title}}",
+        "urlCaptured": "URL nguồn đã được ghi lại",
+        "documentTitle": "Nguồn tài liệu: {{title}}",
+        "documentCaptured": "Tài liệu nguồn đã được ghi lại"
+      },
+      "providerTool": {
+        "modelRerouted": "Mô hình đã được định tuyến lại",
+        "configWarning": "Cảnh báo cấu hình",
+        "hook": "Hook",
+        "autoApprovalReview": "Xem xét phê duyệt tự động",
+        "providerError": "Lỗi nhà cung cấp",
+        "input": "Đầu vào công cụ Provider: {{toolName}}",
+        "running": "Công cụ Provider đang chạy: {{toolName}}",
+        "collectingInput": "Đang thu thập đầu vào công cụ provider...",
+        "imageGenerated": "Hình ảnh được tạo bởi công cụ OpenAI provider.",
+        "output": "Đầu ra công cụ Provider: {{toolName}}"
+      },
+      "continuity": {
+        "responseTracked": "Đã theo dõi phản hồi OpenAI: {{responseId}}",
+        "metadataReceived": "Đã nhận được siêu dữ liệu phản hồi OpenAI"
+      },
+      "websocket": {
+        "transportUpdate": "Cập nhật truyền tải WebSocket OpenAI",
+        "reconnecting": "Đang kết nối lại... {{attempt}}/{{maxAttempts}}",
+        "recoveringStoredResponse": "Khôi phục phản hồi cuối cùng từ trạng thái được lưu trữ",
+        "recoveredStoredResponse": "Đã khôi phục phản hồi cuối cùng từ trạng thái được lưu trữ",
+        "storedRecoveryFailed": "Khôi phục phản hồi đã lưu trữ không thành công",
+        "recovered": "Đã kết nối lại sau khi thử lại {{attempt}}/{{maxAttempts}}",
+        "bypassed": "Sử dụng phương tiện di chuyển OpenAI tiêu chuẩn cho lượt này",
+        "fallback": "Quay trở lại luồng OpenAI tiêu chuẩn",
+        "exhausted": "Đã hết kết nối lại ({{attempt}}/{{maxAttempts}})",
+        "cancelled": "Đã hủy kết nối lại ({{attempt}}/{{maxAttempts}})"
+      },
+      "background": {
+        "queued": "Đã xếp hàng phản hồi nền OpenAI",
+        "completed": "Đã hoàn tất phản hồi nền OpenAI",
+        "failed": "Phản hồi nền OpenAI không thành công.",
+        "cancelled": "Phản hồi nền OpenAI đã bị hủy.",
+        "noteQueued": "Đã xếp hàng phản hồi nền OpenAI. Mở Công việc để theo dõi tiến trình hoặc dừng nó.",
+        "noTextOutput": "Phản hồi nền OpenAI đã hoàn tất mà không có đầu ra văn bản.",
+        "errorPrefix": "Lỗi: {{message}}"
+      }
+    }
+  },
+  "memoryPanel": {
+    "title": "b? nh?",
+    "visibleCount": {
+      "eventOne": "Sự kiện {{count}}",
+      "eventOther": "Sự kiện {{count}}",
+      "nodeOne": "Nút {{count}}",
+      "nodeOther": "Các nút {{count}}"
+    },
+    "controls": {
+      "showArchived": "Hiển thị đã lưu trữ",
+      "includeGlobal": "Bao gồm toàn cầu",
+      "exportJsonTitle": "Xuất nhật ký b? nh? và artifacts sang JSON",
+      "exporting": "Đang xuất...",
+      "exportJson": "Xuất JSON",
+      "addNode": "Thêm Node"
+    },
+    "tabs": {
+      "memory": "b? nh? bền bỉ",
+      "history": "[[canon:thread_history]]"
+    },
+    "export": {
+      "completedTitle": "Xuất hoàn tất",
+      "completedMessage": "Ngữ cảnh đã xuất JSON.\n\nTập tin: {{filePath}}\nCác nút b? nh?: {{memoryNodeCount}}\nTệp hiện vật: {{artifactFileCount}}\nBản sửa đổi hiện vật: {{artifactRevisionCount}}",
+      "failedTitle": "Xuất không thành công",
+      "failedMessage": "Không thể xuất ngữ cảnh JSON: {{message}}"
+    },
+    "search": {
+      "placeholder": "Tìm kiếm b? nh?...",
+      "searching": "Đang tìm kiếm...",
+      "resultOne": "Kết quả {{count}}",
+      "resultOther": "Kết quả {{count}}"
+    },
+    "compression": {
+      "latestBatchTitle": "Lô nén mới nhất",
+      "summary": "Đã nén nhật ký #{{rangeStart}} thành #{{rangeEnd}} vào nút tóm tắt (Đã lưu trữ {{archivedCount}}).",
+      "jumpToSummary": "Chuyển đến phần tóm tắt",
+      "dismiss": "Miễn nhiệm"
+    },
+    "loading": {
+      "memory": "Đang tải b? nh?...",
+      "threadHistory": "Đang tải lịch sử thread..."
+    },
+    "sections": {
+      "pinned": "Đã ghim",
+      "allNodes": "Tất cả các nút b? nh?"
+    },
+    "embedder": {
+      "downloading": "Đang tải xuống model {{progress}}%",
+      "loading": "Đang tải model...",
+      "unavailable": "Nhúng không có sẵn"
+    },
+    "source": {
+      "userMemory": "Người dùng b? nh?",
+      "workspaceEvent": "Sự kiện Workspace",
+      "terminalSummary": "Tóm tắt Terminal",
+      "validatedDecision": "Quyết định có hiệu lực",
+      "referenceNote": "Ghi chú tham khảo"
+    },
+    "provenance": {
+      "ariaLabel": "Xuất xứ b? nh?",
+      "origin": "Nguồn gốc",
+      "terminalSession": "Tóm tắt terminal được chấp nhận",
+      "session": "Phiên họp",
+      "thread": "Thread",
+      "saved": "Đã lưu"
+    },
+    "badges": {
+      "global": "toàn cầu",
+      "archived": "đã lưu trữ",
+      "deletedThread": "Luồng đã xóa"
+    },
+    "meta": {
+      "deletedThreadOrigin": "{{threadTitle}} · đã xóa {{time}}"
+    },
+    "actions": {
+      "unpin": "Bỏ ghim",
+      "pin": "Ghim",
+      "edit": "Biên tập",
+      "delete": "Xóa bỏ",
+      "showLess": "Hiển thị ít hơn",
+      "showMore": "Hiển thị thêm",
+      "continue": "Tiếp tục",
+      "continueDraft": "Tiếp tục từ ngữ cảnh đã lưu."
+    },
+    "scoreRef": "Giới thiệu {{score}}%",
+    "history": {
+      "userMessage": "Tin nhắn người dùng",
+      "assistantMessage": "Tin nhắn trợ lý",
+      "emptyTitle": "Chưa có lịch sử thread",
+      "noActiveThreadTitle": "Không có thread đang hoạt động nào được chọn",
+      "emptyDescription": "Các sự kiện ghi lại của người dùng và trợ lý cho thread này sẽ xuất hiện ở đây.",
+      "noActiveThreadDescription": "Mở hoặc tạo thread để kiểm tra lịch sử bản ghi của nó."
+    },
+    "addForm": {
+      "title": "Thêm Memory Node Mới",
+      "topicPlaceholder": "Chủ đề/tiêu đề",
+      "contentPlaceholder": "Viết ra bất kỳ bối cảnh, sự kiện hoặc hướng dẫn nào...",
+      "tagsPlaceholder": "Thẻ (được phân tách bằng dấu phẩy)",
+      "saveAsGlobal": "Lưu dưới dạng b? nh? toàn cầu liên tục",
+      "saving": "Đang lưu...",
+      "saveNode": "Lưu Node"
+    },
+    "editForm": {
+      "title": "Chỉnh sửa Memory Node",
+      "closeAriaLabel": "Đóng trình chỉnh sửa nút b? nh?",
+      "topicPlaceholder": "Đề tài",
+      "contentPlaceholder": "Nội dung",
+      "tagsPlaceholder": "Thẻ (được phân tách bằng dấu phẩy)",
+      "saving": "Đang lưu...",
+      "saveChanges": "Lưu thay đổi"
+    },
+    "empty": {
+      "searchTitle": "Không có ký ức phù hợp",
+      "title": "Chưa có kỷ niệm nào",
+      "searchDescription": "Hãy thử cụm từ tìm kiếm khác hoặc xóa tìm kiếm để xem tất cả các nút b? nh?.",
+      "description": "memory bền bỉ lưu trữ các ghi chú rõ ràng, sự kiện workspace, bản tóm tắt terminal được chấp nhận, các quyết định đã được xác thực và ghi chú tham khảo. Thay vào đó, chat thô giờ đã tồn tại trong lịch sử thread."
+    }
+  },
+  "workspaceRail": {
+    "title": "Dự án",
+    "ariaLabel": "Dự án và luồng",
+    "show": "Hiện dự án và luồng",
+    "showWithActivityOne": "Hiện dự án và luồng. {{count}} luồng bị ẩn; ưu tiên cao nhất: {{activity}}.",
+    "showWithActivityOther": "Hiện dự án và luồng. {{count}} luồng bị ẩn; ưu tiên cao nhất: {{activity}}.",
+    "hide": "Ẩn dự án và luồng",
+    "resize": "Đổi kích thước dự án và luồng",
+    "close": "Đóng dự án và luồng"
+  },
+  "projectEntry": {
+    "browserPreviewLimitation": {
+      "title": "Desktop workspace required",
+      "message": "Opening a project requires the Electron workspace bridge. Use the desktop app or an Electron-backed smoke run for this flow."
+    },
+    "clearProjectHistoryDialog": {
+      "title": "Clear project transcript history",
+      "message": "Clear transcript history for project \"{{name}}\"?\n\nThis does not delete project files.",
+      "confirm": "Clear history",
+      "cancel": "Cancel"
+    },
+    "archiveProjectDialog": {
+      "title": "Dừng công việc đang chạy và lưu trữ dự án?",
+      "message": "Công việc đang chạy trong \"{{name}}\" sẽ dừng trước khi dự án được chuyển vào Kho lưu trữ.",
+      "cancel": "Hủy"
+    },
+    "removeProjectDialog": {
+      "title": "Remove from ADDOM?",
+      "message": "\"{{name}}\" and all of its ADDOM history, Memory, Artifacts, and recovery data will be removed. Project files are unchanged.",
+      "path": "Folder: {{path}}",
+      "confirm": "Remove from ADDOM",
+      "failureTitle": "Could not remove from ADDOM",
+      "failureMessage": "Nothing was removed from ADDOM. Try again.",
+      "cancel": "Cancel"
+    },
+    "eyebrow": "Workspace",
+    "title": "Open a project",
+    "newProject": "Dự án mới",
+    "newThreadInProject": "Luồng mới trong {{name}}",
+    "openFolder": "Open folder",
+    "projectActions": {
+      "openFolder": "Open folder",
+      "archiveProject": "Lưu trữ dự án",
+      "clearHistory": "Clear history",
+      "removeProject": "Remove from ADDOM",
+      "ariaLabel": "Project actions for {{name}}",
+      "restoreToRecent": "Restore to Recent"
+    },
+    "archive": {
+      "title": "Archive",
+      "toggle": "Toggle Archive"
+    },
+    "projectDisclosure": {
+      "expand": "Expand {{name}}",
+      "collapse": "Collapse {{name}}"
+    },
+    "recentProjects": {
+      "title": "Recent projects",
+      "description": "Pick up a workspace with its threads and local context.",
+      "projectCount": "{count, plural, other {# dự án}}",
+      "fallbackProjectName": "Project",
+      "recent": "Recent",
+      "threadCount": "{count, plural, other {# thread}}",
+      "open": "Open"
+    },
+    "empty": {
+      "title": "No recent projects",
+      "description": "Open a folder to start working in the main workspace."
+    },
+    "home": {
+      "placeholder": "Mô tả một tác vụ để bắt đầu làm việc",
+      "noProject": "Không có dự án",
+      "projectMenu": "Chọn dự án đích",
+      "start": "Bắt đầu tác vụ",
+      "commandsHint": "Lệnh"
+    }
+  },
+  "agents": {
+    "fanoutConfirmation": {
+      "title": "Launch {{count}} agents?",
+      "description": "The orchestrator requested more agents than your {{limit}}-agent confirmation limit.",
+      "stopTurn": "Stop turn",
+      "limit": "Limit to {{count}}",
+      "launch": "Launch {{count}}"
+    }
+  },
+  "agentNavigator": {
+    "title": "Tác nhân",
+    "close": "Đóng tác nhân",
+    "settings": "Cài đặt tác nhân",
+    "sectionActive": "Đang chạy",
+    "sectionDone": "Hoàn tất · {{count}}",
+    "emptyActive": "Không có tác nhân đang chạy",
+    "emptyThread": "Không có tác nhân trong luồng này.",
+    "showMore": "Hiển thị thêm {{count}}",
+    "expand": "Mở rộng",
+    "collapse": "Thu gọn",
+    "hidden": "+{{count}}",
+    "partialVisibility": "do nhà cung cấp quản lý, hiển thị một phần",
+    "age": {
+      "seconds": "{{count}} giây",
+      "minutes": "{{count}} phút",
+      "hours": "{{count}} giờ",
+      "days": "{{count}} ngày"
+    },
+    "status": {
+      "queued": "Trong hàng đợi",
+      "running": "Đang chạy",
+      "waiting": "Đang chờ",
+      "paused": "Tạm dừng",
+      "approval_required": "Cần phê duyệt",
+      "cancelling": "Đang hủy",
+      "completed": "Hoàn tất",
+      "failed": "Thất bại",
+      "cancelled": "Đã hủy"
+    },
+    "live": {
+      "selected": "{{label}} · {{status}}",
+      "attention": "{{label}} needs attention · {{status}}"
+    }
+  },
+  "agentConversation": {
+    "back": "Quay lại",
+    "rootLabel": "Luồng",
+    "regionLabel": "Cuộc trò chuyện của tác nhân",
+    "loading": "Đang tải bản ghi…",
+    "empty": "Chưa có bản ghi nào.",
+    "loadMore": "Tải thêm hoạt động",
+    "unavailableTitle": "Tác nhân không khả dụng",
+    "unavailableBody": "Tác nhân này không còn thuộc lần chạy này.",
+    "error": "Không thể tải bản ghi của tác nhân này.",
+    "actions": {
+      "menu": "Hành động của tác nhân",
+      "message": "Tin nhắn",
+      "messagePrompt": "Gửi tin nhắn cho tác nhân này",
+      "messageDescription": "Gửi hướng dẫn tiếp theo cho tác nhân đang chạy.",
+      "messagePlaceholder": "Viết hướng dẫn ngắn gọn…",
+      "cancel": "Hủy",
+      "send": "Gửi",
+      "sending": "Đang gửi…",
+      "failure": "Không thể hoàn tất hành động của tác nhân.",
+      "interrupt": "Ngắt",
+      "retry": "Thử lại",
+      "promote": "Tiếp tục dưới dạng luồng dự án"
+    },
+    "origin": {
+      "label": "Nhánh từ {{role}} · Lượt {{turn}}",
+      "inspect": "Xem nguồn",
+      "unavailable": "Nguồn không khả dụng",
+      "artifacts": "{{count}} tạo tác nguồn chưa hợp nhất",
+      "failure": "Không thể mở tác nhân nguồn."
+    }
+  },
+  "agentStream": {
+    "title": "Tác nhân · {{count}}",
+    "open": "Mở",
+    "delegationEchoSuppressed": "Ủy quyền đã hoàn tất. Mở Agents để xem chi tiết."
+  },
+  "agentTrigger": {
+    "idle": "Agents",
+    "active": "Agents · {{count}} active",
+    "approval": "Agents · needs approval",
+    "failed": "Agents · {{count}} failed",
+    "open": "Open Agents",
+    "close": "Close Agents"
+  }
+}

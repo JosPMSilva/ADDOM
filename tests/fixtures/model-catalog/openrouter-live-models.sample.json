@@ -1,0 +1,61 @@
+{
+  "data": [
+    {
+      "id": "openai/gpt-5.4",
+      "name": "GPT-5.4",
+      "description": "Reviewed overlap route",
+      "context_length": 200000,
+      "pricing": {
+        "prompt": 2,
+        "completion": 8
+      },
+      "architecture": {
+        "input_modalities": [
+          "text"
+        ]
+      },
+      "supported_parameters": [
+        "tools",
+        "tool_choice",
+        "reasoning_effort"
+      ]
+    },
+    {
+      "id": "vendor/changed-route",
+      "name": "Changed Route",
+      "context_length": 192000,
+      "pricing": {
+        "prompt": 0.2,
+        "completion": 0.8
+      },
+      "architecture": {
+        "input_modalities": [
+          "text",
+          "image"
+        ]
+      },
+      "supported_parameters": [
+        "tools",
+        "tool_choice",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "vendor/live-only-route",
+      "name": "Live Only Route",
+      "context_length": 64000,
+      "pricing": {
+        "prompt": 0.1,
+        "completion": 0.4
+      },
+      "architecture": {
+        "input_modalities": [
+          "text"
+        ]
+      },
+      "supported_parameters": [
+        "reasoning"
+      ]
+    }
+  ]
+}

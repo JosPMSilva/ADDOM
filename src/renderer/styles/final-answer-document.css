@@ -1,0 +1,317 @@
+.final-answer-document {
+  width: 100%;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-size: var(--chat-prose-body-size);
+  font-weight: 450;
+  line-height: 1.62;
+  color: var(--color-chat-text);
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+.final-answer-document > * {
+  margin-block: 0;
+}
+
+.final-answer-document > * + * {
+  margin-block-start: 0.82rem;
+}
+
+.final-answer-document > .final-answer-heading + * {
+  margin-block-start: 0.48rem;
+}
+
+.final-answer-document > * + .final-answer-heading {
+  margin-block-start: 1.55rem;
+}
+
+.final-answer-paragraph {
+  margin: 0;
+  color: var(--color-chat-text);
+}
+
+.final-answer-heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 620;
+  line-height: 1.32;
+  letter-spacing: 0;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.final-answer-heading-1 {
+  font-size: 1.25rem;
+}
+
+.final-answer-heading-2 {
+  font-size: 1.05rem;
+}
+
+.final-answer-heading-3 {
+  font-size: 0.9375rem;
+}
+
+.final-answer-heading-4,
+.final-answer-heading-5,
+.final-answer-heading-6 {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.final-answer-list {
+  margin: 0;
+  padding-inline-start: 1.45rem;
+  list-style-position: outside;
+}
+
+.final-answer-list-unordered {
+  list-style-type: disc;
+}
+
+.final-answer-list-ordered {
+  list-style-type: decimal;
+}
+
+.final-answer-list .final-answer-list {
+  margin-block-start: 0.3rem;
+}
+
+.final-answer-list-item {
+  margin-block: 0.28rem;
+  padding-inline-start: 0.12rem;
+}
+
+.final-answer-list-item::marker {
+  color: var(--color-text-muted);
+}
+
+.final-answer-list-item > .final-answer-paragraph {
+  display: inline;
+}
+
+.final-answer-inline-code {
+  font-family: var(--font-mono);
+  font-size: var(--chat-prose-inline-code-size);
+  font-weight: 450;
+  line-height: inherit;
+  padding: 0.06em 0.28em;
+  border: 0;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--color-surface-panel) 72%, transparent);
+  color: var(--color-accent-soft);
+  overflow-wrap: anywhere;
+}
+
+/* Inline-code pills mask native text-selection paint. Plan review favors a continuous selection surface. */
+.final-answer-document[data-plan-review-surface='true'] .final-answer-inline-code {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.final-answer-strong {
+  font-weight: 620;
+  color: var(--color-text-primary);
+}
+
+.final-answer-emphasis {
+  color: var(--color-text-secondary);
+}
+
+.final-answer-link {
+  color: var(--color-accent-soft);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+  overflow-wrap: anywhere;
+}
+
+.final-answer-link[data-chat-file-reference="true"] {
+  font-family: var(--font-mono);
+  font-size: var(--chat-prose-inline-code-size);
+  overflow-wrap: anywhere;
+}
+
+.final-answer-link:focus-visible {
+  border-radius: 3px;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.final-answer-blockquote {
+  margin: 0;
+  padding-inline-start: 0.9rem;
+  border-inline-start: 2px solid var(--color-surface-border);
+  color: var(--color-text-secondary);
+  font-style: normal;
+}
+
+.final-answer-rule {
+  border: 0;
+  border-block-start: 1px solid var(--color-surface-border);
+}
+
+.final-answer-document > [data-chat-render="code-block"] {
+  margin-block: 1rem;
+}
+
+.final-answer-table-scroll {
+  width: 100%;
+  max-width: 100%;
+  margin-block: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  border-block: 1px solid color-mix(in srgb, var(--color-surface-border) 72%, transparent);
+  scrollbar-width: thin;
+}
+
+.final-answer-table-scroll:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.final-answer-table {
+  width: 100%;
+  min-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.final-answer-table-header,
+.final-answer-table-cell {
+  min-width: 0;
+  max-width: 34rem;
+  padding: 0.55rem 0.7rem;
+  text-align: start;
+  vertical-align: top;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.final-answer-table-header {
+  border-bottom: 1px solid var(--color-surface-border);
+  font-family: var(--font-display);
+  font-weight: 620;
+  color: var(--color-text-primary);
+}
+
+.final-answer-table-cell {
+  border-bottom: 1px solid color-mix(in srgb, var(--color-surface-border) 52%, transparent);
+  color: var(--color-text-secondary);
+}
+
+.final-answer-table-row:last-child .final-answer-table-cell {
+  border-bottom: 0;
+}
+
+.final-answer-table :is(.final-answer-inline-code, code) {
+  white-space: normal;
+}
+
+.final-answer-fallback {
+  margin: 0;
+}
+
+.final-answer-document [data-plan-annotation-block="true"] {
+  position: relative;
+  border-radius: 4px;
+  transition: background-color 100ms ease 400ms;
+}
+
+.final-answer-document [data-plan-annotation-block="true"]:is(:hover, :focus-within) {
+  background: color-mix(in srgb, var(--color-surface-panel) 34%, transparent);
+}
+
+.final-answer-document [data-plan-annotation-active="true"],
+.final-answer-document [data-plan-annotation-staged="true"] {
+  background: color-mix(in srgb, var(--color-surface-panel) 48%, transparent);
+  transition-delay: 0ms;
+}
+
+.final-answer-document[data-plan-annotation-actions='disabled'] [data-plan-annotation-block="true"]:is(:hover, :focus-within),
+.final-answer-document[data-plan-annotation-actions='disabled'] [data-plan-annotation-active="true"] {
+  background: transparent;
+}
+
+.plan-annotation-action {
+  position: absolute;
+  z-index: 2;
+  inset-block-start: 0;
+  inset-inline-end: 0.25rem;
+  padding: 0.15rem 0.35rem;
+  border: 0;
+  border-radius: 3px;
+  background: var(--color-surface-panel);
+  color: var(--color-text-secondary);
+  font: inherit;
+  font-size: 0.6875rem;
+  line-height: 1.35;
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+  transform: translateY(-100%);
+  transition: opacity 100ms ease 400ms, color 100ms ease;
+}
+
+[data-plan-annotation-block="true"]:is(:hover, :focus-within) > .plan-annotation-action,
+.plan-annotation-action:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.final-answer-document[data-plan-annotation-actions='disabled'] .plan-annotation-action {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.plan-annotation-action:focus-visible {
+  outline: 1px solid var(--color-border-strong);
+  outline-offset: 1px;
+  transition-delay: 0ms;
+}
+
+.plan-annotation-action:hover {
+  color: var(--color-text-primary);
+}
+
+.final-answer-annotated-code {
+  margin-block: 1rem;
+}
+
+.final-answer-annotated-code > [data-chat-render="code-block"] {
+  margin-block: 0;
+}
+
+[data-plan-block-kind="list-item"] [data-plan-block-kind="paragraph"] {
+  background: transparent;
+}
+
+[data-plan-block-kind="list-item"] [data-plan-block-kind="paragraph"] > .plan-annotation-action {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .final-answer-document {
+    line-height: 1.58;
+  }
+
+  .final-answer-heading-1 {
+    font-size: 1.125rem;
+  }
+
+  .final-answer-table {
+    width: max-content;
+    table-layout: auto;
+  }
+
+  .final-answer-table-header,
+  .final-answer-table-cell {
+    min-width: 7rem;
+    padding: 0.48rem 0.56rem;
+  }
+}

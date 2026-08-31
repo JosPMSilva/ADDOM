@@ -1,0 +1,30 @@
+{
+  "fixtureId": "provider-openrouter-delayed",
+  "kind": "provider_stream",
+  "title": "OpenRouter delayed stream",
+  "sourceClass": "synthetic-provider-shape",
+  "provider": "openrouter",
+  "model": "anthropic/claude-3.5-sonnet",
+  "streamShape": "append-delta",
+  "scenario": "delayed",
+  "semanticOwnership": "provider-stream",
+  "contentFile": "stream.json",
+  "contentSha256": "3f335b7528e4ff090506d047b37c69c1c68a4fbf0de4a287a6f7185639a04fb2",
+  "captureProvenance": {
+    "source": "synthetic",
+    "captureMode": "repo-authored",
+    "sourceFiles": [
+      "runbook.md"
+    ],
+    "notes": "Structured synthetic provider stream fixture."
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ],
+  "sourceContentSha256": "3f335b7528e4ff090506d047b37c69c1c68a4fbf0de4a287a6f7185639a04fb2",
+  "expectedFinalMarkdownSha256": "11e6d919d175fae3fabf97de02d19b9739dfaaca98e5b8b63a666920da582941"
+}

@@ -1,0 +1,376 @@
+{
+  "providerId": "openrouter",
+  "onlyInModelsDevCount": 151,
+  "defaultPolicy": "upstream_only_unless_explicit_runtime_or_product_reason",
+  "bucketSummaries": {
+    "free_or_promo": {
+      "count": 72,
+      "ids": [
+        "allenai/molmo-2-8b__58__free",
+        "arcee-ai/trinity-large-preview__58__free",
+        "arcee-ai/trinity-mini__58__free",
+        "cognitivecomputations/dolphin-mistral-24b-venice-edition__58__free",
+        "cognitivecomputations/dolphin3.0-mistral-24b:free",
+        "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+        "deepseek/deepseek-chat-v3-0324:free",
+        "deepseek/deepseek-r1__58__free",
+        "deepseek/deepseek-r1-0528__58__free",
+        "deepseek/deepseek-r1-0528-qwen3-8b__58__free",
+        "deepseek/deepseek-r1-distill-llama-70b:free",
+        "deepseek/deepseek-r1-distill-qwen-14b:free",
+        "deepseek/deepseek-v3-base__58__free",
+        "deepseek/deepseek-v3.1-terminus__58__exacto",
+        "featherless/qwerky-72b:free",
+        "google/gemini-2.0-flash-exp__58__free",
+        "google/gemma-3-12b-it__58__free",
+        "google/gemma-3-27b-it__58__free",
+        "google/gemma-3-4b-it__58__free",
+        "google/gemma-3n-e2b-it__58__free",
+        "google/gemma-3n-e4b-it__58__free",
+        "kwaipilot/kat-coder-pro__58__free",
+        "liquid/lfm-2.5-1.2b-instruct__58__free",
+        "liquid/lfm-2.5-1.2b-thinking__58__free",
+        "meta-llama/llama-3.1-405b-instruct__58__free",
+        "meta-llama/llama-3.2-11b-vision-instruct:free",
+        "meta-llama/llama-3.2-3b-instruct__58__free",
+        "meta-llama/llama-3.3-70b-instruct__58__free",
+        "meta-llama/llama-4-scout__58__free",
+        "microsoft/mai-ds-r1__58__free",
+        "mistralai/devstral-2512__58__free",
+        "mistralai/devstral-small-2505__58__free",
+        "mistralai/mistral-7b-instruct__58__free",
+        "mistralai/mistral-nemo__58__free",
+        "mistralai/mistral-small-3.1-24b-instruct:free",
+        "mistralai/mistral-small-3.2-24b-instruct__58__free",
+        "mistralai/mistral-small-3.2-24b-instruct:free",
+        "moonshotai/kimi-dev-72b__58__free",
+        "moonshotai/kimi-k2__58__free",
+        "moonshotai/kimi-k2-0905__58__exacto",
+        "nousresearch/deephermes-3-llama-3-8b-preview:free",
+        "nousresearch/hermes-3-llama-3.1-405b__58__free",
+        "nvidia/nemotron-3-nano-30b-a3b__58__free",
+        "nvidia/nemotron-nano-12b-v2-vl__58__free",
+        "nvidia/nemotron-nano-9b-v2__58__free",
+        "openai/gpt-oss-120b__58__exacto",
+        "openai/gpt-oss-120b__58__free",
+        "openai/gpt-oss-20b__58__free",
+        "qwen/qwen-2.5-coder-32b-instruct:free",
+        "qwen/qwen-2.5-vl-7b-instruct__58__free",
+        "qwen/qwen2.5-vl-32b-instruct__58__free",
+        "qwen/qwen2.5-vl-72b-instruct__58__free",
+        "qwen/qwen2.5-vl-72b-instruct:free",
+        "qwen/qwen3-14b__58__free",
+        "qwen/qwen3-235b-a22b__58__free",
+        "qwen/qwen3-235b-a22b-07-25__58__free",
+        "qwen/qwen3-30b-a3b__58__free",
+        "qwen/qwen3-32b__58__free",
+        "qwen/qwen3-4b__58__free",
+        "qwen/qwen3-8b__58__free",
+        "qwen/qwen3-coder__58__exacto",
+        "qwen/qwen3-coder__58__free",
+        "qwen/qwen3-next-80b-a3b-instruct__58__free",
+        "qwen/qwq-32b__58__free",
+        "rekaai/reka-flash-3:free",
+        "sarvamai/sarvam-m__58__free",
+        "stepfun/step-3.5-flash__58__free",
+        "thudm/glm-z1-32b__58__free",
+        "tngtech/deepseek-r1t2-chimera__58__free",
+        "tngtech/tng-r1t-chimera__58__free",
+        "z-ai/glm-4.5-air__58__free",
+        "z-ai/glm-4.6__58__exacto"
+      ]
+    },
+    "preview_or_exp": {
+      "count": 13,
+      "ids": [
+        "google/gemini-2.5-flash-lite-preview-09-2025",
+        "google/gemini-2.5-flash-preview-09-2025",
+        "google/gemini-2.5-pro-preview-05-06",
+        "google/gemini-2.5-pro-preview-06-05",
+        "google/gemini-3.1-flash-lite-preview",
+        "google/gemini-3.1-pro-preview-customtools",
+        "sourceful/riverflow-v2-fast-preview",
+        "sourceful/riverflow-v2-max-preview",
+        "sourceful/riverflow-v2-standard-preview",
+        "x-ai/grok-3-beta",
+        "x-ai/grok-3-mini-beta",
+        "x-ai/grok-4.20-beta",
+        "x-ai/grok-4.20-multi-agent-beta"
+      ]
+    },
+    "image_or_media": {
+      "count": 6,
+      "ids": [
+        "black-forest-labs/flux.2-flex",
+        "black-forest-labs/flux.2-klein-4b",
+        "black-forest-labs/flux.2-max",
+        "black-forest-labs/flux.2-pro",
+        "bytedance-seed/seedream-4.5",
+        "openai/gpt-5-image"
+      ]
+    },
+    "provider_family_match": {
+      "count": 33,
+      "ids": [
+        "anthropic/claude-3.5-haiku",
+        "anthropic/claude-3.7-sonnet",
+        "deepseek/deepseek-v3.1-terminus",
+        "deepseek/deepseek-v3.2-speciale",
+        "google/gemma-2-9b-it",
+        "google/gemma-3-12b-it",
+        "google/gemma-3-27b-it",
+        "google/gemma-3-4b-it",
+        "google/gemma-3n-e4b-it",
+        "mistralai/devstral-small-2505",
+        "mistralai/mistral-medium-3",
+        "moonshotai/kimi-k2",
+        "openai/gpt-4.1",
+        "openai/gpt-4o-mini",
+        "openai/gpt-5-chat",
+        "openai/gpt-5-pro",
+        "openai/gpt-5.1-chat",
+        "openai/gpt-5.2-chat",
+        "openai/gpt-5.2-pro",
+        "openai/gpt-5",
+        "openai/o4-mini",
+        "qwen/qwen3-235b-a22b-07-25",
+        "qwen/qwen3-235b-a22b-thinking-2507",
+        "qwen/qwen3-30b-a3b-instruct-2507",
+        "qwen/qwen3-30b-a3b-thinking-2507",
+        "qwen/qwen3-coder-30b-a3b-instruct",
+        "qwen/qwen3-coder-flash",
+        "qwen/qwen3-coder",
+        "qwen/qwen3-max",
+        "qwen/qwen3-next-80b-a3b-instruct",
+        "qwen/qwen3-next-80b-a3b-thinking",
+        "qwen/qwen3.5-397b-a17b",
+        "qwen/qwen3.5-plus-02-15"
+      ]
+    },
+    "other": {
+      "count": 27,
+      "ids": [
+        "inception/mercury-2",
+        "inception/mercury-coder",
+        "inception/mercury",
+        "minimax/minimax-01",
+        "minimax/minimax-m1",
+        "minimax/minimax-m2.1",
+        "minimax/minimax-m2.5",
+        "minimax/minimax-m2",
+        "nousresearch/hermes-4-405b",
+        "nousresearch/hermes-4-405b",
+        "nvidia/nemotron-nano-9b-v2",
+        "openrouter/aurora-alpha",
+        "openrouter/free",
+        "openrouter/healer-alpha",
+        "openrouter/hunter-alpha",
+        "openrouter/sherlock-dash-alpha",
+        "openrouter/sherlock-think-alpha",
+        "prime-intellect/intellect-3",
+        "stepfun/step-3.5-flash",
+        "xiaomi/mimo-v2-flash",
+        "z-ai/glm-4.5-air",
+        "z-ai/glm-4.5",
+        "z-ai/glm-4.5v",
+        "z-ai/glm-4.6",
+        "z-ai/glm-4.7-flash",
+        "z-ai/glm-4.7",
+        "z-ai/glm-5"
+      ]
+    }
+  },
+  "reviewCandidateCount": 31,
+  "suggestedActionSummary": {
+    "keep_upstream_only": 31
+  },
+  "suggestedActions": [
+    {
+      "id": "anthropic/claude-3.5-haiku",
+      "action": "keep_upstream_only",
+      "reason": "older_model_not_needed",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "anthropic/claude-3.7-sonnet",
+      "action": "keep_upstream_only",
+      "reason": "older_model_not_needed",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "deepseek/deepseek-v3.1-terminus",
+      "action": "keep_upstream_only",
+      "reason": "temporary_variant_not_needed",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "deepseek/deepseek-v3.2-speciale",
+      "action": "keep_upstream_only",
+      "reason": "special_edition_not_needed",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "google/gemma-2-9b-it",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "google/gemma-3-12b-it",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "google/gemma-3-27b-it",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "google/gemma-3-4b-it",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "google/gemma-3n-e4b-it",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "mistralai/devstral-small-2505",
+      "action": "keep_upstream_only",
+      "reason": "older_model_not_needed",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "mistralai/mistral-medium-3",
+      "action": "keep_upstream_only",
+      "reason": "superseded_by_curated_native_model",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "moonshotai/kimi-k2",
+      "action": "keep_upstream_only",
+      "reason": "superseded_by_curated_native_model",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "openai/gpt-4.1",
+      "action": "keep_upstream_only",
+      "reason": "covered_by_curated_native_provider",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "openai/gpt-4o-mini",
+      "action": "keep_upstream_only",
+      "reason": "covered_by_curated_native_provider",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "openai/gpt-5",
+      "action": "keep_upstream_only",
+      "reason": "covered_by_curated_native_provider",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "openai/gpt-5-chat",
+      "action": "keep_upstream_only",
+      "reason": "covered_by_curated_native_provider",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "openai/gpt-5-pro",
+      "action": "keep_upstream_only",
+      "reason": "covered_by_curated_native_provider",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "openai/gpt-5.1-chat",
+      "action": "keep_upstream_only",
+      "reason": "covered_by_curated_native_provider",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "openai/gpt-5.2-chat",
+      "action": "keep_upstream_only",
+      "reason": "covered_by_curated_native_provider",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "openai/gpt-5.2-pro",
+      "action": "keep_upstream_only",
+      "reason": "covered_by_curated_native_provider",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "openai/o4-mini",
+      "action": "keep_upstream_only",
+      "reason": "covered_by_curated_native_provider",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "qwen/qwen3-235b-a22b-thinking-2507",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "qwen/qwen3-30b-a3b-instruct-2507",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "qwen/qwen3-30b-a3b-thinking-2507",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "qwen/qwen3-coder",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "qwen/qwen3-coder-30b-a3b-instruct",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "qwen/qwen3-coder-flash",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "qwen/qwen3-max",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "qwen/qwen3-next-80b-a3b-instruct",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "qwen/qwen3-next-80b-a3b-thinking",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    },
+    {
+      "id": "qwen/qwen3.5-397b-a17b",
+      "action": "keep_upstream_only",
+      "reason": "out_of_current_curated_family_scope",
+      "bucketId": "provider_family_match"
+    }
+  ],
+  "suggestedReviewQueue": []
+}

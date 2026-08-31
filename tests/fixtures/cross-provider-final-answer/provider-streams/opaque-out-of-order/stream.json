@@ -1,0 +1,151 @@
+{
+  "fixtureId": "provider-opaque-out-of-order",
+  "title": "Opaque out-of-order stream",
+  "provider": "opaque",
+  "model": "opaque-runtime",
+  "streamShape": "mixed-opaque",
+  "scenario": "out_of_order",
+  "events": [
+    {
+      "eventId": "provider-opaque-out-of-order-evt-002-raw",
+      "kind": "reasoning",
+      "phase": "reasoning",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "reasoning",
+      "text": "Normalizing mixed-opaque delivery.\n"
+    },
+    {
+      "eventId": "provider-opaque-out-of-order-evt-001-raw",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "commentary",
+      "text": "Planning opaque out-of-order stream.\n"
+    },
+    {
+      "eventId": "provider-opaque-out-of-order-evt-005",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-opaque-out-of-order-part-003",
+      "text": "- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-opaque-out-of-order-evt-003",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-opaque-out-of-order-part-001",
+      "text": "# Opaque out-of-order stream\n\n"
+    },
+    {
+      "eventId": "provider-opaque-out-of-order-evt-007",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 7,
+      "appendOrder": 7,
+      "ownership": "final-document",
+      "partId": "provider-opaque-out-of-order-part-005",
+      "text": "```ts\nconst ready = true;\n```\n"
+    },
+    {
+      "eventId": "provider-opaque-out-of-order-evt-004",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-opaque-out-of-order-part-002",
+      "text": "Out-of-order stream that proves the normalized canonical ordering is deterministic.\n\n"
+    },
+    {
+      "eventId": "provider-opaque-out-of-order-evt-006",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 6,
+      "appendOrder": 6,
+      "ownership": "final-document",
+      "partId": "provider-opaque-out-of-order-part-004",
+      "text": "| Field | Value |\n| --- | --- |\n| Provider | opaque |\n| Stream | mixed-opaque |\n\n"
+    }
+  ],
+  "canonicalEvents": [
+    {
+      "eventId": "provider-opaque-out-of-order-evt-001",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "commentary",
+      "text": "Planning opaque out-of-order stream.\n"
+    },
+    {
+      "eventId": "provider-opaque-out-of-order-evt-002",
+      "kind": "reasoning",
+      "phase": "reasoning",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "reasoning",
+      "text": "Normalizing mixed-opaque delivery.\n"
+    },
+    {
+      "eventId": "provider-opaque-out-of-order-evt-003",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-opaque-out-of-order-part-001",
+      "text": "# Opaque out-of-order stream\n\n"
+    },
+    {
+      "eventId": "provider-opaque-out-of-order-evt-004",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-opaque-out-of-order-part-002",
+      "text": "Out-of-order stream that proves the normalized canonical ordering is deterministic.\n\n"
+    },
+    {
+      "eventId": "provider-opaque-out-of-order-evt-005",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-opaque-out-of-order-part-003",
+      "text": "- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-opaque-out-of-order-evt-006",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 6,
+      "appendOrder": 6,
+      "ownership": "final-document",
+      "partId": "provider-opaque-out-of-order-part-004",
+      "text": "| Field | Value |\n| --- | --- |\n| Provider | opaque |\n| Stream | mixed-opaque |\n\n"
+    },
+    {
+      "eventId": "provider-opaque-out-of-order-evt-007",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 7,
+      "appendOrder": 7,
+      "ownership": "final-document",
+      "partId": "provider-opaque-out-of-order-part-005",
+      "text": "```ts\nconst ready = true;\n```\n"
+    }
+  ],
+  "expectedFinalMarkdown": "# Opaque out-of-order stream\n\nOut-of-order stream that proves the normalized canonical ordering is deterministic.\n\n- First bullet\n- Second bullet\n\n| Field | Value |\n| --- | --- |\n| Provider | opaque |\n| Stream | mixed-opaque |\n\n```ts\nconst ready = true;\n```\n",
+  "expectedFinalMarkdownSha256": "d522d0185c1facedcb8a2fd3dce7ae10735ce3ab5f83855b5eb170345bfb2219",
+  "expectedFinalOwnership": "final-document"
+}

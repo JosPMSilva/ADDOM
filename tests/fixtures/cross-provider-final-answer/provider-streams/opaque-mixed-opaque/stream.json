@@ -1,0 +1,160 @@
+{
+  "fixtureId": "provider-opaque-mixed-opaque",
+  "title": "Opaque mixed stream",
+  "provider": "opaque",
+  "model": "opaque-runtime",
+  "streamShape": "mixed-opaque",
+  "scenario": "mixed_opaque",
+  "events": [
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-001-raw",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "commentary",
+      "text": "Planning opaque mixed stream.\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-002-raw",
+      "kind": "reasoning",
+      "phase": "reasoning",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "reasoning",
+      "text": "Normalizing mixed-opaque delivery.\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-003",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-opaque-mixed-opaque-part-001",
+      "text": "# Opaque mixed stream\n\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-004",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-opaque-mixed-opaque-part-002",
+      "text": "Mixed opaque stream with commentary, reasoning, and a final-document tail.\n\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-005",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-opaque-mixed-opaque-part-003",
+      "text": "- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-006",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 6,
+      "appendOrder": 6,
+      "ownership": "final-document",
+      "partId": "provider-opaque-mixed-opaque-part-004",
+      "text": "| Field | Value |\n| --- | --- |\n| Provider | opaque |\n| Stream | mixed-opaque |\n\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-007",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 7,
+      "appendOrder": 7,
+      "ownership": "final-document",
+      "partId": "provider-opaque-mixed-opaque-part-005",
+      "text": "```ts\nconst ready = true;\n```\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-099",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 99,
+      "appendOrder": 99,
+      "ownership": "commentary",
+      "text": "```ts\nconst pending = true\n"
+    }
+  ],
+  "canonicalEvents": [
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-001",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "commentary",
+      "text": "Planning opaque mixed stream.\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-002",
+      "kind": "reasoning",
+      "phase": "reasoning",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "reasoning",
+      "text": "Normalizing mixed-opaque delivery.\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-003",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-opaque-mixed-opaque-part-001",
+      "text": "# Opaque mixed stream\n\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-004",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-opaque-mixed-opaque-part-002",
+      "text": "Mixed opaque stream with commentary, reasoning, and a final-document tail.\n\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-005",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-opaque-mixed-opaque-part-003",
+      "text": "- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-006",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 6,
+      "appendOrder": 6,
+      "ownership": "final-document",
+      "partId": "provider-opaque-mixed-opaque-part-004",
+      "text": "| Field | Value |\n| --- | --- |\n| Provider | opaque |\n| Stream | mixed-opaque |\n\n"
+    },
+    {
+      "eventId": "provider-opaque-mixed-opaque-evt-007",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 7,
+      "appendOrder": 7,
+      "ownership": "final-document",
+      "partId": "provider-opaque-mixed-opaque-part-005",
+      "text": "```ts\nconst ready = true;\n```\n"
+    }
+  ],
+  "expectedFinalMarkdown": "# Opaque mixed stream\n\nMixed opaque stream with commentary, reasoning, and a final-document tail.\n\n- First bullet\n- Second bullet\n\n| Field | Value |\n| --- | --- |\n| Provider | opaque |\n| Stream | mixed-opaque |\n\n```ts\nconst ready = true;\n```\n",
+  "expectedFinalMarkdownSha256": "23881db127d618b604a7d36be7302888ac085bca2abeffc19f418c6524516218",
+  "expectedFinalOwnership": "final-document"
+}

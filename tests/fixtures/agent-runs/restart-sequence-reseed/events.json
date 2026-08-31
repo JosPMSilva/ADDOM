@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "restart-sequence-reseed",
+  "events": [
+    { "ordinal": 1, "eventId": "<event-001>", "timestamp": "<timestamp-001>", "source": "synthetic_contract", "kind": "event_persisted", "runId": "<run-root>", "nodeId": "<node-child-001>", "parentNodeId": "<node-root>", "payload": { "attemptId": "<attempt-001>", "runSequence": 8, "nodeSequence": 5 } },
+    { "ordinal": 2, "eventId": "<event-002>", "timestamp": "<timestamp-002>", "source": "synthetic_contract", "kind": "runtime_reloaded", "runId": "<run-root>", "nodeId": "<node-root>", "parentNodeId": null, "payload": { "persistedRunSequence": 8 } },
+    { "ordinal": 3, "eventId": "<event-003>", "timestamp": "<timestamp-003>", "source": "synthetic_contract", "kind": "attempt_retried", "runId": "<run-root>", "nodeId": "<node-child-001>", "parentNodeId": "<node-root>", "payload": { "attemptId": "<attempt-002>", "previousAttemptId": "<attempt-001>", "runSequence": 9, "nodeSequence": 6 } }
+  ]
+}

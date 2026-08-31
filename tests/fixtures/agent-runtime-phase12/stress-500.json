@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "phase12-stress-500",
+  "seed": 1200500,
+  "nodeCount": 500,
+  "maximumDepth": 8,
+  "eventCount": 25000,
+  "transcriptHeavyNodeCount": 20,
+  "pendingApprovalCount": 10,
+  "stagedArtifactCount": 10,
+  "completedNodeCount": 400,
+  "failedNodeCount": 50,
+  "activeNodeCount": 50,
+  "providerIds": [
+    "openai-account",
+    "openrouter",
+    "cursor",
+    "anthropic"
+  ]
+}

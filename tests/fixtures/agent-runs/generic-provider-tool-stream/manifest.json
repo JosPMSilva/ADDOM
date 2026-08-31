@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "generic-provider-tool-stream",
+  "sourceClass": "sanitized_existing_test",
+  "captureDate": "2026-07-22",
+  "providerRuntimeClass": "addom_provider_tool_stream",
+  "synthetic": false,
+  "networkRequired": false,
+  "sourceReferences": ["tests/integration/chat-stream-model-step.test.mjs"],
+  "sanitization": { "method": "manual_shape_extraction", "privatePromptRemoved": true, "identifiersPlaceholdered": true, "pathsNormalized": true },
+  "contentHashAlgorithm": "sha256-canonical-json-v1",
+  "contentHash": "e8bff6276602203e0582ecf96bc1d649138c6b151ee887882f561b0ed80345bf",
+  "coverage": ["normal_completion"],
+  "expectedCapabilities": { "addressableChildIdentity": false, "nodeScopedStream": false, "nodeCancellation": false, "rootFinalAuthority": true },
+  "currentContract": { "identity": "root_turn_only", "stream": "canonical_root_stream", "cancellation": "root_turn_only", "rootFinalAuthority": "observed" },
+  "knownGaps": ["An ordinary provider tool stream contains no agent hierarchy evidence."]
+}

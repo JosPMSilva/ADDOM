@@ -1,0 +1,151 @@
+{
+  "fixtureId": "provider-cursor-cumulative-replay",
+  "title": "Cursor cumulative replay stream",
+  "provider": "cursor",
+  "model": "composer-2.5",
+  "streamShape": "cumulative-replay",
+  "scenario": "cumulative_replay",
+  "events": [
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-001-raw",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "commentary",
+      "text": "Planning cursor cumulative replay stream.\n"
+    },
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-002-raw",
+      "kind": "reasoning",
+      "phase": "reasoning",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "reasoning",
+      "text": "Normalizing cumulative-replay delivery.\n"
+    },
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-003-raw",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-cursor-cumulative-replay-part-001",
+      "text": "# Cursor cumulative replay stream\n\n"
+    },
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-004-raw",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-cursor-cumulative-replay-part-002",
+      "text": "# Cursor cumulative replay stream\n\nCumulative replay stream that normalizes repeated snapshots into one final markdown answer.\n\n"
+    },
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-005-raw",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-cursor-cumulative-replay-part-003",
+      "text": "# Cursor cumulative replay stream\n\nCumulative replay stream that normalizes repeated snapshots into one final markdown answer.\n\n- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-006-raw",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 6,
+      "appendOrder": 6,
+      "ownership": "final-document",
+      "partId": "provider-cursor-cumulative-replay-part-004",
+      "text": "# Cursor cumulative replay stream\n\nCumulative replay stream that normalizes repeated snapshots into one final markdown answer.\n\n- First bullet\n- Second bullet\n\n| Field | Value |\n| --- | --- |\n| Provider | cursor |\n| Stream | cumulative-replay |\n\n"
+    },
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-007-raw",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 7,
+      "appendOrder": 7,
+      "ownership": "final-document",
+      "partId": "provider-cursor-cumulative-replay-part-005",
+      "text": "# Cursor cumulative replay stream\n\nCumulative replay stream that normalizes repeated snapshots into one final markdown answer.\n\n- First bullet\n- Second bullet\n\n| Field | Value |\n| --- | --- |\n| Provider | cursor |\n| Stream | cumulative-replay |\n\n```ts\nconst ready = true;\n```\n"
+    }
+  ],
+  "canonicalEvents": [
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-001",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "commentary",
+      "text": "Planning cursor cumulative replay stream.\n"
+    },
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-002",
+      "kind": "reasoning",
+      "phase": "reasoning",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "reasoning",
+      "text": "Normalizing cumulative-replay delivery.\n"
+    },
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-003",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-cursor-cumulative-replay-part-001",
+      "text": "# Cursor cumulative replay stream\n\n"
+    },
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-004",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-cursor-cumulative-replay-part-002",
+      "text": "Cumulative replay stream that normalizes repeated snapshots into one final markdown answer.\n\n"
+    },
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-005",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-cursor-cumulative-replay-part-003",
+      "text": "- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-006",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 6,
+      "appendOrder": 6,
+      "ownership": "final-document",
+      "partId": "provider-cursor-cumulative-replay-part-004",
+      "text": "| Field | Value |\n| --- | --- |\n| Provider | cursor |\n| Stream | cumulative-replay |\n\n"
+    },
+    {
+      "eventId": "provider-cursor-cumulative-replay-evt-007",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 7,
+      "appendOrder": 7,
+      "ownership": "final-document",
+      "partId": "provider-cursor-cumulative-replay-part-005",
+      "text": "```ts\nconst ready = true;\n```\n"
+    }
+  ],
+  "expectedFinalMarkdown": "# Cursor cumulative replay stream\n\nCumulative replay stream that normalizes repeated snapshots into one final markdown answer.\n\n- First bullet\n- Second bullet\n\n| Field | Value |\n| --- | --- |\n| Provider | cursor |\n| Stream | cumulative-replay |\n\n```ts\nconst ready = true;\n```\n",
+  "expectedFinalMarkdownSha256": "36c795785ac8c1587435dbaf6525d954939c606c5119ff273265683e5b0b704d",
+  "expectedFinalOwnership": "final-document"
+}

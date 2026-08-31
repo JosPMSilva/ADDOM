@@ -1,0 +1,151 @@
+{
+  "fixtureId": "provider-openrouter-anthropic-final-replacement",
+  "title": "OpenRouter Anthropic final replacement stream",
+  "provider": "openrouter",
+  "model": "anthropic/claude-3.5-sonnet",
+  "streamShape": "final-replacement",
+  "scenario": "final_replacement",
+  "events": [
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-001-raw",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "commentary",
+      "text": "Planning openrouter anthropic final replacement stream.\n"
+    },
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-002-raw",
+      "kind": "reasoning",
+      "phase": "reasoning",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "reasoning",
+      "text": "Normalizing final-replacement delivery.\n"
+    },
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-draft",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-openrouter-anthropic-final-replacement-part-001",
+      "text": "# OpenRouter Anthropic final replacement stream\n\nDraft body.\n\n"
+    },
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-004",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-openrouter-anthropic-final-replacement-part-002",
+      "text": "Final replacement stream that supersedes an earlier draft response.\n\n"
+    },
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-005",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-openrouter-anthropic-final-replacement-part-003",
+      "text": "- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-006",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 6,
+      "appendOrder": 6,
+      "ownership": "final-document",
+      "partId": "provider-openrouter-anthropic-final-replacement-part-004",
+      "text": "| Field | Value |\n| --- | --- |\n| Provider | openrouter |\n| Stream | final-replacement |\n\n"
+    },
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-007",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 7,
+      "appendOrder": 7,
+      "ownership": "final-document",
+      "partId": "provider-openrouter-anthropic-final-replacement-part-005",
+      "text": "```ts\nconst ready = true;\n```\n"
+    }
+  ],
+  "canonicalEvents": [
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-001",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "commentary",
+      "text": "Planning openrouter anthropic final replacement stream.\n"
+    },
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-002",
+      "kind": "reasoning",
+      "phase": "reasoning",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "reasoning",
+      "text": "Normalizing final-replacement delivery.\n"
+    },
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-003",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-openrouter-anthropic-final-replacement-part-001",
+      "text": "# OpenRouter Anthropic final replacement stream\n\n"
+    },
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-004",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-openrouter-anthropic-final-replacement-part-002",
+      "text": "Final replacement stream that supersedes an earlier draft response.\n\n"
+    },
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-005",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-openrouter-anthropic-final-replacement-part-003",
+      "text": "- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-006",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 6,
+      "appendOrder": 6,
+      "ownership": "final-document",
+      "partId": "provider-openrouter-anthropic-final-replacement-part-004",
+      "text": "| Field | Value |\n| --- | --- |\n| Provider | openrouter |\n| Stream | final-replacement |\n\n"
+    },
+    {
+      "eventId": "provider-openrouter-anthropic-final-replacement-evt-007",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 7,
+      "appendOrder": 7,
+      "ownership": "final-document",
+      "partId": "provider-openrouter-anthropic-final-replacement-part-005",
+      "text": "```ts\nconst ready = true;\n```\n"
+    }
+  ],
+  "expectedFinalMarkdown": "# OpenRouter Anthropic final replacement stream\n\nFinal replacement stream that supersedes an earlier draft response.\n\n- First bullet\n- Second bullet\n\n| Field | Value |\n| --- | --- |\n| Provider | openrouter |\n| Stream | final-replacement |\n\n```ts\nconst ready = true;\n```\n",
+  "expectedFinalMarkdownSha256": "f7e6dd6d25a9faa6973be156f4e7db183ff0689c73642211636ca9fe63939ba3",
+  "expectedFinalOwnership": "final-document"
+}

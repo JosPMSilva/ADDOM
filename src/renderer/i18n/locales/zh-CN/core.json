@@ -1,0 +1,2265 @@
+{
+  "app": {
+    "workspacePanelSkeleton": {
+      "ariaLabel": "正在加载 {{panelLabel}}",
+      "text": "正在加载 {{panelLabel}}..."
+    },
+    "workspaceBootError": {
+      "title": "Workspace 启动失败",
+      "message": "ADDOM 无法准备该面板所需的 workspace 缓存。",
+      "retry": "重试启动"
+    },
+    "leaveWorkspace": {
+      "title": "未保存的更改",
+      "message": "You have unsaved files. Choose how to proceed before switching projects.",
+      "noUnsavedFiles": "没有未保存的文件。",
+      "cancel": "取消",
+      "discardAndLeave": "Discard & Switch",
+      "saving": "正在保存...",
+      "saveAllAndLeave": "Save All & Switch"
+    },
+    "confirmDialog": {
+      "messageFallback": "您确定要继续吗？",
+      "cancel": "取消",
+      "confirm": "确认"
+    },
+    "panelLabels": {
+      "chat": "Chat面板",
+      "editor": "编辑器面板",
+      "sourceControl": "更改面板",
+      "artifacts": "Artifacts面板",
+      "memory": "Memory面板",
+      "settings": "设置面板",
+      "agents": "智能体面板",
+      "projectEntry": "Project entry"
+    }
+  },
+  "companionDock": {
+    "resize": "调整辅助面板大小",
+    "views": "辅助视图",
+    "restoreSplit": "恢复拆分视图",
+    "focus": "聚焦辅助面板",
+    "close": "关闭辅助视图",
+    "document": {
+      "search": "搜索文档",
+      "missing": "此文档已不存在。",
+      "tooLarge": "此文档过大，无法预览。",
+      "unavailable": "无法加载此文档。",
+      "changed": "正在更新…",
+      "status": "Markdown 文档",
+      "openInEditor": "在编辑器中打开",
+      "reveal": "在文件资源管理器中显示",
+      "reload": "重新加载文档",
+      "loading": "正在加载文档…",
+      "retry": "重试",
+        "implementPlan": "Implement",
+        "changePlaceholder": "Describe the change…",
+        "resizeChangeEditor": "Resize change editor",
+        "addChange": "Add change",
+        "annotateChange": "Annotate change",
+        "reviewHint": "Hover a paragraph to suggest a change.",
+        "changeCount": "{{count}} changes",
+        "undoLastChange": "Undo latest change",
+        "submitChanges": "Submit changes",
+        "pendingChanges": "Pending plan changes",
+        "removeChange": "Remove change"
+    }
+  },
+  "startup": {
+    "bootstrapFailure": {
+      "eyebrow": "Startup failed",
+      "title": "ADDOM could not finish starting.",
+      "messageFallback": "Renderer bootstrap failed",
+      "reload": "Reload app"
+    }
+  },
+  "sourceControl": {
+    "openProject": "打开项目文件夹以检查更改。",
+    "navigationFailed": "无法从 Source Control 打开所选文件。",
+    "refresh": "刷新",
+    "loading": "正在加载更改...",
+    "noRepo": "此 workspace 不在 git 存储库内。",
+    "clean": "工作树干净。",
+    "emptyFilter": "没有文件与当前过滤器匹配。",
+    "filters": {
+      "all": "全部",
+      "staged": "Staged",
+      "unstaged": "Unstaged",
+      "conflicted": "冲突",
+      "untracked": "未追踪"
+    },
+    "search": {
+      "label": "搜索更改的文件",
+      "placeholder": "搜索更改的文件"
+    },
+    "groups": {
+      "staged": "Staged",
+      "unstaged": "Unstaged"
+    },
+    "actions": {
+      "stageFile": "暂存文件",
+      "unstageFile": "取消暂存文件",
+      "stageAll": "暂存全部",
+      "unstageAll": "取消暂存全部"
+    },
+    "summary": {
+      "title": "变化",
+      "branch": "Branch: {{branch}}",
+      "repoState": "{{repoRoot}}",
+      "chips": {
+        "staged": "Staged",
+        "unstaged": "Unstaged",
+        "conflicts": "冲突"
+      }
+    },
+    "commit": {
+      "title": "Commit",
+      "description": "仅根据 staged 更改创建 commit。",
+      "pending": "Committing...",
+      "action": "Commit",
+      "placeholder": "Commit 消息",
+      "disabledPlaceholder": "Stage files to enable commit authoring"
+    },
+    "entry": {
+      "renameFrom": "来自 {{path}}"
+    },
+    "detail": {
+      "stage": "Stage: {{scope}}",
+      "loading": "正在加载 SCM 详细信息...",
+      "title": "SCM详细信息",
+      "path": "小路：",
+      "previousPath": "上一个路径：",
+      "previewSource": "预览来源：",
+      "indexCommit": "索引 commit：",
+      "worktreeCommit": "Worktree commit：",
+      "dirtyWorktree": "Dirty worktree:",
+      "actions": {
+        "restoring": "正在恢复...",
+        "restoreFile": "恢复文件",
+        "unstaging": "Unstaging...",
+        "unstageDeletion": "Unstage deletion",
+        "unstageRename": "Unstage 重命名"
+      }
+    },
+    "common": {
+      "yes": "是的",
+      "no": "不"
+    }
+  },
+  "terminal": {
+    "common": {
+      "cancel": "取消",
+      "user": "用户",
+      "ai": "人工智能",
+      "session": "会议",
+      "host": "主持人",
+      "workspace": "Workspace",
+      "shell": "shell",
+      "terminal": "terminal",
+      "terminalTitle": "Terminal",
+      "threadPrefix": "Thread",
+      "status": {
+        "closing": "闭幕式",
+        "ended": "结束",
+        "closed": "关闭",
+        "live": "居住",
+        "failed": "失败的",
+        "terminated": "终止"
+      },
+      "timestamp": {
+        "closedPrefix": "关闭",
+        "startedPrefix": "开始"
+      },
+      "suggestion": {
+        "dismissed": "被解雇",
+        "suggested": "建议",
+        "none": "没有建议"
+      }
+    },
+    "banner": {
+      "thisPlatform": "这个平台",
+      "anotherPlatform": "另一个平台",
+      "runtimeDisabled": "Runtime 禁用",
+      "disabledByEnv": "ADDOM_DISABLE_TERMINAL_SESSIONS 覆盖已启用。",
+      "rolloutDisabled": "已禁用推出",
+      "disabledByRollout": "当前的推出策略禁用了 Terminal 会话。",
+      "platformGated": "平台门禁",
+      "platformGatedDetail": "{{platform}} 仍落后于推出。打包验证仅记录{{allowedLabel}}。",
+      "unsupportedPlatform": "不支持的平台",
+      "unsupportedPlatformDetail": "{{platform}} 超出了为 terminal 会话设置的受支持的 PTY 目标。",
+      "disabledGeneric": "Terminal 会话在此 runtime 上被禁用。",
+      "runtimeFailed": "Runtime 失败",
+      "failedDetail": "PTY runtime 健康检查失败。",
+      "checkingRuntime": "检查runtime",
+      "checkingRuntimeDetail": "ADDOM 正在验证 PTY 对此应用程序 runtime 的支持。",
+      "runtimeReady": "Runtime 就绪",
+      "runtimeReadyDetail": "交互式 terminal 会话适用于此 workspace。",
+      "lastActionFailed": "上次操作失败"
+    },
+    "viewport": {
+      "sessionState": {
+        "archived": "已存档",
+        "ended": "结束",
+        "closed": "关闭",
+        "live": "居住"
+      },
+      "workspaceShell": "Workspace shell",
+      "startTitle": "启动 terminal 会话",
+      "unavailableTitle": "Chat terminal 不可用",
+      "startDescription": "在此处打开 terminal 来检查日志、运行项目命令或让 AI 从同一 shell 继续。",
+      "unavailableDescription": "Terminal 会话在此 runtime 中尚不可用。",
+      "startingSession": "开始会议...",
+      "createSession": "创建会话",
+      "readOnly": "只读",
+      "model": "Model",
+      "workspaceRoot": "workspace根",
+      "trimmed": "修剪过的",
+      "clickToFocus": "点击聚焦",
+      "activateSurface": "活化表面",
+      "aria": {
+        "archivedViewport": "已归档 terminal 视口",
+        "interactiveViewport": "交互式 terminal 视口",
+        "terminalActions": "Terminal 动作"
+      },
+      "context": {
+        "copy": "复制",
+        "paste": "粘贴",
+        "selectAll": "选择全部",
+        "buffer": "缓冲",
+        "copyVisibleOutput": "Copy visible output",
+        "copyFullScrollback": "Copy full scrollback",
+        "pasteAsSingleLine": "Paste as single line",
+        "clear": "Clear",
+        "zoomIn": "Zoom in",
+        "zoomOut": "Zoom out",
+        "zoomReset": "Reset zoom",
+        "terminalFontSize": "{{size}}px",
+        "sendOutputToChat": "Send output to chat",
+        "explainLastError": "Explain last error",
+        "summarizeSession": "Summarize session",
+        "saveSnapshotToMemory": "Save snapshot to notes",
+        "cut": "Cut selection"
+      },
+      "search": {
+        "placeholder": "Search terminal output",
+        "previous": "Previous match",
+        "next": "Next match",
+        "close": "Close search",
+        "noMatches": "No matches",
+        "resultCount": "{{current}}/{{total}}"
+      },
+      "pasteConfirm": {
+        "title": "Confirm large paste",
+        "message": "Paste {{count}} lines into the terminal? This can run multiple commands at once."
+      }
+    },
+    "dock": {
+      "state": {
+        "approval": "赞同",
+        "approvalSuffix": "赞同",
+        "denied": "被拒绝",
+        "userTakeover": "用户控制中",
+        "aiWaiting": "人工智能等待",
+        "aiControlling": "AI 控制中",
+        "running": "跑步"
+      },
+      "announcements": {
+        "userTakeoverActive": "当前由用户控制此 shell。",
+        "takeoverRequired": "接过这个terminal开始打字。"
+      },
+      "resize": "调整 terminal 扩展坞的大小",
+      "tablistAriaLabel": "Thread terminal 会话",
+      "unread": "未读",
+      "terminalSessions": "Terminal 会话",
+      "workspaceRoot": "workspace根",
+      "control": {
+        "aiControlsShell": "AI控制这个shell。打字前接管。",
+        "userControlsShell": "您当前控制着这台 shell。",
+        "typingBlockedUntilTakeover": "在您确认接管之前，打字将被阻止。",
+        "aiWaitingForUser": "AI 正在等待用户确认后再继续。"
+      },
+      "browser": {
+        "title": "Terminal浏览器",
+        "subtitle": "当前 Thread / 其他实时 / 历史记录",
+        "sections": {
+          "currentThread": "当前Thread",
+          "otherLive": "其他直播",
+          "history": "历史"
+        },
+        "empty": {
+          "currentThread": "尚未将任何活动或挂起的 terminal 会话附加到此 thread。",
+          "otherLive": "目前没有其他 threads 有实时 terminal 活动。",
+          "history": "尚无此 workspace 的存档 terminal 历史记录。"
+        },
+        "fields": {
+          "thread": "Thread",
+          "scope": "范围",
+          "updated": "已更新"
+        },
+        "requestedIn": "在 {{section}} 中请求",
+        "suggestionFallback": "时间线建议卡与此浏览器分开。",
+        "crossThread": {
+          "title": "跨 thread 会话",
+          "description": "浏览此处的元数据，然后使用 {{openThreadLabel}} 从拥有的 chat thread 进行检查或交互。"
+        },
+        "selectSession": "选择 terminal 会话",
+        "actions": {
+          "openThread": "Open thread",
+          "savedToMemory": "保存至 Memory",
+          "noMemorySummary": "无 Memory 摘要",
+          "saveToThreadMemory": "Save to conversation notes",
+          "saveToProjectMemory": "Save to project notes",
+          "deletingArchive": "正在删除...",
+          "deleteArchive": "删除存档",
+          "openTerminal": "打开terminal",
+          "backToDock": "返回码头",
+          "browseSessions": "浏览会话",
+          "handBackToAi": "交还给 AI",
+          "confirmTakeover": "确认接管",
+          "takeOver": "接管",
+          "expandBrowser": "展开terminal浏览器",
+          "collapseBrowser": "折叠 terminal 浏览器",
+          "expand": "扩张",
+          "collapse": "坍塌",
+          "openTerminalActions": "Terminal menu",
+          "terminalDockActions": "Terminal 坞站操作",
+          "closeBrowser": "关闭浏览器",
+          "interrupt": "打断",
+          "stopInput": "停止输入",
+          "closeSession": "结束会议",
+          "archiveSession": "存档会议",
+          "hideTerminal": "隐藏 terminal",
+          "dismiss": "解雇",
+          "forceTerminate": "强制终止",
+          "killProcess": "杀死进程",
+          "renameSession": "Rename session",
+          "editTitle": "Edit title",
+          "duplicateSession": "Duplicate session",
+          "sameCwdShell": "Same cwd and shell",
+          "newAtProjectRoot": "New at project root",
+          "newFromCurrentCwd": "New from current cwd",
+          "newFromEditorCwd": "New from editor folder",
+          "currentCwd": "Current cwd",
+          "editorFolder": "Editor folder",
+          "defaultShell": "Default shell",
+          "newWithShell": "New with shell",
+          "sendOutputToChat": "Send output to chat",
+          "explainLastError": "Explain last error",
+          "summarizeSession": "Summarize session",
+          "saveSnapshotToMemory": "Save snapshot to notes",
+          "prefillComposer": "Prefill composer",
+          "recentOutput": "Recent output",
+          "boundedOutput": "Bounded output",
+          "threadMemory": "Conversation notes"
+        }
+      },
+      "confirm": {
+        "forceTerminateHost": {
+          "title": "强制终止主机 Terminal",
+          "message": "强制终止此主机范围的 terminal 会话吗？这将立即终止底层进程。"
+        },
+        "forceTerminate": {
+          "title": "强制终止 Terminal",
+          "message": "强制终止此 terminal 会话吗？这将立即终止底层进程。"
+        },
+        "deleteArchive": {
+          "title": "删除存档的 Terminal 会话",
+          "message": "删除此存档的 terminal 会话吗？\n\n这仅删除保留的存档记录并且无法撤消。",
+          "confirm": "删除存档"
+        }
+      },
+      "prompts": {
+        "renameSession": "Rename terminal session"
+      },
+      "actions": {
+        "openTerminal": "Open terminal",
+        "backToDock": "Back to dock",
+        "browseSessions": "Browse sessions",
+        "handBackToAi": "交还给 AI",
+        "confirmTakeover": "Confirm takeover",
+        "takeOver": "Take over",
+        "expandBrowser": "Expand terminal browser",
+        "collapseBrowser": "Collapse terminal browser",
+        "expand": "Expand",
+        "collapse": "Collapse",
+        "openTerminalActions": "Terminal menu",
+        "terminalDockActions": "Terminal dock actions",
+        "closeBrowser": "Close browser",
+        "renameSession": "Rename session",
+        "editTitle": "Edit title",
+        "duplicateSession": "Duplicate session",
+        "sameCwdShell": "Same cwd and shell",
+        "newAtProjectRoot": "New at project root",
+        "newFromCurrentCwd": "New from current cwd",
+        "newFromEditorCwd": "New from editor folder",
+        "currentCwd": "Current cwd",
+        "editorFolder": "Editor folder",
+        "defaultShell": "Default shell",
+        "newWithShell": "New with shell",
+        "interrupt": "Interrupt",
+        "stopInput": "Stop input",
+        "closeSession": "Close session",
+        "archiveSession": "Archive session",
+        "hideTerminal": "Hide terminal",
+        "dismiss": "Dismiss",
+        "forceTerminate": "Force terminate",
+        "killProcess": "Kill process"
+      }
+    },
+    "globalIndicator": {
+      "threadCount": "{{count}} conversation{{suffix}}",
+      "liveCount": "{{count}} live terminal{{suffix}}",
+      "priority": {
+        "approval": "需要批准",
+        "waiting": "等待用户"
+      }
+    },
+    "pendingApproval": {
+      "title": "Terminal waiting for approval",
+      "scopeLabel": "Scope",
+      "scopeHost": "Host access",
+      "scopeWorkspace": "Workspace",
+      "directoryLabel": "Directory",
+      "workspaceRoot": "workspace root"
+    }
+  },
+  "editor": {
+    "fileTree": {
+      "projectFallback": "项目",
+      "syncing": "正在同步",
+      "openProjectFolder": "打开项目文件夹",
+      "refresh": "刷新文件树",
+      "ariaLabel": "{{projectName}} 文件",
+      "loading": "加载中...",
+      "emptyProject": "空项目。",
+      "binaryTitle": "{{path}}（无法打开二进制文件）"
+    },
+    "emptyState": {
+      "title": "从树中选择一个文件将其打开",
+      "shortcutHint": "Ctrl+S 保存 |单击 x 关闭选项卡"
+    },
+    "loadingPane": "加载中...",
+    "panel": {
+      "thisFile": "这个文件",
+      "closeDirty": {
+        "title": "未保存的更改",
+        "message": "关闭前保存对 {{fileLabel}} 的更改吗？",
+        "confirm": "保存并关闭",
+        "cancel": "更多选择"
+      },
+      "saveFailed": {
+        "title": "保存失败",
+        "message": "无法保存文件。"
+      },
+      "discard": {
+        "title": "放弃更改？",
+        "message": "放弃 {{fileLabel}} 中未保存的更改并关闭它？",
+        "confirm": "放弃更改",
+        "cancel": "继续编辑"
+      },
+      "formatActionTitle": "使用活动格式化程序路径格式化文档 (Shift+Alt+F)",
+      "formatUnavailableTitle": "当前文件无法格式化",
+      "fixActionTitle": "从活动代码操作 provider 应用可自动修复的问题",
+      "fixUnavailableTitle": "代码操作对当前文件不可用",
+      "serviceNotice": {
+        "providerDegraded": "{{providerLabel}} 已降级。编辑器功能可能会受到限制。",
+        "providerUnavailable": "{{providerLabel}} 不可用。编辑器功能可能会受到限制。",
+        "genericUnavailable": "某些编辑器服务目前不可用。"
+      },
+      "emptyProject": "打开项目文件夹以使用编辑器。",
+      "resizeFileTree": "调整文件树大小",
+      "fileWatcherCap": "文件观察器达到目录上限 ({{watchedCount}}/{{maxDirectories}})。某些文件夹不会主动监视外部编辑。",
+      "dismiss": "解雇",
+      "externalChangeDetected": "检测到 {{filePath}} 的外部更改。您未保存的编辑已被保留。",
+      "reloadFromDisk": "从磁盘重新加载",
+      "resizeMarkdownPreview": "调整 Markdown 预览窗格的大小",
+      "errors": {
+        "noProjectOrTabSelected": "未选择项目或选项卡。"
+      }
+    },
+    "tabBar": {
+      "openTabsAriaLabel": "打开编辑器选项卡",
+      "fallbackFileLabel": "文件",
+      "fallbackTabLabel": "选项卡",
+      "saveTabAriaLabel": "保存 {{fileLabel}}",
+      "unsavedChangesTitle": "未保存的更改 - 单击保存",
+      "externalChangedTitle": "检测到外部文件更改",
+      "problemSummaryTitle": "{{count}}问题{{suffix}}（{{error}}错误{{errorSuffix}}、{{warning}}警告{{warningSuffix}}、{{info}}信息）",
+      "closeTabAriaLabel": "关闭 {{tabLabel}}",
+      "aiActionsTitle": "针对选定代码的 AI 操作",
+      "aiDraftHint": "使用当前选择和附近的上下文草稿到 Chat。",
+      "preview": "预览",
+      "fix": "使固定",
+      "format": "格式",
+      "auto": "Auto",
+      "togglePreviewTitle": "切换降价预览 (Ctrl/Cmd+Shift+V)",
+      "toggleFormatOnSaveTitle": "当当前文件具有活动格式化程序路径时，在保存时切换格式",
+      "aiSelection": {
+        "explain": {
+          "label": "解释",
+          "title": "解释Chat中选定的代码",
+          "description": "解释行为、假设和风险。"
+        },
+        "fix": {
+          "label": "使固定",
+          "title": "修复 Chat 中选定的代码",
+          "description": "修复所选代码中的错误/问题。"
+        },
+        "refactor": {
+          "label": "重构",
+          "title": "重构 Chat 中选定的代码",
+          "description": "重构的同时保留行为。"
+        },
+        "tests": {
+          "label": "测试",
+          "title": "为 Chat 中选定的代码生成测试",
+          "description": "为选定的代码编写测试。"
+        }
+      }
+    },
+    "diagnostics": {
+      "currentFile": "当前文件",
+      "common": {
+        "expand": "扩张",
+        "collapse": "坍塌"
+      },
+      "filters": {
+        "all": "全部",
+        "errors": "错误",
+        "warnings": "警告",
+        "info": "信息"
+      },
+      "severity": {
+        "error": "错误",
+        "warning": "警告",
+        "info": "信息",
+        "hint": "暗示"
+      },
+      "problems": {
+        "title": "问题",
+        "errorCount": "{{count}} 错误{{suffix}}",
+        "warningCount": "{{count}} 警告{{suffix}}",
+        "infoCount": "{{count}}信息",
+        "none": "没问题",
+        "expandTitle": "展开问题面板",
+        "collapseTitle": "折叠问题面板",
+        "setDefaultStateTitle": "设置问题面板默认状态",
+        "defaultCollapsed": "默认折叠",
+        "noMatch": "没有与当前过滤器匹配的问题。",
+        "noneInFile": "该文件没有问题。"
+      },
+      "outline": {
+        "title": "大纲",
+        "expandTitle": "展开轮廓",
+        "collapseTitle": "折叠轮廓",
+        "filterSymbols": "过滤符号",
+        "symbolCount": "{{count}} 符号{{suffix}}",
+        "refreshing": "清爽...",
+        "setupTitle": "设置",
+        "hintCount": "{{count}} 提示{{suffix}}",
+        "dismissSetupHintTitle": "关闭 {{actionLabel}} 设置提示",
+        "unavailableForFileType": "大纲尚不适用于此文件类型。",
+        "loadingSymbols": "正在加载符号...",
+        "noneAvailable": "没有可用的轮廓。",
+        "noMatch": "没有符号与当前过滤器匹配。",
+        "noneDetected": "在此文件中未检测到任何符号。",
+        "symbolFallback": "象征",
+        "messages": {
+          "serviceUnavailable": "由于编辑器服务尚未准备好，符号不可用。",
+          "loadFailed": "无法加载符号。",
+          "realProviderMissing": "该文件仅保留语法，因为没有真正的 provider 可用于该语言。",
+          "formatOnlyLanguage": "该语言目前在编辑器中仅保留语法。",
+          "missingBinary": "在此项目或 PATH 上未找到 {{providerLabel}}。",
+          "providerUnavailable": "{{providerLabel}} 不适用于此文件中的符号。",
+          "providerDegraded": "此文件中的符号 {{providerLabel}} 已降级。",
+          "providerRequestFailed": "{{providerLabel}} 加载此文件的符号时失败。",
+          "unsupportedFile": "大纲不适用于此文件类型。",
+          "unsupported": "此文件的大纲不可用。"
+        }
+      },
+      "setupHints": {
+        "messages": {
+          "formatting": {
+            "realProviderMissing": "格式化此文件需要真正的 provider。",
+            "biomeConfigRequired": "格式化需要项目 Biome 配置。",
+            "ruffConfigRequired": "格式化需要项目 Ruff 配置。",
+            "clangFormatConfigRequired": "格式化需要项目.clang-format 或 _clang-format 配置。",
+            "javaProjectContextRequired": "格式化需要 Maven 或 Gradle 项目上下文（pom.xml、build.gradle、build.gradle.kts、settings.gradle、settings.gradle.kts）。",
+            "dotnetProjectRequired": "格式化需要真实的.csproj 或.sln 上下文。",
+            "missingBinary": "在此项目或 PATH 上未找到 {{providerLabel}}。",
+            "providerUnavailable": "{{providerLabel}} 对该文件不可用。",
+            "providerDegraded": "此文件的 {{providerLabel}} 已降级。",
+            "providerRequestFailed": "{{providerLabel}} 提供此文件时失败。",
+            "formatOnlyLanguage": "该语言目前仅支持格式化。"
+          },
+          "codeActions": {
+            "realProviderMissing": "代码操作需要此文件的真实 provider。",
+            "eslintProjectRequired": "代码操作需要项目配置的 ESLint provider。",
+            "ruffConfigRequired": "代码操作需要项目 Ruff 配置。",
+            "clangTidyConfigRequired": "代码操作需要项目.clang-tidy 配置。",
+            "clangCompileContextRequired": "代码操作需要compile_commands.json或compile_flags.txt。",
+            "javaProjectContextRequired": "代码操作需要 Maven 或 Gradle 项目上下文（pom.xml、build.gradle、build.gradle.kts、settings.gradle、settings.gradle.kts）。",
+            "dotnetProjectRequired": "代码操作需要真实的.csproj 或.sln 上下文。",
+            "javaNotInstalled": "在 PATH 或 JAVA_HOME 上找不到可用的 JDK。 jdtls 需要 Java。",
+            "dotnetNotInstalled": "在 PATH 上未找到 dotnet。",
+            "missingBinary": "在此项目或 PATH 上未找到 {{providerLabel}}。",
+            "providerUnavailable": "{{providerLabel}} 对该文件不可用。",
+            "providerDegraded": "此文件的 {{providerLabel}} 已降级。",
+            "providerRequestFailed": "{{providerLabel}} 提供此文件时失败。",
+            "formatOnlyLanguage": "该语言目前仅支持格式化。"
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "设置",
+    "navigationTitle": "设置导航",
+    "overviewTitle": "概述",
+    "controls": {
+      "expandAll": "全部展开",
+      "collapseAll": "全部折叠"
+    },
+    "counts": {
+      "sectionOne": "1节",
+      "sectionOther": "{{count}}款",
+      "visibleSectionOne": "1 个可见部分",
+      "visibleSectionOther": "{{count}} 可见部分"
+    },
+    "common": {
+      "yes": "是的",
+      "no": "不",
+      "completed": "完全的",
+      "inProgress": "进行中",
+      "ready": "准备好",
+      "notReady": "还没准备好",
+      "savedOnly": "仅保存",
+      "unknown": "未知",
+      "checking": "检查...",
+      "disabled": "残疾人"
+    }
+  },
+  "artifacts": {
+    "emptyProject": "打开项目文件夹以查看工件历史记录。",
+    "trackedFilesTitle": "追踪文件",
+    "scope": {
+      "label": "工件范围",
+      "entireProject": "项目",
+      "thisThread": "线程",
+      "resultCount": "{{count}} 个文件"
+    },
+    "loadingTrackedFiles": "正在加载跟踪文件...",
+    "emptyTrackedFiles": "还没有版本化文件。 AI文件写入和代码建议将出现在这里。",
+    "deleteRevisionDialog": {
+      "title": "删除修订",
+      "message": "删除版本 {{rev}} ({{source}})：\n{{filePath}}\n\n此操作无法撤消。",
+      "confirm": "删除修订",
+      "cancel": "取消"
+    },
+    "deleteHistoryDialog": {
+      "title": "删除修订历史记录",
+      "message": "删除以下所有修订历史记录：\n{{filePath}}\n\n磁盘上的文件不会被删除。",
+      "confirm": "删除历史记录",
+      "cancel": "取消"
+    },
+    "selectFile": "选择一个文件以查看其修订历史记录。",
+    "labels": {
+      "fromBase": "来自（基地）",
+      "toHead": "至（头）",
+      "base": "根据",
+      "head": "头"
+    },
+    "deleteRevisionTitle": "删除此修订版",
+    "deleteFileHistoryTitle": "删除该文件的所有历史记录",
+    "selectRevisions": "选择上面的修订版进行比较。",
+    "revisionSource": {
+      "baseline": "基线",
+      "rollback": "回滚",
+      "suggestion": "建议",
+      "aiWrite": "人工智能写"
+    },
+    "revisionOrigin": {
+      "thread": "线程 {{threadTitle}}",
+      "deletedThread": "已删除线程 {{threadTitle}} · {{date}}"
+    },
+    "suggestionBadge": "建议",
+    "revisionCountOne": "{{count}} 版",
+    "revisionCountOther": "{{count}} 转速",
+    "footer": {
+      "suggestionPending": "此修订尚未写入磁盘",
+      "apply": "应用于磁盘",
+      "applying": "正在申请...",
+      "rollbackNotice": "回滚会将版本 {{rev}} 恢复到磁盘",
+      "rollback": "回滚到基础",
+      "rollingBack": "回滚..."
+    },
+    "picker": {
+      "placeholder": "- {{label}} -",
+      "empty": "- 新文件（空）-",
+      "notOnDisk": "不在磁盘上",
+      "option": "版本 {{rev}} - {{source}}{{notOnDisk}} - {{date}}",
+      "optionWithProvenance": "版本 {{rev}} - {{source}}{{notOnDisk}} - {{date}} · {{provenance}}"
+    },
+    "action": {
+      "rollbackSuccess": "回滚到版本 {{rev}}。记录新版本 {{newRev}}。",
+      "rollbackFailed": "回滚失败。",
+      "applySuccess": "应用于磁盘。记录新版本 {{newRev}}。",
+      "applyFailed": "申请失败。",
+      "revisionDeleted": "修订版 {{rev}} 已删除。"
+    },
+    "diffLoading": "加载差异...",
+    "diffTimeout": "Diff runtime 初始化失败。重新加载应用程序。"
+  },
+  "workspaceDisposal": {
+    "activeMessage": "必须先停止正在进行的工作，才能移除这些数据。",
+    "threadDeleteActiveMessage": "删除前将停止此[[canon:thread]]中正在进行的工作。",
+    "stopAndDelete": "停止并删除",
+    "stopAndRemove": "停止并移除",
+    "stopAndClear": "停止并清除",
+    "stopAndArchive": "停止并归档"
+  },
+  "threadDrawer": {
+    "title": "Threads",
+    "threadCount": "{{count}} threads",
+    "previewRole": {
+      "user": "你",
+      "assistant": "人工智能"
+    },
+    "activity": {
+      "needsInput": "需要输入",
+      "sessionFailed": "失败",
+      "sessionCompleted": "已完成",
+      "sessionActive": "会话活跃",
+      "sessionStale": "会话陈旧",
+      "pendingApproval": "待批准",
+      "sessionBlocked": "会话被阻止",
+      "idle": "闲置的",
+      "pendingBadge": "待办的",
+      "blockedBadge": "被阻止"
+    },
+    "fallbackTitle": "无标题 thread",
+    "renameTitle": "重命名thread",
+    "deleteTitle": "删除thread",
+    "searchPlaceholder": "搜索 threads...",
+    "newThreadTitle": "新款thread",
+    "newThread": "新的",
+    "emptySearch": "没有 threads 与您的搜索匹配。",
+    "empty": "还没有 threads。",
+    "createThread": "创建 thread",
+    "loadMore": "加载更多 threads（{{count}} 隐藏）",
+    "resizeTitle": "拖动以调整大小"
+  },
+  "backgroundJobs": {
+    "status": {
+      "polling": "轮询",
+      "cancelRequested": "已请求取消",
+      "completed": "完全的",
+      "failed": "失败的",
+      "cancelled": "取消",
+      "orphaned": "孤儿",
+      "queued": "排队"
+    },
+    "title": "[[canon:background_jobs]]",
+    "runningJobs": "正在运行的作业：{{count}}",
+    "updated": "更新{{time}}",
+    "refresh": "刷新",
+    "close": "关闭",
+    "description": "当不再需要长时间运行的本地命令或分离的 OpenAI 后台响应时，停止它们。",
+    "stopAll": "全部停止",
+    "stopping": "停止...",
+    "loading": "正在加载后台作业...",
+    "empty": "当前没有正在运行的后台作业。",
+    "table": {
+      "job": "工作",
+      "task": "任务",
+      "runtime": "Runtime",
+      "context": "语境",
+      "action": "行动"
+    },
+    "statusLabel": "状态：{{status}}",
+    "openAiResponse": "OpenAI 后台响应",
+    "detachedOpenAiResponse": "分离的 OpenAI 响应",
+    "emptyCommand": "（空的）",
+    "stop": "停止"
+  },
+  "chat": {
+    "planDirection": {
+      "questionNavigation": "计划方向问题",
+      "goToQuestion": "转到问题 {{count}}",
+      "continue": "继续",
+      "changeAnswer": "更改回答",
+      "customPlaceholder": "或描述其他方向",
+      "customAnswer": "自定义方向回答",
+      "recommendedShort": "推荐",
+      "synthesizing": "正在根据你的选择更新方向…",
+      "synthesisFailed": "无法更新方向。",
+      "retryDraft": "重试计划草稿",
+      "retry": "重试",
+      "reviewChoices": "查看选择",
+      "change": "更改方向",
+      "changeFeedback": "方向反馈",
+      "changePlaceholder": "这个方向需要更改什么？",
+      "updateDirection": "更新方向",
+      "creating": "正在创建托管 Markdown 计划…",
+      "recommended": "推荐：",
+      "recommendationDetail": "{{profile}} - {{rationale}}",
+      "create": "创建计划",
+      "profileMenu": "计划编写配置",
+      "profiles": {
+        "implementation": "实施计划",
+        "technicalDesign": "技术设计",
+        "investigation": "调查计划",
+        "deepImplementation": "详细实施计划"
+      },
+      "errors": {
+        "answerSave": "The direction answer could not be saved.",
+        "profileUnavailable": "The selected plan profile was unavailable.",
+        "changeFailed": "The direction feedback could not be saved.",
+        "retryFailed": "The direction update could not be retried."
+      }
+    },
+    "emptyState": {
+      "title": "还没有消息",
+      "planDescription": "[[canon:plan]] 模式处于活动状态。 [[canon:ask]] 用于结构化计划，然后在响应中使用交互式选择来指导路径。",
+      "thinkingDescription": "[[canon:thinking]] 模式处于活动状态。在这里集思广益，讨论选项和权衡，然后在准备实施时切换到 [[canon:execute]]。",
+      "executeDescription": "选择 provider 并开始聊天。使用标头 [[canon:permission_mode]] 控件在 [[canon:ask]]、[[canon:autonomy]] 和 [[canon:full_access]] 之间切换以执行轮次。",
+      "needsProviderSetup": "连接OpenAI账户认证或在设置中添加API key，然后选择provider启动。"
+    },
+    "composer": {
+      "placeholder": {
+        "selectProvider": "选择 provider 开始...",
+        "selectThread": "Select or create a conversation to continue...",
+        "streaming": "AI正在思考...",
+        "plan": "请求一个计划...（Enter 发送，Shift+Enter 换行）",
+        "thinking": "集体讨论想法、权衡和方向...（输入发送，Shift+Enter 换行）",
+        "execute": "询问与你项目有关的任何内容...（Enter 发送，Shift+Enter 换行）"
+      },
+      "blockLabels": {
+        "code": "代码",
+        "text": "文本"
+      },
+      "codeLanguage": "代码语言",
+      "openAdvancedEditor": "打开高级代码编辑器",
+      "advanced": "先进的",
+      "removeBlock": "移除方块",
+      "removeCodeBlock": "删除代码块",
+      "removeTextBlock": "删除文本块",
+      "codePlaceholder": "代码...",
+      "insertSnippet": "插入片段",
+      "codeSnippet": "代码片段",
+      "textSnippet": "文本片段"
+    },
+    "controlRail": {
+      "quickActionsTitle": "[[canon:quick_actions]]",
+      "refreshModels": "刷新models",
+      "refreshingModels": "清爽models",
+      "refreshing": "清爽...",
+      "openBackgroundJobs": "打开[[canon:background_jobs]]",
+      "backgroundJobs": "[[canon:background_jobs]]",
+      "agents": "代理商",
+      "directAgentsMenu": "代理选择菜单",
+      "moreActions": "更多行动",
+      "stopResponse": "停止响应",
+      "sendMessage": "发送消息",
+      "sendEnter": "发送（输入）",
+      "attach": {
+        "filesImagesDisabled": "附加文件（此 model 禁用图像）",
+        "images": "附上图片",
+        "files": "附加文件"
+      },
+      "collaborationMode": {
+        "defaultLabel": "[[canon:native_collaboration_mode]]",
+        "buttonTitle": "[[canon:native_collaboration_mode]]: {{value}}",
+        "optionsAriaLabel": "[[canon:native_collaboration_mode]] 选项"
+      },
+      "reasoningEffort": {
+        "providerDefault": "默认Provider",
+        "xhigh": "X高",
+        "buttonTitle": "[[canon:reasoning_effort]]：{{value}}。控制 model 应用的推理量。",
+        "buttonAriaLabel": "[[canon:reasoning_effort]]: {{value}}",
+        "optionsAriaLabel": "[[canon:reasoning_effort]] 选项"
+      },
+      "processingMode": {
+        "fast": "快速",
+        "standard": "标准",
+        "enable": "使用快速处理",
+        "disable": "使用标准处理",
+        "pricingNote": "快速处理可能采用高级定价。",
+        "returnedMode": "上次响应使用了{{mode}}处理。"
+      },
+      "rateLimits": {
+        "title": "[[canon:rate_limits]]",
+        "remainingTitle": "OpenAI 账户剩余利率限制",
+        "weekly": "每周",
+        "primary": "基本的",
+        "secondary": "中学"
+      }
+    },
+    "moaToggle": {
+      "activeTitle": "[[canon:moa]] 模式处于活动状态 - 单击以禁用",
+      "enableTitle": "启用 [[canon:moa]]（多代理编排）"
+    },
+    "threadModals": {
+      "common": {
+        "close": "关闭",
+        "closeModal": "关闭 [[canon:thread]] 模态",
+        "cancel": "取消"
+      },
+      "create": {
+        "title": "创建[[canon:thread]]",
+        "description": "输入新对话的标题 [[canon:thread]]。",
+        "placeholder": "新款[[canon:thread]]",
+        "confirm": "创造"
+      },
+      "rename": {
+        "title": "重命名[[canon:thread]]",
+        "description": "更新当前对话的标题 [[canon:thread]]。",
+        "placeholder": "[[canon:thread]] 标题",
+        "confirm": "节省"
+      },
+      "clear": {
+        "deleteTitle": "删除[[canon:thread]]",
+        "deleteMessage": "删除此[[canon:thread]]{{threadTitle}}？其对话、附件和[[canon:thread]]活动将被移除。项目文件、Artifact 和保留的 Memory 将继续保留。",
+        "deleteConfirm": "删除[[canon:thread]]"
+      }
+    },
+    "providerSwitchContextBanner": {
+      "title": "Provider/Model 已切换",
+      "previousProvider": "上一页 provider",
+      "newProvider": "新款provider",
+      "movedFrom": "搬自",
+      "movedTo": "到",
+      "continuityHint": "在下一轮之前注入上下文以避免失去项目连续性。",
+      "injectMemory": "注入Memory",
+      "injectArtifacts": "注入[[canon:artifacts]]",
+      "injectBoth": "两者都注射",
+      "dismiss": "解雇"
+    },
+    "contextMeter": {
+      "toggleDetails": "切换上下文详细信息",
+      "expandDetails": "展开上下文计量详细信息",
+      "collapseDetails": "折叠上下文计量器详细信息",
+      "visibleMetrics": "可见指标",
+      "chooseVisibleMetrics": "选择可见指标",
+      "showAll": "显示全部",
+      "hideAll": "全部隐藏",
+      "noMetricsSelected": "未选择指标。",
+      "title": {
+        "available": "最新转 {{turnTokens}}/{{modelLimit}} tokens ({{percent}}%)",
+        "unavailable": "最新回合使用不可用（{{modelLimit}} token 限制）",
+        "limitUnavailable": "上下文限制对此 model 不可用",
+        "contextLeftAvailable": "上下文左 {{remaining}}/{{modelLimit}} tokens ({{percent}}%)",
+        "contextLeftFallback": "上下文左 {{remaining}}/{{modelLimit}} tokens（{{percent}}%，空 thread）",
+        "contextLeftUnavailable": "上下文不可用（{{modelLimit}} token 限制；thread 占用不可用）",
+        "contextLeftRecalculating": "压缩后正在重新计算剩余上下文（限制 {{modelLimit}} token）"
+      },
+      "values": {
+        "left": "左边",
+        "occupancyUnavailable": "thread 无法入住",
+        "limitUnknown": "极限未知",
+        "notAvailable": "不适用",
+        "recalculating": "重新计算中..."
+      },
+      "metrics": {
+        "used": "Thread OCC.",
+        "usedEstimated": "Thread OCC. （预计）",
+        "usedMapped": "Thread OCC. （映射）",
+        "remaining": "上下文左",
+        "limit": "限制",
+        "turn": "最新回合",
+        "spendRoll": "会话花费",
+        "inputNoCache": "输入（无缓存）",
+        "cacheRead": "缓存读取",
+        "cacheWrite": "缓存写入",
+        "turnEstTok": "转动 est tok",
+        "turnEstUsd": "转 est 美元",
+        "costConf": "成本配置",
+        "continuity": "连续性",
+        "packet": "包",
+        "drift": "漂移",
+        "compactionDelta": "压实增量"
+      }
+    },
+    "cursor": {
+      "fullAccessRequired": "Cursor runs only with Full Access.",
+      "useFullAccess": "Use Full Access"
+    },
+    "composerArea": {
+      "selectProvider": "选择下面的 provider 开始聊天。",
+      "selectThread": "在发送消息之前选择或创建 thread。",
+      "selectedModelMissing": "所选的 model 可能不可用。从操作菜单中刷新策划的 models。",
+      "addApiKey": "在设置中添加API key即可启动。",
+      "switchToExecute": "切换至[[canon:execute]]",
+      "imagesDisabled": "此 model 禁用图像。文件附件保持启用状态。",
+      "pipeline": {
+        "stepRunning": "Pipeline step {{currentStep}}/{{totalSteps}}: {{stepName}}",
+        "completed": "Pipeline complete",
+        "failedAt": "Pipeline failed at {{stepName}}",
+        "cancelled": "Pipeline cancelled",
+        "starting": "Starting pipeline ({{totalSteps}} steps)..."
+      },
+      "council": {
+        "completed": "理事会完成（{{successCount}}/{{memberCount}} 成功）",
+        "failed": "理事会失败",
+        "cancelled": "理事会取消",
+        "running": "理事会运行（{{memberCount}} 会员{{suffix}}）..."
+      }
+    },
+    "permissionMode": {
+      "planActive": "[[canon:plan]] 模式：可使用研究和规划工具；项目更改将被阻止。",
+      "thinkingActive": "[[canon:thinking]] 模式：可使用读取和研究工具；项目更改将被阻止。",
+      "planDormant": "[[canon:plan]] 模式禁用本轮刀具执行。",
+      "thinkingDormant": "[[canon:thinking]] 模式禁用本轮刀具执行。",
+      "label": "允许",
+      "groupAriaLabel": "权限模式",
+      "optionsAriaLabel": "权限模式选项",
+      "helpers": {
+        "ask": "在危险行为之前提示",
+        "autonomy": "Act inside workspace Guardrails",
+        "fullAccess": "主机级工具执行"
+      }
+    },
+    "dispatchConfirmation": {
+      "dispatchFailed": "发送失败。",
+      "executed": "已执行调度",
+      "executedDescription": "{{count}} 代理{{suffix}} 已出动。当代理完成时，结果将显示在下面。",
+      "failed": "派送失败",
+      "unknownError": "未知错误。",
+      "retry": "重试",
+      "title": "任务调度计划",
+      "selected": "选择{{selected}}/{{total}}",
+      "dispatching": "正在调度...",
+      "executeTasks": "执行{{count}}任务{{suffix}}"
+    },
+    "questionUser": {
+      "clarificationNeeded": "需要澄清",
+      "waitingOnYou": "等你",
+      "recommended": "受到推崇的",
+      "yourAnswer": "你的回答",
+      "answerPlaceholder": "输入你的回答…",
+      "answerHint": "在此处发送快速答案，或在下面的编辑器中继续编辑。",
+      "sending": "正在发送...",
+      "sendAnswer": "发送",
+      "sendAnswerTitle": "发送回答（Enter）"
+    },
+    "runbook": {
+      "status": {
+        "cancelled": "取消",
+        "finishedWithErrors": "有错误完成",
+        "finishedWithWarnings": "完成警告",
+        "finished": "完成的",
+        "running": "跑步"
+      },
+      "filters": {
+        "all": "全部",
+        "commands": "命令",
+        "usage": "用法",
+        "reasoning": "推理",
+        "approvals": "批准"
+      },
+      "aria": {
+        "collapse": "折叠转runbook",
+        "expand": "展开转runbook"
+      },
+      "summary": {
+        "actions": "行动 {{count}}",
+        "commands": "命令 {{count}}",
+        "files": "文件 {{count}}",
+        "usage": "用途 {{count}}"
+      },
+      "sections": {
+        "actions": "行动",
+        "commands": "命令",
+        "usage": "用法"
+      }
+    },
+    "fileChanges": {
+      "header": "文件已更改：{{count}}",
+      "unknownFile": "未知文件",
+      "updatedAgo": "更新{{time}}",
+      "changeType": {
+        "applied": "应用",
+        "modified": "修改的",
+        "edited": "已编辑",
+        "deleted": "已删除",
+        "renamed": "更名",
+        "rolledBack": "回滚",
+        "created": "已创建"
+      },
+      "syncStatus": {
+        "deleted": "已删除",
+        "undone": "未完成的",
+        "conflict": "冲突"
+      },
+      "reason": {
+        "changedSinceTurn": "自本回合以来发生了变化",
+        "missingRevisionMetadata": "缺少修订元数据"
+      },
+      "actions": {
+        "fallbackAction": "行动",
+        "openInEditor": "在编辑器中打开",
+        "openInDocumentViewer": "在文档查看器中打开",
+        "openArtifacts": "打开[[canon:artifacts]]",
+        "copyPath": "复制路径",
+        "deleting": "正在删除...",
+        "deleteFile": "删除文件",
+        "undoing": "正在撤销...",
+        "undoChange": "撤消更改",
+        "menuTitle": "文件操作"
+      },
+      "preview": {
+        "loading": "正在加载更改...",
+        "noChangedLines": "没有要预览的更改行。",
+        "collapse": "折叠预览",
+        "expand": "展开预览",
+        "collapseForFile": "{{path}} 的折叠预览",
+        "expandForFile": "{{path}} 的展开预览",
+        "fileChangeFallback": "文件更改",
+        "limited": "预览有限",
+        "limitWithLineCount": "文件大小超出预览限制（{{lineCount}} 行）。在编辑器或 [[canon:artifacts]] 中打开以检查更改。",
+        "limitNoLineCount": "文件大小超出预览限制。 {{maxLines}} 行上方的预览已禁用。"
+      },
+      "dialogs": {
+        "undoOne": {
+          "title": "撤消文件更改",
+          "message": "恢复{{path}}之前的版本吗？",
+          "confirm": "撤消更改"
+        },
+        "deleteOne": {
+          "title": "删除创建的文件",
+          "message": "删除{{path}}？这将从磁盘中删除本轮创建的文件。",
+          "confirm": "删除文件"
+        },
+        "undoAll": {
+          "title": "撤消文件更改",
+          "message": "恢复 {{count}} 文件 {{suffix}} 的先前版本吗？",
+          "confirm": "撤消更改"
+        },
+        "deleteAll": {
+          "title": "删除创建的文件",
+          "message": "是否删除本次创建的{{count}}文件{{suffix}}？这会将它们从磁盘中删除。",
+          "confirm": "删除文件"
+        }
+      },
+      "feedback": {
+        "clipboardUnavailable": "剪贴板在此环境中不可用。",
+        "copiedPath": "复制路径：{{path}}",
+        "copyFailed": "复制文件路径失败。",
+        "undoUnavailable": "此条目无法撤消（缺少修订元数据）。",
+        "undoSucceeded": "撤销{{path}}。",
+        "undoFailed": "撤消失败。",
+        "deleteUnavailable": "删除此条目不可用（缺少修订元数据）。",
+        "deleteSucceeded": "删除了创建的文件 {{path}}。",
+        "deleteFailed": "删除失败。",
+        "conflict": "{{path}}：本回合后发生变化。",
+        "actionFailed": "{{path}}: {{message}}",
+        "undoAllUnavailable": "撤消所有不可用的内容（缺少修订元数据）。",
+        "undoAllSummary": "全部撤消：{{success}} 成功{{conflicts}}{{failed}}{{skipped}}。",
+        "undoAllFailed": "撤消全部失败。",
+        "deleteAllUnavailable": "删除所有不可用的（缺少修订元数据）。",
+        "deleteAllSummary": "删除创建的文件：{{success}}成功{{conflicts}}{{failed}}{{skipped}}。",
+        "deleteAllFailed": "删除创建的文件失败。"
+      },
+      "activity": {
+        "undoOne": "撤消文件更改：{{path}}",
+        "deleteOne": "删除创建的文件：{{path}}",
+        "undoAll": "撤消所有文件更改（{{success}} 成功{{conflicts}}{{failed}}{{skipped}}）",
+        "deleteAll": "删除创建的文件（{{success}}成功{{conflicts}}{{failed}}{{skipped}}）"
+      },
+      "bulkActions": {
+        "undoingTitle": "撤消文件更改",
+        "undoTitle": "撤消本回合的文件更改",
+        "deletingTitle": "删除创建的文件",
+        "deleteTitle": "删除本回合创建的文件"
+      }
+    },
+    "roleConfirmation": {
+      "title": "[[canon:ai_generated_agent_role]]",
+      "saveRole": "[[canon:save_role]]",
+      "saveRoleAndContinue": "[[canon:save_role_continue]]",
+      "useForDelegation": "[[canon:use_for_delegation]]",
+      "saving": "保存...",
+      "starting": "开始...",
+      "saved": "角色“{{name}}”已保存",
+      "usedForDelegation": "用于此委托的角色“{{name}}”",
+      "savedDescription": "可立即委托。",
+      "usedTemporaryDescription": "委托完成后，该临时角色将自动删除。",
+      "roleName": "[[canon:role_name]]",
+      "instructions": "指示",
+      "noInstructions": "无说明",
+      "provider": "Provider",
+      "model": "Model",
+      "selectProvider": "选择provider...",
+      "selectModel": "选择model...",
+      "modelIdPlaceholder": "Model ID",
+      "emptyValue": "—",
+      "stagedWrites": {
+        "title": "Staged 文件写入",
+        "enabledDescription": "已为此角色启用。使用它可以在委派期间 stage 文件更改。",
+        "disabledDescription": "残疾人。该角色只能返回分析和建议。"
+      },
+      "allowStagedWrites": {
+        "title": "允许staged文件写入",
+        "description": "代理可以stage [[canon:write_file]] 建议。"
+      },
+      "preview": "预览",
+      "edit": "编辑",
+      "dismiss": "解雇",
+      "errors": {
+        "roleNameRequired": "角色名称为必填项。",
+        "providerRequired": "需要 Provider。",
+        "modelRequired": "需要 Model。",
+        "saveFailed": "保存角色失败。",
+        "useTemporaryFailed": "无法使用临时角色。"
+      }
+    },
+    "writeConflict": {
+      "resolved": "已解决 {{path}}",
+      "conflictBadge": "冲突",
+      "showDebugInfo": "显示调试信息",
+      "hideDebugInfo": "隐藏调试信息",
+      "hideDetails": "隐藏详细信息",
+      "viewChanges": "查看发生了什么变化",
+      "loading": "加载中...",
+      "loadingPreviews": "正在加载预览...",
+      "previewUnavailable": "预览不可用。",
+      "aiMerge": "人工智能合并",
+      "dismiss": "解雇",
+      "confirm": "确认",
+      "noModelSelected": "未选择 model",
+      "generatingMerge": "正在生成合并...",
+      "retry": "重试",
+      "tryAgain": "再试一次",
+      "accept": "接受",
+      "labels": {
+        "yoursVsBase": "您的更改与基础更改",
+        "theirsVsBase": "与基础相比的其他变化"
+      },
+      "errors": {
+        "unknown": "未知错误",
+        "requestFailed": "请求失败",
+        "applyFailed": "无法应用合并解决方案。",
+        "mergeFailed": "合并失败。",
+        "revisionPreviewUnavailable": "修订预览在此渲染器会话中不可用。",
+        "loadRevisionPreviewFailed": "无法加载修订预览。",
+        "loadRevisionContextFailed": "无法加载修订上下文。"
+      }
+    },
+    "attachments": {
+      "actions": {
+        "menuAriaLabel": "{{name}} 的附件操作",
+        "showInFolder": "在文件夹中显示",
+        "copy": "复制",
+        "saveAs": "另存为...",
+        "openWith": "打开方式",
+        "defaultApp": "默认应用",
+        "chooseAnotherApp": "选择其他应用...",
+        "copyFailed": "无法复制此附件。",
+        "showInFolderFailed": "无法在文件夹中显示此附件。",
+        "saveFailed": "无法保存此附件。",
+        "openWithFailed": "无法使用所选应用打开此附件。"
+      },
+      "common": {
+        "close": "关闭",
+        "cancel": "取消"
+      },
+      "errors": {
+        "cachedOpenFailed": "无法打开缓存的附件文件。",
+        "unavailable": "在此版本中无法打开附件。",
+        "historyUnavailable": "无法重新打开此附件，因为其数据在时间线历史记录中不可用。",
+        "openFailed": "无法打开附件文件。"
+      },
+      "labels": {
+        "pdfAttachment": "PDF附件",
+        "attachedImage": "附图",
+        "attachedFile": "附件"
+      },
+      "image": {
+        "unavailable": "图片附件不可用。",
+        "open": "打开{{label}}",
+        "previewAriaLabel": "图片预览",
+        "closePreviewAriaLabel": "关闭图像预览"
+      },
+      "file": {
+        "openPdfViewer": "在查看器中打开 PDF",
+        "openAttachedFile": "打开附件",
+        "openPdfAttachment": "打开 PDF 附件",
+        "openFileAttachment": "打开文件附件",
+        "clickOpenViewer": "单击以在查看器中打开",
+        "clickOpenFile": "单击打开文件"
+      },
+      "dialogs": {
+        "openFileAriaLabel": "打开文件确认",
+        "openPdfTitle": "在默认查看器中打开 PDF？",
+        "closeFileOpenAriaLabel": "关闭文件打开确认",
+        "openPdfDescription": "该文件将使用您的系统 PDF 应用程序在 ADDOM 外部打开。",
+        "openPdfConfirm": "打开 PDF"
+      }
+    },
+    "planRequests": {
+      "label": {
+        "memoryReview": "Inject saved context",
+        "artifactReview": "注入 [[canon:artifacts]] 上下文",
+        "webIngest": "摄取网站",
+        "runRequest": "运行请求"
+      },
+      "summary": {
+        "from": "来自#{{value}}",
+        "to": "至#{{value}}",
+        "tags": "标签： {{value}}",
+        "sources": "来源：{{value}}",
+        "limit": "限制{{value}}",
+        "files": "文件：{{value}}",
+        "latestOnly": "仅最新",
+        "revisionsPerFile": "修订/文件：{{value}}",
+        "fromRev": "来自修订版 {{value}}",
+        "toRev": "至版本 {{value}}"
+      }
+    },
+    "toolExecution": {
+      "runningCommandWithCommand": "运行命令：{{command}}",
+      "runningCommand": "运行命令...",
+      "renameFile": "运行：rename_file - {{oldPath}} - > {{newPath}}",
+      "browsingUrl": "正在浏览：{{url}}",
+      "browserActionWithAction": "浏览器：{{action}}",
+      "browserAction": "浏览器操作",
+      "runningToolWithPath": "运行：{{toolName}} - {{filePath}}",
+      "runningTool": "运行：{{toolName}}",
+      "result": {
+        "browserDenied": "browser_action - 被拒绝",
+        "browserFailed": "browser_action - 失败",
+        "browserDone": "browser_action - 完成",
+        "toolDenied": "{{toolName}} - 被拒绝",
+        "toolFailed": "{{toolName}} - 失败",
+        "toolDone": "{{toolName}} - 完成"
+      }
+    },
+    "mcpElicitation": {
+      "sendFailed": "无法发送此响应。"
+    },
+    "diff": {
+      "addedLine": "新增行",
+      "removedLine": "删除行"
+    },
+    "providerTerms": {
+      "providerFallback": "此提供商",
+      "title": "使用 {{providerName}} 之前",
+      "lead": "你需自行遵守该提供商的条款。提示词与工具活动可能会离开本机。",
+      "cancel": "取消",
+      "openTerms": "打开条款",
+      "continue": "继续"
+    }
+  },
+  "toolApprovalOverlay": {
+    "header": {
+      "title": "人工智能想要：",
+      "reviewFileChanges": "查看提议的文件更改，然后批准或拒绝",
+      "reviewDiff": "查看下面的差异，然后批准或拒绝",
+      "approveFilesystem": "批准在您的文件系统上允许此操作",
+      "expiresIn": "到期时间为 {{time}}"
+    },
+    "footer": {
+      "expired": "Approval expired",
+      "enterDisabled": "输入快捷方式已禁用以提升审批权限",
+      "shortcuts": "快捷键：输入允许，Esc拒绝",
+      "submitting": "Submitting approval..."
+    },
+    "actions": {
+      "deny": "拒绝 (Esc)",
+      "allowForSession": "允许会话",
+      "allowForSessionTitle": "如果支持，允许并记住当前应用程序会话的此批准",
+      "openGuardrails": "Open Guardrails settings",
+      "openGuardrailsTitle": "Cancel this approval and open Guardrails settings",
+      "allowHostFallback": "允许主机回退",
+      "allowHostFallbackTitle": "允许主机回退（一次性）",
+      "allowHostFullAccessThisTurn": "允许主机完全访问（本轮）",
+      "allowHostFullAccessThisTurnTitle": "允许主机在本回合的剩余时间内完全访问",
+      "allowHostFullAccess": "允许主机完全访问",
+      "allowHostFullAccessTitle": "允许主机完全访问（一次性）",
+      "allowWslCompatibility": "允许WSL兼容运行",
+      "allowWslCompatibilityTitle": "允许一次性 WSL 兼容性运行",
+      "allowDisabledWslTitle": "为此命令使用显式 WSL 兼容性批准",
+      "allowDisabledHostTitle": "为此命令使用显式主机完全访问操作",
+      "allowTitle": "允许（输入）",
+      "allowDisabled": "允许（禁用）",
+      "allowCaution": "允许（警告）",
+      "allow": "允许"
+    },
+    "review": {
+      "grantedRoot": "授予根权限",
+      "empty": "此批准请求中未包含任何文件更改。",
+      "file": "文件",
+      "unknownPath": "（未知路径）",
+      "noDiff": "没有为此文件更改提供差异。"
+    },
+    "policy": {
+      "runCommandTitle": "运行命令策略",
+      "browserActionTitle": "浏览器操作策略",
+      "warnings": "警告",
+      "hints": "提示",
+      "explicitHostElevation": "需要显式主机提升",
+      "explicitHostElevationDescription": "此命令超出了 `workspace_safe` 策略。使用专用的一次性 host_full_access 操作继续。",
+      "explicitWslApproval": "需要明确的 WSL 兼容性批准",
+      "explicitWslApprovalDescription": "WSL 不是安全边界。此批准承认与主机文件系统可访问性的兼容性运行，而不是包含的 sandbox。"
+    },
+    "diff": {
+      "file": "文件",
+      "newFile": "新文件",
+      "noChanges": "未检测到任何变化。"
+    },
+    "risk": {
+      "readOnly": "只读",
+      "writesFile": "写入文件",
+      "runsCode": "运行代码"
+    },
+    "intent": {
+      "runCommand": "Run command",
+      "localShell": "Run local shell command",
+      "openTerminal": "Open terminal",
+      "useTerminal": "Use terminal",
+      "useBrowser": "Use browser",
+      "reviewFileChanges": "Review file changes",
+      "createDirectory": "Create directory",
+      "scopeSandboxUnavailable": "Sandbox unavailable; host fallback is available.",
+      "scopeInstallSandbox": "Runs in the install sandbox.",
+      "scopeHostAccess": "Requires host access.",
+      "scopeWorkspaceShell": "Runs in the workspace shell.",
+      "scopeBrowserTarget": "Target: {{target}}",
+      "scopeTerminalHostPath": "Opens against a host path.",
+      "scopeWorkingDirectory": "Working directory: {{cwd}}",
+      "warningExplicitHost": "This needs an explicit host access decision.",
+      "warningExplicitWsl": "WSL can reach host files. Use the explicit WSL action only if that is intended.",
+      "warningSandboxFallback": "The sandbox route is unavailable. Host fallback is a one-time exception.",
+      "warningPrivateNetwork": "This targets a local or private network address.",
+      "warningTerminalOutsideWorkspace": "This terminal opens outside the workspace."
+    },
+    "production": {
+      "deny": "Deny",
+      "allowForSession": "Allow for session",
+      "openGuardrails": "Settings",
+      "allowHostFallback": "Host fallback",
+      "allowHostFullAccessThisTurn": "Host this turn",
+      "allowHostFullAccess": "Host once",
+      "allowWslCompatibility": "WSL once",
+      "allowDisabled": "Choose explicit action",
+      "allowCaution": "Allow",
+      "allow": "Allow",
+      "explicitActionRequired": "Use an explicit approval action for this request.",
+      "browserRisk": "External action",
+      "reviewRisk": "Review",
+      "details": "Details",
+      "requestData": "Request data"
+    },
+    "productionPolicy": {
+      "command": "Command policy",
+      "browser": "Browser policy",
+      "terminal": "Terminal policy",
+      "hostAccessRequired": "Host access required",
+      "hostAccessDescription": "Use an explicit host action if this should run outside workspace-safe limits.",
+      "wslCompatibility": "WSL compatibility",
+      "wslDescription": "WSL can reach host files. Use the WSL action only when that is intended.",
+      "notes": "Notes"
+    }
+  },
+  "common": {
+    "close": "关闭",
+    "clear": "清除",
+    "clearAll": "全部清除",
+    "cancel": "取消"
+  },
+  "settingsInstructions": {
+    "title": "使用ADDOM",
+    "updated": "最后更新 {{date}}",
+    "description": "有关当前 ADDOM 行为、安全默认值以及需要复习时查看位置的简明指南。",
+    "sections": {
+      "chat-modes": {
+        "title": "Chat 模式",
+        "items": {
+          "0": "`[[canon:execute]]` 允许 ADDOM 使用所选 [[canon:permission_mode]]（`[[canon:ask]]`、`[[canon:autonomy]]` 或 `[[canon:full_access]]`）下启用的工具。",
+          "1": "`[[canon:plan]]` 无需使用转向工具，专注于选项、问题和后续步骤。",
+          "2": "`[[canon:thinking]]` 用于集思广益和权衡，无需工具执行。",
+          "3": "选择 `[[canon:implement_plan]]` 在发送前将 chat 切换回 `[[canon:execute]]`。"
+        }
+      },
+      "tool-approvals": {
+        "title": "工具批准",
+        "items": {
+          "0": "`[[canon:ask]]` 在危险操作之前进行提示，`[[canon:autonomy]]` 抑制例行提示，`[[canon:full_access]]` 授予回合的主机级工具执行权。",
+          "1": "即使在 `[[canon:full_access]]` 中，破坏性命令阻止列表仍然适用于明显危险的主机操作。",
+          "2": "命令请求在运行之前会根据您的命令安全策略进行检查。",
+          "3": "后台命令出现在 `[[canon:background_jobs]]` 中，您可以在其中检查或停止它们。"
+        }
+      },
+      "memory": {
+        "title": "Memory 行为",
+        "items": {
+          "0": "项目 memory 在 SQLite 中本地存储注释、摘要和自动记录的上下文。",
+          "1": "旧的自动日志可以在您在“设置”中设置的阈值之后进行压缩。",
+          "2": "压缩条目会被存档，不会被删除，并且仍然可以查看。",
+          "3": "Memory 活动在 chat 和 Memory 面板中可见。"
+        }
+      },
+      "continuity": {
+        "title": "[[canon:continuity_engine]]",
+        "items": {
+          "0": "连续性跟踪目标、决策、开环、错误和跨轮的文件引用。",
+          "1": "其检索范围默认为`thread + project`，可以在“设置”中进行调整。",
+          "2": "`economy`、`balanced` 和 `deep` 等配置文件控制注入的连续性程度。",
+          "3": "当检索、数据包构建或压缩运行时，连续性事件会出现在时间线中。",
+          "4": "当新的转弯似乎与既定的上下文发生冲突时，漂移检查可以发出警告。"
+        }
+      },
+      "artifacts": {
+        "title": "[[canon:artifacts]] 行为",
+        "items": {
+          "0": "每个批准的 AI 文件写入都会为该文件创建一个工件修订。",
+          "1": "[[canon:artifacts]] 支持差异审查、回滚/应用和修订元数据。",
+          "2": "工件上下文可以包括有限的修订历史记录，而不仅仅是最新版本。"
+        }
+      },
+      "workspace": {
+        "title": "[[canon:workspace]] 持久性",
+        "items": {
+          "0": "项目、threads 和时间线事件在 SQLite 中本地保留。",
+          "1": "切换 provider 或 model 会保持活动的 thread 并可以提供上下文引导操作。",
+          "2": "复位控件支持thread级、项目级和全workspace清除。"
+        }
+      },
+      "commands": {
+        "title": "[[canon:background_jobs]]",
+        "items": {
+          "0": "长时间运行的任务（例如开发服务器、观察程序和分离的 OpenAI 响应）可能会在后台运行，以便 chat 可以继续。",
+          "1": "使用 `[[canon:background_jobs]]` 检查输出、停止任务或检查后台活动。",
+          "2": "保留的命令输出被修剪以保持时间线响应。"
+        }
+      },
+      "command-palette": {
+        "title": "[[canon:command_palette]]",
+        "items": {
+          "0": "使用 `Ctrl+Shift+P` 打开全局 `[[canon:command_palette]]`，以搜索 ADDOM 中的操作。",
+          "1": "使用 `Up` 和 `Down` 进行导航，使用 `Enter` 进行运行，使用 `Esc` 进行关闭。",
+          "2": "可按标题和别名搜索命令，例如 `switch project`、`autofix` 或 `outline`。",
+          "3": "禁用的命令保持可见是有原因的，例如没有活动的 thread 或没有打开的编辑器选项卡。",
+          "4": "当搜索为空时，会显示最近的命令，以实现更快的重复工作流程。"
+        }
+      },
+      "streaming-responses": {
+        "title": "流式响应",
+        "items": {
+          "0": "助理答案作为响应块流入 chat，而不是等待整个回合完成。",
+          "1": "块大小和节奏取决于 provider 和 model，并不是精确的 tokenizer 单位。",
+          "2": "ADDOM 平滑 UI 中的块传输，以减少闪烁，同时保留实时进度。",
+          "3": "推理文本仅在 provider 暴露时出现； ADDOM并不捏造隐藏的思路。"
+        }
+      },
+      "runbook": {
+        "title": "转[[canon:runbook]] 透明",
+        "items": {
+          "0": "每个 model 回合都按时间顺序分组为 chat 中折叠的 `Turn [[canon:runbook]]`。",
+          "1": "[[canon:runbook]] 包括批准、命令步骤、文件更改、使用更新和转向状态。",
+          "2": "文件写入轮次显示 `Files changed` 卡，其中包含每个文件 +/- 计数、预览和审核操作。",
+          "3": "撤消操作包括冲突防护（例如 `Changed since this turn`），以避免不安全的恢复。",
+          "4": "UI 中显示的推理文本仅限 provider； ADDOM从不编造隐藏的思维链。"
+        }
+      },
+      "moa": {
+        "title": "[[canon:moa]]模式",
+        "items": {
+          "0": "`[[canon:moa]]` 委派并行代理任务，而协调器保留最终权力。",
+          "1": "代理角色在“设置”中配置，并且可以使用模板作为可编辑的起点。",
+          "2": "委派强制实施任务上限、超时、token 预算和输出截断等限制。",
+          "3": "预算警告可能需要在进行昂贵的授权之前做出明确的选择。",
+          "4": "代理文件写入是可选的，默认情况下禁用，并且 staged 作为工件建议而不是直接磁盘写入。",
+          "5": "只有协调器才能通过显式应用操作最终确定 staged 代理修订。",
+          "6": "[[canon:moa]] 生命周期事件在 [[canon:runbook]] 和 [[canon:moa]] 面板中均可见。",
+          "7": "[[canon:moa]] 比单代理轮次消耗的 tokens 多得多，因此请监控策略和使用指标。"
+        }
+      }
+    }
+  },
+  "commandPalette": {
+    "searchPlaceholder": "输入命令或搜索...",
+    "results": {
+      "commands": "命令",
+      "recentAndCommands": "最近的 + 命令",
+      "shown": "显示为 {{count}}"
+    },
+    "filters": {
+      "all": "全部",
+      "recent": "最近的",
+      "filterByCategory": "按 {{label}} 过滤命令"
+    },
+    "categories": {
+      "ariaLabel": "命令类别",
+      "navigation": "导航",
+      "chat": "Chat",
+      "editor": "编辑",
+      "memory": "Memory",
+      "terminal": "Terminal"
+    },
+    "empty": {
+      "title": "没有与您的搜索匹配的命令。",
+      "description": "尝试不同的关键字或别名。"
+    },
+    "hint": {
+      "enter": "进入"
+    },
+    "reasons": {
+      "open_a_project_first": "首先打开一个项目",
+      "no_active_thread": "无活动 thread",
+      "thread_has_no_messages_yet": "[[canon:thread]] 还没有消息",
+      "open_select_a_thread_first": "首先打开/选择一个thread",
+      "direct_agents_are_only_available_in_execute_mode": "代理仅在[[canon:execute]]模式下可用",
+      "enable_moa_first": "首先启用[[canon:moa]]",
+      "wait_for_the_current_response_to_finish": "等待当前响应完成",
+      "provider_model_switch_context_banner_is_not_active": "Provider/model 切换上下文横幅未激活",
+      "open_a_file_in_editor_first": "首先在编辑器中打开文件",
+      "open_a_markdown_file_in_editor_first": "首先在编辑器中打开 Markdown 文件",
+      "open_the_editor_and_select_code_first": "打开编辑器并首先选择代码",
+      "formatting_is_unavailable_for_the_current_file": "当前文件无法格式化",
+      "code_actions_are_unavailable_for_the_current_file": "代码操作对当前文件不可用",
+      "no_terminal_session_selected": "No terminal session selected",
+      "terminal_session_is_not_running": "Terminal session is not running",
+      "terminal_is_already_controlled_by_you": "Terminal is already controlled by you",
+      "terminal_is_already_controlled_by_ai": "Terminal is already controlled by AI",
+      "terminal_is_not_controlled_by_you": "Terminal is not controlled by you",
+      "terminal_is_not_controlled_by_ai": "Terminal is not controlled by AI",
+      "terminal_cannot_be_interrupted": "Terminal cannot be interrupted",
+      "terminal_cannot_be_closed": "Terminal cannot be closed",
+      "terminal_cannot_be_terminated": "Terminal cannot be terminated",
+      "no_terminal_dock_open": "No terminal dock open"
+    },
+    "commands": {
+      "nav": {
+        "chat": {
+          "title": "转到 Chat"
+        },
+        "editor": {
+          "title": "前往编辑器"
+        },
+        "artifacts": {
+          "title": "转到 [[canon:artifacts]]"
+        },
+        "memory": {
+          "title": "转到 Memory"
+        },
+        "settings": {
+          "title": "前往“设置”"
+        },
+        "openProjectFolder": {
+          "title": "打开项目文件夹"
+        },
+        "sidebar": {
+          "toggle": {
+            "expandTitle": "展开侧边栏",
+            "collapseTitle": "折叠侧边栏"
+          }
+        },
+        "projectEntry": {
+          "title": "Open Projects"
+        }
+      },
+      "chat": {
+        "thread": {
+          "new": {
+            "title": "新款Thread"
+          },
+          "rename": {
+            "title": "重命名当前 Thread"
+          },
+          "delete": {
+            "title": "删除当前Thread"
+          },
+          "clear": {
+            "title": "清除当前对话"
+          }
+        },
+        "focusComposer": {
+          "title": "焦点 Chat 作曲家"
+        },
+        "jumpToLatest": {
+          "title": "跳转至最新消息"
+        },
+        "openThreadSelector": {
+          "title": "打开 Thread 选择器"
+        },
+        "openBackgroundJobs": {
+          "title": "打开[[canon:background_jobs]]"
+        },
+        "openDirectAgents": {
+          "title": "打开直接代理菜单"
+        },
+        "toggleMoa": {
+          "title": "切换 [[canon:moa]] 模式"
+        },
+        "inject": {
+          "memory": {
+            "title": "将 Memory 注入 Chat"
+          },
+          "artifacts": {
+            "title": "将 [[canon:artifacts]] 注入 Chat"
+          },
+          "both": {
+            "title": "注入Memory + [[canon:artifacts]]"
+          }
+        }
+      },
+      "editor": {
+        "formatDocument": {
+          "title": "格式化文档"
+        },
+        "fixAutofixable": {
+          "title": "修复 Auto 可修复的问题"
+        },
+        "toggleProblemsPanel": {
+          "title": "切换问题面板"
+        },
+        "toggleOutlinePanel": {
+          "title": "切换大纲面板"
+        },
+        "markdownPreview": {
+          "toggle": {
+            "title": "Markdown：切换预览"
+          },
+          "open": {
+            "title": "Markdown：打开侧面预览"
+          }
+        },
+        "aiSelection": {
+          "explain": {
+            "title": "人工智能选择：解释"
+          },
+          "fix": {
+            "title": "AI 选择：修复"
+          },
+          "refactor": {
+            "title": "AI 选择：重构"
+          },
+          "tests": {
+            "title": "人工智能选择：生成测试"
+          }
+        }
+      },
+      "memory": {
+        "exportProjectJson": {
+          "title": "导出项目上下文 JSON",
+          "alerts": {
+            "failedTitle": "导出失败",
+            "failedMessage": "无法导出上下文 JSON：{{error}}",
+            "completedTitle": "导出完成",
+            "completedMessage": "导出上下文 JSON。\n\n文件：{{filePath}}\nMemory 节点：{{memoryNodeCount}}\n工件文件：{{artifactFileCount}}\n神器修订版：{{artifactRevisionCount}}"
+          }
+        },
+        "openPanel": {
+          "title": "Open notes panel"
+        }
+      },
+      "terminal": {
+        "focus": {
+          "title": "Focus Terminal"
+        },
+        "new": {
+          "title": "New Terminal"
+        },
+        "browseSessions": {
+          "title": "Browse Terminal Sessions"
+        },
+        "takeOver": {
+          "title": "Take Over Terminal"
+        },
+        "handBack": {
+          "title": "Hand Back Terminal to AI"
+        },
+        "interrupt": {
+          "title": "Interrupt Terminal"
+        },
+        "close": {
+          "title": "Close Terminal Session"
+        },
+        "hide": {
+          "title": "Hide Terminal Dock"
+        }
+      }
+    }
+  },
+  "executionStream": {
+    "showEarlier": "显示 {{count}} 较早事件{{suffix}}",
+    "thought": {
+      "verb": "推理",
+      "briefly": "片刻",
+      "show": "显示推理",
+      "hide": "隐藏推理"
+    },
+    "transport": {
+      "startingTurn": "起始回合"
+    },
+    "compaction": {
+      "requested": "正在压缩上下文...",
+      "running": "正在压缩上下文...",
+      "applied": "OpenAI 压实应用",
+      "failed": "OpenAI 压缩失败",
+      "milestoneTitle": "在下一轮之前压缩上下文",
+      "milestoneDetail": {
+        "codexThreadCompaction": "Codex 账户 thread 压实",
+        "providerServerSide": "OpenAI 服务器端压缩",
+        "manualServerSide": "OpenAI 手动服务器端压缩"
+      }
+    },
+    "progress": {
+      "navigate": "导航",
+      "click": "单击元素",
+      "type": "输入文字",
+      "select": "选择选项",
+      "screenshot": "截取屏幕截图",
+      "runningTool": "运行{{toolName}}",
+      "working": "在职的",
+      "terminalOpen": "Opening terminal",
+      "terminalOpenNamed": "Opening {{terminalLabel}}",
+      "terminalRead": "Reading terminal output",
+      "terminalReadNamed": "Reading output from {{terminalLabel}}",
+      "terminalAttach": "Reusing terminal session",
+      "terminalWrite": "Writing to terminal",
+      "terminalWriteNamed": "Writing to {{terminalLabel}}",
+      "terminalWait": "Waiting for terminal output",
+      "terminalWaitNamed": "Waiting for output from {{terminalLabel}}",
+      "terminalResize": "Resizing terminal session",
+      "terminalResizeNamed": "Resizing {{terminalLabel}}",
+      "terminalSignal": "Signaling terminal session",
+      "terminalSignalNamed": "Signaling {{terminalLabel}}",
+      "terminalClose": "Closing terminal session",
+      "terminalCloseNamed": "Closing {{terminalLabel}}"
+    },
+    "result": {
+      "listDirectory": "上市 {{countPrefix}}in {{pathLabel}}",
+      "createDirectory": "创建文件夹 {{pathLabel}}",
+      "writeFile": "写为 {{pathLabel}}",
+      "editFile": "更新{{pathLabel}}",
+      "readFile": "读取 {{pathLabel}}",
+      "deleteFile": "已删除 {{pathLabel}}",
+      "rollbackFile": "回滚 {{pathLabel}}",
+      "renameFile": "更名为 {{oldPath}} 至 {{newPath}}",
+      "searchCode": "在 {{searchPath}} 中找到“{{query}}”的 {{countPrefix}}",
+      "grepFile": "在 {{pathLabel}} 中找到“{{pattern}}”的匹配项",
+      "findFiles": "找到“{{pattern}}”的匹配项",
+      "fetchPage": "已获取 {{hostLabel}}",
+      "navigate": "导航完成",
+      "click": "点击完成",
+      "type": "打字完成",
+      "select": "选择完成",
+      "screenshot": "截图已捕获",
+      "browserAction": "浏览器操作完成",
+      "gitStatusFailed": "Git 状态失败",
+      "gitStatusDone": "Git 状态完成",
+      "gitDiffFailed": "Git 差异失败",
+      "gitDiffReady": "Git 差异就绪",
+      "gitLogFailed": "Git 日志失败",
+      "gitLogReady": "Git 历史记录已加载",
+      "gitCommitFailed": "Commit 失败",
+      "gitCommitCreated": "Commit 创建",
+      "restoreFile": "从 {{refValue}} 恢复 {{pathLabel}}",
+      "commandDone": "命令在 {{commandScope}} 中完成",
+      "commandFailed": "{{commandScope}} 命令失败",
+      "commandDenied": "{{commandScope}} 中的命令被拒绝",
+      "revisionApplyFailed": "修改应用失败",
+      "revisionApplied": "已应用修订",
+      "planUpdated": "计划已更新",
+      "planUpdatedBatch": "计划已更新（{{count}} 项更改）",
+      "genericToolResult": "{{toolName}} {{verb}}",
+      "actionFinished": "动作完成",
+      "ranCommand": "运行命令",
+      "terminalOpen": "Opened terminal",
+      "terminalOpenNamed": "Opened {{terminalLabel}}",
+      "terminalRead": "Read terminal output",
+      "terminalReadNamed": "Read output from {{terminalLabel}}",
+      "terminalAttach": "Reused terminal session in chat terminal dock",
+      "terminalAttachNamed": "Reused {{terminalLabel}} in chat terminal dock",
+      "terminalWrite": "Wrote to terminal",
+      "terminalWriteNamed": "Wrote to {{terminalLabel}}",
+      "terminalWait": "Waited for terminal output",
+      "terminalWaitNamed": "Waited for output in {{terminalLabel}}",
+      "terminalWaitMatched": "Matched expected terminal output",
+      "terminalWaitMatchedNamed": "Matched expected output in {{terminalLabel}}",
+      "terminalWaitTimedOut": "Timed out waiting for terminal output",
+      "terminalWaitTimedOutNamed": "Timed out waiting for {{terminalLabel}}",
+      "terminalResize": "Terminal session resized",
+      "terminalResizeNamed": "Resized {{terminalLabel}}",
+      "terminalSignal": "Terminal session signaled",
+      "terminalSignalNamed": "Signaled {{terminalLabel}}",
+      "terminalClose": "Closed terminal",
+      "terminalCloseNamed": "Closed {{terminalLabel}}"
+    },
+    "warning": {
+      "compactionFailed": "上下文压缩失败",
+      "generic": "警告"
+    },
+    "error": {
+      "toolFailed": "{{toolName}} 失败",
+      "actionFailed": "操作失败"
+    },
+    "header": {
+      "title": "执行流",
+      "show": "显示实时执行流",
+      "hide": "隐藏实时执行流",
+      "awaitingFirstEvent": "等待第一个活动",
+      "eventCount": "{{count}} 事件{{suffix}}",
+      "hiddenSummary": "显示最新的 {{visibleItemCount}} 事件。 {{hiddenItemCount}} 早期事件{{eventSuffix}} 已隐藏。",
+      "hiddenSummaryPinned": "显示最新的 {{visibleTailItemCount}} 事件加上 {{pinnedArchiveCount}} 折叠了早期的推理块 {{archiveSuffix}}。 {{hiddenItemCount}} 早期事件{{eventSuffix}} 已隐藏。",
+      "status": {
+        "failed": "失败的",
+        "completed": "完全的",
+        "started": "开始了",
+        "generic": "{{status}}"
+      }
+    },
+    "output": {
+      "openCopyOptions": "打开复制选项",
+      "copyCommand": "复制命令",
+      "copyVisibleOutput": "复制可见输出",
+      "copyPersistedPreview": "复制保留的预览",
+      "commandOutput": "命令输出",
+      "showCommandOutput": "显示命令输出",
+      "hideCommandOutput": "隐藏命令输出",
+      "truncated": "输出被截断"
+    },
+    "bridge": {
+      "native": {
+        "activity": "Codex 应用程序服务器活动",
+        "webSearch": "Codex 应用程序服务器网络搜索",
+        "command": "Codex 应用程序服务器命令：{{commandName}}",
+        "fileChangeOne": "Codex 应用程序服务器文件更改",
+        "fileChangeOther": "Codex 应用程序服务器文件更改",
+        "mcpTool": "Codex 应用程序服务器 MCP 工具：{{toolName}}",
+        "imageView": "Codex 应用程序服务器图像视图",
+        "planGenerated": "已生成 Codex 应用程序服务器计划",
+        "reviewMode": "Codex 审核模式活动"
+      },
+      "source": {
+        "urlTitle": "来源：{{title}}",
+        "urlCaptured": "捕获的源 URL",
+        "documentTitle": "源文件：{{title}}",
+        "documentCaptured": "捕获的源文档"
+      },
+      "providerTool": {
+        "modelRerouted": "模型已重新路由",
+        "configWarning": "配置警告",
+        "hook": "钩子",
+        "autoApprovalReview": "自动审批审核",
+        "providerError": "提供商错误",
+        "input": "Provider 刀具输入：{{toolName}}",
+        "running": "Provider 工具运行：{{toolName}}",
+        "collectingInput": "正在收集 provider 工具输入...",
+        "imageGenerated": "由 OpenAI provider 工具生成的图像。",
+        "output": "Provider 刀具输出：{{toolName}}"
+      },
+      "continuity": {
+        "responseTracked": "OpenAI 跟踪响应：{{responseId}}",
+        "metadataReceived": "收到 OpenAI 响应元数据"
+      },
+      "websocket": {
+        "transportUpdate": "OpenAI WebSocket 传输更新",
+        "reconnecting": "正在重新连接...{{attempt}}/{{maxAttempts}}",
+        "recoveringStoredResponse": "从存储状态恢复最终响应",
+        "recoveredStoredResponse": "从存储状态恢复最终响应",
+        "storedRecoveryFailed": "存储响应恢复失败",
+        "recovered": "重试后重新连接 {{attempt}}/{{maxAttempts}}",
+        "bypassed": "本回合使用标准 OpenAI 传输",
+        "fallback": "回退到标准 OpenAI 流",
+        "exhausted": "重新连接耗尽（{{attempt}}/{{maxAttempts}}）",
+        "cancelled": "重新连接已取消（{{attempt}}/{{maxAttempts}}）"
+      },
+      "background": {
+        "queued": "OpenAI 后台响应已排队",
+        "completed": "OpenAI 后台响应完成",
+        "failed": "OpenAI 后台响应失败。",
+        "cancelled": "OpenAI 后台响应已取消。",
+        "noteQueued": "OpenAI 后台响应已排队。打开作业以监控进度或停止它。",
+        "noTextOutput": "OpenAI 后台响应已完成，没有文本输出。",
+        "errorPrefix": "错误：{{message}}"
+      }
+    }
+  },
+  "memoryPanel": {
+    "title": "Memory",
+    "visibleCount": {
+      "eventOne": "{{count}}事件",
+      "eventOther": "{{count}} 事件",
+      "nodeOne": "{{count}}节点",
+      "nodeOther": "{{count}}节点"
+    },
+    "controls": {
+      "showArchived": "显示已存档",
+      "includeGlobal": "包括全球",
+      "exportJsonTitle": "将 memory 日志和 artifacts 导出到 JSON",
+      "exporting": "出口...",
+      "exportJson": "出口JSON",
+      "addNode": "添加Node"
+    },
+    "tabs": {
+      "memory": "耐用 Memory",
+      "history": "[[canon:thread_history]]"
+    },
+    "export": {
+      "completedTitle": "导出完成",
+      "completedMessage": "导出上下文 JSON。\n\n文件：{{filePath}}\nMemory 节点：{{memoryNodeCount}}\n工件文件：{{artifactFileCount}}\n神器修订版：{{artifactRevisionCount}}",
+      "failedTitle": "导出失败",
+      "failedMessage": "无法导出上下文 JSON：{{message}}"
+    },
+    "search": {
+      "placeholder": "搜索 memory...",
+      "searching": "正在寻找...",
+      "resultOne": "{{count}} 结果",
+      "resultOther": "{{count}} 结果"
+    },
+    "compression": {
+      "latestBatchTitle": "最新压缩批次",
+      "summary": "将日志 #{{rangeStart}} 到 #{{rangeEnd}} 压缩到摘要节点中（{{archivedCount}} 已存档）。",
+      "jumpToSummary": "跳转至摘要",
+      "dismiss": "解雇"
+    },
+    "loading": {
+      "memory": "正在加载 memory...",
+      "threadHistory": "正在加载 thread 历史记录..."
+    },
+    "sections": {
+      "pinned": "已固定",
+      "allNodes": "所有 Memory 节点"
+    },
+    "embedder": {
+      "downloading": "正在下载 model {{progress}}%",
+      "loading": "正在加载 model...",
+      "unavailable": "嵌入不可用"
+    },
+    "source": {
+      "userMemory": "用户 memory",
+      "workspaceEvent": "Workspace事件",
+      "terminalSummary": "Terminal总结",
+      "validatedDecision": "已验证的决定",
+      "referenceNote": "参考注释"
+    },
+    "provenance": {
+      "ariaLabel": "Memory 出处",
+      "origin": "起源",
+      "terminalSession": "已接受 terminal 摘要",
+      "session": "会议",
+      "thread": "Thread",
+      "saved": "已保存"
+    },
+    "badges": {
+      "global": "全球的",
+      "archived": "已归档",
+      "deletedThread": "已删除线程"
+    },
+    "meta": {
+      "deletedThreadOrigin": "{{threadTitle}} · 已于 {{time}} 删除"
+    },
+    "actions": {
+      "unpin": "取消固定",
+      "pin": "别针",
+      "edit": "编辑",
+      "delete": "删除",
+      "showLess": "显示较少",
+      "showMore": "显示更多",
+      "continue": "继续",
+      "continueDraft": "从保存的上下文继续。"
+    },
+    "scoreRef": "{{score}}% 参考",
+    "history": {
+      "userMessage": "用户留言",
+      "assistantMessage": "助理留言",
+      "emptyTitle": "还没有 thread 历史记录",
+      "noActiveThreadTitle": "未选择活动 thread",
+      "emptyDescription": "此 thread 的用户和助理转录事件将显示在此处。",
+      "noActiveThreadDescription": "打开或创建 thread 以检查其转录历史记录。"
+    },
+    "addForm": {
+      "title": "添加新 Memory Node",
+      "topicPlaceholder": "主题/标题",
+      "contentPlaceholder": "写下任何背景、事实或说明......",
+      "tagsPlaceholder": "标签（逗号分隔）",
+      "saveAsGlobal": "保存为持久全局 memory",
+      "saving": "保存...",
+      "saveNode": "保存 Node"
+    },
+    "editForm": {
+      "title": "编辑 Memory Node",
+      "closeAriaLabel": "关闭 memory 节点编辑器",
+      "topicPlaceholder": "话题",
+      "contentPlaceholder": "内容",
+      "tagsPlaceholder": "标签（逗号分隔）",
+      "saving": "保存...",
+      "saveChanges": "保存更改"
+    },
+    "empty": {
+      "searchTitle": "没有匹配的记忆",
+      "title": "还没有记忆",
+      "searchDescription": "尝试不同的搜索词或清除搜索以查看所有 memory 节点。",
+      "description": "持久 memory 存储明确的注释、workspace 事件、接受的 terminal 摘要、经过验证的决策和参考注释。原始 chat 现在变成了 thread 历史记录。"
+    }
+  },
+  "workspaceRail": {
+    "title": "项目",
+    "ariaLabel": "项目和线程",
+    "show": "显示项目和线程",
+    "showWithActivityOne": "显示项目和线程。{{count}} 个隐藏线程；最高优先级：{{activity}}。",
+    "showWithActivityOther": "显示项目和线程。{{count}} 个隐藏线程；最高优先级：{{activity}}。",
+    "hide": "隐藏项目和线程",
+    "resize": "调整项目和线程大小",
+    "close": "关闭项目和线程"
+  },
+  "projectEntry": {
+    "browserPreviewLimitation": {
+      "title": "Desktop workspace required",
+      "message": "Opening a project requires the Electron workspace bridge. Use the desktop app or an Electron-backed smoke run for this flow."
+    },
+    "clearProjectHistoryDialog": {
+      "title": "Clear project transcript history",
+      "message": "Clear transcript history for project \"{{name}}\"?\n\nThis does not delete project files.",
+      "confirm": "Clear history",
+      "cancel": "Cancel"
+    },
+    "archiveProjectDialog": {
+      "title": "停止正在进行的工作并归档项目？",
+      "message": "将先停止“{{name}}”中正在进行的工作，再把项目移入归档。",
+      "cancel": "取消"
+    },
+    "removeProjectDialog": {
+      "title": "Remove from ADDOM?",
+      "message": "\"{{name}}\" and all of its ADDOM history, Memory, Artifacts, and recovery data will be removed. Project files are unchanged.",
+      "path": "Folder: {{path}}",
+      "confirm": "Remove from ADDOM",
+      "failureTitle": "Could not remove from ADDOM",
+      "failureMessage": "Nothing was removed from ADDOM. Try again.",
+      "cancel": "Cancel"
+    },
+    "eyebrow": "Workspace",
+    "title": "Open a project",
+    "newProject": "新建项目",
+    "newThreadInProject": "在 {{name}} 中新建线程",
+    "openFolder": "Open folder",
+    "projectActions": {
+      "openFolder": "Open folder",
+      "archiveProject": "归档项目",
+      "clearHistory": "Clear history",
+      "removeProject": "Remove from ADDOM",
+      "ariaLabel": "Project actions for {{name}}",
+      "restoreToRecent": "Restore to Recent"
+    },
+    "archive": {
+      "title": "Archive",
+      "toggle": "Toggle Archive"
+    },
+    "projectDisclosure": {
+      "expand": "Expand {{name}}",
+      "collapse": "Collapse {{name}}"
+    },
+    "recentProjects": {
+      "title": "Recent projects",
+      "description": "Pick up a workspace with its threads and local context.",
+      "projectCount": "{count, plural, other {# 个项目}}",
+      "fallbackProjectName": "Project",
+      "recent": "Recent",
+      "threadCount": "{count, plural, other {# thread}}",
+      "open": "Open"
+    },
+    "empty": {
+      "title": "No recent projects",
+      "description": "Open a folder to start working in the main workspace."
+    },
+    "home": {
+      "placeholder": "描述任务以开始工作",
+      "noProject": "无项目",
+      "projectMenu": "选择目标项目",
+      "start": "开始任务",
+      "commandsHint": "命令"
+    }
+  },
+  "agents": {
+    "fanoutConfirmation": {
+      "title": "Launch {{count}} agents?",
+      "description": "The orchestrator requested more agents than your {{limit}}-agent confirmation limit.",
+      "stopTurn": "Stop turn",
+      "limit": "Limit to {{count}}",
+      "launch": "Launch {{count}}"
+    }
+  },
+  "agentNavigator": {
+    "title": "智能体",
+    "close": "关闭智能体",
+    "settings": "智能体设置",
+    "sectionActive": "进行中",
+    "sectionDone": "已完成 · {{count}}",
+    "emptyActive": "没有进行中的智能体",
+    "emptyThread": "此会话中没有智能体。",
+    "showMore": "再显示 {{count}} 个",
+    "expand": "展开",
+    "collapse": "折叠",
+    "hidden": "+{{count}}",
+    "partialVisibility": "由服务商托管，可见性有限",
+    "age": {
+      "seconds": "{{count}} 秒",
+      "minutes": "{{count}} 分",
+      "hours": "{{count}} 小时",
+      "days": "{{count}} 天"
+    },
+    "status": {
+      "queued": "排队中",
+      "running": "运行中",
+      "waiting": "等待中",
+      "paused": "已暂停",
+      "approval_required": "需要批准",
+      "cancelling": "正在取消",
+      "completed": "已完成",
+      "failed": "已失败",
+      "cancelled": "已取消"
+    },
+    "live": {
+      "selected": "{{label}} · {{status}}",
+      "attention": "{{label}} needs attention · {{status}}"
+    }
+  },
+  "agentConversation": {
+    "back": "返回",
+    "rootLabel": "会话",
+    "regionLabel": "智能体对话",
+    "loading": "正在加载记录…",
+    "empty": "尚未记录任何内容。",
+    "loadMore": "加载更多活动",
+    "unavailableTitle": "智能体不可用",
+    "unavailableBody": "该智能体已不属于此运行。",
+    "error": "无法加载该智能体的记录。",
+    "actions": {
+      "menu": "智能体操作",
+      "message": "消息",
+      "messagePrompt": "向此智能体发送消息",
+      "messageDescription": "向正在运行的智能体发送后续指令。",
+      "messagePlaceholder": "输入简洁的指令…",
+      "cancel": "取消",
+      "send": "发送",
+      "sending": "正在发送…",
+      "failure": "无法完成智能体操作。",
+      "interrupt": "中断",
+      "retry": "重试",
+      "promote": "作为项目线程继续"
+    },
+    "origin": {
+      "label": "从 {{role}} 分支 · 第 {{turn}} 轮",
+      "inspect": "查看来源",
+      "unavailable": "来源不可用",
+      "artifacts": "{{count}} 个未合并的来源产物",
+      "failure": "无法打开来源代理。"
+    }
+  },
+  "agentStream": {
+    "title": "智能体 · {{count}}",
+    "open": "打开",
+    "delegationEchoSuppressed": "委派已完成。请打开 Agents 查看详情。"
+  },
+  "agentTrigger": {
+    "idle": "Agents",
+    "active": "Agents · {{count}} active",
+    "approval": "Agents · needs approval",
+    "failed": "Agents · {{count}} failed",
+    "open": "Open Agents",
+    "close": "Close Agents"
+  }
+}

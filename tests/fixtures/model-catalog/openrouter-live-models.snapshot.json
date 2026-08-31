@@ -1,0 +1,154 @@
+{
+  "generatedAt": "2026-03-16T00:00:00.000Z",
+  "sourceRowCount": 3,
+  "normalizedRouteCount": 3,
+  "rawFieldInventory": {
+    "topLevelKeys": [
+      "architecture",
+      "context_length",
+      "id",
+      "name",
+      "pricing",
+      "supported_parameters"
+    ],
+    "architectureKeys": [
+      "input_modalities"
+    ],
+    "pricingKeys": [
+      "completion",
+      "prompt"
+    ],
+    "supportedParameters": [
+      "reasoning",
+      "tool_choice",
+      "tools"
+    ]
+  },
+  "models": [
+    {
+      "id": "openai/gpt-5.4",
+      "label": "openai/gpt-5.4",
+      "group": "OpenAI",
+      "contextWindowTokens": 180000,
+      "pricing": {
+        "prompt": 2,
+        "completion": 8
+      },
+      "openrouterLive": {
+        "name": "GPT-5.4",
+        "contextLength": 180000,
+        "pricing": {
+          "prompt": 2,
+          "completion": 8
+        },
+        "architecture": {
+          "inputModalities": [
+            "text"
+          ]
+        },
+        "supportedParameters": [
+          "tool_choice",
+          "tools"
+        ]
+      },
+      "openrouterInferredCapabilities": {
+        "supportsTools": true,
+        "supportsReasoning": null,
+        "supportsReasoningEffort": null,
+        "reasoningEffortLevels": null,
+        "supportsVision": null
+      },
+      "openrouterCapabilityProvenance": {
+        "tools": "estimated_openrouter_supported_parameters",
+        "reasoning": "unknown",
+        "reasoningEffort": "unknown",
+        "vision": "unknown",
+        "limits": "openrouter_live",
+        "pricing": "openrouter_live"
+      }
+    },
+    {
+      "id": "vendor/changed-route",
+      "label": "vendor/changed-route",
+      "group": "vendor",
+      "contextWindowTokens": 128000,
+      "pricing": {
+        "prompt": 0.15,
+        "completion": 0.6
+      },
+      "openrouterLive": {
+        "name": "Changed Route",
+        "contextLength": 128000,
+        "pricing": {
+          "prompt": 0.15,
+          "completion": 0.6
+        },
+        "architecture": {
+          "inputModalities": [
+            "text"
+          ]
+        },
+        "supportedParameters": [
+          "tool_choice",
+          "tools"
+        ]
+      },
+      "openrouterInferredCapabilities": {
+        "supportsTools": true,
+        "supportsReasoning": null,
+        "supportsReasoningEffort": null,
+        "reasoningEffortLevels": null,
+        "supportsVision": null
+      },
+      "openrouterCapabilityProvenance": {
+        "tools": "estimated_openrouter_supported_parameters",
+        "reasoning": "unknown",
+        "reasoningEffort": "unknown",
+        "vision": "unknown",
+        "limits": "openrouter_live",
+        "pricing": "openrouter_live"
+      }
+    },
+    {
+      "id": "vendor/old-route",
+      "label": "vendor/old-route",
+      "group": "vendor",
+      "contextWindowTokens": 64000,
+      "pricing": {
+        "prompt": 0.1,
+        "completion": 0.3
+      },
+      "openrouterLive": {
+        "name": "Old Route",
+        "contextLength": 64000,
+        "pricing": {
+          "prompt": 0.1,
+          "completion": 0.3
+        },
+        "architecture": {
+          "inputModalities": [
+            "text"
+          ]
+        },
+        "supportedParameters": [
+          "reasoning"
+        ]
+      },
+      "openrouterInferredCapabilities": {
+        "supportsTools": null,
+        "supportsReasoning": true,
+        "supportsReasoningEffort": null,
+        "reasoningEffortLevels": null,
+        "supportsVision": null
+      },
+      "openrouterCapabilityProvenance": {
+        "tools": "unknown",
+        "reasoning": "estimated_openrouter_supported_parameters",
+        "reasoningEffort": "unknown",
+        "vision": "unknown",
+        "limits": "openrouter_live",
+        "pricing": "openrouter_live"
+      }
+    }
+  ]
+}

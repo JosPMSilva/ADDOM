@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-03-14T22:23:40.389Z",
+  "vendorRoot": "C:\\Users\\example\\Documents\\ADDOM\\vendor\\models.dev-portable\\providers",
+  "providers": [
+    {
+      "providerId": "gemini",
+      "upstreamProviderId": "google",
+      "addomModelCount": 9,
+      "modelsDevModelCount": 30,
+      "conflictingModelCount": 0,
+      "onlyInAddom": [],
+      "onlyInModelsDev": [
+        "gemini-1.5-flash-8b",
+        "gemini-1.5-flash",
+        "gemini-1.5-pro",
+        "gemini-2.5-flash-image-preview",
+        "gemini-2.5-flash-image",
+        "gemini-2.5-flash-lite-preview-06-17",
+        "gemini-2.5-flash-lite-preview-09-2025",
+        "gemini-2.5-flash-preview-04-17",
+        "gemini-2.5-flash-preview-05-20",
+        "gemini-2.5-flash-preview-09-2025",
+        "gemini-2.5-flash-preview-tts",
+        "gemini-2.5-pro-preview-05-06",
+        "gemini-2.5-pro-preview-06-05",
+        "gemini-2.5-pro-preview-tts",
+        "gemini-3.1-flash-image-preview",
+        "gemini-3.1-pro-preview-customtools",
+        "gemini-embedding-001",
+        "gemini-flash-latest",
+        "gemini-flash-lite-latest",
+        "gemini-live-2.5-flash-preview-native-audio",
+        "gemini-live-2.5-flash"
+      ],
+      "conflicts": []
+    }
+  ],
+  "summary": {
+    "providerCount": 1,
+    "conflictingProviders": 0,
+    "conflictingModels": 0,
+    "onlyInAddom": 0,
+    "onlyInModelsDev": 21
+  }
+}

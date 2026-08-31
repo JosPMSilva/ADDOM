@@ -1,0 +1,27 @@
+{
+  "fixtureId": "markdown-dispatch-delegation",
+  "kind": "markdown",
+  "title": "Dispatch and delegation fixture",
+  "sourceClass": "repo-derived",
+  "provider": "repo",
+  "model": "repo-derived",
+  "streamShape": "none",
+  "semanticOwnership": "final-answer",
+  "contentFile": "content.md",
+  "sourceContentSha256": "b50604b107e4df77714eb73c4e76f149ac0deb2a865003c1ca577991504a5a38",
+  "contentSha256": "b50604b107e4df77714eb73c4e76f149ac0deb2a865003c1ca577991504a5a38",
+  "captureProvenance": {
+    "source": "repo-derived",
+    "captureMode": "read-only",
+    "sourceFiles": [
+      "runbook.md"
+    ]
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ]
+}

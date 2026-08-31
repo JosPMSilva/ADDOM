@@ -1,0 +1,9 @@
+type Metric {
+  id: ID!
+  name: String!
+  value: Int!
+}
+
+type Query {
+  metrics: [Metric!]!
+}

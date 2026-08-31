@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "C:/workspace",
+    "command": "clang++ -std=c++20 -Iinclude -c src/main.cpp -o build/main.o",
+    "file": "src/main.cpp"
+  }
+]

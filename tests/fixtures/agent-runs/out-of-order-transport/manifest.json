@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "out-of-order-transport",
+  "sourceClass": "sanitized_existing_test",
+  "captureDate": "2026-07-22",
+  "providerRuntimeClass": "provider_transport_normalization",
+  "synthetic": false,
+  "networkRequired": false,
+  "sourceReferences": ["tests/integration/live-execution-canonical-reducer.test.mjs"],
+  "sanitization": { "method": "manual_shape_extraction", "privatePromptRemoved": true, "identifiersPlaceholdered": true, "pathsNormalized": true },
+  "contentHashAlgorithm": "sha256-canonical-json-v1",
+  "contentHash": "6d8634559513d282c85bc3224e5f19a68f2f55aa85b8b6e6007e918372cf2a0f",
+  "coverage": ["out_of_order_delivery", "delayed_events"],
+  "expectedCapabilities": { "addressableChildIdentity": false, "nodeScopedStream": false, "nodeCancellation": false, "rootFinalAuthority": true },
+  "currentContract": { "identity": "root_turn_only", "stream": "arrival_order_with_provider_metadata", "cancellation": "root_turn_only", "rootFinalAuthority": "observed" },
+  "knownGaps": ["No canonical per-node sequence exists for recursive replay yet."]
+}

@@ -1,0 +1,937 @@
+{
+  "shell": {
+    "badges": {
+      "projectRootSet": "кореневий набір проекту",
+      "projectRootMissing": "відсутній корінь проекту",
+      "languageSystem": "мова: систем",
+      "languageNamed": "мова: {{label}}",
+      "updatesNamed": "оновлення: {{status}}",
+      "updatesIdle": "оновлення неактивні",
+      "uiScale": "ui {{percent}}%{{modeSuffix}}",
+      "uiScaleAutoSuffix": "авто",
+      "typographyScale": "текст {{percent}}%",
+      "providersCount": "{{count}} providers",
+      "configuredCount": "{{count}} налаштовано",
+      "noProvidersConfigured": "providers не налаштовано",
+      "permissionMode": "дозвіл: {{mode}}",
+      "liveStreamOn": "пряма трансляція",
+      "liveStreamOff": "пряму трансляцію вимкнено",
+      "debugVisible": "налагодження видно",
+      "debugHidden": "налагодження приховано",
+      "compressionOn": "стиснення ввімкнено",
+      "compressionOff": "компресія вимкнена",
+      "threshold": "поріг {{value}}",
+      "globalMemoryContextOn": "глобальний контекст пам’яті увімкнено",
+      "globalMemoryContextOff": "глобальний контекст пам’яті вимкнено",
+      "enabled": "включено",
+      "disabled": "вимкнено",
+      "rolesCount": "Ролі {{count}}",
+      "tier": "рівень: {{tier}}",
+      "projectSelected": "обраний проект",
+      "noActiveProject": "немає активного проекту",
+      "threadSelected": "Вибрано thread",
+      "noActiveThread": "немає активного thread"
+    }
+  },
+  "categories": {
+    "general": {
+      "label": "Загальне",
+      "description": "Language, product guidance, updates, and app information."
+    },
+    "appearance": {
+      "label": "Вигляд",
+      "description": "Choose a theme, interface density, reading scale, and workspace tone."
+    },
+    "terminal": {
+      "label": "Термінал",
+      "description": "Configure terminal type, shell, working folder, and interaction behavior."
+    },
+    "agents": {
+      "label": "Агенти",
+      "description": "Set persistent instructions and manage Subagent roles."
+    },
+    "providers": {
+      "label": "Providers",
+      "description": "Provider connections, credentials, OpenAI account access, and Project Knowledge when enabled."
+    },
+    "toolsSafety": {
+      "label": "Safety",
+      "description": "Execution mode and concise guardrail behavior."
+    },
+    "dataPrivacy": {
+      "label": "Data",
+      "description": "Export, restore, delete, or reset local ADDOM data."
+    }
+  },
+  "sections": {
+    "general": {
+      "instructions": {
+        "title": "Інструкція з використання",
+        "summary": "Відкрийте посібник у програмі, щоб дізнатися про поточну поведінку, параметри безпеки за замовчуванням і робочі процеси."
+      },
+      "language": {
+        "title": "Мова",
+        "summary": "Select the ADDOM app language."
+      },
+      "projectFolder": {
+        "title": "Папка проекту",
+        "summary": "Виберіть активний корінь проекту для файлових інструментів і команд shell."
+      },
+      "assistantPrompt": {
+        "title": "Custom instructions",
+        "summary": "Add persistent guidance to each chat turn."
+      },
+      "uiScaling": {
+        "title": "Масштабування інтерфейсу користувача",
+        "summary": "Adjust shell density and chat text size."
+      },
+      "updates": {
+        "title": "Оновлення",
+        "summary": "Перевірте, завантажте та встановіть оновлення ADDOM."
+      },
+      "about": {
+        "title": "про",
+        "summary": "Інформація про версію та збірку."
+      },
+      "terminal": {
+        "title": "Terminal",
+        "summary": "Set terminal font, shell, start folder, and copy behavior."
+      },
+      "appearanceMode": {
+        "title": "Theme",
+        "summary": "Choose light, dark, or system appearance."
+      },
+      "backgroundTone": {
+        "title": "Background",
+        "summary": "Choose a gray workspace tone."
+      }
+    },
+    "providers": {
+      "apiKeys": {
+        "title": "API Keys",
+        "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project Knowledge",
+        "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+      }
+    },
+    "toolsSafety": {
+      "executionMode": {
+        "title": "Режим виконання",
+        "summary": "Choose how much ADDOM should pause before running tools."
+      },
+      "commandSafety": {
+        "title": "Guardrails",
+        "summary": "Hard guardrails and first-risky-use behavior."
+      }
+    },
+    "moa": {
+      "agents": {
+        "title": "Agent roles",
+        "summary": "Configure agent roles, models, skills, and instructions."
+      }
+    },
+    "dataPrivacy": {
+      "resetCleanup": {
+        "title": "Скидання та очищення",
+        "summary": "Експорт/імпорт thread JSON і виконання очищення в області thread, проекті або workspace."
+      }
+    }
+  },
+  "common": {
+    "permissionRow": {
+      "alwaysOn": "Завжди ввімкнено",
+      "toggleSetting": "Перемкнути налаштування",
+      "unavailable": "Недоступний",
+      "clickToDisable": "Натисніть, щоб вимкнути",
+      "clickToEnable": "Натисніть, щоб увімкнути"
+    }
+  },
+  "alerts": {
+    "executionModeSaveFailed": {
+      "title": "Не вдалося зберегти режим виконання",
+      "message": "ADDOM could not persist the selected access mode. The UI was reset to the last saved value."
+    },
+    "languageSaveFailed": {
+      "title": "Помилка збереження мови",
+      "message": "ADDOM не вдалося зберегти вибрану мову програми."
+    },
+    "restartRequired": {
+      "title": "Потрібен перезапуск",
+      "message": "Запущений головний процес ADDOM не підтвердив нові параметри масштабування інтерфейсу користувача. Перезапустіть програму, щоб основний процес перезавантажив оновлені обробники налаштувань."
+    },
+    "uiScalingSaveFailed": {
+      "title": "Не вдалося зберегти масштабування інтерфейсу користувача",
+      "message": "ADDOM не вдалося зберегти вибрані параметри масштабування інтерфейсу користувача."
+    },
+    "appearanceSaveFailed": {
+      "title": "Theme Save Failed",
+      "message": "ADDOM could not persist the selected theme."
+    },
+    "backgroundToneSaveFailed": {
+      "title": "Background Tone Save Failed",
+      "message": "ADDOM could not persist the selected background tone."
+    },
+    "backgroundToneRestartRequired": {
+      "message": "The running ADDOM main process did not acknowledge the new background tone. Restart the app so the main process reloads the updated settings handlers."
+    }
+  },
+  "blocks": {
+    "instructions": {
+      "title": "Інструкція з використання",
+      "description": "Перегляньте поточну поведінку ADDOM, параметри безпеки за замовчуванням і вказівки щодо робочого процесу.",
+      "guideLabel": "Довідник із програми",
+      "guideVersion": "Версія {{version}}",
+      "guideUpdated": "Оновлено {{date}}",
+      "openGuide": "Відкрити посібник",
+      "note": "Використовуйте цей посібник як короткий довідник про те, як наразі поводяться режими, схвалення chat, memory, [[canon:artifacts]] і [[canon:moa]]."
+    },
+    "projectFolder": {
+      "title": "Коренева папка проекту",
+      "description": "Виберіть активний корінь проекту, який ADDOM використовує для файлових інструментів і команд shell.",
+      "currentProjectPath": "Поточний шлях проекту",
+      "noProjectDirectorySelected": "Каталог проекту не вибрано",
+      "changeFolder": "Змінити папку"
+    },
+    "executionMode": {
+      "title": "Режим виконання",
+      "description": "Додаткова поверхня для режиму за замовчуванням [[canon:ask]] / [[canon:autonomy]] / [[canon:full_access]], який використовується для виконання поворотів.",
+      "noticeLabel": "[[canon:info]]",
+      "currentDefault": "Поточне значення за умовчанням:",
+      "mode": {
+        "ask": "[[canon:ask]]",
+        "autonomy": "[[canon:autonomy]]",
+        "fullAccess": "[[canon:full_access]]"
+      },
+      "summary": {
+        "ask": "Виконання ходів продовжується у звичайному режимі для дій, безпечних для workspace, і призупиняється, коли потребують схвалення більш ризиковані кроки, що впливають на мережу, інсталяцію чи хост.",
+        "autonomy": "Ходи Execute можуть діяти в межах workspace Guardrails без рутинного підтвердження. Жорсткі блокування та дії поза межами області все одно відображаються явно.",
+        "fullAccess": "Виконати вмикає інструменти автоматичного схвалення для цього сеансу, тоді як явна жорстка політика забороняє блокувати небезпечні шляхи."
+      },
+      "notice": "Виконання ходів використовує це збережене значення за умовчанням. Режим планування та мислення зберігає видимість за замовчуванням у chat, але не виконує інструменти наосліп."
+    },
+    "assistantPrompt": {
+      "title": "Custom instructions",
+      "description": "Add persistent guidance to each chat turn.",
+      "placeholder": "Приклад: віддайте перевагу TypeScript. Слідкуйте за тим, щоб зміни коду були мінімальними та спочатку тестувалися. Не використовуйте Tailwind.",
+      "save": "Save instructions"
+    },
+    "language": {
+      "title": "Мова",
+      "description": "Виберіть мову програми ADDOM лише для поверхонь інтерфейсу користувача рендерера.",
+      "appLanguage": "Мова програми",
+      "systemDefaultDescription": "Система за умовчанням відповідає мові вашої ОС. Відповіді помічника, поведінка [[canon:backend]], команди та технічний tokens залишаються канонічною англійською.",
+      "savedSetting": "Налаштування збережено",
+      "currentRendererLocale": "Поточна локаль рендерера",
+      "systemResolvedNotice": "Мова вашої системи наразі має значення {{label}}. Якщо цю мову ще не надіслано, ADDOM повертається до англійської мови.",
+      "validationOnlyNotice": "{{label}} є мовою перевірки. Він залишається прихованим від звичайних налаштувань випуску, і його слід увімкнути лише під час перевірки локалізації.",
+      "savedOnlyNotice": "{{label}} збережено, але ADDOM наразі постачає лише рядки англійської мови. Інтерфейс користувача залишається англійською мовою, доки не буде доставлено цю мову."
+    },
+    "apiKeys": {
+      "title": "API Keys та ідентифікатори",
+      "description": "Налаштуйте віддалені облікові дані та ідентифікаційні дані provider. Локальні providers, такі як Ollama, можуть не потребувати ключів.",
+      "noProviders": "Немає доступних для налаштування providers.",
+      "cursor": {
+        "accountMethod": "Cursor account",
+        "runtimeReady": "Runtime {{version}} is ready",
+        "runtimeMissing": "Cursor Agent runtime is not installed.",
+        "installRuntime": "Install runtime",
+        "installingRuntime": "Installing runtime",
+        "checkRuntime": "Check runtime",
+        "executionScope": "Composer 2.5 runs in Chat Execute with Full Access.",
+        "accountConnected": "Cursor account connected",
+        "accountDisconnected": "Cursor account not connected",
+        "connect": "Connect account",
+        "disconnect": "Disconnect",
+        "disconnectTitle": "Disconnect Cursor?",
+        "disconnectMessage": "ADDOM will stop using this Cursor account until you reconnect. Your API key and project files are unchanged.",
+        "apiKeyLabel": "Cursor API key",
+        "actionFailed": "Cursor could not complete this action."
+      },
+      "loginErrors": {
+        "callbackPortInUse": "Локальний порт зворотного виклику для входу в систему OpenAI уже використовується. Повторіть процес входу або закрийте конфліктний процес і повторіть спробу.",
+        "consentDenied": "Етап згоди веб-переглядача OpenAI скасовано або відхилено. Почніть процес входу знову, щоб повторити спробу.",
+        "callbackNotCompleted": "Вхід у веб-переглядач OpenAI не завершив зворотний виклик локального хосту. Повторіть процес входу та завершіть згоду, перш ніж повернутися до ADDOM.",
+        "browserOpenFailed": "ADDOM не вдалося автоматично відкрити сторінку входу OpenAI. Скористайтеся Відкрити браузер знову або Скопіювати посилання для входу.",
+        "missingAuthUrl": "Посилання для входу OpenAI більше не доступне. Почніть процес входу ще раз, щоб запитати нове посилання в браузері.",
+        "bridgeProcessExited": "Локальний Codex runtime зупинився під час очікування зворотного виклику браузера OpenAI. Почніть процес входу знову.",
+        "loginTimedOut": "Час входу в систему OpenAI минув перед завершенням зворотного виклику браузера. Почніть процес входу знову, щоб повторити спробу."
+      },
+      "loginAlerts": {
+        "unavailable": "OpenAI Вхід до облікового запису недоступний",
+        "callbackPortInUse": "Локальний порт зворотного виклику зайнятий",
+        "consentDenied": "Згода веб-переглядача відхилена",
+        "callbackNotCompleted": "Зворотний виклик браузера не завершено",
+        "browserOpenFailed": "Помилка запуску браузера",
+        "missingAuthUrl": "Посилання для входу недоступне",
+        "bridgeProcessExited": "Codex Runtime Зупинено",
+        "loginTimedOut": "Час входу минув"
+      },
+      "account": {
+        "connected": "Сеанс облікового запису OpenAI підключено.",
+        "waitingForCallback": "Завершіть вхід і дайте згоду в браузері, а потім поверніться після завершення зворотного виклику локального хосту.",
+        "waitingForBrowser": "ADDOM очікує на початок входу в браузер.",
+        "notCompleted": "Вхід до облікового запису OpenAI ще не завершено.",
+        "storedKeyInactive": "Збережений API key залишається доступним, але неактивним.",
+        "preparingRuntime": "Підготовка Codex runtime",
+        "reconnect": "Повторне підключення",
+        "continueInBrowser": "Продовжити в браузері",
+        "openBrowserAgain": "Знову відкрийте браузер",
+        "copyLoginLink": "Копіювати посилання для входу",
+        "copiedLink": "Скопійоване посилання"
+      },
+      "accessMethod": {
+        "label": "Sign in with",
+        "apiKey": "API key",
+        "openAiAccount": "Обліковий запис OpenAI",
+        "selectedAccount": "Using your OpenAI account.",
+        "selectedApiKey": "Using an API key."
+      },
+      "localProvider": {
+        "label": "Місцевий provider",
+        "downloadTitle": "Завантажити {{name}}",
+        "running": "Running - {{count}} model{{suffix}}",
+        "notRunning": "Не працює"
+      },
+      "removeDialog": {
+        "title": "Видаліть API Key",
+        "message": "Видалити API key для {{name}}?",
+        "confirm": "Видалити ключ"
+      },
+      "disconnectDialog": {
+        "title": "Відключіть обліковий запис OpenAI",
+        "message": "Відключити збережений сеанс облікового запису OpenAI для цього профілю ADDOM?",
+        "confirm": "Відключити"
+      },
+      "copyFailed": {
+        "title": "Не вдалося копіювати",
+        "message": "ADDOM не вдалося скопіювати посилання для входу в обліковий запис OpenAI у буфер обміну."
+      },
+      "apiKeyInput": {
+        "placeholder": "Вставте свій API key...",
+        "save": "Зберегти ключ",
+        "getKeyTitle": "Отримайте API key від {{name}}"
+      },
+      "configured": "Налаштовано",
+      "saved": "Збережено",
+      "replaceKey": "Замінити ключ",
+      "recommendedAccount": {
+        "title": "Recommended for OpenAI",
+        "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+        "action": "Use OpenAI account"
+      }
+    },
+    "chatTypography": {
+      "title": "Текст chat",
+      "description": "Застосовуйте один глобальний коефіцієнт масштабу до зіставлених текстових поверхонь chat.",
+      "globalScaleFactor": "Фактор глобального масштабу",
+      "globalScaleDescription": "Це разом масштабує зіставлені текстові токени chat. Значення за замовчуванням для окремих елементів залишаються поза Налаштуваннями.",
+      "typographyScale": "Масштаб тексту",
+      "range": "Діапазон від {{min}}% до {{max}}%",
+      "reset": "Скинути",
+      "notice": "Масштаб застосовується до зіставлених текстових токенів, які вже використовуються в повідомленнях користувача, виводі оркестратора, агентах, потоці виконання та картках поруч із chat."
+    },
+    "uiScaling": {
+      "description": "Керуйте щільністю ADDOM shell і масштабуванням тексту chat з одного місця.",
+      "appShellDensity": "Додаток shell щільність",
+      "appShellDensityDescription": "Режим [[canon:auto]] слідує за ефективним вікном перегляду після масштабування ОС. Режим [[canon:manual]] закріплює щільність shell на дисплеях.",
+      "effective": "Ефективний {{percent}}%",
+      "auto": "[[canon:auto]]",
+      "manual": "[[canon:manual]]",
+      "autoModeDescription": "Режим [[canon:auto]] зберігає геометрію shell узгодженою між налаштуваннями 1080p і 4K, реагуючи на фактичне вікно перегляду CSS.",
+      "manualModeDescription": "Режим [[canon:manual]] корисний, якщо вам потрібна одна фіксована щільність shell незалежно від масштабування дисплея.",
+      "shellScale": "Шкала Shell",
+      "shellScaleDescription": "Це масштабує геометрію shell tokens, яку використовують бічна панель, висувний ящик thread, рейка [[canon:moa]] і ширина вмісту chat.",
+      "chatTypographyScale": "Масштаб тексту",
+      "chatTypographyScaleDescription": "Підлаштовуйте розмір тексту chat разом із щільністю shell, щоб узгоджувати обидва шари одночасно.",
+      "range": "Діапазон від {{min}}% до {{max}}%",
+      "reset": "Скинути",
+      "notice": "Закріплені панелі залишаються вирівняними, оскільки ширина shell і напрямні вмісту масштабуються з однакових спільних налаштувань model, а не згортаються незалежно."
+    },
+    "commandSafety": {
+      "title": "Guardrails і діагностика",
+      "description": "Hard guardrails stay on in all access modes. [[canon:ask]], [[canon:autonomy]], and [[canon:full_access]] only change when approvals interrupt a turn.",
+      "common": {
+        "unknown": "невідомий"
+      },
+      "approvalRuleLabels": {
+        "readFile": "Читати файли",
+        "writeFile": "Запис файлів",
+        "listDirectory": "Список каталогів",
+        "searchCode": "Код пошуку",
+        "applyArtifactRevision": "Застосувати ревізії артефактів",
+        "toolOperation": "Робота інструменту",
+        "projectReadonlyShell": "Виконайте команди проекту shell лише для читання",
+        "projectBuildTest": "Виконайте команди побудови/тестування проекту",
+        "projectMutation": "Виконайте команди зміни проекту",
+        "processControl": "Виконайте команди керування процесом проекту",
+        "projectDependencyInstallSandboxed": "Виконати sandboxed встановлення залежностей проєкту",
+        "projectDependencyInstall": "Запустіть встановлення залежностей проекту",
+        "runCommandOperations": "Виконати командні операції"
+      },
+      "riskyActionApprovals": {
+        "title": "Схвалення ризикованих дій",
+        "description": "Перші ризиковані мережеві запити та встановлення залежностей проекту можна запам'ятовувати для активного проекту протягом цього сеансу app. Шляхи поза workspace, деструктивні дії, глобальні інсталяції та підвищений host access, як і раніше, потребують явного схвалення.",
+        "activeProjectScope": "Обсяг сесії активного проекту:",
+        "noActiveWorkspace": "Активного workspace ще не виявлено. Ризикована дія в межах сеансу memory запускається, коли відкрито кореневу папку проекту."
+      },
+      "modeEffect": {
+        "title": "Дія режиму",
+        "description": "[[canon:ask]] призупиняє ризиковані дії. [[canon:autonomy]] підтримує рутинну роботу workspace і переривається лише під час першого ризикованого використання мережі/інсталяції або жорстких блокувань Guardrails. [[canon:full_access]] автоматично схвалює рутинне виконання, але явні результати політики hard-deny усе ще блокують."
+      }
+    },
+    "moaAgents": {
+      "title": "Agent roles",
+      "description": "Create and manage the agent roles ADDOM can delegate work to.",
+      "roles": {
+        "guidance": "Імена ролей мають бути унікальними. Ідентифікатори ролі генеруються та залишаються незмінними.",
+        "idLabel": "id:",
+        "writesLabel": "пише:",
+        "templateLabel": "шаблон:",
+        "edit": "Редагувати",
+        "delete": "Видалити",
+        "newRole": "Нова роль агента",
+        "addRole": "+ Додати роль агента",
+        "removeDialog": {
+          "title": "Видалити роль агента",
+          "message": "Вилучити цю роль агента?",
+          "confirm": "Видалити роль"
+        },
+        "editRoleTitle": "Edit agent role",
+        "addRoleTitle": "Add agent role",
+        "namePlaceholder": "Role name (e.g. Security Reviewer)",
+        "providerPlaceholder": "Select provider...",
+        "modelPlaceholder": "Select model...",
+        "modelIdPlaceholder": "Model ID (e.g. gpt-4o)",
+        "openRouterRoutePlaceholder": "Or enter a custom OpenRouter route ID",
+        "sourceTemplateLabel": "Source template:",
+        "hideAdvancedInstructions": "Hide advanced role instructions",
+        "showAdvancedInstructions": "Advanced role instructions",
+        "instructionsPlaceholder": "Optional instructions for this agent role (max 2000 chars)",
+        "saveChanges": "Save changes",
+        "addRoleAction": "Add role"
+      },
+      "templateGallery": {
+        "loading": "Завантаження каталогу навичок...",
+        "title": "Каталог навичок",
+        "skillCount": "Навички {{count}}",
+        "searchPlaceholder": "Навички пошуку...",
+        "clearSearch": "Чіткий пошук навичок",
+        "searchResults": "{{count}} результат{{suffix}} для \"{{query}}\"{{categorySuffix}}",
+        "inCategory": "в {{category}}",
+        "emptySearch": "Жодна навичка не відповідає вашому пошуку.",
+        "canWrite": "Може писати",
+        "readOnly": "Тільки для читання",
+        "added": "Додано",
+        "use": "використання",
+        "update": "Оновити",
+        "categories": {
+          "all": "всі",
+          "security": "Безпека",
+          "frontend": "[[canon:frontend]]",
+          "backend": "[[canon:backend]]",
+          "quality": "якість",
+          "engineering": "Інженерія",
+          "devops": "DevOps",
+          "testing": "Тестування",
+          "content": "Зміст",
+          "web": "Інтернет",
+          "performance": "Продуктивність",
+          "desktop": "Робочий стіл",
+          "general": "Загальне"
+        }
+      },
+      "runtime": {
+        "title": "Agent settings",
+        "description": "Control delegation and capacity without changing your saved roles.",
+        "enabled": "Enable agents",
+        "disabled": "Agent delegation is disabled.",
+        "summary": "{{profile}} capacity · {{count}} active at once",
+        "delegation": "Agent delegation",
+        "delegationEnabled": "ADDOM can delegate work to the roles below.",
+        "delegationDisabled": "Roles stay available to configure while delegation is off.",
+        "profile": "Capacity",
+        "profileDescription": "Sets sensible limits for parallel and nested agents.",
+        "advanced": "Advanced limits",
+        "advancedSummary": "{{count}} active · depth {{depth}}",
+        "fanoutConfirmationThreshold": "Ask before launching more than",
+        "agentsUnit": "agents",
+        "providerOverrides": "Provider overrides",
+        "noProviderOverrides": "No provider-specific limits.",
+        "addProviderOverride": "Add provider override…",
+        "removeOverride": "Remove",
+        "discard": "Discard",
+        "saveChanges": "Save changes",
+        "isolationDescription": "Agent file changes stay isolated until the orchestrator integrates them.",
+        "limits": {
+          "maxLiveAgents": "Active at once",
+          "maxDepth": "Nesting depth",
+          "maxDescendants": "Agents per run",
+          "maxTotalTokens": "Token budget",
+          "maxCostUsd": "Cost budget",
+          "maxDurationMs": "Time budget"
+        }
+      }
+    },
+    "openRouterCatalogVisibility": {
+      "title": "Видимість каталогу OpenRouter",
+      "description": "Контролюйте, які родини та маршрути OpenRouter відображаються на сторінках веб-перегляду chat і [[canon:moa]].",
+      "notAvailable": "OpenRouter недоступний у поточному маніфесті provider.",
+      "loading": "Завантаження каталогу OpenRouter...",
+      "browsingVisibility": "Видимість перегляду OpenRouter",
+      "browsingVisibilityDescription": "Приховайте сімейства provider або окремі маршрути від перегляду без видалення явної підтримки власних маршрутів.",
+      "counts": {
+        "filtered": "Показано {{shown}}, увімкнено {{enabled}}",
+        "default": "{{enabled}} / {{total}} увімкнено"
+      },
+      "filtersTitle": "Фільтри",
+      "filters": {
+        "reviewedOnly": "Лише перевірено",
+        "anyTools": "Будь-які інструменти",
+        "reasoning": "Міркування",
+        "vision": "Бачення"
+      },
+      "quickActionsTitle": "Швидкі дії",
+      "quickActions": {
+        "showAll": "Показати все",
+        "hideAll": "Сховати все",
+        "reset": "Скинути"
+      },
+      "searchPlaceholder": "Шукайте простори імен OpenRouter або ідентифікатори маршрутів",
+      "empty": "Жоден маршрут OpenRouter не відповідає поточному пошуку.",
+      "clearSearch": "Очистити пошук",
+      "namespaceRow": {
+        "collapse": "Згорнути простір імен",
+        "expand": "Розгорнути простір імен",
+        "filteredCount": "Показано {{shown}}/{{total}}",
+        "enabledCount": "{{enabled}}/{{total}} увімкнено",
+        "visibilityAriaLabel": "Видимість простору імен {{label}}"
+      },
+      "modelRow": {
+        "visibilityAriaLabel": "Видимість {{label}}"
+      },
+      "inlineTitle": "Catalog visibility",
+      "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+      "showInlineAction": "Manage visibility",
+      "hideInlineAction": "Hide controls"
+    },
+    "dataReset": {
+      "title": "Скидання та очищення даних",
+      "description": "Експортуйте резервні копії thread, очистіть збережену історію або скиньте локальні дані ADDOM.",
+      "migrationTitle": "Активна міграція Thread",
+      "migrationDescription": "Експортуйте свій активний chat безпосередньо в портативну резервну копію JSON або відновіть історію локально.",
+      "exportCurrentThread": "Export Current Conversation",
+      "restoreFromJson": "Відновити з JSON",
+      "noActiveConversation": "Для експорту не вибрано жодної активної розмови.",
+      "localProfileResetTitle": "Скидання локального профілю",
+      "localProfileResetDescription": "Видаліть збережені API keys provider або повністю скиньте локальний profile ADDOM. Повне скидання видаляє локальну історію, кешовані models, вкладення та збережені settings, а потім перезапускає app.",
+      "profile": "Профіль:",
+      "providers": "Providers:",
+      "providersStored": "{{count}} збережено",
+      "memoryIndex": "Memory Індекс:",
+      "indexed": "Індексовано",
+      "empty": "Порожній",
+      "settings": "Налаштування:",
+      "present": "присутній",
+      "attachments": "Додатки:",
+      "cached": "Кешовано",
+      "modelCache": "Model Кеш:",
+      "mounted": "Змонтований",
+      "providerBudget": {
+        "title": "Адаптивні бюджети Provider",
+        "description": "Перегляньте вивчений стан бюджету provider і видаліть застарілу історію адаптивного бюджету, не відкриваючи необроблені заголовки provider або облікові дані.",
+        "refresh": "Оновити",
+        "total": "{{count}} дізнався",
+        "active": "{{count}} активний",
+        "stale": "{{count}} несвіжий",
+        "expired": "{{count}} закінчився",
+        "pruneEligible": "{{count}} готовий до очищення",
+        "lastObserved": "Останнє спостереження: {{value}}",
+        "lastResolved": "Востаннє вирішено: {{value}}",
+        "emptyState": "Для цього профілю ще не зареєстровано вивчених бюджетних профілів provider.",
+        "cleanupAction": "Очистити вивчені бюджети",
+        "resetAction": "Скинути вивчені бюджети",
+        "never": "Ніколи",
+        "recent": "Останні"
+      },
+      "spillover": {
+        "title": "Перелив результату інструменту",
+        "description": "Перевірте постійне сховище вторинних результатів інструменту, видаліть прострочені записи та очистіть корінь вторинних результатів, не відкриваючи необроблені вихідні тіла.",
+        "refresh": "Оновити",
+        "files": "Файли {{count}}",
+        "zeroBytes": "0 Б",
+        "bytesValue": "{{count}} {{unit}}",
+        "retentionValue": "Файли {{files}} / {{bytes}} / {{days}} днів",
+        "sessionCleanupAt": "Очищення цього сеансу: {{value}}",
+        "sessionCleanupResult": "Цей сеанс очищення видалив файл(и) {{files}} / {{bytes}}.",
+        "sessionEmptyState": "Під час цього сеансу додатка ще не було виконано жодне очищення від переливу.",
+        "emptyState": "Наразі для цього профілю не існує файлів збережених результатів інструменту.",
+        "cleanupAction": "Обрізати перелив",
+        "resetAction": "Чіткий перелив",
+        "rootPath": "Перехідний корінь: {{path}}",
+        "states": {
+          "none": "Немає стану очищення сеансу",
+          "sessionNone": "У цьому сеансі очищення не запускається",
+          "pruned": "Обрізали",
+          "prunedWithFailures": "Обрізали з невдачами",
+          "retentionExceeded": "Зберігання перевищено",
+          "prunedRetentionExceeded": "Обрізано, утримання все ще перевищено",
+          "failed": "Помилка очищення",
+          "cleared": "Очищено"
+        }
+      },
+      "deleteSavedApiKeys": "Видалити збережені ключі API",
+      "resetLocalProfileAndRestart": "Скинути локальний профіль і перезапустити",
+      "importFallbackTitle": "Імпортований Thread",
+      "dialogs": {
+        "deleteApiKeys": {
+          "title": "Видалити API Keys",
+          "message": "Видалити всі збережені ключі API із цього пристрою зараз? Розмови, memory, artifacts і налаштування залишаться. Це неможливо скасувати.",
+          "confirm": "Видалити API Keys"
+        },
+        "cleanupProviderBudgets": {
+          "title": "Очищення вивчених бюджетів",
+          "message": "Видалити недійсні або давно невикористані навчені бюджетні профілі provider? Останні активні профілі залишаться.",
+          "confirm": "Очищення"
+        },
+        "resetProviderBudgets": {
+          "title": "Скинути вивчені бюджети",
+          "message": "Видалити всі вивчені бюджетні профілі provider із цього профілю? Це видаляє історію адаптивного бюджету, доки не будуть записані нові спостереження.",
+          "confirm": "Скинути бюджети"
+        },
+        "cleanupToolResultSpillover": {
+          "title": "Обрізати перелив",
+          "message": "Видалити прострочені або надбюджетні файли з цього профілю? Останні переливи, необхідні для поточної політики утримання, залишаться.",
+          "confirm": "Обрізати перелив"
+        },
+        "resetToolResultSpillover": {
+          "title": "Clear Spillover",
+          "message": "Видалити всі файли збережених результатів інструменту з цього профілю? Це не змінює політику збереження та не може бути скасовано.",
+          "confirm": "Clear Spillover"
+        },
+        "deleteAllLocalData": {
+          "title": "Видалити всі локальні дані",
+          "message": "Видалити всі локальні дані ADDOM для цього профілю та перезапустити? Це видалить API keys, розмови, логи Memory, Artifacts, сеанси проекту, кешовані вкладення, локальний кеш model і settings. Спочатку експортуйте все, що вам потрібно. Цю дію неможливо скасувати.",
+          "confirm": "Видалити та перезапустити"
+        }
+      },
+      "feedback": {
+        "deleteFailed": {
+          "title": "Не вдалося видалити"
+        },
+        "refreshFailed": {
+          "title": "Не вдалося оновити",
+          "providerBudgetDefaultMessage": "Не вдалося оновити вивчений підсумок бюджету provider.",
+          "spilloverDefaultMessage": "Неможливо оновити підсумковий результат інструмента."
+        },
+        "localDataApiUnavailable": "Локальні дані API недоступні.",
+        "apiKeysDeleted": {
+          "title": "API Keys Видалено",
+          "message": "Збережені ключі API видалено з цього пристрою."
+        },
+        "deleteApiKeysFailed": "Не вдалося видалити ключі API: {{message}}",
+        "refreshProviderBudgetFailed": "Не вдалося оновити вивчені бюджети provider: {{message}}",
+        "refreshToolResultSpilloverFailed": "Не вдалося оновити перелив результатів інструменту: {{message}}",
+        "providerBudgetCleanupComplete": {
+          "title": "Очищення завершено",
+          "message": "Видалено профіль (профілі) отриманого бюджету {{count}}."
+        },
+        "providerBudgetCleanupFailed": "Не вдалося очистити вивчені бюджети provider: {{message}}",
+        "toolResultSpilloverCleanupComplete": {
+          "title": "Обрізка завершена",
+          "message": "Видалено додаткові файли {{count}}."
+        },
+        "toolResultSpilloverCleanupFailed": "Не вдалося скоротити перелив результату інструменту: {{message}}",
+        "resetFailed": {
+          "title": "Не вдалося скинути"
+        },
+        "deleteLocalDataFailed": "Не вдалося видалити локальні дані: {{message}}",
+        "providerBudgetResetComplete": {
+          "title": "Скидання завершено",
+          "message": "Видалено профіль (профілі) отриманого бюджету {{count}}."
+        },
+        "providerBudgetResetFailed": "Не вдалося скинути вивчені бюджети provider: {{message}}",
+        "toolResultSpilloverResetComplete": {
+          "title": "Потік очищено",
+          "message": "Видалено додаткові файли {{count}}."
+        },
+        "toolResultSpilloverResetFailed": "Не вдалося очистити перелив результатів інструменту: {{message}}",
+        "exportComplete": {
+          "title": "Експорт завершено",
+          "copiedMessage": "Thread експортовано. JSON скопійовано в буфер обміну та розпочато завантаження.",
+          "downloadMessage": "Експорт Thread створено та розпочато завантаження."
+        },
+        "exportFailed": {
+          "title": "Помилка експорту",
+          "message": "Не вдалося експортувати thread: {{message}}"
+        },
+        "invalidJson": {
+          "title": "Недійсний JSON",
+          "message": "Недійсне корисне навантаження JSON."
+        },
+        "importComplete": {
+          "title": "Імпорт завершено",
+          "messageOne": "Імпортовано thread \"{{title}}\" із подією {{count}}.",
+          "messageOther": "Імпортовано thread \"{{title}}\" із подіями {{count}}."
+        },
+        "importFailed": {
+          "title": "Помилка імпорту",
+          "message": "Не вдалося імпортувати thread: {{message}}"
+        }
+      },
+      "exportPreflight": {
+        "kicker": "Експорт перед польотом",
+        "title": "Нагадування про відповідність перед експортом",
+        "description": "Експортовані файли Thread портативні. Не використовуйте експорт для забороненої дистиляції, еталонного збору врожаю або робочих циклів обходу політики provider.",
+        "preserveCitationsLabel": "Зберігайте цитати та метадані авторства під час експорту",
+        "preserveCitationsHint": "Рекомендовано для providers/models із термінами, чутливими до авторства.",
+        "strictConfirmLabel": "Я підтверджую, що цей експорт призначено для робочого процесу, який відповідає умовам цього сеансу.",
+        "strictConfirmHint": "Строгий режим вимагає явного підтвердження перед експортом.",
+        "exporting": "Експорт...",
+        "continueExport": "Продовжити експорт"
+      },
+      "importThread": {
+        "kicker": "Імпорт Thread",
+        "title": "Імпортувати thread JSON",
+        "description": "Вставте попередньо експортоване корисне навантаження thread, щоб імпортувати його в активний проект.",
+        "fieldLabel": "Thread експортувати JSON",
+        "placeholder": "{\"thread\": {...}, \"events\": [...]}",
+        "importing": "Імпорт...",
+        "confirm": "Імпортувати Thread"
+      }
+    },
+    "updates": {
+      "title": "Оновлення",
+      "description": "ADDOM автоматично перевіряє наявність оновлень під час запуску. Ви контролюєте час завантаження та встановлення оновлень.",
+      "status": {
+        "upToDate": "В актуальному стані",
+        "checking": "Перевірка оновлень...",
+        "latest": "Ви використовуєте останню версію",
+        "available": "Доступне оновлення - v{{version}}",
+        "downloading": "Завантаження... {{percent}}%",
+        "readyToInstall": "v{{version}} готовий до встановлення",
+        "error": "Помилка оновлення: {{message}}"
+      },
+      "actions": {
+        "checkForUpdates": "Перевірте наявність оновлень",
+        "download": "Завантажити v{{version}}",
+        "restartAndInstall": "Перезапустіть і встановіть"
+      }
+    },
+    "about": {
+      "title": "про",
+      "tagline": "Перший локальний помічник кодування ШІ | BYOK | Немає телеметрії",
+      "copyright": "Copyright (c) 2026 ADDOM contributors.",
+      "licenseLineOne": "Ліцензовано за ліцензією MIT.",
+      "licenseLineTwo": "Докладніше див. у файлі LICENSE.",
+      "openSourceNotices": "Повідомлення з відкритого джерела",
+      "thirdPartyInventory": "Інвентар третіх сторін",
+      "openLegalDocumentError": "Неможливо відкрити юридичний документ.",
+      "legalDocumentsUnavailable": "Юридичні документи недоступні: {{error}}"
+    },
+    "openAiKnowledgeBase": {
+      "title": "Project knowledge",
+      "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+      "notices": {
+        "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+        "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+        "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+      },
+      "projectScope": "Обсяг проекту",
+      "noActiveProjectSelected": "Не вибрано жодного активного проекту",
+      "filesLabel": "Uploaded files",
+      "storeLabel": "Магазин:",
+      "quickSetup": "Швидке налаштування",
+      "ready": "Ready",
+      "actionNeeded": "Action needed",
+      "nextStepLabel": "Наступний крок:",
+      "nextStep": {
+        "addApiKey": "Додайте OpenAI API key.",
+        "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+        "openProjectWorkspace": "Відкрийте проект workspace.",
+        "uploadFiles": "Завантажте файли, які потрібно шукати.",
+        "createVectorStore": "Prepare project knowledge storage.",
+        "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+        "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+        "readyForRetrieval": "Project knowledge is ready for retrieval."
+      },
+      "quickFacts": {
+        "key": "ключ:",
+        "connected": "Підключено",
+        "missing": "Відсутня",
+        "access": "Доступ:",
+        "account": "Обліковий запис",
+        "apiKey": "API key",
+        "project": "Демонструвати:",
+        "active": "Активний",
+        "uploads": "Завантаження:",
+        "attached": "Додається:"
+      },
+      "actions": {
+        "refresh": "Оновити",
+        "uploadFiles": "Upload files",
+        "reuseVectorStore": "Refresh project knowledge",
+        "createVectorStore": "Prepare project knowledge",
+        "attachFiles": "Attach files",
+        "attachFilesWithCount": "Attach files ({{count}})",
+        "deleteVectorStore": "Reset project knowledge",
+        "remove": "видалити"
+      },
+      "uploadedFilesTitle": "Uploaded files",
+      "pendingAttachLabel": "Needs attach",
+      "emptyFiles": "No project knowledge files uploaded yet.",
+      "fileState": {
+        "attached": "Додається",
+        "uploadedOnly": "Uploaded only"
+      },
+      "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly.",
+      "attachedFilesLabel": "Attached files"
+    },
+    "terminal": {
+      "title": "Terminal",
+      "description": "Зберігайте обережні типові параметри термінала, не змінюючи глобальну типографіку застосунку.",
+      "fontSizeLabel": "Розмір шрифту",
+      "fontSizeDescription": "Базовий розмір шрифту xterm для нових і активних поверхонь термінала.",
+      "fontFamilyLabel": "Сімейство шрифтів",
+      "fontFamilyDescription": "Виберіть шрифт термінала, який використовуватиме xterm.",
+      "scrollbackLabel": "Рядки scrollback",
+      "scrollbackDescription": "Скільки історії термінала xterm зберігає в пам’яті.",
+      "scrollbackHint": "рядків",
+      "defaultShellLabel": "Типова shell",
+      "defaultShellDescription": "Типова shell, що використовується, коли новий термінал не запитує конкретну shell.",
+      "defaultCwdBehaviorLabel": "Типова поведінка cwd",
+      "defaultCwdBehaviorDescription": "Виберіть, звідки запускати нові термінали, коли явний cwd не вказано.",
+      "copyOnSelectionLabel": "Копіювати при виділенні",
+      "copyOnSelectionDescription": "Копіює виділення термінала до буфера обміну одразу після вибору тексту.",
+      "pasteConfirmationLabel": "Підтвердження великої вставки",
+      "pasteConfirmationDescription": "Питайте підтвердження для багаторядкових вставок, коли вони досягають цієї кількості рядків.",
+      "zeroDisablesHint": "0 вимикає запит",
+      "cwdBehavior": {
+        "project_root": "Корінь проєкту",
+        "editor_folder": "Тека редактора",
+        "session_cwd": "Поточний cwd сесії"
+      },
+      "fontFamilyOptions": {
+        "geist_mono": "Geist Mono",
+        "jetbrains_mono": "JetBrains Mono",
+        "fira_code": "Fira Code",
+        "cascadia_code": "Cascadia Code",
+        "system_mono": "System monospace"
+      },
+      "shellOptions": {
+        "default": "Системне значення",
+        "cmd": "Командний рядок",
+        "powershell": "Windows PowerShell",
+        "pwsh": "PowerShell 7+",
+        "bash": "Bash",
+        "zsh": "Zsh",
+        "git_bash": "Git Bash",
+        "wsl": "WSL"
+      },
+      "advancedDetailsTitle": "Terminal history and paste safety"
+    },
+    "appearanceMode": {
+      "description": "Choose a light or dark interface, or follow your system setting.",
+      "mode": "Color theme",
+      "modeDescription": "Updates the entire app, including editors and terminals.",
+      "selected": "Selected {{name}}",
+      "systemResolved": "System currently uses {{name}}.",
+      "modes": {
+        "dark": "Dark",
+        "light": "Light",
+        "system": "System"
+      }
+    },
+    "backgroundTone": {
+      "darkOnly": "Workspace tones are available when the resolved theme is Dark.",
+      "description": "Choose a gray workspace tone. Graphite matches the current ADDOM default.",
+      "tone": "Workspace tone",
+      "toneDescription": "Shifts the shared surface, panel, and border stack together.",
+      "selected": "Selected {{name}}",
+      "tones": {
+        "obsidian": "Obsidian",
+        "charcoal": "Charcoal",
+        "graphite": "Graphite",
+        "slate": "Slate",
+        "ash": "Ash"
+      }
+    }
+  },
+  "settings": {
+    "categories": {
+      "providers": {
+        "description": "Provider connections, model availability, and project knowledge controls when advanced OpenAI hosted tools are enabled."
+      }
+    },
+    "sections": {
+      "providers": {
+        "apiKeys": {
+          "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+        },
+        "openAiKnowledgeBase": {
+          "title": "Project Knowledge",
+          "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+        }
+      }
+    },
+    "blocks": {
+      "apiKeys": {
+        "accessMethod": {
+          "label": "Sign in with",
+          "selectedAccount": "Using your OpenAI account.",
+          "selectedApiKey": "Using an API key."
+        },
+        "localProvider": {
+          "running": "Running - {{count}} model{{suffix}}"
+        },
+        "recommendedAccount": {
+          "title": "Recommended for OpenAI",
+          "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+          "action": "Use OpenAI account"
+        }
+      },
+      "openRouterCatalogVisibility": {
+        "inlineTitle": "Catalog visibility",
+        "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+        "showInlineAction": "Manage visibility",
+        "hideInlineAction": "Hide controls"
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project knowledge",
+        "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+        "notices": {
+          "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+          "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+          "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+        },
+        "filesLabel": "Uploaded files",
+        "attachedFilesLabel": "Attached files",
+        "ready": "Ready",
+        "actionNeeded": "Action needed",
+        "pendingAttachLabel": "Needs attach",
+        "nextStep": {
+          "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+          "createVectorStore": "Prepare project knowledge storage.",
+          "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+          "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+          "readyForRetrieval": "Project knowledge is ready for retrieval."
+        },
+        "actions": {
+          "uploadFiles": "Upload files",
+          "reuseVectorStore": "Refresh project knowledge",
+          "createVectorStore": "Prepare project knowledge",
+          "attachFiles": "Attach files",
+          "attachFilesWithCount": "Attach files ({{count}})",
+          "deleteVectorStore": "Reset project knowledge"
+        },
+        "uploadedFilesTitle": "Uploaded files",
+        "emptyFiles": "No project knowledge files uploaded yet.",
+        "fileState": {
+          "uploadedOnly": "Uploaded only"
+        },
+        "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly."
+      }
+    }
+  }
+}

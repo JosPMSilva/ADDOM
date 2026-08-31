@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "rows": [
+    {
+      "fixtureId": "phase12-managed-recursive-hierarchy",
+      "capabilityClass": "managed_recursive_hierarchy",
+      "sourceClass": "synthetic_contract",
+      "sanitized": true,
+      "networkRequired": false,
+      "adapterDeclaration": "src/main/agents/providers/addom-managed-agent-adapter.mjs",
+      "backendConformance": {
+        "file": "tests/integration/agent-provider-adapter-contract.test.mjs",
+        "test": "fake native and managed adapters pass the same lifecycle contract"
+      },
+      "reloadReconciliation": {
+        "file": "tests/integration/agent-restart-recovery.test.mjs",
+        "test": "fresh repository hydration restores an active recursive graph from SQLite alone"
+      },
+      "rendererChronology": {
+        "file": "tests/integration/agent-run-event-bridge.test.mjs",
+        "test": "agent event bridge reconciles a sequence gap from an authoritative snapshot"
+      },
+      "controlConformance": {
+        "file": "tests/integration/agent-control-cascade.test.mjs",
+        "test": "run cancellation reaches every supported live attempt, persists once, and clears controllers"
+      },
+      "claim": "ADDOM-managed hierarchy supports bounded recursion, canonical child streams, controls, approvals, retries, and isolated writers.",
+      "releaseDisposition": "shipped_managed"
+    },
+    {
+      "fixtureId": "phase12-native-hierarchical-projection",
+      "capabilityClass": "native_hierarchical_projection",
+      "sourceClass": "synthetic_contract",
+      "sanitized": true,
+      "networkRequired": false,
+      "adapterDeclaration": "src/main/agents/providers/agent-provider-adapter.mjs",
+      "backendConformance": {
+        "file": "tests/integration/agent-provider-adapter-contract.test.mjs",
+        "test": "fake native and managed adapters pass the same lifecycle contract"
+      },
+      "reloadReconciliation": {
+        "file": "tests/integration/agent-restart-recovery.test.mjs",
+        "test": "native provider-ahead and unverified terminal evidence remains degraded before terminal projection"
+      },
+      "rendererChronology": {
+        "file": "tests/integration/canonical-nested-agent-phase0-contract.test.mjs",
+        "test": "Phase 2: child chronology and reasoning boundaries survive JSON reload/replay"
+      },
+      "controlConformance": {
+        "file": "tests/integration/agent-provider-adapter-contract.test.mjs",
+        "test": "unsupported controls fail deterministically before provider code runs"
+      },
+      "claim": "The native-hierarchy contract is proven with deterministic adapters, but no current provider is upgraded to this class without captured positive evidence.",
+      "releaseDisposition": "contract_only"
+    },
+    {
+      "fixtureId": "phase12-partial-native-projection",
+      "capabilityClass": "partial_native_projection",
+      "sourceClass": "captured_fixture",
+      "sanitized": true,
+      "networkRequired": false,
+      "adapterDeclaration": "src/main/agents/providers/openai-native-agent-adapter.mjs",
+      "backendConformance": {
+        "file": "tests/integration/native-agent-provider-adapters.test.mjs",
+        "test": "OpenAI account adapter projects receiver-thread identity as partial native evidence"
+      },
+      "reloadReconciliation": {
+        "file": "tests/integration/openai-account-collaboration-agent-projection.test.mjs",
+        "test": "restarted runtime rebinds durable children and applies status without duplicates"
+      },
+      "rendererChronology": {
+        "file": "tests/integration/agent-run-baseline-contract.test.mjs",
+        "test": "provider-native projection preserves exact partial child identity without inventing a stream"
+      },
+      "controlConformance": {
+        "file": "tests/integration/agent-provider-capability-negotiation.test.mjs",
+        "test": "fixture evidence is represented without upgrading unproven provider behavior"
+      },
+      "claim": "OpenAI account collaboration exposes stable partial child identity but no child transcript or child cancellation surface.",
+      "releaseDisposition": "shipped_partial"
+    },
+    {
+      "fixtureId": "phase12-opaque-provider-managed-child",
+      "capabilityClass": "opaque_provider_managed_child",
+      "sourceClass": "synthetic_contract",
+      "sanitized": true,
+      "networkRequired": false,
+      "adapterDeclaration": "src/main/agents/providers/openai-native-agent-adapter.mjs",
+      "backendConformance": {
+        "file": "tests/integration/openai-account-collaboration-agent-projection.test.mjs",
+        "test": "chat-supplied collaboration events materialize durable opaque children bound to turnId"
+      },
+      "reloadReconciliation": {
+        "file": "tests/integration/openai-account-collaboration-agent-projection.test.mjs",
+        "test": "restarted runtime rebinds durable children and applies status without duplicates"
+      },
+      "rendererChronology": {
+        "file": "tests/integration/agent-navigator-view-model.test.mjs",
+        "test": "opaque provider nodes are marked partial visibility and expose no fabricated hierarchy"
+      },
+      "controlConformance": {
+        "file": "tests/integration/agent-conversation-actions.test.mjs",
+        "test": "opaque nodes expose no conversation overflow actions"
+      },
+      "claim": "Opaque provider-managed activity exposes provenance, status, and a visibility reason only.",
+      "releaseDisposition": "shipped_opaque"
+    },
+    {
+      "fixtureId": "phase12-missing-unknown-scope-usage",
+      "capabilityClass": "missing_or_unknown_scope_usage",
+      "sourceClass": "synthetic_contract",
+      "sanitized": true,
+      "networkRequired": false,
+      "adapterDeclaration": "src/main/agents/providers/addom-managed-agent-adapter.mjs",
+      "backendConformance": {
+        "file": "tests/integration/agent-usage-accounting.test.mjs",
+        "test": "usage rollups count retries, avoid provider-inclusive double counting, and isolate unknown scope"
+      },
+      "reloadReconciliation": {
+        "file": "tests/integration/agent-event-store.test.mjs",
+        "test": "provider dedupe cannot duplicate nodes, usage, artifacts, or transcript projections"
+      },
+      "rendererChronology": {
+        "file": "tests/integration/agent-run-renderer-store.test.mjs",
+        "test": "event batches deduplicate IDs, detect gaps, and never apply later events across a gap"
+      },
+      "controlConformance": {
+        "file": "tests/integration/agent-provider-capability-negotiation.test.mjs",
+        "test": "capability negotiation preserves provider evidence and narrows effective controls by model"
+      },
+      "claim": "Raw provider counters are retained while unknown scope is excluded from authoritative totals.",
+      "releaseDisposition": "shipped_bounded"
+    },
+    {
+      "fixtureId": "phase12-reconnect-provider-ahead",
+      "capabilityClass": "reconnect_provider_ahead",
+      "sourceClass": "captured_fixture",
+      "sanitized": true,
+      "networkRequired": false,
+      "adapterDeclaration": "src/main/agents/providers/openai-native-agent-adapter.mjs",
+      "backendConformance": {
+        "file": "tests/integration/agent-provider-adapter-contract.test.mjs",
+        "test": "provider disconnect yields one explicit interrupted terminal result"
+      },
+      "reloadReconciliation": {
+        "file": "tests/integration/agent-restart-recovery.test.mjs",
+        "test": "native provider-ahead and unverified terminal evidence remains degraded before terminal projection"
+      },
+      "rendererChronology": {
+        "file": "tests/integration/agent-run-event-bridge.test.mjs",
+        "test": "agent event bridge reconciles a sequence gap from an authoritative snapshot"
+      },
+      "controlConformance": {
+        "file": "tests/integration/native-agent-identity-reconciler.test.mjs",
+        "test": "provider-ahead native evidence stays inspectable and can reconcile only by exact intent identity"
+      },
+      "claim": "Reconnect and provider-ahead evidence remain non-terminal until exact identity reconciliation succeeds.",
+      "releaseDisposition": "shipped_fail_closed"
+    },
+    {
+      "fixtureId": "phase12-unsupported-child-controls",
+      "capabilityClass": "unsupported_child_controls",
+      "sourceClass": "synthetic_contract",
+      "sanitized": true,
+      "networkRequired": false,
+      "adapterDeclaration": "src/main/agents/providers/agent-provider-adapter.mjs",
+      "backendConformance": {
+        "file": "tests/integration/agent-provider-adapter-contract.test.mjs",
+        "test": "unsupported controls fail deterministically before provider code runs"
+      },
+      "reloadReconciliation": {
+        "file": "tests/integration/agent-provider-adapter-contract.test.mjs",
+        "test": "active sessions retain their immutable capability snapshot across later probe changes"
+      },
+      "rendererChronology": {
+        "file": "tests/integration/agent-conversation-actions.test.mjs",
+        "test": "managed nodes only list capability-gated actions for the current status"
+      },
+      "controlConformance": {
+        "file": "tests/integration/agent-control-cascade.test.mjs",
+        "test": "unsupported provider cancellation is explicit and control cleanup never reports false success"
+      },
+      "claim": "Unsupported child controls are omitted or disabled with a reason and never report optimistic success.",
+      "releaseDisposition": "shipped_capability_gated"
+    },
+    {
+      "fixtureId": "phase12-cross-project-concurrency",
+      "capabilityClass": "cross_project_concurrency",
+      "sourceClass": "synthetic_contract",
+      "sanitized": true,
+      "networkRequired": false,
+      "adapterDeclaration": "src/main/agents/providers/addom-managed-agent-adapter.mjs",
+      "backendConformance": {
+        "file": "tests/integration/agent-cross-project-fairness.test.mjs",
+        "test": "separate projects alternate progress while retaining independent ownership"
+      },
+      "reloadReconciliation": {
+        "file": "tests/integration/agent-run-renderer-store.test.mjs",
+        "test": "normalized store isolates simultaneous active roots from different projects"
+      },
+      "rendererChronology": {
+        "file": "tests/integration/agent-run-event-bridge.test.mjs",
+        "test": "agent event bridge keeps list/get/subscribe on a frozen scope when activate overlaps"
+      },
+      "controlConformance": {
+        "file": "tests/integration/agent-runs-ipc.test.mjs",
+        "test": "agent run IPC rejects cross-project and cross-thread access before runtime controls"
+      },
+      "claim": "Separate projects share bounded pools fairly while ownership, state, subscriptions, and controls remain scope-isolated.",
+      "releaseDisposition": "shipped_managed"
+    }
+  ]
+}

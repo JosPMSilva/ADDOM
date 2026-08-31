@@ -1,0 +1,2265 @@
+{
+  "app": {
+    "workspacePanelSkeleton": {
+      "ariaLabel": "{{panelLabel}}を読み込み中",
+      "text": "{{panelLabel}}を読み込み中..."
+    },
+    "workspaceBootError": {
+      "title": "Workspace ブートに失敗しました",
+      "message": "ADDOM は、このパネルに必要な workspace キャッシュを準備できませんでした。",
+      "retry": "ブートを再試行します"
+    },
+    "leaveWorkspace": {
+      "title": "未保存の変更",
+      "message": "You have unsaved files. Choose how to proceed before switching projects.",
+      "noUnsavedFiles": "未保存のファイルはありません。",
+      "cancel": "キャンセル",
+      "discardAndLeave": "Discard & Switch",
+      "saving": "保存中...",
+      "saveAllAndLeave": "Save All & Switch"
+    },
+    "confirmDialog": {
+      "messageFallback": "続行してもよろしいですか？",
+      "cancel": "キャンセル",
+      "confirm": "確認"
+    },
+    "panelLabels": {
+      "chat": "Chatパネル",
+      "editor": "エディタパネル",
+      "sourceControl": "変更パネル",
+      "artifacts": "Artifactsパネル",
+      "memory": "Memoryパネル",
+      "settings": "設定パネル",
+      "agents": "エージェントパネル",
+      "projectEntry": "Project entry"
+    }
+  },
+  "companionDock": {
+    "resize": "コンパニオンのサイズを変更",
+    "views": "コンパニオンビュー",
+    "restoreSplit": "分割表示に戻す",
+    "focus": "コンパニオンを最大表示",
+    "close": "コンパニオンビューを閉じる",
+    "document": {
+      "search": "ドキュメントを検索",
+      "missing": "このドキュメントは存在しません。",
+      "tooLarge": "このドキュメントはプレビューするには大きすぎます。",
+      "unavailable": "このドキュメントを読み込めませんでした。",
+      "changed": "更新中…",
+      "status": "Markdown ドキュメント",
+      "openInEditor": "エディターで開く",
+      "reveal": "ファイルエクスプローラーで表示",
+      "reload": "ドキュメントを再読み込み",
+      "loading": "ドキュメントを読み込み中…",
+      "retry": "再試行",
+        "implementPlan": "Implement",
+        "changePlaceholder": "Describe the change…",
+        "resizeChangeEditor": "Resize change editor",
+        "addChange": "Add change",
+        "annotateChange": "Annotate change",
+        "reviewHint": "Hover a paragraph to suggest a change.",
+        "changeCount": "{{count}} changes",
+        "undoLastChange": "Undo latest change",
+        "submitChanges": "Submit changes",
+        "pendingChanges": "Pending plan changes",
+        "removeChange": "Remove change"
+    }
+  },
+  "startup": {
+    "bootstrapFailure": {
+      "eyebrow": "Startup failed",
+      "title": "ADDOM could not finish starting.",
+      "messageFallback": "Renderer bootstrap failed",
+      "reload": "Reload app"
+    }
+  },
+  "sourceControl": {
+    "openProject": "プロジェクト フォルダーを開いて変更を確認します。",
+    "navigationFailed": "Source Control から選択したファイルを開けませんでした。",
+    "refresh": "リフレッシュ",
+    "loading": "変更を読み込んでいます...",
+    "noRepo": "この workspace は、git リポジトリ内にありません。",
+    "clean": "作業ツリーはきれいです。",
+    "emptyFilter": "現在のフィルターに一致するファイルはありません。",
+    "filters": {
+      "all": "全て",
+      "staged": "Staged",
+      "unstaged": "Unstaged",
+      "conflicted": "紛争",
+      "untracked": "未追跡"
+    },
+    "search": {
+      "label": "変更されたファイルの検索",
+      "placeholder": "変更されたファイルの検索"
+    },
+    "groups": {
+      "staged": "Staged",
+      "unstaged": "Unstaged"
+    },
+    "actions": {
+      "stageFile": "ファイルをステージ",
+      "unstageFile": "ファイルのステージを解除",
+      "stageAll": "すべてステージ",
+      "unstageAll": "すべてのステージを解除"
+    },
+    "summary": {
+      "title": "変更点",
+      "branch": "Branch: {{branch}}",
+      "repoState": "{{repoRoot}}",
+      "chips": {
+        "staged": "Staged",
+        "unstaged": "Unstaged",
+        "conflicts": "紛争"
+      }
+    },
+    "commit": {
+      "title": "Commit",
+      "description": "staged の変更のみから commit を作成します。",
+      "pending": "Committing...",
+      "action": "Commit",
+      "placeholder": "Commit メッセージ",
+      "disabledPlaceholder": "Stage files to enable commit authoring"
+    },
+    "entry": {
+      "renameFrom": "{{path}}から"
+    },
+    "detail": {
+      "stage": "Stage: {{scope}}",
+      "loading": "SCM の詳細を読み込み中...",
+      "title": "SCMの詳細",
+      "path": "パス：",
+      "previousPath": "以前のパス:",
+      "previewSource": "プレビューソース:",
+      "indexCommit": "インデックス commit:",
+      "worktreeCommit": "Worktree commit:",
+      "dirtyWorktree": "Dirty worktree:",
+      "actions": {
+        "restoring": "復元中...",
+        "restoreFile": "ファイルを復元する",
+        "unstaging": "Unstaging...",
+        "unstageDeletion": "Unstage deletion",
+        "unstageRename": "Unstage 名前変更"
+      }
+    },
+    "common": {
+      "yes": "はい",
+      "no": "いいえ"
+    }
+  },
+  "terminal": {
+    "common": {
+      "cancel": "キャンセル",
+      "user": "ユーザー",
+      "ai": "AI",
+      "session": "セッション",
+      "host": "ホスト",
+      "workspace": "Workspace",
+      "shell": "shell",
+      "terminal": "terminal",
+      "terminalTitle": "Terminal",
+      "threadPrefix": "Thread",
+      "status": {
+        "closing": "終わりに",
+        "ended": "終了しました",
+        "closed": "閉店",
+        "live": "ライブ",
+        "failed": "失敗した",
+        "terminated": "終了しました"
+      },
+      "timestamp": {
+        "closedPrefix": "閉店",
+        "startedPrefix": "開始しました"
+      },
+      "suggestion": {
+        "dismissed": "解雇された",
+        "suggested": "提案された",
+        "none": "提案なし"
+      }
+    },
+    "banner": {
+      "thisPlatform": "このプラットフォーム",
+      "anotherPlatform": "別のプラットフォーム",
+      "runtimeDisabled": "Runtime 無効",
+      "disabledByEnv": "ADDOM_DISABLE_TERMINAL_SESSIONS オーバーライドがオンになっています。",
+      "rolloutDisabled": "ロールアウトが無効になっています",
+      "disabledByRollout": "Terminal セッションは、現在のロールアウト ポリシーによって無効になっています。",
+      "platformGated": "ゲート付きプラットフォーム",
+      "platformGatedDetail": "{{platform}} はまだ展開が遅れています。パッケージ化された検証は、{{allowedLabel}} についてのみ記録されます。",
+      "unsupportedPlatform": "サポートされていないプラットフォーム",
+      "unsupportedPlatformDetail": "{{platform}} は、terminal セッションでサポートされている PTY ターゲット セットの範囲外です。",
+      "disabledGeneric": "Terminal セッションは、この runtime では無効になっています。",
+      "runtimeFailed": "Runtime が失敗しました",
+      "failedDetail": "PTY runtime ヘルスチェックが失敗しました。",
+      "checkingRuntime": "runtimeを確認しています",
+      "checkingRuntimeDetail": "ADDOM は、このアプリ runtime の PTY サポートを検証しています。",
+      "runtimeReady": "Runtime準備完了",
+      "runtimeReadyDetail": "この workspace では、対話型 terminal セッションが利用可能です。",
+      "lastActionFailed": "最後のアクションが失敗しました"
+    },
+    "viewport": {
+      "sessionState": {
+        "archived": "アーカイブ済み",
+        "ended": "終了しました",
+        "closed": "閉店",
+        "live": "ライブ"
+      },
+      "workspaceShell": "Workspace shell",
+      "startTitle": "terminal セッションを開始する",
+      "unavailableTitle": "Chat terminal は使用できません",
+      "startDescription": "ここで terminal を開いて、ログを検査したり、プロジェクト コマンドを実行したり、AI が同じ shell から継続できるようにします。",
+      "unavailableDescription": "Terminal セッションは、この runtime ではまだ利用できません。",
+      "startingSession": "セッションを開始しています...",
+      "createSession": "セッションの作成",
+      "readOnly": "読み取り専用",
+      "model": "Model",
+      "workspaceRoot": "workspaceルート",
+      "trimmed": "トリミング済み",
+      "clickToFocus": "クリックしてフォーカスする",
+      "activateSurface": "サーフェスをアクティブにする",
+      "aria": {
+        "archivedViewport": "アーカイブされた terminal ビューポート",
+        "interactiveViewport": "インタラクティブな terminal ビューポート",
+        "terminalActions": "Terminal アクション"
+      },
+      "context": {
+        "copy": "コピー",
+        "paste": "ペースト",
+        "selectAll": "すべて選択",
+        "buffer": "バッファ",
+        "copyVisibleOutput": "Copy visible output",
+        "copyFullScrollback": "Copy full scrollback",
+        "pasteAsSingleLine": "Paste as single line",
+        "clear": "Clear",
+        "zoomIn": "Zoom in",
+        "zoomOut": "Zoom out",
+        "zoomReset": "Reset zoom",
+        "terminalFontSize": "{{size}}px",
+        "sendOutputToChat": "Send output to chat",
+        "explainLastError": "Explain last error",
+        "summarizeSession": "Summarize session",
+        "saveSnapshotToMemory": "Save snapshot to notes",
+        "cut": "Cut selection"
+      },
+      "search": {
+        "placeholder": "Search terminal output",
+        "previous": "Previous match",
+        "next": "Next match",
+        "close": "Close search",
+        "noMatches": "No matches",
+        "resultCount": "{{current}}/{{total}}"
+      },
+      "pasteConfirm": {
+        "title": "Confirm large paste",
+        "message": "Paste {{count}} lines into the terminal? This can run multiple commands at once."
+      }
+    },
+    "dock": {
+      "state": {
+        "approval": "承認",
+        "approvalSuffix": "承認",
+        "denied": "拒否されました",
+        "userTakeover": "ユーザー操作中",
+        "aiWaiting": "AIが待機中",
+        "aiControlling": "AI操作中",
+        "running": "ランニング"
+      },
+      "announcements": {
+        "userTakeoverActive": "この shell はユーザーが操作しています。",
+        "takeoverRequired": "この terminal を引き継いで入力を開始してください。"
+      },
+      "resize": "terminal ドックのサイズを変更する",
+      "tablistAriaLabel": "Thread terminal セッション",
+      "unread": "未読",
+      "terminalSessions": "Terminal セッション",
+      "workspaceRoot": "workspaceルート",
+      "control": {
+        "aiControlsShell": "このshellをAIが制御しています。入力する前に引き継ぎます。",
+        "userControlsShell": "あなたは現在、この shell を管理しています。",
+        "typingBlockedUntilTakeover": "引き継ぎを確認するまで入力はブロックされます。",
+        "aiWaitingForUser": "AI は続行する前にユーザーの確認を待ちます。"
+      },
+      "browser": {
+        "title": "Terminalブラウザ",
+        "subtitle": "現在のThread / その他のライブ / 履歴",
+        "sections": {
+          "currentThread": "現在のThread",
+          "otherLive": "その他のライブ",
+          "history": "歴史"
+        },
+        "empty": {
+          "currentThread": "この thread には、ライブまたは保留中の terminal セッションがまだ接続されていません。",
+          "otherLive": "現在、他に threads でライブ terminal アクティビティがあるものはありません。",
+          "history": "この workspace については、アーカイブされた terminal 履歴はまだありません。"
+        },
+        "fields": {
+          "thread": "Thread",
+          "scope": "範囲",
+          "updated": "更新されました"
+        },
+        "requestedIn": "{{section}}でリクエストされました",
+        "suggestionFallback": "タイムラインの提案カードは、このブラウザーとは別に残ります。",
+        "crossThread": {
+          "title": "クロス thread セッション",
+          "description": "ここでメタデータを参照し、{{openThreadLabel}} を使用して、所有する chat thread から検査または対話します。"
+        },
+        "selectSession": "terminal セッションを選択します",
+        "actions": {
+          "openThread": "Open thread",
+          "savedToMemory": "Memoryに保存されました",
+          "noMemorySummary": "Memory の概要はありません",
+          "saveToThreadMemory": "Save to conversation notes",
+          "saveToProjectMemory": "Save to project notes",
+          "deletingArchive": "削除中...",
+          "deleteArchive": "アーカイブの削除",
+          "openTerminal": "terminalを開く",
+          "backToDock": "ドックに戻る",
+          "browseSessions": "セッションを参照する",
+          "handBackToAi": "AI に戻す",
+          "confirmTakeover": "引き継ぎの確認",
+          "takeOver": "引き継ぐ",
+          "expandBrowser": "terminal ブラウザを展開します",
+          "collapseBrowser": "terminal ブラウザを折りたたむ",
+          "expand": "拡大する",
+          "collapse": "崩壊",
+          "openTerminalActions": "Terminal menu",
+          "terminalDockActions": "Terminal ドック アクション",
+          "closeBrowser": "ブラウザを閉じる",
+          "interrupt": "割り込み",
+          "stopInput": "入力停止",
+          "closeSession": "セッションを閉じる",
+          "archiveSession": "アーカイブセッション",
+          "hideTerminal": "terminalを隠す",
+          "dismiss": "却下する",
+          "forceTerminate": "強制終了",
+          "killProcess": "プロセスを強制終了する",
+          "renameSession": "Rename session",
+          "editTitle": "Edit title",
+          "duplicateSession": "Duplicate session",
+          "sameCwdShell": "Same cwd and shell",
+          "newAtProjectRoot": "New at project root",
+          "newFromCurrentCwd": "New from current cwd",
+          "newFromEditorCwd": "New from editor folder",
+          "currentCwd": "Current cwd",
+          "editorFolder": "Editor folder",
+          "defaultShell": "Default shell",
+          "newWithShell": "New with shell",
+          "sendOutputToChat": "Send output to chat",
+          "explainLastError": "Explain last error",
+          "summarizeSession": "Summarize session",
+          "saveSnapshotToMemory": "Save snapshot to notes",
+          "prefillComposer": "Prefill composer",
+          "recentOutput": "Recent output",
+          "boundedOutput": "Bounded output",
+          "threadMemory": "Conversation notes"
+        }
+      },
+      "confirm": {
+        "forceTerminateHost": {
+          "title": "ホスト Terminal を強制終了する",
+          "message": "このホストスコープの terminal セッションを強制終了しますか？これにより、基になるプロセスが即座に強制終了されます。"
+        },
+        "forceTerminate": {
+          "title": "Terminalを強制終了する",
+          "message": "この terminal セッションを強制終了しますか？これにより、基になるプロセスが即座に強制終了されます。"
+        },
+        "deleteArchive": {
+          "title": "アーカイブされたTerminalセッションを削除",
+          "message": "このアーカイブされた terminal セッションを削除しますか？\n\nこれにより削除されるのは保持されているアーカイブ レコードだけであり、元に戻すことはできません。",
+          "confirm": "アーカイブの削除"
+        }
+      },
+      "prompts": {
+        "renameSession": "Rename terminal session"
+      },
+      "actions": {
+        "openTerminal": "Open terminal",
+        "backToDock": "Back to dock",
+        "browseSessions": "Browse sessions",
+        "handBackToAi": "AI に戻す",
+        "confirmTakeover": "Confirm takeover",
+        "takeOver": "Take over",
+        "expandBrowser": "Expand terminal browser",
+        "collapseBrowser": "Collapse terminal browser",
+        "expand": "Expand",
+        "collapse": "Collapse",
+        "openTerminalActions": "Terminal menu",
+        "terminalDockActions": "Terminal dock actions",
+        "closeBrowser": "Close browser",
+        "renameSession": "Rename session",
+        "editTitle": "Edit title",
+        "duplicateSession": "Duplicate session",
+        "sameCwdShell": "Same cwd and shell",
+        "newAtProjectRoot": "New at project root",
+        "newFromCurrentCwd": "New from current cwd",
+        "newFromEditorCwd": "New from editor folder",
+        "currentCwd": "Current cwd",
+        "editorFolder": "Editor folder",
+        "defaultShell": "Default shell",
+        "newWithShell": "New with shell",
+        "interrupt": "Interrupt",
+        "stopInput": "Stop input",
+        "closeSession": "Close session",
+        "archiveSession": "Archive session",
+        "hideTerminal": "Hide terminal",
+        "dismiss": "Dismiss",
+        "forceTerminate": "Force terminate",
+        "killProcess": "Kill process"
+      }
+    },
+    "globalIndicator": {
+      "threadCount": "{{count}} conversation{{suffix}}",
+      "liveCount": "{{count}} live terminal{{suffix}}",
+      "priority": {
+        "approval": "承認が必要です",
+        "waiting": "ユーザーを待っています"
+      }
+    },
+    "pendingApproval": {
+      "title": "Terminal waiting for approval",
+      "scopeLabel": "Scope",
+      "scopeHost": "Host access",
+      "scopeWorkspace": "Workspace",
+      "directoryLabel": "Directory",
+      "workspaceRoot": "workspace root"
+    }
+  },
+  "editor": {
+    "fileTree": {
+      "projectFallback": "プロジェクト",
+      "syncing": "同期中",
+      "openProjectFolder": "プロジェクトフォルダーを開く",
+      "refresh": "ファイルツリーを更新する",
+      "ariaLabel": "{{projectName}} ファイル",
+      "loading": "読み込み中...",
+      "emptyProject": "空のプロジェクト。",
+      "binaryTitle": "{{path}} (バイナリファイルを開けません)"
+    },
+    "emptyState": {
+      "title": "ツリーからファイルを選択して開きます",
+      "shortcutHint": "保存する Ctrl+S | 「×」をクリックしてタブを閉じます"
+    },
+    "loadingPane": "読み込み中...",
+    "panel": {
+      "thisFile": "このファイル",
+      "closeDirty": {
+        "title": "未保存の変更",
+        "message": "閉じる前に {{fileLabel}} への変更を保存しますか？",
+        "confirm": "保存して閉じる",
+        "cancel": "その他のオプション"
+      },
+      "saveFailed": {
+        "title": "保存に失敗しました",
+        "message": "ファイルを保存できませんでした。"
+      },
+      "discard": {
+        "title": "変更を破棄しますか？",
+        "message": "{{fileLabel}} の未保存の変更を破棄して閉じますか？",
+        "confirm": "変更の破棄",
+        "cancel": "編集を続ける"
+      },
+      "formatActionTitle": "アクティブなフォーマッタ ルート (Shift+Alt+F) を使用してドキュメントをフォーマットします。",
+      "formatUnavailableTitle": "現在のファイルではフォーマットを使用できません",
+      "fixActionTitle": "アクティブなコードアクション provider から自動修正可能な問題を適用します",
+      "fixUnavailableTitle": "コードアクションは現在のファイルでは使用できません",
+      "serviceNotice": {
+        "providerDegraded": "{{providerLabel}} は劣化しています。エディターの機能が制限される場合があります。",
+        "providerUnavailable": "{{providerLabel}} は使用できません。エディターの機能が制限される場合があります。",
+        "genericUnavailable": "一部のエディター サービスは現在利用できません。"
+      },
+      "emptyProject": "エディターを使用するには、プロジェクト フォルダーを開いてください。",
+      "resizeFileTree": "ファイルツリーのサイズを変更する",
+      "fileWatcherCap": "ファイル ウォッチャーがディレクトリの上限 ({{watchedCount}}/{{maxDirectories}}) に達しました。一部のフォルダーは外部編集を積極的に監視していません。",
+      "dismiss": "却下する",
+      "externalChangeDetected": "{{filePath}} の外部変更が検出されました。保存されていない編集内容は保存されました。",
+      "reloadFromDisk": "ディスクからリロード",
+      "resizeMarkdownPreview": "マークダウン プレビュー ペインのサイズを変更する",
+      "errors": {
+        "noProjectOrTabSelected": "プロジェクトまたはタブが選択されていません。"
+      }
+    },
+    "tabBar": {
+      "openTabsAriaLabel": "エディターのタブを開く",
+      "fallbackFileLabel": "ファイル",
+      "fallbackTabLabel": "タブ",
+      "saveTabAriaLabel": "{{fileLabel}}を保存",
+      "unsavedChangesTitle": "未保存の変更 - クリックして保存",
+      "externalChangedTitle": "外部ファイルの変更が検出されました",
+      "problemSummaryTitle": "{{count}} 問題{{suffix}} ({{error}} エラー{{errorSuffix}}、{{warning}} 警告{{warningSuffix}}、{{info}} 情報)",
+      "closeTabAriaLabel": "{{tabLabel}}を閉じる",
+      "aiActionsTitle": "選択したコードに対する AI アクション",
+      "aiDraftHint": "現在の選択範囲と近くのコンテキストを使用して、Chat にドラフトします。",
+      "preview": "プレビュー",
+      "fix": "修理",
+      "format": "形式",
+      "auto": "Auto",
+      "togglePreviewTitle": "マークダウン プレビューの切り替え (Ctrl/Cmd+Shift+V)",
+      "toggleFormatOnSaveTitle": "現在のファイルにアクティブなフォーマッタ ルートがある場合、保存時にフォーマットを切り替えます",
+      "aiSelection": {
+        "explain": {
+          "label": "説明する",
+          "title": "Chat で選択されたコードを説明します",
+          "description": "行動、仮定、リスクについて説明します。"
+        },
+        "fix": {
+          "label": "修理",
+          "title": "Chat で選択したコードを修正します",
+          "description": "選択したコードのバグ/問題を修正します。"
+        },
+        "refactor": {
+          "label": "リファクタリング",
+          "title": "Chat で選択したコードをリファクタリングします",
+          "description": "動作を維持しながらリファクタリングします。"
+        },
+        "tests": {
+          "label": "テスト",
+          "title": "Chat で選択したコードのテストを生成します",
+          "description": "選択したコードのテストを作成します。"
+        }
+      }
+    },
+    "diagnostics": {
+      "currentFile": "現在のファイル",
+      "common": {
+        "expand": "拡大する",
+        "collapse": "崩壊"
+      },
+      "filters": {
+        "all": "全て",
+        "errors": "エラー",
+        "warnings": "警告",
+        "info": "情報"
+      },
+      "severity": {
+        "error": "エラー",
+        "warning": "警告",
+        "info": "情報",
+        "hint": "ヒント"
+      },
+      "problems": {
+        "title": "問題点",
+        "errorCount": "{{count}} エラー{{suffix}}",
+        "warningCount": "{{count}} 警告{{suffix}}",
+        "infoCount": "{{count}} 情報",
+        "none": "問題ありません",
+        "expandTitle": "「問題」パネルを展開します",
+        "collapseTitle": "「問題」パネルを折りたたむ",
+        "setDefaultStateTitle": "「問題」パネルのデフォルト状態を設定する",
+        "defaultCollapsed": "デフォルトの折りたたまれた状態",
+        "noMatch": "現在のフィルターに一致する問題はありません。",
+        "noneInFile": "このファイルには問題はありません。"
+      },
+      "outline": {
+        "title": "概要",
+        "expandTitle": "アウトラインを拡大する",
+        "collapseTitle": "アウトラインを折りたたむ",
+        "filterSymbols": "フィルターシンボル",
+        "symbolCount": "{{count}} シンボル{{suffix}}",
+        "refreshing": "爽やかな...",
+        "setupTitle": "設定",
+        "hintCount": "{{count}} ヒント{{suffix}}",
+        "dismissSetupHintTitle": "{{actionLabel}} セットアップ ヒントを閉じる",
+        "unavailableForFileType": "このファイル タイプではアウトラインはまだ使用できません。",
+        "loadingSymbols": "シンボルを読み込んでいます...",
+        "noneAvailable": "利用可能なアウトラインはありません。",
+        "noMatch": "現在のフィルターに一致するシンボルはありません。",
+        "noneDetected": "このファイルにはシンボルが検出されませんでした。",
+        "symbolFallback": "シンボル",
+        "messages": {
+          "serviceUnavailable": "エディター サービスの準備ができていないため、シンボルは使用できません。",
+          "loadFailed": "シンボルのロードに失敗しました。",
+          "realProviderMissing": "この言語では実際の provider が使用できないため、このファイルは構文のみのままです。",
+          "formatOnlyLanguage": "現時点では、この言語はエディターで構文のみのままです。",
+          "missingBinary": "{{providerLabel}} は、このプロジェクトまたは PATH で見つかりませんでした。",
+          "providerUnavailable": "{{providerLabel}} は、このファイルのシンボルでは使用できません。",
+          "providerDegraded": "このファイル内のシンボルでは、{{providerLabel}} の性能が低下します。",
+          "providerRequestFailed": "このファイルのシンボルをロード中に {{providerLabel}} が失敗しました。",
+          "unsupportedFile": "このファイル タイプではアウトラインは使用できません。",
+          "unsupported": "このファイルではアウトラインを使用できません。"
+        }
+      },
+      "setupHints": {
+        "messages": {
+          "formatting": {
+            "realProviderMissing": "フォーマットするには、このファイルに実際の provider が必要です。",
+            "biomeConfigRequired": "フォーマットにはプロジェクト Biome 構成が必要です。",
+            "ruffConfigRequired": "フォーマットにはプロジェクト Ruff 構成が必要です。",
+            "clangFormatConfigRequired": "フォーマットには、プロジェクト.clang-format または _clang-format 構成が必要です。",
+            "javaProjectContextRequired": "フォーマットには、Maven または Gradle プロジェクト コンテキスト (pom.xml、build.gradle、build.gradle.kts、settings.gradle、settings.gradle.kts) が必要です。",
+            "dotnetProjectRequired": "フォーマットには実際の.csproj または.sln コンテキストが必要です。",
+            "missingBinary": "{{providerLabel}} は、このプロジェクトまたは PATH で見つかりませんでした。",
+            "providerUnavailable": "{{providerLabel}} はこのファイルでは使用できません。",
+            "providerDegraded": "このファイルの {{providerLabel}} は劣化しています。",
+            "providerRequestFailed": "このファイルの提供中に {{providerLabel}} が失敗しました。",
+            "formatOnlyLanguage": "この言語は現在フォーマットのみです。"
+          },
+          "codeActions": {
+            "realProviderMissing": "コードアクションには、このファイルに実際の provider が必要です。",
+            "eslintProjectRequired": "コードアクションには、プロジェクトで構成された ESLint provider が必要です。",
+            "ruffConfigRequired": "コードアクションには、プロジェクト Ruff 構成が必要です。",
+            "clangTidyConfigRequired": "コードアクションにはプロジェクトの.clang-tidy 構成が必要です。",
+            "clangCompileContextRequired": "コードアクションには、compile_commands.json または COMPILE_flags.txt が必要です。",
+            "javaProjectContextRequired": "コード アクションには、Maven または Gradle プロジェクト コンテキスト (pom.xml、build.gradle、build.gradle.kts、settings.gradle、settings.gradle.kts) が必要です。",
+            "dotnetProjectRequired": "コードアクションには、実際の.csproj または.sln コンテキストが必要です。",
+            "javaNotInstalled": "使用可能な JDK が PATH または JAVA_HOME に見つかりませんでした。 jdtls には Java が必要です。",
+            "dotnetNotInstalled": "dotnet が PATH に見つかりませんでした。",
+            "missingBinary": "{{providerLabel}} は、このプロジェクトまたは PATH で見つかりませんでした。",
+            "providerUnavailable": "{{providerLabel}} はこのファイルでは使用できません。",
+            "providerDegraded": "このファイルの {{providerLabel}} は劣化しています。",
+            "providerRequestFailed": "このファイルの提供中に {{providerLabel}} が失敗しました。",
+            "formatOnlyLanguage": "この言語は現在フォーマットのみです。"
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "設定",
+    "navigationTitle": "設定ナビゲーション",
+    "overviewTitle": "概要",
+    "controls": {
+      "expandAll": "すべて展開",
+      "collapseAll": "すべて折りたたむ"
+    },
+    "counts": {
+      "sectionOne": "1セクション",
+      "sectionOther": "{{count}} セクション",
+      "visibleSectionOne": "1 つの表示セクション",
+      "visibleSectionOther": "{{count}} 表示セクション"
+    },
+    "common": {
+      "yes": "はい",
+      "no": "いいえ",
+      "completed": "完了しました",
+      "inProgress": "進行中",
+      "ready": "準備ができて",
+      "notReady": "準備ができていません",
+      "savedOnly": "保存のみ",
+      "unknown": "未知",
+      "checking": "チェック中...",
+      "disabled": "無効"
+    }
+  },
+  "artifacts": {
+    "emptyProject": "プロジェクト フォルダーを開いて、アーティファクトの履歴を確認します。",
+    "trackedFilesTitle": "追跡されたファイル",
+    "scope": {
+      "label": "成果物の範囲",
+      "entireProject": "プロジェクト",
+      "thisThread": "スレッド",
+      "resultCount": "{{count}} ファイル"
+    },
+    "loadingTrackedFiles": "追跡されたファイルをロードしています...",
+    "emptyTrackedFiles": "バージョン管理されたファイルはまだありません。 AI ファイルの書き込みとコードの提案がここに表示されます。",
+    "deleteRevisionDialog": {
+      "title": "リビジョンの削除",
+      "message": "次のリビジョン {{rev}} ({{source}}) を削除:\n{{filePath}}\n\nこれを元に戻すことはできません。",
+      "confirm": "リビジョンの削除",
+      "cancel": "キャンセル"
+    },
+    "deleteHistoryDialog": {
+      "title": "改訂履歴の削除",
+      "message": "次のすべての改訂履歴を削除します。\n{{filePath}}\n\nディスク上のファイルは削除されません。",
+      "confirm": "履歴の削除",
+      "cancel": "キャンセル"
+    },
+    "selectFile": "ファイルを選択すると、そのリビジョン履歴が表示されます。",
+    "labels": {
+      "fromBase": "(ベース)から",
+      "toHead": "へ（頭）",
+      "base": "ベース",
+      "head": "頭"
+    },
+    "deleteRevisionTitle": "このリビジョンを削除",
+    "deleteFileHistoryTitle": "このファイルの履歴をすべて削除します",
+    "selectRevisions": "比較するには上記のリビジョンを選択してください。",
+    "revisionSource": {
+      "baseline": "ベースライン",
+      "rollback": "ロールバック",
+      "suggestion": "提案",
+      "aiWrite": "AI書き込み"
+    },
+    "revisionOrigin": {
+      "thread": "スレッド {{threadTitle}}",
+      "deletedThread": "削除済みスレッド {{threadTitle}} · {{date}}"
+    },
+    "suggestionBadge": "提案",
+    "revisionCountOne": "{{count}} 回転",
+    "revisionCountOther": "{{count}} 回転数",
+    "footer": {
+      "suggestionPending": "このリビジョンはまだディスクに書き込まれていません",
+      "apply": "ディスクに適用",
+      "applying": "申請中...",
+      "rollbackNotice": "ロールバックにより、リビジョン {{rev}} がディスクに復元されます",
+      "rollback": "ベースへのロールバック",
+      "rollingBack": "ロールバック中..."
+    },
+    "picker": {
+      "placeholder": "- {{label}} -",
+      "empty": "- 新しいファイル (空) -",
+      "notOnDisk": "ディスク上にない",
+      "option": "rev {{rev}} - {{source}}{{notOnDisk}} - {{date}}",
+      "optionWithProvenance": "rev {{rev}} - {{source}}{{notOnDisk}} - {{date}} · {{provenance}}"
+    },
+    "action": {
+      "rollbackSuccess": "リビジョン {{rev}} にロールバックされました。新しいリビジョン {{newRev}} が記録されました。",
+      "rollbackFailed": "ロールバックに失敗しました。",
+      "applySuccess": "ディスクに適用されます。新しいリビジョン {{newRev}} が記録されました。",
+      "applyFailed": "適用に失敗しました。",
+      "revisionDeleted": "リビジョン {{rev}} が削除されました。"
+    },
+    "diffLoading": "差分を読み込み中...",
+    "diffTimeout": "差分 runtime の初期化に失敗しました。アプリをリロードします。"
+  },
+  "workspaceDisposal": {
+    "activeMessage": "このデータを削除する前に、実行中の作業を停止する必要があります。",
+    "threadDeleteActiveMessage": "この [[canon:thread]] の進行中の作業は、削除前に停止されます。",
+    "stopAndDelete": "停止して削除",
+    "stopAndRemove": "停止して除去",
+    "stopAndClear": "停止してクリア",
+    "stopAndArchive": "停止してアーカイブ"
+  },
+  "threadDrawer": {
+    "title": "Threads",
+    "threadCount": "{{count}} threads",
+    "previewRole": {
+      "user": "あなた",
+      "assistant": "AI"
+    },
+    "activity": {
+      "needsInput": "入力が必要",
+      "sessionFailed": "失敗",
+      "sessionCompleted": "完了",
+      "sessionActive": "セッションがアクティブです",
+      "sessionStale": "セッションが古い",
+      "pendingApproval": "承認待ち",
+      "sessionBlocked": "セッションがブロックされました",
+      "idle": "アイドル状態",
+      "pendingBadge": "保留中",
+      "blockedBadge": "ブロックされました"
+    },
+    "fallbackTitle": "無題 thread",
+    "renameTitle": "thread の名前を変更",
+    "deleteTitle": "threadを削除",
+    "searchPlaceholder": "threadsを検索...",
+    "newThreadTitle": "新しいthread",
+    "newThread": "新しい",
+    "emptySearch": "検索に一致する threads はありません。",
+    "empty": "threads はまだありません。",
+    "createThread": "thread を作成する",
+    "loadMore": "さらに threads をロード ({{count}} は非表示)",
+    "resizeTitle": "ドラッグしてサイズを変更します"
+  },
+  "backgroundJobs": {
+    "status": {
+      "polling": "ポーリング",
+      "cancelRequested": "キャンセルが要求されました",
+      "completed": "完了しました",
+      "failed": "失敗した",
+      "cancelled": "キャンセル",
+      "orphaned": "孤児",
+      "queued": "キューに入れられました"
+    },
+    "title": "[[canon:background_jobs]]",
+    "runningJobs": "実行中のジョブ: {{count}}",
+    "updated": "{{time}}を更新しました",
+    "refresh": "リフレッシュ",
+    "close": "近い",
+    "description": "長時間実行されるローカル コマンドや分離された OpenAI バックグラウンド応答が必要なくなったら、停止します。",
+    "stopAll": "すべて停止",
+    "stopping": "停止中...",
+    "loading": "バックグラウンド ジョブを読み込んでいます...",
+    "empty": "現在実行中のバックグラウンド ジョブはありません。",
+    "table": {
+      "job": "仕事",
+      "task": "タスク",
+      "runtime": "Runtime",
+      "context": "コンテクスト",
+      "action": "アクション"
+    },
+    "statusLabel": "ステータス: {{status}}",
+    "openAiResponse": "OpenAI バックグラウンド応答",
+    "detachedOpenAiResponse": "切り離された OpenAI 応答",
+    "emptyCommand": "（空の）",
+    "stop": "停止"
+  },
+  "chat": {
+    "planDirection": {
+      "questionNavigation": "計画方針の質問",
+      "goToQuestion": "質問 {{count}} に移動",
+      "continue": "続行",
+      "changeAnswer": "回答を変更",
+      "customPlaceholder": "または別の方向性を入力",
+      "customAnswer": "独自の方向性",
+      "recommendedShort": "推奨",
+      "synthesizing": "選択内容から方向性を更新しています…",
+      "synthesisFailed": "方向性を更新できませんでした。",
+      "retryDraft": "計画ドラフトを再試行",
+      "retry": "再試行",
+      "reviewChoices": "選択を確認",
+      "change": "方向性を変更",
+      "changeFeedback": "方向性へのフィードバック",
+      "changePlaceholder": "この方向性の何を変更しますか？",
+      "updateDirection": "方向性を更新",
+      "creating": "管理された Markdown 計画を作成しています…",
+      "recommended": "推奨:",
+      "recommendationDetail": "{{profile}} - {{rationale}}",
+      "create": "計画を作成",
+      "profileMenu": "計画作成プロファイル",
+      "profiles": {
+        "implementation": "実装計画",
+        "technicalDesign": "技術設計",
+        "investigation": "調査計画",
+        "deepImplementation": "詳細実装計画"
+      },
+      "errors": {
+        "answerSave": "The direction answer could not be saved.",
+        "profileUnavailable": "The selected plan profile was unavailable.",
+        "changeFailed": "The direction feedback could not be saved.",
+        "retryFailed": "The direction update could not be retried."
+      }
+    },
+    "emptyState": {
+      "title": "まだメッセージはありません",
+      "planDescription": "[[canon:plan]] モードがアクティブです。構造化された計画の場合は [[canon:ask]] と入力し、応答で対話型の選択肢を使用してパスを導きます。",
+      "thinkingDescription": "[[canon:thinking]] モードがアクティブです。ここでオプションとトレードオフをブレインストーミングし、実装の準備ができたら [[canon:execute]] に切り替えます。",
+      "executeDescription": "provider を選択してチャットを開始してください。ヘッダーの [[canon:permission_mode]] コントロールを使用して、実行ターンの [[canon:ask]]、[[canon:autonomy]]、および [[canon:full_access]] を切り替えます。",
+      "needsProviderSetup": "OpenAI アカウント認証を接続するか、設定で API key を追加し、provider を選択して開始します。"
+    },
+    "composer": {
+      "placeholder": {
+        "selectProvider": "provider を選択して開始します...",
+        "selectThread": "Select or create a conversation to continue...",
+        "streaming": "AIは考えています...",
+        "plan": "計画を頼んでください... (送信は Enter、改行は Shift+Enter)",
+        "thinking": "アイデア、トレードオフ、方向性をブレインストーミングします... (送信するには Enter、改行は Shift+Enter)",
+        "execute": "プロジェクトについて何でも聞いてください... (送信は Enter、改行は Shift+Enter)"
+      },
+      "blockLabels": {
+        "code": "コード",
+        "text": "文章"
+      },
+      "codeLanguage": "コード言語",
+      "openAdvancedEditor": "高度なコードエディタを開く",
+      "advanced": "高度な",
+      "removeBlock": "ブロックを削除する",
+      "removeCodeBlock": "コードブロックを削除する",
+      "removeTextBlock": "テキストブロックを削除する",
+      "codePlaceholder": "コード...",
+      "insertSnippet": "スニペットを挿入",
+      "codeSnippet": "コードスニペット",
+      "textSnippet": "テキストのスニペット"
+    },
+    "controlRail": {
+      "quickActionsTitle": "[[canon:quick_actions]]",
+      "refreshModels": "modelsをリフレッシュ",
+      "refreshingModels": "爽やかなmodels",
+      "refreshing": "爽やかな...",
+      "openBackgroundJobs": "[[canon:background_jobs]]を開く",
+      "backgroundJobs": "[[canon:background_jobs]]",
+      "agents": "エージェント",
+      "directAgentsMenu": "エージェント選択メニュー",
+      "moreActions": "さらなるアクション",
+      "stopResponse": "応答停止",
+      "sendMessage": "メッセージを送信する",
+      "sendEnter": "送信（入力）",
+      "attach": {
+        "filesImagesDisabled": "ファイルを添付します (この model では画像が無効になっています)",
+        "images": "画像を添付する",
+        "files": "ファイルを添付する"
+      },
+      "collaborationMode": {
+        "defaultLabel": "[[canon:native_collaboration_mode]]",
+        "buttonTitle": "[[canon:native_collaboration_mode]]: {{value}}",
+        "optionsAriaLabel": "[[canon:native_collaboration_mode]] オプション"
+      },
+      "reasoningEffort": {
+        "providerDefault": "Provider デフォルト",
+        "xhigh": "サイハイ",
+        "buttonTitle": "[[canon:reasoning_effort]]: {{value}}。 model が適用される推論の量を制御します。",
+        "buttonAriaLabel": "[[canon:reasoning_effort]]: {{value}}",
+        "optionsAriaLabel": "[[canon:reasoning_effort]] オプション"
+      },
+      "processingMode": {
+        "fast": "高速",
+        "standard": "標準",
+        "enable": "高速処理を使用",
+        "disable": "標準処理を使用",
+        "pricingNote": "高速処理にはプレミアム料金が適用される場合があります。",
+        "returnedMode": "直前の応答は{{mode}}処理を使用しました。"
+      },
+      "rateLimits": {
+        "title": "[[canon:rate_limits]]",
+        "remainingTitle": "OpenAI アカウントのレート制限が残っています",
+        "weekly": "毎週",
+        "primary": "主要な",
+        "secondary": "二次"
+      }
+    },
+    "moaToggle": {
+      "activeTitle": "[[canon:moa]] モードがアクティブ - クリックして無効にします",
+      "enableTitle": "[[canon:moa]] (マルチエージェント オーケストレーション) を有効にする"
+    },
+    "threadModals": {
+      "common": {
+        "close": "近い",
+        "closeModal": "[[canon:thread]] モーダルを閉じる",
+        "cancel": "キャンセル"
+      },
+      "create": {
+        "title": "[[canon:thread]]を作成する",
+        "description": "新しい会話のタイトル「[[canon:thread]]」を入力します。",
+        "placeholder": "新しい[[canon:thread]]",
+        "confirm": "作成する"
+      },
+      "rename": {
+        "title": "[[canon:thread]] の名前を変更",
+        "description": "現在の会話のタイトル [[canon:thread]] を更新します。",
+        "placeholder": "[[canon:thread]] タイトル",
+        "confirm": "保存"
+      },
+      "clear": {
+        "deleteTitle": "[[canon:thread]]を削除",
+        "deleteMessage": "この [[canon:thread]]{{threadTitle}} を削除しますか？会話、添付ファイル、[[canon:thread]] のアクティビティが削除されます。プロジェクト ファイル、成果物、保持されたメモリは残ります。",
+        "deleteConfirm": "[[canon:thread]]を削除"
+      }
+    },
+    "providerSwitchContextBanner": {
+      "title": "Provider/Model 切り替え",
+      "previousProvider": "前 provider",
+      "newProvider": "新しいprovider",
+      "movedFrom": "から移動しました",
+      "movedTo": "に",
+      "continuityHint": "プロジェクトの継続性が失われないように、次のターンの前にコンテキストを挿入します。",
+      "injectMemory": "Memoryを注入",
+      "injectArtifacts": "[[canon:artifacts]]を注入",
+      "injectBoth": "両方を注入",
+      "dismiss": "却下する"
+    },
+    "contextMeter": {
+      "toggleDetails": "コンテキストの詳細を切り替えます",
+      "expandDetails": "コンテキストメーターの詳細を展開する",
+      "collapseDetails": "コンテキストメーターの詳細を折りたたむ",
+      "visibleMetrics": "目に見える指標",
+      "chooseVisibleMetrics": "表示される指標を選択する",
+      "showAll": "すべて表示",
+      "hideAll": "すべて隠す",
+      "noMetricsSelected": "メトリクスが選択されていません。",
+      "title": {
+        "available": "最新ターン {{turnTokens}}/{{modelLimit}} tokens ({{percent}}%)",
+        "unavailable": "最新ターン使用不可 ({{modelLimit}} token 制限)",
+        "limitUnavailable": "この model ではコンテキスト制限を使用できません",
+        "contextLeftAvailable": "コンテキスト左 {{remaining}}/{{modelLimit}} tokens ({{percent}}%)",
+        "contextLeftFallback": "コンテキスト左 {{remaining}}/{{modelLimit}} tokens ({{percent}}%、空の thread)",
+        "contextLeftUnavailable": "コンテキストが使用できないままになっています ({{modelLimit}} token 制限、thread 占有が使用不可)",
+        "contextLeftRecalculating": "圧縮後のコンテキスト残量を再計算中です (上限 {{modelLimit}} token)"
+      },
+      "values": {
+        "left": "左",
+        "occupancyUnavailable": "thread 占有不可",
+        "limitUnknown": "限界は不明",
+        "notAvailable": "該当なし",
+        "recalculating": "再計算中..."
+      },
+      "metrics": {
+        "used": "Thread occ.",
+        "usedEstimated": "Thread occ. （EST（東部基準時。）",
+        "usedMapped": "Thread occ. (mapped)",
+        "remaining": "左のコンテキスト",
+        "limit": "限界",
+        "turn": "最新ターン",
+        "spendRoll": "セッション費用",
+        "inputNoCache": "入力 (キャッシュなし)",
+        "cacheRead": "キャッシュ読み取り",
+        "cacheWrite": "キャッシュ書き込み",
+        "turnEstTok": "ターンエストトク",
+        "turnEstUsd": "米ドルを返す",
+        "costConf": "コスト会議",
+        "continuity": "連続",
+        "packet": "パケット",
+        "drift": "ドリフト",
+        "compactionDelta": "圧縮デルタ"
+      }
+    },
+    "cursor": {
+      "fullAccessRequired": "Cursor runs only with Full Access.",
+      "useFullAccess": "Use Full Access"
+    },
+    "composerArea": {
+      "selectProvider": "チャットを開始するには、以下の provider を選択してください。",
+      "selectThread": "メッセージを送信する前に、thread を選択または作成します。",
+      "selectedModelMissing": "選択された model は使用できない可能性があります。アクション メニューから厳選された models を更新します。",
+      "addApiKey": "設定に API key を追加して開始します。",
+      "switchToExecute": "[[canon:execute]]に切り替える",
+      "imagesDisabled": "この model では画像が無効になっています。ファイル添付は引き続き有効になります。",
+      "pipeline": {
+        "stepRunning": "Pipeline step {{currentStep}}/{{totalSteps}}: {{stepName}}",
+        "completed": "Pipeline complete",
+        "failedAt": "Pipeline failed at {{stepName}}",
+        "cancelled": "Pipeline cancelled",
+        "starting": "Starting pipeline ({{totalSteps}} steps)..."
+      },
+      "council": {
+        "completed": "評議会完了 ({{successCount}}/{{memberCount}} 成功)",
+        "failed": "評議会は失敗した",
+        "cancelled": "評議会は中止されました",
+        "running": "評議会運営中 ({{memberCount}} メンバー {{suffix}})..."
+      }
+    },
+    "permissionMode": {
+      "planActive": "[[canon:plan]] モード: 調査・計画ツールを利用できます。プロジェクトの変更はブロックされます。",
+      "thinkingActive": "[[canon:thinking]] モード: 読み取り・調査ツールを利用できます。プロジェクトの変更はブロックされます。",
+      "planDormant": "[[canon:plan]] モードでは、このターンのツールの実行が無効になります。",
+      "thinkingDormant": "[[canon:thinking]] モードでは、このターンのツールの実行が無効になります。",
+      "label": "許可",
+      "groupAriaLabel": "許可モード",
+      "optionsAriaLabel": "許可モードのオプション",
+      "helpers": {
+        "ask": "危険な行動の前にプロンプ​​トを表示",
+        "autonomy": "Act inside workspace Guardrails",
+        "fullAccess": "ホストレベルのツールの実行"
+      }
+    },
+    "dispatchConfirmation": {
+      "dispatchFailed": "派遣に失敗しました。",
+      "executed": "ディスパッチが実行されました",
+      "executedDescription": "{{count}} エージェント{{suffix}} が派遣されました。エージェントが完了すると、結果が下に表示されます。",
+      "failed": "派遣失敗",
+      "unknownError": "不明なエラー。",
+      "retry": "リトライ",
+      "title": "タスクのディスパッチ計画",
+      "selected": "{{selected}}/{{total}} が選択されました",
+      "dispatching": "派遣中...",
+      "executeTasks": "{{count}}タスク{{suffix}}を実行"
+    },
+    "questionUser": {
+      "clarificationNeeded": "説明が必要です",
+      "waitingOnYou": "ウェイティング・オン・ユー",
+      "recommended": "推奨",
+      "yourAnswer": "あなたの答え",
+      "answerPlaceholder": "答えを入力…",
+      "answerHint": "ここに簡単な回答を送信するか、以下のコンポーザーで編集を続けてください。",
+      "sending": "送信中...",
+      "sendAnswer": "送信",
+      "sendAnswerTitle": "回答を送信（Enter）"
+    },
+    "runbook": {
+      "status": {
+        "cancelled": "キャンセル",
+        "finishedWithErrors": "エラーで終了しました",
+        "finishedWithWarnings": "警告が出て終了しました",
+        "finished": "終了した",
+        "running": "走っている"
+      },
+      "filters": {
+        "all": "全て",
+        "commands": "コマンド",
+        "usage": "使用法",
+        "reasoning": "推論",
+        "approvals": "承認"
+      },
+      "aria": {
+        "collapse": "コラプスターン runbook",
+        "expand": "展開ターン runbook"
+      },
+      "summary": {
+        "actions": "アクション {{count}}",
+        "commands": "コマンド {{count}}",
+        "files": "ファイル {{count}}",
+        "usage": "使用法 {{count}}"
+      },
+      "sections": {
+        "actions": "アクション",
+        "commands": "コマンド",
+        "usage": "使用法"
+      }
+    },
+    "fileChanges": {
+      "header": "変更されたファイル: {{count}}",
+      "unknownFile": "不明なファイル",
+      "updatedAgo": "{{time}}を更新しました",
+      "changeType": {
+        "applied": "適用済み",
+        "modified": "修正済み",
+        "edited": "編集済み",
+        "deleted": "削除されました",
+        "renamed": "名前変更",
+        "rolledBack": "ロールバック",
+        "created": "作成されました"
+      },
+      "syncStatus": {
+        "deleted": "削除されました",
+        "undone": "元に戻した",
+        "conflict": "対立"
+      },
+      "reason": {
+        "changedSinceTurn": "このターンから変更されました",
+        "missingRevisionMetadata": "リビジョンメタデータが欠落しています"
+      },
+      "actions": {
+        "fallbackAction": "アクション",
+        "openInEditor": "エディタで開く",
+        "openInDocumentViewer": "ドキュメントビューアーで開く",
+        "openArtifacts": "[[canon:artifacts]]を開く",
+        "copyPath": "パスをコピーする",
+        "deleting": "削除中...",
+        "deleteFile": "ファイルの削除",
+        "undoing": "元に戻す...",
+        "undoChange": "変更を元に戻す",
+        "menuTitle": "ファイルアクション"
+      },
+      "preview": {
+        "loading": "変更を読み込んでいます...",
+        "noChangedLines": "プレビューする変更された行はありません。",
+        "collapse": "プレビューを折りたたむ",
+        "expand": "プレビューを展開する",
+        "collapseForFile": "{{path}} のプレビューを折りたたむ",
+        "expandForFile": "{{path}} のプレビューを展開する",
+        "fileChangeFallback": "ファイル変更",
+        "limited": "プレビュー限定",
+        "limitWithLineCount": "ファイル サイズがプレビュー制限 ({{lineCount}} 行) を超えています。エディターまたは [[canon:artifacts]] で開いて変更を確認します。",
+        "limitNoLineCount": "ファイル サイズがプレビュー制限を超えています。プレビューは、{{maxLines}} 行より上では無効になります。"
+      },
+      "dialogs": {
+        "undoOne": {
+          "title": "ファイルの変更を元に戻す",
+          "message": "{{path}} の前のバージョンを復元しますか？",
+          "confirm": "変更を元に戻す"
+        },
+        "deleteOne": {
+          "title": "作成したファイルを削除する",
+          "message": "{{path}}を削除しますか？これにより、このターンに作成されたファイルがディスクから削除されます。",
+          "confirm": "ファイルの削除"
+        },
+        "undoAll": {
+          "title": "ファイルの変更を元に戻す",
+          "message": "{{count}} ファイル {{suffix}} の前のバージョンを復元しますか？",
+          "confirm": "変更を元に戻す"
+        },
+        "deleteAll": {
+          "title": "作成したファイルを削除する",
+          "message": "このターンに作成された{{count}}ファイル{{suffix}}を削除しますか？これにより、それらがディスクから削除されます。",
+          "confirm": "ファイルの削除"
+        }
+      },
+      "feedback": {
+        "clipboardUnavailable": "この環境ではクリップボードを使用できません。",
+        "copiedPath": "コピーされたパス: {{path}}",
+        "copyFailed": "ファイルパスのコピーに失敗しました。",
+        "undoUnavailable": "このエントリでは元に戻すことはできません (リビジョン メタデータが欠落しています)。",
+        "undoSucceeded": "{{path}}を元に戻しました。",
+        "undoFailed": "元に戻すことができませんでした。",
+        "deleteUnavailable": "このエントリでは削除できません (リビジョン メタデータが欠落しています)。",
+        "deleteSucceeded": "作成したファイル{{path}}を削除しました。",
+        "deleteFailed": "削除に失敗しました。",
+        "conflict": "{{path}}: このターンから変更されました。",
+        "actionFailed": "{{path}}: {{message}}",
+        "undoAllUnavailable": "使用できないものをすべて元に戻します (リビジョン メタデータが欠落しています)。",
+        "undoAllSummary": "すべて元に戻す: {{success}} 件成功{{conflicts}}{{failed}}{{skipped}}。",
+        "undoAllFailed": "すべて元に戻すことができませんでした。",
+        "deleteAllUnavailable": "使用できないもの (リビジョン メタデータが欠落しているもの) をすべて削除します。",
+        "deleteAllSummary": "作成されたファイルを削除: {{success}} 件成功{{conflicts}}{{failed}}{{skipped}}。",
+        "deleteAllFailed": "作成したファイルの削除に失敗しました。"
+      },
+      "activity": {
+        "undoOne": "ファイル変更の取り消し: {{path}}",
+        "deleteOne": "削除された作成ファイル：{{path}}",
+        "undoAll": "すべてのファイル変更を元に戻す ({{success}} 件成功{{conflicts}}{{failed}}{{skipped}})",
+        "deleteAll": "作成されたファイルを削除 ({{success}} 件成功{{conflicts}}{{failed}}{{skipped}})"
+      },
+      "bulkActions": {
+        "undoingTitle": "ファイルの変更を元に戻す",
+        "undoTitle": "このターンからのファイルの変更を元に戻す",
+        "deletingTitle": "作成したファイルを削除する",
+        "deleteTitle": "このターンから作成されたファイルを削除します"
+      }
+    },
+    "roleConfirmation": {
+      "title": "[[canon:ai_generated_agent_role]]",
+      "saveRole": "[[canon:save_role]]",
+      "saveRoleAndContinue": "[[canon:save_role_continue]]",
+      "useForDelegation": "[[canon:use_for_delegation]]",
+      "saving": "保存中...",
+      "starting": "起動...",
+      "saved": "ロール「{{name}}」が保存されました",
+      "usedForDelegation": "この委任に使用されるロール「{{name}}」",
+      "savedDescription": "すぐに委任可能です。",
+      "usedTemporaryDescription": "この一時的な役割は、委任が終了すると自動的に削除されます。",
+      "roleName": "[[canon:role_name]]",
+      "instructions": "説明書",
+      "noInstructions": "指示なし",
+      "provider": "Provider",
+      "model": "Model",
+      "selectProvider": "providerを選択...",
+      "selectModel": "modelを選択...",
+      "modelIdPlaceholder": "Model ID",
+      "emptyValue": "—",
+      "stagedWrites": {
+        "title": "Staged ファイルの書き込み",
+        "enabledDescription": "この役割に対して有効になっています。これを使用すると、委任中に stage ファイルを変更できます。",
+        "disabledDescription": "無効。このロールは、分析と推奨事項のみを返すことができます。"
+      },
+      "allowStagedWrites": {
+        "title": "staged ファイルの書き込みを許可する",
+        "description": "エージェントは stage [[canon:write_file]] の提案を行うことができます。"
+      },
+      "preview": "プレビュー",
+      "edit": "編集",
+      "dismiss": "却下する",
+      "errors": {
+        "roleNameRequired": "ロール名は必須です。",
+        "providerRequired": "Providerは必須です。",
+        "modelRequired": "Modelは必須です。",
+        "saveFailed": "役割の保存に失敗しました。",
+        "useTemporaryFailed": "一時的な役割の使用に失敗しました。"
+      }
+    },
+    "writeConflict": {
+      "resolved": "{{path}}を解決しました",
+      "conflictBadge": "対立",
+      "showDebugInfo": "デバッグ情報を表示する",
+      "hideDebugInfo": "デバッグ情報を隠す",
+      "hideDetails": "詳細を隠す",
+      "viewChanges": "変更内容を確認する",
+      "loading": "読み込み中...",
+      "loadingPreviews": "プレビューを読み込んでいます...",
+      "previewUnavailable": "プレビューは利用できません。",
+      "aiMerge": "AI マージ",
+      "dismiss": "却下する",
+      "confirm": "確認する",
+      "noModelSelected": "model が選択されていません",
+      "generatingMerge": "マージを生成中...",
+      "retry": "リトライ",
+      "tryAgain": "もう一度やり直してください",
+      "accept": "受け入れる",
+      "labels": {
+        "yoursVsBase": "あなたの変更とベース",
+        "theirsVsBase": "基本とのその他の変更点"
+      },
+      "errors": {
+        "unknown": "不明なエラー",
+        "requestFailed": "リクエストが失敗しました",
+        "applyFailed": "マージ解決の適用に失敗しました。",
+        "mergeFailed": "マージに失敗しました。",
+        "revisionPreviewUnavailable": "このレンダラー セッションではリビジョン プレビューは利用できません。",
+        "loadRevisionPreviewFailed": "リビジョン プレビューを読み込めませんでした。",
+        "loadRevisionContextFailed": "リビジョンコンテキストをロードできませんでした。"
+      }
+    },
+    "attachments": {
+      "actions": {
+        "menuAriaLabel": "{{name}} の添付ファイル操作",
+        "showInFolder": "フォルダーに表示",
+        "copy": "コピー",
+        "saveAs": "名前を付けて保存...",
+        "openWith": "アプリで開く",
+        "defaultApp": "既定のアプリ",
+        "chooseAnotherApp": "別のアプリを選択...",
+        "copyFailed": "この添付ファイルをコピーできませんでした。",
+        "showInFolderFailed": "この添付ファイルをフォルダーに表示できませんでした。",
+        "saveFailed": "この添付ファイルを保存できませんでした。",
+        "openWithFailed": "選択したアプリでこの添付ファイルを開けませんでした。"
+      },
+      "common": {
+        "close": "近い",
+        "cancel": "キャンセル"
+      },
+      "errors": {
+        "cachedOpenFailed": "キャッシュされた添付ファイルを開けません。",
+        "unavailable": "このビルドでは添付ファイルを開くことはできません。",
+        "historyUnavailable": "この添付ファイルのデータはタイムライン履歴で利用できないため、再度開くことができません。",
+        "openFailed": "添付ファイルを開けません。"
+      },
+      "labels": {
+        "pdfAttachment": "PDF添付ファイル",
+        "attachedImage": "添付画像",
+        "attachedFile": "添付ファイル"
+      },
+      "image": {
+        "unavailable": "画像添付は利用できません。",
+        "open": "{{label}}を開く",
+        "previewAriaLabel": "画像プレビュー",
+        "closePreviewAriaLabel": "画像プレビューを閉じる"
+      },
+      "file": {
+        "openPdfViewer": "ビューアで PDF を開く",
+        "openAttachedFile": "添付ファイルを開く",
+        "openPdfAttachment": "PDF 添付ファイルを開く",
+        "openFileAttachment": "添付ファイルを開く",
+        "clickOpenViewer": "クリックするとビューアで開きます",
+        "clickOpenFile": "クリックしてファイルを開きます"
+      },
+      "dialogs": {
+        "openFileAriaLabel": "ファイルを開く確認",
+        "openPdfTitle": "デフォルトのビューアで PDF を開きますか？",
+        "closeFileOpenAriaLabel": "ファイルオープン確認を閉じる",
+        "openPdfDescription": "このファイルは、システム PDF アプリケーションを使用して ADDOM の外部で開きます。",
+        "openPdfConfirm": "PDFを開く"
+      }
+    },
+    "planRequests": {
+      "label": {
+        "memoryReview": "Inject saved context",
+        "artifactReview": "[[canon:artifacts]] コンテキストの挿入",
+        "webIngest": "Web サイトの取り込み",
+        "runRequest": "リクエストの実行"
+      },
+      "summary": {
+        "from": "#{{value}} から",
+        "to": "#{{value}} まで",
+        "tags": "タグ： {{value}}",
+        "sources": "ソース: {{value}}",
+        "limit": "制限 {{value}}",
+        "files": "ファイル: {{value}}",
+        "latestOnly": "最新のみ",
+        "revisionsPerFile": "リビジョン/ファイル: {{value}}",
+        "fromRev": "リビジョン {{value}} から",
+        "toRev": "{{value}} をリビジョンアップします"
+      }
+    },
+    "toolExecution": {
+      "runningCommandWithCommand": "実行中のコマンド: {{command}}",
+      "runningCommand": "コマンドを実行中...",
+      "renameFile": "実行中: rename_file - {{oldPath}} -> {{newPath}}",
+      "browsingUrl": "閲覧中: {{url}}",
+      "browserActionWithAction": "ブラウザ: {{action}}",
+      "browserAction": "ブラウザアクション",
+      "runningToolWithPath": "実行中: {{toolName}} - {{filePath}}",
+      "runningTool": "実行中: {{toolName}}",
+      "result": {
+        "browserDenied": "ブラウザーアクション - 拒否されました",
+        "browserFailed": "ブラウザアクション - 失敗しました",
+        "browserDone": "ブラウザアクション - 完了",
+        "toolDenied": "{{toolName}} - 拒否されました",
+        "toolFailed": "{{toolName}} - 失敗しました",
+        "toolDone": "{{toolName}} - 完了"
+      }
+    },
+    "mcpElicitation": {
+      "sendFailed": "この応答を送信できませんでした。"
+    },
+    "diff": {
+      "addedLine": "追加された行",
+      "removedLine": "削除された行"
+    },
+    "providerTerms": {
+      "providerFallback": "このプロバイダー",
+      "title": "{{providerName}} を使う前に",
+      "lead": "このプロバイダーの利用規約はあなたが責任を持ちます。プロンプトやツールの操作がこのマシンから送信される場合があります。",
+      "cancel": "キャンセル",
+      "openTerms": "規約を開く",
+      "continue": "続ける"
+    }
+  },
+  "toolApprovalOverlay": {
+    "header": {
+      "title": "AI は次のことを望んでいます。",
+      "reviewFileChanges": "提案されたファイル変更を確認し、承認または拒否します。",
+      "reviewDiff": "以下の差分を確認して、承認または拒否します。",
+      "approveFilesystem": "ファイルシステム上でこのアクションを許可するには承認してください",
+      "expiresIn": "期限切れ: {{time}}"
+    },
+    "footer": {
+      "expired": "Approval expired",
+      "enterDisabled": "昇格された承認に対して無効になっているショートカットを入力してください",
+      "shortcuts": "ショートカット: 「allow」と入力し、「Esc」で「deny」と入力します。",
+      "submitting": "Submitting approval..."
+    },
+    "actions": {
+      "deny": "拒否 (Esc)",
+      "allowForSession": "セッションを許可する",
+      "allowForSessionTitle": "サポートされている場合、現在のアプリセッションに対するこの承認を許可し、記憶します",
+      "openGuardrails": "Open Guardrails settings",
+      "openGuardrailsTitle": "Cancel this approval and open Guardrails settings",
+      "allowHostFallback": "ホストのフォールバックを許可する",
+      "allowHostFallbackTitle": "ホストのフォールバックを許可する (ワンショット)",
+      "allowHostFullAccessThisTurn": "ホストのフルアクセスを許可する (このターン)",
+      "allowHostFullAccessThisTurnTitle": "このターンの残りの間、ホストのフルアクセスを許可する",
+      "allowHostFullAccess": "ホストのフルアクセスを許可する",
+      "allowHostFullAccessTitle": "ホストのフルアクセスを許可 (ワンショット)",
+      "allowWslCompatibility": "WSL 互換性の実行を許可する",
+      "allowWslCompatibilityTitle": "ワンショットの WSL 互換性実行を許可する",
+      "allowDisabledWslTitle": "このコマンドには明示的な WSL 互換性承認を使用してください",
+      "allowDisabledHostTitle": "このコマンドには明示的なホスト フル アクセス アクションを使用します",
+      "allowTitle": "許可（入力）",
+      "allowDisabled": "許可（無効）",
+      "allowCaution": "許可する（注意）",
+      "allow": "許可する"
+    },
+    "review": {
+      "grantedRoot": "付与されたルート",
+      "empty": "この承認リクエストにはファイルの変更は含まれませんでした。",
+      "file": "ファイル",
+      "unknownPath": "(不明なパス)",
+      "noDiff": "このファイル変更には差分が提供されませんでした。"
+    },
+    "policy": {
+      "runCommandTitle": "実行コマンドポリシー",
+      "browserActionTitle": "ブラウザアクションポリシー",
+      "warnings": "警告",
+      "hints": "ヒント",
+      "explicitHostElevation": "明示的なホスト昇格が必要です",
+      "explicitHostElevationDescription": "このコマンドは `workspace_safe` ポリシーを超えています。専用のワンショット host_full_access アクションを使用して続行します。",
+      "explicitWslApproval": "明示的な WSL 互換性承認が必要です",
+      "explicitWslApprovalDescription": "WSL はセキュリティ境界ではありません。この承認は、含まれている sandbox ではなく、ホスト ファイル システムの到達可能性との互換性実行を承認します。"
+    },
+    "diff": {
+      "file": "ファイル",
+      "newFile": "新しいファイル",
+      "noChanges": "変化は検出されませんでした。"
+    },
+    "risk": {
+      "readOnly": "読み取り専用",
+      "writesFile": "ファイルを書き込みます",
+      "runsCode": "コードを実行します"
+    },
+    "intent": {
+      "runCommand": "Run command",
+      "localShell": "Run local shell command",
+      "openTerminal": "Open terminal",
+      "useTerminal": "Use terminal",
+      "useBrowser": "Use browser",
+      "reviewFileChanges": "Review file changes",
+      "createDirectory": "Create directory",
+      "scopeSandboxUnavailable": "Sandbox unavailable; host fallback is available.",
+      "scopeInstallSandbox": "Runs in the install sandbox.",
+      "scopeHostAccess": "Requires host access.",
+      "scopeWorkspaceShell": "Runs in the workspace shell.",
+      "scopeBrowserTarget": "Target: {{target}}",
+      "scopeTerminalHostPath": "Opens against a host path.",
+      "scopeWorkingDirectory": "Working directory: {{cwd}}",
+      "warningExplicitHost": "This needs an explicit host access decision.",
+      "warningExplicitWsl": "WSL can reach host files. Use the explicit WSL action only if that is intended.",
+      "warningSandboxFallback": "The sandbox route is unavailable. Host fallback is a one-time exception.",
+      "warningPrivateNetwork": "This targets a local or private network address.",
+      "warningTerminalOutsideWorkspace": "This terminal opens outside the workspace."
+    },
+    "production": {
+      "deny": "Deny",
+      "allowForSession": "Allow for session",
+      "openGuardrails": "Settings",
+      "allowHostFallback": "Host fallback",
+      "allowHostFullAccessThisTurn": "Host this turn",
+      "allowHostFullAccess": "Host once",
+      "allowWslCompatibility": "WSL once",
+      "allowDisabled": "Choose explicit action",
+      "allowCaution": "Allow",
+      "allow": "Allow",
+      "explicitActionRequired": "Use an explicit approval action for this request.",
+      "browserRisk": "External action",
+      "reviewRisk": "Review",
+      "details": "Details",
+      "requestData": "Request data"
+    },
+    "productionPolicy": {
+      "command": "Command policy",
+      "browser": "Browser policy",
+      "terminal": "Terminal policy",
+      "hostAccessRequired": "Host access required",
+      "hostAccessDescription": "Use an explicit host action if this should run outside workspace-safe limits.",
+      "wslCompatibility": "WSL compatibility",
+      "wslDescription": "WSL can reach host files. Use the WSL action only when that is intended.",
+      "notes": "Notes"
+    }
+  },
+  "common": {
+    "close": "近い",
+    "clear": "クリア",
+    "clearAll": "すべてクリア",
+    "cancel": "キャンセル"
+  },
+  "settingsInstructions": {
+    "title": "ADDOMの使用",
+    "updated": "最終更新日 {{date}}",
+    "description": "現在の ADDOM の動作、安全性のデフォルト、再確認が必要な場合の参照先についての簡潔なガイド。",
+    "sections": {
+      "chat-modes": {
+        "title": "Chat モード",
+        "items": {
+          "0": "`[[canon:execute]]` を使用すると、ADDOM は、選択した [[canon:permission_mode]] (`[[canon:ask]]`、`[[canon:autonomy]]`、または `[[canon:full_access]]`) で有効なツールを使用できます。",
+          "1": "`[[canon:plan]]` は回転工具を使用せず、オプション、質問、次のステップに重点を置いています。",
+          "2": "`[[canon:thinking]]` は、ツールを実行せずにブレインストーミングとトレードオフを行うためのものです。",
+          "3": "`[[canon:implement_plan]]` を選択すると、送信前に chat が `[[canon:execute]]` に戻ります。"
+        }
+      },
+      "tool-approvals": {
+        "title": "ツールの承認",
+        "items": {
+          "0": "`[[canon:ask]]` は危険なアクションの前にプロンプ​​トを表示し、`[[canon:autonomy]]` は日常的なプロンプトを抑制し、`[[canon:full_access]]` はそのターンのホストレベルのツールの実行を許可します。",
+          "1": "`[[canon:full_access]]` でも、明らかに危険なホスト操作には依然として破壊的なコマンドのブロックリストが適用されます。",
+          "2": "コマンド要求は、実行前にコマンド セーフティ ポリシーに対してチェックされます。",
+          "3": "バックグラウンド コマンドは `[[canon:background_jobs]]` に表示され、そこで検査または停止できます。"
+        }
+      },
+      "memory": {
+        "title": "Memory の動作",
+        "items": {
+          "0": "プロジェクト memory は、メモ、概要、および自動ログに記録されたコンテキストを SQLite にローカルに保存します。",
+          "1": "古い自動ログは、設定で設定したしきい値を超えると圧縮できます。",
+          "2": "圧縮されたエントリは削除されずにアーカイブされ、引き続き確認できます。",
+          "3": "Memory アクティビティは、chat および Memory パネルに表示されます。"
+        }
+      },
+      "continuity": {
+        "title": "[[canon:continuity_engine]]",
+        "items": {
+          "0": "継続性により、ターン全体で目標、決定、オープンループ、エラー、ファイル参照が追跡されます。",
+          "1": "取得範囲のデフォルトは `thread + project` で、設定で調整できます。",
+          "2": "`economy`、`balanced`、`deep` などのプロファイルは、注入される連続性の量を制御します。",
+          "3": "連続性イベントは、取得、パケット構築、または圧縮の実行時にタイムラインに表示されます。",
+          "4": "ドリフト チェックでは、新しいターンが確立されたコンテキストと矛盾しているように見える場合に警告できます。"
+        }
+      },
+      "artifacts": {
+        "title": "[[canon:artifacts]] の動作",
+        "items": {
+          "0": "承認された AI ファイルの書き込みごとに、そのファイルのアーティファクト リビジョンが作成されます。",
+          "1": "[[canon:artifacts]] は、差分レビュー、ロールバック/適用、およびリビジョン メタデータをサポートします。",
+          "2": "アーティファクト コンテキストには、最新バージョンだけでなく、限定されたリビジョン履歴を含めることができます。"
+        }
+      },
+      "workspace": {
+        "title": "[[canon:workspace]] 永続性",
+        "items": {
+          "0": "プロジェクト、threads、およびタイムライン イベントは SQLite でローカルに保持されます。",
+          "1": "provider または model を切り替えると、アクティブな thread が維持され、コンテキスト ブートストラップ アクションを提供できます。",
+          "2": "リセット コントロールは、thread レベル、プロジェクト レベル、および完全な workspace クリアをサポートします。"
+        }
+      },
+      "commands": {
+        "title": "[[canon:background_jobs]]",
+        "items": {
+          "0": "開発サーバー、ウォッチャー、分離された OpenAI 応答などの長時間実行タスクは、chat が続行できるようにバックグラウンドで実行される場合があります。",
+          "1": "`[[canon:background_jobs]]` を使用して、出力を検査したり、タスクを停止したり、バックグラウンド アクティビティを確認したりできます。",
+          "2": "永続的なコマンド出力は、タイムラインの応答性を維持するためにトリミングされます。"
+        }
+      },
+      "command-palette": {
+        "title": "[[canon:command_palette]]",
+        "items": {
+          "0": "ADDOM 全体でアクションを検索するには、グローバル `[[canon:command_palette]]` を `Ctrl+Shift+P` で開きます。",
+          "1": "`Up` および `Down` を使用して移動し、`Enter` を使用して実行し、`Esc` を使用して閉じます。",
+          "2": "コマンドは、タイトルと `switch project`、`autofix`、`outline` などのエイリアスで検索できます。",
+          "3": "無効なコマンドは、アクティブな thread がない、開いているエディター タブがないなどの理由で表示されたままになります。",
+          "4": "繰り返しワークフローを高速化するために、検索が空の場合は最近のコマンドが表示されます。"
+        }
+      },
+      "streaming-responses": {
+        "title": "ストリーミング応答",
+        "items": {
+          "0": "アシスタントの回答は、完全なターンが終了するのを待つのではなく、応答チャンクとして chat にストリーミングされます。",
+          "1": "チャンク サイズとケイデンスは provider と model に依存し、正確な tokenizer ユニットではありません。",
+          "2": "ADDOM は、UI でのチャンク配信をスムーズにし、リアルタイムの進行状況を維持しながらちらつきを軽減します。",
+          "3": "推論テキストは、provider が公開する場合にのみ表示されます。 ADDOM は、隠された思考連鎖を捏造しません。"
+        }
+      },
+      "runbook": {
+        "title": "[[canon:runbook]] 透明度を回す",
+        "items": {
+          "0": "各 model ターンは、時系列のアクションを持つ chat 内の折りたたまれた `Turn [[canon:runbook]]` にグループ化されます。",
+          "1": "[[canon:runbook]] には、承認、コマンド ステップ、ファイル変更、使用状況の更新、ターン ステートが含まれます。",
+          "2": "ファイル書き込みを伴うターンでは、ファイルごとの +/- カウント、プレビュー、レビュー アクションを含む `Files changed` カードが表示されます。",
+          "3": "元に戻すアクションには、安全でない取り消しを回避するための `Changed since this turn` などの競合ガードが含まれています。",
+          "4": "UI に表示される推論テキストは provider のみです。 ADDOM は、隠された思考連鎖を決して捏造しません。"
+        }
+      },
+      "moa": {
+        "title": "[[canon:moa]]モード",
+        "items": {
+          "0": "`[[canon:moa]]` は、オーケストレーターが最終的な権限を保持しながら、並列エージェント タスクを委任します。",
+          "1": "エージェント ロールは [設定] で構成され、編集可能な開始点としてテンプレートを使用できます。",
+          "2": "委任は、タスクの上限、タイムアウト、token の予算、出力の切り捨てなどの制限を強制します。",
+          "3": "予算の警告では、高価な委任を続行する前に明示的な選択が必要になる場合があります。",
+          "4": "エージェント ファイルの書き込みはオプションで、デフォルトでは無効になっており、直接ディスク書き込みではなくアーティファクトの提案として staged が使用されます。",
+          "5": "オーケストレーターのみが、明示的な適用アクションを通じて staged エージェント リビジョンを最終決定できます。",
+          "6": "[[canon:moa]] ライフサイクル イベントは、[[canon:runbook]] パネルと [[canon:moa]] パネルの両方に表示されます。",
+          "7": "[[canon:moa]] は、単一エージェントのターンよりも大幅に多くの tokens を消費する可能性があるため、ポリシーと使用状況のメトリクスを監視してください。"
+        }
+      }
+    }
+  },
+  "commandPalette": {
+    "searchPlaceholder": "コマンドを入力するか検索...",
+    "results": {
+      "commands": "コマンド",
+      "recentAndCommands": "最近の + コマンド",
+      "shown": "{{count}}を表示"
+    },
+    "filters": {
+      "all": "全て",
+      "recent": "最近の",
+      "filterByCategory": "{{label}} でコマンドをフィルタリングする"
+    },
+    "categories": {
+      "ariaLabel": "コマンドのカテゴリ",
+      "navigation": "ナビゲーション",
+      "chat": "Chat",
+      "editor": "エディタ",
+      "memory": "Memory",
+      "terminal": "Terminal"
+    },
+    "empty": {
+      "title": "検索に一致するコマンドはありません。",
+      "description": "別のキーワードまたはエイリアスを試してください。"
+    },
+    "hint": {
+      "enter": "入力"
+    },
+    "reasons": {
+      "open_a_project_first": "まずプロジェクトを開きます",
+      "no_active_thread": "アクティブな thread がありません",
+      "thread_has_no_messages_yet": "[[canon:thread]] にはまだメッセージがありません",
+      "open_select_a_thread_first": "まず thread を開いて選択します",
+      "direct_agents_are_only_available_in_execute_mode": "エージェントは [[canon:execute]] モードでのみ利用可能です",
+      "enable_moa_first": "まず [[canon:moa]] を有効にしてください",
+      "wait_for_the_current_response_to_finish": "現在の応答が完了するまで待ちます",
+      "provider_model_switch_context_banner_is_not_active": "Provider/model スイッチ コンテキスト バナーがアクティブではありません",
+      "open_a_file_in_editor_first": "まずエディタでファイルを開きます",
+      "open_a_markdown_file_in_editor_first": "まずエディタで Markdown ファイルを開きます",
+      "open_the_editor_and_select_code_first": "エディタを開いて最初にコードを選択します",
+      "formatting_is_unavailable_for_the_current_file": "現在のファイルではフォーマットを使用できません",
+      "code_actions_are_unavailable_for_the_current_file": "コードアクションは現在のファイルでは使用できません",
+      "no_terminal_session_selected": "No terminal session selected",
+      "terminal_session_is_not_running": "Terminal session is not running",
+      "terminal_is_already_controlled_by_you": "Terminal is already controlled by you",
+      "terminal_is_already_controlled_by_ai": "Terminal is already controlled by AI",
+      "terminal_is_not_controlled_by_you": "Terminal is not controlled by you",
+      "terminal_is_not_controlled_by_ai": "Terminal is not controlled by AI",
+      "terminal_cannot_be_interrupted": "Terminal cannot be interrupted",
+      "terminal_cannot_be_closed": "Terminal cannot be closed",
+      "terminal_cannot_be_terminated": "Terminal cannot be terminated",
+      "no_terminal_dock_open": "No terminal dock open"
+    },
+    "commands": {
+      "nav": {
+        "chat": {
+          "title": "Chatに行く"
+        },
+        "editor": {
+          "title": "エディターに移動"
+        },
+        "artifacts": {
+          "title": "[[canon:artifacts]]に行く"
+        },
+        "memory": {
+          "title": "Memoryに行く"
+        },
+        "settings": {
+          "title": "設定に移動"
+        },
+        "openProjectFolder": {
+          "title": "プロジェクトフォルダーを開く"
+        },
+        "sidebar": {
+          "toggle": {
+            "expandTitle": "サイドバーを展開する",
+            "collapseTitle": "サイドバーを折りたたむ"
+          }
+        },
+        "projectEntry": {
+          "title": "Open Projects"
+        }
+      },
+      "chat": {
+        "thread": {
+          "new": {
+            "title": "新しいThread"
+          },
+          "rename": {
+            "title": "現在の Thread の名前を変更"
+          },
+          "delete": {
+            "title": "現在の Thread を削除"
+          },
+          "clear": {
+            "title": "現在の会話をクリアする"
+          }
+        },
+        "focusComposer": {
+          "title": "フォーカス Chat 作曲家"
+        },
+        "jumpToLatest": {
+          "title": "最新のメッセージにジャンプ"
+        },
+        "openThreadSelector": {
+          "title": "Thread セレクターを開く"
+        },
+        "openBackgroundJobs": {
+          "title": "[[canon:background_jobs]]を開く"
+        },
+        "openDirectAgents": {
+          "title": "ダイレクトエージェントメニューを開く"
+        },
+        "toggleMoa": {
+          "title": "[[canon:moa]] モードの切り替え"
+        },
+        "inject": {
+          "memory": {
+            "title": "Memory を Chat に注入"
+          },
+          "artifacts": {
+            "title": "[[canon:artifacts]] を Chat に注入"
+          },
+          "both": {
+            "title": "Memory + [[canon:artifacts]] を注入"
+          }
+        }
+      },
+      "editor": {
+        "formatDocument": {
+          "title": "ドキュメントのフォーマット"
+        },
+        "fixAutofixable": {
+          "title": "Auto で修正可能な問題を修正する"
+        },
+        "toggleProblemsPanel": {
+          "title": "問題パネルの切り替え"
+        },
+        "toggleOutlinePanel": {
+          "title": "アウトラインパネルの切り替え"
+        },
+        "markdownPreview": {
+          "toggle": {
+            "title": "Markdown: プレビューの切り替え"
+          },
+          "open": {
+            "title": "Markdown: プレビューを横に開く"
+          }
+        },
+        "aiSelection": {
+          "explain": {
+            "title": "選択に関する AI: 説明する"
+          },
+          "fix": {
+            "title": "選択時の AI: 修正"
+          },
+          "refactor": {
+            "title": "選択上の AI: リファクタリング"
+          },
+          "tests": {
+            "title": "AI による選択: テストの生成"
+          }
+        }
+      },
+      "memory": {
+        "exportProjectJson": {
+          "title": "プロジェクト コンテキストのエクスポート JSON",
+          "alerts": {
+            "failedTitle": "エクスポートに失敗しました",
+            "failedMessage": "コンテキスト JSON のエクスポートに失敗しました: {{error}}",
+            "completedTitle": "エクスポートが完了しました",
+            "completedMessage": "コンテキスト JSON をエクスポートしました。\n\nファイル: {{filePath}}\nMemory ノード: {{memoryNodeCount}}\nアーティファクト ファイル: {{artifactFileCount}}\nアーティファクトのリビジョン: {{artifactRevisionCount}}"
+          }
+        },
+        "openPanel": {
+          "title": "Open notes panel"
+        }
+      },
+      "terminal": {
+        "focus": {
+          "title": "Focus Terminal"
+        },
+        "new": {
+          "title": "New Terminal"
+        },
+        "browseSessions": {
+          "title": "Browse Terminal Sessions"
+        },
+        "takeOver": {
+          "title": "Take Over Terminal"
+        },
+        "handBack": {
+          "title": "Hand Back Terminal to AI"
+        },
+        "interrupt": {
+          "title": "Interrupt Terminal"
+        },
+        "close": {
+          "title": "Close Terminal Session"
+        },
+        "hide": {
+          "title": "Hide Terminal Dock"
+        }
+      }
+    }
+  },
+  "executionStream": {
+    "showEarlier": "{{count}} 以前のイベント{{suffix}} を表示",
+    "thought": {
+      "verb": "推論",
+      "briefly": "短く",
+      "show": "推論を表示",
+      "hide": "推論を隠す"
+    },
+    "transport": {
+      "startingTurn": "開始ターン"
+    },
+    "compaction": {
+      "requested": "コンテキストを圧縮中...",
+      "running": "コンテキストを圧縮中...",
+      "applied": "OpenAI 圧縮が適用されました",
+      "failed": "OpenAI 圧縮に失敗しました",
+      "milestoneTitle": "次のターンの前にコンテキストが圧縮される",
+      "milestoneDetail": {
+        "codexThreadCompaction": "Codex アカウント thread の圧縮",
+        "providerServerSide": "OpenAI サーバー側の圧縮",
+        "manualServerSide": "OpenAI サーバー側の手動圧縮"
+      }
+    },
+    "progress": {
+      "navigate": "ナビゲート",
+      "click": "クリック要素",
+      "type": "テキストの入力",
+      "select": "オプションの選択",
+      "screenshot": "スクリーンショットのキャプチャ",
+      "runningTool": "{{toolName}} を実行中",
+      "working": "働く",
+      "terminalOpen": "Opening terminal",
+      "terminalOpenNamed": "Opening {{terminalLabel}}",
+      "terminalRead": "Reading terminal output",
+      "terminalReadNamed": "Reading output from {{terminalLabel}}",
+      "terminalAttach": "Reusing terminal session",
+      "terminalWrite": "Writing to terminal",
+      "terminalWriteNamed": "Writing to {{terminalLabel}}",
+      "terminalWait": "Waiting for terminal output",
+      "terminalWaitNamed": "Waiting for output from {{terminalLabel}}",
+      "terminalResize": "Resizing terminal session",
+      "terminalResizeNamed": "Resizing {{terminalLabel}}",
+      "terminalSignal": "Signaling terminal session",
+      "terminalSignalNamed": "Signaling {{terminalLabel}}",
+      "terminalClose": "Closing terminal session",
+      "terminalCloseNamed": "Closing {{terminalLabel}}"
+    },
+    "result": {
+      "listDirectory": "{{pathLabel}}に{{countPrefix}}を上場",
+      "createDirectory": "作成されたフォルダー {{pathLabel}}",
+      "writeFile": "{{pathLabel}} を書き込みました",
+      "editFile": "{{pathLabel}}を更新しました",
+      "readFile": "{{pathLabel}}を読む",
+      "deleteFile": "{{pathLabel}}を削除しました",
+      "rollbackFile": "{{pathLabel}} をロールバックしました",
+      "renameFile": "{{oldPath}} から {{newPath}} に名前変更されました",
+      "searchCode": "{{searchPath}} で「{{query}}」の {{countPrefix}} が見つかりました",
+      "grepFile": "{{pathLabel}} で「{{pattern}}」に一致するものが見つかりました",
+      "findFiles": "「{{pattern}}」に一致するものが見つかりました",
+      "fetchPage": "{{hostLabel}}をフェッチしました",
+      "navigate": "ナビゲーションが完了しました",
+      "click": "クリック完了",
+      "type": "入力完了",
+      "select": "選択完了",
+      "screenshot": "キャプチャされたスクリーンショット",
+      "browserAction": "ブラウザアクションが完了しました",
+      "gitStatusFailed": "Git ステータスが失敗しました",
+      "gitStatusDone": "Git ステータス完了",
+      "gitDiffFailed": "Git の差分が失敗しました",
+      "gitDiffReady": "Git デフ対応",
+      "gitLogFailed": "Git ログが失敗しました",
+      "gitLogReady": "Git 履歴がロードされました",
+      "gitCommitFailed": "Commit が失敗しました",
+      "gitCommitCreated": "Commit が作成されました",
+      "restoreFile": "{{refValue}} から {{pathLabel}} を復元",
+      "commandDone": "コマンドは {{commandScope}} で終了しました",
+      "commandFailed": "{{commandScope}} でコマンドが失敗しました",
+      "commandDenied": "{{commandScope}} でコマンドが拒否されました",
+      "revisionApplyFailed": "リビジョンの適用に失敗しました",
+      "revisionApplied": "適用されたリビジョン",
+      "planUpdated": "プランを更新しました",
+      "planUpdatedBatch": "プランを更新しました（{{count}}件の変更）",
+      "genericToolResult": "{{toolName}} {{verb}}",
+      "actionFinished": "アクションが終了しました",
+      "ranCommand": "実行コマンド",
+      "terminalOpen": "Opened terminal",
+      "terminalOpenNamed": "Opened {{terminalLabel}}",
+      "terminalRead": "Read terminal output",
+      "terminalReadNamed": "Read output from {{terminalLabel}}",
+      "terminalAttach": "Reused terminal session in chat terminal dock",
+      "terminalAttachNamed": "Reused {{terminalLabel}} in chat terminal dock",
+      "terminalWrite": "Wrote to terminal",
+      "terminalWriteNamed": "Wrote to {{terminalLabel}}",
+      "terminalWait": "Waited for terminal output",
+      "terminalWaitNamed": "Waited for output in {{terminalLabel}}",
+      "terminalWaitMatched": "Matched expected terminal output",
+      "terminalWaitMatchedNamed": "Matched expected output in {{terminalLabel}}",
+      "terminalWaitTimedOut": "Timed out waiting for terminal output",
+      "terminalWaitTimedOutNamed": "Timed out waiting for {{terminalLabel}}",
+      "terminalResize": "Terminal session resized",
+      "terminalResizeNamed": "Resized {{terminalLabel}}",
+      "terminalSignal": "Terminal session signaled",
+      "terminalSignalNamed": "Signaled {{terminalLabel}}",
+      "terminalClose": "Closed terminal",
+      "terminalCloseNamed": "Closed {{terminalLabel}}"
+    },
+    "warning": {
+      "compactionFailed": "コンテキストの圧縮に失敗しました",
+      "generic": "警告"
+    },
+    "error": {
+      "toolFailed": "{{toolName}} が失敗しました",
+      "actionFailed": "アクションが失敗しました"
+    },
+    "header": {
+      "title": "実行ストリーム",
+      "show": "ライブ実行ストリームを表示する",
+      "hide": "ライブ実行ストリームを非表示にする",
+      "awaitingFirstEvent": "初イベント待ち",
+      "eventCount": "{{count}}イベント{{suffix}}",
+      "hiddenSummary": "最新の {{visibleItemCount}} イベントを表示します。 {{hiddenItemCount}} 以前のイベント{{eventSuffix}} は非表示になりました。",
+      "hiddenSummaryPinned": "最新の {{visibleTailItemCount}} イベントに加えて、以前の推論ブロック {{archiveSuffix}} が折りたたまれた {{pinnedArchiveCount}} を表示しています。 {{hiddenItemCount}} 以前のイベント{{eventSuffix}} は非表示になりました。",
+      "status": {
+        "failed": "失敗した",
+        "completed": "完成した",
+        "started": "始めました",
+        "generic": "{{status}}"
+      }
+    },
+    "output": {
+      "openCopyOptions": "コピー オプションを開く",
+      "copyCommand": "コピーコマンド",
+      "copyVisibleOutput": "表示されている出力をコピーする",
+      "copyPersistedPreview": "永続的なプレビューをコピーする",
+      "commandOutput": "コマンド出力",
+      "showCommandOutput": "コマンド出力を表示",
+      "hideCommandOutput": "コマンド出力を非表示にする",
+      "truncated": "出力が切り捨てられる"
+    },
+    "bridge": {
+      "native": {
+        "activity": "Codex アプリサーバーアクティビティ",
+        "webSearch": "Codex アプリサーバー Web 検索",
+        "command": "Codex アプリサーバーコマンド: {{commandName}}",
+        "fileChangeOne": "Codex アプリサーバー ファイルの変更",
+        "fileChangeOther": "Codex アプリサーバー ファイルの変更",
+        "mcpTool": "Codex アプリサーバー MCP ツール: {{toolName}}",
+        "imageView": "Codex アプリサーバーのイメージ ビュー",
+        "planGenerated": "Codex アプリサーバー プランが生成されました",
+        "reviewMode": "Codex レビュー モード アクティビティ"
+      },
+      "source": {
+        "urlTitle": "出典: {{title}}",
+        "urlCaptured": "キャプチャされたソース URL",
+        "documentTitle": "ソースドキュメント: {{title}}",
+        "documentCaptured": "キャプチャされたソース文書"
+      },
+      "providerTool": {
+        "modelRerouted": "モデルが再ルーティングされました",
+        "configWarning": "設定の警告",
+        "hook": "フック",
+        "autoApprovalReview": "自動承認レビュー",
+        "providerError": "プロバイダーエラー",
+        "input": "Provider ツール入力: {{toolName}}",
+        "running": "Provider ツール実行中: {{toolName}}",
+        "collectingInput": "provider ツール入力を収集しています...",
+        "imageGenerated": "OpenAI provider ツールによって生成された画像。",
+        "output": "Provider ツール出力: {{toolName}}"
+      },
+      "continuity": {
+        "responseTracked": "OpenAI 追跡された応答: {{responseId}}",
+        "metadataReceived": "OpenAI 応答メタデータを受信しました"
+      },
+      "websocket": {
+        "transportUpdate": "OpenAI WebSocket トランスポートの更新",
+        "reconnecting": "再接続中... {{attempt}}/{{maxAttempts}}",
+        "recoveringStoredResponse": "保存された状態からの最終応答の回復",
+        "recoveredStoredResponse": "保存された状態から最終応答を回復しました",
+        "storedRecoveryFailed": "保存された応答の回復に失敗しました",
+        "recovered": "再試行後、再接続されました {{attempt}}/{{maxAttempts}}",
+        "bypassed": "このターンでは標準の OpenAI トランスポートを使用します",
+        "fallback": "標準の OpenAI ストリームへのフォールバック",
+        "exhausted": "再接続が枯渇した ({{attempt}}/{{maxAttempts}})",
+        "cancelled": "再接続がキャンセルされました ({{attempt}}/{{maxAttempts}})"
+      },
+      "background": {
+        "queued": "OpenAI バックグラウンド応答がキューに入れられました",
+        "completed": "OpenAI バックグラウンド応答が完了しました",
+        "failed": "OpenAI バックグラウンド応答が失敗しました。",
+        "cancelled": "OpenAI バックグラウンド応答がキャンセルされました。",
+        "noteQueued": "OpenAI バックグラウンド応答がキューに入れられました。ジョブを開いて進行状況を監視したり、停止したりできます。",
+        "noTextOutput": "OpenAI バックグラウンド応答が完了しましたが、テキスト出力はありませんでした。",
+        "errorPrefix": "エラー: {{message}}"
+      }
+    }
+  },
+  "memoryPanel": {
+    "title": "Memory",
+    "visibleCount": {
+      "eventOne": "{{count}}イベント",
+      "eventOther": "{{count}} イベント",
+      "nodeOne": "{{count}} ノード",
+      "nodeOther": "{{count}} ノード"
+    },
+    "controls": {
+      "showArchived": "アーカイブ済みを表示",
+      "includeGlobal": "グローバルを含める",
+      "exportJsonTitle": "memory ログと artifacts を JSON にエクスポート",
+      "exporting": "エクスポート中...",
+      "exportJson": "JSONをエクスポート",
+      "addNode": "Nodeを追加"
+    },
+    "tabs": {
+      "memory": "耐久性のあるMemory",
+      "history": "[[canon:thread_history]]"
+    },
+    "export": {
+      "completedTitle": "エクスポートが完了しました",
+      "completedMessage": "コンテキスト JSON をエクスポートしました。\n\nファイル: {{filePath}}\nMemory ノード: {{memoryNodeCount}}\nアーティファクト ファイル: {{artifactFileCount}}\nアーティファクトのリビジョン: {{artifactRevisionCount}}",
+      "failedTitle": "エクスポートに失敗しました",
+      "failedMessage": "コンテキスト JSON のエクスポートに失敗しました: {{message}}"
+    },
+    "search": {
+      "placeholder": "memoryを検索...",
+      "searching": "検索中...",
+      "resultOne": "{{count}} 結果",
+      "resultOther": "{{count}}の結果"
+    },
+    "compression": {
+      "latestBatchTitle": "最新の圧縮バッチ",
+      "summary": "ログ #{{rangeStart}} から #{{rangeEnd}} をサマリー ノードに圧縮しました ({{archivedCount}} はアーカイブされました)。",
+      "jumpToSummary": "概要に移動",
+      "dismiss": "却下する"
+    },
+    "loading": {
+      "memory": "memoryを読み込み中...",
+      "threadHistory": "thread 履歴を読み込んでいます..."
+    },
+    "sections": {
+      "pinned": "固定された",
+      "allNodes": "すべての Memory ノード"
+    },
+    "embedder": {
+      "downloading": "model {{progress}}% をダウンロード中",
+      "loading": "modelを読み込み中...",
+      "unavailable": "埋め込みは利用できません"
+    },
+    "source": {
+      "userMemory": "ユーザー memory",
+      "workspaceEvent": "Workspaceイベント",
+      "terminalSummary": "Terminalの概要",
+      "validatedDecision": "検証された決定",
+      "referenceNote": "参考文献"
+    },
+    "provenance": {
+      "ariaLabel": "Memory の由来",
+      "origin": "起源",
+      "terminalSession": "承認された terminal の概要",
+      "session": "セッション",
+      "thread": "Thread",
+      "saved": "保存されました"
+    },
+    "badges": {
+      "global": "グローバル",
+      "archived": "アーカイブされた",
+      "deletedThread": "削除済みスレッド"
+    },
+    "meta": {
+      "deletedThreadOrigin": "{{threadTitle}} · {{time}} に削除"
+    },
+    "actions": {
+      "unpin": "固定を解除する",
+      "pin": "ピン",
+      "edit": "編集",
+      "delete": "消去",
+      "showLess": "表示を少なくする",
+      "showMore": "もっと見る",
+      "continue": "続行",
+      "continueDraft": "保存されたコンテキストから続行します。"
+    },
+    "scoreRef": "{{score}}% 参照",
+    "history": {
+      "userMessage": "ユーザーメッセージ",
+      "assistantMessage": "アシスタントメッセージ",
+      "emptyTitle": "thread 履歴はまだありません",
+      "noActiveThreadTitle": "アクティブな thread が選択されていません",
+      "emptyDescription": "この thread のユーザーおよびアシスタントのトランスクリプト イベントがここに表示されます。",
+      "noActiveThreadDescription": "thread を開くか作成して、トランスクリプト履歴を検査します。"
+    },
+    "addForm": {
+      "title": "新規 Memory Node を追加",
+      "topicPlaceholder": "トピック/タイトル",
+      "contentPlaceholder": "コンテキスト、事実、または指示を書き留めます...",
+      "tagsPlaceholder": "タグ (カンマ区切り)",
+      "saveAsGlobal": "永続的なグローバル memory として保存",
+      "saving": "保存中...",
+      "saveNode": "Nodeを保存"
+    },
+    "editForm": {
+      "title": "Memory Node を編集",
+      "closeAriaLabel": "memory ノード エディタを閉じる",
+      "topicPlaceholder": "トピック",
+      "contentPlaceholder": "コンテンツ",
+      "tagsPlaceholder": "タグ (カンマ区切り)",
+      "saving": "保存中...",
+      "saveChanges": "変更を保存"
+    },
+    "empty": {
+      "searchTitle": "一致する記憶はありません",
+      "title": "まだ思い出はありません",
+      "searchDescription": "別の検索語を試すか、検索をクリアして、すべての memory ノードを表示します。",
+      "description": "耐久性のある memory は、明示的なメモ、workspace イベント、承認された terminal 概要、検証された決定、および参照メモを保存します。生の chat ターンは、代わりに thread 履歴にライブされるようになりました。"
+    }
+  },
+  "workspaceRail": {
+    "title": "プロジェクト",
+    "ariaLabel": "プロジェクトとスレッド",
+    "show": "プロジェクトとスレッドを表示",
+    "showWithActivityOne": "プロジェクトとスレッドを表示。非表示のスレッドは{{count}}件、最優先は{{activity}}です。",
+    "showWithActivityOther": "プロジェクトとスレッドを表示。非表示のスレッドは{{count}}件、最優先は{{activity}}です。",
+    "hide": "プロジェクトとスレッドを非表示",
+    "resize": "プロジェクトとスレッドのサイズを変更",
+    "close": "プロジェクトとスレッドを閉じる"
+  },
+  "projectEntry": {
+    "browserPreviewLimitation": {
+      "title": "Desktop workspace required",
+      "message": "Opening a project requires the Electron workspace bridge. Use the desktop app or an Electron-backed smoke run for this flow."
+    },
+    "clearProjectHistoryDialog": {
+      "title": "Clear project transcript history",
+      "message": "Clear transcript history for project \"{{name}}\"?\n\nThis does not delete project files.",
+      "confirm": "Clear history",
+      "cancel": "Cancel"
+    },
+    "archiveProjectDialog": {
+      "title": "進行中の作業を停止してプロジェクトをアーカイブしますか？",
+      "message": "「{{name}}」の進行中の作業を停止してから、プロジェクトをアーカイブへ移動します。",
+      "cancel": "キャンセル"
+    },
+    "removeProjectDialog": {
+      "title": "Remove from ADDOM?",
+      "message": "\"{{name}}\" and all of its ADDOM history, Memory, Artifacts, and recovery data will be removed. Project files are unchanged.",
+      "path": "Folder: {{path}}",
+      "confirm": "Remove from ADDOM",
+      "failureTitle": "Could not remove from ADDOM",
+      "failureMessage": "Nothing was removed from ADDOM. Try again.",
+      "cancel": "Cancel"
+    },
+    "eyebrow": "Workspace",
+    "title": "Open a project",
+    "newProject": "新しいプロジェクト",
+    "newThreadInProject": "{{name}} に新しいスレッド",
+    "openFolder": "Open folder",
+    "projectActions": {
+      "openFolder": "Open folder",
+      "archiveProject": "プロジェクトをアーカイブ",
+      "clearHistory": "Clear history",
+      "removeProject": "Remove from ADDOM",
+      "ariaLabel": "Project actions for {{name}}",
+      "restoreToRecent": "Restore to Recent"
+    },
+    "archive": {
+      "title": "Archive",
+      "toggle": "Toggle Archive"
+    },
+    "projectDisclosure": {
+      "expand": "Expand {{name}}",
+      "collapse": "Collapse {{name}}"
+    },
+    "recentProjects": {
+      "title": "Recent projects",
+      "description": "Pick up a workspace with its threads and local context.",
+      "projectCount": "{count, plural, other {# プロジェクト}}",
+      "fallbackProjectName": "Project",
+      "recent": "Recent",
+      "threadCount": "{count, plural, other {# thread}}",
+      "open": "Open"
+    },
+    "empty": {
+      "title": "No recent projects",
+      "description": "Open a folder to start working in the main workspace."
+    },
+    "home": {
+      "placeholder": "タスクを記述して作業を開始",
+      "noProject": "プロジェクトなし",
+      "projectMenu": "対象プロジェクトを選択",
+      "start": "タスクを開始",
+      "commandsHint": "コマンド"
+    }
+  },
+  "agents": {
+    "fanoutConfirmation": {
+      "title": "Launch {{count}} agents?",
+      "description": "The orchestrator requested more agents than your {{limit}}-agent confirmation limit.",
+      "stopTurn": "Stop turn",
+      "limit": "Limit to {{count}}",
+      "launch": "Launch {{count}}"
+    }
+  },
+  "agentNavigator": {
+    "title": "エージェント",
+    "close": "エージェントを閉じる",
+    "settings": "エージェント設定",
+    "sectionActive": "実行中",
+    "sectionDone": "完了 · {{count}}",
+    "emptyActive": "実行中のエージェントはありません",
+    "emptyThread": "このスレッドにエージェントはありません。",
+    "showMore": "他 {{count}} 件を表示",
+    "expand": "展開",
+    "collapse": "折りたたむ",
+    "hidden": "+{{count}}",
+    "partialVisibility": "プロバイダー管理、可視性は部分的",
+    "age": {
+      "seconds": "{{count}}秒",
+      "minutes": "{{count}}分",
+      "hours": "{{count}}時間",
+      "days": "{{count}}日"
+    },
+    "status": {
+      "queued": "待機列",
+      "running": "実行中",
+      "waiting": "待機中",
+      "paused": "一時停止",
+      "approval_required": "承認が必要",
+      "cancelling": "キャンセル中",
+      "completed": "完了",
+      "failed": "失敗",
+      "cancelled": "キャンセル済み"
+    },
+    "live": {
+      "selected": "{{label}} · {{status}}",
+      "attention": "{{label}} needs attention · {{status}}"
+    }
+  },
+  "agentConversation": {
+    "back": "戻る",
+    "rootLabel": "スレッド",
+    "regionLabel": "エージェントの会話",
+    "loading": "トランスクリプトを読み込み中…",
+    "empty": "トランスクリプトはまだ記録されていません。",
+    "loadMore": "アクティビティをさらに読み込む",
+    "unavailableTitle": "エージェントを利用できません",
+    "unavailableBody": "このエージェントは実行の一部ではなくなりました。",
+    "error": "このエージェントのトランスクリプトを読み込めませんでした。",
+    "actions": {
+      "menu": "エージェント操作",
+      "message": "メッセージ",
+      "messagePrompt": "このエージェントにメッセージを送信",
+      "messageDescription": "実行中のエージェントに追加の指示を送信します。",
+      "messagePlaceholder": "簡潔な指示を入力…",
+      "cancel": "キャンセル",
+      "send": "送信",
+      "sending": "送信中…",
+      "failure": "エージェント操作を完了できませんでした。",
+      "interrupt": "中断",
+      "retry": "再試行",
+      "promote": "プロジェクトスレッドとして続ける"
+    },
+    "origin": {
+      "label": "{{role}} から分岐 · ターン {{turn}}",
+      "inspect": "元を確認",
+      "unavailable": "元のエージェントは利用できません",
+      "artifacts": "未統合の元アーティファクト {{count}} 件",
+      "failure": "元のエージェントを開けませんでした。"
+    }
+  },
+  "agentStream": {
+    "title": "エージェント · {{count}}",
+    "open": "開く",
+    "delegationEchoSuppressed": "委任が完了しました。詳細は Agents を開いてください。"
+  },
+  "agentTrigger": {
+    "idle": "Agents",
+    "active": "Agents · {{count}} active",
+    "approval": "Agents · needs approval",
+    "failed": "Agents · {{count}} failed",
+    "open": "Open Agents",
+    "close": "Close Agents"
+  }
+}

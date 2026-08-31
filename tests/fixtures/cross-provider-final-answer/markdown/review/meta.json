@@ -1,0 +1,27 @@
+{
+  "fixtureId": "markdown-review",
+  "kind": "markdown",
+  "title": "Review fixture",
+  "sourceClass": "repo-derived",
+  "provider": "repo",
+  "model": "repo-derived",
+  "streamShape": "none",
+  "semanticOwnership": "final-answer",
+  "contentFile": "content.md",
+  "sourceContentSha256": "32e2d318d658c4993e939e39fca907bdcadafd3c28a602118d7a0672c24b16b1",
+  "contentSha256": "32e2d318d658c4993e939e39fca907bdcadafd3c28a602118d7a0672c24b16b1",
+  "captureProvenance": {
+    "source": "repo-derived",
+    "captureMode": "read-only",
+    "sourceFiles": [
+      "runbook.md"
+    ]
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ]
+}

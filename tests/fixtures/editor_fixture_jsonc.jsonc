@@ -1,0 +1,6 @@
+{
+  // JSONC fixture
+  "name": "editor-fixture-jsonc",
+  "enabled": true,
+  "items": ["alpha", "beta"]
+}

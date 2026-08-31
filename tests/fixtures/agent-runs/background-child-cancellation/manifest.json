@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "background-child-cancellation",
+  "sourceClass": "synthetic_contract",
+  "captureDate": "2026-07-22",
+  "providerRuntimeClass": "managed_agent_contract",
+  "synthetic": true,
+  "networkRequired": false,
+  "sourceReferences": ["docs/architecture/agent-orchestration.md"],
+  "sanitization": { "method": "original_synthetic_fixture", "privatePromptRemoved": true, "identifiersPlaceholdered": true, "pathsNormalized": true },
+  "contentHashAlgorithm": "sha256-canonical-json-v1",
+  "contentHash": "1a56878957d74bc6342fbd24326efbe935397a74d940b82ab6f0c91ef2311c26",
+  "coverage": ["cancellation", "background_child_turn_cancellation"],
+  "expectedCapabilities": { "addressableChildIdentity": true, "nodeScopedStream": true, "nodeCancellation": true, "rootFinalAuthority": true },
+  "currentContract": { "identity": "future_contract", "stream": "future_contract", "cancellation": "future_contract", "rootFinalAuthority": "required" },
+  "knownGaps": ["Background-child cancellation semantics are not canonicalized yet."]
+}

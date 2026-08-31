@@ -1,0 +1,28 @@
+[
+  {
+    "directory": "C:/Users/example/Documents/ADDOM/tests/fixtures",
+    "file": "C:/Users/example/Documents/ADDOM/tests/fixtures/editor_fixture_c.c",
+    "arguments": [
+      "clang",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-I",
+      "C:/Users/example/Documents/ADDOM/tests/fixtures",
+      "C:/Users/example/Documents/ADDOM/tests/fixtures/editor_fixture_c.c"
+    ]
+  },
+  {
+    "directory": "C:/Users/example/Documents/ADDOM/tests/fixtures",
+    "file": "C:/Users/example/Documents/ADDOM/tests/fixtures/editor_fixture_cpp.cpp",
+    "arguments": [
+      "clang++",
+      "-std=c++17",
+      "-Wall",
+      "-Wextra",
+      "-I",
+      "C:/Users/example/Documents/ADDOM/tests/fixtures",
+      "C:/Users/example/Documents/ADDOM/tests/fixtures/editor_fixture_cpp.cpp"
+    ]
+  }
+]

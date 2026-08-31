@@ -1,0 +1,212 @@
+{
+  "fixtureId": "provider-openai-live-reload",
+  "title": "OpenAI live reload stream",
+  "provider": "openai",
+  "model": "gpt-5.4",
+  "streamShape": "append-delta",
+  "scenario": "live_reload",
+  "events": [
+    {
+      "eventId": "provider-openai-live-reload-evt-001-raw",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "commentary",
+      "text": "Planning openai live reload stream.\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-002-raw",
+      "kind": "reasoning",
+      "phase": "reasoning",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "reasoning",
+      "text": "Normalizing append-delta delivery.\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-003",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-001",
+      "text": "# OpenAI live reload stream\n\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-004",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-002",
+      "text": "Live reload stream that appends a reconstructed snapshot after an incomplete live fence tail.\n\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-005",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-003",
+      "text": "- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-006",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 6,
+      "appendOrder": 6,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-004",
+      "text": "| Field | Value |\n| --- | --- |\n| Provider | openai |\n| Stream | append-delta |\n\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-007",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 7,
+      "appendOrder": 7,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-005",
+      "text": "```ts\nconst ready = true;\n```\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-099",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 99,
+      "appendOrder": 99,
+      "ownership": "commentary",
+      "text": "```ts\nconst pending = true\n"
+    }
+  ],
+  "canonicalEvents": [
+    {
+      "eventId": "provider-openai-live-reload-evt-001",
+      "kind": "commentary",
+      "phase": "commentary",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "commentary",
+      "text": "Planning openai live reload stream.\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-002",
+      "kind": "reasoning",
+      "phase": "reasoning",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "reasoning",
+      "text": "Normalizing append-delta delivery.\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-003",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-001",
+      "text": "# OpenAI live reload stream\n\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-004",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-002",
+      "text": "Live reload stream that appends a reconstructed snapshot after an incomplete live fence tail.\n\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-005",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-003",
+      "text": "- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-006",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 6,
+      "appendOrder": 6,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-004",
+      "text": "| Field | Value |\n| --- | --- |\n| Provider | openai |\n| Stream | append-delta |\n\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-007",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 7,
+      "appendOrder": 7,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-005",
+      "text": "```ts\nconst ready = true;\n```\n"
+    }
+  ],
+  "expectedFinalMarkdown": "# OpenAI live reload stream\n\nLive reload stream that appends a reconstructed snapshot after an incomplete live fence tail.\n\n- First bullet\n- Second bullet\n\n| Field | Value |\n| --- | --- |\n| Provider | openai |\n| Stream | append-delta |\n\n```ts\nconst ready = true;\n```\n",
+  "expectedFinalMarkdownSha256": "efee83e84010248c6f8fdfaed665e9f3013fca158f73245bee535de278ae3ccc",
+  "expectedFinalOwnership": "final-document",
+  "reloadEvents": [
+    {
+      "eventId": "provider-openai-live-reload-evt-003",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 1,
+      "appendOrder": 1,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-001",
+      "text": "# OpenAI live reload stream\n\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-004",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 2,
+      "appendOrder": 2,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-002",
+      "text": "Live reload stream that appends a reconstructed snapshot after an incomplete live fence tail.\n\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-005",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 3,
+      "appendOrder": 3,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-003",
+      "text": "- First bullet\n- Second bullet\n\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-006",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 4,
+      "appendOrder": 4,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-004",
+      "text": "| Field | Value |\n| --- | --- |\n| Provider | openai |\n| Stream | append-delta |\n\n"
+    },
+    {
+      "eventId": "provider-openai-live-reload-evt-007",
+      "kind": "markdown",
+      "phase": "final",
+      "sequence": 5,
+      "appendOrder": 5,
+      "ownership": "final-document",
+      "partId": "provider-openai-live-reload-part-005",
+      "text": "```ts\nconst ready = true;\n```\n"
+    }
+  ]
+}

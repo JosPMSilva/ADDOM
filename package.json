@@ -1,0 +1,280 @@
+{
+  "name": "addom",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local-first AI coding assistant with real filesystem tool use",
+  "author": "JosPMSilva",
+  "main": "src/main/index.mjs",
+  "scripts": {
+    "preinstall": "node scripts/check-blocked-packages.mjs",
+    "dev": "node scripts/with-native-runtime.mjs electron -- npm run dev:raw",
+    "dev:no-react-grab": "cross-env VITE_DISABLE_REACT_GRAB=1 node scripts/with-native-runtime.mjs electron -- npm run dev:raw",
+    "dev:raw": "concurrently \"npm run dev:vite\" \"npm run dev:electron:raw\"",
+    "dev:vite": "vite",
+    "dev:electron": "node scripts/with-native-runtime.mjs electron -- npm run dev:electron:raw",
+    "dev:electron:raw": "npm run build:preload && wait-on http://localhost:5173 && cross-env ADDOM_DEV=1 electron .",
+    "preview": "node scripts/with-native-runtime.mjs electron -- npm run preview:raw",
+    "preview:raw": "npm run build:preload && cross-env ADDOM_DEV=0 electron .",
+    "native:node": "node scripts/ensure-native-runtime.mjs node",
+    "native:electron": "node scripts/ensure-native-runtime.mjs electron",
+    "catalog:generate": "node scripts/generate-model-catalog.mjs",
+    "catalog:drift": "node scripts/verify-model-catalog-drift.mjs",
+    "catalog:drift:provider": "node scripts/verify-model-catalog-drift.mjs",
+    "catalog:triage:presence": "node scripts/classify-model-presence-overflow.mjs",
+    "openrouter:models:review": "node scripts/review-openrouter-models.mjs",
+    "catalog:check:generated": "node scripts/check-generated-model-catalog.mjs",
+    "catalog:refresh": "node scripts/refresh-model-catalog-source.mjs",
+    "catalog:accept:refresh": "node scripts/accept-model-catalog-refresh.mjs",
+    "catalog:sync:windows": "powershell -ExecutionPolicy Bypass -File scripts/sync-models-dev-repo.ps1",
+    "test:integration": "node scripts/with-native-runtime.mjs node --restore electron -- npm run test:integration:raw",
+    "test:integration:raw": "node --test \"tests/integration/*.test.mjs\"",
+    "test:integration:node-native": "node scripts/with-native-runtime.mjs node -- npm run test:integration:raw",
+    "test:live-smoke": "node scripts/with-native-runtime.mjs node --restore electron -- node --test \"tests/live/*.test.mjs\"",
+    "test:live-smoke:packaged": "cross-env ADDOM_PACKAGED_BROWSER_SMOKE=1 node --test tests/live/packaged-browser-runtime-smoke.test.mjs",
+    "test:live-smoke:packaged:terminal": "cross-env ADDOM_PACKAGED_TERMINAL_SMOKE=1 node --test tests/live/packaged-terminal-runtime-smoke.test.mjs",
+    "test:live-smoke:terminal:platform": "cross-env ADDOM_REAL_TERMINAL_SMOKE=1 node scripts/with-native-runtime.mjs node --restore electron -- node --test tests/live/real-terminal-platform-smoke.test.mjs",
+    "legal:generate": "node scripts/generate-third-party-compliance.mjs",
+    "legal:check": "node scripts/check-third-party-compliance.mjs",
+    "browser:prepare-runtime": "node scripts/prepare-playwright-browser.mjs",
+    "build:legal": "npm run legal:generate && npm run legal:check",
+    "build:preload": "node scripts/build-preload-bundle.mjs",
+    "build:runtime-assets": "npm run build:preload && npm run native:electron && npm run check:blocked-packages && npm run build:legal && node scripts/prepare-electron-builder-runtime.mjs",
+    "check:docs-links": "node scripts/check-doc-links.mjs",
+    "check:release-freeze": "node scripts/check-release-freeze.mjs",
+    "check:release-reproducibility": "node scripts/check-release-reproducibility.mjs",
+    "check:blocked-packages": "node scripts/check-blocked-packages.mjs",
+    "design:lint": "node -e \"console.log('design:lint skipped: Markdown docs are exempt from linting. Use npm run check:docs-links for docs link validation.')\"",
+    "check:max-lines": "node scripts/check-max-lines.mjs",
+    "check:syntax": "npm run check:node-syntax && npm run check:renderer-syntax && npm run check:json-syntax && npm run check:powershell-syntax",
+    "check:staged-syntax": "node scripts/check-staged-syntax.mjs",
+    "check:node-syntax": "node scripts/check-node-syntax.mjs",
+    "check:renderer-syntax": "node scripts/check-renderer-jsx-syntax.mjs",
+    "check:renderer-jsx-syntax": "node scripts/check-renderer-jsx-syntax.mjs",
+    "check:renderer": "npm run check:renderer-syntax && node --test tests/integration/chat-event-bridge-openai.test.mjs tests/integration/agent-run-event-bridge.test.mjs tests/integration/chat-event-bridge-stream-runtime.test.mjs tests/integration/chat-event-bridge-tool-output-buffer.test.mjs tests/integration/chat-panel-header-permission-mode-ui.test.mjs tests/integration/chat-panel-timeline-wiring-contract.test.mjs tests/integration/question-user-composer-card-contract.test.mjs tests/integration/openai-account-rate-limit-refresh-contract.test.mjs tests/integration/write-conflict-card-hydration-ui.test.mjs",
+    "check:json-syntax": "node scripts/check-json-syntax.mjs",
+    "check:powershell-syntax": "node scripts/check-powershell-syntax.mjs",
+    "check:eslint": "eslint --max-warnings=0 src scripts tests",
+    "check:runtime-deps": "node scripts/check-runtime-deps.mjs",
+    "check:bundle-size": "node scripts/check-bundle-size.mjs",
+    "i18n:check": "npm run i18n:check:encoding && npm run i18n:check:keys && npm run i18n:check:placeholders",
+    "i18n:check:encoding": "node scripts/check-i18n-encoding.mjs",
+    "i18n:check:keys": "node scripts/check-i18n-keys.mjs",
+    "i18n:check:placeholders": "node scripts/check-i18n-placeholders.mjs",
+    "i18n:generate:pseudo": "node scripts/generate-pseudo-locale.mjs",
+    "hooks:install": "node scripts/install-git-hooks.mjs",
+    "build": "npm run build:win",
+    "build:win": "npm run build:runtime-assets && npm run make-icon && cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 electron-builder --win --config electron-builder.config.cjs && npm run test:live-smoke:packaged",
+    "build:mac": "npm run build:runtime-assets && npm run make-icon && cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 electron-builder --mac --config electron-builder.config.cjs",
+    "build:linux": "npm run build:runtime-assets && npm run make-icon && cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 electron-builder --linux --config electron-builder.config.cjs",
+    "build:all": "npm run build:runtime-assets && npm run make-icon && cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false node scripts/run-electron-builder-host-check.mjs --config electron-builder.config.cjs",
+    "build:clean": "npm run build:win",
+    "build:renderer": "cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build",
+    "build:dir": "npm run build:runtime-assets && npm run make-icon && cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false node scripts/run-electron-builder-host-check.mjs --dir --config electron-builder.config.cjs && npm run test:live-smoke:packaged",
+    "build:dir:clean": "npm run build:dir",
+    "make-icon": "node scripts/make-icon.js",
+    "postinstall": "node node_modules/electron/install.js && npm run native:electron",
+    "prepare": "npm run hooks:install"
+  },
+  "keywords": [
+    "ai",
+    "coding-assistant",
+    "electron",
+    "local-first"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JosPMSilva/ADDOM.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JosPMSilva/ADDOM/issues"
+  },
+  "homepage": "https://github.com/JosPMSilva/ADDOM#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "@react-grab/mcp": "^0.1.37",
+    "@tailwindcss/postcss": "^4.2.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "autoprefixer": "^10.4.24",
+    "concurrently": "^9.2.4",
+    "cross-env": "^10.1.0",
+    "electron": "^44.1.0",
+    "electron-builder": "^26.15.3",
+    "knip": "^6.4.0",
+    "postcss": "^8.5.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-grab": "^0.1.50",
+    "tailwindcss": "^4.2.0",
+    "vite": "^7.3.6",
+    "wait-on": "^9.1.0"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.46",
+    "@ai-sdk/google": "^3.0.30",
+    "@ai-sdk/groq": "^3.0.24",
+    "@ai-sdk/mistral": "^3.0.20",
+    "@ai-sdk/openai": "^3.0.30",
+    "@ai-sdk/openai-compatible": "^2.0.30",
+    "@ai-sdk/perplexity": "^3.0.19",
+    "@ai-sdk/xai": "^3.0.57",
+    "@biomejs/biome": "^1",
+    "@eslint/js": "^9.22.0",
+    "@huggingface/transformers": "^4.2.0",
+    "@monaco-editor/react": "^4.7.0",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/addon-search": "^0.16.0",
+    "@xterm/addon-web-links": "^0.12.0",
+    "@xterm/xterm": "^6.0.0",
+    "ai": "^6.0.97",
+    "better-sqlite3": "^13.0.3",
+    "electron-updater": "^6.8.9",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^15.15.0",
+    "highlight.js": "^11.11.1",
+    "i18next": "^26.0.3",
+    "i18next-icu": "^2.4.3",
+    "monaco-editor": "^0.56.0",
+    "node-pty": "^1.1.0",
+    "openai": "^6.25.0",
+    "playwright-core": "^1.58.2",
+    "prettier": "^3.8.1",
+    "pyright": "^1.1.408",
+    "react-i18next": "^17.0.2",
+    "react-markdown": "^10.1.0",
+    "rehype-highlight": "^7.0.2",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "smol-toml": "^1.6.0",
+    "typescript": "^5.9.3",
+    "undici": "^6.28.0",
+    "unified": "^11.0.5",
+    "zod": "^3.25.76",
+    "zustand": "^5.0.11"
+  },
+  "overrides": {
+    "adm-zip": "0.6.0",
+    "dompurify": "3.4.14",
+    "rollup": "4.59.0",
+    "sharp": "0.35.4"
+  },
+  "build": {
+    "appId": "app.addom.desktop",
+    "productName": "ADDOM",
+    "copyright": "Copyright © 2026 ADDOM",
+    "asar": true,
+    "npmRebuild": false,
+    "forceCodeSigning": false,
+    "asarUnpack": [
+      "node_modules/better-sqlite3/**/*",
+      "node_modules/@biomejs/**/*",
+      "node_modules/node-pty/**/*",
+      "node_modules/@huggingface/transformers/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "mac": {
+      "icon": "assets/icon.icns",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}-${version}-mac-${arch}.${ext}"
+    },
+    "linux": {
+      "maintainer": "ADDOM <info@addom.app>",
+      "icon": "assets/icon.png",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Development",
+      "artifactName": "${productName}-${version}-linux-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ADDOM",
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "deleteAppDataOnUninstall": false,
+      "include": "build/installer.nsh"
+    },
+    "directories": {
+      "output": "dist-electron",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist",
+      "src/common",
+      "src/main",
+      "src/preload",
+      "package.json",
+      "!docs{,/**}"
+    ],
+    "extraResources": [
+      {
+        "from": "assets",
+        "to": "assets",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "build/legal",
+        "to": "legal",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "build/advanced",
+        "to": "advanced",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "publish": []
+  }
+}

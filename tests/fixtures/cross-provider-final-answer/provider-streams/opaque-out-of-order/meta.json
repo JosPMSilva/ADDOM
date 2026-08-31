@@ -1,0 +1,30 @@
+{
+  "fixtureId": "provider-opaque-out-of-order",
+  "kind": "provider_stream",
+  "title": "Opaque out-of-order stream",
+  "sourceClass": "synthetic-provider-shape",
+  "provider": "opaque",
+  "model": "opaque-runtime",
+  "streamShape": "mixed-opaque",
+  "scenario": "out_of_order",
+  "semanticOwnership": "provider-stream",
+  "contentFile": "stream.json",
+  "contentSha256": "5f7843e7a7f37cc468b9cd34636e8249a8e7dde04b14c68db3da0f778c084261",
+  "captureProvenance": {
+    "source": "synthetic",
+    "captureMode": "repo-authored",
+    "sourceFiles": [
+      "runbook.md"
+    ],
+    "notes": "Structured synthetic provider stream fixture."
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ],
+  "sourceContentSha256": "5f7843e7a7f37cc468b9cd34636e8249a8e7dde04b14c68db3da0f778c084261",
+  "expectedFinalMarkdownSha256": "d522d0185c1facedcb8a2fd3dce7ae10735ce3ab5f83855b5eb170345bfb2219"
+}

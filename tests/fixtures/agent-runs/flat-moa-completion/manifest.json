@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "flat-moa-completion",
+  "sourceClass": "sanitized_existing_test",
+  "captureDate": "2026-07-22",
+  "providerRuntimeClass": "addom_managed_flat_moa",
+  "synthetic": false,
+  "networkRequired": false,
+  "sourceReferences": ["tests/integration/moa-agent-executor.test.mjs", "tests/integration/agent-legacy-migration.test.mjs"],
+  "sanitization": { "method": "manual_shape_extraction", "privatePromptRemoved": true, "identifiersPlaceholdered": true, "pathsNormalized": true },
+  "contentHashAlgorithm": "sha256-canonical-json-v1",
+  "contentHash": "fdb4769e4a31d193bed61df852874d3aa5da1e63e1092c025c116dc891522016",
+  "coverage": ["normal_completion", "concurrent_siblings", "failure"],
+  "expectedCapabilities": { "addressableChildIdentity": false, "nodeScopedStream": false, "nodeCancellation": false, "rootFinalAuthority": true },
+  "currentContract": { "identity": "flat_task_identity", "stream": "opaque_result_summary", "cancellation": "delegation_or_root_only", "rootFinalAuthority": "observed" },
+  "knownGaps": ["Task IDs stand in for stable agent identities.", "Worker execution streams are not independently addressable."]
+}

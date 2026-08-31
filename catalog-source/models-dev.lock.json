@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "https://github.com/anomalyco/models.dev.git",
+    "commit": "a2087ac20ffff67693e33913ded365bf0093338e",
+    "tree": "51abd0d01c276a801c8b95ab07d39de6e37be9ab"
+  },
+  "sourceDigest": "sha256:04d4f85e43ccbb4f5444e940674dcf7381b1c446005146252a345e7c2fc4b156",
+  "providerCount": 10,
+  "modelCount": 509
+}

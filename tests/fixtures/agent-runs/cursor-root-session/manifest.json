@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "cursor-root-session",
+  "sourceClass": "sanitized_existing_fixture",
+  "captureDate": "2026-07-27",
+  "providerRuntimeClass": "cursor_agent_cli",
+  "synthetic": false,
+  "networkRequired": false,
+  "sourceReferences": [
+    "tests/fixtures/cursor-agent/stream-success.ndjson",
+    "tests/integration/cursor-agent-event-mapper.test.mjs",
+    "tests/integration/native-agent-provider-adapters.test.mjs",
+    "src/main/agents/providers/cursor-agent-adapter.mjs"
+  ],
+  "sanitization": { "method": "manual_shape_extraction", "privatePromptRemoved": true, "identifiersPlaceholdered": true, "pathsNormalized": true },
+  "contentHashAlgorithm": "sha256-canonical-json-v1",
+  "contentHash": "012fac6848305cceb9e1fea4007cbbe583b12d5378f903a6df2cf21735793244",
+  "coverage": [
+    "normal_completion",
+    "protocol_surface_root_session_only",
+    "no_task_label_child_identity"
+  ],
+  "expectedCapabilities": { "addressableChildIdentity": false, "nodeScopedStream": false, "nodeCancellation": false, "rootFinalAuthority": true },
+  "currentContract": {
+    "identity": "provider_root_session_only",
+    "stream": "root_session_stream_no_child_demux",
+    "cancellation": "root_turn_only",
+    "rootFinalAuthority": "observed"
+  },
+  "knownGaps": [
+    "Checked-in Cursor protocol NDJSON (stream-success.ndjson) exposes a single root session_id and one readToolCall call_id — no second session, thread, or Task child id fields.",
+    "Composer or model labels do not prove native child controls.",
+    "Task-shaped tool_call payloads are treated as ordinary root tools; cursor-agent-adapter never emits node_discovered from Task labels.",
+    "Live Cursor account multi-Task CLI capture remains optional; ADDOM keeps root-only freeze until a sanitized positive fixture proves stable child ids."
+  ]
+}

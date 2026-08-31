@@ -1,0 +1,93 @@
+name: Package Release Artifacts
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: package-release-artifacts-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  package:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows x64
+            os: windows-latest
+            target: --win
+            arch: --x64
+            artifact_name: ADDOM-Windows-x64
+            artifact_path: dist-electron/*.exe
+          - name: Linux x64
+            os: ubuntu-latest
+            target: --linux
+            arch: --x64
+            artifact_name: ADDOM-Linux-x64
+            artifact_path: |
+              dist-electron/*.AppImage
+              dist-electron/*.deb
+          - name: macOS x64
+            os: macos-15-intel
+            target: --mac
+            arch: --x64
+            artifact_name: ADDOM-macOS-x64
+            artifact_path: |
+              dist-electron/*.dmg
+              dist-electron/*.zip
+          - name: macOS arm64
+            os: macos-15
+            target: --mac
+            arch: --arm64
+            artifact_name: ADDOM-macOS-arm64
+            artifact_path: |
+              dist-electron/*.dmg
+              dist-electron/*.zip
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare runtime assets
+        run: npm run build:runtime-assets
+
+      - name: Generate application icons
+        run: npm run make-icon
+
+      - name: Build renderer
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: npx vite build
+
+      - name: Package application
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"
+          ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL: "1"
+        run: npx electron-builder ${{ matrix.target }} ${{ matrix.arch }} --config electron-builder.config.cjs --publish never
+
+      - name: Verify primary package output
+        run: node scripts/check-ci-package-output.mjs
+
+      - name: Upload release files
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: ${{ matrix.artifact_path }}
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30

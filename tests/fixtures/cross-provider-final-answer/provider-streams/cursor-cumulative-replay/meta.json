@@ -1,0 +1,30 @@
+{
+  "fixtureId": "provider-cursor-cumulative-replay",
+  "kind": "provider_stream",
+  "title": "Cursor cumulative replay stream",
+  "sourceClass": "synthetic-provider-shape",
+  "provider": "cursor",
+  "model": "composer-2.5",
+  "streamShape": "cumulative-replay",
+  "scenario": "live",
+  "semanticOwnership": "provider-stream",
+  "contentFile": "stream.json",
+  "contentSha256": "f4ded8027c9a21accd9d72096155ae49f9e31b4e3e9b772e40575de91eb5ee10",
+  "captureProvenance": {
+    "source": "synthetic",
+    "captureMode": "repo-authored",
+    "sourceFiles": [
+      "runbook.md"
+    ],
+    "notes": "Structured synthetic provider stream fixture."
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ],
+  "sourceContentSha256": "f4ded8027c9a21accd9d72096155ae49f9e31b4e3e9b772e40575de91eb5ee10",
+  "expectedFinalMarkdownSha256": "36c795785ac8c1587435dbaf6525d954939c606c5119ff273265683e5b0b704d"
+}

@@ -1,0 +1,112 @@
+# ADDOM advanced settings
+# Uncomment only the keys you need. Invalid files are ignored as a whole.
+
+[runtime]
+# live_execution_stream_enabled = true
+# per_thread_background_sessions = true
+
+[memory]
+# compression_enabled = true
+# compression_threshold = 50
+# compression_cooldown_ms = 120000
+# compression_max_per_hour = 4
+# compression_min_new_logs = 12
+# include_global_memory_in_context = false
+
+[terminal]
+# scrollback = 5000
+# paste_confirmation_line_threshold = 12
+
+[continuity]
+# enabled = true
+# architecture = "hybrid_tiered"
+# default_scope = "thread_only"
+# active_profile = "balanced"
+# latency_p95_target_ms = 300
+# max_continuity_packet_tokens = 7000
+# max_injected_facts = 18
+# drift_guard_enabled = true
+# invariant_checks_enabled = true
+# contradiction_checks_enabled = true
+# provider_chain_compaction_enabled = false
+# provider_truncation_enabled = false
+# provider_compaction_allowlist = ["openai"]
+
+[continuity.profiles.balanced]
+# packet_tokens_ratio = 0.14
+# output_reserve_ratio = 0.20
+# tool_reserve_ratio = 0.12
+# max_injected_facts = 16
+# max_source_refs = 18
+# inject_every_round = false
+
+[command_safety.install_sandbox]
+# enabled = false
+# ignore_scripts_first_pass = false
+# preferred_backend = "auto"
+# network_enforcement_mode = "strict"
+# registry_allowlist = []
+# cache_dirs = []
+
+[providers.openai.runtime]
+# transport_mode = "responses_auto"
+# delegation_backend_preference = "auto"
+# websocket_fallback_to_stream = true
+# reasoning_summary = "auto"
+# reasoning_effort = "provider_default"
+# text_verbosity = "provider_default"
+# service_tier = "auto"
+# prompt_caching_enabled = true
+# use_previous_response_id = true
+# use_server_side_compaction = false
+# server_side_compaction_threshold_tokens = 0
+# codex_auto_thread_compaction_enabled = true
+# codex_auto_thread_compaction_token_limit = 0
+# allow_prompt_compaction_commands = false
+# allow_prompt_compaction_threshold_override = false
+# web_search_context_size = "medium"
+# auto_create_project_vector_store = true
+# auto_attach_project_vector_store = true
+# file_search_max_num_results = 8
+
+[providers.openai.hosted_tools]
+# enabled = false
+# enabled_tools = []
+
+[providers.anthropic.runtime]
+# thinking_type = "disabled"
+# reasoning_effort = "provider_default"
+# use_context_management_compaction = false
+# context_management_compaction_threshold_tokens = 0
+
+[providers.moonshot.runtime]
+# remote_tools_enabled = false
+# enabled_formula_uris = []
+
+[attachment_text_extraction]
+# enabled = false
+# max_chars_per_attachment = 12000
+# max_chars_per_turn = 60000
+# max_attachments_per_turn = 4
+# timeout_ms = 20000
+
+[model_catalog.openrouter]
+# default_visible = true
+
+[model_catalog.openrouter.filters]
+# reviewed_only = false
+# tools_only = false
+# reasoning_only = false
+# vision_only = false
+
+[agents]
+# enabled = true
+# default_profile = "balanced"
+# fanout_confirmation_threshold = 5
+# max_live_agents = 8
+# max_depth = 4
+# max_descendants = 64
+# max_total_tokens = 400000
+# max_cost_usd = 75
+# max_duration_ms = 1800000
+# custom_pipelines_enabled = false

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "flat-moa-completion",
+  "events": [
+    { "ordinal": 1, "eventId": "<event-001>", "timestamp": "<timestamp-001>", "source": "addom_moa", "kind": "delegation_started", "runId": "<run-root>", "nodeId": "<node-root>", "parentNodeId": null, "payload": { "delegationId": "<delegation-001>", "taskIds": ["<task-001>", "<task-002>"] } },
+    { "ordinal": 2, "eventId": "<event-002>", "timestamp": "<timestamp-002>", "source": "addom_moa", "kind": "agent_started", "runId": "<run-root>", "nodeId": "<task-001>", "parentNodeId": "<node-root>", "payload": { "taskId": "<task-001>", "roleId": "<role-reviewer>", "status": "running" } },
+    { "ordinal": 3, "eventId": "<event-003>", "timestamp": "<timestamp-003>", "source": "addom_moa", "kind": "agent_started", "runId": "<run-root>", "nodeId": "<task-002>", "parentNodeId": "<node-root>", "payload": { "taskId": "<task-002>", "roleId": "<role-tester>", "status": "running" } },
+    { "ordinal": 4, "eventId": "<event-004>", "timestamp": "<timestamp-004>", "source": "addom_moa", "kind": "agent_completed", "runId": "<run-root>", "nodeId": "<task-001>", "parentNodeId": "<node-root>", "payload": { "taskId": "<task-001>", "status": "completed", "result": "Sanitized review summary." } },
+    { "ordinal": 5, "eventId": "<event-005>", "timestamp": "<timestamp-005>", "source": "addom_moa", "kind": "agent_failed", "runId": "<run-root>", "nodeId": "<task-002>", "parentNodeId": "<node-root>", "payload": { "taskId": "<task-002>", "status": "failed", "error": "Sanitized provider failure." } },
+    { "ordinal": 6, "eventId": "<event-006>", "timestamp": "<timestamp-006>", "source": "addom_moa", "kind": "delegation_completed", "runId": "<run-root>", "nodeId": "<node-root>", "parentNodeId": null, "payload": { "delegationId": "<delegation-001>", "status": "completed_with_errors" } },
+    { "ordinal": 7, "eventId": "<event-007>", "timestamp": "<timestamp-007>", "source": "addom_chat", "kind": "final_message", "runId": "<run-root>", "nodeId": "<node-root>", "parentNodeId": null, "payload": { "text": "Root synthesis completed." } }
+  ]
+}

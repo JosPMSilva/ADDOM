@@ -1,0 +1,30 @@
+{
+  "fixtureId": "provider-cursor-duplicate",
+  "kind": "provider_stream",
+  "title": "Cursor duplicate delivery stream",
+  "sourceClass": "synthetic-provider-shape",
+  "provider": "cursor",
+  "model": "composer-2.5",
+  "streamShape": "append-delta",
+  "scenario": "duplicate",
+  "semanticOwnership": "provider-stream",
+  "contentFile": "stream.json",
+  "contentSha256": "06314864ddd8473eb39bac00eb09a5b327c91b2c30f9efbf29cc7680637a09a7",
+  "captureProvenance": {
+    "source": "synthetic",
+    "captureMode": "repo-authored",
+    "sourceFiles": [
+      "runbook.md"
+    ],
+    "notes": "Structured synthetic provider stream fixture."
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ],
+  "sourceContentSha256": "06314864ddd8473eb39bac00eb09a5b327c91b2c30f9efbf29cc7680637a09a7",
+  "expectedFinalMarkdownSha256": "b6b682ae2c305378fd6928b5679f24c1b9d8c23c914e2f3f6ed02c5892847093"
+}

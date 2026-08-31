@@ -1,0 +1,2265 @@
+{
+  "app": {
+    "workspacePanelSkeleton": {
+      "ariaLabel": "[Ľõàďïñğ {{panelLabel}} ~~]",
+      "text": "[Ľõàďïñğ {{panelLabel}}... ~~]"
+    },
+    "workspaceBootError": {
+      "title": "[Ŵõřķšþàçë ƀõõŧ ƒàïľëď ~~]",
+      "message": "[ADDOM çõüľď ñõŧ þřëþàřë ŧħë ŵõřķšþàçë çàçħëš řëʠüïřëď ƒõř ŧħïš þàñëľ. ~~~~~~]",
+      "retry": "[Řëŧřÿ ƀõõŧ ~~]"
+    },
+    "leaveWorkspace": {
+      "title": "[Üñšàṽëď Çħàñğëš ~~]",
+      "message": "[Ÿõü ħàṽë üñšàṽëď ƒïľëš. Çħõõšë ħõŵ ŧõ þřõçëëď ƀëƒõřë šŵïŧçħïñğ þřõĵëçŧš. ~~~~~~]",
+      "noUnsavedFiles": "[Ñõ üñšàṽëď ƒïľëš. ~~]",
+      "cancel": "[Çàñçëľ ~~]",
+      "discardAndLeave": "[Ďïšçàřď & Šŵïŧçħ ~~]",
+      "saving": "[Šàṽïñğ... ~~]",
+      "saveAllAndLeave": "[Šàṽë Àľľ & Šŵïŧçħ ~~]"
+    },
+    "confirmDialog": {
+      "messageFallback": "[Àřë ÿõü šüřë ÿõü ŵàñŧ ŧõ çõñŧïñüë? ~~~]",
+      "cancel": "[Çàñçëľ ~~]",
+      "confirm": "[Çõñƒïřṁ ~~]"
+    },
+    "panelLabels": {
+      "chat": "[Çħàŧ þàñëľ ~~]",
+      "editor": "[Ëďïŧõř þàñëľ ~~]",
+      "sourceControl": "[Çħàñğëš þàñëľ ~~]",
+      "artifacts": "[Àřŧïƒàçŧš þàñëľ ~~]",
+      "memory": "[Ṁëṁõřÿ þàñëľ ~~]",
+      "settings": "[Šëŧŧïñğš þàñëľ ~~]",
+      "agents": "[Àğëñŧš þàñëľ ~~]",
+      "projectEntry": "[Þřõĵëçŧ ëñŧřÿ ~~]"
+    }
+  },
+  "companionDock": {
+    "resize": "[Řëšïžë çõṁþàñïõñ ~~]",
+    "views": "[Çõṁþàñïõñ ṽïëŵš ~~]",
+    "restoreSplit": "[Řëšŧõřë šþľïŧ ṽïëŵ ~~]",
+    "focus": "[Ƒõçüš çõṁþàñïõñ ~~]",
+    "close": "[Çľõšë çõṁþàñïõñ ṽïëŵ ~~]",
+    "document": {
+      "search": "[Šëåŕçħ đöçü₥ëñţ ~~]",
+      "missing": "[Ŧħïš ďõçüṁëñŧ ñõ ľõñğëř ëẋïšŧš. ~~~]",
+      "tooLarge": "[Ŧħïš ďõçüṁëñŧ ïš ŧõõ ľàřğë ŧõ þřëṽïëŵ. ~~~~]",
+      "unavailable": "[Ŧħïš ďõçüṁëñŧ çõüľď ñõŧ ƀë ľõàďëď. ~~~]",
+      "changed": "[Üþďàŧïñğ… ~~]",
+      "status": "[Ṁàřķďõŵñ ďõçüṁëñŧ ~~]",
+      "openInEditor": "[Õþëñ ïñ ëďïŧõř ~~]",
+      "reveal": "[Řëṽëàľ ïñ ƒïľë ëẋþľõřëř ~~]",
+      "reload": "[Řëľõàď ďõçüṁëñŧ ~~]",
+      "loading": "[Ľõàďïñğ ďõçüṁëñŧ… ~~]",
+      "retry": "[Řëŧřÿ ~~]",
+        "implementPlan": "Implement",
+        "changePlaceholder": "Describe the change…",
+        "resizeChangeEditor": "Resize change editor",
+        "addChange": "Add change",
+        "annotateChange": "Annotate change",
+        "reviewHint": "Hover a paragraph to suggest a change.",
+        "changeCount": "{{count}} changes",
+        "undoLastChange": "Undo latest change",
+        "submitChanges": "Submit changes",
+        "pendingChanges": "Pending plan changes",
+        "removeChange": "Remove change"
+    }
+  },
+  "startup": {
+    "bootstrapFailure": {
+      "eyebrow": "[Šŧàřŧüþ ƒàïľëď ~~]",
+      "title": "[ADDOM çõüľď ñõŧ ƒïñïšħ šŧàřŧïñğ. ~~~]",
+      "messageFallback": "[Řëñďëřëř ƀõõŧšŧřàþ ƒàïľëď ~~~]",
+      "reload": "[Řëľõàď àþþ ~~]"
+    }
+  },
+  "sourceControl": {
+    "openProject": "[Õþëñ à þřõĵëçŧ ƒõľďëř ŧõ ïñšþëçŧ çħàñğëš. ~~~~]",
+    "navigationFailed": "[Çõüľď ñõŧ õþëñ ŧħë šëľëçŧëď ƒïľë ƒřõṁ Šõüřçë Çõñŧřõľ. ~~~~~]",
+    "refresh": "[Řëƒřëšħ ~~]",
+    "loading": "[Ľõàďïñğ çħàñğëš... ~~]",
+    "noRepo": "[Ŧħïš ŵõřķšþàçë ïš ñõŧ ïñšïďë à ğïŧ řëþõšïŧõřÿ. ~~~~]",
+    "clean": "[Ŵõřķïñğ ŧřëë çľëàñ. ~~]",
+    "emptyFilter": "[Ñõ ƒïľëš ṁàŧçħ ŧħë çüřřëñŧ ƒïľŧëř. ~~~]",
+    "filters": {
+      "all": "[Àľľ ~~]",
+      "staged": "[Šŧàğëď ~~]",
+      "unstaged": "[Üñšŧàğëď ~~]",
+      "conflicted": "[Çõñƒľïçŧš ~~]",
+      "untracked": "[Üñŧřàçķëď ~~]"
+    },
+    "search": {
+      "label": "[Šëàřçħ çħàñğëď ƒïľëš ~~]",
+      "placeholder": "[Šëàřçħ çħàñğëď ƒïľëš ~~]"
+    },
+    "groups": {
+      "staged": "[Šŧàğëď ~~]",
+      "unstaged": "[Üñšŧàğëď ~~]"
+    },
+    "actions": {
+      "stageFile": "[Šŧàğë ƒïľë ~~]",
+      "unstageFile": "[Üñšŧàğë ƒïľë ~~]",
+      "stageAll": "[Šŧàğë àľľ ~~]",
+      "unstageAll": "[Üñšŧàğë àľľ ~~]"
+    },
+    "summary": {
+      "title": "[Çħàñğëš ~~]",
+      "branch": "[ßřàñçħ: {{branch}} ~~]",
+      "repoState": "[{{repoRoot}} ~~]",
+      "chips": {
+        "staged": "[Šŧàğëď ~~]",
+        "unstaged": "[Üñšŧàğëď ~~]",
+        "conflicts": "[Çõñƒľïçŧš ~~]"
+      }
+    },
+    "commit": {
+      "title": "[Çõṁṁïŧ ~~]",
+      "description": "[Çřëàŧëš à çõṁṁïŧ ƒřõṁ šŧàğëď çħàñğëš õñľÿ. ~~~~]",
+      "pending": "[Çõṁṁïŧŧïñğ... ~~]",
+      "action": "[Çõṁṁïŧ ~~]",
+      "placeholder": "[Çõṁṁïŧ ṁëššàğë ~~]",
+      "disabledPlaceholder": "[Šŧàğë ƒïľëš ŧõ ëñàƀľë çõṁṁïŧ àüŧħõřïñğ ~~~~]"
+    },
+    "entry": {
+      "renameFrom": "[ƒřõṁ {{path}} ~~]"
+    },
+    "detail": {
+      "stage": "[Šŧàğë: {{scope}} ~~]",
+      "loading": "[Ľõàďïñğ ŠÇṀ ďëŧàïľ... ~~]",
+      "title": "[ŠÇṀ ďëŧàïľ ~~]",
+      "path": "[Þàŧħ: ~~]",
+      "previousPath": "[Þřëṽïõüš þàŧħ: ~~]",
+      "previewSource": "[Þřëṽïëŵ šõüřçë: ~~]",
+      "indexCommit": "[Ïñďëẋ çõṁṁïŧ: ~~]",
+      "worktreeCommit": "[Ŵõřķŧřëë çõṁṁïŧ: ~~]",
+      "dirtyWorktree": "[Ďïřŧÿ ŵõřķŧřëë: ~~]",
+      "actions": {
+        "restoring": "[Řëšŧõřïñğ... ~~]",
+        "restoreFile": "[Řëšŧõřë ƒïľë ~~]",
+        "unstaging": "[Üñšŧàğïñğ... ~~]",
+        "unstageDeletion": "[Üñšŧàğë ďëľëŧïõñ ~~]",
+        "unstageRename": "[Üñšŧàğë řëñàṁë ~~]"
+      }
+    },
+    "common": {
+      "yes": "[ÿëš ~~]",
+      "no": "[ñõ ~~]"
+    }
+  },
+  "terminal": {
+    "common": {
+      "cancel": "[Çàñçëľ ~~]",
+      "user": "[Üšëř ~~]",
+      "ai": "[ÀÏ ~~]",
+      "session": "[Šëššïõñ ~~]",
+      "host": "[Ħõšŧ ~~]",
+      "workspace": "[Ŵõřķšþàçë ~~]",
+      "shell": "[šħëľľ ~~]",
+      "terminal": "[ŧëřṁïñàľ ~~]",
+      "terminalTitle": "[Ŧëřṁïñàľ ~~]",
+      "threadPrefix": "[Ŧħřëàď ~~]",
+      "status": {
+        "closing": "[Çľõšïñğ ~~]",
+        "ended": "[Ëñďëď ~~]",
+        "closed": "[Çľõšëď ~~]",
+        "live": "[Ľïṽë ~~]",
+        "failed": "[Ƒàïľëď ~~]",
+        "terminated": "[Ŧëřṁïñàŧëď ~~]"
+      },
+      "timestamp": {
+        "closedPrefix": "[Çľõšëď ~~]",
+        "startedPrefix": "[Šŧàřŧëď ~~]"
+      },
+      "suggestion": {
+        "dismissed": "[Ďïšṁïššëď ~~]",
+        "suggested": "[Šüğğëšŧëď ~~]",
+        "none": "[Ñõ šüğğëšŧïõñ ~~]"
+      }
+    },
+    "banner": {
+      "thisPlatform": "[ŧħïš þľàŧƒõřṁ ~~]",
+      "anotherPlatform": "[àñõŧħëř þľàŧƒõřṁ ~~]",
+      "runtimeDisabled": "[Řüñŧïṁë ďïšàƀľëď ~~]",
+      "disabledByEnv": "[Ŧħë ADDOM_ĎÏŠÀßĽË_ŦËŘṀÏÑÀĽ_ŠËŠŠÏÕÑŠ õṽëřřïďë ïš õñ. ~~~~~]",
+      "rolloutDisabled": "[Řõľľõüŧ ďïšàƀľëď ~~]",
+      "disabledByRollout": "[Ŧëřṁïñàľ šëššïõñš àřë ďïšàƀľëď ƀÿ ŧħë çüřřëñŧ řõľľõüŧ þõľïçÿ. ~~~~~~]",
+      "platformGated": "[Þľàŧƒõřṁ ğàŧëď ~~]",
+      "platformGatedDetail": "[{{platform}} ïš šŧïľľ ƀëħïñď řõľľõüŧ. Þàçķàğëď ṽëřïƒïçàŧïõñ ïš õñľÿ řëçõřďëď ƒõř {{allowedLabel}}. ~~~~~~]",
+      "unsupportedPlatform": "[Üñšüþþõřŧëď þľàŧƒõřṁ ~~]",
+      "unsupportedPlatformDetail": "[{{platform}} ïš õüŧšïďë ŧħë šüþþõřŧëď ÞŦŸ ŧàřğëŧ šëŧ ƒõř ŧëřṁïñàľ šëššïõñš. ~~~~~~]",
+      "disabledGeneric": "[Ŧëřṁïñàľ šëššïõñš àřë ďïšàƀľëď õñ ŧħïš řüñŧïṁë. ~~~~]",
+      "runtimeFailed": "[Řüñŧïṁë ƒàïľëď ~~]",
+      "failedDetail": "[Ŧħë ÞŦŸ řüñŧïṁë ħëàľŧħ çħëçķ ƒàïľëď. ~~~]",
+      "checkingRuntime": "[Çħëçķïñğ řüñŧïṁë ~~]",
+      "checkingRuntimeDetail": "[ADDOM ïš ṽëřïƒÿïñğ ÞŦŸ šüþþõřŧ ƒõř ŧħïš àþþ řüñŧïṁë. ~~~~~]",
+      "runtimeReady": "[Řüñŧïṁë řëàďÿ ~~]",
+      "runtimeReadyDetail": "[Ïñŧëřàçŧïṽë ŧëřṁïñàľ šëššïõñš àřë àṽàïľàƀľë ƒõř ŧħïš ŵõřķšþàçë. ~~~~~~]",
+      "lastActionFailed": "[Ľàšŧ àçŧïõñ ƒàïľëď ~~]"
+    },
+    "viewport": {
+      "sessionState": {
+        "archived": "[Àřçħïṽëď ~~]",
+        "ended": "[Ëñďëď ~~]",
+        "closed": "[Çľõšëď ~~]",
+        "live": "[Ľïṽë ~~]"
+      },
+      "workspaceShell": "[Ŵõřķšþàçë šħëľľ ~~]",
+      "startTitle": "[Šŧàřŧ à ŧëřṁïñàľ šëššïõñ ~~]",
+      "unavailableTitle": "[Çħàŧ ŧëřṁïñàľ ïš üñàṽàïľàƀľë ~~~]",
+      "startDescription": "[Õþëñ à ŧëřṁïñàľ ħëřë ŧõ ïñšþëçŧ ľõğš, řüñ þřõĵëçŧ çõṁṁàñďš, õř ľëŧ ÀÏ çõñŧïñüë ƒřõṁ ŧħë šàṁë šħëľľ. ~~~~~~~~~]",
+      "unavailableDescription": "[Ŧëřṁïñàľ šëššïõñš àřë ñõŧ àṽàïľàƀľë ïñ ŧħïš řüñŧïṁë ÿëŧ. ~~~~~]",
+      "startingSession": "[Šŧàřŧïñğ šëššïõñ... ~~]",
+      "createSession": "[Çřëàŧë šëššïõñ ~~]",
+      "readOnly": "[Řëàď-õñľÿ ~~]",
+      "model": "[Ṁõďëľ ~~]",
+      "workspaceRoot": "[ŵõřķšþàçë řõõŧ ~~]",
+      "trimmed": "[Ŧřïṁṁëď ~~]",
+      "clickToFocus": "[Çľïçķ ŧõ ƒõçüš ~~]",
+      "activateSurface": "[Àçŧïṽàŧë šüřƒàçë ~~]",
+      "aria": {
+        "archivedViewport": "[Àřçħïṽëď ŧëřṁïñàľ ṽïëŵþõřŧ ~~~]",
+        "interactiveViewport": "[Ïñŧëřàçŧïṽë ŧëřṁïñàľ ṽïëŵþõřŧ ~~~]",
+        "terminalActions": "[Ŧëřṁïñàľ àçŧïõñš ~~]"
+      },
+      "context": {
+        "cut": "[Çüŧ šëľëçŧïõñ ~~]",
+        "copy": "[Çõþÿ šëľëçŧïõñ ~~]",
+        "copyVisibleOutput": "[Çõþÿ ṽïšïƀľë õüŧþüŧ ~~]",
+        "copyFullScrollback": "[Çõþÿ ƒüľľ šçřõľľƀàçķ ~~]",
+        "paste": "[Þàšŧë ~~]",
+        "pasteAsSingleLine": "[Þàšŧë àš šïñğľë ľïñë ~~]",
+        "selectAll": "[Šëľëçŧ àľľ ~~]",
+        "clear": "[Çľëàř ~~]",
+        "zoomIn": "[Žõõṁ ïñ ~~]",
+        "zoomOut": "[Žõõṁ õüŧ ~~]",
+        "zoomReset": "[Řëšëŧ žõõṁ ~~]",
+        "buffer": "[ßüƒƒëř ~~]",
+        "terminalFontSize": "[{{size}}þẋ ~~]",
+        "sendOutputToChat": "[Šëñď õüŧþüŧ ŧõ çħàŧ ~~]",
+        "explainLastError": "[Ëẋþľàïñ ľàšŧ ëřřõř ~~]",
+        "summarizeSession": "[Šüṁṁàřïžë šëššïõñ ~~]",
+        "saveSnapshotToMemory": "[Šàṽë šñàþšħõŧ ŧõ Ṁëṁõřÿ ~~]"
+      },
+      "search": {
+        "placeholder": "[Šëàřçħ ŧëřṁïñàľ õüŧþüŧ ~~]",
+        "previous": "[Þřëṽïõüš ṁàŧçħ ~~]",
+        "next": "[Ñëẋŧ ṁàŧçħ ~~]",
+        "close": "[Çľõšë šëàřçħ ~~]",
+        "noMatches": "[Ñõ ṁàŧçħëš ~~]",
+        "resultCount": "[{{current}}/{{total}} ~~]"
+      },
+      "pasteConfirm": {
+        "title": "[Çõñƒïřṁ ľàřğë þàšŧë ~~]",
+        "message": "[Þàšŧë {{count}} ľïñëš ïñŧõ ŧħë ŧëřṁïñàľ? Ŧħïš çàñ řüñ ṁüľŧïþľë çõṁṁàñďš àŧ õñçë. ~~~~~~]"
+      }
+    },
+    "dock": {
+      "state": {
+        "approval": "[Àþþřõṽàľ ~~]",
+        "approvalSuffix": "[àþþřõṽàľ ~~]",
+        "denied": "[Ďëñïëď ~~]",
+        "userTakeover": "[Üšëř ŧàķëõṽëř ~~]",
+        "aiWaiting": "[ÀÏ ŵàïŧïñğ ~~]",
+        "aiControlling": "[ÀÏ çõñŧřõľľïñğ ~~]",
+        "running": "[Řüññïñğ ~~]"
+      },
+      "announcements": {
+        "userTakeoverActive": "[Üšëř ŧàķëõṽëř ïš àçŧïṽë. ~~]",
+        "takeoverRequired": "[Ŧàķë õṽëř ŧħïš ŧëřṁïñàľ ŧõ šŧàřŧ ŧÿþïñğ. ~~~~]"
+      },
+      "resize": "[Řëšïžë ŧëřṁïñàľ ďõçķ ~~]",
+      "tablistAriaLabel": "[Ŧħřëàď ŧëřṁïñàľ šëššïõñš ~~]",
+      "unread": "[Üñřëàď ~~]",
+      "terminalSessions": "[Ŧëřṁïñàľ Šëššïõñš ~~]",
+      "workspaceRoot": "[ŵõřķšþàçë řõõŧ ~~]",
+      "control": {
+        "aiControlsShell": "[ÀÏ çõñŧřõľš ŧħïš šħëľľ. Ŧàķë õṽëř ƀëƒõřë ŧÿþïñğ. ~~~~]",
+        "userControlsShell": "[Ÿõü çüřřëñŧľÿ çõñŧřõľ ŧħïš šħëľľ. ~~~]",
+        "typingBlockedUntilTakeover": "[Ŧÿþïñğ ïš ƀľõçķëď üñŧïľ ÿõü çõñƒïřṁ ŧàķëõṽëř. ~~~~]",
+        "aiWaitingForUser": "[ÀÏ ïš ŵàïŧïñğ ƒõř üšëř çõñƒïřṁàŧïõñ ƀëƒõřë çõñŧïñüïñğ. ~~~~~]"
+      },
+      "browser": {
+        "title": "[Ŧëřṁïñàľ ƀřõŵšëř ~~]",
+        "subtitle": "[Çüřřëñŧ Ŧħřëàď / Õŧħëř Ľïṽë / Ħïšŧõřÿ ~~~~]",
+        "sections": {
+          "currentThread": "[Çüřřëñŧ Ŧħřëàď ~~]",
+          "otherLive": "[Õŧħëř Ľïṽë ~~]",
+          "history": "[Ħïšŧõřÿ ~~]"
+        },
+        "empty": {
+          "currentThread": "[Ñõ ľïṽë õř þëñďïñğ ŧëřṁïñàľ šëššïõñš àřë àŧŧàçħëď ŧõ ŧħïš ŧħřëàď ÿëŧ. ~~~~~~]",
+          "otherLive": "[Ñõ õŧħëř ŧħřëàďš ħàṽë ľïṽë ŧëřṁïñàľ àçŧïṽïŧÿ řïğħŧ ñõŵ. ~~~~~]",
+          "history": "[Ñõ àřçħïṽëď ŧëřṁïñàľ ħïšŧõřÿ ïš àṽàïľàƀľë ƒõř ŧħïš ŵõřķšþàçë ÿëŧ. ~~~~~~]"
+        },
+        "fields": {
+          "thread": "[Ŧħřëàď ~~]",
+          "scope": "[Šçõþë ~~]",
+          "updated": "[Üþďàŧëď ~~]"
+        },
+        "requestedIn": "[Řëʠüëšŧëď ïñ {{section}} ~~]",
+        "suggestionFallback": "[Ŧïṁëľïñë šüğğëšŧïõñ çàřďš šŧàÿ šëþàřàŧë ƒřõṁ ŧħïš ƀřõŵšëř. ~~~~~]",
+        "crossThread": {
+          "title": "[Çřõšš-ŧħřëàď šëššïõñ ~~]",
+          "description": "[ßřõŵšë ŧħë ṁëŧàďàŧà ħëřë, ŧħëñ üšë {{openThreadLabel}} ŧõ ïñšþëçŧ õř ïñŧëřàçŧ ƒřõṁ ŧħë õŵñïñğ çħàŧ ŧħřëàď. ~~~~~~~~]"
+        },
+        "selectSession": "[Šëľëçŧ à ŧëřṁïñàľ šëššïõñ ~~~]",
+        "actions": {
+          "openThread": "[Õþëñ ŧħřëàď ~~]",
+          "savedToMemory": "[Šàṽëď ŧõ Ṁëṁõřÿ ~~]",
+          "noMemorySummary": "[Ñõ Ṁëṁõřÿ šüṁṁàřÿ ~~]",
+          "saveToThreadMemory": "[Šàṽë ŧõ ŧħřëàď ṁëṁõřÿ ~~]",
+          "saveToProjectMemory": "[Šàṽë ŧõ þřõĵëçŧ ṁëṁõřÿ ~~]",
+          "deletingArchive": "[Ďëľëŧïñğ... ~~]",
+          "deleteArchive": "[Ďëľëŧë àřçħïṽë ~~]",
+          "openTerminal": "[Õþëñ ŧëřṁïñàľ ~~]",
+          "backToDock": "[ßàçķ ŧõ ďõçķ ~~]",
+          "browseSessions": "[ßřõŵšë šëššïõñš ~~]",
+          "handBackToAi": "[Ħàñď ƀàçķ ŧõ ÀÏ ~~]",
+          "confirmTakeover": "[Çõñƒïřṁ ŧàķëõṽëř ~~]",
+          "takeOver": "[Ŧàķë õṽëř ~~]",
+          "expandBrowser": "[Ëẋþàñď ŧëřṁïñàľ ƀřõŵšëř ~~]",
+          "collapseBrowser": "[Çõľľàþšë ŧëřṁïñàľ ƀřõŵšëř ~~~]",
+          "expand": "[Ëẋþàñď ~~]",
+          "collapse": "[Çõľľàþšë ~~]",
+          "openTerminalActions": "[Ŧëřṁïñàľ ṁëñü ~~]",
+          "terminalDockActions": "[Ŧëřṁïñàľ ďõçķ àçŧïõñš ~~]",
+          "closeBrowser": "[Çľõšë ƀřõŵšëř ~~]",
+          "renameSession": "[Řëñàṁë šëššïõñ ~~]",
+          "editTitle": "[Ëďïŧ ŧïŧľë ~~]",
+          "duplicateSession": "[Ďüþľïçàŧë šëššïõñ ~~]",
+          "sameCwdShell": "[Šàṁë çŵď àñď šħëľľ ~~]",
+          "newAtProjectRoot": "[Ñëŵ àŧ þřõĵëçŧ řõõŧ ~~]",
+          "newFromCurrentCwd": "[Ñëŵ ƒřõṁ çüřřëñŧ çŵď ~~]",
+          "newFromEditorCwd": "[Ñëŵ ƒřõṁ ëďïŧõř ƒõľďëř ~~]",
+          "currentCwd": "[Çüřřëñŧ çŵď ~~]",
+          "editorFolder": "[Ëďïŧõř ƒõľďëř ~~]",
+          "defaultShell": "[Ďëƒàüľŧ šħëľľ ~~]",
+          "newWithShell": "[Ñëŵ ŵïŧħ šħëľľ ~~]",
+          "interrupt": "[Ïñŧëřřüþŧ ~~]",
+          "stopInput": "[Šŧõþ ïñþüŧ ~~]",
+          "closeSession": "[Çľõšë šëššïõñ ~~]",
+          "archiveSession": "[Àřçħïṽë šëššïõñ ~~]",
+          "hideTerminal": "[Ħïďë ŧëřṁïñàľ ~~]",
+          "dismiss": "[Ďïšṁïšš ~~]",
+          "forceTerminate": "[Ƒõřçë ŧëřṁïñàŧë ~~]",
+          "killProcess": "[Ķïľľ þřõçëšš ~~]",
+          "sendOutputToChat": "[Šëñď õüŧþüŧ ŧõ çħàŧ ~~]",
+          "explainLastError": "[Ëẋþľàïñ ľàšŧ ëřřõř ~~]",
+          "summarizeSession": "[Šüṁṁàřïžë šëššïõñ ~~]",
+          "saveSnapshotToMemory": "[Šàṽë šñàþšħõŧ ŧõ Ṁëṁõřÿ ~~]",
+          "prefillComposer": "[Þřëƒïľľ çõṁþõšëř ~~]",
+          "recentOutput": "[Řëçëñŧ õüŧþüŧ ~~]",
+          "boundedOutput": "[ßõüñďëď õüŧþüŧ ~~]",
+          "threadMemory": "[Ŧħřëàď ṁëṁõřÿ ~~]"
+        }
+      },
+      "prompts": {
+        "renameSession": "[Řëñàṁë ŧëřṁïñàľ šëššïõñ ~~]"
+      },
+      "confirm": {
+        "forceTerminateHost": {
+          "title": "[Ƒõřçë Ŧëřṁïñàŧë Ħõšŧ Ŧëřṁïñàľ ~~~]",
+          "message": "[Ƒõřçë ŧëřṁïñàŧë ŧħïš ħõšŧ-šçõþëď ŧëřṁïñàľ šëššïõñ? Ŧħïš ŵïľľ ïṁṁëďïàŧëľÿ ķïľľ ŧħë üñďëřľÿïñğ þřõçëšš. ~~~~~~~~~]"
+        },
+        "forceTerminate": {
+          "title": "[Ƒõřçë Ŧëřṁïñàŧë Ŧëřṁïñàľ ~~]",
+          "message": "[Ƒõřçë ŧëřṁïñàŧë ŧħïš ŧëřṁïñàľ šëššïõñ? Ŧħïš ŵïľľ ïṁṁëďïàŧëľÿ ķïľľ ŧħë üñďëřľÿïñğ þřõçëšš. ~~~~~~~~]"
+        },
+        "deleteArchive": {
+          "title": "[Ďëľëŧë Àřçħïṽëď Ŧëřṁïñàľ Šëššïõñ ~~~]",
+          "message": "[Ďëľëŧë ŧħïš àřçħïṽëď ŧëřṁïñàľ šëššïõñ?\n\nŦħïš řëṁõṽëš ŧħë řëŧàïñëď àřçħïṽë řëçõřď õñľÿ àñď çàññõŧ ƀë üñďõñë. ~~~~~~~~~]",
+          "confirm": "[Ďëľëŧë Àřçħïṽë ~~]"
+        }
+      },
+      "actions": {
+        "openTerminal": "[Õþëñ ŧëřṁïñàľ ~~]",
+        "backToDock": "[ßàçķ ŧõ ďõçķ ~~]",
+        "browseSessions": "[ßřõŵšë šëššïõñš ~~]",
+        "handBackToAi": "[Ħàñď ƀàçķ ŧõ ÀÏ ~~]",
+        "confirmTakeover": "[Çõñƒïřṁ ŧàķëõṽëř ~~]",
+        "takeOver": "[Ŧàķë õṽëř ~~]",
+        "expandBrowser": "[Ëẋþàñď ŧëřṁïñàľ ƀřõŵšëř ~~]",
+        "collapseBrowser": "[Çõľľàþšë ŧëřṁïñàľ ƀřõŵšëř ~~~]",
+        "expand": "[Ëẋþàñď ~~]",
+        "collapse": "[Çõľľàþšë ~~]",
+        "openTerminalActions": "[Ŧëřṁïñàľ ṁëñü ~~]",
+        "terminalDockActions": "[Ŧëřṁïñàľ ďõçķ àçŧïõñš ~~]",
+        "closeBrowser": "[Çľõšë ƀřõŵšëř ~~]",
+        "renameSession": "[Řëñàṁë šëššïõñ ~~]",
+        "editTitle": "[Ëďïŧ ŧïŧľë ~~]",
+        "duplicateSession": "[Ďüþľïçàŧë šëššïõñ ~~]",
+        "sameCwdShell": "[Šàṁë çŵď àñď šħëľľ ~~]",
+        "newAtProjectRoot": "[Ñëŵ àŧ þřõĵëçŧ řõõŧ ~~]",
+        "newFromCurrentCwd": "[Ñëŵ ƒřõṁ çüřřëñŧ çŵď ~~]",
+        "newFromEditorCwd": "[Ñëŵ ƒřõṁ ëďïŧõř ƒõľďëř ~~]",
+        "currentCwd": "[Çüřřëñŧ çŵď ~~]",
+        "editorFolder": "[Ëďïŧõř ƒõľďëř ~~]",
+        "defaultShell": "[Ďëƒàüľŧ šħëľľ ~~]",
+        "newWithShell": "[Ñëŵ ŵïŧħ šħëľľ ~~]",
+        "interrupt": "[Ïñŧëřřüþŧ ~~]",
+        "stopInput": "[Šŧõþ ïñþüŧ ~~]",
+        "closeSession": "[Çľõšë šëššïõñ ~~]",
+        "archiveSession": "[Àřçħïṽë šëššïõñ ~~]",
+        "hideTerminal": "[Ħïďë ŧëřṁïñàľ ~~]",
+        "dismiss": "[Ďïšṁïšš ~~]",
+        "forceTerminate": "[Ƒõřçë ŧëřṁïñàŧë ~~]",
+        "killProcess": "[Ķïľľ þřõçëšš ~~]"
+      }
+    },
+    "globalIndicator": {
+      "threadCount": "[{{count}} ŧħřëàď{{suffix}} ~~]",
+      "liveCount": "[{{count}} ľïṽë ŧëřṁïñàľ{{suffix}} ~~]",
+      "priority": {
+        "approval": "[Àþþřõṽàľ ñëëďëď ~~]",
+        "waiting": "[Ŵàïŧïñğ ƒõř üšëř ~~]"
+      }
+    },
+    "pendingApproval": {
+      "title": "[Ŧëřṁïñàľ ŵàïŧïñğ ƒõř àþþřõṽàľ ~~~]",
+      "scopeLabel": "[Šçõþë ~~]",
+      "scopeHost": "[Ħõšŧ àççëšš ~~]",
+      "scopeWorkspace": "[Ŵõřķšþàçë ~~]",
+      "directoryLabel": "[Ďïřëçŧõřÿ ~~]",
+      "workspaceRoot": "[ŵõřķšþàçë řõõŧ ~~]"
+    }
+  },
+  "editor": {
+    "fileTree": {
+      "projectFallback": "[Þřõĵëçŧ ~~]",
+      "syncing": "[Šÿñçïñğ ~~]",
+      "openProjectFolder": "[Õþëñ þřõĵëçŧ ƒõľďëř ~~]",
+      "refresh": "[Řëƒřëšħ ƒïľë ŧřëë ~~]",
+      "ariaLabel": "[{{projectName}} ƒïľëš ~~]",
+      "loading": "[Ľõàďïñğ... ~~]",
+      "emptyProject": "[Ëṁþŧÿ þřõĵëçŧ. ~~]",
+      "binaryTitle": "[{{path}} (çàññõŧ õþëñ ƀïñàřÿ ƒïľë) ~~~]"
+    },
+    "emptyState": {
+      "title": "[Šëľëçŧ à ƒïľë ƒřõṁ ŧħë ŧřëë ŧõ õþëñ ïŧ ~~~~]",
+      "shortcutHint": "[Çŧřľ+Š ŧõ šàṽë | çľïçķ ẋ ŧõ çľõšë ŧàƀ ~~~~]"
+    },
+    "loadingPane": "[Ľõàďïñğ... ~~]",
+    "panel": {
+      "thisFile": "[ŧħïš ƒïľë ~~]",
+      "closeDirty": {
+        "title": "[Üñšàṽëď çħàñğëš ~~]",
+        "message": "[Šàṽë çħàñğëš ŧõ {{fileLabel}} ƀëƒõřë çľõšïñğ? ~~~]",
+        "confirm": "[Šàṽë & Çľõšë ~~]",
+        "cancel": "[Ṁõřë Õþŧïõñš ~~]"
+      },
+      "saveFailed": {
+        "title": "[Šàṽë ƒàïľëď ~~]",
+        "message": "[Ŧħë ƒïľë çõüľď ñõŧ ƀë šàṽëď. ~~~]"
+      },
+      "discard": {
+        "title": "[Ďïšçàřď çħàñğëš? ~~]",
+        "message": "[Ďïšçàřď üñšàṽëď çħàñğëš ïñ {{fileLabel}} àñď çľõšë ïŧ? ~~~~]",
+        "confirm": "[Ďïšçàřď Çħàñğëš ~~]",
+        "cancel": "[Ķëëþ Ëďïŧïñğ ~~]"
+      },
+      "formatActionTitle": "[Ƒõřṁàŧ ďõçüṁëñŧ ŵïŧħ ŧħë àçŧïṽë ƒõřṁàŧŧëř řõüŧë (Šħïƒŧ+Àľŧ+Ƒ) ~~~~~~]",
+      "formatUnavailableTitle": "[Ƒõřṁàŧŧïñğ ïš üñàṽàïľàƀľë ƒõř ŧħë çüřřëñŧ ƒïľë ~~~~]",
+      "fixActionTitle": "[Àþþľÿ àüŧõ-ƒïẋàƀľë ïššüëš ƒřõṁ ŧħë àçŧïṽë çõďë-àçŧïõñ þřõṽïďëř ~~~~~~]",
+      "fixUnavailableTitle": "[Çõďë àçŧïõñš àřë üñàṽàïľàƀľë ƒõř ŧħë çüřřëñŧ ƒïľë ~~~~~]",
+      "serviceNotice": {
+        "providerDegraded": "[{{providerLabel}} ïš ďëğřàďëď. Ëďïŧõř ƒëàŧüřëš ṁàÿ ƀë ľïṁïŧëď. ~~~~]",
+        "providerUnavailable": "[{{providerLabel}} ïš üñàṽàïľàƀľë. Ëďïŧõř ƒëàŧüřëš ṁàÿ ƀë ľïṁïŧëď. ~~~~]",
+        "genericUnavailable": "[Šõṁë ëďïŧõř šëřṽïçëš àřë üñàṽàïľàƀľë řïğħŧ ñõŵ. ~~~~]"
+      },
+      "emptyProject": "[Õþëñ à þřõĵëçŧ ƒõľďëř ŧõ üšë ŧħë ëďïŧõř. ~~~~]",
+      "resizeFileTree": "[Řëšïžë ƒïľë ŧřëë ~~]",
+      "fileWatcherCap": "[Ƒïľë ŵàŧçħëř řëàçħëď ďïřëçŧõřÿ çàþ ({{watchedCount}}/{{maxDirectories}}). Šõṁë ƒõľďëřš àřë ñõŧ àçŧïṽëľÿ ŵàŧçħëď ƒõř ëẋŧëřñàľ ëďïŧš. ~~~~~~~~~]",
+      "dismiss": "[Ďïšṁïšš ~~]",
+      "externalChangeDetected": "[Ëẋŧëřñàľ çħàñğë ďëŧëçŧëď ƒõř {{filePath}}. Ÿõüř üñšàṽëď ëďïŧš ŵëřë þřëšëřṽëď. ~~~~~~]",
+      "reloadFromDisk": "[Řëľõàď Ƒřõṁ Ďïšķ ~~]",
+      "resizeMarkdownPreview": "[Řëšïžë ṁàřķďõŵñ þřëṽïëŵ þàñë ~~~]",
+      "errors": {
+        "noProjectOrTabSelected": "[Ñõ þřõĵëçŧ õř ŧàƀ šëľëçŧëď. ~~~]"
+      }
+    },
+    "tabBar": {
+      "openTabsAriaLabel": "[Õþëñ ëďïŧõř ŧàƀš ~~]",
+      "fallbackFileLabel": "[ƒïľë ~~]",
+      "fallbackTabLabel": "[ŧàƀ ~~]",
+      "saveTabAriaLabel": "[Šàṽë {{fileLabel}} ~~]",
+      "unsavedChangesTitle": "[Üñšàṽëď çħàñğëš - çľïçķ ŧõ šàṽë ~~~]",
+      "externalChangedTitle": "[Ëẋŧëřñàľ ƒïľë çħàñğë ďëŧëçŧëď ~~~]",
+      "problemSummaryTitle": "[{{count}} þřõƀľëṁ{{suffix}} ({{error}} ëřřõř{{errorSuffix}}, {{warning}} ŵàřñïñğ{{warningSuffix}}, {{info}} ïñƒõ) ~~~]",
+      "closeTabAriaLabel": "[Çľõšë {{tabLabel}} ~~]",
+      "aiActionsTitle": "[ÀÏ àçŧïõñš ƒõř šëľëçŧëď çõďë ~~~]",
+      "aiDraftHint": "[Ďřàƒŧš ŧõ Çħàŧ üšïñğ çüřřëñŧ šëľëçŧïõñ àñď ñëàřƀÿ çõñŧëẋŧ. ~~~~~]",
+      "preview": "[Þřëṽïëŵ ~~]",
+      "fix": "[Ƒïẋ ~~]",
+      "format": "[Ƒõřṁàŧ ~~]",
+      "auto": "[Àüŧõ ~~]",
+      "togglePreviewTitle": "[Ŧõğğľë ṁàřķďõŵñ þřëṽïëŵ (Çŧřľ/Çṁď+Šħïƒŧ+Ṽ) ~~~~]",
+      "toggleFormatOnSaveTitle": "[Ŧõğğľë ƒõřṁàŧ õñ šàṽë ŵħëñ ŧħë çüřřëñŧ ƒïľë ħàš àñ àçŧïṽë ƒõřṁàŧŧëř řõüŧë ~~~~~~~]",
+      "aiSelection": {
+        "explain": {
+          "label": "[Ëẋþľàïñ ~~]",
+          "title": "[Ëẋþľàïñ šëľëçŧëď çõďë ïñ Çħàŧ ~~~]",
+          "description": "[Ëẋþľàïñ ƀëħàṽïõř, àššüṁþŧïõñš, àñď řïšķš. ~~~~]"
+        },
+        "fix": {
+          "label": "[Ƒïẋ ~~]",
+          "title": "[Ƒïẋ šëľëçŧëď çõďë ïñ Çħàŧ ~~~]",
+          "description": "[Ƒïẋ ƀüğš/ïššüëš ïñ ŧħë šëľëçŧëď çõďë. ~~~~]"
+        },
+        "refactor": {
+          "label": "[Řëƒàçŧõř ~~]",
+          "title": "[Řëƒàçŧõř šëľëçŧëď çõďë ïñ Çħàŧ ~~~]",
+          "description": "[Řëƒàçŧõř ŵħïľë þřëšëřṽïñğ ƀëħàṽïõř. ~~~]"
+        },
+        "tests": {
+          "label": "[Ŧëšŧš ~~]",
+          "title": "[Ğëñëřàŧë ŧëšŧš ƒõř šëľëçŧëď çõďë ïñ Çħàŧ ~~~~]",
+          "description": "[Ŵřïŧë ŧëšŧš ƒõř ŧħë šëľëçŧëď çõďë. ~~~]"
+        }
+      }
+    },
+    "diagnostics": {
+      "currentFile": "[Çüřřëñŧ ƒïľë ~~]",
+      "common": {
+        "expand": "[Ëẋþàñď ~~]",
+        "collapse": "[Çõľľàþšë ~~]"
+      },
+      "filters": {
+        "all": "[Àľľ ~~]",
+        "errors": "[Ëřřõřš ~~]",
+        "warnings": "[Ŵàřñïñğš ~~]",
+        "info": "[Ïñƒõ ~~]"
+      },
+      "severity": {
+        "error": "[Ëřřõř ~~]",
+        "warning": "[Ŵàřñïñğ ~~]",
+        "info": "[Ïñƒõ ~~]",
+        "hint": "[Ħïñŧ ~~]"
+      },
+      "problems": {
+        "title": "[Þřõƀľëṁš ~~]",
+        "errorCount": "[{{count}} ëřřõř{{suffix}} ~~]",
+        "warningCount": "[{{count}} ŵàřñïñğ{{suffix}} ~~]",
+        "infoCount": "[{{count}} ïñƒõ ~~]",
+        "none": "[Ñõ þřõƀľëṁš ~~]",
+        "expandTitle": "[Ëẋþàñď Þřõƀľëṁš þàñëľ ~~]",
+        "collapseTitle": "[Çõľľàþšë Þřõƀľëṁš þàñëľ ~~]",
+        "setDefaultStateTitle": "[Šëŧ Þřõƀľëṁš þàñëľ ďëƒàüľŧ šŧàŧë ~~~]",
+        "defaultCollapsed": "[Ďëƒàüľŧ çõľľàþšëď ~~]",
+        "noMatch": "[Ñõ þřõƀľëṁš ṁàŧçħ ŧħë çüřřëñŧ ƒïľŧëř. ~~~~]",
+        "noneInFile": "[Ñõ þřõƀľëṁš ïñ ŧħïš ƒïľë. ~~~]"
+      },
+      "outline": {
+        "title": "[Õüŧľïñë ~~]",
+        "expandTitle": "[Ëẋþàñď õüŧľïñë ~~]",
+        "collapseTitle": "[Çõľľàþšë õüŧľïñë ~~]",
+        "filterSymbols": "[Ƒïľŧëř šÿṁƀõľš ~~]",
+        "symbolCount": "[{{count}} šÿṁƀõľ{{suffix}} ~~]",
+        "refreshing": "[Řëƒřëšħïñğ... ~~]",
+        "setupTitle": "[Šëŧüþ ~~]",
+        "hintCount": "[{{count}} ħïñŧ{{suffix}} ~~]",
+        "dismissSetupHintTitle": "[Ďïšṁïšš {{actionLabel}} šëŧüþ ħïñŧ ~~]",
+        "unavailableForFileType": "[Õüŧľïñë ïš ñõŧ àṽàïľàƀľë ƒõř ŧħïš ƒïľë ŧÿþë ÿëŧ. ~~~~]",
+        "loadingSymbols": "[Ľõàďïñğ šÿṁƀõľš... ~~]",
+        "noneAvailable": "[Ñõ õüŧľïñë àṽàïľàƀľë. ~~]",
+        "noMatch": "[Ñõ šÿṁƀõľš ṁàŧçħ ŧħë çüřřëñŧ ƒïľŧëř. ~~~]",
+        "noneDetected": "[Ñõ šÿṁƀõľš ďëŧëçŧëď ïñ ŧħïš ƒïľë. ~~~]",
+        "symbolFallback": "[Šÿṁƀõľ ~~]",
+        "messages": {
+          "serviceUnavailable": "[Šÿṁƀõľš àřë üñàṽàïľàƀľë ƀëçàüšë ŧħë ëďïŧõř šëřṽïçë ïš ñõŧ řëàďÿ. ~~~~~~]",
+          "loadFailed": "[Ƒàïľëď ŧõ ľõàď šÿṁƀõľš. ~~]",
+          "realProviderMissing": "[Ŧħïš ƒïľë šŧàÿš šÿñŧàẋ-õñľÿ ƀëçàüšë ñõ řëàľ þřõṽïďëř ïš àṽàïľàƀľë ƒõř ŧħïš ľàñğüàğë. ~~~~~~~]",
+          "formatOnlyLanguage": "[Ŧħïš ľàñğüàğë šŧàÿš šÿñŧàẋ-õñľÿ ïñ ŧħë ëďïŧõř řïğħŧ ñõŵ. ~~~~~]",
+          "missingBinary": "[{{providerLabel}} ŵàš ñõŧ ƒõüñď ïñ ŧħïš þřõĵëçŧ õř õñ ÞÀŦĦ. ~~~~]",
+          "providerUnavailable": "[{{providerLabel}} ïš üñàṽàïľàƀľë ƒõř šÿṁƀõľš ïñ ŧħïš ƒïľë. ~~~~]",
+          "providerDegraded": "[{{providerLabel}} ïš ďëğřàďëď ƒõř šÿṁƀõľš ïñ ŧħïš ƒïľë. ~~~~]",
+          "providerRequestFailed": "[{{providerLabel}} ƒàïľëď ŵħïľë ľõàďïñğ šÿṁƀõľš ƒõř ŧħïš ƒïľë. ~~~~]",
+          "unsupportedFile": "[Õüŧľïñë ïš üñàṽàïľàƀľë ƒõř ŧħïš ƒïľë ŧÿþë. ~~~~]",
+          "unsupported": "[Õüŧľïñë ïš üñàṽàïľàƀľë ƒõř ŧħïš ƒïľë. ~~~~]"
+        }
+      },
+      "setupHints": {
+        "messages": {
+          "formatting": {
+            "realProviderMissing": "[Ƒõřṁàŧŧïñğ řëʠüïřëš à řëàľ þřõṽïďëř ƒõř ŧħïš ƒïľë. ~~~~~]",
+            "biomeConfigRequired": "[Ƒõřṁàŧŧïñğ řëʠüïřëš à þřõĵëçŧ ßïõṁë çõñƒïğ. ~~~~]",
+            "ruffConfigRequired": "[Ƒõřṁàŧŧïñğ řëʠüïřëš à þřõĵëçŧ Řüƒƒ çõñƒïğ. ~~~~]",
+            "clangFormatConfigRequired": "[Ƒõřṁàŧŧïñğ řëʠüïřëš à þřõĵëçŧ .çľàñğ-ƒõřṁàŧ õř _çľàñğ-ƒõřṁàŧ çõñƒïğ. ~~~~~~]",
+            "javaProjectContextRequired": "[Ƒõřṁàŧŧïñğ řëʠüïřëš à Ṁàṽëñ õř Ğřàďľë þřõĵëçŧ çõñŧëẋŧ (þõṁ.ẋṁľ, ƀüïľď.ğřàďľë, ƀüïľď.ğřàďľë.ķŧš, šëŧŧïñğš.ğřàďľë, šëŧŧïñğš.ğřàďľë.ķŧš). ~~~~~~~~~~~~]",
+            "dotnetProjectRequired": "[Ƒõřṁàŧŧïñğ řëʠüïřëš à řëàľ .çšþřõĵ õř .šľñ çõñŧëẋŧ. ~~~~~]",
+            "missingBinary": "[{{providerLabel}} ŵàš ñõŧ ƒõüñď ïñ ŧħïš þřõĵëçŧ õř õñ ÞÀŦĦ. ~~~~]",
+            "providerUnavailable": "[{{providerLabel}} ïš üñàṽàïľàƀľë ƒõř ŧħïš ƒïľë. ~~~]",
+            "providerDegraded": "[{{providerLabel}} ïš ďëğřàďëď ƒõř ŧħïš ƒïľë. ~~~]",
+            "providerRequestFailed": "[{{providerLabel}} ƒàïľëď ŵħïľë šëřṽïñğ ŧħïš ƒïľë. ~~~]",
+            "formatOnlyLanguage": "[Ŧħïš ľàñğüàğë ïš ƒõřṁàŧŧïñğ-õñľÿ řïğħŧ ñõŵ. ~~~~]"
+          },
+          "codeActions": {
+            "realProviderMissing": "[Çõďë àçŧïõñš řëʠüïřë à řëàľ þřõṽïďëř ƒõř ŧħïš ƒïľë. ~~~~~]",
+            "eslintProjectRequired": "[Çõďë àçŧïõñš řëʠüïřë à þřõĵëçŧ-çõñƒïğüřëď ËŠĽïñŧ þřõṽïďëř. ~~~~~]",
+            "ruffConfigRequired": "[Çõďë àçŧïõñš řëʠüïřë à þřõĵëçŧ Řüƒƒ çõñƒïğ. ~~~~]",
+            "clangTidyConfigRequired": "[Çõďë àçŧïõñš řëʠüïřë à þřõĵëçŧ .çľàñğ-ŧïďÿ çõñƒïğ. ~~~~~]",
+            "clangCompileContextRequired": "[Çõďë àçŧïõñš řëʠüïřë çõṁþïľë_çõṁṁàñďš.ĵšõñ õř çõṁþïľë_ƒľàğš.ŧẋŧ. ~~~~~~]",
+            "javaProjectContextRequired": "[Çõďë àçŧïõñš řëʠüïřë à Ṁàṽëñ õř Ğřàďľë þřõĵëçŧ çõñŧëẋŧ (þõṁ.ẋṁľ, ƀüïľď.ğřàďľë, ƀüïľď.ğřàďľë.ķŧš, šëŧŧïñğš.ğřàďľë, šëŧŧïñğš.ğřàďľë.ķŧš). ~~~~~~~~~~~~]",
+            "dotnetProjectRequired": "[Çõďë àçŧïõñš řëʠüïřë à řëàľ .çšþřõĵ õř .šľñ çõñŧëẋŧ. ~~~~~]",
+            "javaNotInstalled": "[À üšàƀľë ĴĎĶ ŵàš ñõŧ ƒõüñď õñ ÞÀŦĦ õř ĴÀṼÀ_ĦÕṀË. ĵďŧľš řëʠüïřëš Ĵàṽà. ~~~~~~]",
+            "dotnetNotInstalled": "[ďõŧñëŧ ŵàš ñõŧ ƒõüñď õñ ÞÀŦĦ. ~~~]",
+            "missingBinary": "[{{providerLabel}} ŵàš ñõŧ ƒõüñď ïñ ŧħïš þřõĵëçŧ õř õñ ÞÀŦĦ. ~~~~]",
+            "providerUnavailable": "[{{providerLabel}} ïš üñàṽàïľàƀľë ƒõř ŧħïš ƒïľë. ~~~]",
+            "providerDegraded": "[{{providerLabel}} ïš ďëğřàďëď ƒõř ŧħïš ƒïľë. ~~~]",
+            "providerRequestFailed": "[{{providerLabel}} ƒàïľëď ŵħïľë šëřṽïñğ ŧħïš ƒïľë. ~~~]",
+            "formatOnlyLanguage": "[Ŧħïš ľàñğüàğë ïš ƒõřṁàŧŧïñğ-õñľÿ řïğħŧ ñõŵ. ~~~~]"
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "[Šëŧŧïñğš ~~]",
+    "navigationTitle": "[Šëŧŧïñğš ñàṽïğàŧïõñ ~~]",
+    "overviewTitle": "[Õṽëřṽïëŵ ~~]",
+    "controls": {
+      "expandAll": "[Ëẋþàñď àľľ ~~]",
+      "collapseAll": "[Çõľľàþšë àľľ ~~]"
+    },
+    "counts": {
+      "sectionOne": "[1 šëçŧïõñ ~~]",
+      "sectionOther": "[{{count}} šëçŧïõñš ~~]",
+      "visibleSectionOne": "[1 ṽïšïƀľë šëçŧïõñ ~~]",
+      "visibleSectionOther": "[{{count}} ṽïšïƀľë šëçŧïõñš ~~]"
+    },
+    "common": {
+      "yes": "[Ÿëš ~~]",
+      "no": "[Ñõ ~~]",
+      "completed": "[ÇÕṀÞĽËŦËĎ ~~]",
+      "inProgress": "[ÏÑ ÞŘÕĞŘËŠŠ ~~]",
+      "ready": "[Řëàďÿ ~~]",
+      "notReady": "[Ñõŧ řëàďÿ ~~]",
+      "savedOnly": "[šàṽëď õñľÿ ~~]",
+      "unknown": "[üñķñõŵñ ~~]",
+      "checking": "[Çħëçķïñğ... ~~]",
+      "disabled": "[Ďïšàƀľëď ~~]"
+    }
+  },
+  "artifacts": {
+    "emptyProject": "[Õþëñ à þřõĵëçŧ ƒõľďëř ŧõ šëë àřŧïƒàçŧ ħïšŧõřÿ. ~~~~]",
+    "trackedFilesTitle": "[Ŧřàçķëď ƒïľëš ~~]",
+    "scope": {
+      "label": "[Àřŧïƒàçŧ šçõþë ~~]",
+      "entireProject": "[Þřõĵëçŧ ~~]",
+      "thisThread": "[Ŧħřëàď ~~]",
+      "resultCount": "[{{count}} ƒïľëš ~~]"
+    },
+    "loadingTrackedFiles": "[Ľõàďïñğ ŧřàçķëď ƒïľëš... ~~]",
+    "emptyTrackedFiles": "[Ñõ ṽëřšïõñëď ƒïľëš ÿëŧ. ÀÏ ƒïľë ŵřïŧëš àñď çõďë šüğğëšŧïõñš ŵïľľ àþþëàř ħëřë. ~~~~~~~]",
+    "deleteRevisionDialog": {
+      "title": "[Ďëľëŧë Řëṽïšïõñ ~~]",
+      "message": "[Ďëľëŧë řëṽ {{rev}} ({{source}}) ƒõř:\n{{filePath}}\n\nŦħïš çàññõŧ ƀë üñďõñë. ~~~~]",
+      "confirm": "[Ďëľëŧë Řëṽïšïõñ ~~]",
+      "cancel": "[Çàñçëľ ~~]"
+    },
+    "deleteHistoryDialog": {
+      "title": "[Ďëľëŧë Řëṽïšïõñ Ħïšŧõřÿ ~~]",
+      "message": "[Ďëľëŧë àľľ řëṽïšïõñ ħïšŧõřÿ ƒõř:\n{{filePath}}\n\nŦħë ƒïľë õñ ďïšķ ïš ÑÕŦ ďëľëŧëď. ~~~~~~]",
+      "confirm": "[Ďëľëŧë Ħïšŧõřÿ ~~]",
+      "cancel": "[Çàñçëľ ~~]"
+    },
+    "selectFile": "[Šëľëçŧ à ƒïľë ŧõ ṽïëŵ ïŧš řëṽïšïõñ ħïšŧõřÿ. ~~~~]",
+    "labels": {
+      "fromBase": "[Ƒřõṁ (ƀàšë) ~~]",
+      "toHead": "[Ŧõ (ħëàď) ~~]",
+      "base": "[ƀàšë ~~]",
+      "head": "[ħëàď ~~]"
+    },
+    "deleteRevisionTitle": "[Ďëľëŧë ŧħïš řëṽïšïõñ ~~]",
+    "deleteFileHistoryTitle": "[Ďëľëŧë àľľ ħïšŧõřÿ ƒõř ŧħïš ƒïľë ~~~]",
+    "selectRevisions": "[Šëľëçŧ řëṽïšïõñš àƀõṽë ŧõ çõṁþàřë. ~~~]",
+    "revisionSource": {
+      "baseline": "[ƀàšëľïñë ~~]",
+      "rollback": "[řõľľƀàçķ ~~]",
+      "suggestion": "[šüğğëšŧïõñ ~~]",
+      "aiWrite": "[ÀÏ ŵřïŧë ~~]"
+    },
+    "revisionOrigin": {
+      "thread": "[Ŧħřëàď {{threadTitle}} ~~]",
+      "deletedThread": "[Ďëľëŧëď ŧħřëàď {{threadTitle}} · {{date}} ~~]"
+    },
+    "suggestionBadge": "[šüğğëšŧïõñ ~~]",
+    "revisionCountOne": "[{{count}} řëṽ ~~]",
+    "revisionCountOther": "[{{count}} řëṽš ~~]",
+    "footer": {
+      "suggestionPending": "[Ŧħïš řëṽïšïõñ ħàš ñõŧ ƀëëñ ŵřïŧŧëñ ŧõ ďïšķ ÿëŧ ~~~~]",
+      "apply": "[Àþþľÿ ŧõ ďïšķ ~~]",
+      "applying": "[Àþþľÿïñğ... ~~]",
+      "rollbackNotice": "[Řõľľƀàçķ ŵïľľ řëšŧõřë řëṽ {{rev}} ŧõ ďïšķ ~~~]",
+      "rollback": "[Řõľľƀàçķ ŧõ ƀàšë ~~]",
+      "rollingBack": "[Řõľľïñğ ƀàçķ... ~~]"
+    },
+    "picker": {
+      "placeholder": "[- {{label}} - ~~]",
+      "empty": "[- ñëŵ ƒïľë (ëṁþŧÿ) - ~~]",
+      "notOnDisk": "[ñõŧ õñ ďïšķ ~~]",
+      "option": "[řëṽ {{rev}} - {{source}}{{notOnDisk}} - {{date}} ~~]",
+      "optionWithProvenance": "[řëṽ {{rev}} - {{source}}{{notOnDisk}} - {{date}} · {{provenance}} ~~]"
+    },
+    "action": {
+      "rollbackSuccess": "[Řõľľëď ƀàçķ ŧõ řëṽ {{rev}}. Ñëŵ řëṽ {{newRev}} řëçõřďëď. ~~~~]",
+      "rollbackFailed": "[Řõľľƀàçķ ƒàïľëď. ~~]",
+      "applySuccess": "[Àþþľïëď ŧõ ďïšķ. Ñëŵ řëṽ {{newRev}} řëçõřďëď. ~~~]",
+      "applyFailed": "[Àþþľÿ ƒàïľëď. ~~]",
+      "revisionDeleted": "[Řëṽ {{rev}} ďëľëŧëď. ~~]"
+    },
+    "diffLoading": "[Ľõàďïñğ ďïƒƒ... ~~]",
+    "diffTimeout": "[Ďïƒƒ řüñŧïṁë ƒàïľëď ŧõ ïñïŧïàľïžë. Řëľõàď ŧħë àþþ. ~~~~~]"
+  },
+  "workspaceDisposal": {
+    "activeMessage": "[Àçŧïṽë ŵõřķ ṁüšŧ šŧõþ ƀëƒõřë ŧħïš ďàŧà çàñ ƀë řëṁõṽëď. ~~~~~]",
+    "threadDeleteActiveMessage": "[Àçŧïṽë ŵõřķ ïñ ŧħïš [[canon:thread]] ŵïľľ šŧõþ ƀëƒõřë ďëľëŧïõñ. ~~~~~~]",
+    "stopAndDelete": "[Šŧõþ àñď ďëľëŧë ~~]",
+    "stopAndRemove": "[Šŧõþ àñď řëṁõṽë ~~]",
+    "stopAndClear": "[Šŧõþ àñď çľëàř ~~]",
+    "stopAndArchive": "[Šŧõþ àñď àřçħïṽë ~~]"
+  },
+  "threadDrawer": {
+    "title": "[Ŧħřëàďš ~~]",
+    "threadCount": "[{{count}} ŧħřëàďš ~~]",
+    "previewRole": {
+      "user": "[Ÿõü ~~]",
+      "assistant": "[ÀÏ ~~]"
+    },
+    "activity": {
+      "needsInput": "[Ñëëďš ïñþüŧ ~~]",
+      "sessionFailed": "[Ƒàïľëď ~~]",
+      "sessionCompleted": "[Çõṁþľëŧëď ~~]",
+      "sessionActive": "[Šëššïõñ àçŧïṽë ~~]",
+      "sessionStale": "[Šëššïõñ šŧàľë ~~]",
+      "pendingApproval": "[Þëñďïñğ àþþřõṽàľ ~~]",
+      "sessionBlocked": "[Šëššïõñ ƀľõçķëď ~~]",
+      "idle": "[Ïďľë ~~]",
+      "pendingBadge": "[Þëñďïñğ ~~]",
+      "blockedBadge": "[ßľõçķëď ~~]"
+    },
+    "fallbackTitle": "[Üñŧïŧľëď ŧħřëàď ~~]",
+    "renameTitle": "[Řëñàṁë ŧħřëàď ~~]",
+    "deleteTitle": "[Ďëľëŧë ŧħřëàď ~~]",
+    "searchPlaceholder": "[Šëàřçħ ŧħřëàďš... ~~]",
+    "newThreadTitle": "[Ñëŵ ŧħřëàď ~~]",
+    "newThread": "[Ñëŵ ~~]",
+    "emptySearch": "[Ñõ ŧħřëàďš ṁàŧçħ ÿõüř šëàřçħ. ~~~]",
+    "empty": "[Ñõ ŧħřëàďš ÿëŧ. ~~]",
+    "createThread": "[Çřëàŧë à ŧħřëàď ~~]",
+    "loadMore": "[Ľõàď ṁõřë ŧħřëàďš ({{count}} ħïďďëñ) ~~~]",
+    "resizeTitle": "[Ďřàğ ŧõ řëšïžë ~~]"
+  },
+  "backgroundJobs": {
+    "status": {
+      "polling": "[Þõľľïñğ ~~]",
+      "cancelRequested": "[Çàñçëľ řëʠüëšŧëď ~~]",
+      "completed": "[Çõṁþľëŧëď ~~]",
+      "failed": "[Ƒàïľëď ~~]",
+      "cancelled": "[Çàñçëľľëď ~~]",
+      "orphaned": "[Õřþħàñëď ~~]",
+      "queued": "[Ǫüëüëď ~~]"
+    },
+    "title": "[[canon:background_jobs]]",
+    "runningJobs": "[Řüññïñğ ĵõƀš: {{count}} ~~]",
+    "updated": "[Üþďàŧëď {{time}} ~~]",
+    "refresh": "[Řëƒřëšħ ~~]",
+    "close": "[Çľõšë ~~]",
+    "description": "[Šŧõþ ľõñğ-řüññïñğ ľõçàľ çõṁṁàñďš õř ďëŧàçħëď OpenAI ƀàçķğřõüñď řëšþõñšëš ŵħëñ ŧħëÿ àřë ñõ ľõñğëř ñëëďëď. ~~~~~~~~~]",
+    "stopAll": "[Šŧõþ Àľľ ~~]",
+    "stopping": "[Šŧõþþïñğ... ~~]",
+    "loading": "[Ľõàďïñğ ƀàçķğřõüñď ĵõƀš... ~~~]",
+    "empty": "[Ñõ ƀàçķğřõüñď ĵõƀš àřë çüřřëñŧľÿ řüññïñğ. ~~~~]",
+    "table": {
+      "job": "[Ĵõƀ ~~]",
+      "task": "[Ŧàšķ ~~]",
+      "runtime": "[Řüñŧïṁë ~~]",
+      "context": "[Çõñŧëẋŧ ~~]",
+      "action": "[Àçŧïõñ ~~]"
+    },
+    "statusLabel": "[šŧàŧüš: {{status}} ~~]",
+    "openAiResponse": "[OpenAI ƀàçķğřõüñď řëšþõñšë ~~~]",
+    "detachedOpenAiResponse": "[Ďëŧàçħëď OpenAI řëšþõñšë ~~]",
+    "emptyCommand": "[(ëṁþŧÿ) ~~]",
+    "stop": "[Šŧõþ ~~]"
+  },
+  "chat": {
+    "planDirection": {
+      "questionNavigation": "[Þļåñ ðîŕéçţîöñ qüéšţîöñš]",
+      "goToQuestion": "[Ĝö ţö qüéšţîöñ {{count}}]",
+      "continue": "[Çöñţîñüé]",
+      "changeAnswer": "[Çħàñğë àñšẅëř]",
+      "customPlaceholder": "[Öř ďëšçřïɓë àñöŧħëř ďïřëçŧïöñ]",
+      "customAnswer": "[Çüšŧöɱ ďïřëçŧïöñ àñšẅëř]",
+      "recommendedShort": "[Řëçöɱɱëñďëď]",
+      "synthesizing": "[Üþďàŧïñğ ŧħë ďïřëçŧïöñ ƒřöɱ ýöüř çħöïçëš…]",
+      "synthesisFailed": "[Ŧħë ďïřëçŧïöñ çöüļď ñöŧ ɓë üþďàŧëď.]",
+      "retry": "[Řëŧřý]",
+      "retryDraft": "[Řëŧřý þļàñ ďřàƒŧ]",
+      "reviewChoices": "[Řëṽïëẅ çħöïçëš]",
+      "change": "[Çħàñğë ďïřëçŧïöñ]",
+      "changeFeedback": "[Ďïřëçŧïöñ ƒëëďɓàçķ]",
+      "changePlaceholder": "[Ẅħàŧ šħöüļď çħàñğë ïñ ŧħïš ďïřëçŧïöñ?]",
+      "updateDirection": "[Üþďàŧë ďïřëçŧïöñ]",
+      "creating": "[Çŕéåţîñĝ ţhé måñåĝéð Måŕķðöŵñ þļåñ…]",
+      "recommended": "[Ŕéçömméñðéð:]",
+      "recommendationDetail": "[{{profile}} - {{rationale}}]",
+      "create": "[Çŕéåţé þļåñ]",
+      "profileMenu": "[Þļåñ åüţhöŕîñĝ þŕöƒîļéš]",
+      "profiles": {
+        "implementation": "[Îmþļéméñţåţîöñ þļåñ]",
+        "technicalDesign": "[Ţéçhñîçåļ ðéšîĝñ]",
+        "investigation": "[Îñvéšţîĝåţîöñ þļåñ]",
+        "deepImplementation": "[Ðééþ îmþļéméñţåţîöñ þļåñ]"
+      },
+      "errors": {
+        "answerSave": "The direction answer could not be saved.",
+        "profileUnavailable": "The selected plan profile was unavailable.",
+        "changeFailed": "The direction feedback could not be saved.",
+        "retryFailed": "The direction update could not be retried."
+      }
+    },
+    "emptyState": {
+      "title": "[Ñõ ṁëššàğëš ÿëŧ ~~]",
+      "planDescription": "[[[canon:plan]] ṁõďë ïš àçŧïṽë. [[canon:ask]] ƒõř à šŧřüçŧüřëď þľàñ, ŧħëñ üšë ïñŧëřàçŧïṽë çħõïçëš ïñ ŧħë řëšþõñšë ŧõ ğüïďë ŧħë þàŧħ. ~~~~~~~~~~~]",
+      "thinkingDescription": "[[[canon:thinking]] ṁõďë ïš àçŧïṽë. ßřàïñšŧõřṁ õþŧïõñš àñď ŧřàďëõƒƒš ħëřë, ŧħëñ šŵïŧçħ ŧõ [[canon:execute]] ŵħëñ řëàďÿ ŧõ ïṁþľëṁëñŧ. ~~~~~~~~~~~]",
+      "executeDescription": "[Šëľëçŧ à þřõṽïďëř àñď šŧàřŧ çħàŧŧïñğ. Üšë ŧħë ħëàďëř [[canon:permission_mode]] çõñŧřõľ ŧõ šŵïŧçħ ƀëŧŵëëñ [[canon:ask]], [[canon:autonomy]], àñď [[canon:full_access]] ƒõř ëẋëçüŧë ŧüřñš. ~~~~~~~~~~~~~~~~]",
+      "needsProviderSetup": "[Çõññëçŧ OpenAI àççõüñŧ àüŧħ õř àďď àñ API ķëÿ ïñ Šëŧŧïñğš, ŧħëñ šëľëçŧ à þřõṽïďëř ŧõ šŧàřŧ. ~~~~~~~~]"
+    },
+    "composer": {
+      "placeholder": {
+        "selectProvider": "[Šëľëçŧ à þřõṽïďëř ŧõ šŧàřŧ... ~~~]",
+        "selectThread": "[Šëľëçŧ õř çřëàŧë à ŧħřëàď ŧõ çõñŧïñüë... ~~~~]",
+        "streaming": "[ÀÏ ïš ŧħïñķïñğ... ~~]",
+        "plan": "[Àšķ ƒõř à þľàñ... (Ëñŧëř ŧõ šëñď, Šħïƒŧ+Ëñŧëř ƒõř ñëŵľïñë) ~~~~~]",
+        "thinking": "[ßřàïñšŧõřṁ ïďëàš, ŧřàďëõƒƒš, àñď ďïřëçŧïõñ... (Ëñŧëř ŧõ šëñď, Šħïƒŧ+Ëñŧëř ƒõř ñëŵľïñë) ~~~~~~~~]",
+        "execute": "[Àšķ àñÿŧħïñğ àƀõüŧ ÿõüř þřõĵëçŧ... (Ëñŧëř ŧõ šëñď, Šħïƒŧ+Ëñŧëř ƒõř ñëŵľïñë) ~~~~~~~]"
+      },
+      "blockLabels": {
+        "code": "[Çõďë ~~]",
+        "text": "[Ŧëẋŧ ~~]"
+      },
+      "codeLanguage": "[Çõďë ľàñğüàğë ~~]",
+      "openAdvancedEditor": "[Õþëñ àďṽàñçëď çõďë ëďïŧõř ~~~]",
+      "advanced": "[Àďṽàñçëď ~~]",
+      "removeBlock": "[Řëṁõṽë ƀľõçķ ~~]",
+      "removeCodeBlock": "[Řëṁõṽë çõďë ƀľõçķ ~~]",
+      "removeTextBlock": "[Řëṁõṽë ŧëẋŧ ƀľõçķ ~~]",
+      "codePlaceholder": "[Çõďë... ~~]",
+      "insertSnippet": "[Ïñšëřŧ šñïþþëŧ ~~]",
+      "codeSnippet": "[Çõďë šñïþþëŧ ~~]",
+      "textSnippet": "[Ŧëẋŧ šñïþþëŧ ~~]"
+    },
+    "controlRail": {
+      "quickActionsTitle": "[[canon:quick_actions]]",
+      "refreshModels": "[Řëƒřëšħ ṁõďëľš ~~]",
+      "refreshingModels": "[Řëƒřëšħïñğ ṁõďëľš ~~]",
+      "refreshing": "[Řëƒřëšħïñğ... ~~]",
+      "openBackgroundJobs": "[Õþëñ [[canon:background_jobs]] ~~~]",
+      "backgroundJobs": "[[canon:background_jobs]]",
+      "agents": "[Àğëñŧš ~~]",
+      "directAgentsMenu": "[Àğëñŧ šëľëçŧïõñ ṁëñü ~~]",
+      "moreActions": "[Ṁõřë àçŧïõñš ~~]",
+      "stopResponse": "[Šŧõþ řëšþõñšë ~~]",
+      "sendMessage": "[Šëñď ṁëššàğë ~~]",
+      "sendEnter": "[Šëñď (Ëñŧëř) ~~]",
+      "attach": {
+        "filesImagesDisabled": "[Àŧŧàçħ ƒïľëš (ïṁàğëš ďïšàƀľëď ƒõř ŧħïš ṁõďëľ) ~~~~]",
+        "images": "[Àŧŧàçħ ïṁàğëš ~~]",
+        "files": "[Àŧŧàçħ ƒïľëš ~~]"
+      },
+      "collaborationMode": {
+        "defaultLabel": "[[canon:native_collaboration_mode]]",
+        "buttonTitle": "[[[canon:native_collaboration_mode]]: {{value}} ~~~]",
+        "optionsAriaLabel": "[[[canon:native_collaboration_mode]] õþŧïõñš ~~~~]"
+      },
+      "reasoningEffort": {
+        "providerDefault": "[Þřõṽïďëř ďëƒàüľŧ ~~]",
+        "xhigh": "[Ëẋŧřà Ħïğħ ~~]",
+        "buttonTitle": "[[[canon:reasoning_effort]]: {{value}}. Çõñŧřõľš ħõŵ ṁüçħ řëàšõñïñğ ŧħë ṁõďëľ àþþľïëš. ~~~~~~~]",
+        "buttonAriaLabel": "[[[canon:reasoning_effort]]: {{value}} ~~~]",
+        "optionsAriaLabel": "[[[canon:reasoning_effort]] õþŧïõñš ~~~]"
+      },
+      "processingMode": {
+        "fast": "[Ƒàšŧ ~~]",
+        "standard": "[Šŧàñďàřď ~~]",
+        "enable": "[Üšë ƒàšŧëř þřõçëššïñğ ~~]",
+        "disable": "[Üšë šŧàñďàřď þřõçëššïñğ ~~]",
+        "pricingNote": "[Ƒàšŧëř þřõçëššïñğ ṁàÿ üšë þřëṁïüṁ þřïçïñğ. ~~~~]",
+        "returnedMode": "[Ľàšŧ řëšþõñšë üšëď {{mode}} þřõçëššïñğ. ~~~]"
+      },
+      "rateLimits": {
+        "title": "[[canon:rate_limits]]",
+        "remainingTitle": "[OpenAI àççõüñŧ řàŧë ľïṁïŧš řëṁàïñïñğ ~~~]",
+        "weekly": "[Ŵëëķľÿ ~~]",
+        "primary": "[Þřïṁàřÿ ~~]",
+        "secondary": "[Šëçõñďàřÿ ~~]"
+      }
+    },
+    "moaToggle": {
+      "activeTitle": "[[[canon:moa]] ṁõďë àçŧïṽë - çľïçķ ŧõ ďïšàƀľë ~~~~]",
+      "enableTitle": "[Ëñàƀľë [[canon:moa]] (Ṁüľŧï-Àğëñŧ Õřçħëšŧřàŧïõñ) ~~~~]"
+    },
+    "threadModals": {
+      "common": {
+        "close": "[Çľõšë ~~]",
+        "closeModal": "[Çľõšë [[canon:thread]] ṁõďàľ ~~~]",
+        "cancel": "[Çàñçëľ ~~]"
+      },
+      "create": {
+        "title": "[Çřëàŧë [[canon:thread]] ~~]",
+        "description": "[Ëñŧëř à ŧïŧľë ƒõř ŧħë ñëŵ çõñṽëřšàŧïõñ [[canon:thread]]. ~~~~~]",
+        "placeholder": "[Ñëŵ [[canon:thread]] ~~]",
+        "confirm": "[Çřëàŧë ~~]"
+      },
+      "rename": {
+        "title": "[Řëñàṁë [[canon:thread]] ~~]",
+        "description": "[Üþďàŧë ŧħë ŧïŧľë ƒõř ŧħë çüřřëñŧ çõñṽëřšàŧïõñ [[canon:thread]]. ~~~~~~]",
+        "placeholder": "[[[canon:thread]] ŧïŧľë ~~]",
+        "confirm": "[Šàṽë ~~]"
+      },
+      "clear": {
+        "deleteTitle": "[Ďëľëŧë [[canon:thread]]? ~~]",
+        "deleteMessage": "[Ŧħïš [[canon:thread]]{{threadTitle}} ŵïľľ ƀë řëṁõṽëď ƒřõṁ ADDOM. Þřõĵëçŧ Ṁëṁõřÿ àñď Àřŧïƒàçŧš řëṁàïñ àṽàïľàƀľë, àñď ñõ þřõĵëçŧ ƒïľëš àřë çħàñğëď. ~~~~~~~~~~~]",
+        "deleteConfirm": "[Ďëľëŧë [[canon:thread]] ~~]"
+      }
+    },
+    "providerSwitchContextBanner": {
+      "title": "[Þřõṽïďëř/ṁõďëľ çħàñğëď ~~]",
+      "previousProvider": "[þřëṽïõüš þřõṽïďëř ~~]",
+      "newProvider": "[ñëŵ þřõṽïďëř ~~]",
+      "movedFrom": "[Ṁõṽëď ƒřõṁ ~~]",
+      "movedTo": "[ŧõ ~~]",
+      "continuityHint": "[Ïñĵëçŧ çõñŧëẋŧ ŧõ þřëšëřṽë þřõĵëçŧ çõñŧïñüïŧÿ. ~~~~]",
+      "injectMemory": "[Ṁëṁõřÿ ~~]",
+      "injectArtifacts": "[[canon:artifacts]]",
+      "injectBoth": "[Ïñĵëçŧ çõñŧëẋŧ ~~]",
+      "dismiss": "[Ďïšṁïšš ~~]"
+    },
+    "contextMeter": {
+      "toggleDetails": "[Ŧõğğľë çõñŧëẋŧ ďëŧàïľš ~~]",
+      "expandDetails": "[Ëẋþàñď çõñŧëẋŧ ṁëŧëř ďëŧàïľš ~~~]",
+      "collapseDetails": "[Çõľľàþšë çõñŧëẋŧ ṁëŧëř ďëŧàïľš ~~~]",
+      "visibleMetrics": "[Ṽïšïƀľë Ṁëŧřïçš ~~]",
+      "chooseVisibleMetrics": "[Çħõõšë ṽïšïƀľë ṁëŧřïçš ~~]",
+      "showAll": "[Šħõŵ àľľ ~~]",
+      "hideAll": "[Ħïďë àľľ ~~]",
+      "noMetricsSelected": "[Ñõ ṁëŧřïçš šëľëçŧëď. ~~]",
+      "title": {
+        "available": "[Ľàŧëšŧ ŧüřñ {{turnTokens}}/{{modelLimit}} ŧõķëñš ({{percent}}%) ~~]",
+        "unavailable": "[Ľàŧëšŧ ŧüřñ üšàğë üñàṽàïľàƀľë ({{modelLimit}} ŧõķëñ ľïṁïŧ) ~~~~]",
+        "limitUnavailable": "[Çõñŧëẋŧ ľïṁïŧ üñàṽàïľàƀľë ƒõř ŧħïš ṁõďëľ ~~~~]",
+        "contextLeftAvailable": "[Çõñŧëẋŧ ľëƒŧ {{remaining}}/{{modelLimit}} ŧõķëñš ({{percent}}%) ~~~]",
+        "contextLeftFallback": "[Çõñŧëẋŧ ľëƒŧ {{remaining}}/{{modelLimit}} ŧõķëñš ({{percent}}%, ëṁþŧÿ ŧħřëàď) ~~~~]",
+        "contextLeftUnavailable": "[Çõñŧëẋŧ ľëƒŧ üñàṽàïľàƀľë ({{modelLimit}} ŧõķëñ ľïṁïŧ; ŧħřëàď õççüþàñçÿ üñàṽàïľàƀľë) ~~~~~~]",
+        "contextLeftRecalculating": "[Çõñŧëẋŧ ľëƒŧ řëçàľçüľàŧïñğ àƒŧëř çõṁþàçŧïõñ ({{modelLimit}} ŧõķëñ ľïṁïŧ) ~~~~~]"
+      },
+      "values": {
+        "left": "[ľëƒŧ ~~]",
+        "occupancyUnavailable": "[ŧħřëàď õççüþàñçÿ üñàṽàïľàƀľë ~~~]",
+        "limitUnknown": "[ľïṁïŧ üñķñõŵñ ~~]",
+        "notAvailable": "[ñ/à ~~]",
+        "recalculating": "[řëçàľçüľàŧïñğ... ~~]"
+      },
+      "metrics": {
+        "used": "[Ŧħřëàď õçç. ~~]",
+        "usedEstimated": "[Ŧħřëàď õçç. (ëšŧ.) ~~]",
+        "usedMapped": "[Ŧħřëàď õçç. (ṁàþþëď) ~~]",
+        "remaining": "[Çõñŧëẋŧ ľëƒŧ ~~]",
+        "limit": "[Ľïṁïŧ ~~]",
+        "turn": "[Ľàŧëšŧ ŧüřñ ~~]",
+        "spendRoll": "[Šëššïõñ šþëñď ~~]",
+        "inputNoCache": "[Ïñþüŧ (ñõ çàçħë) ~~]",
+        "cacheRead": "[Çàçħë řëàď ~~]",
+        "cacheWrite": "[Çàçħë ŵřïŧë ~~]",
+        "turnEstTok": "[Ŧüřñ ëšŧ ŧõķ ~~]",
+        "turnEstUsd": "[Ŧüřñ ëšŧ üšď ~~]",
+        "costConf": "[Çõšŧ çõñƒ ~~]",
+        "continuity": "[Çõñŧïñüïŧÿ ~~]",
+        "packet": "[Þàçķëŧ ~~]",
+        "drift": "[Ďřïƒŧ ~~]",
+        "compactionDelta": "[Çõṁþàçŧïõñ ďëľŧà ~~]"
+      }
+    },
+    "cursor": {
+      "fullAccessRequired": "[Çüřšõř řüñš õñľÿ ŵïŧħ Ƒüľľ Àççëšš. ~~~]",
+      "useFullAccess": "[Üšë Ƒüľľ Àççëšš ~~]"
+    },
+    "composerArea": {
+      "selectProvider": "[Šëľëçŧ à þřõṽïďëř ƀëľõŵ ŧõ šŧàřŧ çħàŧŧïñğ. ~~~~]",
+      "selectThread": "[Šëľëçŧ õř çřëàŧë à ŧħřëàď ƀëƒõřë šëñďïñğ ṁëššàğëš. ~~~~~]",
+      "selectedModelMissing": "[Šëľëçŧëď ṁõďëľ ṁàÿ ƀë üñàṽàïľàƀľë. Řëƒřëšħ çüřàŧëď ṁõďëľš ƒřõṁ ŧħë àçŧïõñš ṁëñü. ~~~~~~~]",
+      "addApiKey": "[Àďď àñ API ķëÿ ïñ Šëŧŧïñğš ŧõ šŧàřŧ. ~~~]",
+      "switchToExecute": "[Šŵïŧçħ ŧõ [[canon:execute]] ~~~]",
+      "imagesDisabled": "[Ïṁàğëš àřë ďïšàƀľëď ƒõř ŧħïš ṁõďëľ. Ƒïľë àŧŧàçħṁëñŧš řëṁàïñ ëñàƀľëď. ~~~~~~]",
+      "pipeline": {
+        "stepRunning": "[Šŧëþ {{currentStep}}/{{totalSteps}}: {{stepName}} ~~]",
+        "completed": "[Þïþëľïñë çõṁþľëŧë ~~]",
+        "failedAt": "[Þïþëľïñë ƒàïľëď àŧ {{stepName}} ~~]",
+        "cancelled": "[Þïþëľïñë çàñçëľľëď ~~]",
+        "starting": "[Šŧàřŧïñğ þïþëľïñë ({{totalSteps}} šŧëþš)... ~~~]"
+      },
+      "council": {
+        "completed": "[Çõüñçïľ çõṁþľëŧë ({{successCount}}/{{memberCount}} šüççëššƒüľ) ~~~]",
+        "failed": "[Çõüñçïľ ƒàïľëď ~~]",
+        "cancelled": "[Çõüñçïľ çàñçëľľëď ~~]",
+        "running": "[Çõüñçïľ řüññïñğ ({{memberCount}} ṁëṁƀëř{{suffix}})... ~~~]"
+      }
+    },
+    "permissionMode": {
+      "planActive": "[[[canon:plan]] ṁõďë: řëšëàřçħ àñď þľàñ ŧõõľš àřë àṽàïľàƀľë; þřõĵëçŧ çħàñğëš àřë ƀľõçķëď. ~~~~~~~~]",
+      "thinkingActive": "[[[canon:thinking]] ṁõďë: řëàď àñď řëšëàřçħ ŧõõľš àřë àṽàïľàƀľë; þřõĵëçŧ çħàñğëš àřë ƀľõçķëď. ~~~~~~~~]",
+      "planDormant": "[[[canon:plan]] ṁõďë ďïšàƀľëš ŧõõľ ëẋëçüŧïõñ ƒõř ŧħïš ŧüřñ. ~~~~~]",
+      "thinkingDormant": "[[[canon:thinking]] ṁõďë ďïšàƀľëš ŧõõľ ëẋëçüŧïõñ ƒõř ŧħïš ŧüřñ. ~~~~~~]",
+      "label": "[Þëřṁïššïõñ ~~]",
+      "groupAriaLabel": "[Þëřṁïššïõñ ṁõďë ~~]",
+      "optionsAriaLabel": "[Þëřṁïššïõñ ṁõďë õþŧïõñš ~~]",
+      "helpers": {
+        "ask": "[Þřõṁþŧ ƀëƒõřë řïšķÿ àçŧïõñš ~~~]",
+        "autonomy": "[Àçŧ ïñšïďë ŵõřķšþàçë ğüàřďřàïľš ~~~]",
+        "fullAccess": "[Ħõšŧ-ľëṽëľ ŧõõľ ëẋëçüŧïõñ ~~~]"
+      }
+    },
+    "dispatchConfirmation": {
+      "dispatchFailed": "[Ďïšþàŧçħ ƒàïľëď. ~~]",
+      "executed": "[Ďïšþàŧçħ Ëẋëçüŧëď ~~]",
+      "executedDescription": "[{{count}} àğëñŧ{{suffix}} ďïšþàŧçħëď. Řëšüľŧš ŵïľľ àþþëàř ƀëľõŵ àš àğëñŧš çõṁþľëŧë. ~~~~~~]",
+      "failed": "[Ďïšþàŧçħ Ƒàïľëď ~~]",
+      "unknownError": "[Üñķñõŵñ ëřřõř. ~~]",
+      "retry": "[Řëŧřÿ ~~]",
+      "title": "[Ŧàšķ Ďïšþàŧçħ Þľàñ ~~]",
+      "selected": "[{{selected}}/{{total}} šëľëçŧëď ~~]",
+      "dispatching": "[Ďïšþàŧçħïñğ... ~~]",
+      "executeTasks": "[Ëẋëçüŧë {{count}} ŧàšķ{{suffix}} ~~]"
+    },
+    "questionUser": {
+      "clarificationNeeded": "[Çľàřïƒïçàŧïõñ Ñëëďëď ~~]",
+      "waitingOnYou": "[Ŵàïŧïñğ Õñ Ÿõü ~~]",
+      "recommended": "[Řëçõṁṁëñďëď ~~]",
+      "yourAnswer": "[Ÿõüř àñšŵëř ~~]",
+      "answerPlaceholder": "[Ŧÿþë ÿõüř àñšŵëř… ~~]",
+      "answerHint": "[Šëñď à ʠüïçķ àñšŵëř ħëřë, õř ķëëþ ëďïŧïñğ ïñ ŧħë çõṁþõšëř ƀëľõŵ. ~~~~~~]",
+      "sending": "[Šëñďïñğ... ~~]",
+      "sendAnswer": "[Šëñď ~~]",
+      "sendAnswerTitle": "[Šëñď àñšŵëř (Ëñŧëř) ~~]"
+    },
+    "mcpElicitation": {
+      "sendFailed": "[Çõüľď ñõŧ šëñď ŧħïš řëšþõñšë. ~~~]"
+    },
+    "diff": {
+      "addedLine": "[Àďďëď ľïñë ~~]",
+      "removedLine": "[Řëṁõṽëď ľïñë ~~]"
+    },
+    "providerTerms": {
+      "providerFallback": "[ŧħïš þřõṽïďëř ~~]",
+      "title": "[ßëƒõřë üšïñğ {{providerName}} ~~]",
+      "lead": "[Ÿõü'řë řëšþõñšïƀľë ƒõř ŧħïš þřõṽïďëř'š ŧëřṁš. Þřõṁþŧš àñď ŧõõľ àçŧïṽïŧÿ çàñ ľëàṽë ŧħïš ṁàçħïñë. ~~~~~~~~]",
+      "cancel": "[Çàñçëľ ~~]",
+      "openTerms": "[Õþëñ ŧëřṁš ~~]",
+      "continue": "[Çõñŧïñüë ~~]"
+    },
+    "runbook": {
+      "status": {
+        "cancelled": "[çàñçëľľëď ~~]",
+        "finishedWithErrors": "[ƒïñïšħëď ŵïŧħ ëřřõřš ~~]",
+        "finishedWithWarnings": "[ƒïñïšħëď ŵïŧħ ŵàřñïñğš ~~]",
+        "finished": "[ƒïñïšħëď ~~]",
+        "running": "[řüññïñğ ~~]"
+      },
+      "filters": {
+        "all": "[Àľľ ~~]",
+        "commands": "[Çõṁṁàñďš ~~]",
+        "usage": "[Üšàğë ~~]",
+        "reasoning": "[Řëàšõñïñğ ~~]",
+        "approvals": "[Àþþřõṽàľš ~~]"
+      },
+      "aria": {
+        "collapse": "[Çõľľàþšë ŧüřñ řüñƀõõķ ~~]",
+        "expand": "[Ëẋþàñď ŧüřñ řüñƀõõķ ~~]"
+      },
+      "summary": {
+        "actions": "[àçŧïõñš {{count}} ~~]",
+        "commands": "[çõṁṁàñďš {{count}} ~~]",
+        "files": "[ƒïľëš {{count}} ~~]",
+        "usage": "[üšàğë {{count}} ~~]"
+      },
+      "sections": {
+        "actions": "[Àçŧïõñš ~~]",
+        "commands": "[Çõṁṁàñďš ~~]",
+        "usage": "[Üšàğë ~~]"
+      }
+    },
+    "fileChanges": {
+      "header": "[Ƒïľëš çħàñğëď: {{count}} ~~]",
+      "unknownFile": "[Üñķñõŵñ ƒïľë ~~]",
+      "updatedAgo": "[üþďàŧëď {{time}} ~~]",
+      "changeType": {
+        "applied": "[Àþþľïëď ~~]",
+        "modified": "[Ṁõďïƒïëď ~~]",
+        "edited": "[Ëďïŧëď ~~]",
+        "deleted": "[Ďëľëŧëď ~~]",
+        "renamed": "[Řëñàṁëď ~~]",
+        "rolledBack": "[Řõľľëď ßàçķ ~~]",
+        "created": "[Çřëàŧëď ~~]"
+      },
+      "syncStatus": {
+        "deleted": "[ďëľëŧëď ~~]",
+        "undone": "[üñďõñë ~~]",
+        "conflict": "[çõñƒľïçŧ ~~]"
+      },
+      "reason": {
+        "changedSinceTurn": "[Çħàñğëď šïñçë ŧħïš ŧüřñ ~~]",
+        "missingRevisionMetadata": "[Ṁïššïñğ řëṽïšïõñ ṁëŧàďàŧà ~~~]"
+      },
+      "actions": {
+        "fallbackAction": "[Àçŧïõñ ~~]",
+        "openInEditor": "[Õþëñ ïñ ëďïŧõř ~~]",
+        "openInDocumentViewer": "[Õþëñ ïñ ďõçüɱëñŧ ṽïëŵëř ~~~~]",
+        "openArtifacts": "[Õþëñ [[canon:artifacts]] ~~]",
+        "copyPath": "[Çõþÿ þàŧħ ~~]",
+        "deleting": "[Ďëľëŧïñğ... ~~]",
+        "deleteFile": "[Ďëľëŧë ƒïľë ~~]",
+        "undoing": "[Üñďõïñğ... ~~]",
+        "undoChange": "[Üñďõ çħàñğë ~~]",
+        "menuTitle": "[Ƒïľë àçŧïõñš ~~]"
+      },
+      "preview": {
+        "loading": "[Ľõàďïñğ çħàñğëš... ~~]",
+        "noChangedLines": "[Ñõ çħàñğëď ľïñëš ŧõ þřëṽïëŵ. ~~~]",
+        "collapse": "[Çõľľàþšë þřëṽïëŵ ~~]",
+        "expand": "[Ëẋþàñď þřëṽïëŵ ~~]",
+        "collapseForFile": "[Çõľľàþšë þřëṽïëŵ ƒõř {{path}} ~~]",
+        "expandForFile": "[Ëẋþàñď þřëṽïëŵ ƒõř {{path}} ~~]",
+        "fileChangeFallback": "[ƒïľë çħàñğë ~~]",
+        "limited": "[þřëṽïëŵ ľïṁïŧëď ~~]",
+        "limitWithLineCount": "[Ƒïľë šïžë ëẋçëëďš þřëṽïëŵ ľïṁïŧš ({{lineCount}} ľïñëš). Õþëñ ïñ ëďïŧõř õř [[canon:artifacts]] ŧõ ïñšþëçŧ çħàñğëš. ~~~~~~~~~]",
+        "limitNoLineCount": "[Ƒïľë šïžë ëẋçëëďš þřëṽïëŵ ľïṁïŧš. Þřëṽïëŵ ïš ďïšàƀľëď àƀõṽë {{maxLines}} ľïñëš. ~~~~~~]"
+      },
+      "dialogs": {
+        "undoOne": {
+          "title": "[Üñďõ Ƒïľë Çħàñğë ~~]",
+          "message": "[Řëšŧõřë ŧħë þřëṽïõüš ṽëřšïõñ õƒ {{path}}? ~~~]",
+          "confirm": "[Üñďõ Çħàñğë ~~]"
+        },
+        "deleteOne": {
+          "title": "[Ďëľëŧë Çřëàŧëď Ƒïľë ~~]",
+          "message": "[Ďëľëŧë {{path}}? Ŧħïš řëṁõṽëš ŧħë ƒïľë çřëàŧëď ïñ ŧħïš ŧüřñ ƒřõṁ ďïšķ. ~~~~~~]",
+          "confirm": "[Ďëľëŧë Ƒïľë ~~]"
+        },
+        "undoAll": {
+          "title": "[Üñďõ Ƒïľë Çħàñğëš ~~]",
+          "message": "[Řëšŧõřë ŧħë þřëṽïõüš ṽëřšïõñ ƒõř {{count}} ƒïľë{{suffix}}? ~~~~]",
+          "confirm": "[Üñďõ Çħàñğëš ~~]"
+        },
+        "deleteAll": {
+          "title": "[Ďëľëŧë Çřëàŧëď Ƒïľëš ~~]",
+          "message": "[Ďëľëŧë {{count}} ƒïľë{{suffix}} çřëàŧëď ïñ ŧħïš ŧüřñ? Ŧħïš řëṁõṽëš ŧħëṁ ƒřõṁ ďïšķ. ~~~~~~]",
+          "confirm": "[Ďëľëŧë Ƒïľëš ~~]"
+        }
+      },
+      "feedback": {
+        "clipboardUnavailable": "[Çľïþƀõàřď ïš üñàṽàïľàƀľë ïñ ŧħïš ëñṽïřõñṁëñŧ. ~~~~]",
+        "copiedPath": "[Çõþïëď þàŧħ: {{path}} ~~]",
+        "copyFailed": "[Ƒàïľëď ŧõ çõþÿ ƒïľë þàŧħ. ~~~]",
+        "undoUnavailable": "[Üñďõ üñàṽàïľàƀľë ƒõř ŧħïš ëñŧřÿ (ṁïššïñğ řëṽïšïõñ ṁëŧàďàŧà). ~~~~~]",
+        "undoSucceeded": "[Üñďïď {{path}}. ~~]",
+        "undoFailed": "[Üñďõ ƒàïľëď. ~~]",
+        "deleteUnavailable": "[Ďëľëŧë üñàṽàïľàƀľë ƒõř ŧħïš ëñŧřÿ (ṁïššïñğ řëṽïšïõñ ṁëŧàďàŧà). ~~~~~~]",
+        "deleteSucceeded": "[Ďëľëŧëď çřëàŧëď ƒïľë {{path}}. ~~]",
+        "deleteFailed": "[Ďëľëŧë ƒàïľëď. ~~]",
+        "conflict": "[{{path}}: çħàñğëď šïñçë ŧħïš ŧüřñ. ~~~]",
+        "actionFailed": "[{{path}}: {{message}} ~~]",
+        "undoAllUnavailable": "[Üñďõ àľľ üñàṽàïľàƀľë (ṁïššïñğ řëṽïšïõñ ṁëŧàďàŧà). ~~~~~]",
+        "undoAllSummary": "[Üñďõ àľľ: {{success}} šüççëëďëď{{conflicts}}{{failed}}{{skipped}}. ~~]",
+        "undoAllFailed": "[Üñďõ àľľ ƒàïľëď. ~~]",
+        "deleteAllUnavailable": "[Ďëľëŧë àľľ üñàṽàïľàƀľë (ṁïššïñğ řëṽïšïõñ ṁëŧàďàŧà). ~~~~~]",
+        "deleteAllSummary": "[Ďëľëŧë çřëàŧëď ƒïľëš: {{success}} šüççëëďëď{{conflicts}}{{failed}}{{skipped}}. ~~~]",
+        "deleteAllFailed": "[Ďëľëŧë çřëàŧëď ƒïľëš ƒàïľëď. ~~~]"
+      },
+      "activity": {
+        "undoOne": "[Üñďïď ƒïľë çħàñğë: {{path}} ~~]",
+        "deleteOne": "[Ďëľëŧëď çřëàŧëď ƒïľë: {{path}} ~~]",
+        "undoAll": "[Üñďõ àľľ ƒïľë çħàñğëš ({{success}} šüççëëďëď{{conflicts}}{{failed}}{{skipped}}) ~~~]",
+        "deleteAll": "[Ďëľëŧëď çřëàŧëď ƒïľëš ({{success}} šüççëëďëď{{conflicts}}{{failed}}{{skipped}}) ~~~]"
+      },
+      "bulkActions": {
+        "undoingTitle": "[Üñďõïñğ ƒïľë çħàñğëš ~~]",
+        "undoTitle": "[Üñďõ ƒïľë çħàñğëš ƒřõṁ ŧħïš ŧüřñ ~~~]",
+        "deletingTitle": "[Ďëľëŧïñğ çřëàŧëď ƒïľëš ~~]",
+        "deleteTitle": "[Ďëľëŧë çřëàŧëď ƒïľëš ƒřõṁ ŧħïš ŧüřñ ~~~]"
+      }
+    },
+    "roleConfirmation": {
+      "title": "[[canon:ai_generated_agent_role]]",
+      "saveRole": "[[canon:save_role]]",
+      "saveRoleAndContinue": "[[canon:save_role_continue]]",
+      "useForDelegation": "[[canon:use_for_delegation]]",
+      "saving": "[Šàṽïñğ... ~~]",
+      "starting": "[Šŧàřŧïñğ... ~~]",
+      "saved": "[Řõľë \"{{name}}\" šàṽëď ~~]",
+      "usedForDelegation": "[Řõľë \"{{name}}\" üšëď ƒõř ŧħïš ďëľëğàŧïõñ ~~~]",
+      "savedDescription": "[Àṽàïľàƀľë ƒõř ďëľëğàŧïõñ ïṁṁëďïàŧëľÿ. ~~~~]",
+      "usedTemporaryDescription": "[Ŧħïš ŧëṁþõřàřÿ řõľë ŵïľľ ƀë řëṁõṽëď àüŧõṁàŧïçàľľÿ àƒŧëř ŧħë ďëľëğàŧïõñ ƒïñïšħëš. ~~~~~~~]",
+      "roleName": "[[canon:role_name]]",
+      "instructions": "[Ïñšŧřüçŧïõñš ~~]",
+      "noInstructions": "[Ñõ ïñšŧřüçŧïõñš ~~]",
+      "provider": "[Þřõṽïďëř ~~]",
+      "model": "[Ṁõďëľ ~~]",
+      "selectProvider": "[Šëľëçŧ þřõṽïďëř... ~~]",
+      "selectModel": "[Šëľëçŧ ṁõďëľ... ~~]",
+      "modelIdPlaceholder": "[Ṁõďëľ ÏĎ ~~]",
+      "emptyValue": "[— ~~]",
+      "stagedWrites": {
+        "title": "[Šŧàğëď ƒïľë ŵřïŧëš ~~]",
+        "enabledDescription": "[Ëñàƀľëď ƒõř ŧħïš řõľë. Üšïñğ ïŧ çàñ šŧàğë ƒïľë çħàñğëš ďüřïñğ ďëľëğàŧïõñ. ~~~~~~~]",
+        "disabledDescription": "[Ďïšàƀľëď. Ŧħïš řõľë çàñ õñľÿ řëŧüřñ àñàľÿšïš àñď řëçõṁṁëñďàŧïõñš. ~~~~~~]"
+      },
+      "allowStagedWrites": {
+        "title": "[Àľľõŵ šŧàğëď ƒïľë ŵřïŧëš ~~]",
+        "description": "[Àğëñŧ çàñ šŧàğë [[canon:write_file]] šüğğëšŧïõñš. ~~~~~]"
+      },
+      "preview": "[Þřëṽïëŵ ~~]",
+      "edit": "[Ëďïŧ ~~]",
+      "dismiss": "[Ďïšṁïšš ~~]",
+      "errors": {
+        "roleNameRequired": "[Řõľë ñàṁë ïš řëʠüïřëď. ~~]",
+        "providerRequired": "[Þřõṽïďëř ïš řëʠüïřëď. ~~]",
+        "modelRequired": "[Ṁõďëľ ïš řëʠüïřëď. ~~]",
+        "saveFailed": "[Ƒàïľëď ŧõ šàṽë řõľë. ~~]",
+        "useTemporaryFailed": "[Ƒàïľëď ŧõ üšë ŧëṁþõřàřÿ řõľë. ~~~]"
+      }
+    },
+    "writeConflict": {
+      "resolved": "[Řëšõľṽëď {{path}} ~~]",
+      "conflictBadge": "[çõñƒľïçŧ ~~]",
+      "showDebugInfo": "[Šħõŵ ďëƀüğ ïñƒõ ~~]",
+      "hideDebugInfo": "[Ħïďë ďëƀüğ ïñƒõ ~~]",
+      "hideDetails": "[Ħïďë ďëŧàïľš ~~]",
+      "viewChanges": "[Ṽïëŵ ŵħàŧ çħàñğëď ~~]",
+      "loading": "[Ľõàďïñğ... ~~]",
+      "loadingPreviews": "[Ľõàďïñğ þřëṽïëŵš... ~~]",
+      "previewUnavailable": "[Þřëṽïëŵ üñàṽàïľàƀľë. ~~]",
+      "aiMerge": "[ÀÏ Ṁëřğë ~~]",
+      "dismiss": "[Ďïšṁïšš ~~]",
+      "confirm": "[Çõñƒïřṁ ~~]",
+      "noModelSelected": "[Ñõ ṁõďëľ šëľëçŧëď ~~]",
+      "generatingMerge": "[Ğëñëřàŧïñğ ṁëřğë... ~~]",
+      "retry": "[Řëŧřÿ ~~]",
+      "tryAgain": "[Ŧřÿ Àğàïñ ~~]",
+      "accept": "[Àççëþŧ ~~]",
+      "labels": {
+        "yoursVsBase": "[Ÿõüř çħàñğëš ṽš. ƀàšë ~~]",
+        "theirsVsBase": "[Õŧħëř çħàñğëš ṽš. ƀàšë ~~]"
+      },
+      "errors": {
+        "unknown": "[Üñķñõŵñ ëřřõř ~~]",
+        "requestFailed": "[Řëʠüëšŧ ƒàïľëď ~~]",
+        "applyFailed": "[Ƒàïľëď ŧõ àþþľÿ ṁëřğë řëšõľüŧïõñ. ~~~]",
+        "mergeFailed": "[Ṁëřğë ƒàïľëď. ~~]",
+        "revisionPreviewUnavailable": "[Řëṽïšïõñ þřëṽïëŵ ïš üñàṽàïľàƀľë ïñ ŧħïš řëñďëřëř šëššïõñ. ~~~~~]",
+        "loadRevisionPreviewFailed": "[Çõüľď ñõŧ ľõàď řëṽïšïõñ þřëṽïëŵ. ~~~]",
+        "loadRevisionContextFailed": "[Çõüľď ñõŧ ľõàď řëṽïšïõñ çõñŧëẋŧ. ~~~]"
+      }
+    },
+    "attachments": {
+      "actions": {
+        "menuAriaLabel": "[Àŧŧàçħṁëñŧ àçŧïõñš ƒõř {{name}} ~~]",
+        "copy": "[Çõþÿ ~~]",
+        "showInFolder": "[Šħõŵ ïñ ƒõľďëř ~~]",
+        "saveAs": "[Šàṽë àš... ~~]",
+        "openWith": "[Õþëñ ŵïŧħ ~~]",
+        "defaultApp": "[Ďëƒàüľŧ àþþ ~~]",
+        "chooseAnotherApp": "[Çħõõšë àñõŧħëř àþþ... ~~]",
+        "copyFailed": "[Çõüľď ñõŧ çõþÿ ŧħïš àŧŧàçħṁëñŧ. ~~~]",
+        "showInFolderFailed": "[Çõüľď ñõŧ šħõŵ ŧħïš àŧŧàçħṁëñŧ ïñ ïŧš ƒõľďëř. ~~~~]",
+        "saveFailed": "[Çõüľď ñõŧ šàṽë ŧħïš àŧŧàçħṁëñŧ. ~~~]",
+        "openWithFailed": "[Çõüľď ñõŧ õþëñ ŧħïš àŧŧàçħṁëñŧ ŵïŧħ ŧħë šëľëçŧëď àþþ. ~~~~~]"
+      },
+      "common": {
+        "close": "[Çľõšë ~~]",
+        "cancel": "[Çàñçëľ ~~]"
+      },
+      "errors": {
+        "cachedOpenFailed": "[Üñàƀľë ŧõ õþëñ çàçħëď àŧŧàçħṁëñŧ ƒïľë. ~~~~]",
+        "unavailable": "[Àŧŧàçħṁëñŧ õþëñ ïš üñàṽàïľàƀľë ïñ ŧħïš ƀüïľď. ~~~~]",
+        "historyUnavailable": "[Ŧħïš àŧŧàçħṁëñŧ çàññõŧ ƀë řëõþëñëď ƀëçàüšë ïŧš ďàŧà ïš üñàṽàïľàƀľë ïñ ŧïṁëľïñë ħïšŧõřÿ. ~~~~~~~~]",
+        "openFailed": "[Üñàƀľë ŧõ õþëñ àŧŧàçħṁëñŧ ƒïľë. ~~~]"
+      },
+      "labels": {
+        "pdfAttachment": "[ÞĎƑ àŧŧàçħṁëñŧ ~~]",
+        "attachedImage": "[Àŧŧàçħëď ïṁàğë ~~]",
+        "attachedFile": "[Àŧŧàçħëď ƒïľë ~~]"
+      },
+      "image": {
+        "unavailable": "[Ïṁàğë àŧŧàçħṁëñŧ üñàṽàïľàƀľë. ~~~]",
+        "open": "[Õþëñ {{label}} ~~]",
+        "previewAriaLabel": "[Ïṁàğë þřëṽïëŵ ~~]",
+        "closePreviewAriaLabel": "[Çľõšë ïṁàğë þřëṽïëŵ ~~]"
+      },
+      "file": {
+        "openPdfViewer": "[Õþëñ ÞĎƑ ïñ ṽïëŵëř ~~]",
+        "openAttachedFile": "[Õþëñ àŧŧàçħëď ƒïľë ~~]",
+        "openPdfAttachment": "[Õþëñ ÞĎƑ àŧŧàçħṁëñŧ ~~]",
+        "openFileAttachment": "[Õþëñ ƒïľë àŧŧàçħṁëñŧ ~~]",
+        "clickOpenViewer": "[Çľïçķ ŧõ õþëñ ïñ ṽïëŵëř ~~]",
+        "clickOpenFile": "[Çľïçķ ŧõ õþëñ ƒïľë ~~]"
+      },
+      "dialogs": {
+        "openFileAriaLabel": "[Õþëñ ƒïľë çõñƒïřṁàŧïõñ ~~]",
+        "openPdfTitle": "[Õþëñ ÞĎƑ ïñ ÿõüř ďëƒàüľŧ ṽïëŵëř? ~~~]",
+        "closeFileOpenAriaLabel": "[Çľõšë ƒïľë õþëñ çõñƒïřṁàŧïõñ ~~~]",
+        "openPdfDescription": "[Ŧħïš ƒïľë ŵïľľ õþëñ õüŧšïďë ADDOM üšïñğ ÿõüř šÿšŧëṁ ÞĎƑ àþþľïçàŧïõñ. ~~~~~~]",
+        "openPdfConfirm": "[Õþëñ ÞĎƑ ~~]"
+      }
+    },
+    "planRequests": {
+      "label": {
+        "memoryReview": "[Ïñĵëçŧ Ṁëṁõřÿ Çõñŧëẋŧ ~~]",
+        "artifactReview": "[Ïñĵëçŧ [[canon:artifacts]] Çõñŧëẋŧ ~~~]",
+        "webIngest": "[Ïñğëšŧ Ŵëƀšïŧë ~~]",
+        "runRequest": "[Řüñ Řëʠüëšŧ ~~]"
+      },
+      "summary": {
+        "from": "[ƒřõṁ #{{value}} ~~]",
+        "to": "[ŧõ #{{value}} ~~]",
+        "tags": "[ŧàğš: {{value}} ~~]",
+        "sources": "[šõüřçëš: {{value}} ~~]",
+        "limit": "[ľïṁïŧ {{value}} ~~]",
+        "files": "[ƒïľëš: {{value}} ~~]",
+        "latestOnly": "[ľàŧëšŧ õñľÿ ~~]",
+        "revisionsPerFile": "[řëṽïšïõñš/ƒïľë: {{value}} ~~]",
+        "fromRev": "[ƒřõṁ řëṽ {{value}} ~~]",
+        "toRev": "[ŧõ řëṽ {{value}} ~~]"
+      }
+    },
+    "toolExecution": {
+      "runningCommandWithCommand": "[Řüññïñğ çõṁṁàñď: {{command}} ~~]",
+      "runningCommand": "[Řüññïñğ çõṁṁàñď... ~~]",
+      "renameFile": "[Řüññïñğ: řëñàṁë_ƒïľë - {{oldPath}} -> {{newPath}} ~~~]",
+      "browsingUrl": "[ßřõŵšïñğ: {{url}} ~~]",
+      "browserActionWithAction": "[ßřõŵšëř: {{action}} ~~]",
+      "browserAction": "[ßřõŵšëř àçŧïõñ ~~]",
+      "runningToolWithPath": "[Řüññïñğ: {{toolName}} - {{filePath}} ~~]",
+      "runningTool": "[Řüññïñğ: {{toolName}} ~~]",
+      "result": {
+        "browserDenied": "[ƀřõŵšëř_àçŧïõñ - ďëñïëď ~~]",
+        "browserFailed": "[ƀřõŵšëř_àçŧïõñ - ƒàïľëď ~~]",
+        "browserDone": "[ƀřõŵšëř_àçŧïõñ - ďõñë ~~]",
+        "toolDenied": "[{{toolName}} - ďëñïëď ~~]",
+        "toolFailed": "[{{toolName}} - ƒàïľëď ~~]",
+        "toolDone": "[{{toolName}} - ďõñë ~~]"
+      }
+    }
+  },
+  "toolApprovalOverlay": {
+    "header": {
+      "title": "[ÀÏ ŵàñŧš ŧõ: ~~]",
+      "reviewFileChanges": "[Řëṽïëŵ ŧħë þřõþõšëď ƒïľë çħàñğëš, ŧħëñ àþþřõṽë õř ďëñÿ ~~~~~]",
+      "reviewDiff": "[Řëṽïëŵ ŧħë ďïƒƒ ƀëľõŵ, ŧħëñ àþþřõṽë õř ďëñÿ ~~~~]",
+      "approveFilesystem": "[Àþþřõṽë ŧõ àľľõŵ ŧħïš àçŧïõñ õñ ÿõüř ƒïľëšÿšŧëṁ ~~~~]",
+      "expiresIn": "[Ëẋþïřëš ïñ {{time}} ~~]"
+    },
+    "footer": {
+      "expired": "[Àþþřõṽàľ ëẋþïřëď ~~]",
+      "enterDisabled": "[Ëñŧëř šħõřŧçüŧ ďïšàƀľëď ƒõř ëľëṽàŧëď àþþřõṽàľš ~~~~]",
+      "shortcuts": "[Šħõřŧçüŧš: Ëñŧëř àľľõŵ, Ëšç ďëñÿ ~~~]",
+      "submitting": "[Šüƀṁïŧŧïñğ àþþřõṽàľ... ~~]"
+    },
+    "actions": {
+      "deny": "[Ďëñÿ (Ëšç) ~~]",
+      "allowForSession": "[Àľľõŵ Ƒõř Šëššïõñ ~~]",
+      "allowForSessionTitle": "[Àľľõŵ àñď řëṁëṁƀëř ŧħïš àþþřõṽàľ ƒõř ŧħë çüřřëñŧ àþþ šëššïõñ ŵħëñ šüþþõřŧëď ~~~~~~~]",
+      "openGuardrails": "[Õþëñ Ğüàřďřàïľš Šëŧŧïñğš ~~]",
+      "openGuardrailsTitle": "[Çàñçëľ ŧħïš àþþřõṽàľ àñď õþëñ Ğüàřďřàïľš šëŧŧïñğš ~~~~~]",
+      "allowHostFallback": "[Àľľõŵ Ħõšŧ Ƒàľľƀàçķ ~~]",
+      "allowHostFallbackTitle": "[Àľľõŵ ħõšŧ ƒàľľƀàçķ (õñë-šħõŧ) ~~~]",
+      "allowHostFullAccessThisTurn": "[Àľľõŵ Ħõšŧ Ƒüľľ Àççëšš (Ŧħïš Ŧüřñ) ~~~]",
+      "allowHostFullAccessThisTurnTitle": "[Àľľõŵ ħõšŧ ƒüľľ àççëšš ƒõř ŧħë řëšŧ õƒ ŧħïš ŧüřñ ~~~~]",
+      "allowHostFullAccess": "[Àľľõŵ Ħõšŧ Ƒüľľ Àççëšš ~~]",
+      "allowHostFullAccessTitle": "[Àľľõŵ ħõšŧ ƒüľľ àççëšš (õñë-šħõŧ) ~~~]",
+      "allowWslCompatibility": "[Àľľõŵ ŴŠĽ Çõṁþàŧïƀïľïŧÿ Řüñ ~~~]",
+      "allowWslCompatibilityTitle": "[Àľľõŵ à õñë-šħõŧ ŴŠĽ çõṁþàŧïƀïľïŧÿ řüñ ~~~~]",
+      "allowDisabledWslTitle": "[Üšë ëẋþľïçïŧ ŴŠĽ çõṁþàŧïƀïľïŧÿ àþþřõṽàľ ƒõř ŧħïš çõṁṁàñď ~~~~~]",
+      "allowDisabledHostTitle": "[Üšë ëẋþľïçïŧ ħõšŧ ƒüľľ àççëšš àçŧïõñ ƒõř ŧħïš çõṁṁàñď ~~~~~]",
+      "allowTitle": "[Àľľõŵ (Ëñŧëř) ~~]",
+      "allowDisabled": "[Àľľõŵ (ďïšàƀľëď) ~~]",
+      "allowCaution": "[Àľľõŵ (çàüŧïõñ) ~~]",
+      "allow": "[Àľľõŵ ~~]"
+    },
+    "review": {
+      "grantedRoot": "[Ğřàñŧëď Řõõŧ ~~]",
+      "empty": "[Ñõ ƒïľë çħàñğëš ŵëřë ïñçľüďëď ïñ ŧħïš àþþřõṽàľ řëʠüëšŧ. ~~~~~]",
+      "file": "[Ƒïľë ~~]",
+      "unknownPath": "[(üñķñõŵñ þàŧħ) ~~]",
+      "noDiff": "[Ñõ ďïƒƒ ŵàš þřõṽïďëď ƒõř ŧħïš ƒïľë çħàñğë. ~~~~]"
+    },
+    "policy": {
+      "runCommandTitle": "[Řüñ Çõṁṁàñď Þõľïçÿ ~~]",
+      "browserActionTitle": "[ßřõŵšëř Àçŧïõñ Þõľïçÿ ~~]",
+      "warnings": "[Ŵàřñïñğš ~~]",
+      "hints": "[Ħïñŧš ~~]",
+      "explicitHostElevation": "[Ëẋþľïçïŧ Ħõšŧ Ëľëṽàŧïõñ Řëʠüïřëď ~~~]",
+      "explicitHostElevationDescription": "[Ŧħïš çõṁṁàñď ëẋçëëďš `ŵõřķšþàçë_šàƒë` þõľïçÿ. Üšë ŧħë ďëďïçàŧëď õñë-šħõŧ ħõšŧ_ƒüľľ_àççëšš àçŧïõñ ŧõ þřõçëëď. ~~~~~~~~~]",
+      "explicitWslApproval": "[Ëẋþľïçïŧ ŴŠĽ Çõṁþàŧïƀïľïŧÿ Àþþřõṽàľ Řëʠüïřëď ~~~~]",
+      "explicitWslApprovalDescription": "[ŴŠĽ ïš ñõŧ à šëçüřïŧÿ ƀõüñďàřÿ. Ŧħïš àþþřõṽàľ àçķñõŵľëďğëš à çõṁþàŧïƀïľïŧÿ řüñ ŵïŧħ ħõšŧ ƒïľëšÿšŧëṁ řëàçħàƀïľïŧÿ, ñõŧ à çõñŧàïñëď šàñďƀõẋ. ~~~~~~~~~~~~]"
+    },
+    "diff": {
+      "file": "[ƒïľë ~~]",
+      "newFile": "[ñëŵ ƒïľë ~~]",
+      "noChanges": "[Ñõ çħàñğëš ďëŧëçŧëď. ~~]"
+    },
+    "risk": {
+      "readOnly": "[Řëàď-õñľÿ ~~]",
+      "writesFile": "[Ŵřïŧëš ƒïľë ~~]",
+      "runsCode": "[Řüñš çõďë ~~]"
+    },
+    "intent": {
+      "runCommand": "[Řüñ çõṁṁàñď ~~]",
+      "localShell": "[Řüñ ľõçàľ šħëľľ çõṁṁàñď ~~]",
+      "openTerminal": "[Õþëñ ŧëřṁïñàľ ~~]",
+      "useTerminal": "[Üšë ŧëřṁïñàľ ~~]",
+      "useBrowser": "[Üšë ƀřõŵšëř ~~]",
+      "reviewFileChanges": "[Řëṽïëŵ ƒïľë çħàñğëš ~~]",
+      "createDirectory": "[Çřëàŧë ďïřëçŧõřÿ ~~]",
+      "scopeSandboxUnavailable": "[Šàñďƀõẋ üñàṽàïľàƀľë; ħõšŧ ƒàľľƀàçķ ïš àṽàïľàƀľë. ~~~~]",
+      "scopeInstallSandbox": "[Řüñš ïñ ŧħë ïñšŧàľľ šàñďƀõẋ. ~~~]",
+      "scopeHostAccess": "[Řëʠüïřëš ħõšŧ àççëšš. ~~]",
+      "scopeWorkspaceShell": "[Řüñš ïñ ŧħë ŵõřķšþàçë šħëľľ. ~~~]",
+      "scopeBrowserTarget": "[Ŧàřğëŧ: {{target}} ~~]",
+      "scopeTerminalHostPath": "[Õþëñš àğàïñšŧ à ħõšŧ þàŧħ. ~~~]",
+      "scopeWorkingDirectory": "[Ŵõřķïñğ ďïřëçŧõřÿ: {{cwd}} ~~]",
+      "warningExplicitHost": "[Ŧħïš ñëëďš àñ ëẋþľïçïŧ ħõšŧ àççëšš ďëçïšïõñ. ~~~~]",
+      "warningExplicitWsl": "[ŴŠĽ çàñ řëàçħ ħõšŧ ƒïľëš. Üšë ŧħë ëẋþľïçïŧ ŴŠĽ àçŧïõñ õñľÿ ïƒ ŧħàŧ ïš ïñŧëñďëď. ~~~~~~~]",
+      "warningSandboxFallback": "[Ŧħë šàñďƀõẋ řõüŧë ïš üñàṽàïľàƀľë. Ħõšŧ ƒàľľƀàçķ ïš à õñë-ŧïṁë ëẋçëþŧïõñ. ~~~~~~]",
+      "warningPrivateNetwork": "[Ŧħïš ŧàřğëŧš à ľõçàľ õř þřïṽàŧë ñëŧŵõřķ àďďřëšš. ~~~~]",
+      "warningTerminalOutsideWorkspace": "[Ŧħïš ŧëřṁïñàľ õþëñš õüŧšïďë ŧħë ŵõřķšþàçë. ~~~~]"
+    },
+    "production": {
+      "deny": "[Ďëñÿ ~~]",
+      "allowForSession": "[Àľľõŵ ƒõř šëššïõñ ~~]",
+      "openGuardrails": "[Šëŧŧïñğš ~~]",
+      "allowHostFallback": "[Ħõšŧ ƒàľľƀàçķ ~~]",
+      "allowHostFullAccessThisTurn": "[Ħõšŧ ŧħïš ŧüřñ ~~]",
+      "allowHostFullAccess": "[Ħõšŧ õñçë ~~]",
+      "allowWslCompatibility": "[ŴŠĽ õñçë ~~]",
+      "allowDisabled": "[Çħõõšë ëẋþľïçïŧ àçŧïõñ ~~]",
+      "allowCaution": "[Àľľõŵ ~~]",
+      "allow": "[Àľľõŵ ~~]",
+      "explicitActionRequired": "[Üšë àñ ëẋþľïçïŧ àþþřõṽàľ àçŧïõñ ƒõř ŧħïš řëʠüëšŧ. ~~~~~]",
+      "browserRisk": "[Ëẋŧëřñàľ àçŧïõñ ~~]",
+      "reviewRisk": "[Řëṽïëŵ ~~]",
+      "details": "[Ďëŧàïľš ~~]",
+      "requestData": "[Řëʠüëšŧ ďàŧà ~~]"
+    },
+    "productionPolicy": {
+      "command": "[Çõṁṁàñď þõľïçÿ ~~]",
+      "browser": "[ßřõŵšëř þõľïçÿ ~~]",
+      "terminal": "[Ŧëřṁïñàľ þõľïçÿ ~~]",
+      "hostAccessRequired": "[Ħõšŧ àççëšš řëʠüïřëď ~~]",
+      "hostAccessDescription": "[Üšë àñ ëẋþľïçïŧ ħõšŧ àçŧïõñ ïƒ ŧħïš šħõüľď řüñ õüŧšïďë ŵõřķšþàçë-šàƒë ľïṁïŧš. ~~~~~~~]",
+      "wslCompatibility": "[ŴŠĽ çõṁþàŧïƀïľïŧÿ ~~]",
+      "wslDescription": "[ŴŠĽ çàñ řëàçħ ħõšŧ ƒïľëš. Üšë ŧħë ŴŠĽ àçŧïõñ õñľÿ ŵħëñ ŧħàŧ ïš ïñŧëñďëď. ~~~~~~]",
+      "notes": "[Ñõŧëš ~~]"
+    }
+  },
+  "common": {
+    "close": "[Çľõšë ~~]",
+    "clear": "[Çľëàř ~~]",
+    "clearAll": "[Çľëàř àľľ ~~]",
+    "cancel": "[Çàñçëľ ~~]"
+  },
+  "settingsInstructions": {
+    "title": "[Üšïñğ ADDOM ~~]",
+    "updated": "[Ľàšŧ üþďàŧëď {{date}} ~~]",
+    "description": "[À çõñçïšë ğüïďë ŧõ çüřřëñŧ ADDOM ƀëħàṽïõř, šàƒëŧÿ ďëƒàüľŧš, àñď ŵħëřë ŧõ ľõõķ ŵħëñ ÿõü ñëëď à řëƒřëšħëř. ~~~~~~~~~]",
+    "sections": {
+      "chat-modes": {
+        "title": "[Çħàŧ Ṁõďëš ~~]",
+        "items": {
+          "0": "[`[[canon:execute]]` ľëŧš ADDOM üšë ëñàƀľëď ŧõõľš üñďëř ŧħë šëľëçŧëď [[canon:permission_mode]] (`[[canon:ask]]`, `[[canon:autonomy]]`, õř `[[canon:full_access]]`). ~~~~~~~~~~~~~~]",
+          "1": "[`[[canon:plan]]` ķëëþš ŧħë ŧüřñ ŧõõľ-ƒřëë àñď ƒõçüšëš õñ õþŧïõñš, ʠüëšŧïõñš, àñď ñëẋŧ šŧëþš. ~~~~~~~~]",
+          "2": "[`[[canon:thinking]]` ïš ƒõř ƀřàïñšŧõřṁïñğ àñď ŧřàďëõƒƒš ŵïŧħõüŧ ŧõõľ ëẋëçüŧïõñ. ~~~~~~~]",
+          "3": "[Çħõõšïñğ `[[canon:implement_plan]]` šŵïŧçħëš ŧħë çħàŧ ƀàçķ ŧõ `[[canon:execute]]` ƀëƒõřë šëñďïñğ. ~~~~~~~~~]"
+        }
+      },
+      "tool-approvals": {
+        "title": "[Ŧõõľ Àþþřõṽàľš ~~]",
+        "items": {
+          "0": "[`[[canon:ask]]` þřõṁþŧš ƀëƒõřë řïšķÿ àçŧïõñš, `[[canon:autonomy]]` šüþþřëššëš řõüŧïñë þřõṁþŧš, àñď `[[canon:full_access]]` ğřàñŧš ħõšŧ-ľëṽëľ ŧõõľ ëẋëçüŧïõñ ƒõř ŧħë ŧüřñ. ~~~~~~~~~~~~~~~]",
+          "1": "[Ëṽëñ ïñ `[[canon:full_access]]`, ďëšŧřüçŧïṽë çõṁṁàñď ƀľõçķľïšŧš šŧïľľ àþþľÿ ŧõ çľëàřľÿ ďàñğëřõüš ħõšŧ õþëřàŧïõñš. ~~~~~~~~~~]",
+          "2": "[Çõṁṁàñď řëʠüëšŧš àřë çħëçķëď àğàïñšŧ ÿõüř çõṁṁàñď-šàƒëŧÿ þõľïçÿ ƀëƒõřë ŧħëÿ çàñ řüñ. ~~~~~~~]",
+          "3": "[ßàçķğřõüñď çõṁṁàñďš àþþëàř ïñ `[[canon:background_jobs]]`, ŵħëřë ÿõü çàñ ïñšþëçŧ õř šŧõþ ŧħëṁ. ~~~~~~~~]"
+        }
+      },
+      "memory": {
+        "title": "[Ṁëṁõřÿ ßëħàṽïõř ~~]",
+        "items": {
+          "0": "[Þřõĵëçŧ ṁëṁõřÿ šŧõřëš ñõŧëš, šüṁṁàřïëš, àñď àüŧõ-ľõğğëď çõñŧëẋŧ ľõçàľľÿ ïñ ŠǪĽïŧë. ~~~~~~~]",
+          "1": "[Õľďëř àüŧõ-ľõğš çàñ ƀë çõṁþřëššëď àƒŧëř ŧħë ŧħřëšħõľď ÿõü šëŧ ïñ Šëŧŧïñğš. ~~~~~~~]",
+          "2": "[Çõṁþřëššëď ëñŧřïëš àřë àřçħïṽëď, ñõŧ ďëľëŧëď, àñď çàñ šŧïľľ ƀë řëṽïëŵëď. ~~~~~~]",
+          "3": "[Ṁëṁõřÿ àçŧïṽïŧÿ ïš ṽïšïƀľë ïñ çħàŧ àñď ïñ ŧħë Ṁëṁõřÿ þàñëľ. ~~~~~]"
+        }
+      },
+      "continuity": {
+        "title": "[[canon:continuity_engine]]",
+        "items": {
+          "0": "[Çõñŧïñüïŧÿ ķëëþš ŧřàçķ õƒ ğõàľš, ďëçïšïõñš, õþëñ ľõõþš, ëřřõřš, àñď ƒïľë řëƒëřëñçëš àçřõšš ŧüřñš. ~~~~~~~~~]",
+          "1": "[Ïŧš řëŧřïëṽàľ šçõþë ďëƒàüľŧš ŧõ `ŧħřëàď + þřõĵëçŧ` àñď çàñ ƀë ŧüñëď ïñ Šëŧŧïñğš. ~~~~~~~]",
+          "2": "[Þřõƒïľëš šüçħ àš `ëçõñõṁÿ`, `ƀàľàñçëď`, àñď `ďëëþ` çõñŧřõľ ħõŵ ṁüçħ çõñŧïñüïŧÿ ïš ïñĵëçŧëď. ~~~~~~~~]",
+          "3": "[Çõñŧïñüïŧÿ ëṽëñŧš àþþëàř ïñ ŧħë ŧïṁëľïñë ŵħëñ řëŧřïëṽàľ, þàçķëŧ ƀüïľďïñğ, õř çõṁþàçŧïõñ řüñš. ~~~~~~~~]",
+          "4": "[Ďřïƒŧ çħëçķš çàñ ŵàřñ ŵħëñ à ñëŵ ŧüřñ àþþëàřš ŧõ çõñƒľïçŧ ŵïŧħ ëšŧàƀľïšħëď çõñŧëẋŧ. ~~~~~~~]"
+        }
+      },
+      "artifacts": {
+        "title": "[[[canon:artifacts]] ßëħàṽïõř ~~~]",
+        "items": {
+          "0": "[Ëàçħ àþþřõṽëď ÀÏ ƒïľë ŵřïŧë çřëàŧëš àñ àřŧïƒàçŧ řëṽïšïõñ ƒõř ŧħàŧ ƒïľë. ~~~~~~]",
+          "1": "[[[canon:artifacts]] šüþþõřŧ ďïƒƒ řëṽïëŵ, řõľľƀàçķ/àþþľÿ, àñď řëṽïšïõñ ṁëŧàďàŧà. ~~~~~~~]",
+          "2": "[Àřŧïƒàçŧ çõñŧëẋŧ çàñ ïñçľüďë ƀõüñďëď řëṽïšïõñ ħïšŧõřÿ, ñõŧ õñľÿ ŧħë ľàŧëšŧ ṽëřšïõñ. ~~~~~~~]"
+        }
+      },
+      "workspace": {
+        "title": "[[[canon:workspace]] Þëřšïšŧëñçë ~~~]",
+        "items": {
+          "0": "[Þřõĵëçŧš, ŧħřëàďš, àñď ŧïṁëľïñë ëṽëñŧš þëřšïšŧ ľõçàľľÿ ïñ ŠǪĽïŧë. ~~~~~~]",
+          "1": "[Šŵïŧçħïñğ þřõṽïďëř õř ṁõďëľ ķëëþš ŧħë àçŧïṽë ŧħřëàď àñď çàñ õƒƒëř çõñŧëẋŧ ƀõõŧšŧřàþ àçŧïõñš. ~~~~~~~~]",
+          "2": "[Řëšëŧ çõñŧřõľš šüþþõřŧ ŧħřëàď-ľëṽëľ, þřõĵëçŧ-ľëṽëľ, àñď ƒüľľ-ŵõřķšþàçë çľëàřïñğ. ~~~~~~~]"
+        }
+      },
+      "commands": {
+        "title": "[[canon:background_jobs]]",
+        "items": {
+          "0": "[Ľõñğ-řüññïñğ ŧàšķš šüçħ àš ďëṽ šëřṽëřš, ŵàŧçħëřš, àñď ďëŧàçħëď OpenAI řëšþõñšëš ṁàÿ řüñ ïñ ŧħë ƀàçķğřõüñď šõ çħàŧ çàñ çõñŧïñüë. ~~~~~~~~~~~]",
+          "1": "[Üšë `[[canon:background_jobs]]` ŧõ ïñšþëçŧ õüŧþüŧ, šŧõþ à ŧàšķ, õř řëṽïëŵ ƀàçķğřõüñď àçŧïṽïŧÿ. ~~~~~~~~]",
+          "2": "[Þëřšïšŧëď çõṁṁàñď õüŧþüŧ ïš ŧřïṁṁëď ŧõ ķëëþ ŧïṁëľïñëš řëšþõñšïṽë. ~~~~~~]"
+        }
+      },
+      "command-palette": {
+        "title": "[[canon:command_palette]]",
+        "items": {
+          "0": "[Õþëñ ŧħë ğľõƀàľ `[[canon:command_palette]]` ŵïŧħ `Çŧřľ+Šħïƒŧ+Þ` ŧõ šëàřçħ àçŧïõñš àçřõšš ADDOM. ~~~~~~~~]",
+          "1": "[Üšë `Üþ` àñď `Ďõŵñ` ŧõ ñàṽïğàŧë, `Ëñŧëř` ŧõ řüñ, àñď `Ëšç` ŧõ çľõšë. ~~~~~~]",
+          "2": "[Çõṁṁàñďš àřë šëàřçħàƀľë ƀÿ ŧïŧľë àñď àľïàšëš šüçħ àš `šŵïŧçħ þřõĵëçŧ`, `àüŧõƒïẋ`, õř `õüŧľïñë`. ~~~~~~~~]",
+          "3": "[Ďïšàƀľëď çõṁṁàñďš šŧàÿ ṽïšïƀľë ŵïŧħ à řëàšõñ, šüçħ àš ñõ àçŧïṽë ŧħřëàď õř ñõ õþëñ ëďïŧõř ŧàƀ. ~~~~~~~~]",
+          "4": "[Řëçëñŧ çõṁṁàñďš àřë šħõŵñ ŵħëñ šëàřçħ ïš ëṁþŧÿ ƒõř ƒàšŧëř řëþëàŧ ŵõřķƒľõŵš. ~~~~~~~]"
+        }
+      },
+      "streaming-responses": {
+        "title": "[Šŧřëàṁïñğ Řëšþõñšëš ~~]",
+        "items": {
+          "0": "[Àššïšŧàñŧ àñšŵëřš šŧřëàṁ ïñŧõ ŧħë çħàŧ àš řëšþõñšë çħüñķš ïñšŧëàď õƒ ŵàïŧïñğ ƒõř ŧħë ƒüľľ ŧüřñ ŧõ ƒïñïšħ. ~~~~~~~~~]",
+          "1": "[Çħüñķ šïžë àñď çàďëñçë ďëþëñď õñ ŧħë þřõṽïďëř àñď ṁõďëľ àñď àřë ñõŧ ëẋàçŧ ŧõķëñïžëř üñïŧš. ~~~~~~~~]",
+          "2": "[ADDOM šṁõõŧħš çħüñķ ďëľïṽëřÿ ïñ ŧħë ÜÏ ŧõ řëďüçë ƒľïçķëř ŵħïľë þřëšëřṽïñğ řëàľ-ŧïṁë þřõğřëšš. ~~~~~~~~]",
+          "3": "[Řëàšõñïñğ ŧëẋŧ àþþëàřš õñľÿ ŵħëñ ŧħë þřõṽïďëř ëẋþõšëš ïŧ; ADDOM ďõëš ñõŧ ƒàƀřïçàŧë ħïďďëñ çħàïñ-õƒ-ŧħõüğħŧ. ~~~~~~~~~]"
+        }
+      },
+      "runbook": {
+        "title": "[Ŧüřñ [[canon:runbook]] Ŧřàñšþàřëñçÿ ~~~]",
+        "items": {
+          "0": "[Ëàçħ ṁõďëľ ŧüřñ ïš ğřõüþëď ïñŧõ à çõľľàþšëď `Ŧüřñ [[canon:runbook]]` ïñ çħàŧ ŵïŧħ çħřõñõľõğïçàľ àçŧïõñš. ~~~~~~~~~]",
+          "1": "[[[canon:runbook]]š ïñçľüďë àþþřõṽàľš, çõṁṁàñď šŧëþš, ƒïľë çħàñğëš, üšàğë üþďàŧëš, àñď ŧüřñ šŧàŧë. ~~~~~~~~~]",
+          "2": "[Ŧüřñš ŵïŧħ ƒïľë ŵřïŧëš šħõŵ à `Ƒïľëš çħàñğëď` çàřď ŵïŧħ þëř-ƒïľë +/- çõüñŧš, þřëṽïëŵš, àñď řëṽïëŵ àçŧïõñš. ~~~~~~~~~]",
+          "3": "[Üñďõ àçŧïõñš ïñçľüďë çõñƒľïçŧ ğüàřďš šüçħ àš `Çħàñğëď šïñçë ŧħïš ŧüřñ` ŧõ àṽõïď üñšàƒë řëṽëřŧš. ~~~~~~~~]",
+          "4": "[Řëàšõñïñğ ŧëẋŧ šħõŵñ ïñ ŧħë ÜÏ ïš þřõṽïďëř-õñľÿ; ADDOM ñëṽëř ƒàƀřïçàŧëš ħïďďëñ çħàïñ-õƒ-ŧħõüğħŧ. ~~~~~~~~]"
+        }
+      },
+      "moa": {
+        "title": "[[[canon:moa]] Ṁõďë ~~]",
+        "items": {
+          "0": "[`[[canon:moa]]` ďëľëğàŧëš þàřàľľëľ àğëñŧ ŧàšķš ŵħïľë ŧħë õřçħëšŧřàŧõř ķëëþš ƒïñàľ àüŧħõřïŧÿ. ~~~~~~~~]",
+          "1": "[Àğëñŧ řõľëš àřë çõñƒïğüřëď ïñ Šëŧŧïñğš àñď çàñ üšë ŧëṁþľàŧëš àš ëďïŧàƀľë šŧàřŧïñğ þõïñŧš. ~~~~~~~~]",
+          "2": "[Ďëľëğàŧïõñš ëñƒõřçë ľïṁïŧš šüçħ àš ŧàšķ çàþš, ŧïṁëõüŧš, ŧõķëñ ƀüďğëŧš, àñď õüŧþüŧ ŧřüñçàŧïõñ. ~~~~~~~~]",
+          "3": "[ßüďğëŧ ŵàřñïñğš çàñ řëʠüïřë àñ ëẋþľïçïŧ çħõïçë ƀëƒõřë àñ ëẋþëñšïṽë ďëľëğàŧïõñ þřõçëëďš. ~~~~~~~~]",
+          "4": "[Àğëñŧ ƒïľë ŵřïŧëš àřë õþŧïõñàľ, ďïšàƀľëď ƀÿ ďëƒàüľŧ, àñď šŧàğëď àš àřŧïƒàçŧ šüğğëšŧïõñš řàŧħëř ŧħàñ ďïřëçŧ ďïšķ ŵřïŧëš. ~~~~~~~~~~]",
+          "5": "[Õñľÿ ŧħë õřçħëšŧřàŧõř çàñ ƒïñàľïžë šŧàğëď àğëñŧ řëṽïšïõñš ŧħřõüğħ ëẋþľïçïŧ àþþľÿ àçŧïõñš. ~~~~~~~~]",
+          "6": "[[[canon:moa]] ľïƒëçÿçľë ëṽëñŧš àřë ṽïšïƀľë ïñ ƀõŧħ ŧħë [[canon:runbook]] àñď ŧħë [[canon:moa]] þàñëľ. ~~~~~~~~~]",
+          "7": "[[[canon:moa]] çàñ çõñšüṁë šüƀšŧàñŧïàľľÿ ṁõřë ŧõķëñš ŧħàñ à šïñğľë-àğëñŧ ŧüřñ, šõ ṁõñïŧõř þõľïçÿ àñď üšàğë ṁëŧřïçš. ~~~~~~~~~~]"
+        }
+      }
+    }
+  },
+  "commandPalette": {
+    "searchPlaceholder": "[Ŧÿþë à çõṁṁàñď õř šëàřçħ... ~~~]",
+    "results": {
+      "commands": "[Çõṁṁàñďš ~~]",
+      "recentAndCommands": "[Řëçëñŧ + Çõṁṁàñďš ~~]",
+      "shown": "[{{count}} šħõŵñ ~~]"
+    },
+    "filters": {
+      "all": "[Àľľ ~~]",
+      "recent": "[Řëçëñŧ ~~]",
+      "filterByCategory": "[Ƒïľŧëř çõṁṁàñďš ƀÿ {{label}} ~~]"
+    },
+    "categories": {
+      "ariaLabel": "[Çõṁṁàñď çàŧëğõřïëš ~~]",
+      "navigation": "[Ñàṽïğàŧïõñ ~~]",
+      "chat": "[Çħàŧ ~~]",
+      "terminal": "[Ŧëřṁïñàľ ~~]",
+      "editor": "[Ëďïŧõř ~~]",
+      "memory": "[Ṁëṁõřÿ ~~]"
+    },
+    "empty": {
+      "title": "[Ñõ çõṁṁàñďš ṁàŧçħ ÿõüř šëàřçħ. ~~~]",
+      "description": "[Ŧřÿ à ďïƒƒëřëñŧ ķëÿŵõřď õř àľïàš. ~~~]"
+    },
+    "hint": {
+      "enter": "[Ëñŧëř ~~]"
+    },
+    "reasons": {
+      "open_a_project_first": "[Õþëñ à þřõĵëçŧ ƒïřšŧ ~~]",
+      "no_active_thread": "[Ñõ àçŧïṽë ŧħřëàď ~~]",
+      "thread_has_no_messages_yet": "[[[canon:thread]] ħàš ñõ ṁëššàğëš ÿëŧ ~~~]",
+      "open_select_a_thread_first": "[Õþëñ/šëľëçŧ à ŧħřëàď ƒïřšŧ ~~~]",
+      "direct_agents_are_only_available_in_execute_mode": "[Àğëñŧš àřë õñľÿ àṽàïľàƀľë ïñ [[canon:execute]] ṁõďë ~~~~~]",
+      "enable_moa_first": "[Ëñàƀľë [[canon:moa]] ƒïřšŧ ~~~]",
+      "wait_for_the_current_response_to_finish": "[Ŵàïŧ ƒõř ŧħë çüřřëñŧ řëšþõñšë ŧõ ƒïñïšħ ~~~~]",
+      "provider_model_switch_context_banner_is_not_active": "[Þřõṽïďëř/ṁõďëľ šŵïŧçħ çõñŧëẋŧ ƀàññëř ïš ñõŧ àçŧïṽë ~~~~~]",
+      "open_a_file_in_editor_first": "[Õþëñ à ƒïľë ïñ Ëďïŧõř ƒïřšŧ ~~~]",
+      "open_a_markdown_file_in_editor_first": "[Õþëñ à Ṁàřķďõŵñ ƒïľë ïñ Ëďïŧõř ƒïřšŧ ~~~]",
+      "open_the_editor_and_select_code_first": "[Õþëñ ŧħë Ëďïŧõř àñď šëľëçŧ çõďë ƒïřšŧ ~~~~]",
+      "formatting_is_unavailable_for_the_current_file": "[Ƒõřṁàŧŧïñğ ïš üñàṽàïľàƀľë ƒõř ŧħë çüřřëñŧ ƒïľë ~~~~]",
+      "code_actions_are_unavailable_for_the_current_file": "[Çõďë àçŧïõñš àřë üñàṽàïľàƀľë ƒõř ŧħë çüřřëñŧ ƒïľë ~~~~~]",
+      "no_terminal_session_selected": "[Ñõ ŧëřṁïñàľ šëššïõñ šëľëçŧëď ~~~]",
+      "terminal_session_is_not_running": "[Ŧëřṁïñàľ šëššïõñ ïš ñõŧ řüññïñğ ~~~]",
+      "terminal_is_already_controlled_by_you": "[Ŧëřṁïñàľ ïš àľřëàďÿ çõñŧřõľľëď ƀÿ ÿõü ~~~~]",
+      "terminal_is_already_controlled_by_ai": "[Ŧëřṁïñàľ ïš àľřëàďÿ çõñŧřõľľëď ƀÿ ÀÏ ~~~]",
+      "terminal_is_not_controlled_by_you": "[Ŧëřṁïñàľ ïš ñõŧ çõñŧřõľľëď ƀÿ ÿõü ~~~]",
+      "terminal_is_not_controlled_by_ai": "[Ŧëřṁïñàľ ïš ñõŧ çõñŧřõľľëď ƀÿ ÀÏ ~~~]",
+      "terminal_cannot_be_interrupted": "[Ŧëřṁïñàľ çàññõŧ ƀë ïñŧëřřüþŧëď ~~~]",
+      "terminal_cannot_be_closed": "[Ŧëřṁïñàľ çàññõŧ ƀë çľõšëď ~~~]",
+      "terminal_cannot_be_terminated": "[Ŧëřṁïñàľ çàññõŧ ƀë ŧëřṁïñàŧëď ~~~]",
+      "no_terminal_dock_open": "[Ñõ ŧëřṁïñàľ ďõçķ õþëñ ~~]"
+    },
+    "commands": {
+      "nav": {
+        "chat": {
+          "title": "[Ğõ ŧõ Çħàŧ ~~]"
+        },
+        "editor": {
+          "title": "[Ğõ ŧõ Ëďïŧõř ~~]"
+        },
+        "artifacts": {
+          "title": "[Ğõ ŧõ [[canon:artifacts]] ~~~]"
+        },
+        "memory": {
+          "title": "[Ğõ ŧõ Ṁëṁõřÿ ~~]"
+        },
+        "settings": {
+          "title": "[Ğõ ŧõ Šëŧŧïñğš ~~]"
+        },
+        "openProjectFolder": {
+          "title": "[Õþëñ Þřõĵëçŧ Ƒõľďëř ~~]"
+        },
+        "sidebar": {
+          "toggle": {
+            "expandTitle": "[Ëẋþàñď Šïďëƀàř ~~]",
+            "collapseTitle": "[Çõľľàþšë Šïďëƀàř ~~]"
+          }
+        },
+        "projectEntry": {
+          "title": "[Õþëñ Þřõĵëçŧš ~~]"
+        }
+      },
+      "chat": {
+        "thread": {
+          "new": {
+            "title": "[Ñëŵ Ŧħřëàď ~~]"
+          },
+          "rename": {
+            "title": "[Řëñàṁë Çüřřëñŧ Ŧħřëàď ~~]"
+          },
+          "delete": {
+            "title": "[Ďëľëŧë Çüřřëñŧ Ŧħřëàď ~~]"
+          },
+          "clear": {
+            "title": "[Çľëàř Çüřřëñŧ Çõñṽëřšàŧïõñ ~~~]"
+          }
+        },
+        "focusComposer": {
+          "title": "[Ƒõçüš Çħàŧ Çõṁþõšëř ~~]"
+        },
+        "jumpToLatest": {
+          "title": "[Ĵüṁþ ŧõ Ľàŧëšŧ Ṁëššàğë ~~]"
+        },
+        "openThreadSelector": {
+          "title": "[Õþëñ Ŧħřëàď Šëľëçŧõř ~~]"
+        },
+        "openBackgroundJobs": {
+          "title": "[Õþëñ [[canon:background_jobs]] ~~~]"
+        },
+        "openDirectAgents": {
+          "title": "[Õþëñ Ďïřëçŧ Àğëñŧš Ṁëñü ~~]"
+        },
+        "toggleMoa": {
+          "title": "[Ŧõğğľë [[canon:moa]] Ṁõďë ~~~]"
+        },
+        "inject": {
+          "memory": {
+            "title": "[Ïñĵëçŧ Ṁëṁõřÿ Ïñŧõ Çħàŧ ~~]"
+          },
+          "artifacts": {
+            "title": "[Ïñĵëçŧ [[canon:artifacts]] Ïñŧõ Çħàŧ ~~~]"
+          },
+          "both": {
+            "title": "[Ïñĵëçŧ Ṁëṁõřÿ + [[canon:artifacts]] ~~~]"
+          }
+        }
+      },
+      "terminal": {
+        "focus": {
+          "title": "[Ƒõçüš Ŧëřṁïñàľ ~~]"
+        },
+        "new": {
+          "title": "[Ñëŵ Ŧëřṁïñàľ ~~]"
+        },
+        "browseSessions": {
+          "title": "[ßřõŵšë Ŧëřṁïñàľ Šëššïõñš ~~]"
+        },
+        "takeOver": {
+          "title": "[Ŧàķë Õṽëř Ŧëřṁïñàľ ~~]"
+        },
+        "handBack": {
+          "title": "[Ħàñď ßàçķ Ŧëřṁïñàľ ŧõ ÀÏ ~~]"
+        },
+        "interrupt": {
+          "title": "[Ïñŧëřřüþŧ Ŧëřṁïñàľ ~~]"
+        },
+        "close": {
+          "title": "[Çľõšë Ŧëřṁïñàľ Šëššïõñ ~~]"
+        },
+        "hide": {
+          "title": "[Ħïďë Ŧëřṁïñàľ Ďõçķ ~~]"
+        }
+      },
+      "editor": {
+        "formatDocument": {
+          "title": "[Ƒõřṁàŧ Ďõçüṁëñŧ ~~]"
+        },
+        "fixAutofixable": {
+          "title": "[Ƒïẋ Àüŧõ-ƒïẋàƀľë Ïššüëš ~~]"
+        },
+        "toggleProblemsPanel": {
+          "title": "[Ŧõğğľë Þřõƀľëṁš Þàñëľ ~~]"
+        },
+        "toggleOutlinePanel": {
+          "title": "[Ŧõğğľë Õüŧľïñë Þàñëľ ~~]"
+        },
+        "markdownPreview": {
+          "toggle": {
+            "title": "[Ṁàřķďõŵñ: Ŧõğğľë Þřëṽïëŵ ~~]"
+          },
+          "open": {
+            "title": "[Ṁàřķďõŵñ: Õþëñ Þřëṽïëŵ ŧõ Šïďë ~~~]"
+          }
+        },
+        "aiSelection": {
+          "explain": {
+            "title": "[ÀÏ õñ Šëľëçŧïõñ: Ëẋþľàïñ ~~]"
+          },
+          "fix": {
+            "title": "[ÀÏ õñ Šëľëçŧïõñ: Ƒïẋ ~~]"
+          },
+          "refactor": {
+            "title": "[ÀÏ õñ Šëľëçŧïõñ: Řëƒàçŧõř ~~~]"
+          },
+          "tests": {
+            "title": "[ÀÏ õñ Šëľëçŧïõñ: Ğëñëřàŧë Ŧëšŧš ~~~]"
+          }
+        }
+      },
+      "memory": {
+        "exportProjectJson": {
+          "title": "[Ëẋþõřŧ Þřõĵëçŧ Çõñŧëẋŧ ĴŠÕÑ ~~~]",
+          "alerts": {
+            "failedTitle": "[Ëẋþõřŧ ƒàïľëď ~~]",
+            "failedMessage": "[Ƒàïľëď ŧõ ëẋþõřŧ çõñŧëẋŧ ĴŠÕÑ: {{error}} ~~~]",
+            "completedTitle": "[Ëẋþõřŧ çõṁþľëŧë ~~]",
+            "completedMessage": "[Ëẋþõřŧëď çõñŧëẋŧ ĴŠÕÑ.\n\nƑïľë: {{filePath}}\nṀëṁõřÿ ñõďëš: {{memoryNodeCount}}\nÀřŧïƒàçŧ ƒïľëš: {{artifactFileCount}}\nÀřŧïƒàçŧ řëṽïšïõñš: {{artifactRevisionCount}} ~~~~~~~]"
+          }
+        },
+        "openPanel": {
+          "title": "[Õþëñ Ṁëṁõřÿ Þàñëľ ~~]"
+        }
+      }
+    }
+  },
+  "executionStream": {
+    "showEarlier": "[Šħõŵ {{count}} ëàřľïëř ëṽëñŧ{{suffix}} ~~]",
+    "thought": {
+      "verb": "[Řëàšõñëď ~~]",
+      "briefly": "[ƀřïëƒľÿ ~~]",
+      "show": "[Šħõŵ řëàšõñïñğ ~~]",
+      "hide": "[Ħïďë řëàšõñïñğ ~~]"
+    },
+    "transport": {
+      "startingTurn": "[Šŧàřŧïñğ ŧüřñ ~~]"
+    },
+    "compaction": {
+      "requested": "[Çõṁþàçŧïñğ çõñŧëẋŧ ~~]",
+      "running": "[Çõṁþàçŧïñğ çõñŧëẋŧ ~~]",
+      "applied": "[OpenAI çõṁþàçŧïõñ àþþľïëď ~~~]",
+      "failed": "[OpenAI çõṁþàçŧïõñ ƒàïľëď ~~]",
+      "milestoneTitle": "[Çõñŧëẋŧ çõṁþàçŧëď ƀëƒõřë ŧħë ñëẋŧ ŧüřñ ~~~~]",
+      "milestoneDetail": {
+        "codexThreadCompaction": "[Çõďëẋ àççõüñŧ ŧħřëàď çõṁþàçŧïõñ ~~~]",
+        "providerServerSide": "[OpenAI šëřṽëř-šïďë çõṁþàçŧïõñ ~~~]",
+        "manualServerSide": "[OpenAI ṁàñüàľ šëřṽëř-šïďë çõṁþàçŧïõñ ~~~]"
+      }
+    },
+    "progress": {
+      "navigate": "[Ñàṽïğàŧïñğ ~~]",
+      "click": "[Çľïçķïñğ ëľëṁëñŧ ~~]",
+      "type": "[Ŧÿþïñğ ŧëẋŧ ~~]",
+      "select": "[Šëľëçŧïñğ õþŧïõñ ~~]",
+      "screenshot": "[Çàþŧüřïñğ šçřëëñšħõŧ ~~]",
+      "runningTool": "[Řüññïñğ {{toolName}} ~~]",
+      "working": "[Ŵõřķïñğ ~~]",
+      "terminalOpen": "[Õþëñïñğ ŧëřṁïñàľ ~~]",
+      "terminalOpenNamed": "[Õþëñïñğ {{terminalLabel}} ~~]",
+      "terminalRead": "[Řëàďïñğ ŧëřṁïñàľ õüŧþüŧ ~~]",
+      "terminalReadNamed": "[Řëàďïñğ õüŧþüŧ ƒřõṁ {{terminalLabel}} ~~]",
+      "terminalAttach": "[Řëüšïñğ ŧëřṁïñàľ šëššïõñ ~~]",
+      "terminalWrite": "[Ŵřïŧïñğ ŧõ ŧëřṁïñàľ ~~]",
+      "terminalWriteNamed": "[Ŵřïŧïñğ ŧõ {{terminalLabel}} ~~]",
+      "terminalWait": "[Ŵàïŧïñğ ƒõř ŧëřṁïñàľ õüŧþüŧ ~~~]",
+      "terminalWaitNamed": "[Ŵàïŧïñğ ƒõř õüŧþüŧ ƒřõṁ {{terminalLabel}} ~~]",
+      "terminalResize": "[Řëšïžïñğ ŧëřṁïñàľ šëššïõñ ~~~]",
+      "terminalResizeNamed": "[Řëšïžïñğ {{terminalLabel}} ~~]",
+      "terminalSignal": "[Šïğñàľïñğ ŧëřṁïñàľ šëššïõñ ~~~]",
+      "terminalSignalNamed": "[Šïğñàľïñğ {{terminalLabel}} ~~]",
+      "terminalClose": "[Çľõšïñğ ŧëřṁïñàľ šëššïõñ ~~]",
+      "terminalCloseNamed": "[Çľõšïñğ {{terminalLabel}} ~~]"
+    },
+    "result": {
+      "listDirectory": "[Ľïšŧëď {{countPrefix}}ïñ {{pathLabel}} ~~]",
+      "createDirectory": "[Çřëàŧëď ƒõľďëř {{pathLabel}} ~~]",
+      "writeFile": "[Ŵřõŧë {{pathLabel}} ~~]",
+      "editFile": "[Üþďàŧëď {{pathLabel}} ~~]",
+      "readFile": "[Řëàď {{pathLabel}} ~~]",
+      "deleteFile": "[Ďëľëŧëď {{pathLabel}} ~~]",
+      "rollbackFile": "[Řõľľëď ƀàçķ {{pathLabel}} ~~]",
+      "renameFile": "[Řëñàṁëď {{oldPath}} ŧõ {{newPath}} ~~]",
+      "searchCode": "[Ƒõüñď {{countPrefix}}ƒõř \"{{query}}\" ïñ {{searchPath}} ~~]",
+      "grepFile": "[Ƒõüñď ṁàŧçħëš ƒõř \"{{pattern}}\" ïñ {{pathLabel}} ~~]",
+      "findFiles": "[Ƒõüñď ṁàŧçħëš ƒõř \"{{pattern}}\" ~~]",
+      "fetchPage": "[Ƒëŧçħëď {{hostLabel}} ~~]",
+      "navigate": "[Ñàṽïğàŧïõñ çõṁþľëŧë ~~]",
+      "click": "[Çľïçķ çõṁþľëŧëď ~~]",
+      "type": "[Ŧÿþïñğ çõṁþľëŧë ~~]",
+      "select": "[Šëľëçŧïõñ çõṁþľëŧë ~~]",
+      "screenshot": "[Šçřëëñšħõŧ çàþŧüřëď ~~]",
+      "browserAction": "[ßřõŵšëř àçŧïõñ çõṁþľëŧë ~~]",
+      "gitStatusFailed": "[Ğïŧ šŧàŧüš ƒàïľëď ~~]",
+      "gitStatusDone": "[Ğïŧ šŧàŧüš ďõñë ~~]",
+      "gitDiffFailed": "[Ğïŧ ďïƒƒ ƒàïľëď ~~]",
+      "gitDiffReady": "[Ğïŧ ďïƒƒ řëàďÿ ~~]",
+      "gitLogFailed": "[Ğïŧ ľõğ ƒàïľëď ~~]",
+      "gitLogReady": "[Ğïŧ ħïšŧõřÿ ľõàďëď ~~]",
+      "gitCommitFailed": "[Çõṁṁïŧ ƒàïľëď ~~]",
+      "gitCommitCreated": "[Çõṁṁïŧ çřëàŧëď ~~]",
+      "restoreFile": "[Řëšŧõřëď {{pathLabel}} ƒřõṁ {{refValue}} ~~]",
+      "commandDone": "[Çõṁṁàñď ƒïñïšħëď ïñ {{commandScope}} ~~]",
+      "commandFailed": "[Çõṁṁàñď ƒàïľëď ïñ {{commandScope}} ~~]",
+      "commandDenied": "[Çõṁṁàñď ďëñïëď ïñ {{commandScope}} ~~]",
+      "revisionApplyFailed": "[Řëṽïšïõñ àþþľÿ ƒàïľëď ~~]",
+      "revisionApplied": "[Řëṽïšïõñ àþþľïëď ~~]",
+      "planUpdated": "[Þľàñ üþďàŧëď ~~]",
+      "planUpdatedBatch": "[Þľàñ üþďàŧëď ({{count}} çħàñğëš) ~~]",
+      "genericToolResult": "[{{toolName}} {{verb}} ~~]",
+      "actionFinished": "[Àçŧïõñ ƒïñïšħëď ~~]",
+      "ranCommand": "[Řàñ çõṁṁàñď ~~]",
+      "terminalOpen": "[Õþëñëď ŧëřṁïñàľ ~~]",
+      "terminalOpenNamed": "[Õþëñëď {{terminalLabel}} ~~]",
+      "terminalRead": "[Řëàď ŧëřṁïñàľ õüŧþüŧ ~~]",
+      "terminalReadNamed": "[Řëàď õüŧþüŧ ƒřõṁ {{terminalLabel}} ~~]",
+      "terminalAttach": "[Řëüšëď ŧëřṁïñàľ šëššïõñ ïñ çħàŧ ŧëřṁïñàľ ďõçķ ~~~~]",
+      "terminalAttachNamed": "[Řëüšëď {{terminalLabel}} ïñ çħàŧ ŧëřṁïñàľ ďõçķ ~~~]",
+      "terminalWrite": "[Ŵřõŧë ŧõ ŧëřṁïñàľ ~~]",
+      "terminalWriteNamed": "[Ŵřõŧë ŧõ {{terminalLabel}} ~~]",
+      "terminalWait": "[Ŵàïŧëď ƒõř ŧëřṁïñàľ õüŧþüŧ ~~~]",
+      "terminalWaitNamed": "[Ŵàïŧëď ƒõř õüŧþüŧ ïñ {{terminalLabel}} ~~]",
+      "terminalWaitMatched": "[Ṁàŧçħëď ëẋþëçŧëď ŧëřṁïñàľ õüŧþüŧ ~~~]",
+      "terminalWaitMatchedNamed": "[Ṁàŧçħëď ëẋþëçŧëď õüŧþüŧ ïñ {{terminalLabel}} ~~~]",
+      "terminalWaitTimedOut": "[Ŧïṁëď õüŧ ŵàïŧïñğ ƒõř ŧëřṁïñàľ õüŧþüŧ ~~~~]",
+      "terminalWaitTimedOutNamed": "[Ŧïṁëď õüŧ ŵàïŧïñğ ƒõř {{terminalLabel}} ~~]",
+      "terminalResize": "[Ŧëřṁïñàľ šëššïõñ řëšïžëď ~~]",
+      "terminalResizeNamed": "[Řëšïžëď {{terminalLabel}} ~~]",
+      "terminalSignal": "[Ŧëřṁïñàľ šëššïõñ šïğñàľëď ~~~]",
+      "terminalSignalNamed": "[Šïğñàľëď {{terminalLabel}} ~~]",
+      "terminalClose": "[Çľõšëď ŧëřṁïñàľ ~~]",
+      "terminalCloseNamed": "[Çľõšëď {{terminalLabel}} ~~]"
+    },
+    "warning": {
+      "compactionFailed": "[Çõñŧëẋŧ çõṁþàçŧïõñ ƒàïľëď ~~~]",
+      "generic": "[Ŵàřñïñğ ~~]"
+    },
+    "error": {
+      "toolFailed": "[{{toolName}} ƒàïľëď ~~]",
+      "actionFailed": "[Àçŧïõñ ƒàïľëď ~~]"
+    },
+    "header": {
+      "title": "[Ëẋëçüŧïõñ Šŧřëàṁ ~~]",
+      "show": "[Šħõŵ ľïṽë ëẋëçüŧïõñ šŧřëàṁ ~~~]",
+      "hide": "[Ħïďë ľïṽë ëẋëçüŧïõñ šŧřëàṁ ~~~]",
+      "awaitingFirstEvent": "[Àŵàïŧïñğ ƒïřšŧ ëṽëñŧ ~~]",
+      "eventCount": "[{{count}} ëṽëñŧ{{suffix}} ~~]",
+      "hiddenSummary": "[Šħõŵïñğ ŧħë ľàŧëšŧ {{visibleItemCount}} ëṽëñŧš. {{hiddenItemCount}} ëàřľïëř ëṽëñŧ{{eventSuffix}} ħïďďëñ. ~~~~]",
+      "hiddenSummaryPinned": "[Šħõŵïñğ ŧħë ľàŧëšŧ {{visibleTailItemCount}} ëṽëñŧš þľüš {{pinnedArchiveCount}} çõľľàþšëď ëàřľïëř řëàšõñïñğ ƀľõçķ{{archiveSuffix}}. {{hiddenItemCount}} ëàřľïëř ëṽëñŧ{{eventSuffix}} ħïďďëñ. ~~~~~~~~]",
+      "status": {
+        "failed": "[ƒàïľëď ~~]",
+        "completed": "[çõṁþľëŧëď ~~]",
+        "started": "[šŧàřŧëď ~~]",
+        "generic": "[{{status}} ~~]"
+      }
+    },
+    "output": {
+      "openCopyOptions": "[Õþëñ çõþÿ õþŧïõñš ~~]",
+      "copyCommand": "[Çõþÿ çõṁṁàñď ~~]",
+      "copyVisibleOutput": "[Çõþÿ ṽïšïƀľë õüŧþüŧ ~~]",
+      "copyPersistedPreview": "[Çõþÿ þëřšïšŧëď þřëṽïëŵ ~~]",
+      "commandOutput": "[Çõṁṁàñď õüŧþüŧ ~~]",
+      "showCommandOutput": "[Šħõŵ çõṁṁàñď õüŧþüŧ ~~]",
+      "hideCommandOutput": "[Ħïďë çõṁṁàñď õüŧþüŧ ~~]",
+      "truncated": "[Õüŧþüŧ ŧřüñçàŧëď ~~]"
+    },
+    "bridge": {
+      "native": {
+        "activity": "[Çõďëẋ àþþ-šëřṽëř àçŧïṽïŧÿ ~~~]",
+        "webSearch": "[Çõďëẋ àþþ-šëřṽëř ŵëƀ šëàřçħ ~~~]",
+        "command": "[Çõďëẋ àþþ-šëřṽëř çõṁṁàñď: {{commandName}} ~~~]",
+        "fileChangeOne": "[Çõďëẋ àþþ-šëřṽëř ƒïľë çħàñğë ~~~]",
+        "fileChangeOther": "[Çõďëẋ àþþ-šëřṽëř ƒïľë çħàñğëš ~~~]",
+        "mcpTool": "[Çõďëẋ àþþ-šëřṽëř MCP ŧõõľ: {{toolName}} ~~~]",
+        "imageView": "[Çõďëẋ àþþ-šëřṽëř ïṁàğë ṽïëŵ ~~~]",
+        "planGenerated": "[Çõďëẋ àþþ-šëřṽëř þľàñ ğëñëřàŧëď ~~~]",
+        "reviewMode": "[Çõďëẋ řëṽïëŵ ṁõďë àçŧïṽïŧÿ ~~~]"
+      },
+      "source": {
+        "urlTitle": "[Šõüřçë: {{title}} ~~]",
+        "urlCaptured": "[Šõüřçë ÜŘĽ çàþŧüřëď ~~]",
+        "documentTitle": "[Šõüřçë ďõçüṁëñŧ: {{title}} ~~]",
+        "documentCaptured": "[Šõüřçë ďõçüṁëñŧ çàþŧüřëď ~~]"
+      },
+      "providerTool": {
+        "modelRerouted": "[Ṁõďëľ řëřõüŧëď ~~]",
+        "configWarning": "[Çõñƒïğüřàŧïõñ ŵàřñïñğ ~~]",
+        "hook": "[Ħõõķ ~~]",
+        "autoApprovalReview": "[Àüŧõṁàŧïç àþþřõṽàľ řëṽïëŵ ~~~]",
+        "providerError": "[Þřõṽïďëř ëřřõř ~~]",
+        "input": "[Þřõṽïďëř ŧõõľ ïñþüŧ: {{toolName}} ~~]",
+        "running": "[Þřõṽïďëř ŧõõľ řüññïñğ: {{toolName}} ~~]",
+        "collectingInput": "[Çõľľëçŧïñğ þřõṽïďëř ŧõõľ ïñþüŧ... ~~~]",
+        "imageGenerated": "[Ïṁàğë ğëñëřàŧëď ƀÿ OpenAI þřõṽïďëř ŧõõľ. ~~~~]",
+        "output": "[Þřõṽïďëř ŧõõľ õüŧþüŧ: {{toolName}} ~~]"
+      },
+      "continuity": {
+        "responseTracked": "[OpenAI řëšþõñšë ŧřàçķëď: {{responseId}} ~~]",
+        "metadataReceived": "[OpenAI řëšþõñšë ṁëŧàďàŧà řëçëïṽëď ~~~]"
+      },
+      "websocket": {
+        "transportUpdate": "[OpenAI ŴëƀŠõçķëŧ ŧřàñšþõřŧ üþďàŧë ~~~]",
+        "reconnecting": "[Řëçõññëçŧïñğ... {{attempt}}/{{maxAttempts}} ~~]",
+        "recoveringStoredResponse": "[Řëçõṽëřïñğ ŧħë ƒïñàľ řëšþõñšë ƒřõṁ šŧõřëď šŧàŧë ~~~~]",
+        "recoveredStoredResponse": "[Řëçõṽëřëď ŧħë ƒïñàľ řëšþõñšë ƒřõṁ šŧõřëď šŧàŧë ~~~~]",
+        "storedRecoveryFailed": "[Šŧõřëď-řëšþõñšë řëçõṽëřÿ ƒàïľëď ~~~]",
+        "recovered": "[Řëçõññëçŧëď àƒŧëř řëŧřÿ {{attempt}}/{{maxAttempts}} ~~~]",
+        "bypassed": "[Üšïñğ ŧħë šŧàñďàřď OpenAI ŧřàñšþõřŧ ƒõř ŧħïš ŧüřñ ~~~~~]",
+        "fallback": "[Ƒàľľïñğ ƀàçķ ŧõ ŧħë šŧàñďàřď OpenAI šŧřëàṁ ~~~~]",
+        "exhausted": "[Řëçõññëçŧ ëẋħàüšŧëď ({{attempt}}/{{maxAttempts}}) ~~]",
+        "cancelled": "[Řëçõññëçŧ çàñçëľľëď ({{attempt}}/{{maxAttempts}}) ~~]"
+      },
+      "background": {
+        "queued": "[OpenAI ƀàçķğřõüñď řëšþõñšë ʠüëüëď ~~~]",
+        "completed": "[OpenAI ƀàçķğřõüñď řëšþõñšë çõṁþľëŧëď ~~~]",
+        "failed": "[OpenAI ƀàçķğřõüñď řëšþõñšë ƒàïľëď. ~~~]",
+        "cancelled": "[OpenAI ƀàçķğřõüñď řëšþõñšë ŵàš çàñçëľľëď. ~~~~]",
+        "noteQueued": "[OpenAI ƀàçķğřõüñď řëšþõñšë ʠüëüëď. Õþëñ Ĵõƀš ŧõ ṁõñïŧõř þřõğřëšš õř šŧõþ ïŧ. ~~~~~~~]",
+        "noTextOutput": "[OpenAI ƀàçķğřõüñď řëšþõñšë çõṁþľëŧëď ŵïŧħ ñõ ŧëẋŧ õüŧþüŧ. ~~~~~]",
+        "errorPrefix": "[Ëřřõř: {{message}} ~~]"
+      }
+    }
+  },
+  "memoryPanel": {
+    "title": "[Ṁëṁõřÿ ~~]",
+    "visibleCount": {
+      "eventOne": "[{{count}} ëṽëñŧ ~~]",
+      "eventOther": "[{{count}} ëṽëñŧš ~~]",
+      "nodeOne": "[{{count}} ñõďë ~~]",
+      "nodeOther": "[{{count}} ñõďëš ~~]"
+    },
+    "controls": {
+      "showArchived": "[Šħõŵ àřçħïṽëď ~~]",
+      "includeGlobal": "[Ïñçľüďë ğľõƀàľ ~~]",
+      "exportJsonTitle": "[Ëẋþõřŧ ṁëṁõřÿ ľõğš àñď àřŧïƒàçŧš ŧõ ĴŠÕÑ ~~~~]",
+      "exporting": "[Ëẋþõřŧïñğ... ~~]",
+      "exportJson": "[Ëẋþõřŧ ĴŠÕÑ ~~]",
+      "addNode": "[Àďď Ñõďë ~~]"
+    },
+    "tabs": {
+      "memory": "[Ďüřàƀľë Ṁëṁõřÿ ~~]",
+      "history": "[[canon:thread_history]]"
+    },
+    "export": {
+      "completedTitle": "[Ëẋþõřŧ çõṁþľëŧë ~~]",
+      "completedMessage": "[Ëẋþõřŧëď çõñŧëẋŧ ĴŠÕÑ.\n\nƑïľë: {{filePath}}\nṀëṁõřÿ ñõďëš: {{memoryNodeCount}}\nÀřŧïƒàçŧ ƒïľëš: {{artifactFileCount}}\nÀřŧïƒàçŧ řëṽïšïõñš: {{artifactRevisionCount}} ~~~~~~~]",
+      "failedTitle": "[Ëẋþõřŧ ƒàïľëď ~~]",
+      "failedMessage": "[Ƒàïľëď ŧõ ëẋþõřŧ çõñŧëẋŧ ĴŠÕÑ: {{message}} ~~~]"
+    },
+    "search": {
+      "placeholder": "[Šëàřçħ ṁëṁõřÿ... ~~]",
+      "searching": "[Šëàřçħïñğ... ~~]",
+      "resultOne": "[{{count}} řëšüľŧ ~~]",
+      "resultOther": "[{{count}} řëšüľŧš ~~]"
+    },
+    "compression": {
+      "latestBatchTitle": "[Ľàŧëšŧ çõṁþřëššïõñ ƀàŧçħ ~~]",
+      "summary": "[Çõṁþřëššëď ľõğš #{{rangeStart}} ŧõ #{{rangeEnd}} ïñŧõ šüṁṁàřÿ ñõďë ({{archivedCount}} àřçħïṽëď). ~~~~~]",
+      "jumpToSummary": "[Ĵüṁþ ŧõ Šüṁṁàřÿ ~~]",
+      "dismiss": "[Ďïšṁïšš ~~]"
+    },
+    "loading": {
+      "memory": "[Ľõàďïñğ ṁëṁõřÿ... ~~]",
+      "threadHistory": "[Ľõàďïñğ ŧħřëàď ħïšŧõřÿ... ~~~]"
+    },
+    "sections": {
+      "pinned": "[Þïññëď ~~]",
+      "allNodes": "[Àľľ Ṁëṁõřÿ Ñõďëš ~~]"
+    },
+    "embedder": {
+      "downloading": "[Ďõŵñľõàďïñğ ṁõďëľ {{progress}}% ~~]",
+      "loading": "[Ľõàďïñğ ṁõďëľ... ~~]",
+      "unavailable": "[Ëṁƀëďďïñğ üñàṽàïľàƀľë ~~]"
+    },
+    "source": {
+      "userMemory": "[Üšëř ṁëṁõřÿ ~~]",
+      "workspaceEvent": "[Ŵõřķšþàçë ëṽëñŧ ~~]",
+      "terminalSummary": "[Ŧëřṁïñàľ šüṁṁàřÿ ~~]",
+      "validatedDecision": "[Ṽàľïďàŧëď ďëçïšïõñ ~~]",
+      "referenceNote": "[Řëƒëřëñçë ñõŧë ~~]"
+    },
+    "provenance": {
+      "ariaLabel": "[Ṁëṁõřÿ þřõṽëñàñçë ~~]",
+      "origin": "[Õřïğïñ ~~]",
+      "terminalSession": "[Àççëþŧëď ŧëřṁïñàľ šüṁṁàřÿ ~~~]",
+      "session": "[Šëššïõñ ~~]",
+      "thread": "[Ŧħřëàď ~~]",
+      "saved": "[Šàṽëď ~~]"
+    },
+    "badges": {
+      "global": "[ğľõƀàľ ~~]",
+      "archived": "[àřçħïṽëď ~~]",
+      "deletedThread": "[Ďëľëŧëď ŧħřëàď ~~]"
+    },
+    "meta": {
+      "deletedThreadOrigin": "[{{threadTitle}} · ďëľëŧëď {{time}} ~~]"
+    },
+    "actions": {
+      "unpin": "[Üñþïñ ~~]",
+      "pin": "[Þïñ ~~]",
+      "edit": "[Ëďïŧ ~~]",
+      "delete": "[Ďëľëŧë ~~]",
+      "showLess": "[Šħõŵ ľëšš ~~]",
+      "showMore": "[Šħõŵ ṁõřë ~~]",
+      "continue": "[Çõñŧïñüë ~~]",
+      "continueDraft": "[Çõñŧïñüë ƒřõṁ ŧħë šàṽëď çõñŧëẋŧ. ~~~]"
+    },
+    "scoreRef": "[{{score}}% řëƒ ~~]",
+    "history": {
+      "userMessage": "[Üšëř ṁëššàğë ~~]",
+      "assistantMessage": "[Àššïšŧàñŧ ṁëššàğë ~~]",
+      "emptyTitle": "[Ñõ ŧħřëàď ħïšŧõřÿ ÿëŧ ~~]",
+      "noActiveThreadTitle": "[Ñõ àçŧïṽë ŧħřëàď šëľëçŧëď ~~~]",
+      "emptyDescription": "[Üšëř àñď àššïšŧàñŧ ŧřàñšçřïþŧ ëṽëñŧš ƒõř ŧħïš ŧħřëàď ŵïľľ àþþëàř ħëřë. ~~~~~~]",
+      "noActiveThreadDescription": "[Õþëñ õř çřëàŧë à ŧħřëàď ŧõ ïñšþëçŧ ïŧš ŧřàñšçřïþŧ ħïšŧõřÿ. ~~~~~]"
+    },
+    "addForm": {
+      "title": "[Àďď Ñëŵ Ṁëṁõřÿ Ñõďë ~~]",
+      "topicPlaceholder": "[Ŧõþïç / ŧïŧľë ~~]",
+      "contentPlaceholder": "[Ŵřïŧë ďõŵñ àñÿ çõñŧëẋŧ, ƒàçŧš, õř ïñšŧřüçŧïõñš... ~~~~~]",
+      "tagsPlaceholder": "[Ŧàğš (çõṁṁà šëþàřàŧëď) ~~]",
+      "saveAsGlobal": "[Šàṽë àš þëřšïšŧëñŧ ğľõƀàľ ṁëṁõřÿ ~~~]",
+      "saving": "[Šàṽïñğ... ~~]",
+      "saveNode": "[Šàṽë Ñõďë ~~]"
+    },
+    "editForm": {
+      "title": "[Ëďïŧ Ṁëṁõřÿ Ñõďë ~~]",
+      "closeAriaLabel": "[Çľõšë ṁëṁõřÿ ñõďë ëďïŧõř ~~]",
+      "topicPlaceholder": "[Ŧõþïç ~~]",
+      "contentPlaceholder": "[Çõñŧëñŧ ~~]",
+      "tagsPlaceholder": "[Ŧàğš (çõṁṁà šëþàřàŧëď) ~~]",
+      "saving": "[Šàṽïñğ... ~~]",
+      "saveChanges": "[Šàṽë Çħàñğëš ~~]"
+    },
+    "empty": {
+      "searchTitle": "[Ñõ ṁàŧçħïñğ ṁëṁõřïëš ~~]",
+      "title": "[Ñõ ṁëṁõřïëš ÿëŧ ~~]",
+      "searchDescription": "[Ŧřÿ à ďïƒƒëřëñŧ šëàřçħ ŧëřṁ õř çľëàř ŧħë šëàřçħ ŧõ šëë àľľ ṁëṁõřÿ ñõďëš. ~~~~~~]",
+      "description": "[Ďüřàƀľë ṁëṁõřÿ šŧõřëš ëẋþľïçïŧ ñõŧëš, ŵõřķšþàçë ëṽëñŧš, àççëþŧëď ŧëřṁïñàľ šüṁṁàřïëš, ṽàľïďàŧëď ďëçïšïõñš, àñď řëƒëřëñçë ñõŧëš. Řàŵ çħàŧ ŧüřñš ñõŵ ľïṽë ïñ ŧħřëàď ħïšŧõřÿ ïñšŧëàď. ~~~~~~~~~~~~~~~]"
+    }
+  },
+  "workspaceRail": {
+    "title": "[Þřõĵëçŧš ~~]",
+    "ariaLabel": "[Þřõĵëçŧš àñď ŧħřëàďš ~~]",
+    "show": "[Šħõŵ þřõĵëçŧš àñď ŧħřëàďš ~~~]",
+    "showWithActivityOne": "[Šħõŵ þřõĵëçŧš àñď ŧħřëàďš. {{count}} ħïďďëñ ŧħřëàď; ħïğħëšŧ þřïõřïŧÿ: {{activity}}. ~~~~~~]",
+    "showWithActivityOther": "[Šħõŵ þřõĵëçŧš àñď ŧħřëàďš. {{count}} ħïďďëñ ŧħřëàďš; ħïğħëšŧ þřïõřïŧÿ: {{activity}}. ~~~~~~]",
+    "hide": "[Ħïďë þřõĵëçŧš àñď ŧħřëàďš ~~~]",
+    "resize": "[Řëšïžë þřõĵëçŧš àñď ŧħřëàďš ~~~]",
+    "close": "[Çľõšë þřõĵëçŧš àñď ŧħřëàďš ~~~]"
+  },
+  "projectEntry": {
+    "browserPreviewLimitation": {
+      "title": "[Ďëšķŧõþ ŵõřķšþàçë řëʠüïřëď ~~~]",
+      "message": "[Õþëñïñğ à þřõĵëçŧ řëʠüïřëš ŧħë Ëľëçŧřõñ ŵõřķšþàçë ƀřïďğë. Üšë ŧħë ďëšķŧõþ àþþ õř àñ Ëľëçŧřõñ-ƀàçķëď šṁõķë řüñ ƒõř ŧħïš ƒľõŵ. ~~~~~~~~~~~]"
+    },
+    "clearProjectHistoryDialog": {
+      "title": "[Çľëàř þřõĵëçŧ ŧřàñšçřïþŧ ħïšŧõřÿ ~~~]",
+      "message": "[Çľëàř ŧřàñšçřïþŧ ħïšŧõřÿ ƒõř þřõĵëçŧ \"{{name}}\"?\n\nŦħïš ďõëš ñõŧ ďëľëŧë þřõĵëçŧ ƒïľëš. ~~~~~~~]",
+      "confirm": "[Çľëàř ħïšŧõřÿ ~~]",
+      "cancel": "[Çàñçëľ ~~]"
+    },
+    "archiveProjectDialog": {
+      "title": "[Šŧõþ àçŧïṽë ŵõřķ àñď àřçħïṽë þřõĵëçŧ? ~~~~]",
+      "message": "[Àçŧïṽë ŵõřķ ïñ \"{{name}}\" ŵïľľ šŧõþ ƀëƒõřë ŧħë þřõĵëçŧ ṁõṽëš ŧõ Àřçħïṽë. ~~~~~~]",
+      "cancel": "[Çàñçëľ ~~]"
+    },
+    "removeProjectDialog": {
+      "title": "[Řëṁõṽë ƒřõṁ ADDOM? ~~]",
+      "message": "[\"{{name}}\" àñď àľľ õƒ ïŧš ADDOM ħïšŧõřÿ, Ṁëṁõřÿ, Àřŧïƒàçŧš, àñď řëçõṽëřÿ ďàŧà ŵïľľ ƀë řëṁõṽëď. Þřõĵëçŧ ƒïľëš àřë üñçħàñğëď. ~~~~~~~~~~]",
+      "path": "[Ƒõľďëř: {{path}} ~~]",
+      "confirm": "[Řëṁõṽë ƒřõṁ ADDOM ~~]",
+      "failureTitle": "[Çõüľď ñõŧ řëṁõṽë ƒřõṁ ADDOM ~~~]",
+      "failureMessage": "[Ñõŧħïñğ ŵàš řëṁõṽëď ƒřõṁ ADDOM. Ŧřÿ àğàïñ. ~~~~]",
+      "cancel": "[Çàñçëľ ~~]"
+    },
+    "eyebrow": "[Ŵõřķšþàçë ~~]",
+    "title": "[Õþëñ à þřõĵëçŧ ~~]",
+    "newProject": "[Ñëŵ þřõĵëçŧ ~~]",
+    "newThreadInProject": "[Ñëŵ ŧħřëàď ïñ {{name}} ~~]",
+    "openFolder": "[Õþëñ ƒõľďëř ~~]",
+    "projectActions": {
+      "openFolder": "[Õþëñ ƒõľďëř ~~]",
+      "archiveProject": "[Àřçħïṽë þřõĵëçŧ ~~]",
+      "clearHistory": "[Çľëàř ħïšŧõřÿ ~~]",
+      "removeProject": "[Řëṁõṽë ƒřõṁ ADDOM ~~]",
+      "ariaLabel": "[Þřõĵëçŧ àçŧïõñš ƒõř {{name}} ~~]",
+      "restoreToRecent": "[Řëšŧõřë ŧõ Řëçëñŧ ~~]"
+    },
+    "archive": {
+      "title": "[Àřçħïṽë ~~]",
+      "toggle": "[Ŧõğğľë Àřçħïṽë ~~]"
+    },
+    "projectDisclosure": {
+      "expand": "[Ëẋþàñď {{name}} ~~]",
+      "collapse": "[Çõľľàþšë {{name}} ~~]"
+    },
+    "recentProjects": {
+      "title": "[Řëçëñŧ þřõĵëçŧš ~~]",
+      "description": "[Þïçķ üþ à ŵõřķšþàçë ŵïŧħ ïŧš ŧħřëàďš àñď ľõçàľ çõñŧëẋŧ. ~~~~~]",
+      "projectCount": "[{count, plural, one {# project} other {# projects}} ~~]",
+      "fallbackProjectName": "[Þřõĵëçŧ ~~]",
+      "recent": "[Řëçëñŧ ~~]",
+      "threadCount": "[{count, plural, one {# thread} other {# threads}} ~~]",
+      "open": "[Õþëñ ~~]"
+    },
+    "empty": {
+      "title": "[Ñõ řëçëñŧ þřõĵëçŧš ~~]",
+      "description": "[Õþëñ à ƒõľďëř ŧõ šŧàřŧ ŵõřķïñğ ïñ ŧħë ṁàïñ ŵõřķšþàçë. ~~~~~]"
+    },
+    "home": {
+      "placeholder": "[Ďëšçřïƀë à ŧàšķ ŧõ šŧàřŧ ŵõřķïñğ ~~~]",
+      "noProject": "[Ñõ þřõĵëçŧ ~~]",
+      "projectMenu": "[Çħõõšë ŧàřğëŧ þřõĵëçŧ ~~]",
+      "start": "[Šŧàřŧ ŧàšķ ~~]",
+      "commandsHint": "[Çõṁṁàñďš ~~]"
+    }
+  },
+  "agents": {
+    "fanoutConfirmation": {
+      "title": "[Ľàüñçħ {{count}} àğëñŧš? ~~]",
+      "description": "[Ŧħë õřçħëšŧřàŧõř řëʠüëšŧëď ṁõřë àğëñŧš ŧħàñ ÿõüř {{limit}}-àğëñŧ çõñƒïřṁàŧïõñ ľïṁïŧ. ~~~~~~~]",
+      "stopTurn": "[Šŧõþ ŧüřñ ~~]",
+      "limit": "[Ľïṁïŧ ŧõ {{count}} ~~]",
+      "launch": "[Ľàüñçħ {{count}} ~~]"
+    }
+  },
+  "agentNavigator": {
+    "title": "[Àğëñŧš ~~]",
+    "close": "[Çľõšë àğëñŧš ~~]",
+    "settings": "[Àğëñŧ šëŧŧïñğš ~~]",
+    "sectionActive": "[Àçŧïṽë ~~]",
+    "sectionDone": "[Ďõñë · {{count}} ~~]",
+    "emptyActive": "[Ñõ àçŧïṽë àğëñŧš ~~]",
+    "emptyThread": "[Ñõ àğëñŧš ïñ ŧħïš ŧħřëàď. ~~~]",
+    "showMore": "[Šħõŵ {{count}} ṁõřë ~~]",
+    "expand": "[Ëẋþàñď ~~]",
+    "collapse": "[Çõľľàþšë ~~]",
+    "hidden": "[+{{count}} ~~]",
+    "partialVisibility": "[þřõṽïďëř-ṁàñàğëď, þàřŧïàľ ṽïšïƀïľïŧÿ ~~~]",
+    "live": {
+      "selected": "[{{label}} · {{status}} ~~]",
+      "attention": "[{{label}} ñëëďš àŧŧëñŧïõñ · {{status}} ~~]"
+    },
+    "age": {
+      "seconds": "[{{count}}š ~~]",
+      "minutes": "[{{count}}ṁ ~~]",
+      "hours": "[{{count}}ħ ~~]",
+      "days": "[{{count}}ď ~~]"
+    },
+    "status": {
+      "queued": "[Ǫüëüëď ~~]",
+      "running": "[Řüññïñğ ~~]",
+      "waiting": "[Ŵàïŧïñğ ~~]",
+      "paused": "[Þàüšëď ~~]",
+      "approval_required": "[Ñëëďš àþþřõṽàľ ~~]",
+      "cancelling": "[Çàñçëľľïñğ ~~]",
+      "completed": "[Çõṁþľëŧëď ~~]",
+      "failed": "[Ƒàïľëď ~~]",
+      "cancelled": "[Çàñçëľľëď ~~]"
+    }
+  },
+  "agentConversation": {
+    "back": "[ßàçķ ~~]",
+    "rootLabel": "[Ŧħřëàď ~~]",
+    "regionLabel": "[Àğëñŧ çõñṽëřšàŧïõñ ~~]",
+    "loading": "[Ľõàďïñğ ŧřàñšçřïþŧ… ~~]",
+    "empty": "[Ñõ ŧřàñšçřïþŧ řëçõřďëď ÿëŧ. ~~~]",
+    "loadMore": "[Ľõàď ṁõřë àçŧïṽïŧÿ ~~]",
+    "unavailableTitle": "[Àğëñŧ üñàṽàïľàƀľë ~~]",
+    "unavailableBody": "[Ŧħïš àğëñŧ ïš ñõ ľõñğëř þàřŧ õƒ ŧħë řüñ. ~~~~]",
+    "error": "[Çõüľď ñõŧ ľõàď ŧħïš àğëñŧ'š ŧřàñšçřïþŧ. ~~~~]",
+    "actions": {
+      "menu": "[Àğëñŧ àçŧïõñš ~~]",
+      "message": "[Ṁëššàğë ~~]",
+      "messagePrompt": "[Ṁëššàğë ŧħïš àğëñŧ ~~]",
+      "messageDescription": "[Šëñď à ƒõľľõŵ-üþ ïñšŧřüçŧïõñ ŧõ ŧħë řüññïñğ àğëñŧ. ~~~~~]",
+      "messagePlaceholder": "[Ŵřïŧë à çõñçïšë ïñšŧřüçŧïõñ… ~~~]",
+      "cancel": "[Çàñçëľ ~~]",
+      "send": "[Šëñď ~~]",
+      "sending": "[Šëñďïñğ… ~~]",
+      "failure": "[Ŧħë àğëñŧ àçŧïõñ çõüľď ñõŧ ƀë çõṁþľëŧëď. ~~~~]",
+      "interrupt": "[Ïñŧëřřüþŧ ~~]",
+      "retry": "[Řëŧřÿ ~~]",
+      "promote": "[Çõñŧïñüë àš þřõĵëçŧ ŧħřëàď ~~~]"
+    },
+    "origin": {
+      "label": "[ßřàñçħëď ƒřõṁ {{role}} · Ŧüřñ {{turn}} ~~]",
+      "inspect": "[Ïñšþëçŧ šõüřçë ~~]",
+      "unavailable": "[Šõüřçë üñàṽàïľàƀľë ~~]",
+      "artifacts": "[{{count}} üñṁëřğëď šõüřçë àřŧïƒàçŧ(š) ~~~]",
+      "failure": "[Çõüľď ñõŧ õþëñ ŧħë šõüřçë àğëñŧ. ~~~]"
+    }
+  },
+  "agentStream": {
+    "title": "[Àğëñŧš · {{count}} ~~]",
+    "open": "[Õþëñ ~~]",
+    "delegationEchoSuppressed": "[Ďëľëğàŧïõñ ƒïñïšħëď. Õþëñ Àğëñŧš ƒõř ŧħë ďëŧàïľš. ~~~~~]"
+  },
+  "agentTrigger": {
+    "idle": "[Àğëñŧš ~~]",
+    "active": "[Àğëñŧš · {{count}} àçŧïṽë ~~]",
+    "approval": "[Àğëñŧš · ñëëďš àþþřõṽàľ ~~]",
+    "failed": "[Àğëñŧš · {{count}} ƒàïľëď ~~]",
+    "open": "[Õþëñ Àğëñŧš ~~]",
+    "close": "[Çľõšë Àğëñŧš ~~]"
+  }
+}

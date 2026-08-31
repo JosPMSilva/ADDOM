@@ -1,0 +1,27 @@
+{
+  "fixtureId": "markdown-tables",
+  "kind": "markdown",
+  "title": "Tables fixture",
+  "sourceClass": "repo-derived",
+  "provider": "repo",
+  "model": "repo-derived",
+  "streamShape": "none",
+  "semanticOwnership": "final-answer",
+  "contentFile": "content.md",
+  "sourceContentSha256": "69d6f92a669450d785176852a67a079c2c8dc120d4376e1dc9751c9bd2420e76",
+  "contentSha256": "69d6f92a669450d785176852a67a079c2c8dc120d4376e1dc9751c9bd2420e76",
+  "captureProvenance": {
+    "source": "repo-derived",
+    "captureMode": "read-only",
+    "sourceFiles": [
+      "runbook.md"
+    ]
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ]
+}

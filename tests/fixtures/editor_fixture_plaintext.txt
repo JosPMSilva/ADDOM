@@ -1,0 +1,5 @@
+Editor fixture plaintext
+line two
+line three
+
+Use this file for plain text editing, save, reload, and external change tests.

@@ -1,0 +1,937 @@
+{
+  "shell": {
+    "badges": {
+      "projectRootSet": "proje kök kümesi",
+      "projectRootMissing": "proje kökü eksik",
+      "languageSystem": "dil: sistem",
+      "languageNamed": "dil: {{label}}",
+      "updatesNamed": "güncellemeler: {{status}}",
+      "updatesIdle": "güncellemeler boşta",
+      "uiScale": "kullanıcı arayüzü {{percent}}%{{modeSuffix}}",
+      "uiScaleAutoSuffix": "oto",
+      "typographyScale": "metin {{percent}}%",
+      "providersCount": "{{count}} providers",
+      "configuredCount": "{{count}} yapılandırılmış",
+      "noProvidersConfigured": "providers yapılandırılmamış",
+      "permissionMode": "izin: {{mode}}",
+      "liveStreamOn": "canlı yayın açık",
+      "liveStreamOff": "canlı yayın kapalı",
+      "debugVisible": "hata ayıklama görünür",
+      "debugHidden": "hata ayıklama gizlendi",
+      "compressionOn": "sıkıştırma açık",
+      "compressionOff": "sıkıştırma kapalı",
+      "threshold": "eşik {{value}}",
+      "globalMemoryContextOn": "genel bellek bağlamı açık",
+      "globalMemoryContextOff": "genel bellek bağlamı kapalı",
+      "enabled": "etkinleştirilmiş",
+      "disabled": "engelli",
+      "rolesCount": "{{count}} rolleri",
+      "tier": "katman: {{tier}}",
+      "projectSelected": "proje seçildi",
+      "noActiveProject": "aktif proje yok",
+      "threadSelected": "thread seçildi",
+      "noActiveThread": "aktif thread yok"
+    }
+  },
+  "categories": {
+    "general": {
+      "label": "Genel",
+      "description": "Language, product guidance, updates, and app information."
+    },
+    "appearance": {
+      "label": "Görünüm",
+      "description": "Choose a theme, interface density, reading scale, and workspace tone."
+    },
+    "terminal": {
+      "label": "Terminal",
+      "description": "Configure terminal type, shell, working folder, and interaction behavior."
+    },
+    "agents": {
+      "label": "Ajanlar",
+      "description": "Set persistent instructions and manage Subagent roles."
+    },
+    "providers": {
+      "label": "Providers",
+      "description": "Provider connections, credentials, OpenAI account access, and Project Knowledge when enabled."
+    },
+    "toolsSafety": {
+      "label": "Safety",
+      "description": "Execution mode and concise guardrail behavior."
+    },
+    "dataPrivacy": {
+      "label": "Data",
+      "description": "Export, restore, delete, or reset local ADDOM data."
+    }
+  },
+  "sections": {
+    "general": {
+      "instructions": {
+        "title": "Kullanım Kılavuzu",
+        "summary": "Mevcut davranış, güvenlik varsayılanları ve iş akışları için uygulama içi kılavuzu açın."
+      },
+      "language": {
+        "title": "Dil",
+        "summary": "Select the ADDOM app language."
+      },
+      "projectFolder": {
+        "title": "Proje Klasörü",
+        "summary": "Dosya araçları ve shell komutları için etkin proje kökünü seçin."
+      },
+      "assistantPrompt": {
+        "title": "Custom instructions",
+        "summary": "Add persistent guidance to each chat turn."
+      },
+      "uiScaling": {
+        "title": "Kullanıcı Arayüzü Ölçeklendirme",
+        "summary": "Adjust shell density and chat text size."
+      },
+      "updates": {
+        "title": "Güncellemeler",
+        "summary": "ADDOM güncellemelerini kontrol edin, indirin ve yükleyin."
+      },
+      "about": {
+        "title": "Hakkında",
+        "summary": "Sürüm ve derleme bilgileri."
+      },
+      "terminal": {
+        "title": "Terminal",
+        "summary": "Set terminal font, shell, start folder, and copy behavior."
+      },
+      "appearanceMode": {
+        "title": "Theme",
+        "summary": "Choose light, dark, or system appearance."
+      },
+      "backgroundTone": {
+        "title": "Background",
+        "summary": "Choose a gray workspace tone."
+      }
+    },
+    "providers": {
+      "apiKeys": {
+        "title": "API Keys",
+        "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project Knowledge",
+        "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+      }
+    },
+    "toolsSafety": {
+      "executionMode": {
+        "title": "Yürütme Modu",
+        "summary": "Choose how much ADDOM should pause before running tools."
+      },
+      "commandSafety": {
+        "title": "Guardrails",
+        "summary": "Hard guardrails and first-risky-use behavior."
+      }
+    },
+    "moa": {
+      "agents": {
+        "title": "Agent roles",
+        "summary": "Configure agent roles, models, skills, and instructions."
+      }
+    },
+    "dataPrivacy": {
+      "resetCleanup": {
+        "title": "Sıfırlama ve Temizleme",
+        "summary": "thread JSON'yi dışa/içe aktarın ve thread, proje veya workspace kapsamında temizleme gerçekleştirin."
+      }
+    }
+  },
+  "common": {
+    "permissionRow": {
+      "alwaysOn": "Her zaman açık",
+      "toggleSetting": "Ayarı değiştir",
+      "unavailable": "Kullanılamıyor",
+      "clickToDisable": "Devre dışı bırakmak için tıklayın",
+      "clickToEnable": "Etkinleştirmek için tıklayın"
+    }
+  },
+  "alerts": {
+    "executionModeSaveFailed": {
+      "title": "Yürütme Modu Kaydetme Başarısız",
+      "message": "ADDOM could not persist the selected access mode. The UI was reset to the last saved value."
+    },
+    "languageSaveFailed": {
+      "title": "Dil Kaydetme Başarısız",
+      "message": "ADDOM seçilen uygulama dilini sürdüremedi."
+    },
+    "restartRequired": {
+      "title": "Yeniden Başlatma Gerekli",
+      "message": "Çalışan ADDOM ana işlemi, yeni kullanıcı arayüzü ölçeklendirme ayarlarını kabul etmedi. Ana işlemin güncellenen ayar işleyicilerini yeniden yüklemesi için uygulamayı yeniden başlatın."
+    },
+    "uiScalingSaveFailed": {
+      "title": "Kullanıcı Arayüzü Ölçeklendirme Kaydetme Başarısız",
+      "message": "ADDOM, seçilen kullanıcı arayüzü ölçeklendirme ayarlarını sürdüremedi."
+    },
+    "appearanceSaveFailed": {
+      "title": "Theme Save Failed",
+      "message": "ADDOM could not persist the selected theme."
+    },
+    "backgroundToneSaveFailed": {
+      "title": "Background Tone Save Failed",
+      "message": "ADDOM could not persist the selected background tone."
+    },
+    "backgroundToneRestartRequired": {
+      "message": "The running ADDOM main process did not acknowledge the new background tone. Restart the app so the main process reloads the updated settings handlers."
+    }
+  },
+  "blocks": {
+    "instructions": {
+      "title": "Kullanım Kılavuzu",
+      "description": "Mevcut ADDOM davranışını, güvenlik varsayılanlarını ve iş akışı kılavuzunu inceleyin.",
+      "guideLabel": "Uygulama İçi Kılavuz",
+      "guideVersion": "Sürüm {{version}}",
+      "guideUpdated": "{{date}} güncellendi",
+      "openGuide": "Kılavuzu Aç",
+      "note": "chat modlarının, onaylarının, bellek, [[canon:artifacts]] ve [[canon:moa]]'nin şu anda nasıl davrandığına ilişkin hızlı bir referans olarak bu kılavuzu kullanın."
+    },
+    "projectFolder": {
+      "title": "Proje Kök Klasörü",
+      "description": "ADDOM'nin dosya araçları ve shell komutları için kullandığı etkin proje kökünü seçin.",
+      "currentProjectPath": "Mevcut proje yolu",
+      "noProjectDirectorySelected": "Hiçbir proje dizini seçilmedi",
+      "changeFolder": "Klasörü Değiştir"
+    },
+    "executionMode": {
+      "title": "Yürütme Modu",
+      "description": "Yürütme dönüşleri tarafından kullanılan varsayılan [[canon:ask]] / [[canon:autonomy]] / [[canon:full_access]] modu için ikincil yüzey.",
+      "noticeLabel": "[[canon:info]]",
+      "currentDefault": "Mevcut varsayılan:",
+      "mode": {
+        "ask": "[[canon:ask]]",
+        "autonomy": "[[canon:autonomy]]",
+        "fullAccess": "[[canon:full_access]]"
+      },
+      "summary": {
+        "ask": "Yürütme dönüşleri, workspace güvenli eylemler için normal şekilde devam eder ve daha riskli ağ, kurulum veya ana bilgisayarı etkileyen adımların onaylanması gerektiğinde duraklatılır.",
+        "autonomy": "Execute turları rutin onay olmadan workspace Guardrails içinde hareket edebilir. Sert engeller ve kapsam dışı eylemler yine açıkça gösterilir.",
+        "fullAccess": "Execute, bu oturum için araçları otomatik olarak onaylar; açık katı politika ise tehlikeli yolları engellemeye devam eder."
+      },
+      "notice": "Sıraları yürütme bu kayıtlı varsayılanı kullanır. Plan ve Düşünme modu aynı varsayılanı chat'de görünür tutar ancak araçları körü körüne çalıştırmaz."
+    },
+    "assistantPrompt": {
+      "title": "Custom instructions",
+      "description": "Add persistent guidance to each chat turn.",
+      "placeholder": "Örnek: TypeScript'yi tercih edin. Kod değişikliklerini minimum düzeyde tutun ve önce test edin. Tailwind'i kullanmayın.",
+      "save": "Save instructions"
+    },
+    "language": {
+      "title": "Dil",
+      "description": "Yalnızca oluşturucu kullanıcı arayüzü yüzeyleri için ADDOM uygulama dilini seçin.",
+      "appLanguage": "Uygulama dili",
+      "systemDefaultDescription": "Sistem varsayılanı işletim sisteminizin dilini izler. Asistan yanıt verir, [[canon:backend]] davranışı, komutları ve teknik tokens standart İngilizce olarak kalır.",
+      "savedSetting": "Kayıtlı ayar",
+      "currentRendererLocale": "Geçerli oluşturucu yerel ayarı",
+      "systemResolvedNotice": "Sistem diliniz şu anda {{label}} olarak çözümleniyor. Bu yerel ayar henüz gönderilmediyse ADDOM İngilizceye geri döner.",
+      "validationOnlyNotice": "{{label}} bir doğrulama yerel ayarıdır. Normal sürüm ayarlarından gizli kalır ve yalnızca yerelleştirme kontrolleri sırasında etkinleştirilmelidir.",
+      "savedOnlyNotice": "{{label}} kaydedildi, ancak ADDOM şu anda yalnızca İngilizce oluşturucu dizelerini gönderiyor. Kullanıcı arayüzü, söz konusu yerel ayar gönderilene kadar İngilizce olarak kalır."
+    },
+    "apiKeys": {
+      "title": "API Keys ve Kimlikler",
+      "description": "Uzak provider kimlik bilgilerini ve kimliklerini yapılandırın. Ollama gibi yerel providers, anahtar gerektirmeyebilir.",
+      "noProviders": "Yapılandırılacak providers yok.",
+      "cursor": {
+        "accountMethod": "Cursor account",
+        "runtimeReady": "Runtime {{version}} is ready",
+        "runtimeMissing": "Cursor Agent runtime is not installed.",
+        "installRuntime": "Install runtime",
+        "installingRuntime": "Installing runtime",
+        "checkRuntime": "Check runtime",
+        "executionScope": "Composer 2.5 runs in Chat Execute with Full Access.",
+        "accountConnected": "Cursor account connected",
+        "accountDisconnected": "Cursor account not connected",
+        "connect": "Connect account",
+        "disconnect": "Disconnect",
+        "disconnectTitle": "Disconnect Cursor?",
+        "disconnectMessage": "ADDOM will stop using this Cursor account until you reconnect. Your API key and project files are unchanged.",
+        "apiKeyLabel": "Cursor API key",
+        "actionFailed": "Cursor could not complete this action."
+      },
+      "loginErrors": {
+        "callbackPortInUse": "Yerel OpenAI oturum açma geri arama bağlantı noktası zaten kullanımda. Oturum açma akışını yeniden deneyin veya çakışan işlemi kapatıp tekrar deneyin.",
+        "consentDenied": "OpenAI tarayıcı izin adımı iptal edildi veya reddedildi. Yeniden denemek için oturum açma akışını yeniden başlatın.",
+        "callbackNotCompleted": "OpenAI tarayıcıda oturum açma, localhost geri aramasını tamamlamadı. ADDOM'ye dönmeden önce oturum açma akışını yeniden deneyin ve onayı tamamlayın.",
+        "browserOpenFailed": "ADDOM, OpenAI oturum açma sayfasını otomatik olarak açamadı. Tarayıcıyı tekrar aç veya Oturum açma bağlantısını kopyala seçeneğini kullanın.",
+        "missingAuthUrl": "OpenAI oturum açma bağlantısı artık mevcut değil. Yeni bir tarayıcı bağlantısı istemek için oturum açma akışını yeniden başlatın.",
+        "bridgeProcessExited": "Yerel Codex runtime, OpenAI tarayıcı geri aramasını beklerken durdu. Oturum açma akışını yeniden başlatın.",
+        "loginTimedOut": "OpenAI oturum açma akışı, tarayıcı geri araması tamamlanmadan zaman aşımına uğradı. Yeniden denemek için oturum açma akışını yeniden başlatın."
+      },
+      "loginAlerts": {
+        "unavailable": "OpenAI Hesap Girişi Yapılamıyor",
+        "callbackPortInUse": "Yerel Geri Arama Bağlantı Noktası Meşgul",
+        "consentDenied": "Tarayıcı Onayı Reddedildi",
+        "callbackNotCompleted": "Tarayıcı Geri Arama Tamamlanmadı",
+        "browserOpenFailed": "Tarayıcı Başlatılamadı",
+        "missingAuthUrl": "Giriş Bağlantısı Mevcut Değil",
+        "bridgeProcessExited": "Codex Runtime Durduruldu",
+        "loginTimedOut": "Giriş Zaman Aşımına Uğradı"
+      },
+      "account": {
+        "connected": "OpenAI hesap oturumu bağlandı.",
+        "waitingForCallback": "Tarayıcıda oturum açmayı tamamlayın ve onay verin, ardından localhost geri araması tamamlandıktan sonra geri dönün.",
+        "waitingForBrowser": "ADDOM, tarayıcı oturum açma akışının başlamasını bekliyor.",
+        "notCompleted": "OpenAI hesabına giriş henüz tamamlanmadı.",
+        "storedKeyInactive": "Saklanan API key kullanılabilir durumda kalır ancak etkin değildir.",
+        "preparingRuntime": "Codex runtime'nin hazırlanması",
+        "reconnect": "Yeniden bağlan",
+        "continueInBrowser": "Tarayıcıda devam et",
+        "openBrowserAgain": "Tarayıcıyı tekrar aç",
+        "copyLoginLink": "Giriş bağlantısını kopyala",
+        "copiedLink": "Bağlantı kopyalandı"
+      },
+      "accessMethod": {
+        "label": "Sign in with",
+        "apiKey": "API key",
+        "openAiAccount": "OpenAI hesabı",
+        "selectedAccount": "Using your OpenAI account.",
+        "selectedApiKey": "Using an API key."
+      },
+      "localProvider": {
+        "label": "Yerel provider",
+        "downloadTitle": "{{name}}'yi indirin",
+        "running": "Running - {{count}} model{{suffix}}",
+        "notRunning": "Çalışmıyor"
+      },
+      "removeDialog": {
+        "title": "API Key'yi kaldırın",
+        "message": "{{name}} için API key kaldırılsın mı?",
+        "confirm": "Anahtarı Kaldır"
+      },
+      "disconnectDialog": {
+        "title": "OpenAI Hesabının Bağlantısını Kes",
+        "message": "Bu ADDOM profili için depolanan OpenAI hesap oturumunun bağlantısı kesilsin mi?",
+        "confirm": "Bağlantıyı kes"
+      },
+      "copyFailed": {
+        "title": "Kopyalama Başarısız",
+        "message": "ADDOM, OpenAI hesabı oturum açma bağlantısını panoya kopyalayamadı."
+      },
+      "apiKeyInput": {
+        "placeholder": "API key'nizi yapıştırın...",
+        "save": "Anahtarı kaydet",
+        "getKeyTitle": "{{name}}'den API key'yi edinin"
+      },
+      "configured": "Yapılandırılmış",
+      "saved": "Kaydedildi",
+      "replaceKey": "Anahtarı değiştir",
+      "recommendedAccount": {
+        "title": "Recommended for OpenAI",
+        "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+        "action": "Use OpenAI account"
+      }
+    },
+    "chatTypography": {
+      "title": "Chat metni",
+      "description": "Eşlenmiş chat metin yüzeylerine tek bir genel ölçek katsayısı uygulayın.",
+      "globalScaleFactor": "Küresel ölçek faktörü",
+      "globalScaleDescription": "Bu, eşlenmiş chat metin belirteçlerini birlikte ölçekler. Öğe bazlı varsayılanlar Ayarlar dışında kalır.",
+      "typographyScale": "Metin ölçeği",
+      "range": "Aralık {{min}}% ila {{max}}%",
+      "reset": "Sıfırla",
+      "notice": "Ölçek; kullanıcı mesajları, orkestratör çıktısı, ajanlar, yürütme akışı ve chat çevresindeki kartlarda zaten kullanılan eşlenmiş metin belirteçlerine uygulanır."
+    },
+    "uiScaling": {
+      "description": "ADDOM shell yoğunluğunu ve chat metin ölçeklendirmesini tek yerden kontrol edin.",
+      "appShellDensity": "Uygulama shell yoğunluğu",
+      "appShellDensityDescription": "[[canon:auto]] modu, işletim sistemi ölçeklendirmesinden sonra etkin görünüm penceresini takip eder. [[canon:manual]] modu, ekranlar arasında bir shell yoğunluğunu sabitler.",
+      "effective": "Etkili {{percent}}%",
+      "auto": "[[canon:auto]]",
+      "manual": "[[canon:manual]]",
+      "autoModeDescription": "[[canon:auto]] modu, gerçek CSS görünüm portuna tepki vererek shell geometrisinin 1080p ve 4K kurulumlarında hizalı kalmasını sağlar.",
+      "manualModeDescription": "Ekran ölçeklendirmesinden bağımsız olarak sabit bir shell yoğunluğunu istiyorsanız [[canon:manual]] modu kullanışlıdır.",
+      "shellScale": "Shell ölçeği",
+      "shellScaleDescription": "Bu, kenar çubuğu, thread çekmece, [[canon:moa]] rayı ve chat içerik genişlikleri tarafından kullanılan shell geometrisi tokens'yi ölçeklendirir.",
+      "chatTypographyScale": "Metin ölçeği",
+      "chatTypographyScaleDescription": "chat metin boyutunu shell yoğunluğuyla birlikte ayarlayarak iki katmanı beraber kalibre edin.",
+      "range": "Aralık {{min}}% ila {{max}}%",
+      "reset": "Sıfırla",
+      "notice": "Bağlantılı paneller hizalı kalır çünkü shell genişlikleri ve içerik rayları bağımsız olarak daraltmak yerine aynı model paylaşılan ayarlarından ölçeklenir."
+    },
+    "commandSafety": {
+      "title": "Guardrails ve tanılama",
+      "description": "Hard guardrails stay on in all access modes. [[canon:ask]], [[canon:autonomy]], and [[canon:full_access]] only change when approvals interrupt a turn.",
+      "common": {
+        "unknown": "bilinmiyor"
+      },
+      "approvalRuleLabels": {
+        "readFile": "Dosyaları oku",
+        "writeFile": "Dosya yaz",
+        "listDirectory": "Dizinleri listele",
+        "searchCode": "Arama kodu",
+        "applyArtifactRevision": "Yapıt düzeltmelerini uygulama",
+        "toolOperation": "Takım çalışması",
+        "projectReadonlyShell": "Projenin salt okunur shell komutlarını çalıştır",
+        "projectBuildTest": "Proje oluşturma/test komutlarını çalıştırma",
+        "projectMutation": "Proje mutasyon komutlarını çalıştırın",
+        "processControl": "Proje süreç kontrolü komutlarını çalıştırın",
+        "projectDependencyInstallSandboxed": "Sandboxed proje bağımlılığı yüklemelerini çalıştır",
+        "projectDependencyInstall": "Proje bağımlılığı yüklemelerini çalıştırın",
+        "runCommandOperations": "Komut işlemlerini çalıştırma"
+      },
+      "riskyActionApprovals": {
+        "title": "Riskli eylem onayları",
+        "description": "İlk riskli ağ erişimleri ve proje bağımlılığı kurulumları bu app oturumu sırasında etkin proje için hatırlanabilir. workspace dışındaki yollar, yıkıcı eylemler, genel kurulumlar ve yükseltilmiş host access hâlâ açık onay gerektirir.",
+        "activeProjectScope": "Aktif proje oturumu kapsamı:",
+        "noActiveWorkspace": "Henüz aktif workspace algılanmadı. Oturum kapsamlı riskli eylem bellek, proje kökü açıldığında başlar."
+      },
+      "modeEffect": {
+        "title": "Mod etkisi",
+        "description": "[[canon:ask]] riskli eylemlerde duraklar. [[canon:autonomy]] rutin workspace çalışmasını sürdürür ve yalnızca ilk riskli ağ/kurulum kullanımında veya sıkı Guardrails engellerinde kesintiye uğrar. [[canon:full_access]] rutin yürütmeyi otomatik onaylar, ancak açık hard-deny politika sonuçları engellemeye devam eder."
+      }
+    },
+    "moaAgents": {
+      "title": "Agent roles",
+      "description": "Create and manage the agent roles ADDOM can delegate work to.",
+      "roles": {
+        "guidance": "Rol adları benzersiz olmalıdır. Rol kimlikleri oluşturulur ve değiştirilemez.",
+        "idLabel": "İD:",
+        "writesLabel": "yazıyor:",
+        "templateLabel": "şablon:",
+        "edit": "Düzenlemek",
+        "delete": "Silmek",
+        "newRole": "Yeni temsilci rolü",
+        "addRole": "+ Temsilci rolü ekle",
+        "removeDialog": {
+          "title": "Temsilci Rolünü Kaldır",
+          "message": "Bu temsilci rolü kaldırılsın mı?",
+          "confirm": "Rolü Kaldır"
+        },
+        "editRoleTitle": "Edit agent role",
+        "addRoleTitle": "Add agent role",
+        "namePlaceholder": "Role name (e.g. Security Reviewer)",
+        "providerPlaceholder": "Select provider...",
+        "modelPlaceholder": "Select model...",
+        "modelIdPlaceholder": "Model ID (e.g. gpt-4o)",
+        "openRouterRoutePlaceholder": "Or enter a custom OpenRouter route ID",
+        "sourceTemplateLabel": "Source template:",
+        "hideAdvancedInstructions": "Hide advanced role instructions",
+        "showAdvancedInstructions": "Advanced role instructions",
+        "instructionsPlaceholder": "Optional instructions for this agent role (max 2000 chars)",
+        "saveChanges": "Save changes",
+        "addRoleAction": "Add role"
+      },
+      "templateGallery": {
+        "loading": "Beceri kataloğu yükleniyor...",
+        "title": "Beceri Kataloğu",
+        "skillCount": "{{count}} becerileri",
+        "searchPlaceholder": "Arama becerileri...",
+        "clearSearch": "Beceri aramasını temizle",
+        "searchResults": "\"{{query}}\"{{categorySuffix}} için {{count}} sonucu{{suffix}}",
+        "inCategory": "{{category}}'de",
+        "emptySearch": "Aramanızla eşleşen beceri yok.",
+        "canWrite": "Yazabilir",
+        "readOnly": "Salt okunur",
+        "added": "Eklendi",
+        "use": "Kullanmak",
+        "update": "Güncelle",
+        "categories": {
+          "all": "Tüm",
+          "security": "Güvenlik",
+          "frontend": "[[canon:frontend]]",
+          "backend": "[[canon:backend]]",
+          "quality": "Kalite",
+          "engineering": "Mühendislik",
+          "devops": "DevOps",
+          "testing": "Test",
+          "content": "İçerik",
+          "web": "ağ",
+          "performance": "Performans",
+          "desktop": "Masaüstü",
+          "general": "Genel"
+        }
+      },
+      "runtime": {
+        "title": "Agent settings",
+        "description": "Control delegation and capacity without changing your saved roles.",
+        "enabled": "Enable agents",
+        "disabled": "Agent delegation is disabled.",
+        "summary": "{{profile}} capacity · {{count}} active at once",
+        "delegation": "Agent delegation",
+        "delegationEnabled": "ADDOM can delegate work to the roles below.",
+        "delegationDisabled": "Roles stay available to configure while delegation is off.",
+        "profile": "Capacity",
+        "profileDescription": "Sets sensible limits for parallel and nested agents.",
+        "advanced": "Advanced limits",
+        "advancedSummary": "{{count}} active · depth {{depth}}",
+        "fanoutConfirmationThreshold": "Ask before launching more than",
+        "agentsUnit": "agents",
+        "providerOverrides": "Provider overrides",
+        "noProviderOverrides": "No provider-specific limits.",
+        "addProviderOverride": "Add provider override…",
+        "removeOverride": "Remove",
+        "discard": "Discard",
+        "saveChanges": "Save changes",
+        "isolationDescription": "Agent file changes stay isolated until the orchestrator integrates them.",
+        "limits": {
+          "maxLiveAgents": "Active at once",
+          "maxDepth": "Nesting depth",
+          "maxDescendants": "Agents per run",
+          "maxTotalTokens": "Token budget",
+          "maxCostUsd": "Cost budget",
+          "maxDurationMs": "Time budget"
+        }
+      }
+    },
+    "openRouterCatalogVisibility": {
+      "title": "OpenRouter Katalog Görünürlüğü",
+      "description": "chat ve [[canon:moa]] tarama yüzeylerinde hangi OpenRouter ailelerinin ve rotalarının görüneceğini kontrol edin.",
+      "notAvailable": "OpenRouter mevcut provider bildiriminde mevcut değil.",
+      "loading": "OpenRouter kataloğu yükleniyor...",
+      "browsingVisibility": "OpenRouter gezinme görünürlüğü",
+      "browsingVisibilityDescription": "Açık özel rota desteğini kaldırmadan provider ailelerini veya bireysel rotaları göz atmaktan gizleyin.",
+      "counts": {
+        "filtered": "{{shown}} gösteriliyor, {{enabled}} etkin",
+        "default": "{{enabled}} / {{total}} etkin"
+      },
+      "filtersTitle": "Filtreler",
+      "filters": {
+        "reviewedOnly": "Yalnızca incelendi",
+        "anyTools": "Herhangi bir araç",
+        "reasoning": "muhakeme",
+        "vision": "Görüş"
+      },
+      "quickActionsTitle": "Hızlı eylemler",
+      "quickActions": {
+        "showAll": "Tümünü göster",
+        "hideAll": "Tümünü gizle",
+        "reset": "Sıfırla"
+      },
+      "searchPlaceholder": "OpenRouter ad alanlarını veya rota kimliklerini arayın",
+      "empty": "Mevcut aramayla eşleşen OpenRouter rotası yok.",
+      "clearSearch": "Aramayı temizle",
+      "namespaceRow": {
+        "collapse": "Ad alanını daralt",
+        "expand": "Ad alanını genişlet",
+        "filteredCount": "{{shown}}/{{total}} gösterilmektedir",
+        "enabledCount": "{{enabled}}/{{total}} etkin",
+        "visibilityAriaLabel": "{{label}} ad alanı görünürlüğü"
+      },
+      "modelRow": {
+        "visibilityAriaLabel": "{{label}} görünürlük"
+      },
+      "inlineTitle": "Catalog visibility",
+      "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+      "showInlineAction": "Manage visibility",
+      "hideInlineAction": "Hide controls"
+    },
+    "dataReset": {
+      "title": "Veri Sıfırlama ve Temizleme",
+      "description": "thread yedeklemelerini dışa aktarın, kayıtlı geçmişi temizleyin veya yerel ADDOM verilerini sıfırlayın.",
+      "migrationTitle": "Etkin Thread Geçişi",
+      "migrationDescription": "Aktif chat dosyanızı doğrudan taşınabilir bir JSON yedeğine aktarın veya geçmişleri yerel olarak geri yükleyin.",
+      "exportCurrentThread": "Export Current Conversation",
+      "restoreFromJson": "JSON'den geri yükleme",
+      "noActiveConversation": "Dışa aktarılacak etkin görüşme seçilmedi.",
+      "localProfileResetTitle": "Yerel Profil Sıfırlama",
+      "localProfileResetDescription": "provider için kaydedilmiş API keys'i kaldırın veya ADDOM'nin yerel profilini tamamen sıfırlayın. Tam sıfırlama, yerel geçmişi, önbelleğe alınmış models, ekleri ve kaydedilmiş settings'i siler, ardından app'i yeniden başlatır.",
+      "profile": "Profil:",
+      "providers": "Providers:",
+      "providersStored": "{{count}} saklandı",
+      "memoryIndex": "bellek Dizini:",
+      "indexed": "Dizine eklendi",
+      "empty": "Boş",
+      "settings": "Ayarlar:",
+      "present": "Sunmak",
+      "attachments": "Ekler:",
+      "cached": "Önbelleğe alındı",
+      "modelCache": "model Önbellek:",
+      "mounted": "Monte edilmiş",
+      "providerBudget": {
+        "title": "Uyarlanabilir Provider Bütçeler",
+        "description": "Öğrenilen provider bütçe durumunu inceleyin ve ham provider başlıklarını veya kimlik bilgisi kimliklerini açığa çıkarmadan eski uyarlanabilir bütçe geçmişini kaldırın.",
+        "refresh": "Yenile",
+        "total": "{{count}} öğrenildi",
+        "active": "{{count}} aktif",
+        "stale": "{{count}} bayat",
+        "expired": "{{count}}'nin süresi doldu",
+        "pruneEligible": "{{count}} temizlemeye hazır",
+        "lastObserved": "Son gözlemlendiği tarih: {{value}}",
+        "lastResolved": "Son çözümlenen: {{value}}",
+        "emptyState": "Bu profil için henüz öğrenilmiş provider bütçe profili kaydedilmedi.",
+        "cleanupAction": "Öğrenilen bütçeleri temizleme",
+        "resetAction": "Öğrenilen bütçeleri sıfırla",
+        "never": "Asla",
+        "recent": "Son"
+      },
+      "spillover": {
+        "title": "Araç Sonucu Yayılımı",
+        "description": "Kalıcı araç sonucu yayılma depolamasını inceleyin, süresi dolmuş girişleri budayın ve ham çıktı gövdelerini açığa çıkarmadan yayılma kökünü temizleyin.",
+        "refresh": "Yenile",
+        "files": "{{count}} dosyaları",
+        "zeroBytes": "0B",
+        "bytesValue": "{{count}} {{unit}}",
+        "retentionValue": "{{files}} dosyaları / {{bytes}} / {{days}} günler",
+        "sessionCleanupAt": "Bu oturum temizliği: {{value}}",
+        "sessionCleanupResult": "Bu oturum temizleme işlemi {{files}} dosyalarını / {{bytes}}'yi kaldırdı.",
+        "sessionEmptyState": "Bu uygulama oturumunda henüz yayılma temizliği yapılmadı.",
+        "emptyState": "Şu anda bu profil için kalıcı araç sonucu yayılma dosyası mevcut değil.",
+        "cleanupAction": "Erik yayılımı",
+        "resetAction": "Yayılmayı temizle",
+        "rootPath": "Yayılma kökü: {{path}}",
+        "states": {
+          "none": "Oturum temizleme durumu yok",
+          "sessionNone": "Bu oturumda temizleme işlemi yapılmadı",
+          "pruned": "Budanmış",
+          "prunedWithFailures": "Başarısızlıklarla budandı",
+          "retentionExceeded": "Elde tutma aşıldı",
+          "prunedRetentionExceeded": "Budandı, tutma oranı hâlâ aşıldı",
+          "failed": "Temizleme başarısız oldu",
+          "cleared": "Temizlendi"
+        }
+      },
+      "deleteSavedApiKeys": "Kaydedilen API anahtarlarını silin",
+      "resetLocalProfileAndRestart": "Yerel profili sıfırlayın ve yeniden başlatın",
+      "importFallbackTitle": "İthal Thread",
+      "dialogs": {
+        "deleteApiKeys": {
+          "title": "API Keys'yi sil",
+          "message": "Saklanan tüm API anahtarları şimdi bu cihazdan silinsin mi? Konuşmalar, bellek, artifacts ve ayarlar aynı kalacaktır. Bu geri alınamaz.",
+          "confirm": "API Keys'yi sil"
+        },
+        "cleanupProviderBudgets": {
+          "title": "Öğrenilen Bütçeleri Temizleme",
+          "message": "Geçersiz veya uzun süre kullanılmamış, süresi dolmuş öğrenilmiş provider bütçe profilleri silinsin mi? En son aktif profiller kalacak.",
+          "confirm": "Temizlemek"
+        },
+        "resetProviderBudgets": {
+          "title": "Öğrenilen Bütçeleri Sıfırla",
+          "message": "Öğrenilen tüm provider bütçe profilleri bu profilden silinsin mi? Bu, yeni gözlemler kaydedilene kadar uyarlanabilir bütçe geçmişini kaldırır.",
+          "confirm": "Bütçeleri Sıfırla"
+        },
+        "cleanupToolResultSpillover": {
+          "title": "Erik Yayılımı",
+          "message": "Bu profildeki süresi dolmuş veya bütçeyi aşan araç sonucu yayılma dosyalarını budamak mı istiyorsunuz? Mevcut elde tutma politikasının ihtiyaç duyduğu son yayılmalar devam edecektir.",
+          "confirm": "Erik Yayılımı"
+        },
+        "resetToolResultSpillover": {
+          "title": "Yayılmayı Temizle",
+          "message": "Bu profildeki tüm kalıcı araç sonucu yayılma dosyaları silinsin mi? Bu, saklama ilkesini değiştirmez ve geri alınamaz.",
+          "confirm": "Yayılmayı Temizle"
+        },
+        "deleteAllLocalData": {
+          "title": "Tüm Yerel Verileri Sil",
+          "message": "Bu profil için tüm ADDOM yerel verileri silinsin ve yeniden başlatılsın mı? Bu işlem API keys, konuşmalar, bellek logları, Artifacts, proje oturumları, önbelleğe alınmış ekler, yerel model önbelleği ve settings verilerini kaldırır. Gereken her şeyi önce dışa aktarın. Bu işlem geri alınamaz.",
+          "confirm": "Sil ve Yeniden Başlat"
+        }
+      },
+      "feedback": {
+        "deleteFailed": {
+          "title": "Silinemedi"
+        },
+        "refreshFailed": {
+          "title": "Yenileme Başarısız",
+          "providerBudgetDefaultMessage": "Öğrenilen provider bütçe özeti yenilenemiyor.",
+          "spilloverDefaultMessage": "Araç sonucu yayılma özeti yenilenemiyor."
+        },
+        "localDataApiUnavailable": "Yerel veriler API kullanılamıyor.",
+        "apiKeysDeleted": {
+          "title": "API Keys Silindi",
+          "message": "Saklanan API anahtarları bu cihazdan silindi."
+        },
+        "deleteApiKeysFailed": "API anahtarları silinemedi: {{message}}",
+        "refreshProviderBudgetFailed": "Öğrenilen provider bütçeleri yenilenemedi: {{message}}",
+        "refreshToolResultSpilloverFailed": "Araç sonucu yayılımı yenilenemedi: {{message}}",
+        "providerBudgetCleanupComplete": {
+          "title": "Temizleme Tamamlandı",
+          "message": "{{count}} öğrenilen bütçe profilleri kaldırıldı."
+        },
+        "providerBudgetCleanupFailed": "Öğrenilen provider bütçeleri temizlenemedi: {{message}}",
+        "toolResultSpilloverCleanupComplete": {
+          "title": "Kuru Erik Tamamlandı",
+          "message": "{{count}} yayılma dosyası/dosyaları kaldırıldı."
+        },
+        "toolResultSpilloverCleanupFailed": "Araç sonucu yayılımı düzeltilemedi: {{message}}",
+        "resetFailed": {
+          "title": "Sıfırlama Başarısız"
+        },
+        "deleteLocalDataFailed": "Yerel veriler silinemedi: {{message}}",
+        "providerBudgetResetComplete": {
+          "title": "Sıfırlama Tamamlandı",
+          "message": "{{count}} öğrenilen bütçe profilleri kaldırıldı."
+        },
+        "providerBudgetResetFailed": "Öğrenilen provider bütçeleri sıfırlanamadı: {{message}}",
+        "toolResultSpilloverResetComplete": {
+          "title": "Yayılma Temizlendi",
+          "message": "{{count}} yayılma dosyası/dosyaları kaldırıldı."
+        },
+        "toolResultSpilloverResetFailed": "Araç sonucu yayılımı temizlenemedi: {{message}}",
+        "exportComplete": {
+          "title": "Dışa Aktarma Tamamlandı",
+          "copiedMessage": "Thread dışa aktarıldı. JSON panoya kopyalandı ve indirme işlemi başladı.",
+          "downloadMessage": "Thread dışa aktarma oluşturuldu ve indirme işlemi başlatıldı."
+        },
+        "exportFailed": {
+          "title": "Dışa Aktarma Başarısız",
+          "message": "thread dışa aktarılamadı: {{message}}"
+        },
+        "invalidJson": {
+          "title": "Geçersiz JSON",
+          "message": "Geçersiz JSON yükü."
+        },
+        "importComplete": {
+          "title": "İçe Aktarma Tamamlandı",
+          "messageOne": "{{count}} olayıyla birlikte thread \"{{title}}\" içe aktarıldı.",
+          "messageOther": "{{count}} olaylarıyla birlikte thread \"{{title}}\" içe aktarıldı."
+        },
+        "importFailed": {
+          "title": "İçe Aktarma Başarısız",
+          "message": "thread içe aktarılamadı: {{message}}"
+        }
+      },
+      "exportPreflight": {
+        "kicker": "Ön kontrolü dışa aktar",
+        "title": "İhracattan önce uyumluluk hatırlatıcısı",
+        "description": "Thread dışa aktarımları taşınabilirdir. Dışa aktarmaları yasaklanmış damıtma, kıyaslama toplama veya provider politikasını atlama iş akışları için kullanmayın.",
+        "preserveCitationsLabel": "Dışa aktarmada alıntıları ve atıf meta verilerini koruyun",
+        "preserveCitationsHint": "İlişkilendirmeye duyarlı şartlara sahip providers/models için önerilir.",
+        "strictConfirmLabel": "Bu dışa aktarımın bu oturumdaki şartlara uygun bir iş akışı için olduğunu onaylıyorum.",
+        "strictConfirmHint": "Katı mod, dışa aktarmadan önce açık onay gerektirir.",
+        "exporting": "Dışa aktarılıyor...",
+        "continueExport": "Dışa Aktarmaya Devam Et"
+      },
+      "importThread": {
+        "kicker": "Thread içe aktarma",
+        "title": "thread JSON'yi içe aktar",
+        "description": "Daha önce dışa aktarılan thread verisini etkin projeye aktarmak için yapıştırın.",
+        "fieldLabel": "Thread dışa aktarma JSON",
+        "placeholder": "{\"thread\": {...}, \"events\": [...]}",
+        "importing": "İçe aktarılıyor...",
+        "confirm": "Thread'yi içe aktar"
+      }
+    },
+    "updates": {
+      "title": "Güncellemeler",
+      "description": "ADDOM, başlatıldığında güncellemeleri otomatik olarak kontrol eder. Güncellemelerin ne zaman indirilip kurulacağını siz kontrol edersiniz.",
+      "status": {
+        "upToDate": "Güncel",
+        "checking": "Güncellemeler kontrol ediliyor...",
+        "latest": "En son sürümdesiniz",
+        "available": "Güncelleme mevcut - v{{version}}",
+        "downloading": "İndiriliyor... {{percent}}%",
+        "readyToInstall": "v{{version}} kuruluma hazır",
+        "error": "Güncelleme hatası: {{message}}"
+      },
+      "actions": {
+        "checkForUpdates": "Güncellemeleri kontrol edin",
+        "download": "v{{version}}'yi indirin",
+        "restartAndInstall": "Yeniden Başlatın ve Yükleyin"
+      }
+    },
+    "about": {
+      "title": "Hakkında",
+      "tagline": "Yerel öncelikli yapay zeka kodlama asistanı | BYOK | Telemetri yok",
+      "copyright": "Copyright (c) 2026 ADDOM contributors.",
+      "licenseLineOne": "MIT Lisansı altında lisanslanmıştır.",
+      "licenseLineTwo": "Ayrıntılar için LICENSE dosyasına bakın.",
+      "openSourceNotices": "Açık kaynak bildirimleri",
+      "thirdPartyInventory": "Üçüncü taraf envanteri",
+      "openLegalDocumentError": "Yasal belge açılamıyor.",
+      "legalDocumentsUnavailable": "Yasal belgeler mevcut değil: {{error}}"
+    },
+    "openAiKnowledgeBase": {
+      "title": "Project knowledge",
+      "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+      "notices": {
+        "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+        "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+        "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+      },
+      "projectScope": "Proje kapsamı",
+      "noActiveProjectSelected": "Aktif proje seçilmedi",
+      "filesLabel": "Uploaded files",
+      "storeLabel": "Mağaza:",
+      "quickSetup": "Hızlı Kurulum",
+      "ready": "Ready",
+      "actionNeeded": "Action needed",
+      "nextStepLabel": "Sonraki adım:",
+      "nextStep": {
+        "addApiKey": "Bir OpenAI API key ekleyin.",
+        "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+        "openProjectWorkspace": "workspace projesini açın.",
+        "uploadFiles": "Aranabilir olmasını istediğiniz dosyaları yükleyin.",
+        "createVectorStore": "Prepare project knowledge storage.",
+        "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+        "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+        "readyForRetrieval": "Project knowledge is ready for retrieval."
+      },
+      "quickFacts": {
+        "key": "Anahtar:",
+        "connected": "Bağlı",
+        "missing": "Eksik",
+        "access": "Erişim:",
+        "account": "Hesap",
+        "apiKey": "API key",
+        "project": "Proje:",
+        "active": "Aktif",
+        "uploads": "Yüklemeler:",
+        "attached": "Ekli:"
+      },
+      "actions": {
+        "refresh": "Yenile",
+        "uploadFiles": "Upload files",
+        "reuseVectorStore": "Refresh project knowledge",
+        "createVectorStore": "Prepare project knowledge",
+        "attachFiles": "Attach files",
+        "attachFilesWithCount": "Attach files ({{count}})",
+        "deleteVectorStore": "Reset project knowledge",
+        "remove": "Kaldırmak"
+      },
+      "uploadedFilesTitle": "Uploaded files",
+      "pendingAttachLabel": "Needs attach",
+      "emptyFiles": "No project knowledge files uploaded yet.",
+      "fileState": {
+        "attached": "Ekli",
+        "uploadedOnly": "Uploaded only"
+      },
+      "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly.",
+      "attachedFilesLabel": "Attached files"
+    },
+    "terminal": {
+      "title": "Terminal",
+      "description": "Uygulamanın genel tipografisini değiştirmeden temkinli terminal varsayılanlarını koruyun.",
+      "fontSizeLabel": "Yazı tipi boyutu",
+      "fontSizeDescription": "Yeni ve etkin terminal yüzeyleri için temel xterm yazı tipi boyutu.",
+      "fontFamilyLabel": "Yazı tipi ailesi",
+      "fontFamilyDescription": "xterm’in kullanacağı terminal yazı tipini seçin.",
+      "scrollbackLabel": "Scrollback satırları",
+      "scrollbackDescription": "xterm'in bellekte tuttuğu terminal geçmişi miktarı.",
+      "scrollbackHint": "satır",
+      "defaultShellLabel": "Varsayılan shell",
+      "defaultShellDescription": "Yeni bir terminal belirli bir shell istemediğinde kullanılan varsayılan shell.",
+      "defaultCwdBehaviorLabel": "Varsayılan cwd davranışı",
+      "defaultCwdBehaviorDescription": "Açık bir cwd verilmediğinde yeni terminallerin nerede başlayacağını seçin.",
+      "copyOnSelectionLabel": "Seçince kopyala",
+      "copyOnSelectionDescription": "Metin seçildiği anda terminal seçimini panoya kopyalayın.",
+      "pasteConfirmationLabel": "Büyük yapıştırma onayı",
+      "pasteConfirmationDescription": "Çok satırlı yapıştırmalar bu satır sayısına ulaştığında onay isteyin.",
+      "zeroDisablesHint": "0 istemi devre dışı bırakır",
+      "cwdBehavior": {
+        "project_root": "Proje kökü",
+        "editor_folder": "Editör klasörü",
+        "session_cwd": "Geçerli oturum cwd’si"
+      },
+      "fontFamilyOptions": {
+        "geist_mono": "Geist Mono",
+        "jetbrains_mono": "JetBrains Mono",
+        "fira_code": "Fira Code",
+        "cascadia_code": "Cascadia Code",
+        "system_mono": "System monospace"
+      },
+      "shellOptions": {
+        "default": "Sistem varsayılanı",
+        "cmd": "Komut İstemi",
+        "powershell": "Windows PowerShell",
+        "pwsh": "PowerShell 7+",
+        "bash": "Bash",
+        "zsh": "Zsh",
+        "git_bash": "Git Bash",
+        "wsl": "WSL"
+      },
+      "advancedDetailsTitle": "Terminal history and paste safety"
+    },
+    "appearanceMode": {
+      "description": "Choose a light or dark interface, or follow your system setting.",
+      "mode": "Color theme",
+      "modeDescription": "Updates the entire app, including editors and terminals.",
+      "selected": "Selected {{name}}",
+      "systemResolved": "System currently uses {{name}}.",
+      "modes": {
+        "dark": "Dark",
+        "light": "Light",
+        "system": "System"
+      }
+    },
+    "backgroundTone": {
+      "darkOnly": "Workspace tones are available when the resolved theme is Dark.",
+      "description": "Choose a gray workspace tone. Graphite matches the current ADDOM default.",
+      "tone": "Workspace tone",
+      "toneDescription": "Shifts the shared surface, panel, and border stack together.",
+      "selected": "Selected {{name}}",
+      "tones": {
+        "obsidian": "Obsidian",
+        "charcoal": "Charcoal",
+        "graphite": "Graphite",
+        "slate": "Slate",
+        "ash": "Ash"
+      }
+    }
+  },
+  "settings": {
+    "categories": {
+      "providers": {
+        "description": "Provider connections, model availability, and project knowledge controls when advanced OpenAI hosted tools are enabled."
+      }
+    },
+    "sections": {
+      "providers": {
+        "apiKeys": {
+          "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+        },
+        "openAiKnowledgeBase": {
+          "title": "Project Knowledge",
+          "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+        }
+      }
+    },
+    "blocks": {
+      "apiKeys": {
+        "accessMethod": {
+          "label": "Sign in with",
+          "selectedAccount": "Using your OpenAI account.",
+          "selectedApiKey": "Using an API key."
+        },
+        "localProvider": {
+          "running": "Running - {{count}} model{{suffix}}"
+        },
+        "recommendedAccount": {
+          "title": "Recommended for OpenAI",
+          "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+          "action": "Use OpenAI account"
+        }
+      },
+      "openRouterCatalogVisibility": {
+        "inlineTitle": "Catalog visibility",
+        "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+        "showInlineAction": "Manage visibility",
+        "hideInlineAction": "Hide controls"
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project knowledge",
+        "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+        "notices": {
+          "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+          "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+          "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+        },
+        "filesLabel": "Uploaded files",
+        "attachedFilesLabel": "Attached files",
+        "ready": "Ready",
+        "actionNeeded": "Action needed",
+        "pendingAttachLabel": "Needs attach",
+        "nextStep": {
+          "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+          "createVectorStore": "Prepare project knowledge storage.",
+          "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+          "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+          "readyForRetrieval": "Project knowledge is ready for retrieval."
+        },
+        "actions": {
+          "uploadFiles": "Upload files",
+          "reuseVectorStore": "Refresh project knowledge",
+          "createVectorStore": "Prepare project knowledge",
+          "attachFiles": "Attach files",
+          "attachFilesWithCount": "Attach files ({{count}})",
+          "deleteVectorStore": "Reset project knowledge"
+        },
+        "uploadedFilesTitle": "Uploaded files",
+        "emptyFiles": "No project knowledge files uploaded yet.",
+        "fileState": {
+          "uploadedOnly": "Uploaded only"
+        },
+        "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly."
+      }
+    }
+  }
+}

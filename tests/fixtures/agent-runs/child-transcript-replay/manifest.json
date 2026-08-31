@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "child-transcript-replay",
+  "sourceClass": "synthetic_contract",
+  "captureDate": "2026-07-22",
+  "providerRuntimeClass": "canonical_event_contract",
+  "synthetic": true,
+  "networkRequired": false,
+  "sourceReferences": ["docs/architecture/agent-orchestration.md"],
+  "sanitization": { "method": "original_synthetic_fixture", "privatePromptRemoved": true, "identifiersPlaceholdered": true, "pathsNormalized": true },
+  "contentHashAlgorithm": "sha256-canonical-json-v1",
+  "contentHash": "5d48f6098fabd51396cc36b982775e4ad0987d4499ed97a25c64678c57f8a6bf",
+  "coverage": ["child_transcript_without_parent_prose"],
+  "expectedCapabilities": { "addressableChildIdentity": true, "nodeScopedStream": true, "nodeCancellation": true, "rootFinalAuthority": true },
+  "currentContract": { "identity": "future_contract", "stream": "future_node_scoped_replay", "cancellation": "future_contract", "rootFinalAuthority": "required" },
+  "knownGaps": ["Child transcripts and compact parent references are not backed by a durable recursive graph yet."]
+}

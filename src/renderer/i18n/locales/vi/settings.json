@@ -1,0 +1,937 @@
+{
+  "shell": {
+    "badges": {
+      "projectRootSet": "bộ gốc dự án",
+      "projectRootMissing": "gốc dự án bị thiếu",
+      "languageSystem": "ngôn ngữ: hệ thống",
+      "languageNamed": "ngôn ngữ: {{label}}",
+      "updatesNamed": "cập nhật: {{status}}",
+      "updatesIdle": "cập nhật nhàn rỗi",
+      "uiScale": "ui {{percent}}%{{modeSuffix}}",
+      "uiScaleAutoSuffix": "tự động",
+      "typographyScale": "văn bản {{percent}}%",
+      "providersCount": "{{count}} providers",
+      "configuredCount": "Cấu hình {{count}}",
+      "noProvidersConfigured": "không có cấu hình providers",
+      "permissionMode": "sự cho phép: {{mode}}",
+      "liveStreamOn": "phát trực tiếp trên",
+      "liveStreamOff": "tắt phát trực tiếp",
+      "debugVisible": "gỡ lỗi hiển thị",
+      "debugHidden": "gỡ lỗi ẩn",
+      "compressionOn": "nén trên",
+      "compressionOff": "tắt nén",
+      "threshold": "ngưỡng {{value}}",
+      "globalMemoryContextOn": "bật ngữ cảnh bộ nhớ toàn cục",
+      "globalMemoryContextOff": "tắt ngữ cảnh bộ nhớ toàn cục",
+      "enabled": "đã bật",
+      "disabled": "tàn tật",
+      "rolesCount": "Vai trò {{count}}",
+      "tier": "cấp: {{tier}}",
+      "projectSelected": "dự án đã chọn",
+      "noActiveProject": "không có dự án đang hoạt động",
+      "threadSelected": "thread đã chọn",
+      "noActiveThread": "không có thread hoạt động"
+    }
+  },
+  "categories": {
+    "general": {
+      "label": "Tổng quan",
+      "description": "Language, product guidance, updates, and app information."
+    },
+    "appearance": {
+      "label": "Giao diện",
+      "description": "Choose a theme, interface density, reading scale, and workspace tone."
+    },
+    "terminal": {
+      "label": "Terminal",
+      "description": "Configure terminal type, shell, working folder, and interaction behavior."
+    },
+    "agents": {
+      "label": "Tác nhân",
+      "description": "Set persistent instructions and manage Subagent roles."
+    },
+    "providers": {
+      "label": "Providers",
+      "description": "Provider connections, credentials, OpenAI account access, and Project Knowledge when enabled."
+    },
+    "toolsSafety": {
+      "label": "Safety",
+      "description": "Execution mode and concise guardrail behavior."
+    },
+    "dataPrivacy": {
+      "label": "Data",
+      "description": "Export, restore, delete, or reset local ADDOM data."
+    }
+  },
+  "sections": {
+    "general": {
+      "instructions": {
+        "title": "Hướng dẫn sử dụng",
+        "summary": "Mở hướng dẫn trong ứng dụng để biết hành vi hiện tại, mặc định về an toàn và quy trình làm việc."
+      },
+      "language": {
+        "title": "Ngôn ngữ",
+        "summary": "Select the ADDOM app language."
+      },
+      "projectFolder": {
+        "title": "Thư mục dự án",
+        "summary": "Chọn gốc dự án đang hoạt động cho các công cụ tệp và lệnh shell."
+      },
+      "assistantPrompt": {
+        "title": "Custom instructions",
+        "summary": "Add persistent guidance to each chat turn."
+      },
+      "uiScaling": {
+        "title": "Chia tỷ lệ giao diện người dùng",
+        "summary": "Adjust shell density and chat text size."
+      },
+      "updates": {
+        "title": "Cập nhật",
+        "summary": "Kiểm tra, tải xuống và cài đặt các bản cập nhật ADDOM."
+      },
+      "about": {
+        "title": "Về",
+        "summary": "Thông tin về phiên bản và bản dựng."
+      },
+      "terminal": {
+        "title": "Terminal",
+        "summary": "Set terminal font, shell, start folder, and copy behavior."
+      },
+      "appearanceMode": {
+        "title": "Theme",
+        "summary": "Choose light, dark, or system appearance."
+      },
+      "backgroundTone": {
+        "title": "Background",
+        "summary": "Choose a gray workspace tone."
+      }
+    },
+    "providers": {
+      "apiKeys": {
+        "title": "API Keys",
+        "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project Knowledge",
+        "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+      }
+    },
+    "toolsSafety": {
+      "executionMode": {
+        "title": "Chế độ thực thi",
+        "summary": "Choose how much ADDOM should pause before running tools."
+      },
+      "commandSafety": {
+        "title": "Guardrails",
+        "summary": "Hard guardrails and first-risky-use behavior."
+      }
+    },
+    "moa": {
+      "agents": {
+        "title": "Agent roles",
+        "summary": "Configure agent roles, models, skills, and instructions."
+      }
+    },
+    "dataPrivacy": {
+      "resetCleanup": {
+        "title": "Đặt lại & dọn dẹp",
+        "summary": "Xuất/nhập thread JSON và thực hiện dọn dẹp ở phạm vi thread, dự án hoặc workspace."
+      }
+    }
+  },
+  "common": {
+    "permissionRow": {
+      "alwaysOn": "Luôn bật",
+      "toggleSetting": "Chuyển đổi cài đặt",
+      "unavailable": "Không có sẵn",
+      "clickToDisable": "Bấm để vô hiệu hóa",
+      "clickToEnable": "Bấm để kích hoạt"
+    }
+  },
+  "alerts": {
+    "executionModeSaveFailed": {
+      "title": "Chế độ thực thi Lưu không thành công",
+      "message": "ADDOM could not persist the selected access mode. The UI was reset to the last saved value."
+    },
+    "languageSaveFailed": {
+      "title": "Lưu ngôn ngữ không thành công",
+      "message": "ADDOM không thể duy trì ngôn ngữ ứng dụng đã chọn."
+    },
+    "restartRequired": {
+      "title": "Yêu cầu khởi động lại",
+      "message": "Quá trình chính ADDOM đang chạy không thừa nhận cài đặt chia tỷ lệ giao diện người dùng mới. Khởi động lại ứng dụng để quy trình chính tải lại trình xử lý cài đặt đã cập nhật."
+    },
+    "uiScalingSaveFailed": {
+      "title": "Lưu tỷ lệ giao diện người dùng không thành công",
+      "message": "ADDOM không thể duy trì cài đặt chia tỷ lệ giao diện người dùng đã chọn."
+    },
+    "appearanceSaveFailed": {
+      "title": "Theme Save Failed",
+      "message": "ADDOM could not persist the selected theme."
+    },
+    "backgroundToneSaveFailed": {
+      "title": "Background Tone Save Failed",
+      "message": "ADDOM could not persist the selected background tone."
+    },
+    "backgroundToneRestartRequired": {
+      "message": "The running ADDOM main process did not acknowledge the new background tone. Restart the app so the main process reloads the updated settings handlers."
+    }
+  },
+  "blocks": {
+    "instructions": {
+      "title": "Hướng dẫn sử dụng",
+      "description": "Xem lại hành vi, mặc định an toàn và hướng dẫn quy trình làm việc hiện tại của ADDOM.",
+      "guideLabel": "Hướng dẫn trong ứng dụng",
+      "guideVersion": "Phiên bản {{version}}",
+      "guideUpdated": "Đã cập nhật {{date}}",
+      "openGuide": "Mở hướng dẫn",
+      "note": "Sử dụng hướng dẫn này làm tài liệu tham khảo nhanh về cách các chế độ, phê duyệt, b? nh?, [[canon:artifacts]] và [[canon:moa]] hiện đang hoạt động."
+    },
+    "projectFolder": {
+      "title": "Thư mục gốc dự án",
+      "description": "Chọn gốc dự án đang hoạt động mà ADDOM sử dụng cho các công cụ tệp và lệnh shell.",
+      "currentProjectPath": "Lộ trình dự án hiện tại",
+      "noProjectDirectorySelected": "Không có thư mục dự án nào được chọn",
+      "changeFolder": "Thay đổi thư mục"
+    },
+    "executionMode": {
+      "title": "Chế độ thực thi",
+      "description": "Bề mặt phụ cho chế độ [[canon:ask]] / [[canon:autonomy]] / [[canon:full_access]] mặc định được sử dụng bởi các lượt thực thi.",
+      "noticeLabel": "[[canon:info]]",
+      "currentDefault": "Mặc định hiện tại:",
+      "mode": {
+        "ask": "[[canon:ask]]",
+        "autonomy": "[[canon:autonomy]]",
+        "fullAccess": "[[canon:full_access]]"
+      },
+      "summary": {
+        "ask": "Các lượt thực thi tiếp tục bình thường đối với các hành động an toàn workspace và tạm dừng khi các bước mạng, cài đặt hoặc ảnh hưởng đến máy chủ rủi ro hơn cần được phê duyệt.",
+        "autonomy": "Các lượt Execute có thể hoạt động trong workspace Guardrails mà không cần xác nhận thường lệ. Các chặn cứng và hành động ngoài phạm vi vẫn được hiển thị rõ ràng.",
+        "fullAccess": "Thực thi lần lượt các công cụ tự động phê duyệt cho phiên này trong khi chính sách cứng rõ ràng bị từ chối vẫn chặn các đường dẫn nguy hiểm."
+      },
+      "notice": "Lần lượt thực hiện sử dụng mặc định đã lưu này. Chế độ Lập kế hoạch và Suy nghĩ giữ nguyên mặc định hiển thị trong chat nhưng không thực thi các công cụ một cách mù quáng."
+    },
+    "assistantPrompt": {
+      "title": "Custom instructions",
+      "description": "Add persistent guidance to each chat turn.",
+      "placeholder": "Ví dụ: Thích TypeScript. Giữ những thay đổi về mã ở mức tối thiểu và ưu tiên thử nghiệm trước. Không sử dụng Tailwind.",
+      "save": "Save instructions"
+    },
+    "language": {
+      "title": "Ngôn ngữ",
+      "description": "Chọn ngôn ngữ ứng dụng ADDOM chỉ dành cho các bề mặt giao diện người dùng của trình kết xuất.",
+      "appLanguage": "Ngôn ngữ ứng dụng",
+      "systemDefaultDescription": "Mặc định hệ thống tuân theo ngôn ngữ hệ điều hành của bạn. Các câu trả lời của Trợ lý, hành vi, lệnh của [[canon:backend]] và tokens kỹ thuật vẫn giữ nguyên tiếng Anh chuẩn.",
+      "savedSetting": "Cài đặt đã lưu",
+      "currentRendererLocale": "Ngôn ngữ trình kết xuất hiện tại",
+      "systemResolvedNotice": "Ngôn ngữ hệ thống của bạn hiện được phân giải thành {{label}}. Nếu ngôn ngữ đó chưa được vận chuyển, ADDOM sẽ chuyển sang tiếng Anh.",
+      "validationOnlyNotice": "{{label}} là ngôn ngữ xác thực. Nó vẫn bị ẩn khỏi cài đặt phát hành thông thường và chỉ nên được bật trong quá trình kiểm tra bản địa hóa.",
+      "savedOnlyNotice": "{{label}} đã được lưu, nhưng ADDOM hiện chỉ cung cấp các chuỗi kết xuất bằng tiếng Anh. Giao diện người dùng vẫn bằng tiếng Anh cho đến khi ngôn ngữ đó được vận chuyển."
+    },
+    "apiKeys": {
+      "title": "API Keys & Danh tính",
+      "description": "Định cấu hình thông tin xác thực và nhận dạng provider từ xa. providers cục bộ như Ollama có thể không yêu cầu khóa.",
+      "noProviders": "Không có sẵn providers để định cấu hình.",
+      "cursor": {
+        "accountMethod": "Cursor account",
+        "runtimeReady": "Runtime {{version}} is ready",
+        "runtimeMissing": "Cursor Agent runtime is not installed.",
+        "installRuntime": "Install runtime",
+        "installingRuntime": "Installing runtime",
+        "checkRuntime": "Check runtime",
+        "executionScope": "Composer 2.5 runs in Chat Execute with Full Access.",
+        "accountConnected": "Cursor account connected",
+        "accountDisconnected": "Cursor account not connected",
+        "connect": "Connect account",
+        "disconnect": "Disconnect",
+        "disconnectTitle": "Disconnect Cursor?",
+        "disconnectMessage": "ADDOM will stop using this Cursor account until you reconnect. Your API key and project files are unchanged.",
+        "apiKeyLabel": "Cursor API key",
+        "actionFailed": "Cursor could not complete this action."
+      },
+      "loginErrors": {
+        "callbackPortInUse": "Cổng gọi lại đăng nhập OpenAI cục bộ đã được sử dụng. Hãy thử lại luồng đăng nhập hoặc đóng quá trình xung đột và thử lại.",
+        "consentDenied": "Bước đồng ý của trình duyệt OpenAI đã bị hủy hoặc bị từ chối. Bắt đầu lại quy trình đăng nhập để thử lại.",
+        "callbackNotCompleted": "Đăng nhập vào trình duyệt OpenAI không hoàn thành lệnh gọi lại localhost. Hãy thử lại quy trình đăng nhập và hoàn tất sự đồng ý trước khi quay lại ADDOM.",
+        "browserOpenFailed": "ADDOM không thể tự động mở trang đăng nhập OpenAI. Sử dụng Mở lại trình duyệt hoặc Sao chép liên kết đăng nhập.",
+        "missingAuthUrl": "Liên kết đăng nhập OpenAI không còn khả dụng. Bắt đầu lại quy trình đăng nhập để yêu cầu liên kết trình duyệt mới.",
+        "bridgeProcessExited": "Codex runtime cục bộ đã dừng trong khi chờ lệnh gọi lại trình duyệt OpenAI. Bắt đầu lại luồng đăng nhập.",
+        "loginTimedOut": "Luồng đăng nhập OpenAI đã hết thời gian chờ trước khi quá trình gọi lại trình duyệt hoàn tất. Bắt đầu lại quy trình đăng nhập để thử lại."
+      },
+      "loginAlerts": {
+        "unavailable": "Đăng nhập tài khoản OpenAI không khả dụng",
+        "callbackPortInUse": "Cổng gọi lại cục bộ bận",
+        "consentDenied": "Sự đồng ý của trình duyệt bị từ chối",
+        "callbackNotCompleted": "Gọi lại trình duyệt chưa hoàn thành",
+        "browserOpenFailed": "Khởi chạy trình duyệt không thành công",
+        "missingAuthUrl": "Liên kết đăng nhập không có sẵn",
+        "bridgeProcessExited": "Codex Runtime đã dừng",
+        "loginTimedOut": "Đăng nhập đã hết thời gian chờ"
+      },
+      "account": {
+        "connected": "Phiên tài khoản OpenAI được kết nối.",
+        "waitingForCallback": "Hoàn tất quá trình đăng nhập và đồng ý trong trình duyệt, sau đó quay lại sau khi lệnh gọi lại localhost hoàn tất.",
+        "waitingForBrowser": "ADDOM đang chờ luồng đăng nhập trình duyệt bắt đầu.",
+        "notCompleted": "Việc đăng nhập tài khoản OpenAI vẫn chưa hoàn tất.",
+        "storedKeyInactive": "API key được lưu trữ vẫn khả dụng nhưng không hoạt động.",
+        "preparingRuntime": "Đang chuẩn bị Codex runtime",
+        "reconnect": "Kết nối lại",
+        "continueInBrowser": "Tiếp tục trong trình duyệt",
+        "openBrowserAgain": "Mở lại trình duyệt",
+        "copyLoginLink": "Sao chép liên kết đăng nhập",
+        "copiedLink": "Đã sao chép liên kết"
+      },
+      "accessMethod": {
+        "label": "Sign in with",
+        "apiKey": "API key",
+        "openAiAccount": "Tài khoản OpenAI",
+        "selectedAccount": "Using your OpenAI account.",
+        "selectedApiKey": "Using an API key."
+      },
+      "localProvider": {
+        "label": "provider cục bộ",
+        "downloadTitle": "Tải xuống {{name}}",
+        "running": "Running - {{count}} model{{suffix}}",
+        "notRunning": "Không chạy"
+      },
+      "removeDialog": {
+        "title": "Xóa API Key",
+        "message": "Xóa API key cho {{name}}?",
+        "confirm": "Xóa khóa"
+      },
+      "disconnectDialog": {
+        "title": "Ngắt kết nối tài khoản OpenAI",
+        "message": "Ngắt kết nối phiên tài khoản OpenAI được lưu trữ cho hồ sơ ADDOM này?",
+        "confirm": "Ngắt kết nối"
+      },
+      "copyFailed": {
+        "title": "Sao chép không thành công",
+        "message": "ADDOM không thể sao chép liên kết đăng nhập tài khoản OpenAI vào bảng nhớ tạm."
+      },
+      "apiKeyInput": {
+        "placeholder": "Dán API key của bạn...",
+        "save": "Lưu khóa",
+        "getKeyTitle": "Nhận API key từ {{name}}"
+      },
+      "configured": "Đã định cấu hình",
+      "saved": "Đã lưu",
+      "replaceKey": "Thay thế chìa khóa",
+      "recommendedAccount": {
+        "title": "Recommended for OpenAI",
+        "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+        "action": "Use OpenAI account"
+      }
+    },
+    "chatTypography": {
+      "title": "Văn bản chat",
+      "description": "Áp dụng một hệ số tỷ lệ toàn cục cho các bề mặt văn bản chat đã được ánh xạ.",
+      "globalScaleFactor": "Yếu tố quy mô toàn cầu",
+      "globalScaleDescription": "Điều này sẽ thay đổi cùng lúc các token văn bản chat đã được ánh xạ. Giá trị mặc định theo từng phần tử vẫn nằm ngoài phần Cài đặt.",
+      "typographyScale": "Tỷ lệ văn bản",
+      "range": "Phạm vi {{min}}% đến {{max}}%",
+      "reset": "Cài lại",
+      "notice": "Tỷ lệ này áp dụng cho các token văn bản đã được ánh xạ và đang được dùng trong tin nhắn người dùng, đầu ra điều phối, agent, luồng thực thi và các thẻ quanh chat."
+    },
+    "uiScaling": {
+      "description": "Kiểm soát mật độ ADDOM shell và chia tỷ lệ văn bản chat từ một nơi.",
+      "appShellDensity": "Mật độ ứng dụng shell",
+      "appShellDensityDescription": "Chế độ [[canon:auto]] tuân theo khung nhìn hiệu quả sau khi chia tỷ lệ hệ điều hành. Chế độ [[canon:manual]] ghim mật độ shell trên các màn hình.",
+      "effective": "{{percent}}% hiệu quả",
+      "auto": "[[canon:auto]]",
+      "manual": "[[canon:manual]]",
+      "autoModeDescription": "Chế độ [[canon:auto]] giữ cho hình học shell được căn chỉnh trên các thiết lập 1080p và 4K bằng cách phản ứng với khung nhìn CSS thực tế.",
+      "manualModeDescription": "Chế độ [[canon:manual]] rất hữu ích nếu bạn muốn có một mật độ shell cố định bất kể tỷ lệ hiển thị.",
+      "shellScale": "Cân Shell",
+      "shellScaleDescription": "Điều này chia tỷ lệ hình học shell tokens được sử dụng bởi thanh bên, ngăn kéo thread, đường ray [[canon:moa]] và chiều rộng nội dung chat.",
+      "chatTypographyScale": "Tỷ lệ văn bản",
+      "chatTypographyScaleDescription": "Điều chỉnh cỡ chữ chat cùng với mật độ shell để cân chỉnh cả hai lớp cùng lúc.",
+      "range": "Phạm vi {{min}}% đến {{max}}%",
+      "reset": "Cài lại",
+      "notice": "Các bảng cố định luôn được căn chỉnh vì chiều rộng và đường ray nội dung của shell thay đổi theo cùng cài đặt chung model thay vì thu gọn độc lập."
+    },
+    "commandSafety": {
+      "title": "Guardrails & chẩn đoán",
+      "description": "Hard guardrails stay on in all access modes. [[canon:ask]], [[canon:autonomy]], and [[canon:full_access]] only change when approvals interrupt a turn.",
+      "common": {
+        "unknown": "không rõ"
+      },
+      "approvalRuleLabels": {
+        "readFile": "Đọc tập tin",
+        "writeFile": "Viết tập tin",
+        "listDirectory": "Danh sách thư mục",
+        "searchCode": "Mã tìm kiếm",
+        "applyArtifactRevision": "Áp dụng các bản sửa đổi tạo tác",
+        "toolOperation": "Vận hành công cụ",
+        "projectReadonlyShell": "Chạy các lệnh shell chỉ đọc của dự án",
+        "projectBuildTest": "Chạy lệnh xây dựng/kiểm tra dự án",
+        "projectMutation": "Chạy các lệnh đột biến dự án",
+        "processControl": "Chạy các lệnh kiểm soát quy trình dự án",
+        "projectDependencyInstallSandboxed": "Chạy cài đặt phụ thuộc dự án sandboxed",
+        "projectDependencyInstall": "Chạy cài đặt phụ thuộc dự án",
+        "runCommandOperations": "Chạy các thao tác lệnh"
+      },
+      "riskyActionApprovals": {
+        "title": "Phê duyệt hành động rủi ro",
+        "description": "Các network fetch rủi ro đầu tiên và việc cài đặt phụ thuộc của dự án có thể được ghi nhớ cho dự án đang hoạt động trong phiên app này. Các đường dẫn ngoài workspace, hành động phá hủy, cài đặt toàn cục và host access nâng cao vẫn cần được phê duyệt rõ ràng.",
+        "activeProjectScope": "Phạm vi phiên dự án đang hoạt động:",
+        "noActiveWorkspace": "Chưa phát hiện thấy workspace đang hoạt động. Hành động rủi ro trong phạm vi phiên b? nh? bắt đầu sau khi gốc dự án được mở."
+      },
+      "modeEffect": {
+        "title": "Tác động của chế độ",
+        "description": "[[canon:ask]] tạm dừng ở các hành động rủi ro. [[canon:autonomy]] giữ công việc workspace thường lệ tiếp tục và chỉ ngắt ở lần dùng mạng/cài đặt rủi ro đầu tiên hoặc các chặn Guardrails nghiêm ngặt. [[canon:full_access]] tự động phê duyệt thực thi thường lệ, trong khi kết quả chính sách hard-deny rõ ràng vẫn chặn."
+      }
+    },
+    "moaAgents": {
+      "title": "Agent roles",
+      "description": "Create and manage the agent roles ADDOM can delegate work to.",
+      "roles": {
+        "guidance": "Tên vai trò phải là duy nhất. ID vai trò được tạo và không thay đổi.",
+        "idLabel": "nhận dạng:",
+        "writesLabel": "viết:",
+        "templateLabel": "bản mẫu:",
+        "edit": "Biên tập",
+        "delete": "Xóa bỏ",
+        "newRole": "Vai trò đại lý mới",
+        "addRole": "+ Thêm vai trò đại lý",
+        "removeDialog": {
+          "title": "Xóa vai trò đại lý",
+          "message": "Xóa vai trò đại lý này?",
+          "confirm": "Xóa vai trò"
+        },
+        "editRoleTitle": "Edit agent role",
+        "addRoleTitle": "Add agent role",
+        "namePlaceholder": "Role name (e.g. Security Reviewer)",
+        "providerPlaceholder": "Select provider...",
+        "modelPlaceholder": "Select model...",
+        "modelIdPlaceholder": "Model ID (e.g. gpt-4o)",
+        "openRouterRoutePlaceholder": "Or enter a custom OpenRouter route ID",
+        "sourceTemplateLabel": "Source template:",
+        "hideAdvancedInstructions": "Hide advanced role instructions",
+        "showAdvancedInstructions": "Advanced role instructions",
+        "instructionsPlaceholder": "Optional instructions for this agent role (max 2000 chars)",
+        "saveChanges": "Save changes",
+        "addRoleAction": "Add role"
+      },
+      "templateGallery": {
+        "loading": "Đang tải danh mục kỹ năng...",
+        "title": "Danh mục kỹ năng",
+        "skillCount": "Kỹ năng {{count}}",
+        "searchPlaceholder": "Kỹ năng tìm kiếm...",
+        "clearSearch": "Xóa tìm kiếm kỹ năng",
+        "searchResults": "Kết quả {{count}}{{suffix}} cho \"{{query}}\"{{categorySuffix}}",
+        "inCategory": "trong {{category}}",
+        "emptySearch": "Không có kỹ năng phù hợp với tìm kiếm của bạn.",
+        "canWrite": "Có thể viết",
+        "readOnly": "Chỉ đọc",
+        "added": "Đã thêm",
+        "use": "Sử dụng",
+        "update": "Cập nhật",
+        "categories": {
+          "all": "Tất cả",
+          "security": "Bảo vệ",
+          "frontend": "[[canon:frontend]]",
+          "backend": "[[canon:backend]]",
+          "quality": "Chất lượng",
+          "engineering": "Kỹ thuật",
+          "devops": "DevOps",
+          "testing": "Kiểm tra",
+          "content": "Nội dung",
+          "web": "Web",
+          "performance": "Hiệu suất",
+          "desktop": "Máy tính để bàn",
+          "general": "Tổng quan"
+        }
+      },
+      "runtime": {
+        "title": "Agent settings",
+        "description": "Control delegation and capacity without changing your saved roles.",
+        "enabled": "Enable agents",
+        "disabled": "Agent delegation is disabled.",
+        "summary": "{{profile}} capacity · {{count}} active at once",
+        "delegation": "Agent delegation",
+        "delegationEnabled": "ADDOM can delegate work to the roles below.",
+        "delegationDisabled": "Roles stay available to configure while delegation is off.",
+        "profile": "Capacity",
+        "profileDescription": "Sets sensible limits for parallel and nested agents.",
+        "advanced": "Advanced limits",
+        "advancedSummary": "{{count}} active · depth {{depth}}",
+        "fanoutConfirmationThreshold": "Ask before launching more than",
+        "agentsUnit": "agents",
+        "providerOverrides": "Provider overrides",
+        "noProviderOverrides": "No provider-specific limits.",
+        "addProviderOverride": "Add provider override…",
+        "removeOverride": "Remove",
+        "discard": "Discard",
+        "saveChanges": "Save changes",
+        "isolationDescription": "Agent file changes stay isolated until the orchestrator integrates them.",
+        "limits": {
+          "maxLiveAgents": "Active at once",
+          "maxDepth": "Nesting depth",
+          "maxDescendants": "Agents per run",
+          "maxTotalTokens": "Token budget",
+          "maxCostUsd": "Cost budget",
+          "maxDurationMs": "Time budget"
+        }
+      }
+    },
+    "openRouterCatalogVisibility": {
+      "title": "Hiển thị danh mục OpenRouter",
+      "description": "Kiểm soát các họ và tuyến OpenRouter nào xuất hiện trong các bề mặt duyệt chat và [[canon:moa]].",
+      "notAvailable": "OpenRouter không có sẵn trong bảng kê khai provider hiện tại.",
+      "loading": "Đang tải danh mục OpenRouter...",
+      "browsingVisibility": "Khả năng hiển thị duyệt OpenRouter",
+      "browsingVisibilityDescription": "Ẩn các nhóm provider hoặc các tuyến riêng lẻ khỏi trình duyệt mà không xóa hỗ trợ tuyến tùy chỉnh rõ ràng.",
+      "counts": {
+        "filtered": "{{shown}} được hiển thị, {{enabled}} đã bật",
+        "default": "Đã bật {{enabled}} / {{total}}"
+      },
+      "filtersTitle": "Bộ lọc",
+      "filters": {
+        "reviewedOnly": "Chỉ được đánh giá",
+        "anyTools": "Bất kỳ công cụ nào",
+        "reasoning": "Lý luận",
+        "vision": "Tầm nhìn"
+      },
+      "quickActionsTitle": "Hành động nhanh",
+      "quickActions": {
+        "showAll": "Hiển thị tất cả",
+        "hideAll": "Ẩn tất cả",
+        "reset": "Cài lại"
+      },
+      "searchPlaceholder": "Tìm kiếm không gian tên OpenRouter hoặc ID tuyến đường",
+      "empty": "Không có tuyến OpenRouter nào khớp với tìm kiếm hiện tại.",
+      "clearSearch": "Xóa tìm kiếm",
+      "namespaceRow": {
+        "collapse": "Thu gọn không gian tên",
+        "expand": "Mở rộng không gian tên",
+        "filteredCount": "Hiển thị {{shown}}/{{total}}",
+        "enabledCount": "Đã bật {{enabled}}/{{total}}",
+        "visibilityAriaLabel": "Khả năng hiển thị không gian tên {{label}}"
+      },
+      "modelRow": {
+        "visibilityAriaLabel": "Khả năng hiển thị của {{label}}"
+      },
+      "inlineTitle": "Catalog visibility",
+      "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+      "showInlineAction": "Manage visibility",
+      "hideInlineAction": "Hide controls"
+    },
+    "dataReset": {
+      "title": "Đặt lại và dọn dẹp dữ liệu",
+      "description": "Xuất bản sao lưu thread, xóa lịch sử đã lưu hoặc đặt lại dữ liệu ADDOM cục bộ.",
+      "migrationTitle": "Di chuyển Thread đang hoạt động",
+      "migrationDescription": "Xuất trực tiếp chat đang hoạt động của bạn sang bản sao lưu JSON di động hoặc khôi phục lịch sử cục bộ.",
+      "exportCurrentThread": "Export Current Conversation",
+      "restoreFromJson": "Khôi phục từ JSON",
+      "noActiveConversation": "Không có cuộc trò chuyện tích cực nào được chọn để xuất.",
+      "localProfileResetTitle": "Đặt lại hồ sơ cục bộ",
+      "localProfileResetDescription": "Xóa API keys provider đã lưu hoặc đặt lại hoàn toàn profile cục bộ của ADDOM. Việc đặt lại toàn bộ sẽ xóa lịch sử cục bộ, models trong cache, tệp đính kèm và settings đã lưu, rồi khởi động lại app.",
+      "profile": "Hồ sơ:",
+      "providers": "Providers:",
+      "providersStored": "{{count}} được lưu trữ",
+      "memoryIndex": "Chỉ số b? nh?:",
+      "indexed": "Đã lập chỉ mục",
+      "empty": "Trống",
+      "settings": "Cài đặt:",
+      "present": "Hiện tại",
+      "attachments": "Tệp đính kèm:",
+      "cached": "Đã lưu vào bộ nhớ đệm",
+      "modelCache": "Bộ đệm Model:",
+      "mounted": "Đã gắn kết",
+      "providerBudget": {
+        "title": "Ngân sách Provider thích ứng",
+        "description": "Kiểm tra trạng thái ngân sách provider đã tìm hiểu và xóa lịch sử ngân sách thích ứng cũ mà không làm lộ các tiêu đề hoặc thông tin xác thực provider thô.",
+        "refresh": "Làm cho khỏe lại",
+        "total": "{{count}} đã học được",
+        "active": "{{count}} đang hoạt động",
+        "stale": "{{count}} cũ",
+        "expired": "{{count}} đã hết hạn",
+        "pruneEligible": "Sẵn sàng dọn dẹp {{count}}",
+        "lastObserved": "Quan sát lần cuối: {{value}}",
+        "lastResolved": "Giải quyết lần cuối: {{value}}",
+        "emptyState": "Chưa có hồ sơ ngân sách provider đã học nào được ghi lại cho hồ sơ này.",
+        "cleanupAction": "Dọn dẹp ngân sách đã học",
+        "resetAction": "Đặt lại ngân sách đã học",
+        "never": "Không bao giờ",
+        "recent": "Gần đây"
+      },
+      "spillover": {
+        "title": "Công cụ lan tỏa kết quả",
+        "description": "Kiểm tra việc lưu trữ kết quả tràn vẫn tồn tại của công cụ, cắt bớt các mục đã hết hạn và xóa gốc tràn mà không để lộ phần đầu ra thô.",
+        "refresh": "Làm cho khỏe lại",
+        "files": "Các tập tin {{count}}",
+        "zeroBytes": "0 B",
+        "bytesValue": "{{count}} {{unit}}",
+        "retentionValue": "Tệp {{files}} / {{bytes}} / {{days}} ngày",
+        "sessionCleanupAt": "Dọn dẹp phiên này: {{value}}",
+        "sessionCleanupResult": "Quá trình dọn dẹp phiên này đã xóa (các) tệp {{files}}/{{bytes}}.",
+        "sessionEmptyState": "Chưa có hoạt động dọn dẹp tràn nào được thực hiện trong phiên ứng dụng này.",
+        "emptyState": "Hiện tại không có tệp lan tỏa kết quả công cụ liên tục nào tồn tại cho cấu hình này.",
+        "cleanupAction": "Tỉa lan tràn",
+        "resetAction": "Tính lan tỏa rõ ràng",
+        "rootPath": "Gốc tràn: {{path}}",
+        "states": {
+          "none": "Không có trạng thái dọn dẹp phiên",
+          "sessionNone": "Không có dọn dẹp chạy phiên này",
+          "pruned": "cắt tỉa",
+          "prunedWithFailures": "Cắt tỉa với những thất bại",
+          "retentionExceeded": "Quá mức lưu giữ",
+          "prunedRetentionExceeded": "Cắt tỉa, giữ lại vẫn vượt quá",
+          "failed": "Dọn dẹp không thành công",
+          "cleared": "Đã xóa"
+        }
+      },
+      "deleteSavedApiKeys": "Xóa khóa API đã lưu",
+      "resetLocalProfileAndRestart": "Đặt lại hồ sơ cục bộ và khởi động lại",
+      "importFallbackTitle": "Thread đã nhập khẩu",
+      "dialogs": {
+        "deleteApiKeys": {
+          "title": "Xóa API Keys",
+          "message": "Xóa tất cả khóa API được lưu trữ khỏi thiết bị này ngay bây giờ? Cuộc trò chuyện, b? nh?, artifacts và cài đặt sẽ vẫn còn. Điều này không thể hoàn tác được.",
+          "confirm": "Xóa API Keys"
+        },
+        "cleanupProviderBudgets": {
+          "title": "Dọn dẹp ngân sách đã học",
+          "message": "Xóa hồ sơ ngân sách provider đã học không hợp lệ hoặc đã hết hạn sử dụng từ lâu? Hồ sơ hoạt động gần đây sẽ vẫn còn.",
+          "confirm": "Dọn dẹp"
+        },
+        "resetProviderBudgets": {
+          "title": "Đặt lại ngân sách đã học",
+          "message": "Xóa tất cả hồ sơ ngân sách provider đã học khỏi hồ sơ này? Thao tác này sẽ xóa lịch sử ngân sách thích ứng cho đến khi các quan sát mới được ghi lại.",
+          "confirm": "Đặt lại ngân sách"
+        },
+        "cleanupToolResultSpillover": {
+          "title": "Tỉa tràn",
+          "message": "Cắt bớt các tập tin lan tỏa kết quả của công cụ đã hết hạn hoặc vượt quá ngân sách từ hồ sơ này? Sự lan tỏa gần đây cần thiết bởi chính sách duy trì hiện tại sẽ vẫn còn.",
+          "confirm": "Tỉa tràn"
+        },
+        "resetToolResultSpillover": {
+          "title": "Xóa lan tỏa",
+          "message": "Xóa tất cả các tệp lan tỏa kết quả công cụ vẫn tồn tại khỏi hồ sơ này? Điều này không thay đổi chính sách lưu giữ và không thể hoàn tác.",
+          "confirm": "Xóa lan tỏa"
+        },
+        "deleteAllLocalData": {
+          "title": "Xóa tất cả dữ liệu cục bộ",
+          "message": "Xóa toàn bộ dữ liệu cục bộ của ADDOM cho profile này và khởi động lại? Thao tác này sẽ xóa API keys, hội thoại, log của Memory, Artifacts, phiên dự án, tệp đính kèm trong cache, cache model cục bộ và settings. Hãy xuất mọi thứ bạn cần trước. Thao tác này không thể hoàn tác.",
+          "confirm": "Xóa và khởi động lại"
+        }
+      },
+      "feedback": {
+        "deleteFailed": {
+          "title": "Xóa không thành công"
+        },
+        "refreshFailed": {
+          "title": "Làm mới không thành công",
+          "providerBudgetDefaultMessage": "Không thể làm mới bản tóm tắt ngân sách provider đã học.",
+          "spilloverDefaultMessage": "Không thể làm mới bản tóm tắt lan tỏa kết quả của công cụ."
+        },
+        "localDataApiUnavailable": "Dữ liệu cục bộ API không có sẵn.",
+        "apiKeysDeleted": {
+          "title": "API Keys đã xóa",
+          "message": "Các khóa API được lưu trữ đã bị xóa khỏi thiết bị này."
+        },
+        "deleteApiKeysFailed": "Không xóa được khóa API: {{message}}",
+        "refreshProviderBudgetFailed": "Không thể làm mới ngân sách provider đã học: {{message}}",
+        "refreshToolResultSpilloverFailed": "Không thể làm mới kết quả lan tỏa của công cụ: {{message}}",
+        "providerBudgetCleanupComplete": {
+          "title": "Dọn dẹp hoàn tất",
+          "message": "Đã xóa (các) hồ sơ ngân sách đã học {{count}}."
+        },
+        "providerBudgetCleanupFailed": "Không thể dọn sạch ngân sách provider đã học: {{message}}",
+        "toolResultSpilloverCleanupComplete": {
+          "title": "Cắt tỉa hoàn chỉnh",
+          "message": "Đã xóa (các) tệp tràn {{count}}."
+        },
+        "toolResultSpilloverCleanupFailed": "Không thể cắt bớt kết quả lan tỏa của công cụ: {{message}}",
+        "resetFailed": {
+          "title": "Đặt lại không thành công"
+        },
+        "deleteLocalDataFailed": "Không thể xóa dữ liệu cục bộ: {{message}}",
+        "providerBudgetResetComplete": {
+          "title": "Đặt lại hoàn tất",
+          "message": "Đã xóa (các) hồ sơ ngân sách đã học {{count}}."
+        },
+        "providerBudgetResetFailed": "Không thể đặt lại ngân sách provider đã học: {{message}}",
+        "toolResultSpilloverResetComplete": {
+          "title": "Đã xóa tràn",
+          "message": "Đã xóa (các) tệp tràn {{count}}."
+        },
+        "toolResultSpilloverResetFailed": "Không thể xóa kết quả lan tỏa của công cụ: {{message}}",
+        "exportComplete": {
+          "title": "Xuất hoàn tất",
+          "copiedMessage": "Thread đã xuất. JSON được sao chép vào khay nhớ tạm và bắt đầu tải xuống.",
+          "downloadMessage": "Đã tạo bản xuất Thread và bắt đầu tải xuống."
+        },
+        "exportFailed": {
+          "title": "Xuất không thành công",
+          "message": "Không thể xuất thread: {{message}}"
+        },
+        "invalidJson": {
+          "title": "JSON không hợp lệ",
+          "message": "Tải trọng JSON không hợp lệ."
+        },
+        "importComplete": {
+          "title": "Nhập hoàn tất",
+          "messageOne": "Đã nhập thread \"{{title}}\" với sự kiện {{count}}.",
+          "messageOther": "Đã nhập thread \"{{title}}\" với các sự kiện {{count}}."
+        },
+        "importFailed": {
+          "title": "Nhập không thành công",
+          "message": "Không thể nhập thread: {{message}}"
+        }
+      },
+      "exportPreflight": {
+        "kicker": "Xuất trước chuyến bay",
+        "title": "Nhắc nhở tuân thủ trước khi xuất",
+        "description": "Xuất khẩu Thread có thể mang theo được. Không sử dụng tính năng xuất cho quy trình chưng cất bị cấm, thu hoạch điểm chuẩn hoặc quy trình bỏ qua chính sách provider.",
+        "preserveCitationsLabel": "Giữ nguyên các trích dẫn và siêu dữ liệu ghi công khi xuất",
+        "preserveCitationsHint": "Được đề xuất cho providers/models với các thuật ngữ nhạy cảm về phân bổ.",
+        "strictConfirmLabel": "Tôi xác nhận việc xuất này là dành cho quy trình làm việc tuân thủ các điều khoản trong phiên này.",
+        "strictConfirmHint": "Chế độ nghiêm ngặt yêu cầu xác nhận rõ ràng trước khi xuất.",
+        "exporting": "Đang xuất...",
+        "continueExport": "Tiếp tục xuất"
+      },
+      "importThread": {
+        "kicker": "Nhập khẩu Thread",
+        "title": "Nhập khẩu thread JSON",
+        "description": "Dán tải trọng thread đã xuất trước đó để nhập tải trọng đó vào dự án đang hoạt động.",
+        "fieldLabel": "Thread xuất JSON",
+        "placeholder": "{\"thread\": {...}, \"events\": [...]}",
+        "importing": "Đang nhập khẩu...",
+        "confirm": "Nhập khẩu Thread"
+      }
+    },
+    "updates": {
+      "title": "Cập nhật",
+      "description": "ADDOM tự động kiểm tra các bản cập nhật khi khởi chạy. Bạn kiểm soát thời điểm tải xuống và cài đặt các bản cập nhật.",
+      "status": {
+        "upToDate": "Cập nhật",
+        "checking": "Đang kiểm tra cập nhật...",
+        "latest": "Bạn đang dùng phiên bản mới nhất",
+        "available": "Đã có bản cập nhật - v{{version}}",
+        "downloading": "Đang tải xuống... {{percent}}%",
+        "readyToInstall": "v{{version}} đã sẵn sàng để cài đặt",
+        "error": "Lỗi cập nhật: {{message}}"
+      },
+      "actions": {
+        "checkForUpdates": "Kiểm tra các bản cập nhật",
+        "download": "Tải xuống v{{version}}",
+        "restartAndInstall": "Khởi động lại và cài đặt"
+      }
+    },
+    "about": {
+      "title": "Về",
+      "tagline": "Trợ lý mã hóa AI đầu tiên tại địa phương | BYOK | Không đo từ xa",
+      "copyright": "Copyright (c) 2026 ADDOM contributors.",
+      "licenseLineOne": "Được cấp phép theo Giấy phép MIT.",
+      "licenseLineTwo": "Xem LICENSE để biết chi tiết.",
+      "openSourceNotices": "Thông báo nguồn mở",
+      "thirdPartyInventory": "Khoảng không quảng cáo của bên thứ ba",
+      "openLegalDocumentError": "Không thể mở tài liệu pháp lý.",
+      "legalDocumentsUnavailable": "Không có văn bản pháp luật: {{error}}"
+    },
+    "openAiKnowledgeBase": {
+      "title": "Project knowledge",
+      "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+      "notices": {
+        "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+        "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+        "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+      },
+      "projectScope": "Phạm vi dự án",
+      "noActiveProjectSelected": "Không có dự án đang hoạt động nào được chọn",
+      "filesLabel": "Uploaded files",
+      "storeLabel": "Cửa hàng:",
+      "quickSetup": "Thiết lập nhanh",
+      "ready": "Ready",
+      "actionNeeded": "Action needed",
+      "nextStepLabel": "Bước tiếp theo:",
+      "nextStep": {
+        "addApiKey": "Thêm OpenAI API key.",
+        "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+        "openProjectWorkspace": "Mở một dự án workspace.",
+        "uploadFiles": "Tải lên các tập tin bạn muốn có thể tìm kiếm được.",
+        "createVectorStore": "Prepare project knowledge storage.",
+        "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+        "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+        "readyForRetrieval": "Project knowledge is ready for retrieval."
+      },
+      "quickFacts": {
+        "key": "Chìa khóa:",
+        "connected": "Đã kết nối",
+        "missing": "Mất tích",
+        "access": "Truy cập:",
+        "account": "Tài khoản",
+        "apiKey": "API key",
+        "project": "Dự án:",
+        "active": "Tích cực",
+        "uploads": "Tải lên:",
+        "attached": "Đính kèm:"
+      },
+      "actions": {
+        "refresh": "Làm cho khỏe lại",
+        "uploadFiles": "Upload files",
+        "reuseVectorStore": "Refresh project knowledge",
+        "createVectorStore": "Prepare project knowledge",
+        "attachFiles": "Attach files",
+        "attachFilesWithCount": "Attach files ({{count}})",
+        "deleteVectorStore": "Reset project knowledge",
+        "remove": "Di dời"
+      },
+      "uploadedFilesTitle": "Uploaded files",
+      "pendingAttachLabel": "Needs attach",
+      "emptyFiles": "No project knowledge files uploaded yet.",
+      "fileState": {
+        "attached": "Đính kèm",
+        "uploadedOnly": "Uploaded only"
+      },
+      "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly.",
+      "attachedFilesLabel": "Attached files"
+    },
+    "terminal": {
+      "title": "Terminal",
+      "description": "Giữ các mặc định terminal an toàn mà không thay đổi kiểu chữ toàn cục của ứng dụng.",
+      "fontSizeLabel": "Cỡ chữ",
+      "fontSizeDescription": "Cỡ chữ cơ bản của xterm cho các bề mặt terminal mới và đang hoạt động.",
+      "fontFamilyLabel": "Họ phông chữ",
+      "fontFamilyDescription": "Chọn phông chữ terminal mà xterm sẽ dùng.",
+      "scrollbackLabel": "Số dòng scrollback",
+      "scrollbackDescription": "Lượng lịch sử terminal mà xterm giữ trong bộ nhớ.",
+      "scrollbackHint": "dòng",
+      "defaultShellLabel": "Shell mặc định",
+      "defaultShellDescription": "Shell mặc định được dùng khi terminal mới không yêu cầu một shell cụ thể.",
+      "defaultCwdBehaviorLabel": "Hành vi cwd mặc định",
+      "defaultCwdBehaviorDescription": "Chọn nơi terminal mới bắt đầu khi không có cwd tường minh.",
+      "copyOnSelectionLabel": "Sao chép khi chọn",
+      "copyOnSelectionDescription": "Sao chép vùng chọn của terminal vào clipboard ngay sau khi chọn văn bản.",
+      "pasteConfirmationLabel": "Xác nhận dán lớn",
+      "pasteConfirmationDescription": "Yêu cầu xác nhận cho thao tác dán nhiều dòng khi đạt tới số dòng này.",
+      "zeroDisablesHint": "0 sẽ tắt lời nhắc",
+      "cwdBehavior": {
+        "project_root": "Gốc dự án",
+        "editor_folder": "Thư mục editor",
+        "session_cwd": "cwd phiên hiện tại"
+      },
+      "fontFamilyOptions": {
+        "geist_mono": "Geist Mono",
+        "jetbrains_mono": "JetBrains Mono",
+        "fira_code": "Fira Code",
+        "cascadia_code": "Cascadia Code",
+        "system_mono": "System monospace"
+      },
+      "shellOptions": {
+        "default": "Mặc định hệ thống",
+        "cmd": "Command Prompt",
+        "powershell": "Windows PowerShell",
+        "pwsh": "PowerShell 7+",
+        "bash": "Bash",
+        "zsh": "Zsh",
+        "git_bash": "Git Bash",
+        "wsl": "WSL"
+      },
+      "advancedDetailsTitle": "Terminal history and paste safety"
+    },
+    "appearanceMode": {
+      "description": "Choose a light or dark interface, or follow your system setting.",
+      "mode": "Color theme",
+      "modeDescription": "Updates the entire app, including editors and terminals.",
+      "selected": "Selected {{name}}",
+      "systemResolved": "System currently uses {{name}}.",
+      "modes": {
+        "dark": "Dark",
+        "light": "Light",
+        "system": "System"
+      }
+    },
+    "backgroundTone": {
+      "darkOnly": "Workspace tones are available when the resolved theme is Dark.",
+      "description": "Choose a gray workspace tone. Graphite matches the current ADDOM default.",
+      "tone": "Workspace tone",
+      "toneDescription": "Shifts the shared surface, panel, and border stack together.",
+      "selected": "Selected {{name}}",
+      "tones": {
+        "obsidian": "Obsidian",
+        "charcoal": "Charcoal",
+        "graphite": "Graphite",
+        "slate": "Slate",
+        "ash": "Ash"
+      }
+    }
+  },
+  "settings": {
+    "categories": {
+      "providers": {
+        "description": "Provider connections, model availability, and project knowledge controls when advanced OpenAI hosted tools are enabled."
+      }
+    },
+    "sections": {
+      "providers": {
+        "apiKeys": {
+          "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+        },
+        "openAiKnowledgeBase": {
+          "title": "Project Knowledge",
+          "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+        }
+      }
+    },
+    "blocks": {
+      "apiKeys": {
+        "accessMethod": {
+          "label": "Sign in with",
+          "selectedAccount": "Using your OpenAI account.",
+          "selectedApiKey": "Using an API key."
+        },
+        "localProvider": {
+          "running": "Running - {{count}} model{{suffix}}"
+        },
+        "recommendedAccount": {
+          "title": "Recommended for OpenAI",
+          "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+          "action": "Use OpenAI account"
+        }
+      },
+      "openRouterCatalogVisibility": {
+        "inlineTitle": "Catalog visibility",
+        "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+        "showInlineAction": "Manage visibility",
+        "hideInlineAction": "Hide controls"
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project knowledge",
+        "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+        "notices": {
+          "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+          "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+          "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+        },
+        "filesLabel": "Uploaded files",
+        "attachedFilesLabel": "Attached files",
+        "ready": "Ready",
+        "actionNeeded": "Action needed",
+        "pendingAttachLabel": "Needs attach",
+        "nextStep": {
+          "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+          "createVectorStore": "Prepare project knowledge storage.",
+          "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+          "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+          "readyForRetrieval": "Project knowledge is ready for retrieval."
+        },
+        "actions": {
+          "uploadFiles": "Upload files",
+          "reuseVectorStore": "Refresh project knowledge",
+          "createVectorStore": "Prepare project knowledge",
+          "attachFiles": "Attach files",
+          "attachFilesWithCount": "Attach files ({{count}})",
+          "deleteVectorStore": "Reset project knowledge"
+        },
+        "uploadedFilesTitle": "Uploaded files",
+        "emptyFiles": "No project knowledge files uploaded yet.",
+        "fileState": {
+          "uploadedOnly": "Uploaded only"
+        },
+        "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly."
+      }
+    }
+  }
+}

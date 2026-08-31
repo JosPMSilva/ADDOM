@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "coverage": [
+    "managed_child",
+    "native_attributable",
+    "native_opaque",
+    "native_resume",
+    "managed_rehydration",
+    "api_key_route",
+    "account_auth_route",
+    "english",
+    "portuguese",
+    "cjk",
+    "rtl",
+    "emoji",
+    "code",
+    "structured_rich_content",
+    "agents_20",
+    "agents_50",
+    "agents_100",
+    "restart",
+    "interruption",
+    "provider_failure",
+    "permission_denial",
+    "route_removal"
+  ],
+  "rows": [
+    {
+      "capabilityClass": "managed_cross_provider_child",
+      "routeClass": "managed",
+      "networkRequired": false,
+      "releaseDisposition": "qualified",
+      "coverage": ["managed_child"],
+      "claim": "Managed children retain canonical graph identity across mixed provider routes and later continuation.",
+      "evidence": [
+        {
+          "file": "tests/integration/managed-agent-runtime.test.mjs",
+          "test": "managed runtime executes mixed-provider siblings and a grandchild through one canonical graph"
+        },
+        {
+          "file": "tests/integration/managed-agent-runtime.test.mjs",
+          "test": "managed runtime continues the same completed conversation after runtime re-instantiation"
+        }
+      ]
+    },
+    {
+      "capabilityClass": "native_attributable_child",
+      "routeClass": "native_partial",
+      "networkRequired": false,
+      "releaseDisposition": "qualified_partial",
+      "coverage": ["native_attributable"],
+      "claim": "The account-native adapter preserves only observed receiver-thread identity as partial native evidence.",
+      "evidence": [
+        {
+          "file": "tests/integration/native-agent-provider-adapters.test.mjs",
+          "test": "OpenAI account adapter projects receiver-thread identity as partial native evidence"
+        },
+        {
+          "file": "tests/integration/agent-provider-capability-negotiation.test.mjs",
+          "test": "fixture evidence is represented without upgrading unproven provider behavior"
+        }
+      ]
+    },
+    {
+      "capabilityClass": "native_opaque_child",
+      "routeClass": "native_opaque",
+      "networkRequired": false,
+      "releaseDisposition": "qualified_opaque",
+      "coverage": ["native_opaque"],
+      "claim": "Observed opaque native activity is durable and attributable but exposes no invented child controls or hierarchy.",
+      "evidence": [
+        {
+          "file": "tests/integration/openai-account-collaboration-agent-projection.test.mjs",
+          "test": "chat-supplied collaboration events materialize durable opaque children bound to turnId"
+        },
+        {
+          "file": "tests/integration/agent-conversation-actions.test.mjs",
+          "test": "opaque nodes expose no conversation overflow actions"
+        }
+      ]
+    },
+    {
+      "capabilityClass": "continuation_route_selection",
+      "routeClass": "route_policy",
+      "networkRequired": false,
+      "releaseDisposition": "qualified",
+      "coverage": ["native_resume", "managed_rehydration"],
+      "claim": "Continuation routing is qualified: native resume is selected only with explicit per-conversation evidence, but no current provider native-resume availability is claimed; managed rehydration is qualified and unavailable routes fail closed.",
+      "evidence": [
+        {
+          "file": "tests/integration/agent-conversation-mailbox.test.mjs",
+          "test": "continuation route selection is capability-evidenced rather than inferred from provider/model identity"
+        },
+        {
+          "file": "tests/integration/agent-conversation-mailbox.test.mjs",
+          "test": "completed managed conversation rehydrates through a fresh run-local node and scheduler attempt without redelivering after service re-instantiation"
+        }
+      ]
+    },
+    {
+      "capabilityClass": "account_and_api_route_truth",
+      "routeClass": "route_policy",
+      "networkRequired": false,
+      "releaseDisposition": "release_blocked_live",
+      "coverage": ["api_key_route", "account_auth_route"],
+      "claim": "API-key and account-auth route declarations are deterministic and capability-bounded; live child-conversation parity is not claimed until recorded qualification.",
+      "evidence": [
+        {
+          "file": "tests/integration/openai-api-capability-contract.test.mjs",
+          "test": "openai API capability contract separates eligibility, implementation, and qualification evidence"
+        },
+        {
+          "file": "tests/integration/openai-account-capability-contract.test.mjs",
+          "test": "openai account capability contract keeps account-only native collaboration capability separate from the canonical delegation floor"
+        }
+      ]
+    },
+    {
+      "capabilityClass": "unicode_rich_child_content",
+      "routeClass": "shared_engine",
+      "networkRequired": false,
+      "releaseDisposition": "qualified",
+      "coverage": ["english", "portuguese", "cjk", "rtl", "emoji", "code", "structured_rich_content"],
+      "claim": "The shared child turn engine preserves arbitrary Unicode, code, and ordered rich final parts without coercing provider objects into prose.",
+      "evidence": [
+        {
+          "file": "tests/integration/agent-phase8-qualification.test.mjs",
+          "test": "Phase 8: child canonical engine preserves multilingual reasoning, code, emoji, and rich final parts"
+        },
+        {
+          "file": "tests/integration/canonical-nested-agent-phase0-contract.test.mjs",
+          "test": "Phase 7: canonical text ingress rejects the historical object sentinel and managed final helpers never stringify objects"
+        }
+      ]
+    },
+    {
+      "capabilityClass": "scaled_lazy_child_inspection",
+      "routeClass": "shared_engine",
+      "networkRequired": false,
+      "releaseDisposition": "qualified",
+      "coverage": ["agents_20", "agents_50", "agents_100"],
+      "claim": "20/50/100 child fixtures keep root synthesis bounded and navigator selection virtualizes only when the visible-row threshold is reached; child transcript history is fetched through an explicit paged IPC route on inspection.",
+      "evidence": [
+        {
+          "file": "tests/integration/agent-phase8-qualification.test.mjs",
+          "test": "Phase 8: 20/50/100-agent navigator selection remains bounded and root synthesis stays bounded"
+        },
+        {
+          "file": "tests/integration/agent-runs-ipc.test.mjs",
+          "test": "agent run IPC returns only the selected node durable conversation projection and pages its transcript on demand"
+        }
+      ]
+    },
+    {
+      "capabilityClass": "recovery_failure_permission_and_route_removal",
+      "routeClass": "route_policy",
+      "networkRequired": false,
+      "releaseDisposition": "qualified",
+      "coverage": ["restart", "interruption", "provider_failure", "permission_denial", "route_removal"],
+      "claim": "Restart, interruption, provider failures, permission narrowing, and removed legacy routes fail closed without duplicate delivery or optimistic controls.",
+      "evidence": [
+        {
+          "file": "tests/integration/agent-restart-recovery.test.mjs",
+          "test": "restart classification distinguishes resumable, interrupted, terminal, and orphaned runs"
+        },
+        {
+          "file": "tests/integration/managed-agent-runtime.test.mjs",
+          "test": "managed runtime retries a transient failure as a new attempt under the same node"
+        },
+        {
+          "file": "tests/integration/agent-permission-approval.test.mjs",
+          "test": "pending approvals remain deniable after reload and one-shot grants cannot be reused"
+        },
+        {
+          "file": "tests/integration/agent-conversation-actions.test.mjs",
+          "test": "the public one-shot message route is absent while canonical follow-up remains available"
+        }
+      ]
+    }
+  ],
+  "liveReleaseGate": {
+    "required": true,
+    "managedCrossProviderConversation": "qualified",
+    "nativeOrAccountConversation": "qualified",
+    "rule": "No provider capability claim changes until both local live qualifications are recorded."
+  }
+}

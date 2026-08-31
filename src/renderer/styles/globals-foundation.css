@@ -1,0 +1,336 @@
+/* ── Local font faces ────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('./fonts/GeistSans-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('./fonts/GeistMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/Inter-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/Inter-LatinExt-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('./fonts/JetBrainsMono-Variable.woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Phosphor';
+  src: url('./phosphor/Phosphor.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+/* ── ADDOM design tokens (Tailwind v4 @theme) ────────────────────────────── */
+@theme {
+  /* Surface palette */
+  --color-surface: #0b0c0c;
+  --color-terminal-background: #0b0c0c;
+  --color-surface-raised: #101211;
+  --color-surface-border: #2e312d;
+  --color-surface-panel: #1a1c1a;
+  --color-surface-panel-alt: #151715;
+  --color-surface-panel-muted: rgb(26 28 26 / 0.55);
+  --color-surface-panel-muted-strong: rgb(26 28 26 / 0.72);
+  --color-overlay-scrim: rgb(0 0 0 / 0.6);
+  --color-overlay-scrim-strong: rgb(0 0 0 / 0.7);
+
+  /* Accent */
+  --color-accent: #b8b3a4;
+  --color-accent-hover: #d5d0c1;
+  --color-accent-muted: #5f625a;
+  --color-accent-soft: #d5d0c1;
+  --color-accent-strong: #d5d0c1;
+
+  /* Text */
+  --color-text-primary: #f1f0e8;
+  --color-text-secondary: #a7aaa0;
+  --color-text-muted: #73786e;
+  --color-text-subtle: #8d9187;
+  --color-text-tertiary: #73786e;
+
+  /* Chat semantic palette */
+  --color-chat-surface: #151715;
+  --color-chat-border: #2e312d;
+  --color-chat-text: #f1f0e8;
+  --color-chat-text-muted: #a7aaa0;
+  --color-chat-meta: #73786e;
+  --color-chat-user-surface: #1a1c1a;
+  --color-chat-user-border: #44483f;
+  --color-chat-user-text: #f1f0e8;
+
+  /* Status */
+  --color-success: #a5c9a3;
+  --color-warning: #d6b56d;
+  --color-danger: #e08a7d;
+  --color-success-bg: #162717;
+  --color-success-bg-hover: #1c321d;
+  --color-success-soft: #c7dfc3;
+  --color-success-border: rgb(165 201 163 / 0.42);
+  --color-warning-bg: #302714;
+  --color-warning-bg-hover: #3a3018;
+  --color-warning-soft: #ead29a;
+  --color-warning-border: rgb(214 181 109 / 0.42);
+  --color-info-bg: #20231f;
+  --color-info-bg-hover: #272a25;
+  --color-info-soft: #d5d0c1;
+  --color-info-border: rgb(184 179 164 / 0.32);
+  --color-danger-bg: #341816;
+  --color-danger-bg-hover: #431e1b;
+  --color-danger-strong: #6f2a24;
+  --color-danger-strong-hover: #813129;
+  --color-danger-soft: #f0b3aa;
+  --color-danger-softer: #f3cac4;
+  --color-danger-border: rgb(224 138 125 / 0.44);
+  --color-border-strong: #44483f;
+  --color-border-hover: #5e6258;
+
+  /* Specialized surface palettes */
+  --color-code-caret: #e2e8f0;
+  --color-raw-fallback-surface: #171107;
+  --color-raw-fallback-header: #201609;
+  --color-raw-fallback-border: #3a2f1d;
+  --color-raw-fallback-text: #d8b16c;
+  --color-syntax-text: #c9d1d9;
+  --color-syntax-background: #0d1117;
+  --color-syntax-keyword: #ff7b72;
+  --color-syntax-entity: #d2a8ff;
+  --color-syntax-constant: #79c0ff;
+  --color-syntax-string: #a5d6ff;
+  --color-syntax-variable: #ffa657;
+  --color-syntax-comment: #8b949e;
+  --color-syntax-tag: #7ee787;
+  --color-syntax-section: #1f6feb;
+  --color-syntax-bullet: #f2cc60;
+  --color-syntax-addition: #aff5b4;
+  --color-syntax-addition-background: #033a16;
+  --color-syntax-deletion: #ffdcd7;
+  --color-syntax-deletion-background: #67060c;
+
+  /* Typography */
+  --font-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Geist Sans', 'Inter Tight', 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  /* RGB channels preserve existing alpha effects while remaining theme-owned. */
+  --theme-surface-rgb: 11 12 12;
+  --theme-surface-raised-rgb: 16 18 17;
+  --theme-surface-reference-rgb: 18 20 18;
+  --theme-surface-panel-alt-rgb: 21 23 21;
+  --theme-surface-panel-rgb: 26 28 26;
+  --theme-surface-panel-hover-rgb: 32 35 31;
+  --theme-surface-border-rgb: 46 49 45;
+  --theme-shadow-rgb: 0 0 0;
+  --theme-cool-shadow-rgb: 2 6 23;
+  --theme-deep-cool-shadow-rgb: 3 8 20;
+  --theme-highlight-rgb: 255 255 255;
+  --theme-accent-rgb: 184 179 164;
+  --theme-accent-strong-rgb: 213 208 193;
+  --theme-accent-muted-rgb: 95 98 90;
+  --theme-text-secondary-rgb: 167 170 160;
+  --theme-success-rgb: 165 201 163;
+  --theme-success-background-rgb: 22 39 23;
+  --theme-warning-rgb: 214 181 109;
+  --theme-danger-rgb: 224 138 125;
+  --theme-danger-background-rgb: 52 24 22;
+  --theme-color-scheme: dark;
+
+  --app-ui-scale: 1;
+  --app-sidebar-collapsed-width: 56px;
+  --app-sidebar-expanded-width: 160px;
+  --app-thread-drawer-min-width: 180px;
+  --app-thread-drawer-max-width: 520px;
+  --app-thread-drawer-default-width: 260px;
+  --app-chat-companion-width: 300px;
+  --app-chat-content-max-width: 980px;
+  --app-chat-composer-max-width: 1028px;
+}
+
+.chat-companion-shell {
+  width: var(--chat-companion-inline-size);
+  min-width: var(--chat-companion-inline-size);
+  max-width: var(--chat-companion-inline-size);
+}
+
+.chat-companion-shell[data-companion-mode='focused'] {
+  width: auto;
+  min-width: 0;
+  max-width: none;
+}
+
+@media (max-width: 1099px) {
+  [data-chat-workspace-main='true'][data-companion-visible='true'] {
+    display: none;
+  }
+
+  .chat-companion-shell[data-visible='true'] {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    border-left: 0;
+  }
+
+  .chat-companion-shell [data-companion-resizer] {
+    display: none !important;
+  }
+}
+
+@layer utilities {
+  .bg-success-bg\/10 {
+    background-color: rgb(var(--theme-success-background-rgb) / 0.1);
+  }
+
+  .bg-success-bg\/20 {
+    background-color: rgb(var(--theme-success-background-rgb) / 0.2);
+  }
+
+  .bg-success-bg\/30 {
+    background-color: rgb(var(--theme-success-background-rgb) / 0.3);
+  }
+
+  .bg-success-bg\/40 {
+    background-color: rgb(var(--theme-success-background-rgb) / 0.4);
+  }
+
+  .bg-success-bg\/50 {
+    background-color: rgb(var(--theme-success-background-rgb) / 0.5);
+  }
+
+  .bg-success-bg\/55 {
+    background-color: rgb(var(--theme-success-background-rgb) / 0.55);
+  }
+
+  .bg-danger-bg\/10 {
+    background-color: rgb(var(--theme-danger-background-rgb) / 0.1);
+  }
+
+  .bg-danger-bg\/20 {
+    background-color: rgb(var(--theme-danger-background-rgb) / 0.2);
+  }
+
+  .bg-danger-bg\/30 {
+    background-color: rgb(var(--theme-danger-background-rgb) / 0.3);
+  }
+
+  .bg-danger-bg\/40 {
+    background-color: rgb(var(--theme-danger-background-rgb) / 0.4);
+  }
+
+  .bg-danger-bg\/50 {
+    background-color: rgb(var(--theme-danger-background-rgb) / 0.5);
+  }
+
+  .bg-danger-bg\/55 {
+    background-color: rgb(var(--theme-danger-background-rgb) / 0.55);
+  }
+
+  .bg-danger-bg\/70 {
+    background-color: rgb(var(--theme-danger-background-rgb) / 0.7);
+  }
+
+  .hover\:bg-danger-bg\/30:hover {
+    background-color: rgb(var(--theme-danger-background-rgb) / 0.3);
+  }
+
+  .hover\:bg-danger-bg\/40:hover {
+    background-color: rgb(var(--theme-danger-background-rgb) / 0.4);
+  }
+
+  .hover\:bg-danger-bg\/50:hover {
+    background-color: rgb(var(--theme-danger-background-rgb) / 0.5);
+  }
+}
+
+/* ── ADDOM Component Defaults ────────────────────────────────────────────── */
+@layer components {
+
+  /* Base button */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md font-display font-medium tracking-tight transition-all duration-200 select-none;
+  }
+
+  /* Primary Action */
+  .btn-primary {
+    @apply bg-accent-hover text-surface border border-transparent;
+  }
+
+  .btn-primary:hover {
+    @apply bg-accent-soft;
+  }
+
+  .btn-primary:active {
+    @apply scale-[0.98];
+  }
+
+  /* Secondary / Panel Action */
+  .btn-secondary {
+    @apply bg-surface-panel text-text-secondary border border-surface-border shadow-sm;
+  }
+
+  .btn-secondary:hover {
+    @apply text-text-primary border-border-hover bg-surface-border/30;
+  }
+
+  .btn-secondary:active {
+    @apply scale-[0.98];
+  }
+
+  /* Ghost / Quiet Action */
+  .btn-ghost {
+    @apply text-text-muted bg-transparent border border-transparent;
+  }
+
+  .btn-ghost:hover {
+    @apply text-text-primary bg-surface-border/50;
+  }
+
+  .btn-ghost:active {
+    @apply scale-[0.98];
+  }
+
+  /* Danger Action */
+  .btn-danger {
+    @apply bg-danger text-surface border border-transparent;
+  }
+
+  .btn-danger:hover {
+    @apply bg-danger-strong shadow-md;
+  }
+
+  .btn-danger:active {
+    @apply scale-[0.98];
+  }
+}
+
+/* ── Dark mode variant ───────────────────────────────────────────────────── */

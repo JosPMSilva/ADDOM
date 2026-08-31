@@ -1,0 +1,937 @@
+{
+  "shell": {
+    "badges": {
+      "projectRootSet": "已设置 project root",
+      "projectRootMissing": "未设置 project root",
+      "languageSystem": "语言: 系统",
+      "languageNamed": "语言：{{label}}",
+      "updatesNamed": "更新：{{status}}",
+      "updatesIdle": "更新待机",
+      "uiScale": "用户界面 {{percent}}%{{modeSuffix}}",
+      "uiScaleAutoSuffix": " 自动",
+      "typographyScale": "文本 {{percent}}%",
+      "providersCount": "{{count}} providers",
+      "configuredCount": "{{count}}已配置",
+      "noProvidersConfigured": "未配置 providers",
+      "permissionMode": "权限：{{mode}}",
+      "liveStreamOn": "现场直播",
+      "liveStreamOff": "直播关闭",
+      "debugVisible": "调试可见",
+      "debugHidden": "调试隐藏",
+      "compressionOn": "压缩开启",
+      "compressionOff": "压缩关闭",
+      "threshold": "阈值 {{value}}",
+      "globalMemoryContextOn": "全局记忆上下文已开启",
+      "globalMemoryContextOff": "全局记忆上下文已关闭",
+      "enabled": "已启用",
+      "disabled": "已禁用",
+      "rolesCount": "{{count}} 角色",
+      "tier": "等级：{{tier}}",
+      "projectSelected": "选定的项目",
+      "noActiveProject": "没有活跃的项目",
+      "threadSelected": "已选择 thread",
+      "noActiveThread": "无活动 thread"
+    }
+  },
+  "categories": {
+    "general": {
+      "label": "常规",
+      "description": "Language, product guidance, updates, and app information."
+    },
+    "appearance": {
+      "label": "外观",
+      "description": "Choose a theme, interface density, reading scale, and workspace tone."
+    },
+    "terminal": {
+      "label": "终端",
+      "description": "Configure terminal type, shell, working folder, and interaction behavior."
+    },
+    "agents": {
+      "label": "智能体",
+      "description": "Set persistent instructions and manage Subagent roles."
+    },
+    "providers": {
+      "label": "Providers",
+      "description": "Provider connections, credentials, OpenAI account access, and Project Knowledge when enabled."
+    },
+    "toolsSafety": {
+      "label": "Safety",
+      "description": "Execution mode and concise guardrail behavior."
+    },
+    "dataPrivacy": {
+      "label": "Data",
+      "description": "Export, restore, delete, or reset local ADDOM data."
+    }
+  },
+  "sections": {
+    "general": {
+      "instructions": {
+        "title": "使用指南",
+        "summary": "打开应用内指南，查看当前行为、安全默认值和工作流程。"
+      },
+      "language": {
+        "title": "语言",
+        "summary": "Select the ADDOM app language."
+      },
+      "projectFolder": {
+        "title": "项目文件夹",
+        "summary": "选择 file tools 和 shell commands 使用的活动 project root。"
+      },
+      "assistantPrompt": {
+        "title": "Custom instructions",
+        "summary": "Add persistent guidance to each chat turn."
+      },
+      "uiScaling": {
+        "title": "用户界面缩放",
+        "summary": "Adjust shell density and chat text size."
+      },
+      "updates": {
+        "title": "更新",
+        "summary": "检查、下载并安装 ADDOM 更新。"
+      },
+      "about": {
+        "title": "About",
+        "summary": "版本和构建信息。"
+      },
+      "terminal": {
+        "title": "Terminal",
+        "summary": "Set terminal font, shell, start folder, and copy behavior."
+      },
+      "appearanceMode": {
+        "title": "Theme",
+        "summary": "Choose light, dark, or system appearance."
+      },
+      "backgroundTone": {
+        "title": "Background",
+        "summary": "Choose a gray workspace tone."
+      }
+    },
+    "providers": {
+      "apiKeys": {
+        "title": "API Keys",
+        "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project Knowledge",
+        "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+      }
+    },
+    "toolsSafety": {
+      "executionMode": {
+        "title": "执行模式",
+        "summary": "Choose how much ADDOM should pause before running tools."
+      },
+      "commandSafety": {
+        "title": "Guardrails",
+        "summary": "Hard guardrails and first-risky-use behavior."
+      }
+    },
+    "moa": {
+      "agents": {
+        "title": "Agent roles",
+        "summary": "Configure agent roles, models, skills, and instructions."
+      }
+    },
+    "dataPrivacy": {
+      "resetCleanup": {
+        "title": "重置和清理",
+        "summary": "导出/导入 thread JSON，并按 thread、project 或 workspace 范围执行清理。"
+      }
+    }
+  },
+  "common": {
+    "permissionRow": {
+      "alwaysOn": "始终开启",
+      "toggleSetting": "切换设置",
+      "unavailable": "不可用",
+      "clickToDisable": "单击以禁用",
+      "clickToEnable": "点击启用"
+    }
+  },
+  "alerts": {
+    "executionModeSaveFailed": {
+      "title": "执行模式保存失败",
+      "message": "ADDOM could not persist the selected access mode. The UI was reset to the last saved value."
+    },
+    "languageSaveFailed": {
+      "title": "语言保存失败",
+      "message": "ADDOM 无法保留所选的应用程序语言。"
+    },
+    "restartRequired": {
+      "title": "需要重新启动",
+      "message": "正在运行的 ADDOM 主进程未确认新的 UI 缩放设置。重新启动应用程序，以便主进程重新加载更新的设置处理程序。"
+    },
+    "uiScalingSaveFailed": {
+      "title": "UI 缩放保存失败",
+      "message": "ADDOM 无法保留所选的 UI 缩放设置。"
+    },
+    "appearanceSaveFailed": {
+      "title": "Theme Save Failed",
+      "message": "ADDOM could not persist the selected theme."
+    },
+    "backgroundToneSaveFailed": {
+      "title": "Background Tone Save Failed",
+      "message": "ADDOM could not persist the selected background tone."
+    },
+    "backgroundToneRestartRequired": {
+      "message": "The running ADDOM main process did not acknowledge the new background tone. Restart the app so the main process reloads the updated settings handlers."
+    }
+  },
+  "blocks": {
+    "instructions": {
+      "title": "使用指南",
+      "description": "查看当前的 ADDOM 行为、安全默认值和工作流程 guidance。",
+      "guideLabel": "应用内指南",
+      "guideVersion": "版本 {{version}}",
+      "guideUpdated": "更新{{date}}",
+      "openGuide": "打开指南",
+      "note": "把本指南当作 quick reference，用来了解 chat modes、approvals、memory、[[canon:artifacts]] 和 [[canon:moa]] 当前的行为。"
+    },
+    "projectFolder": {
+      "title": "项目根文件夹",
+      "description": "选择 ADDOM 用于 file tools 和 shell commands 的活动 project root。",
+      "currentProjectPath": "当前项目路径",
+      "noProjectDirectorySelected": "未选择项目目录",
+      "changeFolder": "更改文件夹"
+    },
+    "executionMode": {
+      "title": "执行模式",
+      "description": "这是用于调整 execute turns 默认 [[canon:ask]] / [[canon:autonomy]] / [[canon:full_access]] 模式的辅助设置。",
+      "noticeLabel": "[[canon:info]]",
+      "currentDefault": "当前默认值：",
+      "mode": {
+        "ask": "[[canon:ask]]",
+        "autonomy": "[[canon:autonomy]]",
+        "fullAccess": "[[canon:full_access]]"
+      },
+      "summary": {
+        "ask": "执行轮次通常会继续执行 workspace 安全操作，并在风险较大的网络、安装或影响主机的步骤需要批准时暂停。",
+        "autonomy": "Execute 轮次可以在 workspace Guardrails 内运行，无需常规确认。硬性阻止和超出范围的操作仍会明确显示。",
+        "fullAccess": "执行会为本次会话提供自动批准工具，而明确的硬策略拒绝仍会阻止危险路径。"
+      },
+      "notice": "执行回合会使用这里保存的默认值。Plan 和 Thinking 模式会在 chat 中显示同样的默认值，但不会盲目执行工具。"
+    },
+    "assistantPrompt": {
+      "title": "Custom instructions",
+      "description": "Add persistent guidance to each chat turn.",
+      "placeholder": "示例：首选 TypeScript。保持代码更改最少并测试优先。不要使用顺风。",
+      "save": "Save instructions"
+    },
+    "language": {
+      "title": "语言",
+      "description": "只为 renderer UI 选择 ADDOM 应用语言。",
+      "appLanguage": "应用语言",
+      "systemDefaultDescription": "系统默认遵循您的操作系统语言。助理回复，[[canon:backend]] 的行为、命令和技术 tokens 保持规范英语。",
+      "savedSetting": "保存的设置",
+      "currentRendererLocale": "当前渲染器区域设置",
+      "systemResolvedNotice": "您的系统语言当前解析为 {{label}}。如果该语言环境尚未发布，ADDOM 将回退为英语。",
+      "validationOnlyNotice": "{{label}} 是验证区域设置。它在正常发布设置中保持隐藏状态，并且仅应在本地化检查期间启用。",
+      "savedOnlyNotice": "{{label}} 已保存，但 ADDOM 目前仅提供英文渲染器字符串。在该区域设置发布之前，用户界面将保持英语状态。"
+    },
+    "apiKeys": {
+      "title": "API Keys 与身份",
+      "description": "配置远程 provider 凭证和身份。本地 providers（如 Ollama）可能不需要密钥。",
+      "noProviders": "没有可配置的 providers。",
+      "cursor": {
+        "accountMethod": "Cursor account",
+        "runtimeReady": "Runtime {{version}} is ready",
+        "runtimeMissing": "Cursor Agent runtime is not installed.",
+        "installRuntime": "Install runtime",
+        "installingRuntime": "Installing runtime",
+        "checkRuntime": "Check runtime",
+        "executionScope": "Composer 2.5 runs in Chat Execute with Full Access.",
+        "accountConnected": "Cursor account connected",
+        "accountDisconnected": "Cursor account not connected",
+        "connect": "Connect account",
+        "disconnect": "Disconnect",
+        "disconnectTitle": "Disconnect Cursor?",
+        "disconnectMessage": "ADDOM will stop using this Cursor account until you reconnect. Your API key and project files are unchanged.",
+        "apiKeyLabel": "Cursor API key",
+        "actionFailed": "Cursor could not complete this action."
+      },
+      "loginErrors": {
+        "callbackPortInUse": "本地OpenAI登录回调端口已被使用。重试登录流程或关闭冲突进程并重试。",
+        "consentDenied": "OpenAI 浏览器同意步骤被取消或拒绝。再次启动登录流程以重试。",
+        "callbackNotCompleted": "OpenAI浏览器登录未完成localhost回调。在返回 ADDOM 之前重试登录流程并完成同意。",
+        "browserOpenFailed": "ADDOM 无法自动打开 OpenAI 登录页面。使用再次打开浏览器或复制登录链接。",
+        "missingAuthUrl": "OpenAI 登录链接不再可用。再次启动登录流程以请求新的浏览器链接。",
+        "bridgeProcessExited": "本地 Codex runtime 在等待 OpenAI 浏览器回调时停止。再次启动登录流程。",
+        "loginTimedOut": "在浏览器回调完成之前，OpenAI 登录流程超时。再次启动登录流程以重试。"
+      },
+      "loginAlerts": {
+        "unavailable": "OpenAI 账户无法登录",
+        "callbackPortInUse": "本地回拨端口忙",
+        "consentDenied": "浏览器同意被拒绝",
+        "callbackNotCompleted": "浏览器回调未完成",
+        "browserOpenFailed": "浏览器启动失败",
+        "missingAuthUrl": "登录链接不可用",
+        "bridgeProcessExited": "Codex Runtime 已停止",
+        "loginTimedOut": "登录超时"
+      },
+      "account": {
+        "connected": "OpenAI 帐户会话已连接。",
+        "waitingForCallback": "在浏览器中完成登录并同意，然后在 localhost 回调完成后返回。",
+        "waitingForBrowser": "ADDOM 正在等待浏览器登录流程开始。",
+        "notCompleted": "OpenAI账户登录尚未完成。",
+        "storedKeyInactive": "存储的 API key 仍然可用但不活动。",
+        "preparingRuntime": "准备 Codex runtime",
+        "reconnect": "重新连接",
+        "continueInBrowser": "在浏览器中继续",
+        "openBrowserAgain": "再次打开浏览器",
+        "copyLoginLink": "复制登录链接",
+        "copiedLink": "已复制链接"
+      },
+      "accessMethod": {
+        "label": "Sign in with",
+        "apiKey": "API key",
+        "openAiAccount": "OpenAI帐号",
+        "selectedAccount": "Using your OpenAI account.",
+        "selectedApiKey": "Using an API key."
+      },
+      "localProvider": {
+        "label": "本地 provider",
+        "downloadTitle": "下载{{name}}",
+        "running": "Running - {{count}} model{{suffix}}",
+        "notRunning": "未运行"
+      },
+      "removeDialog": {
+        "title": "删除 API Key",
+        "message": "删除 API key 为 {{name}}？",
+        "confirm": "移除钥匙"
+      },
+      "disconnectDialog": {
+        "title": "断开 OpenAI 账户",
+        "message": "断开此 ADDOM 配置文件的存储的 OpenAI 帐户会话吗？",
+        "confirm": "断开"
+      },
+      "copyFailed": {
+        "title": "复制失败",
+        "message": "ADDOM 无法将 OpenAI 帐户登录链接复制到剪贴板。"
+      },
+      "apiKeyInput": {
+        "placeholder": "粘贴您的 API key...",
+        "save": "保存密钥",
+        "getKeyTitle": "从 {{name}} 获取 API key"
+      },
+      "configured": "已配置",
+      "saved": "已保存",
+      "replaceKey": "更换钥匙",
+      "recommendedAccount": {
+        "title": "Recommended for OpenAI",
+        "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+        "action": "Use OpenAI account"
+      }
+    },
+    "chatTypography": {
+      "title": "Chat 文本",
+      "description": "为 chat 中已映射的文本界面统一应用一个全局缩放系数。",
+      "globalScaleFactor": "全局比例因子",
+      "globalScaleDescription": "这会统一缩放已映射的 chat 文本 token。各元素的默认值仍在设置之外维护。",
+      "typographyScale": "文本缩放",
+      "range": "范围 {{min}}% 至 {{max}}%",
+      "reset": "重置",
+      "notice": "该缩放会应用到用户消息、编排器输出、代理、执行流以及 chat 周边卡片中已经映射好的文本 token。"
+    },
+    "uiScaling": {
+      "description": "在一处控制 ADDOM 的 shell density 和 chat text scaling。",
+      "appShellDensity": "应用 shell 密度",
+      "appShellDensityDescription": "[[canon:auto]] 模式遵循操作系统缩放后的有效视口。 [[canon:manual]] 模式在显示器上固定 shell 密度。",
+      "effective": "有效{{percent}}%",
+      "auto": "[[canon:auto]]",
+      "manual": "[[canon:manual]]",
+      "autoModeDescription": "[[canon:auto]] 模式通过对实际 CSS 视口做出反应，使 shell 几何体在 1080p 和 4K 设置中保持对齐。",
+      "manualModeDescription": "如果您想要一种固定的 shell 密度（无论显示缩放比例如何），则 [[canon:manual]] 模式非常有用。",
+      "shellScale": "Shell秤",
+      "shellScaleDescription": "这会缩放侧边栏、thread 抽屉、[[canon:moa]] 导轨和 chat 内容宽度使用的 shell 几何图形 tokens。",
+      "chatTypographyScale": "文本缩放",
+      "chatTypographyScaleDescription": "把 chat 文本大小与 shell 密度一起调整，方便同时校准这两层。",
+      "range": "范围 {{min}}% 至 {{max}}%",
+      "reset": "重置",
+      "notice": "锚定面板保持对齐，因为 shell 宽度和内容栏根据相同的共享设置 model 进行缩放，而不是独立折叠。"
+    },
+    "commandSafety": {
+      "title": "Guardrails 和诊断",
+      "description": "Hard guardrails stay on in all access modes. [[canon:ask]], [[canon:autonomy]], and [[canon:full_access]] only change when approvals interrupt a turn.",
+      "common": {
+        "unknown": "未知"
+      },
+      "approvalRuleLabels": {
+        "readFile": "读取文件",
+        "writeFile": "写入文件",
+        "listDirectory": "列出目录",
+        "searchCode": "搜索码",
+        "applyArtifactRevision": "应用工件修订",
+        "toolOperation": "工具操作",
+        "projectReadonlyShell": "运行项目只读 shell 命令",
+        "projectBuildTest": "运行项目构建/测试命令",
+        "projectMutation": "运行项目突变命令",
+        "processControl": "运行项目流程控制命令",
+        "projectDependencyInstallSandboxed": "运行 sandboxed 项目依赖安装",
+        "projectDependencyInstall": "运行项目依赖安装",
+        "runCommandOperations": "运行命令操作"
+      },
+      "riskyActionApprovals": {
+        "title": "风险操作审批",
+        "description": "在本次 app 会话期间，可以为当前项目记住首次高风险 network fetch 和项目依赖安装。workspace 之外的路径、破坏性操作、全局安装以及提升后的 host access 仍然需要显式批准。",
+        "activeProjectScope": "活动项目会话范围：",
+        "noActiveWorkspace": "尚未检测到活动的 workspace。一旦项目根目录打开，会话范围的风险操作 memory 就会启动。"
+      },
+      "modeEffect": {
+        "title": "模式影响",
+        "description": "[[canon:ask]] 会在风险操作时暂停。[[canon:autonomy]] 会保持常规 workspace 工作推进，仅在首次风险网络/安装使用或严格 Guardrails 阻止时中断。[[canon:full_access]] 会自动批准常规执行，但明确的 hard-deny 策略结果仍会阻止。"
+      }
+    },
+    "moaAgents": {
+      "title": "Agent roles",
+      "description": "Create and manage the agent roles ADDOM can delegate work to.",
+      "roles": {
+        "guidance": "角色名称必须是唯一的。角色 ID 是生成的且不可变的。",
+        "idLabel": "ID：",
+        "writesLabel": "写道：",
+        "templateLabel": "模板：",
+        "edit": "编辑",
+        "delete": "删除",
+        "newRole": "新代理角色",
+        "addRole": "+ 添加代理角色",
+        "removeDialog": {
+          "title": "删除代理角色",
+          "message": "删除这个代理角色吗？",
+          "confirm": "删除角色"
+        },
+        "editRoleTitle": "Edit agent role",
+        "addRoleTitle": "Add agent role",
+        "namePlaceholder": "Role name (e.g. Security Reviewer)",
+        "providerPlaceholder": "Select provider...",
+        "modelPlaceholder": "Select model...",
+        "modelIdPlaceholder": "Model ID (e.g. gpt-4o)",
+        "openRouterRoutePlaceholder": "Or enter a custom OpenRouter route ID",
+        "sourceTemplateLabel": "Source template:",
+        "hideAdvancedInstructions": "Hide advanced role instructions",
+        "showAdvancedInstructions": "Advanced role instructions",
+        "instructionsPlaceholder": "Optional instructions for this agent role (max 2000 chars)",
+        "saveChanges": "Save changes",
+        "addRoleAction": "Add role"
+      },
+      "templateGallery": {
+        "loading": "正在加载技能目录...",
+        "title": "技能目录",
+        "skillCount": "{{count}}技能",
+        "searchPlaceholder": "搜索技巧...",
+        "clearSearch": "清晰的技能搜索",
+        "searchResults": "{{count}} “{{query}}”{{categorySuffix}} 的结果{{suffix}}",
+        "inCategory": "在{{category}}",
+        "emptySearch": "没有符合您搜索条件的技能。",
+        "canWrite": "可以写",
+        "readOnly": "只读",
+        "added": "额外",
+        "use": "使用",
+        "update": "更新",
+        "categories": {
+          "all": "全部",
+          "security": "安全",
+          "frontend": "[[canon:frontend]]",
+          "backend": "[[canon:backend]]",
+          "quality": "质量",
+          "engineering": "工程",
+          "devops": "开发运营",
+          "testing": "测试",
+          "content": "内容",
+          "web": "网络",
+          "performance": "表现",
+          "desktop": "桌面",
+          "general": "常规"
+        }
+      },
+      "runtime": {
+        "title": "Agent settings",
+        "description": "Control delegation and capacity without changing your saved roles.",
+        "enabled": "Enable agents",
+        "disabled": "Agent delegation is disabled.",
+        "summary": "{{profile}} capacity · {{count}} active at once",
+        "delegation": "Agent delegation",
+        "delegationEnabled": "ADDOM can delegate work to the roles below.",
+        "delegationDisabled": "Roles stay available to configure while delegation is off.",
+        "profile": "Capacity",
+        "profileDescription": "Sets sensible limits for parallel and nested agents.",
+        "advanced": "Advanced limits",
+        "advancedSummary": "{{count}} active · depth {{depth}}",
+        "fanoutConfirmationThreshold": "Ask before launching more than",
+        "agentsUnit": "agents",
+        "providerOverrides": "Provider overrides",
+        "noProviderOverrides": "No provider-specific limits.",
+        "addProviderOverride": "Add provider override…",
+        "removeOverride": "Remove",
+        "discard": "Discard",
+        "saveChanges": "Save changes",
+        "isolationDescription": "Agent file changes stay isolated until the orchestrator integrates them.",
+        "limits": {
+          "maxLiveAgents": "Active at once",
+          "maxDepth": "Nesting depth",
+          "maxDescendants": "Agents per run",
+          "maxTotalTokens": "Token budget",
+          "maxCostUsd": "Cost budget",
+          "maxDurationMs": "Time budget"
+        }
+      }
+    },
+    "openRouterCatalogVisibility": {
+      "title": "OpenRouter 目录可见性",
+      "description": "控制哪些 OpenRouter 系列和路由显示在 chat 与 [[canon:moa]] 浏览界面中。",
+      "notAvailable": "OpenRouter 在当前 provider 清单中不可用。",
+      "loading": "正在加载 OpenRouter 目录...",
+      "browsingVisibility": "OpenRouter 浏览可见性",
+      "browsingVisibilityDescription": "在浏览列表中隐藏 provider 系列或单个路由，同时保留显式自定义路由支持。",
+      "counts": {
+        "filtered": "显示 {{shown}}，启用 {{enabled}}",
+        "default": "{{enabled}} / {{total}} 已启用"
+      },
+      "filtersTitle": "过滤器",
+      "filters": {
+        "reviewedOnly": "仅已审核",
+        "anyTools": "任何工具",
+        "reasoning": "推理",
+        "vision": "想象"
+      },
+      "quickActionsTitle": "快速行动",
+      "quickActions": {
+        "showAll": "显示全部",
+        "hideAll": "全部隐藏",
+        "reset": "重置"
+      },
+      "searchPlaceholder": "搜索 OpenRouter 命名空间或路由 ID",
+      "empty": "没有 OpenRouter 路由匹配当前搜索。",
+      "clearSearch": "清除搜索",
+      "namespaceRow": {
+        "collapse": "折叠命名空间",
+        "expand": "扩展命名空间",
+        "filteredCount": "显示为 {{shown}}/{{total}}",
+        "enabledCount": "{{enabled}}/{{total}} 启用",
+        "visibilityAriaLabel": "{{label}} 命名空间可见性"
+      },
+      "modelRow": {
+        "visibilityAriaLabel": "{{label}} 可见度"
+      },
+      "inlineTitle": "Catalog visibility",
+      "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+      "showInlineAction": "Manage visibility",
+      "hideInlineAction": "Hide controls"
+    },
+    "dataReset": {
+      "title": "数据重置和清理",
+      "description": "导出 thread 备份、清除保存的历史记录或重置本地 ADDOM 数据。",
+      "migrationTitle": "主动 Thread 迁移",
+      "migrationDescription": "将活动的 chat 直接导出到便携式 JSON 备份，或在本地恢复历史记录。",
+      "exportCurrentThread": "Export Current Conversation",
+      "restoreFromJson": "从 JSON 恢复",
+      "noActiveConversation": "未选择导出任何活动对话。",
+      "localProfileResetTitle": "本地配置文件重置",
+      "localProfileResetDescription": "删除已保存的 provider keys，或完全重置 ADDOM 的本地 profile。完全重置会删除本地历史记录、缓存的 models、附件和已保存的 settings，然后重新启动 app。",
+      "profile": "轮廓：",
+      "providers": "Providers：",
+      "providersStored": "{{count}} 已存储",
+      "memoryIndex": "Memory 索引：",
+      "indexed": "索引",
+      "empty": "空的",
+      "settings": "设置：",
+      "present": "展示",
+      "attachments": "附件：",
+      "cached": "缓存",
+      "modelCache": "Model 缓存：",
+      "mounted": "已安装",
+      "providerBudget": {
+        "title": "自适应 Provider 预算",
+        "description": "检查学习到的 provider 预算状态并删除陈旧的自适应预算历史记录，而无需暴露原始 provider 标头或凭证身份。",
+        "refresh": "刷新",
+        "total": "{{count}} 学到了",
+        "active": "{{count}} 有源",
+        "stale": "{{count}} 陈旧",
+        "expired": "{{count}} 已过期",
+        "pruneEligible": "{{count}} 清理就绪",
+        "lastObserved": "最后观察到：{{value}}",
+        "lastResolved": "最后解决：{{value}}",
+        "emptyState": "尚未为此配置文件记录学习的 provider 预算配置文件。",
+        "cleanupAction": "清理学习预算",
+        "resetAction": "重置学习预算",
+        "never": "绝不",
+        "recent": "最近的"
+      },
+      "spillover": {
+        "title": "工具结果溢出",
+        "description": "检查持久化工具结果溢出存储、修剪过期条目并清除溢出根，而不暴露原始输出主体。",
+        "refresh": "刷新",
+        "files": "{{count}} 文件",
+        "zeroBytes": "0乙",
+        "bytesValue": "{{count}} {{unit}}",
+        "retentionValue": "{{files}} 文件 / {{bytes}} / {{days}} 天",
+        "sessionCleanupAt": "本次会话清理：{{value}}",
+        "sessionCleanupResult": "此会话清理删除了 {{files}} 文件/{{bytes}}。",
+        "sessionEmptyState": "此应用程序会话中尚未运行溢出清理。",
+        "emptyState": "目前此配置文件不存在持久工具结果溢出文件。",
+        "cleanupAction": "修剪溢出",
+        "resetAction": "明显的溢出效应",
+        "rootPath": "溢出根：{{path}}",
+        "states": {
+          "none": "无会话清理状态",
+          "sessionNone": "没有清理运行此会话",
+          "pruned": "修剪过的",
+          "prunedWithFailures": "因失败而修剪",
+          "retentionExceeded": "保留量超出",
+          "prunedRetentionExceeded": "修剪后，保留率仍超标",
+          "failed": "清理失败",
+          "cleared": "已清除"
+        }
+      },
+      "deleteSavedApiKeys": "删除已保存的 API 密钥",
+      "resetLocalProfileAndRestart": "重置本地配置文件并重新启动",
+      "importFallbackTitle": "进口Thread",
+      "dialogs": {
+        "deleteApiKeys": {
+          "title": "删除API Keys",
+          "message": "立即从此设备中删除所有存储的 API 密钥吗？对话、memory、artifacts 和设置将保留。此操作无法撤消。",
+          "confirm": "删除API Keys"
+        },
+        "cleanupProviderBudgets": {
+          "title": "清理学习预算",
+          "message": "是否删除无效或长期未使用的过期学习 provider 预算配置文件？最近的活动配置文件将保留。",
+          "confirm": "清理"
+        },
+        "resetProviderBudgets": {
+          "title": "重置学习预算",
+          "message": "从此配置文件中删除所有已学习的 provider 预算配置文件吗？这将删除自适应预算历史记录，直到记录新的观察结果。",
+          "confirm": "重置预算"
+        },
+        "cleanupToolResultSpillover": {
+          "title": "修剪溢出",
+          "message": "从此配置文件中删除过期或超出预算的工具结果溢出文件吗？当前保留政策所需的近期溢出效应将继续存在。",
+          "confirm": "修剪溢出"
+        },
+        "resetToolResultSpillover": {
+          "title": "清晰的溢出",
+          "message": "从此配置文件中删除所有持久的工具结果溢出文件吗？这不会更改保留策略且无法撤消。",
+          "confirm": "清晰的溢出"
+        },
+        "deleteAllLocalData": {
+          "title": "删除所有本地数据",
+          "message": "要删除此 profile 的所有 ADDOM 本地数据并重新启动吗？这会删除 API keys、会话、Memory 日志、Artifacts、项目会话、缓存的附件、本地 model 缓存和 settings。请先导出你需要的内容。此操作无法撤销。",
+          "confirm": "删除并重新启动"
+        }
+      },
+      "feedback": {
+        "deleteFailed": {
+          "title": "删除失败"
+        },
+        "refreshFailed": {
+          "title": "刷新失败",
+          "providerBudgetDefaultMessage": "无法刷新已学习的 provider budget 摘要。",
+          "spilloverDefaultMessage": "无法刷新工具结果溢出摘要。"
+        },
+        "localDataApiUnavailable": "本地数据API不可用。",
+        "apiKeysDeleted": {
+          "title": "API Keys 已删除",
+          "message": "存储的 API 密钥已从此设备中删除。"
+        },
+        "deleteApiKeysFailed": "无法删除 API 密钥：{{message}}",
+        "refreshProviderBudgetFailed": "刷新学习的 provider 预算失败：{{message}}",
+        "refreshToolResultSpilloverFailed": "无法刷新工具结果溢出：{{message}}",
+        "providerBudgetCleanupComplete": {
+          "title": "清理完成",
+          "message": "已删除 {{count}} 个已学习的 provider budget 配置。"
+        },
+        "providerBudgetCleanupFailed": "无法清理学习的 provider 预算：{{message}}",
+        "toolResultSpilloverCleanupComplete": {
+          "title": "修剪完成",
+          "message": "删除了 {{count}} 溢出文件。"
+        },
+        "toolResultSpilloverCleanupFailed": "修剪工具结果溢出失败：{{message}}",
+        "resetFailed": {
+          "title": "重置失败"
+        },
+        "deleteLocalDataFailed": "删除本地数据失败：{{message}}",
+        "providerBudgetResetComplete": {
+          "title": "重置完成",
+          "message": "已删除 {{count}} 个已学习的 provider budget 配置。"
+        },
+        "providerBudgetResetFailed": "无法重置学习的 provider 预算：{{message}}",
+        "toolResultSpilloverResetComplete": {
+          "title": "溢出已清除",
+          "message": "删除了 {{count}} 溢出文件。"
+        },
+        "toolResultSpilloverResetFailed": "无法清除工具结果溢出：{{message}}",
+        "exportComplete": {
+          "title": "导出完成",
+          "copiedMessage": "Thread 已导出。JSON 已复制到剪贴板，并开始下载。",
+          "downloadMessage": "Thread 导出已创建并开始下载。"
+        },
+        "exportFailed": {
+          "title": "导出失败",
+          "message": "导出 thread 失败：{{message}}"
+        },
+        "invalidJson": {
+          "title": "无效 JSON",
+          "message": "JSON 有效负载无效。"
+        },
+        "importComplete": {
+          "title": "导入完成",
+          "messageOne": "导入 thread“{{title}}”和 {{count}} 事件。",
+          "messageOther": "导入了带有 {{count}} 事件的 thread“{{title}}”。"
+        },
+        "importFailed": {
+          "title": "导入失败",
+          "message": "导入thread失败：{{message}}"
+        }
+      },
+      "exportPreflight": {
+        "kicker": "导出预检",
+        "title": "导出前合规提醒",
+        "description": "Thread 导出是可移植的。不要把导出内容用于被禁止的 distillation、benchmark harvesting 或绕过 provider policy 的工作流。",
+        "preserveCitationsLabel": "在导出时保留引文和归属元数据",
+        "preserveCitationsHint": "建议用于带有归属敏感术语的 providers/models。",
+        "strictConfirmLabel": "我确认此导出是为了本次会议中符合条款的工作流程。",
+        "strictConfirmHint": "严格模式要求导出前明确确认。",
+        "exporting": "导出中...",
+        "continueExport": "继续导出"
+      },
+      "importThread": {
+        "kicker": "Thread进口",
+        "title": "进口 thread JSON",
+        "description": "粘贴之前导出的 thread 有效负载，将其导入到活动项目中。",
+        "fieldLabel": "Thread 导出 JSON",
+        "placeholder": "{\"thread\": {...}, \"events\": [...]}",
+        "importing": "输入...",
+        "confirm": "进口Thread"
+      }
+    },
+    "updates": {
+      "title": "更新",
+      "description": "ADDOM 在启动时自动检查更新。您可以控制何时下载和安装更新。",
+      "status": {
+        "upToDate": "最新",
+        "checking": "正在检查更新...",
+        "latest": "您使用的是最新版本",
+        "available": "可用更新 - v{{version}}",
+        "downloading": "正在下载...{{percent}}%",
+        "readyToInstall": "v{{version}} 准备安装",
+        "error": "更新错误：{{message}}"
+      },
+      "actions": {
+        "checkForUpdates": "检查更新",
+        "download": "下载v{{version}}",
+        "restartAndInstall": "重新启动并安装"
+      }
+    },
+    "about": {
+      "title": "关于",
+      "tagline": "本地优先AI编码助手 | BYOK |无遥测",
+      "copyright": "Copyright (c) 2026 ADDOM contributors.",
+      "licenseLineOne": "基于 MIT 许可证授权。",
+      "licenseLineTwo": "详情请参阅 LICENSE。",
+      "openSourceNotices": "开源声明",
+      "thirdPartyInventory": "第三方库存",
+      "openLegalDocumentError": "无法打开法律文件。",
+      "legalDocumentsUnavailable": "法律文件不可用：{{error}}"
+    },
+    "openAiKnowledgeBase": {
+      "title": "Project knowledge",
+      "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+      "notices": {
+        "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+        "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+        "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+      },
+      "projectScope": "项目范围",
+      "noActiveProjectSelected": "未选择活动项目",
+      "filesLabel": "Uploaded files",
+      "storeLabel": "店铺：",
+      "quickSetup": "快速设置",
+      "ready": "Ready",
+      "actionNeeded": "Action needed",
+      "nextStepLabel": "下一步：",
+      "nextStep": {
+        "addApiKey": "添加 OpenAI API key。",
+        "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+        "openProjectWorkspace": "打开一个项目workspace。",
+        "uploadFiles": "上传您想要搜索的文件。",
+        "createVectorStore": "Prepare project knowledge storage.",
+        "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+        "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+        "readyForRetrieval": "Project knowledge is ready for retrieval."
+      },
+      "quickFacts": {
+        "key": "钥匙：",
+        "connected": "已连接",
+        "missing": "丢失的",
+        "access": "使用权：",
+        "account": "帐户",
+        "apiKey": "API key",
+        "project": "项目：",
+        "active": "积极的",
+        "uploads": "上传：",
+        "attached": "随附的："
+      },
+      "actions": {
+        "refresh": "刷新",
+        "uploadFiles": "Upload files",
+        "reuseVectorStore": "Refresh project knowledge",
+        "createVectorStore": "Prepare project knowledge",
+        "attachFiles": "Attach files",
+        "attachFilesWithCount": "Attach files ({{count}})",
+        "deleteVectorStore": "Reset project knowledge",
+        "remove": "消除"
+      },
+      "uploadedFilesTitle": "Uploaded files",
+      "pendingAttachLabel": "Needs attach",
+      "emptyFiles": "No project knowledge files uploaded yet.",
+      "fileState": {
+        "attached": "随附的",
+        "uploadedOnly": "Uploaded only"
+      },
+      "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly.",
+      "attachedFilesLabel": "Attached files"
+    },
+    "terminal": {
+      "title": "Terminal",
+      "description": "在不改变应用全局排版的情况下，保持终端默认设置稳妥一致。",
+      "fontSizeLabel": "字体大小",
+      "fontSizeDescription": "用于新建和活动终端界面的 xterm 基础字体大小。",
+      "fontFamilyLabel": "字体族",
+      "fontFamilyDescription": "选择 xterm 在终端中使用的字体。",
+      "scrollbackLabel": "Scrollback 行数",
+      "scrollbackDescription": "xterm 在内存中保留多少终端历史记录。",
+      "scrollbackHint": "行",
+      "defaultShellLabel": "默认 shell",
+      "defaultShellDescription": "当新终端没有显式请求某个 shell 时使用的默认 shell。",
+      "defaultCwdBehaviorLabel": "默认 cwd 行为",
+      "defaultCwdBehaviorDescription": "选择在没有提供显式 cwd 时，新终端从哪里启动。",
+      "copyOnSelectionLabel": "选择时复制",
+      "copyOnSelectionDescription": "选中文本后立即将终端选区复制到剪贴板。",
+      "pasteConfirmationLabel": "大段粘贴确认",
+      "pasteConfirmationDescription": "当多行粘贴达到这个行数时要求确认。",
+      "zeroDisablesHint": "0 表示禁用提示",
+      "cwdBehavior": {
+        "project_root": "项目根目录",
+        "editor_folder": "编辑器文件夹",
+        "session_cwd": "当前会话 cwd"
+      },
+      "fontFamilyOptions": {
+        "geist_mono": "Geist Mono",
+        "jetbrains_mono": "JetBrains Mono",
+        "fira_code": "Fira Code",
+        "cascadia_code": "Cascadia Code",
+        "system_mono": "System monospace"
+      },
+      "shellOptions": {
+        "default": "系统默认",
+        "cmd": "命令提示符",
+        "powershell": "Windows PowerShell",
+        "pwsh": "PowerShell 7+",
+        "bash": "Bash",
+        "zsh": "Zsh",
+        "git_bash": "Git Bash",
+        "wsl": "WSL"
+      },
+      "advancedDetailsTitle": "Terminal history and paste safety"
+    },
+    "appearanceMode": {
+      "description": "Choose a light or dark interface, or follow your system setting.",
+      "mode": "Color theme",
+      "modeDescription": "Updates the entire app, including editors and terminals.",
+      "selected": "Selected {{name}}",
+      "systemResolved": "System currently uses {{name}}.",
+      "modes": {
+        "dark": "Dark",
+        "light": "Light",
+        "system": "System"
+      }
+    },
+    "backgroundTone": {
+      "darkOnly": "Workspace tones are available when the resolved theme is Dark.",
+      "description": "Choose a gray workspace tone. Graphite matches the current ADDOM default.",
+      "tone": "Workspace tone",
+      "toneDescription": "Shifts the shared surface, panel, and border stack together.",
+      "selected": "Selected {{name}}",
+      "tones": {
+        "obsidian": "Obsidian",
+        "charcoal": "Charcoal",
+        "graphite": "Graphite",
+        "slate": "Slate",
+        "ash": "Ash"
+      }
+    }
+  },
+  "settings": {
+    "categories": {
+      "providers": {
+        "description": "Provider connections, model availability, and project knowledge controls when advanced OpenAI hosted tools are enabled."
+      }
+    },
+    "sections": {
+      "providers": {
+        "apiKeys": {
+          "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+        },
+        "openAiKnowledgeBase": {
+          "title": "Project Knowledge",
+          "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+        }
+      }
+    },
+    "blocks": {
+      "apiKeys": {
+        "accessMethod": {
+          "label": "Sign in with",
+          "selectedAccount": "Using your OpenAI account.",
+          "selectedApiKey": "Using an API key."
+        },
+        "localProvider": {
+          "running": "Running - {{count}} model{{suffix}}"
+        },
+        "recommendedAccount": {
+          "title": "Recommended for OpenAI",
+          "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+          "action": "Use OpenAI account"
+        }
+      },
+      "openRouterCatalogVisibility": {
+        "inlineTitle": "Catalog visibility",
+        "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+        "showInlineAction": "Manage visibility",
+        "hideInlineAction": "Hide controls"
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project knowledge",
+        "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+        "notices": {
+          "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+          "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+          "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+        },
+        "filesLabel": "Uploaded files",
+        "attachedFilesLabel": "Attached files",
+        "ready": "Ready",
+        "actionNeeded": "Action needed",
+        "pendingAttachLabel": "Needs attach",
+        "nextStep": {
+          "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+          "createVectorStore": "Prepare project knowledge storage.",
+          "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+          "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+          "readyForRetrieval": "Project knowledge is ready for retrieval."
+        },
+        "actions": {
+          "uploadFiles": "Upload files",
+          "reuseVectorStore": "Refresh project knowledge",
+          "createVectorStore": "Prepare project knowledge",
+          "attachFiles": "Attach files",
+          "attachFilesWithCount": "Attach files ({{count}})",
+          "deleteVectorStore": "Reset project knowledge"
+        },
+        "uploadedFilesTitle": "Uploaded files",
+        "emptyFiles": "No project knowledge files uploaded yet.",
+        "fileState": {
+          "uploadedOnly": "Uploaded only"
+        },
+        "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly."
+      }
+    }
+  }
+}

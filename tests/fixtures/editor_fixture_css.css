@@ -1,0 +1,14 @@
+:root {
+  --fixture-accent: #2f6feb;
+}
+
+body {
+  margin: 0;
+  color: #dbe4ff;
+  background: #0f172a;
+}
+
+.fixture-card {
+  border: 1px solid var(--fixture-accent);
+  padding: 12px;
+}

@@ -1,0 +1,2265 @@
+{
+  "app": {
+    "workspacePanelSkeleton": {
+      "ariaLabel": "Memuat {{panelLabel}}",
+      "text": "Memuat {{panelLabel}}..."
+    },
+    "workspaceBootError": {
+      "title": "Booting Workspace gagal",
+      "message": "ADDOM tidak dapat menyiapkan cache workspace yang diperlukan untuk panel ini.",
+      "retry": "Coba lagi booting"
+    },
+    "leaveWorkspace": {
+      "title": "Perubahan yang Belum Disimpan",
+      "message": "You have unsaved files. Choose how to proceed before switching projects.",
+      "noUnsavedFiles": "Tidak ada file yang belum disimpan.",
+      "cancel": "Batal",
+      "discardAndLeave": "Discard & Switch",
+      "saving": "Menyimpan...",
+      "saveAllAndLeave": "Save All & Switch"
+    },
+    "confirmDialog": {
+      "messageFallback": "Apakah Anda yakin ingin melanjutkan?",
+      "cancel": "Batal",
+      "confirm": "Konfirmasi"
+    },
+    "panelLabels": {
+      "chat": "Panel Chat",
+      "editor": "Panel penyunting",
+      "sourceControl": "Panel perubahan",
+      "artifacts": "Panel Artifacts",
+      "memory": "Panel memori",
+      "settings": "Panel pengaturan",
+      "agents": "Panel agen",
+      "projectEntry": "Project entry"
+    }
+  },
+  "companionDock": {
+    "resize": "Ubah ukuran panel pendamping",
+    "views": "Tampilan pendamping",
+    "restoreSplit": "Pulihkan tampilan terbagi",
+    "focus": "Fokuskan panel pendamping",
+    "close": "Tutup tampilan pendamping",
+    "document": {
+      "search": "Cari dokumen",
+      "missing": "Dokumen ini sudah tidak ada.",
+      "tooLarge": "Dokumen ini terlalu besar untuk dipratinjau.",
+      "unavailable": "Dokumen ini tidak dapat dimuat.",
+      "changed": "Memperbarui…",
+      "status": "Dokumen Markdown",
+      "openInEditor": "Buka di editor",
+      "reveal": "Tampilkan di penjelajah berkas",
+      "reload": "Muat ulang dokumen",
+      "loading": "Memuat dokumen…",
+      "retry": "Coba lagi",
+        "implementPlan": "Implement",
+        "changePlaceholder": "Describe the change…",
+        "resizeChangeEditor": "Resize change editor",
+        "addChange": "Add change",
+        "annotateChange": "Annotate change",
+        "reviewHint": "Hover a paragraph to suggest a change.",
+        "changeCount": "{{count}} changes",
+        "undoLastChange": "Undo latest change",
+        "submitChanges": "Submit changes",
+        "pendingChanges": "Pending plan changes",
+        "removeChange": "Remove change"
+    }
+  },
+  "startup": {
+    "bootstrapFailure": {
+      "eyebrow": "Startup failed",
+      "title": "ADDOM could not finish starting.",
+      "messageFallback": "Renderer bootstrap failed",
+      "reload": "Reload app"
+    }
+  },
+  "sourceControl": {
+    "openProject": "Buka folder proyek untuk memeriksa perubahan.",
+    "navigationFailed": "Tidak dapat membuka file yang dipilih dari Source Control.",
+    "refresh": "Menyegarkan",
+    "loading": "Memuat perubahan...",
+    "noRepo": "workspace ini tidak ada di dalam repositori git.",
+    "clean": "Pohon yang berfungsi bersih.",
+    "emptyFilter": "Tidak ada file yang cocok dengan filter saat ini.",
+    "filters": {
+      "all": "Semua",
+      "staged": "Staged",
+      "unstaged": "Unstaged",
+      "conflicted": "Konflik",
+      "untracked": "Tidak terlacak"
+    },
+    "search": {
+      "label": "Cari file yang diubah",
+      "placeholder": "Cari file yang diubah"
+    },
+    "groups": {
+      "staged": "Staged",
+      "unstaged": "Unstaged"
+    },
+    "actions": {
+      "stageFile": "Stage file",
+      "unstageFile": "Unstage file",
+      "stageAll": "Stage all",
+      "unstageAll": "Unstage all"
+    },
+    "summary": {
+      "title": "Perubahan",
+      "branch": "Branch: {{branch}}",
+      "repoState": "{{repoRoot}}",
+      "chips": {
+        "staged": "Staged",
+        "unstaged": "Unstaged",
+        "conflicts": "Konflik"
+      }
+    },
+    "commit": {
+      "title": "Commit",
+      "description": "Membuat commit dari perubahan staged saja.",
+      "pending": "Committing...",
+      "action": "Commit",
+      "placeholder": "Pesan Commit",
+      "disabledPlaceholder": "Stage files to enable commit authoring"
+    },
+    "entry": {
+      "renameFrom": "dari {{path}}"
+    },
+    "detail": {
+      "stage": "Stage: {{scope}}",
+      "loading": "Memuat detail SCM...",
+      "title": "Detail SCM",
+      "path": "Jalur:",
+      "previousPath": "Jalur sebelumnya:",
+      "previewSource": "Sumber pratinjau:",
+      "indexCommit": "Indeks commit:",
+      "worktreeCommit": "Worktree commit:",
+      "dirtyWorktree": "Dirty worktree:",
+      "actions": {
+        "restoring": "Memulihkan...",
+        "restoreFile": "Pulihkan berkas",
+        "unstaging": "Unstaging...",
+        "unstageDeletion": "Unstage deletion",
+        "unstageRename": "Unstage ganti nama"
+      }
+    },
+    "common": {
+      "yes": "Ya",
+      "no": "TIDAK"
+    }
+  },
+  "terminal": {
+    "common": {
+      "cancel": "Membatalkan",
+      "user": "Pengguna",
+      "ai": "AI",
+      "session": "Sidang",
+      "host": "Tuan rumah",
+      "workspace": "Workspace",
+      "shell": "shell",
+      "terminal": "terminal",
+      "terminalTitle": "Terminal",
+      "threadPrefix": "percakapan",
+      "status": {
+        "closing": "Penutupan",
+        "ended": "Berakhir",
+        "closed": "Tertutup",
+        "live": "Hidup",
+        "failed": "Gagal",
+        "terminated": "Dihentikan"
+      },
+      "timestamp": {
+        "closedPrefix": "Tertutup",
+        "startedPrefix": "Dimulai"
+      },
+      "suggestion": {
+        "dismissed": "Diberhentikan",
+        "suggested": "Disarankan",
+        "none": "Tidak ada saran"
+      }
+    },
+    "banner": {
+      "thisPlatform": "platform ini",
+      "anotherPlatform": "platform lain",
+      "runtimeDisabled": "Runtime dinonaktifkan",
+      "disabledByEnv": "Penggantian ADDOM_DISABLE_TERMINAL_SESSIONS aktif.",
+      "rolloutDisabled": "Peluncuran dinonaktifkan",
+      "disabledByRollout": "Sesi Terminal dinonaktifkan oleh kebijakan peluncuran saat ini.",
+      "platformGated": "Platform berpagar",
+      "platformGatedDetail": "{{platform}} masih belum diluncurkan. Verifikasi terpaket hanya dicatat untuk {{allowedLabel}}.",
+      "unsupportedPlatform": "Platform tidak didukung",
+      "unsupportedPlatformDetail": "{{platform}} berada di luar target PTY yang didukung yang ditetapkan untuk sesi terminal.",
+      "disabledGeneric": "Sesi Terminal dinonaktifkan di runtime ini.",
+      "runtimeFailed": "Runtime gagal",
+      "failedDetail": "Pemeriksaan kesehatan PTY runtime gagal.",
+      "checkingRuntime": "Memeriksa runtime",
+      "checkingRuntimeDetail": "ADDOM sedang memverifikasi dukungan PTY untuk aplikasi ini runtime.",
+      "runtimeReady": "Runtime siap",
+      "runtimeReadyDetail": "Sesi terminal interaktif tersedia untuk workspace ini.",
+      "lastActionFailed": "Tindakan terakhir gagal"
+    },
+    "viewport": {
+      "sessionState": {
+        "archived": "Diarsipkan",
+        "ended": "Berakhir",
+        "closed": "Tertutup",
+        "live": "Hidup"
+      },
+      "workspaceShell": "Workspace shell",
+      "startTitle": "Mulai sesi terminal",
+      "unavailableTitle": "Chat terminal tidak tersedia",
+      "startDescription": "Buka terminal di sini untuk memeriksa log, menjalankan perintah proyek, atau membiarkan AI melanjutkan dari shell yang sama.",
+      "unavailableDescription": "Sesi Terminal belum tersedia di runtime ini.",
+      "startingSession": "Memulai sesi...",
+      "createSession": "Buat sesi",
+      "readOnly": "Hanya baca",
+      "model": "model",
+      "workspaceRoot": "Akar workspace",
+      "trimmed": "Dipangkas",
+      "clickToFocus": "Klik untuk fokus",
+      "activateSurface": "Aktifkan permukaan",
+      "aria": {
+        "archivedViewport": "Area pandang terminal yang diarsipkan",
+        "interactiveViewport": "Area pandang terminal interaktif",
+        "terminalActions": "Tindakan Terminal"
+      },
+      "context": {
+        "copy": "Salin pilihan",
+        "paste": "Tempel",
+        "selectAll": "Pilih semua",
+        "buffer": "Buffer",
+        "copyVisibleOutput": "Salin keluaran yang terlihat",
+        "copyFullScrollback": "Salin seluruh scrollback",
+        "pasteAsSingleLine": "Tempel sebagai satu baris",
+        "clear": "Bersihkan",
+        "zoomIn": "Perbesar",
+        "zoomOut": "Perkecil",
+        "zoomReset": "Atur ulang zoom",
+        "terminalFontSize": "{{size}}px",
+        "sendOutputToChat": "Send output to chat",
+        "explainLastError": "Explain last error",
+        "summarizeSession": "Summarize session",
+        "saveSnapshotToMemory": "Save snapshot to notes",
+        "cut": "Potong pilihan"
+      },
+      "search": {
+        "placeholder": "Cari keluaran terminal",
+        "previous": "Kecocokan sebelumnya",
+        "next": "Kecocokan berikutnya",
+        "close": "Tutup pencarian",
+        "noMatches": "Tidak ada kecocokan",
+        "resultCount": "{{current}}/{{total}}"
+      },
+      "pasteConfirm": {
+        "title": "Confirm large paste",
+        "message": "Paste {{count}} lines into the terminal? This can run multiple commands at once."
+      }
+    },
+    "dock": {
+      "state": {
+        "approval": "Persetujuan",
+        "approvalSuffix": "persetujuan",
+        "denied": "Ditolak",
+        "userTakeover": "Pengguna mengendalikan",
+        "aiWaiting": "AI menunggu",
+        "aiControlling": "AI mengendalikan",
+        "running": "Berlari"
+      },
+      "announcements": {
+        "userTakeoverActive": "Pengguna sedang mengendalikan terminal ini.",
+        "takeoverRequired": "Ambil alih terminal ini untuk mulai mengetik."
+      },
+      "resize": "Ubah ukuran dok terminal",
+      "tablistAriaLabel": "Sesi percakapan terminal",
+      "unread": "Belum dibaca",
+      "terminalSessions": "Sesi Terminal",
+      "workspaceRoot": "Akar workspace",
+      "control": {
+        "aiControlsShell": "AI mengontrol shell ini. Ambil alih sebelum mengetik.",
+        "userControlsShell": "Saat ini Anda mengontrol shell ini.",
+        "typingBlockedUntilTakeover": "Pengetikan diblokir sampai Anda mengonfirmasi pengambilalihan.",
+        "aiWaitingForUser": "AI sedang menunggu konfirmasi pengguna sebelum melanjutkan."
+      },
+      "browser": {
+        "title": "peramban Terminal",
+        "subtitle": "percakapan / Live Lainnya / Riwayat",
+        "sections": {
+          "currentThread": "percakapan saat ini",
+          "otherLive": "Langsung Lainnya",
+          "history": "Sejarah"
+        },
+        "empty": {
+          "currentThread": "Belum ada sesi terminal yang aktif atau tertunda yang dilampirkan ke percakapan ini.",
+          "otherLive": "Tidak ada percakapan lain yang memiliki aktivitas terminal aktif saat ini.",
+          "history": "Belum ada riwayat arsip terminal yang tersedia untuk workspace ini."
+        },
+        "fields": {
+          "thread": "percakapan",
+          "scope": "Cakupan",
+          "updated": "Diperbarui"
+        },
+        "requestedIn": "Diminta dalam {{section}}",
+        "suggestionFallback": "Kartu saran linimasa tetap terpisah dari browser ini.",
+        "crossThread": {
+          "title": "Sesi lintas-percakapan",
+          "description": "Telusuri metadata di sini, lalu gunakan {{openThreadLabel}} untuk memeriksa atau berinteraksi dari percakapan chat pemiliknya."
+        },
+        "selectSession": "Pilih sesi terminal",
+        "actions": {
+          "openThread": "Open percakapan",
+          "savedToMemory": "Disimpan ke memori",
+          "noMemorySummary": "Tidak ada ringkasan memori",
+          "saveToThreadMemory": "Save to conversation notes",
+          "saveToProjectMemory": "Save to project notes",
+          "deletingArchive": "Menghapus...",
+          "deleteArchive": "Hapus arsip",
+          "openTerminal": "Buka terminal",
+          "backToDock": "Kembali ke dermaga",
+          "browseSessions": "Jelajahi sesi",
+          "handBackToAi": "Kembalikan kontrol ke AI",
+          "confirmTakeover": "Konfirmasi pengambilalihan",
+          "takeOver": "Ambil alih",
+          "expandBrowser": "Perluas peramban terminal",
+          "collapseBrowser": "Tutup peramban terminal",
+          "expand": "Memperluas",
+          "collapse": "Runtuh",
+          "openTerminalActions": "Terminal menu",
+          "terminalDockActions": "Tindakan dok Terminal",
+          "closeBrowser": "Tutup peramban",
+          "interrupt": "Mengganggu",
+          "stopInput": "Hentikan masukan",
+          "closeSession": "Tutup sesi",
+          "archiveSession": "Sesi arsip",
+          "hideTerminal": "Sembunyikan terminal",
+          "dismiss": "Membubarkan",
+          "forceTerminate": "Penghentian paksa",
+          "killProcess": "Bunuh proses",
+          "renameSession": "Rename session",
+          "editTitle": "Edit title",
+          "duplicateSession": "Duplicate session",
+          "sameCwdShell": "Same cwd and shell",
+          "newAtProjectRoot": "New at project root",
+          "newFromCurrentCwd": "New from current cwd",
+          "newFromEditorCwd": "New from editor folder",
+          "currentCwd": "Current cwd",
+          "editorFolder": "Editor folder",
+          "defaultShell": "Default shell",
+          "newWithShell": "New with shell",
+          "sendOutputToChat": "Send output to chat",
+          "explainLastError": "Explain last error",
+          "summarizeSession": "Summarize session",
+          "saveSnapshotToMemory": "Save snapshot to notes",
+          "prefillComposer": "Prefill composer",
+          "recentOutput": "Recent output",
+          "boundedOutput": "Bounded output",
+          "threadMemory": "Conversation notes"
+        }
+      },
+      "confirm": {
+        "forceTerminateHost": {
+          "title": "Hentikan Paksa Host Terminal",
+          "message": "Hentikan paksa sesi terminal cakupan host ini? Ini akan segera mematikan proses yang mendasarinya."
+        },
+        "forceTerminate": {
+          "title": "Hentikan Paksa Terminal",
+          "message": "Hentikan paksa sesi terminal ini? Ini akan segera mematikan proses yang mendasarinya."
+        },
+        "deleteArchive": {
+          "title": "Hapus Sesi Terminal yang Diarsipkan",
+          "message": "Hapus sesi terminal yang diarsipkan ini?\n\nTindakan ini hanya menghapus catatan arsip yang disimpan dan tidak dapat dibatalkan.",
+          "confirm": "Hapus Arsip"
+        }
+      },
+      "prompts": {
+        "renameSession": "Rename terminal session"
+      },
+      "actions": {
+        "openTerminal": "Buka terminal",
+        "backToDock": "Kembali ke dok",
+        "browseSessions": "Jelajahi sesi",
+        "handBackToAi": "Kembalikan kontrol ke AI",
+        "confirmTakeover": "Konfirmasi pengambilalihan",
+        "takeOver": "Ambil alih",
+        "expandBrowser": "Perluas browser terminal",
+        "collapseBrowser": "Ciutkan browser terminal",
+        "expand": "Perluas",
+        "collapse": "Ciutkan",
+        "openTerminalActions": "Terminal menu",
+        "terminalDockActions": "Aksi dok terminal",
+        "closeBrowser": "Tutup browser",
+        "renameSession": "Ganti nama sesi",
+        "editTitle": "Edit judul",
+        "duplicateSession": "Duplikasi sesi",
+        "sameCwdShell": "Cwd dan shell yang sama",
+        "newAtProjectRoot": "Baru di root proyek",
+        "newFromCurrentCwd": "Baru dari cwd saat ini",
+        "newFromEditorCwd": "Baru dari folder editor",
+        "currentCwd": "Cwd saat ini",
+        "editorFolder": "Folder editor",
+        "defaultShell": "Shell default",
+        "newWithShell": "Baru dengan shell",
+        "interrupt": "Interupsi",
+        "stopInput": "Hentikan input",
+        "closeSession": "Tutup sesi",
+        "archiveSession": "Arsipkan sesi",
+        "hideTerminal": "Sembunyikan terminal",
+        "dismiss": "Tutup",
+        "forceTerminate": "Paksa hentikan",
+        "killProcess": "Matikan proses"
+      }
+    },
+    "globalIndicator": {
+      "threadCount": "{{count}} conversation{{suffix}}",
+      "liveCount": "{{count}} terminal langsung{{suffix}}",
+      "priority": {
+        "approval": "Diperlukan persetujuan",
+        "waiting": "Menunggu pengguna"
+      }
+    },
+    "pendingApproval": {
+      "title": "Terminal waiting for approval",
+      "scopeLabel": "Scope",
+      "scopeHost": "Host access",
+      "scopeWorkspace": "Workspace",
+      "directoryLabel": "Directory",
+      "workspaceRoot": "workspace root"
+    }
+  },
+  "editor": {
+    "fileTree": {
+      "projectFallback": "Proyek",
+      "syncing": "Sinkronisasi",
+      "openProjectFolder": "Buka folder proyek",
+      "refresh": "Segarkan pohon file",
+      "ariaLabel": "File {{projectName}}",
+      "loading": "Memuat...",
+      "emptyProject": "Proyek kosong.",
+      "binaryTitle": "{{path}} (tidak dapat membuka file biner)"
+    },
+    "emptyState": {
+      "title": "Pilih file dari pohon untuk membukanya",
+      "shortcutHint": "Ctrl+S untuk menyimpan | klik x untuk menutup tab"
+    },
+    "loadingPane": "Memuat...",
+    "panel": {
+      "thisFile": "berkas ini",
+      "closeDirty": {
+        "title": "Perubahan yang belum disimpan",
+        "message": "Simpan perubahan pada {{fileLabel}} sebelum ditutup?",
+        "confirm": "Simpan & Tutup",
+        "cancel": "Opsi Lainnya"
+      },
+      "saveFailed": {
+        "title": "Gagal menyimpan",
+        "message": "File tidak dapat disimpan."
+      },
+      "discard": {
+        "title": "Hapus perubahan?",
+        "message": "Buang perubahan yang belum disimpan di {{fileLabel}} dan tutup?",
+        "confirm": "Buang Perubahan",
+        "cancel": "Terus Mengedit"
+      },
+      "formatActionTitle": "Format dokumen dengan rute formatter aktif (Shift+Alt+F)",
+      "formatUnavailableTitle": "Pemformatan tidak tersedia untuk file saat ini",
+      "fixActionTitle": "Terapkan masalah yang dapat diperbaiki secara otomatis dari tindakan kode aktif provider",
+      "fixUnavailableTitle": "Tindakan kode tidak tersedia untuk file saat ini",
+      "serviceNotice": {
+        "providerDegraded": "{{providerLabel}} terdegradasi. Fitur editor mungkin terbatas.",
+        "providerUnavailable": "{{providerLabel}} tidak tersedia. Fitur editor mungkin terbatas.",
+        "genericUnavailable": "Beberapa layanan editor tidak tersedia saat ini."
+      },
+      "emptyProject": "Buka folder proyek untuk menggunakan editor.",
+      "resizeFileTree": "Ubah ukuran pohon file",
+      "fileWatcherCap": "Pengamat file mencapai batas direktori ({{watchedCount}}/{{maxDirectories}}). Beberapa folder tidak diawasi secara aktif untuk pengeditan eksternal.",
+      "dismiss": "Membubarkan",
+      "externalChangeDetected": "Perubahan eksternal terdeteksi untuk {{filePath}}. Hasil edit Anda yang belum disimpan telah disimpan.",
+      "reloadFromDisk": "Muat Ulang Dari Disk",
+      "resizeMarkdownPreview": "Ubah ukuran panel pratinjau penurunan harga",
+      "errors": {
+        "noProjectOrTabSelected": "Tidak ada proyek atau tab yang dipilih."
+      }
+    },
+    "tabBar": {
+      "openTabsAriaLabel": "Buka tab editor",
+      "fallbackFileLabel": "mengajukan",
+      "fallbackTabLabel": "tab",
+      "saveTabAriaLabel": "Simpan {{fileLabel}}",
+      "unsavedChangesTitle": "Perubahan yang belum disimpan - klik untuk menyimpan",
+      "externalChangedTitle": "Perubahan file eksternal terdeteksi",
+      "problemSummaryTitle": "{{count}} masalah{{suffix}} ({{error}} error{{errorSuffix}}, {{warning}} peringatan{{warningSuffix}}, {{info}} info)",
+      "closeTabAriaLabel": "Tutup {{tabLabel}}",
+      "aiActionsTitle": "Tindakan AI untuk kode yang dipilih",
+      "aiDraftHint": "Draf ke Chat menggunakan pilihan saat ini dan konteks terdekat.",
+      "preview": "Pratinjau",
+      "fix": "Memperbaiki",
+      "format": "Format",
+      "auto": "Auto",
+      "togglePreviewTitle": "Alihkan pratinjau penurunan harga (Ctrl/Cmd+Shift+V)",
+      "toggleFormatOnSaveTitle": "Alihkan format ke simpan ketika file saat ini memiliki rute pemformat aktif",
+      "aiSelection": {
+        "explain": {
+          "label": "Menjelaskan",
+          "title": "Jelaskan kode yang dipilih di Chat",
+          "description": "Menjelaskan perilaku, asumsi, dan risiko."
+        },
+        "fix": {
+          "label": "Memperbaiki",
+          "title": "Perbaiki kode yang dipilih di Chat",
+          "description": "Perbaiki bug/masalah pada kode yang dipilih."
+        },
+        "refactor": {
+          "label": "Refaktorisasi",
+          "title": "Refaktorkan kode yang dipilih di Chat",
+          "description": "Refactor sambil mempertahankan perilaku."
+        },
+        "tests": {
+          "label": "Tes",
+          "title": "Hasilkan pengujian untuk kode yang dipilih di Chat",
+          "description": "Tulis tes untuk kode yang dipilih."
+        }
+      }
+    },
+    "diagnostics": {
+      "currentFile": "Berkas saat ini",
+      "common": {
+        "expand": "Memperluas",
+        "collapse": "Runtuh"
+      },
+      "filters": {
+        "all": "Semua",
+        "errors": "Kesalahan",
+        "warnings": "Peringatan",
+        "info": "Informasi"
+      },
+      "severity": {
+        "error": "Kesalahan",
+        "warning": "Peringatan",
+        "info": "Informasi",
+        "hint": "Petunjuk"
+      },
+      "problems": {
+        "title": "Masalah",
+        "errorCount": "{{count}} kesalahan{{suffix}}",
+        "warningCount": "Peringatan {{count}}{{suffix}}",
+        "infoCount": "informasi {{count}}",
+        "none": "Tidak ada masalah",
+        "expandTitle": "Luaskan panel Masalah",
+        "collapseTitle": "Ciutkan panel Masalah",
+        "setDefaultStateTitle": "Tetapkan status default panel Masalah",
+        "defaultCollapsed": "Defaultnya diciutkan",
+        "noMatch": "Tidak ada masalah yang cocok dengan filter saat ini.",
+        "noneInFile": "Tidak ada masalah dalam file ini."
+      },
+      "outline": {
+        "title": "Garis besar",
+        "expandTitle": "Perluas garis besar",
+        "collapseTitle": "Ciutkan kerangka",
+        "filterSymbols": "Filter simbol",
+        "symbolCount": "{{count}} simbol{{suffix}}",
+        "refreshing": "Menyegarkan...",
+        "setupTitle": "Pengaturan",
+        "hintCount": "{{count}} petunjuk{{suffix}}",
+        "dismissSetupHintTitle": "Abaikan petunjuk pengaturan {{actionLabel}}",
+        "unavailableForFileType": "Kerangka belum tersedia untuk jenis file ini.",
+        "loadingSymbols": "Memuat simbol...",
+        "noneAvailable": "Tidak ada garis besar yang tersedia.",
+        "noMatch": "Tidak ada simbol yang cocok dengan filter saat ini.",
+        "noneDetected": "Tidak ada simbol yang terdeteksi dalam file ini.",
+        "symbolFallback": "Simbol",
+        "messages": {
+          "serviceUnavailable": "Simbol tidak tersedia karena layanan editor belum siap.",
+          "loadFailed": "Gagal memuat simbol.",
+          "realProviderMissing": "File ini tetap hanya sintaksis karena tidak ada provider asli yang tersedia untuk bahasa ini.",
+          "formatOnlyLanguage": "Bahasa ini tetap hanya sintaksis di editor saat ini.",
+          "missingBinary": "{{providerLabel}} tidak ditemukan dalam proyek ini atau di PATH.",
+          "providerUnavailable": "{{providerLabel}} tidak tersedia untuk simbol dalam file ini.",
+          "providerDegraded": "{{providerLabel}} terdegradasi untuk simbol dalam file ini.",
+          "providerRequestFailed": "{{providerLabel}} gagal saat memuat simbol untuk file ini.",
+          "unsupportedFile": "Kerangka tidak tersedia untuk jenis file ini.",
+          "unsupported": "Kerangka tidak tersedia untuk file ini."
+        }
+      },
+      "setupHints": {
+        "messages": {
+          "formatting": {
+            "realProviderMissing": "Pemformatan memerlukan provider asli untuk file ini.",
+            "biomeConfigRequired": "Pemformatan memerlukan konfigurasi proyek Biome.",
+            "ruffConfigRequired": "Pemformatan memerlukan konfigurasi proyek Ruff.",
+            "clangFormatConfigRequired": "Pemformatan memerlukan konfigurasi proyek.clang-format atau _clang-format.",
+            "javaProjectContextRequired": "Pemformatan memerlukan konteks proyek Maven atau Gradle (pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts).",
+            "dotnetProjectRequired": "Pemformatan memerlukan konteks.csproj atau.sln yang sebenarnya.",
+            "missingBinary": "{{providerLabel}} tidak ditemukan dalam proyek ini atau di PATH.",
+            "providerUnavailable": "{{providerLabel}} tidak tersedia untuk file ini.",
+            "providerDegraded": "{{providerLabel}} terdegradasi untuk file ini.",
+            "providerRequestFailed": "{{providerLabel}} gagal saat menyajikan file ini.",
+            "formatOnlyLanguage": "Bahasa ini hanya untuk pemformatan saat ini."
+          },
+          "codeActions": {
+            "realProviderMissing": "Tindakan kode memerlukan provider nyata untuk file ini.",
+            "eslintProjectRequired": "Tindakan kode memerlukan ESLint provider yang dikonfigurasi proyek.",
+            "ruffConfigRequired": "Tindakan kode memerlukan konfigurasi proyek Ruff.",
+            "clangTidyConfigRequired": "Tindakan kode memerlukan konfigurasi proyek.clang-tidy.",
+            "clangCompileContextRequired": "Tindakan kode memerlukan kompilasi_commands.json atau kompilasi_flags.txt.",
+            "javaProjectContextRequired": "Tindakan kode memerlukan konteks proyek Maven atau Gradle (pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts).",
+            "dotnetProjectRequired": "Tindakan kode memerlukan konteks.csproj atau.sln yang sebenarnya.",
+            "javaNotInstalled": "JDK yang dapat digunakan tidak ditemukan di PATH atau JAVA_HOME. jdtls membutuhkan Java.",
+            "dotnetNotInstalled": "dotnet tidak ditemukan di PATH.",
+            "missingBinary": "{{providerLabel}} tidak ditemukan dalam proyek ini atau di PATH.",
+            "providerUnavailable": "{{providerLabel}} tidak tersedia untuk file ini.",
+            "providerDegraded": "{{providerLabel}} terdegradasi untuk file ini.",
+            "providerRequestFailed": "{{providerLabel}} gagal saat menyajikan file ini.",
+            "formatOnlyLanguage": "Bahasa ini hanya untuk pemformatan saat ini."
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "Pengaturan",
+    "navigationTitle": "Navigasi pengaturan",
+    "overviewTitle": "Ringkasan",
+    "controls": {
+      "expandAll": "Perluas semuanya",
+      "collapseAll": "Ciutkan semuanya"
+    },
+    "counts": {
+      "sectionOne": "1 bagian",
+      "sectionOther": "Bagian {{count}}",
+      "visibleSectionOne": "1 bagian yang terlihat",
+      "visibleSectionOther": "{{count}} bagian yang terlihat"
+    },
+    "common": {
+      "yes": "Ya",
+      "no": "TIDAK",
+      "completed": "SELESAI",
+      "inProgress": "DALAM PROSES",
+      "ready": "Siap",
+      "notReady": "Belum siap",
+      "savedOnly": "hanya disimpan",
+      "unknown": "tidak dikenal",
+      "checking": "Memeriksa...",
+      "disabled": "Dengan disabilitas"
+    }
+  },
+  "artifacts": {
+    "emptyProject": "Buka folder proyek untuk melihat riwayat artefak.",
+    "trackedFilesTitle": "File yang dilacak",
+    "scope": {
+      "label": "Cakupan artefak",
+      "entireProject": "Proyek",
+      "thisThread": "Utas",
+      "resultCount": "{{count}} file"
+    },
+    "loadingTrackedFiles": "Memuat file yang dilacak...",
+    "emptyTrackedFiles": "Belum ada file berversi. Penulisan file AI dan saran kode akan muncul di sini.",
+    "deleteRevisionDialog": {
+      "title": "Hapus Revisi",
+      "message": "Hapus rev {{rev}} ({{source}}) untuk:\n{{filePath}}\n\nHal ini tidak dapat dibatalkan.",
+      "confirm": "Hapus Revisi",
+      "cancel": "Membatalkan"
+    },
+    "deleteHistoryDialog": {
+      "title": "Hapus Riwayat Revisi",
+      "message": "Hapus semua riwayat revisi untuk:\n{{filePath}}\n\nFile di disk TIDAK dihapus.",
+      "confirm": "Hapus Riwayat",
+      "cancel": "Membatalkan"
+    },
+    "selectFile": "Pilih file untuk melihat riwayat revisinya.",
+    "labels": {
+      "fromBase": "Dari (basis)",
+      "toHead": "Ke (kepala)",
+      "base": "basis",
+      "head": "kepala"
+    },
+    "deleteRevisionTitle": "Hapus revisi ini",
+    "deleteFileHistoryTitle": "Hapus semua riwayat untuk file ini",
+    "selectRevisions": "Pilih revisi di atas untuk dibandingkan.",
+    "revisionSource": {
+      "baseline": "garis dasar",
+      "rollback": "kembalikan",
+      "suggestion": "saran",
+      "aiWrite": "AI menulis"
+    },
+    "revisionOrigin": {
+      "thread": "Utas {{threadTitle}}",
+      "deletedThread": "Utas dihapus {{threadTitle}} · {{date}}"
+    },
+    "suggestionBadge": "saran",
+    "revisionCountOne": "{{count}} putaran",
+    "revisionCountOther": "putaran {{count}}",
+    "footer": {
+      "suggestionPending": "Revisi ini belum ditulis ke disk",
+      "apply": "Terapkan ke disk",
+      "applying": "Melamar...",
+      "rollbackNotice": "Rollback akan mengembalikan rev {{rev}} ke disk",
+      "rollback": "Kembalikan ke pangkalan",
+      "rollingBack": "Berguling kembali..."
+    },
+    "picker": {
+      "placeholder": "- {{label}} -",
+      "empty": "- file baru (kosong) -",
+      "notOnDisk": "tidak di disk",
+      "option": "putaran {{rev}} - {{source}}{{notOnDisk}} - {{date}}",
+      "optionWithProvenance": "putaran {{rev}} - {{source}}{{notOnDisk}} - {{date}} · {{provenance}}"
+    },
+    "action": {
+      "rollbackSuccess": "Diputar kembali ke putaran {{rev}}. Putaran baru {{newRev}} tercatat.",
+      "rollbackFailed": "Pengembalian gagal.",
+      "applySuccess": "Diterapkan ke disk. Putaran baru {{newRev}} tercatat.",
+      "applyFailed": "Penerapan gagal.",
+      "revisionDeleted": "Rev {{rev}} dihapus."
+    },
+    "diffLoading": "Memuat perbedaan...",
+    "diffTimeout": "Diff runtime gagal diinisialisasi. Muat ulang aplikasi."
+  },
+  "workspaceDisposal": {
+    "activeMessage": "Pekerjaan aktif harus dihentikan sebelum data ini dapat dihapus.",
+    "threadDeleteActiveMessage": "Pekerjaan aktif di [[canon:thread]] ini akan dihentikan sebelum dihapus.",
+    "stopAndDelete": "Hentikan dan hapus",
+    "stopAndRemove": "Hentikan dan singkirkan",
+    "stopAndClear": "Hentikan dan bersihkan",
+    "stopAndArchive": "Hentikan dan arsipkan"
+  },
+  "threadDrawer": {
+    "title": "Threads",
+    "threadCount": "{{count}} threads",
+    "previewRole": {
+      "user": "Anda",
+      "assistant": "AI"
+    },
+    "activity": {
+      "needsInput": "Perlu input",
+      "sessionFailed": "Gagal",
+      "sessionCompleted": "Selesai",
+      "sessionActive": "Sesi aktif",
+      "sessionStale": "Sesi basi",
+      "pendingApproval": "Menunggu persetujuan",
+      "sessionBlocked": "Sesi diblokir",
+      "idle": "Menganggur",
+      "pendingBadge": "Tertunda",
+      "blockedBadge": "Diblokir"
+    },
+    "fallbackTitle": "Tanpa judul percakapan",
+    "renameTitle": "Ganti nama percakapan",
+    "deleteTitle": "Hapus percakapan",
+    "searchPlaceholder": "Cari percakapan...",
+    "newThreadTitle": "percakapan baru",
+    "newThread": "Baru",
+    "emptySearch": "Tidak ada percakapan yang cocok.",
+    "empty": "Belum ada percakapan.",
+    "createThread": "Buat percakapan",
+    "loadMore": "Muat lebih banyak percakapan ({{count}} tersembunyi)",
+    "resizeTitle": "Seret untuk mengubah ukuran"
+  },
+  "backgroundJobs": {
+    "status": {
+      "polling": "pemungutan suara",
+      "cancelRequested": "Pembatalan diminta",
+      "completed": "Selesai",
+      "failed": "Gagal",
+      "cancelled": "Dibatalkan",
+      "orphaned": "Yatim piatu",
+      "queued": "Mengantri"
+    },
+    "title": "[[canon:background_jobs]]",
+    "runningJobs": "Pekerjaan yang berjalan: {{count}}",
+    "updated": "{{time}} yang diperbarui",
+    "refresh": "Menyegarkan",
+    "close": "Menutup",
+    "description": "Hentikan perintah lokal yang sudah berjalan lama atau lepaskan respons latar belakang OpenAI saat tidak diperlukan lagi.",
+    "stopAll": "Hentikan Semua",
+    "stopping": "Henti...",
+    "loading": "Memuat pekerjaan latar belakang...",
+    "empty": "Tidak ada pekerjaan latar belakang yang sedang berjalan.",
+    "table": {
+      "job": "Pekerjaan",
+      "task": "Tugas",
+      "runtime": "Runtime",
+      "context": "Konteks",
+      "action": "Tindakan"
+    },
+    "statusLabel": "status: {{status}}",
+    "openAiResponse": "Respons latar belakang OpenAI",
+    "detachedOpenAiResponse": "Respons OpenAI terpisah",
+    "emptyCommand": "(kosong)",
+    "stop": "Berhenti"
+  },
+  "chat": {
+    "planDirection": {
+      "questionNavigation": "Pertanyaan arah rencana",
+      "goToQuestion": "Buka pertanyaan {{count}}",
+      "continue": "Lanjutkan",
+      "changeAnswer": "Ubah jawaban",
+      "customPlaceholder": "Atau jelaskan arah lain",
+      "customAnswer": "Jawaban arah khusus",
+      "recommendedShort": "Direkomendasikan",
+      "synthesizing": "Memperbarui arah dari pilihan Anda…",
+      "synthesisFailed": "Arah tidak dapat diperbarui.",
+      "retryDraft": "Coba lagi draf rencana",
+      "retry": "Coba lagi",
+      "reviewChoices": "Tinjau pilihan",
+      "change": "Ubah arah",
+      "changeFeedback": "Masukan arah",
+      "changePlaceholder": "Apa yang harus diubah dari arah ini?",
+      "updateDirection": "Perbarui arah",
+      "creating": "Membuat rencana Markdown terkelola…",
+      "recommended": "Direkomendasikan:",
+      "recommendationDetail": "{{profile}} - {{rationale}}",
+      "create": "Buat rencana",
+      "profileMenu": "Profil penyusunan rencana",
+      "profiles": {
+        "implementation": "Rencana implementasi",
+        "technicalDesign": "Desain teknis",
+        "investigation": "Rencana investigasi",
+        "deepImplementation": "Rencana implementasi mendalam"
+      },
+      "errors": {
+        "answerSave": "The direction answer could not be saved.",
+        "profileUnavailable": "The selected plan profile was unavailable.",
+        "changeFailed": "The direction feedback could not be saved.",
+        "retryFailed": "The direction update could not be retried."
+      }
+    },
+    "emptyState": {
+      "title": "Belum ada pesan",
+      "planDescription": "Mode [[canon:plan]] aktif. [[canon:ask]] untuk rencana terstruktur, lalu gunakan pilihan interaktif dalam respons untuk memandu jalur.",
+      "thinkingDescription": "Mode [[canon:thinking]] aktif. Pikirkan opsi dan pengorbanan di sini, lalu beralih ke [[canon:execute]] saat siap diterapkan.",
+      "executeDescription": "Pilih provider dan mulailah mengobrol. Gunakan kontrol header [[canon:permission_mode]] untuk beralih antara [[canon:ask]], [[canon:autonomy]], dan [[canon:full_access]] untuk mengeksekusi putaran.",
+      "needsProviderSetup": "Hubungkan autentikasi akun OpenAI atau tambahkan API key di Pengaturan, lalu pilih provider untuk memulai."
+    },
+    "composer": {
+      "placeholder": {
+        "selectProvider": "Pilih provider untuk memulai...",
+        "selectThread": "Select or create a conversation to continue...",
+        "streaming": "AI sedang berpikir...",
+        "plan": "Minta rencana... (Masuk untuk mengirim, Shift+Enter untuk baris baru)",
+        "thinking": "Bertukar pikiran tentang ide, pengorbanan, dan arah... (Masuk untuk mengirim, Shift+Enter untuk baris baru)",
+        "execute": "Tanyakan apa pun tentang proyek Anda... (Masuk untuk mengirim, Shift+Enter untuk baris baru)"
+      },
+      "blockLabels": {
+        "code": "Kode",
+        "text": "Teks"
+      },
+      "codeLanguage": "Bahasa kode",
+      "openAdvancedEditor": "Buka editor kode tingkat lanjut",
+      "advanced": "Canggih",
+      "removeBlock": "Hapus blok",
+      "removeCodeBlock": "Hapus blok kode",
+      "removeTextBlock": "Hapus blok teks",
+      "codePlaceholder": "Kode...",
+      "insertSnippet": "Sisipkan cuplikan",
+      "codeSnippet": "Cuplikan kode",
+      "textSnippet": "Cuplikan teks"
+    },
+    "controlRail": {
+      "quickActionsTitle": "[[canon:quick_actions]]",
+      "refreshModels": "Segarkan models",
+      "refreshingModels": "Menyegarkan models",
+      "refreshing": "Menyegarkan...",
+      "openBackgroundJobs": "Buka [[canon:background_jobs]]",
+      "backgroundJobs": "[[canon:background_jobs]]",
+      "agents": "Agen",
+      "directAgentsMenu": "Menu pemilihan agen",
+      "moreActions": "Lebih banyak tindakan",
+      "stopResponse": "Hentikan respons",
+      "sendMessage": "Kirim pesan",
+      "sendEnter": "Kirim (Masuk)",
+      "attach": {
+        "filesImagesDisabled": "Lampirkan file (gambar dinonaktifkan untuk model ini)",
+        "images": "Lampirkan gambar",
+        "files": "Lampirkan file"
+      },
+      "collaborationMode": {
+        "defaultLabel": "[[canon:native_collaboration_mode]]",
+        "buttonTitle": "[[canon:native_collaboration_mode]]: {{value}}",
+        "optionsAriaLabel": "Opsi [[canon:native_collaboration_mode]]"
+      },
+      "reasoningEffort": {
+        "providerDefault": "Provider bawaan",
+        "xhigh": "Xtinggi",
+        "buttonTitle": "[[canon:reasoning_effort]]: {{value}}. Mengontrol seberapa banyak alasan yang diterapkan model.",
+        "buttonAriaLabel": "[[canon:reasoning_effort]]: {{value}}",
+        "optionsAriaLabel": "Opsi [[canon:reasoning_effort]]"
+      },
+      "processingMode": {
+        "fast": "Cepat",
+        "standard": "Standar",
+        "enable": "Gunakan pemrosesan cepat",
+        "disable": "Gunakan pemrosesan standar",
+        "pricingNote": "Pemrosesan cepat dapat menggunakan harga premium.",
+        "returnedMode": "Respons terakhir menggunakan pemrosesan {{mode}}."
+      },
+      "rateLimits": {
+        "title": "[[canon:rate_limits]]",
+        "remainingTitle": "Batas tarif akun OpenAI tersisa",
+        "weekly": "Mingguan",
+        "primary": "Utama",
+        "secondary": "Sekunder"
+      }
+    },
+    "moaToggle": {
+      "activeTitle": "Mode [[canon:moa]] aktif - klik untuk menonaktifkan",
+      "enableTitle": "Aktifkan [[canon:moa]] (Orkestrasi Multi-Agen)"
+    },
+    "threadModals": {
+      "common": {
+        "close": "Menutup",
+        "closeModal": "Tutup modal percakapan",
+        "cancel": "Membatalkan"
+      },
+      "create": {
+        "title": "Buat percakapan",
+        "description": "Masukkan judul untuk percakapan baru percakapan.",
+        "placeholder": "percakapan baru",
+        "confirm": "Membuat"
+      },
+      "rename": {
+        "title": "Ganti nama percakapan",
+        "description": "Perbarui judul percakapan saat ini percakapan.",
+        "placeholder": "Judul percakapan",
+        "confirm": "Menyimpan"
+      },
+      "clear": {
+        "deleteTitle": "Hapus percakapan",
+        "deleteMessage": "Hapus [[canon:thread]] ini{{threadTitle}}? Percakapan, lampiran, dan aktivitas [[canon:thread]] akan dihapus. File proyek, Artefak, dan Memori yang dipertahankan akan tetap tersedia.",
+        "deleteConfirm": "Hapus percakapan"
+      }
+    },
+    "providerSwitchContextBanner": {
+      "title": "Provider/model diaktifkan",
+      "previousProvider": "provider sebelumnya",
+      "newProvider": "provider baru",
+      "movedFrom": "Pindah dari",
+      "movedTo": "ke",
+      "continuityHint": "Masukkan konteks sebelum giliran Anda berikutnya untuk menghindari kehilangan kontinuitas proyek.",
+      "injectMemory": "Suntikkan memori",
+      "injectArtifacts": "Suntikkan [[canon:artifacts]]",
+      "injectBoth": "Suntikkan keduanya",
+      "dismiss": "Membubarkan"
+    },
+    "contextMeter": {
+      "toggleDetails": "Alihkan detail konteks",
+      "expandDetails": "Perluas detail pengukur konteks",
+      "collapseDetails": "Ciutkan detail pengukur konteks",
+      "visibleMetrics": "Metrik yang Terlihat",
+      "chooseVisibleMetrics": "Pilih metrik yang terlihat",
+      "showAll": "Tunjukkan semuanya",
+      "hideAll": "Sembunyikan semua",
+      "noMetricsSelected": "Tidak ada metrik yang dipilih.",
+      "title": {
+        "available": "Giliran terakhir {{turnTokens}}/{{modelLimit}} tokens ({{percent}}%)",
+        "unavailable": "Penggunaan giliran terakhir tidak tersedia (batas {{modelLimit}} token)",
+        "limitUnavailable": "Batas konteks tidak tersedia untuk model ini",
+        "contextLeftAvailable": "Konteks kiri {{remaining}}/{{modelLimit}} tokens ({{percent}}%)",
+        "contextLeftFallback": "Sisa konteks {{remaining}}/{{modelLimit}} token ({{percent}}%, percakapan kosong)",
+        "contextLeftUnavailable": "Sisa konteks tidak tersedia (batas {{modelLimit}} token; keterisian percakapan tidak tersedia)",
+        "contextLeftRecalculating": "Sisa konteks sedang dihitung ulang setelah kompaksi (batas {{modelLimit}} token)"
+      },
+      "values": {
+        "left": "kiri",
+        "occupancyUnavailable": "keterisian percakapan tidak tersedia",
+        "limitUnknown": "batas tidak diketahui",
+        "notAvailable": "tidak ada",
+        "recalculating": "menghitung ulang..."
+      },
+      "metrics": {
+        "used": "percakapan terjadi.",
+        "usedEstimated": "percakapan terjadi. (perkiraan)",
+        "usedMapped": "percakapan terjadi. (dipetakan)",
+        "remaining": "Konteks kiri",
+        "limit": "Membatasi",
+        "turn": "Giliran terakhir",
+        "spendRoll": "Pembelanjaan sesi",
+        "inputNoCache": "Masukan (tanpa cache)",
+        "cacheRead": "Baca cache",
+        "cacheWrite": "Tulis cache",
+        "turnEstTok": "Putar est tok",
+        "turnEstUsd": "Putar est usd",
+        "costConf": "Konfigurasi biaya",
+        "continuity": "Kontinuitas",
+        "packet": "Paket",
+        "drift": "Melayang",
+        "compactionDelta": "Delta pemadatan"
+      }
+    },
+    "cursor": {
+      "fullAccessRequired": "Cursor runs only with Full Access.",
+      "useFullAccess": "Use Full Access"
+    },
+    "composerArea": {
+      "selectProvider": "Pilih provider di bawah untuk mulai mengobrol.",
+      "selectThread": "Pilih atau buat percakapan sebelum mengirim pesan.",
+      "selectedModelMissing": "model yang dipilih mungkin tidak tersedia. Segarkan model yang dikurasi dari menu tindakan.",
+      "addApiKey": "Tambahkan API key di Pengaturan untuk memulai.",
+      "switchToExecute": "Beralih ke [[canon:execute]]",
+      "imagesDisabled": "Gambar dinonaktifkan untuk model ini. Lampiran file tetap diaktifkan.",
+      "pipeline": {
+        "stepRunning": "Pipeline step {{currentStep}}/{{totalSteps}}: {{stepName}}",
+        "completed": "Pipeline complete",
+        "failedAt": "Pipeline failed at {{stepName}}",
+        "cancelled": "Pipeline cancelled",
+        "starting": "Starting pipeline ({{totalSteps}} steps)..."
+      },
+      "council": {
+        "completed": "Dewan selesai ({{successCount}}/{{memberCount}} berhasil)",
+        "failed": "Dewan gagal",
+        "cancelled": "Dewan dibatalkan",
+        "running": "Dewan berjalan (anggota {{memberCount}}{{suffix}})..."
+      }
+    },
+    "permissionMode": {
+      "planActive": "Mode [[canon:plan]]: alat riset dan perencanaan tersedia; perubahan proyek diblokir.",
+      "thinkingActive": "Mode [[canon:thinking]]: alat baca dan riset tersedia; perubahan proyek diblokir.",
+      "planDormant": "Mode [[canon:plan]] menonaktifkan eksekusi alat untuk giliran ini.",
+      "thinkingDormant": "Mode [[canon:thinking]] menonaktifkan eksekusi alat untuk giliran ini.",
+      "label": "Izin",
+      "groupAriaLabel": "Modus izin",
+      "optionsAriaLabel": "Opsi mode izin",
+      "helpers": {
+        "ask": "Prompt sebelum tindakan berisiko",
+        "autonomy": "Act inside workspace Guardrails",
+        "fullAccess": "Eksekusi alat tingkat host"
+      }
+    },
+    "dispatchConfirmation": {
+      "dispatchFailed": "Pengiriman gagal.",
+      "executed": "Pengiriman Dieksekusi",
+      "executedDescription": "Agen {{count}}{{suffix}} dikirim. Hasil akan muncul di bawah setelah agen selesai.",
+      "failed": "Pengiriman Gagal",
+      "unknownError": "Kesalahan tidak diketahui.",
+      "retry": "Mencoba kembali",
+      "title": "Rencana Pengiriman Tugas",
+      "selected": "{{selected}}/{{total}} dipilih",
+      "dispatching": "Mengirim...",
+      "executeTasks": "Jalankan tugas {{count}}{{suffix}}"
+    },
+    "questionUser": {
+      "clarificationNeeded": "Diperlukan Klarifikasi",
+      "waitingOnYou": "Menunggumu",
+      "recommended": "Direkomendasikan",
+      "yourAnswer": "Jawaban Anda",
+      "answerPlaceholder": "Ketik jawaban Anda…",
+      "answerHint": "Kirim jawaban cepat di sini, atau terus edit di komposer di bawah.",
+      "sending": "Mengirim...",
+      "sendAnswer": "Kirim",
+      "sendAnswerTitle": "Kirim jawaban (Enter)"
+    },
+    "runbook": {
+      "status": {
+        "cancelled": "dibatalkan",
+        "finishedWithErrors": "selesai dengan kesalahan",
+        "finishedWithWarnings": "diakhiri dengan peringatan",
+        "finished": "selesai",
+        "running": "berlari"
+      },
+      "filters": {
+        "all": "Semua",
+        "commands": "Perintah",
+        "usage": "Penggunaan",
+        "reasoning": "Pemikiran",
+        "approvals": "Persetujuan"
+      },
+      "aria": {
+        "collapse": "Ciutkan giliran runbook",
+        "expand": "Perluas giliran runbook"
+      },
+      "summary": {
+        "actions": "tindakan {{count}}",
+        "commands": "perintah {{count}}",
+        "files": "file {{count}}",
+        "usage": "penggunaan {{count}}"
+      },
+      "sections": {
+        "actions": "Tindakan",
+        "commands": "Perintah",
+        "usage": "Penggunaan"
+      }
+    },
+    "fileChanges": {
+      "header": "File diubah: {{count}}",
+      "unknownFile": "Berkas tidak dikenal",
+      "updatedAgo": "memperbarui {{time}}",
+      "changeType": {
+        "applied": "Terapan",
+        "modified": "Dimodifikasi",
+        "edited": "Diedit",
+        "deleted": "Dihapus",
+        "renamed": "Berganti nama",
+        "rolledBack": "Digulung Kembali",
+        "created": "Dibuat"
+      },
+      "syncStatus": {
+        "deleted": "dihapus",
+        "undone": "terlepas",
+        "conflict": "konflik"
+      },
+      "reason": {
+        "changedSinceTurn": "Berubah sejak giliran ini",
+        "missingRevisionMetadata": "Metadata revisi tidak ada"
+      },
+      "actions": {
+        "fallbackAction": "Tindakan",
+        "openInEditor": "Buka di editor",
+        "openInDocumentViewer": "Buka di penampil dokumen",
+        "openArtifacts": "Buka [[canon:artifacts]]",
+        "copyPath": "Salin jalur",
+        "deleting": "Menghapus...",
+        "deleteFile": "Hapus berkas",
+        "undoing": "Kehancuran...",
+        "undoChange": "Batalkan perubahan",
+        "menuTitle": "Tindakan berkas"
+      },
+      "preview": {
+        "loading": "Memuat perubahan...",
+        "noChangedLines": "Tidak ada perubahan baris untuk dipratinjau.",
+        "collapse": "Ciutkan pratinjau",
+        "expand": "Luaskan pratinjau",
+        "collapseForFile": "Ciutkan pratinjau untuk {{path}}",
+        "expandForFile": "Luaskan pratinjau untuk {{path}}",
+        "fileChangeFallback": "perubahan berkas",
+        "limited": "pratinjau terbatas",
+        "limitWithLineCount": "Ukuran file melebihi batas pratinjau (baris {{lineCount}}). Buka di editor atau [[canon:artifacts]] untuk memeriksa perubahan.",
+        "limitNoLineCount": "Ukuran file melebihi batas pratinjau. Pratinjau dinonaktifkan di atas garis {{maxLines}}."
+      },
+      "dialogs": {
+        "undoOne": {
+          "title": "Batalkan Perubahan File",
+          "message": "Pulihkan versi {{path}} sebelumnya?",
+          "confirm": "Batalkan Perubahan"
+        },
+        "deleteOne": {
+          "title": "Hapus File yang Dibuat",
+          "message": "Hapus {{path}}? Ini menghapus file yang dibuat pada giliran ini dari disk.",
+          "confirm": "Hapus Berkas"
+        },
+        "undoAll": {
+          "title": "Batalkan Perubahan File",
+          "message": "Pulihkan versi sebelumnya untuk file {{count}}{{suffix}}?",
+          "confirm": "Batalkan Perubahan"
+        },
+        "deleteAll": {
+          "title": "Hapus File yang Dibuat",
+          "message": "Hapus file {{count}}{{suffix}} yang dibuat pada giliran ini? Ini akan menghapusnya dari disk.",
+          "confirm": "Hapus File"
+        }
+      },
+      "feedback": {
+        "clipboardUnavailable": "Papan klip tidak tersedia di lingkungan ini.",
+        "copiedPath": "Jalur yang disalin: {{path}}",
+        "copyFailed": "Gagal menyalin jalur file.",
+        "undoUnavailable": "Pembatalan tidak tersedia untuk entri ini (metadata revisi tidak ada).",
+        "undoSucceeded": "Membatalkan {{path}}.",
+        "undoFailed": "Pembatalan gagal.",
+        "deleteUnavailable": "Hapus tidak tersedia untuk entri ini (metadata revisi tidak ada).",
+        "deleteSucceeded": "File yang dibuat {{path}} dihapus.",
+        "deleteFailed": "Penghapusan gagal.",
+        "conflict": "{{path}}: berubah sejak giliran ini.",
+        "actionFailed": "{{path}}: {{message}}",
+        "undoAllUnavailable": "Membatalkan semua yang tidak tersedia (metadata revisi tidak ada).",
+        "undoAllSummary": "Batalkan semua: {{success}} berhasil{{conflicts}}{{failed}}{{skipped}}.",
+        "undoAllFailed": "Gagal membatalkan semua.",
+        "deleteAllUnavailable": "Hapus semua yang tidak tersedia (metadata revisi tidak ada).",
+        "deleteAllSummary": "Hapus file yang dibuat: {{success}} berhasil{{conflicts}}{{failed}}{{skipped}}.",
+        "deleteAllFailed": "Gagal menghapus file yang dibuat."
+      },
+      "activity": {
+        "undoOne": "Perubahan file yang tidak dilakukan: {{path}}",
+        "deleteOne": "File yang dibuat dihapus: {{path}}",
+        "undoAll": "Membatalkan semua perubahan file ({{success}} berhasil{{conflicts}}{{failed}}{{skipped}})",
+        "deleteAll": "File yang dibuat telah dihapus ({{success}} berhasil{{conflicts}}{{failed}}{{skipped}})"
+      },
+      "bulkActions": {
+        "undoingTitle": "Membatalkan perubahan file",
+        "undoTitle": "Membatalkan perubahan file dari giliran ini",
+        "deletingTitle": "Menghapus file yang dibuat",
+        "deleteTitle": "Hapus file yang dibuat dari giliran ini"
+      }
+    },
+    "roleConfirmation": {
+      "title": "[[canon:ai_generated_agent_role]]",
+      "saveRole": "[[canon:save_role]]",
+      "saveRoleAndContinue": "[[canon:save_role_continue]]",
+      "useForDelegation": "[[canon:use_for_delegation]]",
+      "saving": "Penghematan...",
+      "starting": "Mulai...",
+      "saved": "Peran \"{{name}}\" disimpan",
+      "usedForDelegation": "Peran \"{{name}}\" digunakan untuk delegasi ini",
+      "savedDescription": "Tersedia untuk delegasi segera.",
+      "usedTemporaryDescription": "Peran sementara ini akan dihapus secara otomatis setelah delegasi selesai.",
+      "roleName": "[[canon:role_name]]",
+      "instructions": "instruksi",
+      "noInstructions": "Tidak ada instruksi",
+      "provider": "Provider",
+      "model": "model",
+      "selectProvider": "Pilih provider...",
+      "selectModel": "Pilih model...",
+      "modelIdPlaceholder": "ID model",
+      "emptyValue": "—",
+      "stagedWrites": {
+        "title": "File Staged menulis",
+        "enabledDescription": "Diaktifkan untuk peran ini. Menggunakannya dapat mengubah file stage selama delegasi.",
+        "disabledDescription": "Dengan disabilitas. Peran ini hanya dapat mengembalikan analisis dan rekomendasi."
+      },
+      "allowStagedWrites": {
+        "title": "Izinkan penulisan file staged",
+        "description": "Agen dapat memberikan saran stage [[canon:write_file]]."
+      },
+      "preview": "Pratinjau",
+      "edit": "Sunting",
+      "dismiss": "Membubarkan",
+      "errors": {
+        "roleNameRequired": "Nama peran wajib diisi.",
+        "providerRequired": "Provider diperlukan.",
+        "modelRequired": "model diperlukan.",
+        "saveFailed": "Gagal menyimpan peran.",
+        "useTemporaryFailed": "Gagal menggunakan peran sementara."
+      }
+    },
+    "writeConflict": {
+      "resolved": "{{path}} terselesaikan",
+      "conflictBadge": "konflik",
+      "showDebugInfo": "Tampilkan info debug",
+      "hideDebugInfo": "Sembunyikan info debug",
+      "hideDetails": "Sembunyikan detailnya",
+      "viewChanges": "Lihat apa yang berubah",
+      "loading": "Memuat...",
+      "loadingPreviews": "Memuat pratinjau...",
+      "previewUnavailable": "Pratinjau tidak tersedia.",
+      "aiMerge": "Penggabungan AI",
+      "dismiss": "Membubarkan",
+      "confirm": "Mengonfirmasi",
+      "noModelSelected": "Tidak ada model yang dipilih",
+      "generatingMerge": "Menghasilkan penggabungan...",
+      "retry": "Mencoba kembali",
+      "tryAgain": "Coba Lagi",
+      "accept": "Menerima",
+      "labels": {
+        "yoursVsBase": "Perubahan Anda vs. dasar",
+        "theirsVsBase": "Perubahan lain vs. dasar"
+      },
+      "errors": {
+        "unknown": "Kesalahan tidak diketahui",
+        "requestFailed": "Permintaan gagal",
+        "applyFailed": "Gagal menerapkan resolusi penggabungan.",
+        "mergeFailed": "Penggabungan gagal.",
+        "revisionPreviewUnavailable": "Pratinjau revisi tidak tersedia dalam sesi perender ini.",
+        "loadRevisionPreviewFailed": "Tidak dapat memuat pratinjau revisi.",
+        "loadRevisionContextFailed": "Tidak dapat memuat konteks revisi."
+      }
+    },
+    "attachments": {
+      "actions": {
+        "menuAriaLabel": "Tindakan lampiran untuk {{name}}",
+        "copy": "Salin",
+        "showInFolder": "Tampilkan di folder",
+        "saveAs": "Simpan sebagai...",
+        "openWith": "Buka dengan",
+        "defaultApp": "Aplikasi bawaan",
+        "chooseAnotherApp": "Pilih aplikasi lain...",
+        "copyFailed": "Lampiran ini tidak dapat disalin.",
+        "showInFolderFailed": "Lampiran ini tidak dapat ditampilkan di foldernya.",
+        "saveFailed": "Lampiran ini tidak dapat disimpan.",
+        "openWithFailed": "Lampiran ini tidak dapat dibuka dengan aplikasi yang dipilih."
+      },
+      "common": {
+        "close": "Menutup",
+        "cancel": "Membatalkan"
+      },
+      "errors": {
+        "cachedOpenFailed": "Tidak dapat membuka file lampiran yang di-cache.",
+        "unavailable": "Lampiran terbuka tidak tersedia di build ini.",
+        "historyUnavailable": "Lampiran ini tidak dapat dibuka kembali karena datanya tidak tersedia di riwayat garis waktu.",
+        "openFailed": "Tidak dapat membuka file lampiran."
+      },
+      "labels": {
+        "pdfAttachment": "Lampiran PDF",
+        "attachedImage": "Gambar terlampir",
+        "attachedFile": "File terlampir"
+      },
+      "image": {
+        "unavailable": "Lampiran gambar tidak tersedia.",
+        "open": "Buka {{label}}",
+        "previewAriaLabel": "Pratinjau gambar",
+        "closePreviewAriaLabel": "Tutup pratinjau gambar"
+      },
+      "file": {
+        "openPdfViewer": "Buka PDF di penampil",
+        "openAttachedFile": "Buka file terlampir",
+        "openPdfAttachment": "Buka lampiran PDF",
+        "openFileAttachment": "Buka lampiran file",
+        "clickOpenViewer": "Klik untuk membuka di penampil",
+        "clickOpenFile": "Klik untuk membuka berkas"
+      },
+      "dialogs": {
+        "openFileAriaLabel": "Buka konfirmasi file",
+        "openPdfTitle": "Buka PDF di penampil default Anda?",
+        "closeFileOpenAriaLabel": "Tutup file, buka konfirmasi",
+        "openPdfDescription": "File ini akan dibuka di luar ADDOM menggunakan aplikasi PDF sistem Anda.",
+        "openPdfConfirm": "Buka PDF"
+      }
+    },
+    "planRequests": {
+      "label": {
+        "memoryReview": "Inject saved context",
+        "artifactReview": "Suntikkan Konteks [[canon:artifacts]]",
+        "webIngest": "Situs Web Penelanan",
+        "runRequest": "Jalankan Permintaan"
+      },
+      "summary": {
+        "from": "dari #{{value}}",
+        "to": "ke #{{value}}",
+        "tags": "tag: {{value}}",
+        "sources": "sumber: {{value}}",
+        "limit": "batas {{value}}",
+        "files": "file: {{value}}",
+        "latestOnly": "hanya yang terbaru",
+        "revisionsPerFile": "revisi/file: {{value}}",
+        "fromRev": "dari putaran {{value}}",
+        "toRev": "untuk memutar {{value}}"
+      }
+    },
+    "toolExecution": {
+      "runningCommandWithCommand": "Perintah yang berjalan: {{command}}",
+      "runningCommand": "Menjalankan perintah...",
+      "renameFile": "Berjalan: rename_file - {{oldPath}} -> {{newPath}}",
+      "browsingUrl": "Penjelajahan: {{url}}",
+      "browserActionWithAction": "Peramban: {{action}}",
+      "browserAction": "Tindakan peramban",
+      "runningToolWithPath": "Berjalan: {{toolName}} - {{filePath}}",
+      "runningTool": "Berjalan: {{toolName}}",
+      "result": {
+        "browserDenied": "browser_action - ditolak",
+        "browserFailed": "browser_action - gagal",
+        "browserDone": "browser_action - selesai",
+        "toolDenied": "{{toolName}} - ditolak",
+        "toolFailed": "{{toolName}} - gagal",
+        "toolDone": "{{toolName}} - selesai"
+      }
+    },
+    "mcpElicitation": {
+      "sendFailed": "Respons ini tidak dapat dikirim."
+    },
+    "diff": {
+      "addedLine": "Baris ditambahkan",
+      "removedLine": "Baris dihapus"
+    },
+    "providerTerms": {
+      "providerFallback": "penyedia ini",
+      "title": "Sebelum memakai {{providerName}}",
+      "lead": "Anda bertanggung jawab atas ketentuan penyedia ini. Prompt dan aktivitas alat dapat meninggalkan mesin ini.",
+      "cancel": "Batal",
+      "openTerms": "Buka ketentuan",
+      "continue": "Lanjut"
+    }
+  },
+  "toolApprovalOverlay": {
+    "header": {
+      "title": "AI ingin:",
+      "reviewFileChanges": "Tinjau perubahan file yang diusulkan, lalu setujui atau tolak",
+      "reviewDiff": "Tinjau perbedaan di bawah, lalu setujui atau tolak",
+      "approveFilesystem": "Setujui untuk mengizinkan tindakan ini pada sistem file Anda",
+      "expiresIn": "Kedaluwarsa dalam {{time}}"
+    },
+    "footer": {
+      "expired": "Approval expired",
+      "enterDisabled": "Masukkan pintasan yang dinonaktifkan untuk persetujuan yang lebih tinggi",
+      "shortcuts": "Pintasan: Masukkan izinkan, Esc tolak",
+      "submitting": "Submitting approval..."
+    },
+    "actions": {
+      "deny": "Tolak (Esc)",
+      "allowForSession": "Izinkan Untuk Sesi",
+      "allowForSessionTitle": "Izinkan dan ingat persetujuan ini untuk sesi aplikasi saat ini jika didukung",
+      "openGuardrails": "Open Guardrails settings",
+      "openGuardrailsTitle": "Cancel this approval and open Guardrails settings",
+      "allowHostFallback": "Izinkan Penggantian Host",
+      "allowHostFallbackTitle": "Izinkan penggantian host (sekali pakai)",
+      "allowHostFullAccessThisTurn": "Izinkan Akses Penuh Host (Giliran Ini)",
+      "allowHostFullAccessThisTurnTitle": "Izinkan tuan rumah mengakses penuh selama sisa giliran ini",
+      "allowHostFullAccess": "Izinkan Akses Penuh Host",
+      "allowHostFullAccessTitle": "Izinkan akses penuh host (sekali pakai)",
+      "allowWslCompatibility": "Izinkan Kompatibilitas WSL Berjalan",
+      "allowWslCompatibilityTitle": "Izinkan pengoperasian kompatibilitas WSL sekali pakai",
+      "allowDisabledWslTitle": "Gunakan persetujuan kompatibilitas WSL eksplisit untuk perintah ini",
+      "allowDisabledHostTitle": "Gunakan tindakan akses penuh host eksplisit untuk perintah ini",
+      "allowTitle": "Izinkan (Masuk)",
+      "allowDisabled": "Izinkan (dinonaktifkan)",
+      "allowCaution": "Izinkan (hati-hati)",
+      "allow": "Mengizinkan"
+    },
+    "review": {
+      "grantedRoot": "Akar yang Diberikan",
+      "empty": "Tidak ada perubahan file yang disertakan dalam permintaan persetujuan ini.",
+      "file": "Mengajukan",
+      "unknownPath": "(jalur tidak diketahui)",
+      "noDiff": "Tidak ada perbedaan yang diberikan untuk perubahan file ini."
+    },
+    "policy": {
+      "runCommandTitle": "Jalankan Kebijakan Perintah",
+      "browserActionTitle": "Kebijakan Tindakan Peramban",
+      "warnings": "Peringatan",
+      "hints": "Petunjuk",
+      "explicitHostElevation": "Diperlukan Ketinggian Host Eksplisit",
+      "explicitHostElevationDescription": "Perintah ini melebihi kebijakan `workspace_safe`. Gunakan tindakan host_full_access satu kali khusus untuk melanjutkan.",
+      "explicitWslApproval": "Diperlukan Persetujuan Kompatibilitas WSL Eksplisit",
+      "explicitWslApprovalDescription": "WSL bukanlah batas keamanan. Persetujuan ini mengakui kompatibilitas yang dijalankan dengan kemampuan jangkauan sistem file host, bukan sandbox yang terkandung."
+    },
+    "diff": {
+      "file": "mengajukan",
+      "newFile": "berkas baru",
+      "noChanges": "Tidak ada perubahan yang terdeteksi."
+    },
+    "risk": {
+      "readOnly": "Hanya baca",
+      "writesFile": "Menulis berkas",
+      "runsCode": "Menjalankan kode"
+    },
+    "intent": {
+      "runCommand": "Run command",
+      "localShell": "Run local shell command",
+      "openTerminal": "Open terminal",
+      "useTerminal": "Use terminal",
+      "useBrowser": "Use browser",
+      "reviewFileChanges": "Review file changes",
+      "createDirectory": "Create directory",
+      "scopeSandboxUnavailable": "Sandbox unavailable; host fallback is available.",
+      "scopeInstallSandbox": "Runs in the install sandbox.",
+      "scopeHostAccess": "Requires host access.",
+      "scopeWorkspaceShell": "Runs in the workspace shell.",
+      "scopeBrowserTarget": "Target: {{target}}",
+      "scopeTerminalHostPath": "Opens against a host path.",
+      "scopeWorkingDirectory": "Working directory: {{cwd}}",
+      "warningExplicitHost": "This needs an explicit host access decision.",
+      "warningExplicitWsl": "WSL can reach host files. Use the explicit WSL action only if that is intended.",
+      "warningSandboxFallback": "The sandbox route is unavailable. Host fallback is a one-time exception.",
+      "warningPrivateNetwork": "This targets a local or private network address.",
+      "warningTerminalOutsideWorkspace": "This terminal opens outside the workspace."
+    },
+    "production": {
+      "deny": "Deny",
+      "allowForSession": "Allow for session",
+      "openGuardrails": "Settings",
+      "allowHostFallback": "Host fallback",
+      "allowHostFullAccessThisTurn": "Host this turn",
+      "allowHostFullAccess": "Host once",
+      "allowWslCompatibility": "WSL once",
+      "allowDisabled": "Choose explicit action",
+      "allowCaution": "Allow",
+      "allow": "Allow",
+      "explicitActionRequired": "Use an explicit approval action for this request.",
+      "browserRisk": "External action",
+      "reviewRisk": "Review",
+      "details": "Details",
+      "requestData": "Request data"
+    },
+    "productionPolicy": {
+      "command": "Command policy",
+      "browser": "Browser policy",
+      "terminal": "Terminal policy",
+      "hostAccessRequired": "Host access required",
+      "hostAccessDescription": "Use an explicit host action if this should run outside workspace-safe limits.",
+      "wslCompatibility": "WSL compatibility",
+      "wslDescription": "WSL can reach host files. Use the WSL action only when that is intended.",
+      "notes": "Notes"
+    }
+  },
+  "common": {
+    "close": "Menutup",
+    "clear": "Jernih",
+    "clearAll": "Hapus semuanya",
+    "cancel": "Membatalkan"
+  },
+  "settingsInstructions": {
+    "title": "Menggunakan ADDOM",
+    "updated": "{{date}} yang terakhir diperbarui",
+    "description": "Panduan ringkas tentang perilaku ADDOM saat ini, default keamanan, dan tempat mencarinya saat Anda memerlukan penyegaran.",
+    "sections": {
+      "chat-modes": {
+        "title": "Mode Chat",
+        "items": {
+          "0": "`[[canon:execute]]` memungkinkan ADDOM menggunakan alat yang diaktifkan di bawah [[canon:permission_mode]] yang dipilih (`[[canon:ask]]`, `[[canon:autonomy]]`, atau `[[canon:full_access]]`).",
+          "1": "`[[canon:plan]]` menjaga giliran tetap bebas alat dan berfokus pada opsi, pertanyaan, dan langkah selanjutnya.",
+          "2": "`[[canon:thinking]]` ditujukan untuk bertukar pikiran dan pengorbanan tanpa eksekusi alat.",
+          "3": "Memilih `[[canon:implement_plan]]` akan mengalihkan chat kembali ke `[[canon:execute]]` sebelum dikirim."
+        }
+      },
+      "tool-approvals": {
+        "title": "Persetujuan Alat",
+        "items": {
+          "0": "`[[canon:ask]]` meminta sebelum tindakan berisiko, `[[canon:autonomy]]` menekan perintah rutin, dan `[[canon:full_access]]` memberikan eksekusi alat tingkat host untuk giliran tersebut.",
+          "1": "Bahkan di `[[canon:full_access]]`, daftar blokir perintah destruktif masih berlaku untuk operasi host yang jelas-jelas berbahaya.",
+          "2": "Permintaan perintah diperiksa berdasarkan kebijakan keamanan perintah Anda sebelum dapat dijalankan.",
+          "3": "Perintah latar belakang muncul di `[[canon:background_jobs]]`, tempat Anda dapat memeriksa atau menghentikannya."
+        }
+      },
+      "memory": {
+        "title": "Perilaku memori",
+        "items": {
+          "0": "Project memori menyimpan catatan, ringkasan, dan konteks yang dicatat secara otomatis secara lokal di SQLite.",
+          "1": "Log otomatis lama dapat dikompresi setelah ambang batas yang Anda tetapkan di Pengaturan.",
+          "2": "Entri terkompresi diarsipkan, tidak dihapus, dan masih dapat ditinjau.",
+          "3": "Aktivitas memori terlihat di chat dan di panel memori."
+        }
+      },
+      "continuity": {
+        "title": "Mesin kontinuitas",
+        "items": {
+          "0": "Kontinuitas melacak tujuan, keputusan, loop terbuka, kesalahan, dan referensi file secara bergantian.",
+          "1": "Cakupan pengambilannya default ke `percakapan + project` dan dapat disetel di Pengaturan.",
+          "2": "Profil seperti `economy`, `balanced`, dan `deep` mengontrol seberapa banyak kontinuitas yang disuntikkan.",
+          "3": "Peristiwa kontinuitas muncul di garis waktu saat pengambilan, pembuatan paket, atau pemadatan dijalankan.",
+          "4": "Pemeriksaan drift dapat memperingatkan ketika belokan baru tampaknya bertentangan dengan konteks yang ada."
+        }
+      },
+      "artifacts": {
+        "title": "Perilaku [[canon:artifacts]]",
+        "items": {
+          "0": "Setiap penulisan file AI yang disetujui akan membuat revisi artefak untuk file tersebut.",
+          "1": "[[canon:artifacts]] mendukung tinjauan berbeda, rollback/penerapan, dan metadata revisi.",
+          "2": "Konteks artefak dapat mencakup riwayat revisi terbatas, tidak hanya versi terbaru."
+        }
+      },
+      "workspace": {
+        "title": "[[canon:workspace]] Kegigihan",
+        "items": {
+          "0": "Proyek, percakapan, dan peristiwa linimasa tetap tersimpan secara lokal di SQLite.",
+          "1": "Mengalihkan provider atau model membuat percakapan tetap aktif dan dapat menawarkan tindakan bootstrap konteks.",
+          "2": "Kontrol reset mendukung pembersihan tingkat percakapan, tingkat proyek, dan workspace penuh."
+        }
+      },
+      "commands": {
+        "title": "[[canon:background_jobs]]",
+        "items": {
+          "0": "Tugas yang berjalan lama seperti server pengembang, pengamat, dan respons OpenAI yang terpisah mungkin berjalan di latar belakang sehingga chat dapat melanjutkan.",
+          "1": "Gunakan `[[canon:background_jobs]]` untuk memeriksa keluaran, menghentikan tugas, atau meninjau aktivitas latar belakang.",
+          "2": "Output perintah yang bertahan dipangkas untuk menjaga garis waktu tetap responsif."
+        }
+      },
+      "command-palette": {
+        "title": "[[canon:command_palette]]",
+        "items": {
+          "0": "Buka `[[canon:command_palette]]` global dengan `Ctrl+Shift+P` untuk mencari tindakan di seluruh ADDOM.",
+          "1": "Gunakan `Up` dan `Down` untuk menavigasi, `Enter` untuk menjalankan, dan `Esc` untuk menutup.",
+          "2": "Perintah dapat dicari berdasarkan judul dan alias seperti `switch project`, `autofix`, atau `outline`.",
+          "3": "Perintah yang dinonaktifkan tetap terlihat karena suatu alasan, seperti tidak ada percakapan yang aktif atau tidak ada tab editor yang terbuka.",
+          "4": "Perintah terbaru ditampilkan saat pencarian kosong untuk alur kerja berulang yang lebih cepat."
+        }
+      },
+      "streaming-responses": {
+        "title": "Tanggapan Streaming",
+        "items": {
+          "0": "Jawaban Asisten dialirkan ke chat sebagai potongan respons alih-alih menunggu giliran penuh selesai.",
+          "1": "Ukuran potongan dan irama bergantung pada provider dan model dan bukan merupakan unit tokenizer yang tepat.",
+          "2": "ADDOM memperlancar pengiriman potongan di UI untuk mengurangi kedipan sambil mempertahankan kemajuan waktu nyata.",
+          "3": "Teks penalaran hanya muncul ketika provider memaparkannya; ADDOM tidak mengarang rantai pemikiran yang tersembunyi."
+        }
+      },
+      "runbook": {
+        "title": "Ubah Transparansi [[canon:runbook]]",
+        "items": {
+          "0": "Setiap giliran model dikelompokkan menjadi `Turn [[canon:runbook]]` yang diciutkan di chat dengan tindakan kronologis.",
+          "1": "[[canon:runbook]] mencakup persetujuan, langkah perintah, perubahan file, pembaruan penggunaan, dan status giliran.",
+          "2": "Ternyata dengan penulisan file menunjukkan kartu `Files changed` dengan +/- jumlah per file, pratinjau, dan tindakan ulasan.",
+          "3": "Tindakan pembatalan mencakup penjaga konflik seperti `Changed since this turn` untuk menghindari pengembalian yang tidak aman.",
+          "4": "Teks penalaran yang ditampilkan di UI hanya provider; ADDOM tidak pernah mengarang rantai pemikiran yang tersembunyi."
+        }
+      },
+      "moa": {
+        "title": "Modus [[canon:moa]]",
+        "items": {
+          "0": "`[[canon:moa]]` mendelegasikan tugas agen paralel sementara orkestrator memegang otoritas akhir.",
+          "1": "Peran agen dikonfigurasikan di Pengaturan dan dapat menggunakan templat sebagai titik awal yang dapat diedit.",
+          "2": "Delegasi menerapkan batasan seperti batas tugas, batas waktu, anggaran token, dan pemotongan output.",
+          "3": "Peringatan anggaran memerlukan pilihan yang jelas sebelum delegasi yang mahal dapat melanjutkan.",
+          "4": "Penulisan file agen bersifat opsional, dinonaktifkan secara default, dan staged sebagai saran artefak, bukan penulisan disk langsung.",
+          "5": "Hanya orkestrator yang dapat menyelesaikan revisi agen staged melalui tindakan penerapan eksplisit.",
+          "6": "Peristiwa siklus hidup [[canon:moa]] terlihat di panel [[canon:runbook]] dan [[canon:moa]].",
+          "7": "[[canon:moa]] dapat mengonsumsi tokens jauh lebih banyak dibandingkan pergantian agen tunggal, jadi pantau kebijakan dan metrik penggunaan."
+        }
+      }
+    }
+  },
+  "commandPalette": {
+    "searchPlaceholder": "Ketikkan perintah atau cari...",
+    "results": {
+      "commands": "Perintah",
+      "recentAndCommands": "Terbaru + Perintah",
+      "shown": "{{count}} ditampilkan"
+    },
+    "filters": {
+      "all": "Semua",
+      "recent": "Terkini",
+      "filterByCategory": "Filter perintah berdasarkan {{label}}"
+    },
+    "categories": {
+      "ariaLabel": "Kategori perintah",
+      "navigation": "Navigasi",
+      "chat": "Chat",
+      "editor": "Editor",
+      "memory": "memori",
+      "terminal": "Terminal"
+    },
+    "empty": {
+      "title": "Tidak ada perintah yang cocok dengan pencarian Anda.",
+      "description": "Coba kata kunci atau alias lain."
+    },
+    "hint": {
+      "enter": "Memasuki"
+    },
+    "reasons": {
+      "open_a_project_first": "Buka proyek terlebih dahulu",
+      "no_active_thread": "Tidak ada percakapan aktif",
+      "thread_has_no_messages_yet": "Percakapan ini belum memiliki pesan",
+      "open_select_a_thread_first": "Buka atau pilih percakapan terlebih dahulu",
+      "direct_agents_are_only_available_in_execute_mode": "Agen hanya tersedia dalam mode [[canon:execute]]",
+      "enable_moa_first": "Aktifkan [[canon:moa]] terlebih dahulu",
+      "wait_for_the_current_response_to_finish": "Tunggu hingga respons saat ini selesai",
+      "provider_model_switch_context_banner_is_not_active": "Spanduk konteks sakelar Provider/model tidak aktif",
+      "open_a_file_in_editor_first": "Buka file di Editor terlebih dahulu",
+      "open_a_markdown_file_in_editor_first": "Buka file Markdown di Editor terlebih dahulu",
+      "open_the_editor_and_select_code_first": "Buka Editor dan pilih kode terlebih dahulu",
+      "formatting_is_unavailable_for_the_current_file": "Pemformatan tidak tersedia untuk file saat ini",
+      "code_actions_are_unavailable_for_the_current_file": "Tindakan kode tidak tersedia untuk file saat ini",
+      "no_terminal_session_selected": "Tidak ada sesi terminal yang dipilih",
+      "terminal_session_is_not_running": "Sesi terminal tidak berjalan",
+      "terminal_is_already_controlled_by_you": "Terminal sudah dikendalikan oleh Anda",
+      "terminal_is_already_controlled_by_ai": "Terminal sudah dikendalikan oleh AI",
+      "terminal_is_not_controlled_by_you": "Terminal tidak dikendalikan oleh Anda",
+      "terminal_is_not_controlled_by_ai": "Terminal tidak dikendalikan oleh AI",
+      "terminal_cannot_be_interrupted": "Terminal tidak dapat diinterupsi",
+      "terminal_cannot_be_closed": "Terminal tidak dapat ditutup",
+      "terminal_cannot_be_terminated": "Terminal tidak dapat dihentikan paksa",
+      "no_terminal_dock_open": "Tidak ada dock terminal yang terbuka"
+    },
+    "commands": {
+      "nav": {
+        "chat": {
+          "title": "Pergi ke Chat"
+        },
+        "editor": {
+          "title": "Pergi ke Penyunting"
+        },
+        "artifacts": {
+          "title": "Pergi ke [[canon:artifacts]]"
+        },
+        "memory": {
+          "title": "Pergi ke memori"
+        },
+        "settings": {
+          "title": "Buka Pengaturan"
+        },
+        "openProjectFolder": {
+          "title": "Buka Folder Proyek"
+        },
+        "sidebar": {
+          "toggle": {
+            "expandTitle": "Perluas Bilah Sisi",
+            "collapseTitle": "Ciutkan Bilah Sisi"
+          }
+        },
+        "projectEntry": {
+          "title": "Open Projects"
+        }
+      },
+      "chat": {
+        "thread": {
+          "new": {
+            "title": "percakapan baru"
+          },
+          "rename": {
+            "title": "Ganti nama percakapan saat ini"
+          },
+          "delete": {
+            "title": "Hapus percakapan Saat Ini"
+          },
+          "clear": {
+            "title": "Hapus Percakapan Saat Ini"
+          }
+        },
+        "focusComposer": {
+          "title": "Fokus Komposer Chat"
+        },
+        "jumpToLatest": {
+          "title": "Lompat ke Pesan Terbaru"
+        },
+        "openThreadSelector": {
+          "title": "Buka Pemilih percakapan"
+        },
+        "openBackgroundJobs": {
+          "title": "Buka [[canon:background_jobs]]"
+        },
+        "openDirectAgents": {
+          "title": "Buka Menu Agen Langsung"
+        },
+        "toggleMoa": {
+          "title": "Alihkan Mode [[canon:moa]]"
+        },
+        "inject": {
+          "memory": {
+            "title": "Suntikkan memori Ke Chat"
+          },
+          "artifacts": {
+            "title": "Suntikkan [[canon:artifacts]] Ke Chat"
+          },
+          "both": {
+            "title": "Suntikkan memori + [[canon:artifacts]]"
+          }
+        }
+      },
+      "editor": {
+        "formatDocument": {
+          "title": "Format Dokumen"
+        },
+        "fixAutofixable": {
+          "title": "Perbaiki Masalah yang Dapat Diperbaiki Auto"
+        },
+        "toggleProblemsPanel": {
+          "title": "Alihkan Panel Masalah"
+        },
+        "toggleOutlinePanel": {
+          "title": "Alihkan Panel Garis Besar"
+        },
+        "markdownPreview": {
+          "toggle": {
+            "title": "Markdown: Beralih Pratinjau"
+          },
+          "open": {
+            "title": "Markdown: Buka Pratinjau ke Sisi"
+          }
+        },
+        "aiSelection": {
+          "explain": {
+            "title": "AI pada Seleksi: Jelaskan"
+          },
+          "fix": {
+            "title": "AI pada Seleksi: Perbaiki"
+          },
+          "refactor": {
+            "title": "AI pada Seleksi: Refactor"
+          },
+          "tests": {
+            "title": "AI pada Seleksi: Hasilkan Tes"
+          }
+        }
+      },
+      "memory": {
+        "exportProjectJson": {
+          "title": "Ekspor Konteks Proyek JSON",
+          "alerts": {
+            "failedTitle": "Ekspor gagal",
+            "failedMessage": "Gagal mengekspor konteks JSON: {{error}}",
+            "completedTitle": "Ekspor selesai",
+            "completedMessage": "Konteks yang diekspor JSON.\n\nBerkas: {{filePath}}\nNode memori: {{memoryNodeCount}}\nFile artefak: {{artifactFileCount}}\nRevisi artefak: {{artifactRevisionCount}}"
+          }
+        },
+        "openPanel": {
+          "title": "Open notes panel"
+        }
+      },
+      "terminal": {
+        "focus": {
+          "title": "Fokuskan terminal"
+        },
+        "new": {
+          "title": "Terminal baru"
+        },
+        "browseSessions": {
+          "title": "Jelajahi sesi terminal"
+        },
+        "takeOver": {
+          "title": "Ambil alih terminal"
+        },
+        "handBack": {
+          "title": "Kembalikan terminal ke AI"
+        },
+        "interrupt": {
+          "title": "Interupsi terminal"
+        },
+        "close": {
+          "title": "Tutup sesi terminal"
+        },
+        "hide": {
+          "title": "Sembunyikan dock terminal"
+        }
+      }
+    }
+  },
+  "executionStream": {
+    "showEarlier": "Tampilkan {{count}} acara sebelumnya{{suffix}}",
+    "thought": {
+      "verb": "Bernalar",
+      "briefly": "singkat",
+      "show": "Tampilkan penalaran",
+      "hide": "Sembunyikan penalaran"
+    },
+    "transport": {
+      "startingTurn": "Mulai giliran"
+    },
+    "compaction": {
+      "requested": "Memadatkan konteks...",
+      "running": "Memadatkan konteks...",
+      "applied": "Pemadatan OpenAI diterapkan",
+      "failed": "Pemadatan OpenAI gagal",
+      "milestoneTitle": "Konteks dipadatkan sebelum giliran berikutnya",
+      "milestoneDetail": {
+        "codexThreadCompaction": "Pemadatan akun Codex percakapan",
+        "providerServerSide": "Pemadatan sisi server OpenAI",
+        "manualServerSide": "OpenAI pemadatan sisi server secara manual"
+      }
+    },
+    "progress": {
+      "navigate": "Menavigasi",
+      "click": "Mengklik elemen",
+      "type": "Mengetik teks",
+      "select": "Memilih opsi",
+      "screenshot": "Mengambil tangkapan layar",
+      "runningTool": "Menjalankan {{toolName}}",
+      "working": "Bekerja",
+      "terminalOpen": "Opening terminal",
+      "terminalOpenNamed": "Opening {{terminalLabel}}",
+      "terminalRead": "Reading terminal output",
+      "terminalReadNamed": "Reading output from {{terminalLabel}}",
+      "terminalAttach": "Reusing terminal session",
+      "terminalWrite": "Writing to terminal",
+      "terminalWriteNamed": "Writing to {{terminalLabel}}",
+      "terminalWait": "Waiting for terminal output",
+      "terminalWaitNamed": "Waiting for output from {{terminalLabel}}",
+      "terminalResize": "Resizing terminal session",
+      "terminalResizeNamed": "Resizing {{terminalLabel}}",
+      "terminalSignal": "Signaling terminal session",
+      "terminalSignalNamed": "Signaling {{terminalLabel}}",
+      "terminalClose": "Closing terminal session",
+      "terminalCloseNamed": "Closing {{terminalLabel}}"
+    },
+    "result": {
+      "listDirectory": "Terdaftar {{countPrefix}} di {{pathLabel}}",
+      "createDirectory": "Folder yang dibuat {{pathLabel}}",
+      "writeFile": "Menulis {{pathLabel}}",
+      "editFile": "{{pathLabel}} yang diperbarui",
+      "readFile": "Baca {{pathLabel}}",
+      "deleteFile": "{{pathLabel}} dihapus",
+      "rollbackFile": "Mengembalikan {{pathLabel}}",
+      "renameFile": "Mengganti nama {{oldPath}} menjadi {{newPath}}",
+      "searchCode": "Ditemukan {{countPrefix}}untuk \"{{query}}\" di {{searchPath}}",
+      "grepFile": "Ditemukan kecocokan untuk \"{{pattern}}\" di {{pathLabel}}",
+      "findFiles": "Ditemukan kecocokan untuk \"{{pattern}}\"",
+      "fetchPage": "Diambil {{hostLabel}}",
+      "navigate": "Navigasi selesai",
+      "click": "Klik selesai",
+      "type": "Pengetikan selesai",
+      "select": "Seleksi selesai",
+      "screenshot": "Tangkapan layar diambil",
+      "browserAction": "Tindakan browser selesai",
+      "gitStatusFailed": "Status Git gagal",
+      "gitStatusDone": "Status Git selesai",
+      "gitDiffFailed": "Perbedaan Git gagal",
+      "gitDiffReady": "Git siap diff",
+      "gitLogFailed": "Log Git gagal",
+      "gitLogReady": "Riwayat Git dimuat",
+      "gitCommitFailed": "Commit gagal",
+      "gitCommitCreated": "Commit dibuat",
+      "restoreFile": "{{pathLabel}} dipulihkan dari {{refValue}}",
+      "commandDone": "Perintah selesai di {{commandScope}}",
+      "commandFailed": "Perintah gagal di {{commandScope}}",
+      "commandDenied": "Perintah ditolak di {{commandScope}}",
+      "revisionApplyFailed": "Penerapan revisi gagal",
+      "revisionApplied": "Revisi diterapkan",
+      "planUpdated": "Rencana diperbarui",
+      "planUpdatedBatch": "Rencana diperbarui ({{count}} perubahan)",
+      "genericToolResult": "{{toolName}} {{verb}}",
+      "actionFinished": "Aksi selesai",
+      "ranCommand": "Jalankan perintah",
+      "terminalOpen": "Opened terminal",
+      "terminalOpenNamed": "Opened {{terminalLabel}}",
+      "terminalRead": "Read terminal output",
+      "terminalReadNamed": "Read output from {{terminalLabel}}",
+      "terminalAttach": "Reused terminal session in chat terminal dock",
+      "terminalAttachNamed": "Reused {{terminalLabel}} in chat terminal dock",
+      "terminalWrite": "Wrote to terminal",
+      "terminalWriteNamed": "Wrote to {{terminalLabel}}",
+      "terminalWait": "Waited for terminal output",
+      "terminalWaitNamed": "Waited for output in {{terminalLabel}}",
+      "terminalWaitMatched": "Matched expected terminal output",
+      "terminalWaitMatchedNamed": "Matched expected output in {{terminalLabel}}",
+      "terminalWaitTimedOut": "Timed out waiting for terminal output",
+      "terminalWaitTimedOutNamed": "Timed out waiting for {{terminalLabel}}",
+      "terminalResize": "Terminal session resized",
+      "terminalResizeNamed": "Resized {{terminalLabel}}",
+      "terminalSignal": "Terminal session signaled",
+      "terminalSignalNamed": "Signaled {{terminalLabel}}",
+      "terminalClose": "Closed terminal",
+      "terminalCloseNamed": "Closed {{terminalLabel}}"
+    },
+    "warning": {
+      "compactionFailed": "Pemadatan konteks gagal",
+      "generic": "Peringatan"
+    },
+    "error": {
+      "toolFailed": "{{toolName}} gagal",
+      "actionFailed": "Tindakan gagal"
+    },
+    "header": {
+      "title": "Aliran Eksekusi",
+      "show": "Tampilkan aliran eksekusi langsung",
+      "hide": "Sembunyikan aliran eksekusi langsung",
+      "awaitingFirstEvent": "Menunggu acara pertama",
+      "eventCount": "{{count}} acara{{suffix}}",
+      "hiddenSummary": "Menampilkan acara {{visibleItemCount}} terbaru. {{hiddenItemCount}} acara sebelumnya{{eventSuffix}} disembunyikan.",
+      "hiddenSummaryPinned": "Menampilkan peristiwa {{visibleTailItemCount}} terbaru ditambah {{pinnedArchiveCount}} yang diciutkan blok alasan sebelumnya{{archiveSuffix}}. {{hiddenItemCount}} acara sebelumnya{{eventSuffix}} disembunyikan.",
+      "status": {
+        "failed": "gagal",
+        "completed": "selesai",
+        "started": "dimulai",
+        "generic": "{{status}}"
+      }
+    },
+    "output": {
+      "openCopyOptions": "Buka opsi penyalinan",
+      "copyCommand": "Salin perintah",
+      "copyVisibleOutput": "Salin keluaran yang terlihat",
+      "copyPersistedPreview": "Salin pratinjau yang ada",
+      "commandOutput": "Keluaran perintah",
+      "showCommandOutput": "Tampilkan keluaran perintah",
+      "hideCommandOutput": "Sembunyikan keluaran perintah",
+      "truncated": "Keluaran terpotong"
+    },
+    "bridge": {
+      "native": {
+        "activity": "Aktivitas server aplikasi Codex",
+        "webSearch": "Pencarian web server aplikasi Codex",
+        "command": "Perintah server aplikasi Codex: {{commandName}}",
+        "fileChangeOne": "Perubahan file server aplikasi Codex",
+        "fileChangeOther": "Perubahan file server aplikasi Codex",
+        "mcpTool": "Alat MCP server aplikasi Codex: {{toolName}}",
+        "imageView": "Tampilan gambar server aplikasi Codex",
+        "planGenerated": "Paket server aplikasi Codex dibuat",
+        "reviewMode": "Aktivitas mode ulasan Codex"
+      },
+      "source": {
+        "urlTitle": "Sumber: {{title}}",
+        "urlCaptured": "URL sumber diambil",
+        "documentTitle": "Dokumen sumber: {{title}}",
+        "documentCaptured": "Dokumen sumber diambil"
+      },
+      "providerTool": {
+        "modelRerouted": "Model dialihkan",
+        "configWarning": "Peringatan konfigurasi",
+        "hook": "Hook",
+        "autoApprovalReview": "Peninjauan persetujuan otomatis",
+        "providerError": "Kesalahan penyedia",
+        "input": "Masukan alat Provider: {{toolName}}",
+        "running": "Alat Provider berjalan: {{toolName}}",
+        "collectingInput": "Mengumpulkan masukan alat provider...",
+        "imageGenerated": "Gambar dihasilkan oleh alat OpenAI provider.",
+        "output": "Keluaran alat Provider: {{toolName}}"
+      },
+      "continuity": {
+        "responseTracked": "Respons OpenAI dilacak: {{responseId}}",
+        "metadataReceived": "Metadata respons OpenAI diterima"
+      },
+      "websocket": {
+        "transportUpdate": "Pembaruan transportasi WebSocket OpenAI",
+        "reconnecting": "Menyambungkan kembali... {{attempt}}/{{maxAttempts}}",
+        "recoveringStoredResponse": "Memulihkan respons akhir dari keadaan tersimpan",
+        "recoveredStoredResponse": "Memulihkan respons akhir dari status tersimpan",
+        "storedRecoveryFailed": "Pemulihan respons tersimpan gagal",
+        "recovered": "Tersambung kembali setelah mencoba lagi {{attempt}}/{{maxAttempts}}",
+        "bypassed": "Menggunakan transportasi standar OpenAI untuk belokan ini",
+        "fallback": "Kembali ke aliran OpenAI standar",
+        "exhausted": "Hubungkan kembali habis ({{attempt}}/{{maxAttempts}})",
+        "cancelled": "Sambungan kembali dibatalkan ({{attempt}}/{{maxAttempts}})"
+      },
+      "background": {
+        "queued": "Respons latar belakang OpenAI antri",
+        "completed": "Respons latar belakang OpenAI selesai",
+        "failed": "Respons latar belakang OpenAI gagal.",
+        "cancelled": "Respons latar belakang OpenAI dibatalkan.",
+        "noteQueued": "Respons latar belakang OpenAI antri. Buka Pekerjaan untuk memantau kemajuan atau menghentikannya.",
+        "noTextOutput": "Respons latar belakang OpenAI selesai tanpa keluaran teks.",
+        "errorPrefix": "Kesalahan: {{message}}"
+      }
+    }
+  },
+  "memoryPanel": {
+    "title": "memori",
+    "visibleCount": {
+      "eventOne": "Acara {{count}}",
+      "eventOther": "Acara {{count}}",
+      "nodeOne": "simpul {{count}}",
+      "nodeOther": "Node {{count}}"
+    },
+    "controls": {
+      "showArchived": "Tampilkan diarsipkan",
+      "includeGlobal": "Sertakan global",
+      "exportJsonTitle": "Ekspor log memori dan artifacts ke JSON",
+      "exporting": "Mengekspor...",
+      "exportJson": "Ekspor JSON",
+      "addNode": "Tambahkan Node"
+    },
+    "tabs": {
+      "memory": "memori tahan lama",
+      "history": "riwayat percakapan"
+    },
+    "export": {
+      "completedTitle": "Ekspor selesai",
+      "completedMessage": "Konteks yang diekspor JSON.\n\nBerkas: {{filePath}}\nNode memori: {{memoryNodeCount}}\nFile artefak: {{artifactFileCount}}\nRevisi artefak: {{artifactRevisionCount}}",
+      "failedTitle": "Ekspor gagal",
+      "failedMessage": "Gagal mengekspor konteks JSON: {{message}}"
+    },
+    "search": {
+      "placeholder": "Telusuri memori...",
+      "searching": "Mencari...",
+      "resultOne": "Hasil {{count}}",
+      "resultOther": "Hasil {{count}}"
+    },
+    "compression": {
+      "latestBatchTitle": "Kumpulan kompresi terbaru",
+      "summary": "Log terkompresi #{{rangeStart}} hingga #{{rangeEnd}} ke dalam simpul ringkasan (arsip {{archivedCount}}).",
+      "jumpToSummary": "Lompat ke Ringkasan",
+      "dismiss": "Membubarkan"
+    },
+    "loading": {
+      "memory": "Memuat memori...",
+      "threadHistory": "Memuat riwayat percakapan..."
+    },
+    "sections": {
+      "pinned": "Disematkan",
+      "allNodes": "Semua Node memori"
+    },
+    "embedder": {
+      "downloading": "Mengunduh model {{progress}}%",
+      "loading": "Memuat model...",
+      "unavailable": "Penyematan tidak tersedia"
+    },
+    "source": {
+      "userMemory": "Pengguna memori",
+      "workspaceEvent": "Acara Workspace",
+      "terminalSummary": "Ringkasan Terminal",
+      "validatedDecision": "Keputusan yang divalidasi",
+      "referenceNote": "Catatan referensi"
+    },
+    "provenance": {
+      "ariaLabel": "memori asal",
+      "origin": "Asal",
+      "terminalSession": "Ringkasan terminal diterima",
+      "session": "Sidang",
+      "thread": "percakapan",
+      "saved": "Disimpan"
+    },
+    "badges": {
+      "global": "global",
+      "archived": "diarsipkan",
+      "deletedThread": "Utas dihapus"
+    },
+    "meta": {
+      "deletedThreadOrigin": "{{threadTitle}} · dihapus {{time}}"
+    },
+    "actions": {
+      "unpin": "Membuka peniti",
+      "pin": "Pin",
+      "edit": "Sunting",
+      "delete": "Menghapus",
+      "showLess": "Tampilkan lebih sedikit",
+      "showMore": "Tampilkan lebih banyak",
+      "continue": "Lanjutkan",
+      "continueDraft": "Lanjutkan dari konteks yang tersimpan."
+    },
+    "scoreRef": "{{score}}% referensi",
+    "history": {
+      "userMessage": "Pesan pengguna",
+      "assistantMessage": "Pesan asisten",
+      "emptyTitle": "Belum ada riwayat percakapan",
+      "noActiveThreadTitle": "Tidak ada percakapan aktif yang dipilih",
+      "emptyDescription": "Peristiwa transkrip pengguna dan asisten untuk percakapan ini akan muncul di sini.",
+      "noActiveThreadDescription": "Buka atau buat percakapan untuk memeriksa riwayat transkripnya."
+    },
+    "addForm": {
+      "title": "Tambahkan simpul memori Baru",
+      "topicPlaceholder": "Topik/judul",
+      "contentPlaceholder": "Tuliskan konteks, fakta, atau instruksi apa pun...",
+      "tagsPlaceholder": "Tag (dipisahkan koma)",
+      "saveAsGlobal": "Simpan sebagai memori global yang persisten",
+      "saving": "Penghematan...",
+      "saveNode": "Simpan Node"
+    },
+    "editForm": {
+      "title": "Sunting simpul memori",
+      "closeAriaLabel": "Tutup editor simpul memori",
+      "topicPlaceholder": "Topik",
+      "contentPlaceholder": "Isi",
+      "tagsPlaceholder": "Tag (dipisahkan koma)",
+      "saving": "Penghematan...",
+      "saveChanges": "Simpan Perubahan"
+    },
+    "empty": {
+      "searchTitle": "Tidak ada kenangan yang cocok",
+      "title": "Belum ada kenangan",
+      "searchDescription": "Coba istilah pencarian lain atau hapus pencarian untuk melihat semua node memori.",
+      "description": "memori yang tahan lama menyimpan catatan eksplisit, peristiwa workspace, ringkasan terminal yang diterima, keputusan yang divalidasi, dan catatan referensi. chat mentah kini aktif dalam riwayat percakapan."
+    }
+  },
+  "workspaceRail": {
+    "title": "Proyek",
+    "ariaLabel": "Proyek dan utas",
+    "show": "Tampilkan proyek dan utas",
+    "showWithActivityOne": "Tampilkan proyek dan utas. {{count}} utas tersembunyi; prioritas tertinggi: {{activity}}.",
+    "showWithActivityOther": "Tampilkan proyek dan utas. {{count}} utas tersembunyi; prioritas tertinggi: {{activity}}.",
+    "hide": "Sembunyikan proyek dan utas",
+    "resize": "Ubah ukuran proyek dan utas",
+    "close": "Tutup proyek dan utas"
+  },
+  "projectEntry": {
+    "browserPreviewLimitation": {
+      "title": "Desktop workspace required",
+      "message": "Opening a project requires the Electron workspace bridge. Use the desktop app or an Electron-backed smoke run for this flow."
+    },
+    "clearProjectHistoryDialog": {
+      "title": "Clear project transcript history",
+      "message": "Clear transcript history for project \"{{name}}\"?\n\nThis does not delete project files.",
+      "confirm": "Clear history",
+      "cancel": "Cancel"
+    },
+    "archiveProjectDialog": {
+      "title": "Hentikan pekerjaan aktif dan arsipkan proyek?",
+      "message": "Pekerjaan aktif di \"{{name}}\" akan dihentikan sebelum proyek dipindahkan ke Arsip.",
+      "cancel": "Batal"
+    },
+    "removeProjectDialog": {
+      "title": "Remove from ADDOM?",
+      "message": "\"{{name}}\" and all of its ADDOM history, Memory, Artifacts, and recovery data will be removed. Project files are unchanged.",
+      "path": "Folder: {{path}}",
+      "confirm": "Remove from ADDOM",
+      "failureTitle": "Could not remove from ADDOM",
+      "failureMessage": "Nothing was removed from ADDOM. Try again.",
+      "cancel": "Cancel"
+    },
+    "eyebrow": "Workspace",
+    "title": "Open a project",
+    "newProject": "Proyek baru",
+    "newThreadInProject": "Utas baru di {{name}}",
+    "openFolder": "Open folder",
+    "projectActions": {
+      "openFolder": "Open folder",
+      "archiveProject": "Arsipkan proyek",
+      "clearHistory": "Clear history",
+      "removeProject": "Remove from ADDOM",
+      "ariaLabel": "Project actions for {{name}}",
+      "restoreToRecent": "Restore to Recent"
+    },
+    "archive": {
+      "title": "Archive",
+      "toggle": "Toggle Archive"
+    },
+    "projectDisclosure": {
+      "expand": "Expand {{name}}",
+      "collapse": "Collapse {{name}}"
+    },
+    "recentProjects": {
+      "title": "Recent projects",
+      "description": "Pick up a workspace with its threads and local context.",
+      "projectCount": "{count, plural, other {# proyek}}",
+      "fallbackProjectName": "Project",
+      "recent": "Recent",
+      "threadCount": "{{count}} percakapan",
+      "open": "Open"
+    },
+    "empty": {
+      "title": "No recent projects",
+      "description": "Open a folder to start working in the main workspace."
+    },
+    "home": {
+      "placeholder": "Jelaskan tugas untuk mulai bekerja",
+      "noProject": "Tanpa proyek",
+      "projectMenu": "Pilih proyek target",
+      "start": "Mulai tugas",
+      "commandsHint": "Perintah"
+    }
+  },
+  "agents": {
+    "fanoutConfirmation": {
+      "title": "Launch {{count}} agents?",
+      "description": "The orchestrator requested more agents than your {{limit}}-agent confirmation limit.",
+      "stopTurn": "Stop turn",
+      "limit": "Limit to {{count}}",
+      "launch": "Launch {{count}}"
+    }
+  },
+  "agentNavigator": {
+    "title": "Agen",
+    "close": "Tutup agen",
+    "settings": "Pengaturan agen",
+    "sectionActive": "Aktif",
+    "sectionDone": "Selesai · {{count}}",
+    "emptyActive": "Tidak ada agen aktif",
+    "emptyThread": "Tidak ada agen di utas ini.",
+    "showMore": "Tampilkan {{count}} lainnya",
+    "expand": "Perluas",
+    "collapse": "Ciutkan",
+    "hidden": "+{{count}}",
+    "partialVisibility": "dikelola penyedia, visibilitas sebagian",
+    "age": {
+      "seconds": "{{count}} dtk",
+      "minutes": "{{count}} mnt",
+      "hours": "{{count}} jam",
+      "days": "{{count}} hr"
+    },
+    "status": {
+      "queued": "Antre",
+      "running": "Berjalan",
+      "waiting": "Menunggu",
+      "paused": "Dijeda",
+      "approval_required": "Perlu persetujuan",
+      "cancelling": "Membatalkan",
+      "completed": "Selesai",
+      "failed": "Gagal",
+      "cancelled": "Dibatalkan"
+    },
+    "live": {
+      "selected": "{{label}} · {{status}}",
+      "attention": "{{label}} needs attention · {{status}}"
+    }
+  },
+  "agentConversation": {
+    "back": "Kembali",
+    "rootLabel": "Utas",
+    "regionLabel": "Percakapan agen",
+    "loading": "Memuat transkrip…",
+    "empty": "Belum ada transkrip yang tercatat.",
+    "loadMore": "Muat aktivitas lainnya",
+    "unavailableTitle": "Agen tidak tersedia",
+    "unavailableBody": "Agen ini bukan lagi bagian dari eksekusi ini.",
+    "error": "Tidak dapat memuat transkrip agen ini.",
+    "actions": {
+      "menu": "Tindakan agen",
+      "message": "Pesan",
+      "messagePrompt": "Kirim pesan ke agen ini",
+      "messageDescription": "Kirim instruksi lanjutan ke agen yang sedang berjalan.",
+      "messagePlaceholder": "Tulis instruksi singkat…",
+      "cancel": "Batal",
+      "send": "Kirim",
+      "sending": "Mengirim…",
+      "failure": "Tindakan agen tidak dapat diselesaikan.",
+      "interrupt": "Hentikan",
+      "retry": "Coba lagi",
+      "promote": "Lanjutkan sebagai thread proyek"
+    },
+    "origin": {
+      "label": "Cabang dari {{role}} · Giliran {{turn}}",
+      "inspect": "Periksa sumber",
+      "unavailable": "Sumber tidak tersedia",
+      "artifacts": "{{count}} artefak sumber belum digabung",
+      "failure": "Agen sumber tidak dapat dibuka."
+    }
+  },
+  "agentStream": {
+    "title": "Agen · {{count}}",
+    "open": "Buka",
+    "delegationEchoSuppressed": "Delegasi selesai. Buka Agents untuk detailnya."
+  },
+  "agentTrigger": {
+    "idle": "Agents",
+    "active": "Agents · {{count}} active",
+    "approval": "Agents · needs approval",
+    "failed": "Agents · {{count}} failed",
+    "open": "Open Agents",
+    "close": "Close Agents"
+  }
+}

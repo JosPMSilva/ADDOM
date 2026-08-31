@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "fixtures": [
+    {
+      "id": "local_compaction_plan_snapshot_fidelity",
+      "description": "Local compaction handoff preserves active files, concrete edits, and next steps without reconstructing managed plan authority from transcript prose.",
+      "providerId": "openai",
+      "turnId": "turn_eval_fidelity_1",
+      "modelLimit": 32000,
+      "packetText": "[ADDOM Continuity Packet]\n## decisions\n- Keep boundary awareness explicit.",
+      "messages": [
+        { "role": "system", "content": "You are ADDOM." },
+        {
+          "role": "user",
+          "content": "[Plan State Snapshot]\nAnswered plan questions:\n- Which provider mode should be used? -> provider chain compaction\nCompleted request ids: p10\nPending request ids: p20"
+        },
+        {
+          "role": "assistant",
+          "content": "Updated src/main/chat/chat-stream-precall-round.mjs to inject resumed_after awareness."
+        },
+        {
+          "role": "assistant",
+          "content": "Updated tests/integration/chat-stream-precall-round.test.mjs for carry-forward diagnostics."
+        },
+        {
+          "role": "assistant",
+          "content": "Next step: run compaction boundary regression tests."
+        }
+      ],
+      "filler": {
+        "count": 24,
+        "chars": 9000,
+        "role": "assistant",
+        "prefix": "filler"
+      },
+      "expectContains": [
+        "active_files:",
+        "- src/main/chat/chat-stream-precall-round.mjs",
+        "- tests/integration/chat-stream-precall-round.test.mjs",
+        "last_concrete_edits:",
+        "- Updated src/main/chat/chat-stream-precall-round.mjs to inject resumed_after awareness.",
+        "next_step: Next step: run compaction boundary regression tests."
+      ],
+      "expectExcludes": [
+        "plan_steps:",
+        "plan_next_step:",
+        "plan_questions_resolved:"
+      ]
+    }
+  ]
+}

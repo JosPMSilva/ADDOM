@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      CSP is set via session.defaultSession.webRequest in the main process and
+      mirrored here as a Vite-injected fallback for packaged custom-protocol loads.
+      vite.config.js swaps this placeholder by mode so production stays strict
+      while the dev server keeps the HMR allowances it actually needs. The
+      fallback omits frame-ancestors because browsers ignore that directive
+      when CSP is delivered via meta.
+    -->
+    <meta http-equiv="Content-Security-Policy"
+          content="%ADDOM_RENDERER_CSP%" />
+    <title>ADDOM</title>
+  </head>
+  <body class="bg-surface text-text-primary font-sans antialiased select-none">
+    <div id="root"></div>
+    <script type="module" src="./main.jsx"></script>
+  </body>
+</html>

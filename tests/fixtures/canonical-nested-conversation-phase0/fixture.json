@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "description": "Phase 0 parity contract fixture: one logical turn represented by the root canonical turn shape and the current child transcript shape.",
+  "providerEvents": [
+    {
+      "providerEventId": "provider-commentary-chunk",
+      "kind": "commentary",
+      "occurredAt": 1700000000001,
+      "payload": { "chunk": "I will inspect the repository. " }
+    },
+    {
+      "providerEventId": "provider-reasoning-text",
+      "kind": "reasoning",
+      "occurredAt": 1700000000002,
+      "payload": { "text": "Opening the scheduler. " }
+    },
+    {
+      "providerEventId": "provider-reasoning-delta",
+      "kind": "reasoning",
+      "occurredAt": 1700000000003,
+      "payload": { "delta": "Checking cancellation semantics." }
+    }
+  ],
+  "expectedProviderDeltas": [
+    "I will inspect the repository. ",
+    "Opening the scheduler. ",
+    "Checking cancellation semantics."
+  ],
+  "rootTurn": {
+    "status": "completed",
+    "itemOrder": [
+      "reasoning:event_commentary_1",
+      "reasoning:event_reasoning_2",
+      "reasoning:event_reasoning_4",
+      "tool:call_read_scheduler",
+      "reasoning:event_commentary_7"
+    ],
+    "reasoningById": {
+      "event_commentary_1": {
+        "id": "event_commentary_1",
+        "role": "commentary",
+        "detail": "I will inspect the repository. "
+      },
+      "event_reasoning_2": {
+        "id": "event_reasoning_2",
+        "role": "reasoning",
+        "detail": "Opening the scheduler. "
+      },
+      "event_reasoning_4": {
+        "id": "event_reasoning_4",
+        "role": "reasoning",
+        "detail": "Checking cancellation semantics."
+      },
+      "event_commentary_7": {
+        "id": "event_commentary_7",
+        "role": "commentary",
+        "detail": "Found one active-only route."
+      }
+    },
+    "sessionsById": {
+      "call_read_scheduler": {
+        "id": "call_read_scheduler",
+        "toolKind": "read_file",
+        "state": "completed",
+        "outputs": [],
+        "inputDetail": "src/main/agents/agent-scheduler.mjs",
+        "detail": "Read scheduler source.",
+        "startedAt": 1700000000005,
+        "completedAt": 1700000000006
+      }
+    }
+  },
+  "childTranscriptItems": [
+    {
+      "id": "event_commentary_1",
+      "eventId": "event_commentary_1",
+      "kind": "agent_commentary_delta",
+      "content": { "chunk": "I will inspect the repository. " },
+      "nodeSequence": 1,
+      "createdAt": 1700000000001
+    },
+    {
+      "id": "event_reasoning_2",
+      "eventId": "event_reasoning_2",
+      "kind": "agent_reasoning_delta",
+      "content": { "text": "Opening the scheduler. " },
+      "nodeSequence": 2,
+      "createdAt": 1700000000002
+    },
+    {
+      "id": "event_reasoning_boundary_3",
+      "eventId": "event_reasoning_boundary_3",
+      "kind": "agent_reasoning_boundary",
+      "content": "",
+      "nodeSequence": 3,
+      "createdAt": 1700000000003
+    },
+    {
+      "id": "event_reasoning_4",
+      "eventId": "event_reasoning_4",
+      "kind": "agent_reasoning_delta",
+      "content": { "delta": "Checking cancellation semantics." },
+      "nodeSequence": 4,
+      "createdAt": 1700000000004
+    },
+    {
+      "id": "event_tool_started_5",
+      "eventId": "event_tool_started_5",
+      "kind": "agent_tool_started",
+      "content": "src/main/agents/agent-scheduler.mjs",
+      "toolCallId": "call_read_scheduler",
+      "toolName": "read_file",
+      "nodeSequence": 5,
+      "createdAt": 1700000000005
+    },
+    {
+      "id": "event_tool_completed_6",
+      "eventId": "event_tool_completed_6",
+      "kind": "agent_tool_completed",
+      "content": "Read scheduler source.",
+      "toolCallId": "call_read_scheduler",
+      "status": "completed",
+      "nodeSequence": 6,
+      "createdAt": 1700000000006
+    },
+    {
+      "id": "event_commentary_7",
+      "eventId": "event_commentary_7",
+      "kind": "agent_commentary_delta",
+      "content": { "chunk": "Found one active-only route." },
+      "nodeSequence": 7,
+      "createdAt": 1700000000007
+    },
+    {
+      "id": "event_final_8",
+      "eventId": "event_final_8",
+      "kind": "agent_final_message",
+      "threadId": "thread_01",
+      "turnId": "turn_child_01",
+      "content": "# Review\n\nThe route is active-only.\n",
+      "nodeSequence": 8,
+      "createdAt": 1700000000008,
+      "finalDocument": {
+        "parts": [
+          {
+            "partId": "child_final_markdown",
+            "appendOrder": 1,
+            "kind": "markdown",
+            "text": "# Review\n\nThe route is active-only.\n"
+          },
+          {
+            "partId": "child_final_citation",
+            "appendOrder": 2,
+            "kind": "citation",
+            "text": "[agent-conversation-actions.mjs](src/renderer/components/agents/agent-conversation-actions.mjs)"
+          }
+        ]
+      }
+    }
+  ],
+  "expectedChildFinal": {
+    "threadId": "thread_01",
+    "turnId": "turn_child_01",
+    "messageId": "event_final_8",
+    "text": "# Review\n\nThe route is active-only.\n",
+    "finalDocument": {
+      "parts": [
+        {
+          "partId": "child_final_markdown",
+          "appendOrder": 1,
+          "kind": "markdown",
+          "text": "# Review\n\nThe route is active-only.\n"
+        },
+        {
+          "partId": "child_final_citation",
+          "appendOrder": 2,
+          "kind": "citation",
+          "text": "[agent-conversation-actions.mjs](src/renderer/components/agents/agent-conversation-actions.mjs)"
+        }
+      ]
+    }
+  },
+  "completedChildNode": {
+    "id": "node_child_01",
+    "status": "completed",
+    "capabilitySnapshot": {
+      "mode": "managed_hierarchy",
+      "childMessaging": true,
+      "managedContinuation": true,
+      "queuedFollowUp": true,
+      "childCancellation": true,
+      "childRetry": true
+    }
+  }
+}

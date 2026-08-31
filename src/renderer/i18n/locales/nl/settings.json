@@ -1,0 +1,937 @@
+{
+  "shell": {
+    "badges": {
+      "projectRootSet": "projecthoofdset",
+      "projectRootMissing": "projectroot ontbreekt",
+      "languageSystem": "taal: systeem",
+      "languageNamed": "taal: {{label}}",
+      "updatesNamed": "updates: {{status}}",
+      "updatesIdle": "updates inactief",
+      "uiScale": "ui{{percent}}%{{modeSuffix}}",
+      "uiScaleAutoSuffix": "auto",
+      "typographyScale": "tekst {{percent}}%",
+      "providersCount": "{{count}} providers",
+      "configuredCount": "{{count}} geconfigureerd",
+      "noProvidersConfigured": "geen providers geconfigureerd",
+      "permissionMode": "toestemming: {{mode}}",
+      "liveStreamOn": "livestream aan",
+      "liveStreamOff": "livestream uit",
+      "debugVisible": "debug zichtbaar",
+      "debugHidden": "foutopsporing verborgen",
+      "compressionOn": "compressie aan",
+      "compressionOff": "compressie uit",
+      "threshold": "drempel {{value}}",
+      "globalMemoryContextOn": "globale geheugenscontext aan",
+      "globalMemoryContextOff": "globale geheugenscontext uit",
+      "enabled": "ingeschakeld",
+      "disabled": "gehandicapt",
+      "rolesCount": "{{count}}-rollen",
+      "tier": "niveau: {{tier}}",
+      "projectSelected": "project geselecteerd",
+      "noActiveProject": "geen actief project",
+      "threadSelected": "gesprek geselecteerd",
+      "noActiveThread": "geen actieve gesprek"
+    }
+  },
+  "categories": {
+    "general": {
+      "label": "Algemeen",
+      "description": "Language, product guidance, updates, and app information."
+    },
+    "appearance": {
+      "label": "Vormgeving",
+      "description": "Choose a theme, interface density, reading scale, and workspace tone."
+    },
+    "terminal": {
+      "label": "Terminal",
+      "description": "Configure terminal type, shell, working folder, and interaction behavior."
+    },
+    "agents": {
+      "label": "Agenten",
+      "description": "Set persistent instructions and manage Subagent roles."
+    },
+    "providers": {
+      "label": "Providers",
+      "description": "Provider connections, credentials, OpenAI account access, and Project Knowledge when enabled."
+    },
+    "toolsSafety": {
+      "label": "Safety",
+      "description": "Execution mode and concise guardrail behavior."
+    },
+    "dataPrivacy": {
+      "label": "Data",
+      "description": "Export, restore, delete, or reset local ADDOM data."
+    }
+  },
+  "sections": {
+    "general": {
+      "instructions": {
+        "title": "Gebruikshandleiding",
+        "summary": "Open de in-app-gids voor huidig ​​gedrag, standaardveiligheidsinstellingen en workflows."
+      },
+      "language": {
+        "title": "Taal",
+        "summary": "Select the ADDOM app language."
+      },
+      "projectFolder": {
+        "title": "Projectmap",
+        "summary": "Kies de actieve projectroot voor bestandshulpmiddelen en shell-opdrachten."
+      },
+      "assistantPrompt": {
+        "title": "Custom instructions",
+        "summary": "Add persistent guidance to each chat turn."
+      },
+      "uiScaling": {
+        "title": "UI-schalen",
+        "summary": "Adjust shell density and chat text size."
+      },
+      "updates": {
+        "title": "Updates",
+        "summary": "Controleer, download en installeer ADDOM-updates."
+      },
+      "about": {
+        "title": "Over",
+        "summary": "Versie- en build-informatie."
+      },
+      "terminal": {
+        "title": "Terminal",
+        "summary": "Set terminal font, shell, start folder, and copy behavior."
+      },
+      "appearanceMode": {
+        "title": "Theme",
+        "summary": "Choose light, dark, or system appearance."
+      },
+      "backgroundTone": {
+        "title": "Background",
+        "summary": "Choose a gray workspace tone."
+      }
+    },
+    "providers": {
+      "apiKeys": {
+        "title": "API Keys",
+        "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project Knowledge",
+        "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+      }
+    },
+    "toolsSafety": {
+      "executionMode": {
+        "title": "Uitvoeringsmodus",
+        "summary": "Choose how much ADDOM should pause before running tools."
+      },
+      "commandSafety": {
+        "title": "Guardrails",
+        "summary": "Hard guardrails and first-risky-use behavior."
+      }
+    },
+    "moa": {
+      "agents": {
+        "title": "Agent roles",
+        "summary": "Configure agent roles, models, skills, and instructions."
+      }
+    },
+    "dataPrivacy": {
+      "resetCleanup": {
+        "title": "Resetten en opruimen",
+        "summary": "Exporteer/importeer gesprek JSON en voer een opschoning uit op het bereik gesprek, project of workspace."
+      }
+    }
+  },
+  "common": {
+    "permissionRow": {
+      "alwaysOn": "Altijd aan",
+      "toggleSetting": "Schakel instelling",
+      "unavailable": "Niet beschikbaar",
+      "clickToDisable": "Klik om uit te schakelen",
+      "clickToEnable": "Klik om in te schakelen"
+    }
+  },
+  "alerts": {
+    "executionModeSaveFailed": {
+      "title": "Opslaan in uitvoeringsmodus mislukt",
+      "message": "ADDOM could not persist the selected access mode. The UI was reset to the last saved value."
+    },
+    "languageSaveFailed": {
+      "title": "Taal opslaan mislukt",
+      "message": "ADDOM kan de geselecteerde app-taal niet behouden."
+    },
+    "restartRequired": {
+      "title": "Opnieuw opstarten vereist",
+      "message": "Het actieve ADDOM-hoofdproces heeft de nieuwe UI-schaalinstellingen niet erkend. Start de app opnieuw, zodat het hoofdproces de bijgewerkte instellingenhandlers opnieuw laadt."
+    },
+    "uiScalingSaveFailed": {
+      "title": "Opslaan van UI-schalen mislukt",
+      "message": "ADDOM kan de geselecteerde UI-schaalinstellingen niet behouden."
+    },
+    "appearanceSaveFailed": {
+      "title": "Theme Save Failed",
+      "message": "ADDOM could not persist the selected theme."
+    },
+    "backgroundToneSaveFailed": {
+      "title": "Background Tone Save Failed",
+      "message": "ADDOM could not persist the selected background tone."
+    },
+    "backgroundToneRestartRequired": {
+      "message": "The running ADDOM main process did not acknowledge the new background tone. Restart the app so the main process reloads the updated settings handlers."
+    }
+  },
+  "blocks": {
+    "instructions": {
+      "title": "Gebruikshandleiding",
+      "description": "Bekijk het huidige gedrag van de ADDOM, de standaardveiligheidsinstellingen en de workflowbegeleiding.",
+      "guideLabel": "In-app-gids",
+      "guideVersion": "Versie {{version}}",
+      "guideUpdated": "{{date}} bijgewerkt",
+      "openGuide": "Gids openen",
+      "note": "Gebruik deze handleiding als snel naslagwerk voor hoe de chat-modi, goedkeuringen, geheugen, [[canon:artifacts]] en [[canon:moa]] zich momenteel gedragen."
+    },
+    "projectFolder": {
+      "title": "Projecthoofdmap",
+      "description": "Kies de actieve projectroot die ADDOM gebruikt voor bestandshulpmiddelen en shell-opdrachten.",
+      "currentProjectPath": "Huidig ​​projectpad",
+      "noProjectDirectorySelected": "Geen projectmap geselecteerd",
+      "changeFolder": "Wijzig map"
+    },
+    "executionMode": {
+      "title": "Uitvoeringsmodus",
+      "description": "Secundair oppervlak voor de standaardmodus [[canon:ask]] / [[canon:autonomy]] / [[canon:full_access]] die wordt gebruikt bij het uitvoeren van beurten.",
+      "noticeLabel": "[[canon:info]]",
+      "currentDefault": "Huidige standaard:",
+      "mode": {
+        "ask": "[[canon:ask]]",
+        "autonomy": "[[canon:autonomy]]",
+        "fullAccess": "[[canon:full_access]]"
+      },
+      "summary": {
+        "ask": "De uitvoeringsbeurten gaan normaal door voor workspace-veilige acties en pauzeren wanneer risicovollere netwerk-, installatie- of host-beïnvloedende stappen goedkeuring vereisen.",
+        "autonomy": "Execute-beurten kunnen binnen de workspace Guardrails werken zonder routinematige bevestiging. Harde blokkades en acties buiten bereik blijven expliciet zichtbaar.",
+        "fullAccess": "Voer beurten automatisch goedkeurende tools uit voor deze sessie, terwijl expliciete harde beleidsontkenningen nog steeds gevaarlijke paden blokkeren."
+      },
+      "notice": "Bij het uitvoeren van beurten wordt deze opgeslagen standaard gebruikt. De Plan- en Thinking-modus houden dezelfde standaard zichtbaar in chat, maar voeren tools niet blindelings uit."
+    },
+    "assistantPrompt": {
+      "title": "Custom instructions",
+      "description": "Add persistent guidance to each chat turn.",
+      "placeholder": "Voorbeeld: geef de voorkeur aan TypeScript. Houd codewijzigingen minimaal en test eerst. Gebruik Tailwind niet.",
+      "save": "Save instructions"
+    },
+    "language": {
+      "title": "Taal",
+      "description": "Kies de app-taal ADDOM alleen voor UI-oppervlakken van de renderer.",
+      "appLanguage": "App-taal",
+      "systemDefaultDescription": "De systeemstandaard volgt de taal van uw besturingssysteem. Assistent-antwoorden, [[canon:backend]]-gedrag, opdrachten en technische tokens blijven canoniek Engels.",
+      "savedSetting": "Opgeslagen instelling",
+      "currentRendererLocale": "Huidige landinstelling van de renderer",
+      "systemResolvedNotice": "Uw systeemtaal wordt momenteel omgezet in {{label}}. Als die landinstelling nog niet is verzonden, valt ADDOM terug naar het Engels.",
+      "validationOnlyNotice": "{{label}} is een validatielandinstelling. Het blijft verborgen voor de normale release-instellingen en mag alleen worden ingeschakeld tijdens lokalisatiecontroles.",
+      "savedOnlyNotice": "{{label}} is opgeslagen, maar ADDOM levert momenteel alleen Engelse rendererstrings. De gebruikersinterface blijft in het Engels totdat die landinstelling wordt verzonden."
+    },
+    "apiKeys": {
+      "title": "API Keys en identiteiten",
+      "description": "Configureer externe provider-referenties en identiteiten. Voor lokale providers zoals Ollama zijn mogelijk geen sleutels nodig.",
+      "noProviders": "Er is geen providers beschikbaar om te configureren.",
+      "cursor": {
+        "accountMethod": "Cursor account",
+        "runtimeReady": "Runtime {{version}} is ready",
+        "runtimeMissing": "Cursor Agent runtime is not installed.",
+        "installRuntime": "Install runtime",
+        "installingRuntime": "Installing runtime",
+        "checkRuntime": "Check runtime",
+        "executionScope": "Composer 2.5 runs in Chat Execute with Full Access.",
+        "accountConnected": "Cursor account connected",
+        "accountDisconnected": "Cursor account not connected",
+        "connect": "Connect account",
+        "disconnect": "Disconnect",
+        "disconnectTitle": "Disconnect Cursor?",
+        "disconnectMessage": "ADDOM will stop using this Cursor account until you reconnect. Your API key and project files are unchanged.",
+        "apiKeyLabel": "Cursor API key",
+        "actionFailed": "Cursor could not complete this action."
+      },
+      "loginErrors": {
+        "callbackPortInUse": "De lokale OpenAI-inlog-callback-poort is al in gebruik. Probeer het aanmeldingsproces opnieuw of sluit het conflicterende proces en probeer het opnieuw.",
+        "consentDenied": "De browsertoestemmingsstap OpenAI is geannuleerd of geweigerd. Start het aanmeldingsproces opnieuw om het opnieuw te proberen.",
+        "callbackNotCompleted": "De OpenAI-browseraanmelding heeft de localhost-callback niet voltooid. Probeer het aanmeldingsproces opnieuw en beëindig de toestemming voordat u terugkeert naar ADDOM.",
+        "browserOpenFailed": "ADDOM kan de OpenAI-inlogpagina niet automatisch openen. Gebruik Browser opnieuw openen of Login-link kopiëren.",
+        "missingAuthUrl": "De OpenAI-inloglink is niet langer beschikbaar. Start het inlogproces opnieuw om een ​​nieuwe browserlink aan te vragen.",
+        "bridgeProcessExited": "De lokale Codex runtime stopte tijdens het wachten op de browsercallback OpenAI. Start het inlogproces opnieuw.",
+        "loginTimedOut": "Er is een time-out opgetreden bij de OpenAI-inlogstroom voordat de browsercallback was voltooid. Start het aanmeldingsproces opnieuw om het opnieuw te proberen."
+      },
+      "loginAlerts": {
+        "unavailable": "OpenAI Accountaanmelding niet beschikbaar",
+        "callbackPortInUse": "Lokale terugbelpoort bezet",
+        "consentDenied": "Browsertoestemming geweigerd",
+        "callbackNotCompleted": "Browser terugbellen onvolledig",
+        "browserOpenFailed": "Browser starten mislukt",
+        "missingAuthUrl": "Inloglink niet beschikbaar",
+        "bridgeProcessExited": "Codex Runtime Gestopt",
+        "loginTimedOut": "Login-time-out"
+      },
+      "account": {
+        "connected": "OpenAI-accountsessie is verbonden.",
+        "waitingForCallback": "Voltooi het inloggen en geef toestemming in de browser en keer terug nadat de localhost-callback is voltooid.",
+        "waitingForBrowser": "ADDOM wacht tot het inlogproces van de browser begint.",
+        "notCompleted": "Het inloggen op het OpenAI-account is nog niet voltooid.",
+        "storedKeyInactive": "Opgeslagen API key blijft beschikbaar maar inactief.",
+        "preparingRuntime": "Codex runtime voorbereiden",
+        "reconnect": "Maak opnieuw verbinding",
+        "continueInBrowser": "Ga verder in de browser",
+        "openBrowserAgain": "Open de browser opnieuw",
+        "copyLoginLink": "Kopieer de inloglink",
+        "copiedLink": "Gekopieerde link"
+      },
+      "accessMethod": {
+        "label": "Sign in with",
+        "apiKey": "API key",
+        "openAiAccount": "OpenAI-rekening",
+        "selectedAccount": "Using your OpenAI account.",
+        "selectedApiKey": "Using an API key."
+      },
+      "localProvider": {
+        "label": "Lokaal provider",
+        "downloadTitle": "{{name}} downloaden",
+        "running": "Running - {{count}} model{{suffix}}",
+        "notRunning": "Niet actief"
+      },
+      "removeDialog": {
+        "title": "Verwijder API Key",
+        "message": "API key verwijderen voor {{name}}?",
+        "confirm": "Sleutel verwijderen"
+      },
+      "disconnectDialog": {
+        "title": "Ontkoppel het OpenAI-account",
+        "message": "De opgeslagen OpenAI-accountsessie voor dit ADDOM-profiel verbreken?",
+        "confirm": "Verbreek de verbinding"
+      },
+      "copyFailed": {
+        "title": "Kopiëren mislukt",
+        "message": "ADDOM kan de aanmeldingslink van het OpenAI-account niet naar het klembord kopiëren."
+      },
+      "apiKeyInput": {
+        "placeholder": "Plak uw API key...",
+        "save": "Sleutel opslaan",
+        "getKeyTitle": "Koop API key van {{name}}"
+      },
+      "configured": "Geconfigureerd",
+      "saved": "Opgeslagen",
+      "replaceKey": "Sleutel vervangen",
+      "recommendedAccount": {
+        "title": "Recommended for OpenAI",
+        "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+        "action": "Use OpenAI account"
+      }
+    },
+    "chatTypography": {
+      "title": "Chattekst",
+      "description": "Pas één globale schaalfactor toe op de toegewezen chattekstvlakken.",
+      "globalScaleFactor": "Mondiale schaalfactor",
+      "globalScaleDescription": "Dit schaalt de toegewezen chatteksttokens samen. Standaardwaarden per element blijven buiten Instellingen.",
+      "typographyScale": "Tekstschaal",
+      "range": "Bereik {{min}}% tot {{max}}%",
+      "reset": "Opnieuw instellen",
+      "notice": "De schaal geldt voor de toegewezen teksttokens die al worden gebruikt in gebruikersberichten, orchestrator-uitvoer, agents, de uitvoeringsstroom en chat-gerelateerde kaarten."
+    },
+    "uiScaling": {
+      "description": "Beheer de ADDOM shell-dichtheid en chat-tekstschaling vanaf één plek.",
+      "appShellDensity": "App shell-dichtheid",
+      "appShellDensityDescription": "De [[canon:auto]]-modus volgt de effectieve viewport na het schalen van het besturingssysteem. De [[canon:manual]]-modus pint een shell-dichtheid over beeldschermen.",
+      "effective": "Effectief {{percent}}%",
+      "auto": "[[canon:auto]]",
+      "manual": "[[canon:manual]]",
+      "autoModeDescription": "De [[canon:auto]]-modus houdt de shell-geometrie uitgelijnd in 1080p- en 4K-opstellingen door te reageren op de daadwerkelijke CSS-viewport.",
+      "manualModeDescription": "De [[canon:manual]]-modus is handig als u één vaste shell-dichtheid wilt, ongeacht de schermschaal.",
+      "shellScale": "Shell schaal",
+      "shellScaleDescription": "Hiermee wordt de shell-geometrie tokens die wordt gebruikt door de zijbalk, gesprek-lade, [[canon:moa]]-rail en chat-inhoudsbreedte geschaald.",
+      "chatTypographyScale": "Tekstschaal",
+      "chatTypographyScaleDescription": "Pas de chattekstgrootte samen met de shelldichtheid aan zodat beide lagen samen af te stemmen zijn.",
+      "range": "Bereik {{min}}% tot {{max}}%",
+      "reset": "Opnieuw instellen",
+      "notice": "Verankerde panelen blijven uitgelijnd omdat de breedtes en inhoudsrails van de shell schalen op basis van dezelfde gedeelde instellingen model in plaats van onafhankelijk in te klappen."
+    },
+    "commandSafety": {
+      "title": "Guardrails en diagnostiek",
+      "description": "Hard guardrails stay on in all access modes. [[canon:ask]], [[canon:autonomy]], and [[canon:full_access]] only change when approvals interrupt a turn.",
+      "common": {
+        "unknown": "onbekend"
+      },
+      "approvalRuleLabels": {
+        "readFile": "Bestanden lezen",
+        "writeFile": "Bestanden schrijven",
+        "listDirectory": "Lijst met mappen",
+        "searchCode": "Zoekcode",
+        "applyArtifactRevision": "Artefactrevisies toepassen",
+        "toolOperation": "Gereedschap bediening",
+        "projectReadonlyShell": "Voer project-alleen-lezen shell-opdrachten uit",
+        "projectBuildTest": "Voer opdrachten voor het bouwen/testen van projecten uit",
+        "projectMutation": "Voer projectmutatieopdrachten uit",
+        "processControl": "Voer projectprocesbesturingsopdrachten uit",
+        "projectDependencyInstallSandboxed": "Voer sandbox-projectafhankelijkheidsinstallaties uit",
+        "projectDependencyInstall": "Voer projectafhankelijkheidsinstallaties uit",
+        "runCommandOperations": "Voer opdrachtbewerkingen uit"
+      },
+      "riskyActionApprovals": {
+        "title": "Goedkeuringen voor risicovolle acties",
+        "description": "De eerste risicovolle netwerkophaalacties en installaties van projectafhankelijkheden kunnen tijdens deze app-sessie voor het actieve project worden onthouden. Paden buiten de workspace, destructieve acties, globale installaties en verhoogde hosttoegang vereisen nog steeds expliciete goedkeuring.",
+        "activeProjectScope": "Bereik van actieve projectsessie:",
+        "noActiveWorkspace": "Nog geen actieve workspace gedetecteerd. Sessiegerichte risicovolle actie geheugen start zodra een projectroot geopend is."
+      },
+      "modeEffect": {
+        "title": "Effect van modus",
+        "description": "[[canon:ask]] pauzeert bij risicovolle acties. [[canon:autonomy]] laat normaal workspace-werk doorgaan en onderbreekt alleen bij het eerste risicovolle netwerk-/installatiegebruik of bij strikte Guardrails-blokkades. [[canon:full_access]] keurt normale uitvoering automatisch goed, terwijl expliciete hard-deny-beleidsuitkomsten blijven blokkeren."
+      }
+    },
+    "moaAgents": {
+      "title": "Agent roles",
+      "description": "Create and manage the agent roles ADDOM can delegate work to.",
+      "roles": {
+        "guidance": "Rolnamen moeten uniek zijn. Rol-ID's worden gegenereerd en zijn onveranderlijk.",
+        "idLabel": "ID:",
+        "writesLabel": "schrijft:",
+        "templateLabel": "sjabloon:",
+        "edit": "Bewerking",
+        "delete": "Verwijderen",
+        "newRole": "Nieuwe agentrol",
+        "addRole": "+ Agentrol toevoegen",
+        "removeDialog": {
+          "title": "Agentrol verwijderen",
+          "message": "Deze agentrol verwijderen?",
+          "confirm": "Rol verwijderen"
+        },
+        "editRoleTitle": "Edit agent role",
+        "addRoleTitle": "Add agent role",
+        "namePlaceholder": "Role name (e.g. Security Reviewer)",
+        "providerPlaceholder": "Select provider...",
+        "modelPlaceholder": "Select model...",
+        "modelIdPlaceholder": "Model ID (e.g. gpt-4o)",
+        "openRouterRoutePlaceholder": "Or enter a custom OpenRouter route ID",
+        "sourceTemplateLabel": "Source template:",
+        "hideAdvancedInstructions": "Hide advanced role instructions",
+        "showAdvancedInstructions": "Advanced role instructions",
+        "instructionsPlaceholder": "Optional instructions for this agent role (max 2000 chars)",
+        "saveChanges": "Save changes",
+        "addRoleAction": "Add role"
+      },
+      "templateGallery": {
+        "loading": "Vaardighedencatalogus laden...",
+        "title": "Vaardigheidscatalogus",
+        "skillCount": "{{count}}-vaardigheden",
+        "searchPlaceholder": "Zoekvaardigheden...",
+        "clearSearch": "Duidelijk zoeken naar vaardigheden",
+        "searchResults": "{{count}} resultaat{{suffix}} voor \"{{query}}\"{{categorySuffix}}",
+        "inCategory": "in {{category}}",
+        "emptySearch": "Er zijn geen vaardigheden die overeenkomen met uw zoekopdracht.",
+        "canWrite": "Kan schrijven",
+        "readOnly": "Alleen-lezen",
+        "added": "Toegevoegd",
+        "use": "Gebruik",
+        "update": "Bijwerken",
+        "categories": {
+          "all": "Alle",
+          "security": "Beveiliging",
+          "frontend": "[[canon:frontend]]",
+          "backend": "[[canon:backend]]",
+          "quality": "Kwaliteit",
+          "engineering": "Engineering",
+          "devops": "DevOps",
+          "testing": "Testen",
+          "content": "Inhoud",
+          "web": "Web",
+          "performance": "Prestatie",
+          "desktop": "Bureaublad",
+          "general": "Algemeen"
+        }
+      },
+      "runtime": {
+        "title": "Agent settings",
+        "description": "Control delegation and capacity without changing your saved roles.",
+        "enabled": "Enable agents",
+        "disabled": "Agent delegation is disabled.",
+        "summary": "{{profile}} capacity · {{count}} active at once",
+        "delegation": "Agent delegation",
+        "delegationEnabled": "ADDOM can delegate work to the roles below.",
+        "delegationDisabled": "Roles stay available to configure while delegation is off.",
+        "profile": "Capacity",
+        "profileDescription": "Sets sensible limits for parallel and nested agents.",
+        "advanced": "Advanced limits",
+        "advancedSummary": "{{count}} active · depth {{depth}}",
+        "fanoutConfirmationThreshold": "Ask before launching more than",
+        "agentsUnit": "agents",
+        "providerOverrides": "Provider overrides",
+        "noProviderOverrides": "No provider-specific limits.",
+        "addProviderOverride": "Add provider override…",
+        "removeOverride": "Remove",
+        "discard": "Discard",
+        "saveChanges": "Save changes",
+        "isolationDescription": "Agent file changes stay isolated until the orchestrator integrates them.",
+        "limits": {
+          "maxLiveAgents": "Active at once",
+          "maxDepth": "Nesting depth",
+          "maxDescendants": "Agents per run",
+          "maxTotalTokens": "Token budget",
+          "maxCostUsd": "Cost budget",
+          "maxDurationMs": "Time budget"
+        }
+      }
+    },
+    "openRouterCatalogVisibility": {
+      "title": "OpenRouter Cataloguszichtbaarheid",
+      "description": "Bepaal welke OpenRouter-families en routes verschijnen in de chat- en [[canon:moa]]-surfoppervlakken.",
+      "notAvailable": "OpenRouter is niet beschikbaar in het huidige provider-manifest.",
+      "loading": "OpenRouter-catalogus laden...",
+      "browsingVisibility": "OpenRouter zichtbaarheid tijdens browsen",
+      "browsingVisibilityDescription": "Verberg provider-families of individuele routes voor browsen zonder expliciete aangepaste routeondersteuning te verwijderen.",
+      "counts": {
+        "filtered": "{{shown}} afgebeeld, {{enabled}} ingeschakeld",
+        "default": "{{enabled}} / {{total}} ingeschakeld"
+      },
+      "filtersTitle": "Filters",
+      "filters": {
+        "reviewedOnly": "Alleen beoordeeld",
+        "anyTools": "Eventuele hulpmiddelen",
+        "reasoning": "Redenering",
+        "vision": "Visie"
+      },
+      "quickActionsTitle": "Snelle acties",
+      "quickActions": {
+        "showAll": "Toon alles",
+        "hideAll": "Alles verbergen",
+        "reset": "Opnieuw instellen"
+      },
+      "searchPlaceholder": "Zoek in OpenRouter-naamruimten of route-ID's",
+      "empty": "Er komen geen OpenRouter-routes overeen met de huidige zoekopdracht.",
+      "clearSearch": "Duidelijke zoekopdracht",
+      "namespaceRow": {
+        "collapse": "Naamruimte samenvouwen",
+        "expand": "Vouw de naamruimte uit",
+        "filteredCount": "{{shown}}/{{total}} afgebeeld",
+        "enabledCount": "{{enabled}}/{{total}} ingeschakeld",
+        "visibilityAriaLabel": "Zichtbaarheid van de naamruimte {{label}}"
+      },
+      "modelRow": {
+        "visibilityAriaLabel": "{{label}}-zichtbaarheid"
+      },
+      "inlineTitle": "Catalog visibility",
+      "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+      "showInlineAction": "Manage visibility",
+      "hideInlineAction": "Hide controls"
+    },
+    "dataReset": {
+      "title": "Gegevens resetten en opschonen",
+      "description": "Exporteer gesprek-back-ups, wis opgeslagen geschiedenis of reset lokale ADDOM-gegevens.",
+      "migrationTitle": "Actieve gesprek-migratie",
+      "migrationDescription": "Exporteer uw actieve chat rechtstreeks naar een draagbare JSON-back-up of herstel de geschiedenis lokaal.",
+      "exportCurrentThread": "Export Current Conversation",
+      "restoreFromJson": "Herstellen vanaf JSON",
+      "noActiveConversation": "Er is geen actief gesprek geselecteerd om te exporteren.",
+      "localProfileResetTitle": "Lokale profielreset",
+      "localProfileResetDescription": "Verwijder opgeslagen provider keys of reset het lokale profiel van ADDOM volledig. Bij een volledige reset worden de lokale geschiedenis, gecachte models, bijlagen en opgeslagen settings verwijderd en wordt de app daarna opnieuw gestart.",
+      "profile": "Profiel:",
+      "providers": "Providers:",
+      "providersStored": "{{count}} opgeslagen",
+      "memoryIndex": "geheugen-index:",
+      "indexed": "Geïndexeerd",
+      "empty": "Leeg",
+      "settings": "Instellingen:",
+      "present": "Cadeau",
+      "attachments": "Bijlagen:",
+      "cached": "In cache opgeslagen",
+      "modelCache": "model-cache:",
+      "mounted": "Gemonteerd",
+      "providerBudget": {
+        "title": "Adaptieve Provider-budgetten",
+        "description": "Inspecteer de geleerde provider-budgetstatus en verwijder verouderde adaptieve budgetgeschiedenis zonder onbewerkte provider-headers of referentie-identiteiten bloot te leggen.",
+        "refresh": "Vernieuwen",
+        "total": "{{count}} geleerd",
+        "active": "{{count}} actief",
+        "stale": "{{count}} oud",
+        "expired": "{{count}} is verlopen",
+        "pruneEligible": "{{count}} klaar voor opruimen",
+        "lastObserved": "Laatst waargenomen: {{value}}",
+        "lastResolved": "Laatst opgelost: {{value}}",
+        "emptyState": "Er zijn nog geen geleerde provider-budgetprofielen vastgelegd voor dit profiel.",
+        "cleanupAction": "Aangeleerde budgetten opruimen",
+        "resetAction": "Geleerde budgetten opnieuw instellen",
+        "never": "Nooit",
+        "recent": "Recent"
+      },
+      "spillover": {
+        "title": "Gereedschap Resultaat Spillover",
+        "description": "Inspecteer de opslag van persistente gereedschapsresultaten, snoei verlopen ingangen en ruim de overloopwortel op zonder onbewerkte uitvoerlichamen bloot te leggen.",
+        "refresh": "Vernieuwen",
+        "files": "{{count}}-bestanden",
+        "zeroBytes": "0 B",
+        "bytesValue": "{{count}} {{unit}}",
+        "retentionValue": "{{files}}-bestanden / {{bytes}} / {{days}} dagen",
+        "sessionCleanupAt": "Opschoning van deze sessie: {{value}}",
+        "sessionCleanupResult": "Bij deze sessieopschoning zijn de {{files}}-bestanden / {{bytes}} verwijderd.",
+        "sessionEmptyState": "Er is nog geen opschoning van overloop uitgevoerd in deze app-sessie.",
+        "emptyState": "Er bestaan ​​momenteel geen persistente overloopbestanden voor toolresultaten voor dit profiel.",
+        "cleanupAction": "Snoei overloop",
+        "resetAction": "Duidelijke overloop",
+        "rootPath": "Overloopwortel: {{path}}",
+        "states": {
+          "none": "Geen opschoonstatus van sessie",
+          "sessionNone": "Deze sessie wordt niet opgeschoond",
+          "pruned": "Gesnoeid",
+          "prunedWithFailures": "Gesnoeid met mislukkingen",
+          "retentionExceeded": "Retentie overschreden",
+          "prunedRetentionExceeded": "Gesnoeid, retentie nog steeds overschreden",
+          "failed": "Opschonen is mislukt",
+          "cleared": "Gewist"
+        }
+      },
+      "deleteSavedApiKeys": "Verwijder opgeslagen API-sleutels",
+      "resetLocalProfileAndRestart": "Lokaal profiel resetten en opnieuw opstarten",
+      "importFallbackTitle": "Geïmporteerde gesprek",
+      "dialogs": {
+        "deleteApiKeys": {
+          "title": "API Keys verwijderen",
+          "message": "Nu alle opgeslagen API-sleutels van dit apparaat verwijderen? Gesprekken, geheugen, artifacts en instellingen blijven behouden. Dit kan niet ongedaan worden gemaakt.",
+          "confirm": "API Keys verwijderen"
+        },
+        "cleanupProviderBudgets": {
+          "title": "Opschonen van geleerde budgetten",
+          "message": "Ongeldige of lang ongebruikte, verlopen geleerde provider-budgetprofielen verwijderen? Recent actieve profielen blijven behouden.",
+          "confirm": "Opruimen"
+        },
+        "resetProviderBudgets": {
+          "title": "Herstel geleerde budgetten",
+          "message": "Alle geleerde provider-budgetprofielen uit dit profiel verwijderen? Hierdoor wordt de adaptieve budgetgeschiedenis verwijderd totdat nieuwe waarnemingen worden vastgelegd.",
+          "confirm": "Budgetten opnieuw instellen"
+        },
+        "cleanupToolResultSpillover": {
+          "title": "Snoeioverloop",
+          "message": "Verlopen of overbelaste toolresultaat-spillover-bestanden uit dit profiel verwijderen? De recente overloopeffecten die nodig zijn voor het huidige retentiebeleid zullen blijven bestaan.",
+          "confirm": "Snoeioverloop"
+        },
+        "resetToolResultSpillover": {
+          "title": "Duidelijke overloop",
+          "message": "Alle persistente overloopbestanden met toolresultaten uit dit profiel verwijderen? Dit verandert niets aan het bewaarbeleid en kan niet ongedaan worden gemaakt.",
+          "confirm": "Duidelijke overloop"
+        },
+        "deleteAllLocalData": {
+          "title": "Verwijder alle lokale gegevens",
+          "message": "Alle lokale ADDOM-gegevens voor dit profiel verwijderen en opnieuw starten? Hiermee worden API keys, gesprekken, geheugen-logs, Artifacts, projectsessies, gecachte bijlagen, lokale model-cache en settings verwijderd. Exporteer eerst alles wat je nodig hebt. Dit kan niet ongedaan worden gemaakt.",
+          "confirm": "Verwijderen en opnieuw opstarten"
+        }
+      },
+      "feedback": {
+        "deleteFailed": {
+          "title": "Verwijderen mislukt"
+        },
+        "refreshFailed": {
+          "title": "Vernieuwen mislukt",
+          "providerBudgetDefaultMessage": "Kan het geleerde budgetoverzicht provider niet vernieuwen.",
+          "spilloverDefaultMessage": "Kan de samenvatting van de overloopresultaten van het tool niet vernieuwen."
+        },
+        "localDataApiUnavailable": "Lokale gegevens API zijn niet beschikbaar.",
+        "apiKeysDeleted": {
+          "title": "API Keys verwijderd",
+          "message": "Opgeslagen API-sleutels zijn van dit apparaat verwijderd."
+        },
+        "deleteApiKeysFailed": "Kan API-sleutels niet verwijderen: {{message}}",
+        "refreshProviderBudgetFailed": "Kan geleerde provider-budgetten niet vernieuwen: {{message}}",
+        "refreshToolResultSpilloverFailed": "Kan het resultaat van het gereedschap niet vernieuwen: {{message}}",
+        "providerBudgetCleanupComplete": {
+          "title": "Opruimen voltooid",
+          "message": "Aangeleerde budgetprofiel(en) van {{count}} verwijderd."
+        },
+        "providerBudgetCleanupFailed": "Opschonen van geleerde provider-budgetten is mislukt: {{message}}",
+        "toolResultSpilloverCleanupComplete": {
+          "title": "Snoeien voltooid",
+          "message": "{{count}}-overloopbestand(en) verwijderd."
+        },
+        "toolResultSpilloverCleanupFailed": "Kan de spillover van het gereedschapsresultaat niet snoeien: {{message}}",
+        "resetFailed": {
+          "title": "Opnieuw instellen mislukt"
+        },
+        "deleteLocalDataFailed": "Kan lokale gegevens niet verwijderen: {{message}}",
+        "providerBudgetResetComplete": {
+          "title": "Resetten voltooid",
+          "message": "Aangeleerde budgetprofiel(en) van {{count}} verwijderd."
+        },
+        "providerBudgetResetFailed": "Kan geleerde provider-budgetten niet resetten: {{message}}",
+        "toolResultSpilloverResetComplete": {
+          "title": "Overloop gewist",
+          "message": "{{count}}-overloopbestand(en) verwijderd."
+        },
+        "toolResultSpilloverResetFailed": "Kan de spillover van gereedschapsresultaten niet wissen: {{message}}",
+        "exportComplete": {
+          "title": "Exporteren voltooid",
+          "copiedMessage": "gesprek geëxporteerd. JSON gekopieerd naar klembord en downloaden gestart.",
+          "downloadMessage": "gesprek-export gemaakt en downloaden gestart."
+        },
+        "exportFailed": {
+          "title": "Exporteren mislukt",
+          "message": "Kan gesprek niet exporteren: {{message}}"
+        },
+        "invalidJson": {
+          "title": "Ongeldige JSON",
+          "message": "Ongeldige JSON-payload."
+        },
+        "importComplete": {
+          "title": "Importeren voltooid",
+          "messageOne": "Geïmporteerde gesprek \"{{title}}\" met {{count}}-gebeurtenis.",
+          "messageOther": "Geïmporteerde gesprek \"{{title}}\" met {{count}}-gebeurtenissen."
+        },
+        "importFailed": {
+          "title": "Importeren mislukt",
+          "message": "Kan gesprek niet importeren: {{message}}"
+        }
+      },
+      "exportPreflight": {
+        "kicker": "Preflight exporteren",
+        "title": "Nalevingsherinnering vóór export",
+        "description": "Gespreksexporten zijn draagbaar. Gebruik exporten niet voor verboden distillatie, benchmarkverzameling of workflows die providerbeleid omzeilen.",
+        "preserveCitationsLabel": "Behoud citaties en metagegevens van toeschrijvingen tijdens de export",
+        "preserveCitationsHint": "Aanbevolen voor providers/models met attributiegevoelige termen.",
+        "strictConfirmLabel": "Ik bevestig dat deze export bedoeld is voor een workflow die voldoet aan de voorwaarden in deze sessie.",
+        "strictConfirmHint": "De strikte modus vereist expliciete bevestiging vóór het exporteren.",
+        "exporting": "Exporteren...",
+        "continueExport": "Ga door met exporteren"
+      },
+      "importThread": {
+        "kicker": "gesprek importeren",
+        "title": "Importeer gesprek JSON",
+        "description": "Plak een eerder geëxporteerde gesprek-payload om deze in het actieve project te importeren.",
+        "fieldLabel": "Gespreksexport JSON",
+        "placeholder": "{\"thread\": {...}, \"events\": [...]}",
+        "importing": "Importeren...",
+        "confirm": "gesprek importeren"
+      }
+    },
+    "updates": {
+      "title": "Updates",
+      "description": "ADDOM controleert bij het opstarten automatisch op updates. Jij bepaalt wanneer updates worden gedownload en geïnstalleerd.",
+      "status": {
+        "upToDate": "Up-to-date",
+        "checking": "Controleren op updates...",
+        "latest": "U gebruikt de nieuwste versie",
+        "available": "Update beschikbaar - v{{version}}",
+        "downloading": "Bezig met downloaden... {{percent}}%",
+        "readyToInstall": "v{{version}} klaar voor installatie",
+        "error": "Updatefout: {{message}}"
+      },
+      "actions": {
+        "checkForUpdates": "Controleer op updates",
+        "download": "v{{version}} downloaden",
+        "restartAndInstall": "Opnieuw opstarten en installeren"
+      }
+    },
+    "about": {
+      "title": "Over",
+      "tagline": "Local-first AI-coderingsassistent | BYOK | Geen telemetrie",
+      "copyright": "Copyright (c) 2026 ADDOM contributors.",
+      "licenseLineOne": "Gelicentieerd onder de MIT-licentie.",
+      "licenseLineTwo": "Zie LICENSE voor details.",
+      "openSourceNotices": "Open source-kennisgevingen",
+      "thirdPartyInventory": "Inventaris van derden",
+      "openLegalDocumentError": "Kan juridisch document niet openen.",
+      "legalDocumentsUnavailable": "Juridische documenten niet beschikbaar: {{error}}"
+    },
+    "openAiKnowledgeBase": {
+      "title": "Project knowledge",
+      "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+      "notices": {
+        "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+        "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+        "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+      },
+      "projectScope": "Projectomvang",
+      "noActiveProjectSelected": "Geen actief project geselecteerd",
+      "filesLabel": "Uploaded files",
+      "storeLabel": "Winkel:",
+      "quickSetup": "Snelle installatie",
+      "ready": "Ready",
+      "actionNeeded": "Action needed",
+      "nextStepLabel": "Volgende stap:",
+      "nextStep": {
+        "addApiKey": "Voeg een OpenAI API key toe.",
+        "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+        "openProjectWorkspace": "Open een project workspace.",
+        "uploadFiles": "Upload bestanden die u doorzoekbaar wilt maken.",
+        "createVectorStore": "Prepare project knowledge storage.",
+        "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+        "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+        "readyForRetrieval": "Project knowledge is ready for retrieval."
+      },
+      "quickFacts": {
+        "key": "Sleutel:",
+        "connected": "Aangesloten",
+        "missing": "Ontbreekt",
+        "access": "Toegang:",
+        "account": "Rekening",
+        "apiKey": "API key",
+        "project": "Project:",
+        "active": "Actief",
+        "uploads": "Uploads:",
+        "attached": "Bijgevoegd:"
+      },
+      "actions": {
+        "refresh": "Vernieuwen",
+        "uploadFiles": "Upload files",
+        "reuseVectorStore": "Refresh project knowledge",
+        "createVectorStore": "Prepare project knowledge",
+        "attachFiles": "Attach files",
+        "attachFilesWithCount": "Attach files ({{count}})",
+        "deleteVectorStore": "Reset project knowledge",
+        "remove": "Verwijderen"
+      },
+      "uploadedFilesTitle": "Uploaded files",
+      "pendingAttachLabel": "Needs attach",
+      "emptyFiles": "No project knowledge files uploaded yet.",
+      "fileState": {
+        "attached": "Bijgevoegd",
+        "uploadedOnly": "Uploaded only"
+      },
+      "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly.",
+      "attachedFilesLabel": "Attached files"
+    },
+    "terminal": {
+      "title": "Terminal",
+      "description": "Behoud voorzichtige terminalstandaarden zonder de globale app-typografie te wijzigen.",
+      "fontSizeLabel": "Lettergrootte",
+      "fontSizeDescription": "Basislettergrootte van xterm voor nieuwe en actieve terminaloppervlakken.",
+      "fontFamilyLabel": "Lettertypefamilie",
+      "fontFamilyDescription": "Kies het terminallettertype dat xterm gebruikt.",
+      "scrollbackLabel": "Scrollback-regels",
+      "scrollbackDescription": "Hoeveel terminalgeschiedenis xterm in het geheugen bewaart.",
+      "scrollbackHint": "regels",
+      "defaultShellLabel": "Standaardshell",
+      "defaultShellDescription": "Standaardshell die wordt gebruikt wanneer een nieuwe terminal niet expliciet om een shell vraagt.",
+      "defaultCwdBehaviorLabel": "Standaard cwd-gedrag",
+      "defaultCwdBehaviorDescription": "Kies waar nieuwe terminals starten wanneer geen expliciete cwd is opgegeven.",
+      "copyOnSelectionLabel": "Kopiëren bij selectie",
+      "copyOnSelectionDescription": "Kopieer terminalselecties direct naar het klembord nadat tekst is geselecteerd.",
+      "pasteConfirmationLabel": "Bevestiging voor grote plakacties",
+      "pasteConfirmationDescription": "Vraag om bevestiging voor meerregelige plakacties zodra ze dit aantal regels bereiken.",
+      "zeroDisablesHint": "0 schakelt de prompt uit",
+      "cwdBehavior": {
+        "project_root": "Projectmap",
+        "editor_folder": "Editor-map",
+        "session_cwd": "Huidige sessie-cwd"
+      },
+      "fontFamilyOptions": {
+        "geist_mono": "Geist Mono",
+        "jetbrains_mono": "JetBrains Mono",
+        "fira_code": "Fira Code",
+        "cascadia_code": "Cascadia Code",
+        "system_mono": "System monospace"
+      },
+      "shellOptions": {
+        "default": "Systeemstandaard",
+        "cmd": "Command Prompt",
+        "powershell": "Windows PowerShell",
+        "pwsh": "PowerShell 7+",
+        "bash": "Bash",
+        "zsh": "Zsh",
+        "git_bash": "Git Bash",
+        "wsl": "WSL"
+      },
+      "advancedDetailsTitle": "Terminal history and paste safety"
+    },
+    "appearanceMode": {
+      "description": "Choose a light or dark interface, or follow your system setting.",
+      "mode": "Color theme",
+      "modeDescription": "Updates the entire app, including editors and terminals.",
+      "selected": "Selected {{name}}",
+      "systemResolved": "System currently uses {{name}}.",
+      "modes": {
+        "dark": "Dark",
+        "light": "Light",
+        "system": "System"
+      }
+    },
+    "backgroundTone": {
+      "darkOnly": "Workspace tones are available when the resolved theme is Dark.",
+      "description": "Choose a gray workspace tone. Graphite matches the current ADDOM default.",
+      "tone": "Workspace tone",
+      "toneDescription": "Shifts the shared surface, panel, and border stack together.",
+      "selected": "Selected {{name}}",
+      "tones": {
+        "obsidian": "Obsidian",
+        "charcoal": "Charcoal",
+        "graphite": "Graphite",
+        "slate": "Slate",
+        "ash": "Ash"
+      }
+    }
+  },
+  "settings": {
+    "categories": {
+      "providers": {
+        "description": "Provider connections, model availability, and project knowledge controls when advanced OpenAI hosted tools are enabled."
+      }
+    },
+    "sections": {
+      "providers": {
+        "apiKeys": {
+          "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+        },
+        "openAiKnowledgeBase": {
+          "title": "Project Knowledge",
+          "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+        }
+      }
+    },
+    "blocks": {
+      "apiKeys": {
+        "accessMethod": {
+          "label": "Sign in with",
+          "selectedAccount": "Using your OpenAI account.",
+          "selectedApiKey": "Using an API key."
+        },
+        "localProvider": {
+          "running": "Running - {{count}} model{{suffix}}"
+        },
+        "recommendedAccount": {
+          "title": "Recommended for OpenAI",
+          "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+          "action": "Use OpenAI account"
+        }
+      },
+      "openRouterCatalogVisibility": {
+        "inlineTitle": "Catalog visibility",
+        "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+        "showInlineAction": "Manage visibility",
+        "hideInlineAction": "Hide controls"
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project knowledge",
+        "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+        "notices": {
+          "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+          "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+          "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+        },
+        "filesLabel": "Uploaded files",
+        "attachedFilesLabel": "Attached files",
+        "ready": "Ready",
+        "actionNeeded": "Action needed",
+        "pendingAttachLabel": "Needs attach",
+        "nextStep": {
+          "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+          "createVectorStore": "Prepare project knowledge storage.",
+          "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+          "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+          "readyForRetrieval": "Project knowledge is ready for retrieval."
+        },
+        "actions": {
+          "uploadFiles": "Upload files",
+          "reuseVectorStore": "Refresh project knowledge",
+          "createVectorStore": "Prepare project knowledge",
+          "attachFiles": "Attach files",
+          "attachFilesWithCount": "Attach files ({{count}})",
+          "deleteVectorStore": "Reset project knowledge"
+        },
+        "uploadedFilesTitle": "Uploaded files",
+        "emptyFiles": "No project knowledge files uploaded yet.",
+        "fileState": {
+          "uploadedOnly": "Uploaded only"
+        },
+        "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly."
+      }
+    }
+  }
+}

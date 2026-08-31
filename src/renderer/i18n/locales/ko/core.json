@@ -1,0 +1,2265 @@
+{
+  "app": {
+    "workspacePanelSkeleton": {
+      "ariaLabel": "{{panelLabel}} 로드 중",
+      "text": "{{panelLabel}} 로드 중..."
+    },
+    "workspaceBootError": {
+      "title": "Workspace 부팅 실패",
+      "message": "ADDOM는 이 패널에 필요한 workspace 캐시를 준비할 수 없습니다.",
+      "retry": "부팅 재시도"
+    },
+    "leaveWorkspace": {
+      "title": "저장되지 않은 변경사항",
+      "message": "You have unsaved files. Choose how to proceed before switching projects.",
+      "noUnsavedFiles": "저장되지 않은 파일이 없습니다.",
+      "cancel": "취소",
+      "discardAndLeave": "Discard & Switch",
+      "saving": "저장 중...",
+      "saveAllAndLeave": "Save All & Switch"
+    },
+    "confirmDialog": {
+      "messageFallback": "계속하시겠습니까?",
+      "cancel": "취소",
+      "confirm": "확인"
+    },
+    "panelLabels": {
+      "chat": "Chat 패널",
+      "editor": "편집기 패널",
+      "sourceControl": "변경사항 패널",
+      "artifacts": "Artifacts 패널",
+      "memory": "Memory 패널",
+      "settings": "설정 패널",
+      "agents": "에이전트 패널",
+      "projectEntry": "Project entry"
+    }
+  },
+  "companionDock": {
+    "resize": "컴패니언 크기 조정",
+    "views": "컴패니언 보기",
+    "restoreSplit": "분할 보기 복원",
+    "focus": "컴패니언에 집중",
+    "close": "컴패니언 보기 닫기",
+    "document": {
+      "search": "문서 검색",
+      "missing": "이 문서는 더 이상 존재하지 않습니다.",
+      "tooLarge": "이 문서는 미리 보기에는 너무 큽니다.",
+      "unavailable": "이 문서를 불러올 수 없습니다.",
+      "changed": "업데이트 중…",
+      "status": "Markdown 문서",
+      "openInEditor": "편집기에서 열기",
+      "reveal": "파일 탐색기에 표시",
+      "reload": "문서 다시 불러오기",
+      "loading": "문서 불러오는 중…",
+      "retry": "다시 시도",
+        "implementPlan": "Implement",
+        "changePlaceholder": "Describe the change…",
+        "resizeChangeEditor": "Resize change editor",
+        "addChange": "Add change",
+        "annotateChange": "Annotate change",
+        "reviewHint": "Hover a paragraph to suggest a change.",
+        "changeCount": "{{count}} changes",
+        "undoLastChange": "Undo latest change",
+        "submitChanges": "Submit changes",
+        "pendingChanges": "Pending plan changes",
+        "removeChange": "Remove change"
+    }
+  },
+  "startup": {
+    "bootstrapFailure": {
+      "eyebrow": "Startup failed",
+      "title": "ADDOM could not finish starting.",
+      "messageFallback": "Renderer bootstrap failed",
+      "reload": "Reload app"
+    }
+  },
+  "sourceControl": {
+    "openProject": "프로젝트 폴더를 열어 변경 사항을 검사하세요.",
+    "navigationFailed": "Source Control에서 선택한 파일을 열 수 없습니다.",
+    "refresh": "새로 고치다",
+    "loading": "변경사항 로드 중...",
+    "noRepo": "이 workspace는 git 저장소 내부에 없습니다.",
+    "clean": "일하는 나무가 깨끗합니다.",
+    "emptyFilter": "현재 필터와 일치하는 파일이 없습니다.",
+    "filters": {
+      "all": "모두",
+      "staged": "Staged",
+      "unstaged": "Unstaged",
+      "conflicted": "충돌",
+      "untracked": "추적되지 않음"
+    },
+    "search": {
+      "label": "변경된 파일 검색",
+      "placeholder": "변경된 파일 검색"
+    },
+    "groups": {
+      "staged": "Staged",
+      "unstaged": "Unstaged"
+    },
+    "actions": {
+      "stageFile": "파일 스테이징",
+      "unstageFile": "파일 스테이징 해제",
+      "stageAll": "모두 스테이징",
+      "unstageAll": "모두 스테이징 해제"
+    },
+    "summary": {
+      "title": "변경 사항",
+      "branch": "Branch: {{branch}}",
+      "repoState": "{{repoRoot}}",
+      "chips": {
+        "staged": "Staged",
+        "unstaged": "Unstaged",
+        "conflicts": "충돌"
+      }
+    },
+    "commit": {
+      "title": "Commit",
+      "description": "staged 변경 사항에서만 commit를 생성합니다.",
+      "pending": "Committing...",
+      "action": "Commit",
+      "placeholder": "Commit 메시지",
+      "disabledPlaceholder": "Stage files to enable commit authoring"
+    },
+    "entry": {
+      "renameFrom": "{{path}}에서"
+    },
+    "detail": {
+      "stage": "Stage: {{scope}}",
+      "loading": "SCM 세부정보 로드 중...",
+      "title": "SCM 세부 사항",
+      "path": "길:",
+      "previousPath": "이전 경로:",
+      "previewSource": "미리보기 소스:",
+      "indexCommit": "색인 commit:",
+      "worktreeCommit": "Worktree commit:",
+      "dirtyWorktree": "Dirty worktree:",
+      "actions": {
+        "restoring": "복원 중...",
+        "restoreFile": "파일 복원",
+        "unstaging": "Unstaging...",
+        "unstageDeletion": "Unstage deletion",
+        "unstageRename": "Unstage 이름 바꾸기"
+      }
+    },
+    "common": {
+      "yes": "예",
+      "no": "아니요"
+    }
+  },
+  "terminal": {
+    "common": {
+      "cancel": "취소",
+      "user": "사용자",
+      "ai": "일체 포함",
+      "session": "세션",
+      "host": "주인",
+      "workspace": "Workspace",
+      "shell": "shell",
+      "terminal": "terminal",
+      "terminalTitle": "Terminal",
+      "threadPrefix": "Thread",
+      "status": {
+        "closing": "폐쇄",
+        "ended": "종료됨",
+        "closed": "닫은",
+        "live": "살다",
+        "failed": "실패한",
+        "terminated": "종료됨"
+      },
+      "timestamp": {
+        "closedPrefix": "닫은",
+        "startedPrefix": "시작됨"
+      },
+      "suggestion": {
+        "dismissed": "해고됨",
+        "suggested": "제안",
+        "none": "제안 없음"
+      }
+    },
+    "banner": {
+      "thisPlatform": "이 플랫폼",
+      "anotherPlatform": "다른 플랫폼",
+      "runtimeDisabled": "Runtime 비활성화됨",
+      "disabledByEnv": "ADDOM_DISABLE_TERMINAL_SESSIONS 재정의가 켜져 있습니다.",
+      "rolloutDisabled": "출시가 비활성화되었습니다.",
+      "disabledByRollout": "현재 롤아웃 정책에 따라 Terminal 세션이 비활성화되었습니다.",
+      "platformGated": "플랫폼 게이트",
+      "platformGatedDetail": "{{platform}}는 아직 출시가 늦어지고 있습니다. 패키지 검증은 {{allowedLabel}}에 대해서만 기록됩니다.",
+      "unsupportedPlatform": "지원되지 않는 플랫폼",
+      "unsupportedPlatformDetail": "{{platform}}는 terminal 세션에 대해 지원되는 PTY 대상 세트 외부에 있습니다.",
+      "disabledGeneric": "이 runtime에서는 Terminal 세션이 비활성화되었습니다.",
+      "runtimeFailed": "Runtime 실패",
+      "failedDetail": "PTY runtime 상태 확인에 실패했습니다.",
+      "checkingRuntime": "runtime 확인 중",
+      "checkingRuntimeDetail": "ADDOM는 이 앱 runtime에 대한 PTY 지원을 확인하고 있습니다.",
+      "runtimeReady": "Runtime 준비됨",
+      "runtimeReadyDetail": "이 workspace에는 대화형 terminal 세션을 사용할 수 있습니다.",
+      "lastActionFailed": "마지막 작업이 실패했습니다."
+    },
+    "viewport": {
+      "sessionState": {
+        "archived": "보관됨",
+        "ended": "종료됨",
+        "closed": "닫은",
+        "live": "살다"
+      },
+      "workspaceShell": "Workspace shell",
+      "startTitle": "terminal 세션 시작",
+      "unavailableTitle": "Chat terminal를 사용할 수 없습니다",
+      "startDescription": "여기에서 terminal를 열어 로그를 검사하고, 프로젝트 명령을 실행하거나, AI가 동일한 shell에서 계속되도록 하세요.",
+      "unavailableDescription": "이 runtime에서는 아직 Terminal 세션을 사용할 수 없습니다.",
+      "startingSession": "세션 시작 중...",
+      "createSession": "세션 생성",
+      "readOnly": "읽기 전용",
+      "model": "Model",
+      "workspaceRoot": "workspace 루트",
+      "trimmed": "트리밍됨",
+      "clickToFocus": "클릭하여 집중하세요",
+      "activateSurface": "표면 활성화",
+      "aria": {
+        "archivedViewport": "보관된 terminal 뷰포트",
+        "interactiveViewport": "대화형 terminal 뷰포트",
+        "terminalActions": "Terminal 작업"
+      },
+      "context": {
+        "copy": "복사",
+        "paste": "반죽",
+        "selectAll": "모두 선택",
+        "buffer": "완충기",
+        "copyVisibleOutput": "Copy visible output",
+        "copyFullScrollback": "Copy full scrollback",
+        "pasteAsSingleLine": "Paste as single line",
+        "clear": "Clear",
+        "zoomIn": "Zoom in",
+        "zoomOut": "Zoom out",
+        "zoomReset": "Reset zoom",
+        "terminalFontSize": "{{size}}px",
+        "sendOutputToChat": "Send output to chat",
+        "explainLastError": "Explain last error",
+        "summarizeSession": "Summarize session",
+        "saveSnapshotToMemory": "Save snapshot to notes",
+        "cut": "Cut selection"
+      },
+      "search": {
+        "placeholder": "Search terminal output",
+        "previous": "Previous match",
+        "next": "Next match",
+        "close": "Close search",
+        "noMatches": "No matches",
+        "resultCount": "{{current}}/{{total}}"
+      },
+      "pasteConfirm": {
+        "title": "Confirm large paste",
+        "message": "Paste {{count}} lines into the terminal? This can run multiple commands at once."
+      }
+    },
+    "dock": {
+      "state": {
+        "approval": "승인",
+        "approvalSuffix": "승인",
+        "denied": "거부됨",
+        "userTakeover": "사용자 제어",
+        "aiWaiting": "AI 대기",
+        "aiControlling": "AI 제어 중",
+        "running": "달리기"
+      },
+      "announcements": {
+        "userTakeoverActive": "사용자가 이 shell을 제어하고 있습니다.",
+        "takeoverRequired": "입력을 시작하려면 이 terminal를 가져가세요."
+      },
+      "resize": "terminal 도크 크기 조정",
+      "tablistAriaLabel": "Thread terminal 세션",
+      "unread": "읽히지 않는",
+      "terminalSessions": "Terminal 세션",
+      "workspaceRoot": "workspace 루트",
+      "control": {
+        "aiControlsShell": "AI가 이 shell를 제어합니다. 입력하기 전에 인계받습니다.",
+        "userControlsShell": "현재 이 shell를 제어하고 있습니다.",
+        "typingBlockedUntilTakeover": "인계를 확인할 때까지 입력이 차단됩니다.",
+        "aiWaitingForUser": "AI는 계속하기 전에 사용자 확인을 기다리고 있습니다."
+      },
+      "browser": {
+        "title": "Terminal 브라우저",
+        "subtitle": "현재 Thread / 기타 라이브 / 연혁",
+        "sections": {
+          "currentThread": "현재 Thread",
+          "otherLive": "기타 라이브",
+          "history": "역사"
+        },
+        "empty": {
+          "currentThread": "아직 이 thread에 연결된 라이브 또는 보류 중인 terminal 세션이 없습니다.",
+          "otherLive": "현재 다른 threads에는 실시간 terminal 활동이 없습니다.",
+          "history": "아직 이 workspace에 대해 사용 가능한 보관된 terminal 내역이 없습니다."
+        },
+        "fields": {
+          "thread": "Thread",
+          "scope": "범위",
+          "updated": "업데이트됨"
+        },
+        "requestedIn": "{{section}}에서 요청됨",
+        "suggestionFallback": "타임라인 제안 카드는 이 브라우저와 별도로 유지됩니다.",
+        "crossThread": {
+          "title": "크로스 thread 세션",
+          "description": "여기에서 메타데이터를 찾아본 다음 {{openThreadLabel}}를 사용하여 소유한 chat thread에서 검사하거나 상호 작용합니다."
+        },
+        "selectSession": "terminal 세션 선택",
+        "actions": {
+          "openThread": "Open thread",
+          "savedToMemory": "Memory에 저장되었습니다.",
+          "noMemorySummary": "Memory 요약 없음",
+          "saveToThreadMemory": "Save to conversation notes",
+          "saveToProjectMemory": "Save to project notes",
+          "deletingArchive": "삭제 중...",
+          "deleteArchive": "아카이브 삭제",
+          "openTerminal": "terminal 열기",
+          "backToDock": "도크로 돌아가기",
+          "browseSessions": "세션 찾아보기",
+          "handBackToAi": "AI에 다시 넘기기",
+          "confirmTakeover": "인수 확인",
+          "takeOver": "인수하다",
+          "expandBrowser": "terminal 브라우저 확장",
+          "collapseBrowser": "terminal 브라우저 축소",
+          "expand": "확장하다",
+          "collapse": "무너지다",
+          "openTerminalActions": "Terminal menu",
+          "terminalDockActions": "Terminal 도크 동작",
+          "closeBrowser": "브라우저 닫기",
+          "interrupt": "방해하다",
+          "stopInput": "입력 중지",
+          "closeSession": "세션 닫기",
+          "archiveSession": "아카이브 세션",
+          "hideTerminal": "terminal 숨기기",
+          "dismiss": "해고하다",
+          "forceTerminate": "강제 종료",
+          "killProcess": "프로세스 종료",
+          "renameSession": "Rename session",
+          "editTitle": "Edit title",
+          "duplicateSession": "Duplicate session",
+          "sameCwdShell": "Same cwd and shell",
+          "newAtProjectRoot": "New at project root",
+          "newFromCurrentCwd": "New from current cwd",
+          "newFromEditorCwd": "New from editor folder",
+          "currentCwd": "Current cwd",
+          "editorFolder": "Editor folder",
+          "defaultShell": "Default shell",
+          "newWithShell": "New with shell",
+          "sendOutputToChat": "Send output to chat",
+          "explainLastError": "Explain last error",
+          "summarizeSession": "Summarize session",
+          "saveSnapshotToMemory": "Save snapshot to notes",
+          "prefillComposer": "Prefill composer",
+          "recentOutput": "Recent output",
+          "boundedOutput": "Bounded output",
+          "threadMemory": "Conversation notes"
+        }
+      },
+      "confirm": {
+        "forceTerminateHost": {
+          "title": "강제 종료 호스트 Terminal",
+          "message": "이 호스트 범위 terminal 세션을 강제로 종료하시겠습니까? 그러면 기본 프로세스가 즉시 종료됩니다."
+        },
+        "forceTerminate": {
+          "title": "강제 종료 Terminal",
+          "message": "이 terminal 세션을 강제로 종료하시겠습니까? 그러면 기본 프로세스가 즉시 종료됩니다."
+        },
+        "deleteArchive": {
+          "title": "보관된 Terminal 세션 삭제",
+          "message": "보관된 terminal 세션을 삭제하시겠습니까?\n\n이렇게 하면 보관된 아카이브 기록만 제거되며 취소할 수 없습니다.",
+          "confirm": "아카이브 삭제"
+        }
+      },
+      "prompts": {
+        "renameSession": "Rename terminal session"
+      },
+      "actions": {
+        "openTerminal": "Open terminal",
+        "backToDock": "Back to dock",
+        "browseSessions": "Browse sessions",
+        "handBackToAi": "AI에 다시 넘기기",
+        "confirmTakeover": "Confirm takeover",
+        "takeOver": "Take over",
+        "expandBrowser": "Expand terminal browser",
+        "collapseBrowser": "Collapse terminal browser",
+        "expand": "Expand",
+        "collapse": "Collapse",
+        "openTerminalActions": "Terminal menu",
+        "terminalDockActions": "Terminal dock actions",
+        "closeBrowser": "Close browser",
+        "renameSession": "Rename session",
+        "editTitle": "Edit title",
+        "duplicateSession": "Duplicate session",
+        "sameCwdShell": "Same cwd and shell",
+        "newAtProjectRoot": "New at project root",
+        "newFromCurrentCwd": "New from current cwd",
+        "newFromEditorCwd": "New from editor folder",
+        "currentCwd": "Current cwd",
+        "editorFolder": "Editor folder",
+        "defaultShell": "Default shell",
+        "newWithShell": "New with shell",
+        "interrupt": "Interrupt",
+        "stopInput": "Stop input",
+        "closeSession": "Close session",
+        "archiveSession": "Archive session",
+        "hideTerminal": "Hide terminal",
+        "dismiss": "Dismiss",
+        "forceTerminate": "Force terminate",
+        "killProcess": "Kill process"
+      }
+    },
+    "globalIndicator": {
+      "threadCount": "{{count}} conversation{{suffix}}",
+      "liveCount": "{{count}} live terminal{{suffix}}",
+      "priority": {
+        "approval": "승인 필요",
+        "waiting": "사용자를 기다리는 중"
+      }
+    },
+    "pendingApproval": {
+      "title": "Terminal waiting for approval",
+      "scopeLabel": "Scope",
+      "scopeHost": "Host access",
+      "scopeWorkspace": "Workspace",
+      "directoryLabel": "Directory",
+      "workspaceRoot": "workspace root"
+    }
+  },
+  "editor": {
+    "fileTree": {
+      "projectFallback": "프로젝트",
+      "syncing": "동기화 중",
+      "openProjectFolder": "프로젝트 폴더 열기",
+      "refresh": "파일 트리 새로 고침",
+      "ariaLabel": "{{projectName}} 파일",
+      "loading": "로드 중...",
+      "emptyProject": "빈 프로젝트.",
+      "binaryTitle": "{{path}}(바이너리 파일을 열 수 없음)"
+    },
+    "emptyState": {
+      "title": "트리에서 파일을 선택하여 엽니다.",
+      "shortcutHint": "저장하려면 Ctrl+S | 탭을 닫으려면 x를 클릭하세요"
+    },
+    "loadingPane": "로드 중...",
+    "panel": {
+      "thisFile": "이 파일",
+      "closeDirty": {
+        "title": "저장되지 않은 변경사항",
+        "message": "닫기 전에 {{fileLabel}}의 변경 사항을 저장하시겠습니까?",
+        "confirm": "저장 후 닫기",
+        "cancel": "추가 옵션"
+      },
+      "saveFailed": {
+        "title": "저장 실패",
+        "message": "파일을 저장할 수 없습니다."
+      },
+      "discard": {
+        "title": "변경사항을 취소하시겠습니까?",
+        "message": "{{fileLabel}}에서 저장되지 않은 변경 사항을 취소하고 닫으시겠습니까?",
+        "confirm": "변경사항 취소",
+        "cancel": "계속 편집하세요"
+      },
+      "formatActionTitle": "활성 포맷터 경로로 문서 포맷(Shift+Alt+F)",
+      "formatUnavailableTitle": "현재 파일에는 서식을 지정할 수 없습니다.",
+      "fixActionTitle": "활성 코드 작업 provider에서 자동 수정 가능한 문제 적용",
+      "fixUnavailableTitle": "현재 파일에는 코드 작업을 사용할 수 없습니다.",
+      "serviceNotice": {
+        "providerDegraded": "{{providerLabel}}의 성능이 저하되었습니다. 편집기 기능이 제한될 수 있습니다.",
+        "providerUnavailable": "{{providerLabel}}를 사용할 수 없습니다. 편집기 기능이 제한될 수 있습니다.",
+        "genericUnavailable": "현재 일부 편집 서비스를 사용할 수 없습니다."
+      },
+      "emptyProject": "편집기를 사용하려면 프로젝트 폴더를 엽니다.",
+      "resizeFileTree": "파일 트리 크기 조정",
+      "fileWatcherCap": "파일 감시자가 디렉터리 캡({{watchedCount}}/{{maxDirectories}})에 도달했습니다. 일부 폴더는 외부 편집을 적극적으로 감시하지 않습니다.",
+      "dismiss": "해고하다",
+      "externalChangeDetected": "{{filePath}}에 대한 외부 변경 사항이 감지되었습니다. 저장되지 않은 수정사항은 보존되었습니다.",
+      "reloadFromDisk": "디스크에서 다시 로드",
+      "resizeMarkdownPreview": "마크다운 미리보기 창 크기 조정",
+      "errors": {
+        "noProjectOrTabSelected": "선택한 프로젝트나 탭이 없습니다."
+      }
+    },
+    "tabBar": {
+      "openTabsAriaLabel": "편집기 탭 열기",
+      "fallbackFileLabel": "파일",
+      "fallbackTabLabel": "꼬리표",
+      "saveTabAriaLabel": "{{fileLabel}} 저장",
+      "unsavedChangesTitle": "저장되지 않은 변경사항 - 저장하려면 클릭하세요.",
+      "externalChangedTitle": "외부 파일 변경이 감지되었습니다.",
+      "problemSummaryTitle": "{{count}} 문제{{suffix}}({{error}} 오류{{errorSuffix}}, {{warning}} 경고{{warningSuffix}}, {{info}} 정보)",
+      "closeTabAriaLabel": "{{tabLabel}} 닫기",
+      "aiActionsTitle": "선택한 코드에 대한 AI 작업",
+      "aiDraftHint": "현재 선택 및 주변 컨텍스트를 사용하여 Chat에 초안을 작성합니다.",
+      "preview": "시사",
+      "fix": "고치다",
+      "format": "체재",
+      "auto": "Auto",
+      "togglePreviewTitle": "마크다운 미리보기 전환(Ctrl/Cmd+Shift+V)",
+      "toggleFormatOnSaveTitle": "현재 파일에 활성 포맷터 경로가 있는 경우 저장 시 포맷을 전환합니다.",
+      "aiSelection": {
+        "explain": {
+          "label": "설명하다",
+          "title": "Chat에서 선택한 코드를 설명하세요.",
+          "description": "행동, 가정, 위험을 설명합니다."
+        },
+        "fix": {
+          "label": "고치다",
+          "title": "Chat에서 선택한 코드 수정",
+          "description": "선택한 코드의 버그/문제를 수정합니다."
+        },
+        "refactor": {
+          "label": "리팩터링",
+          "title": "Chat에서 선택한 코드를 리팩터링",
+          "description": "동작을 유지하면서 리팩토링하세요."
+        },
+        "tests": {
+          "label": "테스트",
+          "title": "Chat에서 선택한 코드에 대한 테스트 생성",
+          "description": "선택한 코드에 대한 테스트를 작성합니다."
+        }
+      }
+    },
+    "diagnostics": {
+      "currentFile": "현재 파일",
+      "common": {
+        "expand": "확장하다",
+        "collapse": "무너지다"
+      },
+      "filters": {
+        "all": "모두",
+        "errors": "오류",
+        "warnings": "경고",
+        "info": "정보"
+      },
+      "severity": {
+        "error": "오류",
+        "warning": "경고",
+        "info": "정보",
+        "hint": "힌트"
+      },
+      "problems": {
+        "title": "문제",
+        "errorCount": "{{count}} 오류{{suffix}}",
+        "warningCount": "{{count}} 경고{{suffix}}",
+        "infoCount": "{{count}} 정보",
+        "none": "문제 없음",
+        "expandTitle": "문제 패널 확장",
+        "collapseTitle": "문제 패널 축소",
+        "setDefaultStateTitle": "문제 설정 패널 기본 상태",
+        "defaultCollapsed": "기본 접힌 상태",
+        "noMatch": "현재 필터와 일치하는 문제가 없습니다.",
+        "noneInFile": "이 파일에는 문제가 없습니다."
+      },
+      "outline": {
+        "title": "개요",
+        "expandTitle": "개요 펼치기",
+        "collapseTitle": "개요 접기",
+        "filterSymbols": "필터 기호",
+        "symbolCount": "{{count}} 기호{{suffix}}",
+        "refreshing": "상쾌하다...",
+        "setupTitle": "설정",
+        "hintCount": "{{count}} 힌트{{suffix}}",
+        "dismissSetupHintTitle": "{{actionLabel}} 설정 힌트 닫기",
+        "unavailableForFileType": "이 파일 형식에는 아직 개요를 사용할 수 없습니다.",
+        "loadingSymbols": "기호 로드 중...",
+        "noneAvailable": "사용할 수 있는 개요가 없습니다.",
+        "noMatch": "현재 필터와 일치하는 기호가 없습니다.",
+        "noneDetected": "이 파일에서는 기호가 감지되지 않습니다.",
+        "symbolFallback": "상징",
+        "messages": {
+          "serviceUnavailable": "편집기 서비스가 준비되지 않아 기호를 사용할 수 없습니다.",
+          "loadFailed": "기호를 로드하지 못했습니다.",
+          "realProviderMissing": "이 언어에는 실제 provider를 사용할 수 없기 때문에 이 파일은 구문만 유지됩니다.",
+          "formatOnlyLanguage": "이 언어는 현재 편집기에서 구문 전용으로 유지됩니다.",
+          "missingBinary": "이 프로젝트 또는 PATH에서는 {{providerLabel}}를 찾을 수 없습니다.",
+          "providerUnavailable": "이 파일의 기호에는 {{providerLabel}}를 사용할 수 없습니다.",
+          "providerDegraded": "{{providerLabel}}는 이 파일의 기호 성능이 저하되었습니다.",
+          "providerRequestFailed": "이 파일의 기호를 로드하는 동안 {{providerLabel}}가 실패했습니다.",
+          "unsupportedFile": "이 파일 형식에는 개요를 사용할 수 없습니다.",
+          "unsupported": "이 파일에는 개요를 사용할 수 없습니다."
+        }
+      },
+      "setupHints": {
+        "messages": {
+          "formatting": {
+            "realProviderMissing": "이 파일을 포맷하려면 실제 provider가 필요합니다.",
+            "biomeConfigRequired": "포맷하려면 프로젝트 Biome 구성이 필요합니다.",
+            "ruffConfigRequired": "포맷하려면 프로젝트 Ruff 구성이 필요합니다.",
+            "clangFormatConfigRequired": "포맷하려면 프로젝트.clang-format 또는 _clang-format 구성이 필요합니다.",
+            "javaProjectContextRequired": "형식을 지정하려면 Maven 또는 Gradle 프로젝트 컨텍스트(pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts)가 필요합니다.",
+            "dotnetProjectRequired": "형식을 지정하려면 실제.csproj 또는.sln 컨텍스트가 필요합니다.",
+            "missingBinary": "이 프로젝트 또는 PATH에서는 {{providerLabel}}를 찾을 수 없습니다.",
+            "providerUnavailable": "이 파일에는 {{providerLabel}}를 사용할 수 없습니다.",
+            "providerDegraded": "이 파일의 {{providerLabel}} 성능이 저하되었습니다.",
+            "providerRequestFailed": "이 파일을 제공하는 동안 {{providerLabel}}가 실패했습니다.",
+            "formatOnlyLanguage": "이 언어는 현재 형식만 지정되어 있습니다."
+          },
+          "codeActions": {
+            "realProviderMissing": "코드 작업에는 이 파일에 대한 실제 provider가 필요합니다.",
+            "eslintProjectRequired": "코드 작업에는 프로젝트에서 구성된 ESLint provider가 필요합니다.",
+            "ruffConfigRequired": "코드 작업에는 프로젝트 Ruff 구성이 필요합니다.",
+            "clangTidyConfigRequired": "코드 작업에는 프로젝트.clang-tidy 구성이 필요합니다.",
+            "clangCompileContextRequired": "코드 작업에는 compile_commands.json 또는 compile_flags.txt가 필요합니다.",
+            "javaProjectContextRequired": "코드 작업에는 Maven 또는 Gradle 프로젝트 컨텍스트(pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts)가 필요합니다.",
+            "dotnetProjectRequired": "코드 작업에는 실제.csproj 또는.sln 컨텍스트가 필요합니다.",
+            "javaNotInstalled": "PATH 또는 JAVA_HOME에서 사용 가능한 JDK를 찾을 수 없습니다. jdtls에는 Java가 필요합니다.",
+            "dotnetNotInstalled": "PATH에서 dotnet을 찾을 수 없습니다.",
+            "missingBinary": "이 프로젝트 또는 PATH에서는 {{providerLabel}}를 찾을 수 없습니다.",
+            "providerUnavailable": "이 파일에는 {{providerLabel}}를 사용할 수 없습니다.",
+            "providerDegraded": "이 파일의 {{providerLabel}} 성능이 저하되었습니다.",
+            "providerRequestFailed": "이 파일을 제공하는 동안 {{providerLabel}}가 실패했습니다.",
+            "formatOnlyLanguage": "이 언어는 현재 형식만 지정되어 있습니다."
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "설정",
+    "navigationTitle": "설정 탐색",
+    "overviewTitle": "개요",
+    "controls": {
+      "expandAll": "모두 펼치기",
+      "collapseAll": "모두 접기"
+    },
+    "counts": {
+      "sectionOne": "섹션 1개",
+      "sectionOther": "{{count}} 섹션",
+      "visibleSectionOne": "표시되는 섹션 1개",
+      "visibleSectionOther": "{{count}} 가시 섹션"
+    },
+    "common": {
+      "yes": "예",
+      "no": "아니요",
+      "completed": "완전한",
+      "inProgress": "진행 중",
+      "ready": "준비가 된",
+      "notReady": "준비되지 않음",
+      "savedOnly": "저장만 됨",
+      "unknown": "알려지지 않은",
+      "checking": "확인 중...",
+      "disabled": "장애가 있는"
+    }
+  },
+  "artifacts": {
+    "emptyProject": "이슈 기록을 보려면 프로젝트 폴더를 엽니다.",
+    "trackedFilesTitle": "추적된 파일",
+    "scope": {
+      "label": "아티팩트 범위",
+      "entireProject": "프로젝트",
+      "thisThread": "스레드",
+      "resultCount": "파일 {{count}}개"
+    },
+    "loadingTrackedFiles": "추적된 파일 로드 중...",
+    "emptyTrackedFiles": "아직 버전이 지정된 파일이 없습니다. AI 파일 쓰기 및 코드 제안이 여기에 표시됩니다.",
+    "deleteRevisionDialog": {
+      "title": "개정 삭제",
+      "message": "다음에 대한 개정판 {{rev}}({{source}}) 삭제:\n{{filePath}}\n\n이 작업은 취소할 수 없습니다.",
+      "confirm": "개정 삭제",
+      "cancel": "취소"
+    },
+    "deleteHistoryDialog": {
+      "title": "개정 기록 삭제",
+      "message": "다음에 대한 모든 개정 기록 삭제:\n{{filePath}}\n\n디스크의 파일은 삭제되지 않습니다.",
+      "confirm": "기록 삭제",
+      "cancel": "취소"
+    },
+    "selectFile": "개정 내역을 보려면 파일을 선택하세요.",
+    "labels": {
+      "fromBase": "(기본)에서",
+      "toHead": "(머리)에게",
+      "base": "베이스",
+      "head": "머리"
+    },
+    "deleteRevisionTitle": "이 버전 삭제",
+    "deleteFileHistoryTitle": "이 파일의 모든 기록 삭제",
+    "selectRevisions": "비교할 버전을 위에서 선택하세요.",
+    "revisionSource": {
+      "baseline": "기준선",
+      "rollback": "롤백",
+      "suggestion": "제안",
+      "aiWrite": "AI 쓰기"
+    },
+    "revisionOrigin": {
+      "thread": "스레드 {{threadTitle}}",
+      "deletedThread": "삭제된 스레드 {{threadTitle}} · {{date}}"
+    },
+    "suggestionBadge": "제안",
+    "revisionCountOne": "{{count}} 개정",
+    "revisionCountOther": "{{count}} 개정",
+    "footer": {
+      "suggestionPending": "이 개정판은 아직 디스크에 기록되지 않았습니다.",
+      "apply": "디스크에 적용",
+      "applying": "신청 중...",
+      "rollbackNotice": "롤백하면 {{rev}} 버전이 디스크에 복원됩니다.",
+      "rollback": "베이스로 롤백",
+      "rollingBack": "롤백 중..."
+    },
+    "picker": {
+      "placeholder": "- {{label}} -",
+      "empty": "- 새 파일(비어 있음) -",
+      "notOnDisk": "디스크에 없음",
+      "option": "개정 {{rev}} - {{source}}{{notOnDisk}} - {{date}}",
+      "optionWithProvenance": "개정 {{rev}} - {{source}}{{notOnDisk}} - {{date}} · {{provenance}}"
+    },
+    "action": {
+      "rollbackSuccess": "{{rev}} 버전으로 롤백되었습니다. 새로운 개정판 {{newRev}}가 기록되었습니다.",
+      "rollbackFailed": "롤백에 실패했습니다.",
+      "applySuccess": "디스크에 적용됩니다. 새로운 개정판 {{newRev}}가 기록되었습니다.",
+      "applyFailed": "적용에 실패했습니다.",
+      "revisionDeleted": "{{rev}} 개정판이 삭제되었습니다."
+    },
+    "diffLoading": "차이점 로드 중...",
+    "diffTimeout": "Diff runtime를 초기화하지 못했습니다. 앱을 다시 로드하세요."
+  },
+  "workspaceDisposal": {
+    "activeMessage": "이 데이터를 제거하려면 먼저 진행 중인 작업을 중지해야 합니다.",
+    "threadDeleteActiveMessage": "이 [[canon:thread]]의 진행 중인 작업은 삭제 전에 중지됩니다.",
+    "stopAndDelete": "중지하고 삭제",
+    "stopAndRemove": "중지하고 제거",
+    "stopAndClear": "중지하고 지우기",
+    "stopAndArchive": "중지하고 보관"
+  },
+  "threadDrawer": {
+    "title": "Threads",
+    "threadCount": "{{count}} threads",
+    "previewRole": {
+      "user": "너",
+      "assistant": "일체 포함"
+    },
+    "activity": {
+      "needsInput": "입력 필요",
+      "sessionFailed": "실패",
+      "sessionCompleted": "완료",
+      "sessionActive": "세션이 활성화되었습니다.",
+      "sessionStale": "세션이 오래되었습니다.",
+      "pendingApproval": "승인 대기 중",
+      "sessionBlocked": "세션이 차단되었습니다.",
+      "idle": "게으른",
+      "pendingBadge": "보류 중",
+      "blockedBadge": "막힌"
+    },
+    "fallbackTitle": "제목 없음 thread",
+    "renameTitle": "thread 이름 바꾸기",
+    "deleteTitle": "thread 삭제",
+    "searchPlaceholder": "threads 검색...",
+    "newThreadTitle": "새로운 thread",
+    "newThread": "새로운",
+    "emptySearch": "검색어와 일치하는 threads가 없습니다.",
+    "empty": "아직 threads가 없습니다.",
+    "createThread": "thread 생성",
+    "loadMore": "더 많은 threads 로드({{count}} 숨김)",
+    "resizeTitle": "드래그하여 크기 조정"
+  },
+  "backgroundJobs": {
+    "status": {
+      "polling": "투표",
+      "cancelRequested": "취소를 요청했습니다.",
+      "completed": "완전한",
+      "failed": "실패한",
+      "cancelled": "취소",
+      "orphaned": "고아",
+      "queued": "대기 중"
+    },
+    "title": "[[canon:background_jobs]]",
+    "runningJobs": "실행 중인 작업: {{count}}",
+    "updated": "업데이트된 {{time}}",
+    "refresh": "새로 고치다",
+    "close": "닫다",
+    "description": "더 이상 필요하지 않은 경우 장기 실행 로컬 명령이나 분리된 OpenAI 백그라운드 응답을 중지합니다.",
+    "stopAll": "모두 중지",
+    "stopping": "멎는...",
+    "loading": "백그라운드 작업 로드 중...",
+    "empty": "현재 실행 중인 백그라운드 작업이 없습니다.",
+    "table": {
+      "job": "직업",
+      "task": "일",
+      "runtime": "Runtime",
+      "context": "문맥",
+      "action": "행동"
+    },
+    "statusLabel": "상태: {{status}}",
+    "openAiResponse": "OpenAI 백그라운드 응답",
+    "detachedOpenAiResponse": "분리된 OpenAI 응답",
+    "emptyCommand": "(비어 있는)",
+    "stop": "멈추다"
+  },
+  "chat": {
+    "planDirection": {
+      "questionNavigation": "계획 방향 질문",
+      "goToQuestion": "질문 {{count}}로 이동",
+      "continue": "계속",
+      "changeAnswer": "답변 변경",
+      "customPlaceholder": "또는 다른 방향을 설명하세요",
+      "customAnswer": "사용자 지정 방향 답변",
+      "recommendedShort": "권장",
+      "synthesizing": "선택 내용을 반영해 방향을 업데이트하는 중…",
+      "synthesisFailed": "방향을 업데이트하지 못했습니다.",
+      "retryDraft": "계획 초안 다시 시도",
+      "retry": "다시 시도",
+      "reviewChoices": "선택 검토",
+      "change": "방향 변경",
+      "changeFeedback": "방향 피드백",
+      "changePlaceholder": "이 방향에서 무엇을 바꿔야 하나요?",
+      "updateDirection": "방향 업데이트",
+      "creating": "관리형 Markdown 계획을 만드는 중…",
+      "recommended": "권장:",
+      "recommendationDetail": "{{profile}} - {{rationale}}",
+      "create": "계획 만들기",
+      "profileMenu": "계획 작성 프로필",
+      "profiles": {
+        "implementation": "구현 계획",
+        "technicalDesign": "기술 설계",
+        "investigation": "조사 계획",
+        "deepImplementation": "상세 구현 계획"
+      },
+      "errors": {
+        "answerSave": "The direction answer could not be saved.",
+        "profileUnavailable": "The selected plan profile was unavailable.",
+        "changeFailed": "The direction feedback could not be saved.",
+        "retryFailed": "The direction update could not be retried."
+      }
+    },
+    "emptyState": {
+      "title": "아직 메시지가 없습니다",
+      "planDescription": "[[canon:plan]] 모드가 활성화되었습니다. 구조화된 계획의 경우 [[canon:ask]]를 선택한 다음 응답에서 대화형 선택을 사용하여 경로를 안내합니다.",
+      "thinkingDescription": "[[canon:thinking]] 모드가 활성화되었습니다. 여기에서 옵션과 장단점을 브레인스토밍한 후 구현할 준비가 되면 [[canon:execute]]로 전환하세요.",
+      "executeDescription": "provider를 선택하고 채팅을 시작하세요. 헤더 [[canon:permission_mode]] 컨트롤을 사용하여 턴 실행을 위해 [[canon:ask]], [[canon:autonomy]] 및 [[canon:full_access]] 사이를 전환합니다.",
+      "needsProviderSetup": "OpenAI 계정 인증을 연결하거나 설정에서 API key를 추가한 다음 provider를 선택하여 시작하세요."
+    },
+    "composer": {
+      "placeholder": {
+        "selectProvider": "시작하려면 provider를 선택하세요...",
+        "selectThread": "Select or create a conversation to continue...",
+        "streaming": "AI는 생각하고 있다…",
+        "plan": "계획을 요청하세요... (Enter로 전송, Shift+Enter로 줄바꿈)",
+        "thinking": "아이디어, 장단점 및 방향을 브레인스토밍하세요... (보내려면 Enter를 입력하고 줄바꿈을 하려면 Shift+Enter를 입력하세요)",
+        "execute": "프로젝트에 대해 무엇이든 물어보세요... (Enter로 전송, Shift+Enter로 줄바꿈)"
+      },
+      "blockLabels": {
+        "code": "암호",
+        "text": "텍스트"
+      },
+      "codeLanguage": "코드 언어",
+      "openAdvancedEditor": "고급 코드 편집기 열기",
+      "advanced": "고급의",
+      "removeBlock": "블록 제거",
+      "removeCodeBlock": "코드 블록 제거",
+      "removeTextBlock": "텍스트 블록 제거",
+      "codePlaceholder": "암호...",
+      "insertSnippet": "스니펫 삽입",
+      "codeSnippet": "코드 조각",
+      "textSnippet": "텍스트 스니펫"
+    },
+    "controlRail": {
+      "quickActionsTitle": "[[canon:quick_actions]]",
+      "refreshModels": "models 새로 고침",
+      "refreshingModels": "models 새로 고침",
+      "refreshing": "상쾌하다...",
+      "openBackgroundJobs": "[[canon:background_jobs]] 열기",
+      "backgroundJobs": "[[canon:background_jobs]]",
+      "agents": "자치령 대표",
+      "directAgentsMenu": "에이전트 선택 메뉴",
+      "moreActions": "추가 작업",
+      "stopResponse": "응답 중지",
+      "sendMessage": "메시지 보내기",
+      "sendEnter": "보내기(엔터)",
+      "attach": {
+        "filesImagesDisabled": "파일 첨부(이 model에서는 이미지가 비활성화됨)",
+        "images": "이미지 첨부",
+        "files": "파일 첨부"
+      },
+      "collaborationMode": {
+        "defaultLabel": "[[canon:native_collaboration_mode]]",
+        "buttonTitle": "[[canon:native_collaboration_mode]]: {{value}}",
+        "optionsAriaLabel": "[[canon:native_collaboration_mode]] 옵션"
+      },
+      "reasoningEffort": {
+        "providerDefault": "Provider 기본값",
+        "xhigh": "엑스하이",
+        "buttonTitle": "[[canon:reasoning_effort]]: {{value}}. model가 적용되는 추론의 정도를 제어합니다.",
+        "buttonAriaLabel": "[[canon:reasoning_effort]]: {{value}}",
+        "optionsAriaLabel": "[[canon:reasoning_effort]] 옵션"
+      },
+      "processingMode": {
+        "fast": "빠름",
+        "standard": "표준",
+        "enable": "빠른 처리 사용",
+        "disable": "표준 처리 사용",
+        "pricingNote": "빠른 처리에는 프리미엄 요금이 적용될 수 있습니다.",
+        "returnedMode": "마지막 응답은 {{mode}} 처리를 사용했습니다."
+      },
+      "rateLimits": {
+        "title": "[[canon:rate_limits]]",
+        "remainingTitle": "OpenAI 계정 비율 제한이 남아 있습니다.",
+        "weekly": "주간",
+        "primary": "주요한",
+        "secondary": "반성"
+      }
+    },
+    "moaToggle": {
+      "activeTitle": "[[canon:moa]] 모드 활성화 - 비활성화하려면 클릭하세요.",
+      "enableTitle": "[[canon:moa]](다중 에이전트 오케스트레이션) 활성화"
+    },
+    "threadModals": {
+      "common": {
+        "close": "닫다",
+        "closeModal": "[[canon:thread]] 모달 닫기",
+        "cancel": "취소"
+      },
+      "create": {
+        "title": "[[canon:thread]] 생성",
+        "description": "새 대화 [[canon:thread]]의 제목을 입력하세요.",
+        "placeholder": "새로운 [[canon:thread]]",
+        "confirm": "만들다"
+      },
+      "rename": {
+        "title": "[[canon:thread]] 이름 바꾸기",
+        "description": "현재 대화 [[canon:thread]]의 제목을 업데이트하세요.",
+        "placeholder": "[[canon:thread]] 제목",
+        "confirm": "구하다"
+      },
+      "clear": {
+        "deleteTitle": "[[canon:thread]] 삭제",
+        "deleteMessage": "이 [[canon:thread]]{{threadTitle}}를 삭제하시겠습니까? 대화, 첨부 파일 및 [[canon:thread]] 활동이 제거됩니다. 프로젝트 파일, 아티팩트 및 보존된 메모리는 유지됩니다.",
+        "deleteConfirm": "[[canon:thread]] 삭제"
+      }
+    },
+    "providerSwitchContextBanner": {
+      "title": "Provider/Model 전환됨",
+      "previousProvider": "이전 provider",
+      "newProvider": "새로운 provider",
+      "movedFrom": "다음에서 이동됨",
+      "movedTo": "에게",
+      "continuityHint": "프로젝트 연속성을 잃지 않으려면 다음 차례 전에 컨텍스트를 주입하세요.",
+      "injectMemory": "Memory 주입",
+      "injectArtifacts": "[[canon:artifacts]] 주입",
+      "injectBoth": "둘 다 주입",
+      "dismiss": "해고하다"
+    },
+    "contextMeter": {
+      "toggleDetails": "컨텍스트 세부정보 전환",
+      "expandDetails": "컨텍스트 미터 세부정보 펼치기",
+      "collapseDetails": "컨텍스트 측정기 세부정보 접기",
+      "visibleMetrics": "가시적 측정항목",
+      "chooseVisibleMetrics": "눈에 보이는 측정항목 선택",
+      "showAll": "모두 표시",
+      "hideAll": "모두 숨기기",
+      "noMetricsSelected": "선택한 측정항목이 없습니다.",
+      "title": {
+        "available": "최신 차례 {{turnTokens}}/{{modelLimit}} tokens({{percent}}%)",
+        "unavailable": "최신 턴 사용 불가({{modelLimit}} token 제한)",
+        "limitUnavailable": "이 model에는 컨텍스트 제한을 사용할 수 없습니다.",
+        "contextLeftAvailable": "컨텍스트 왼쪽 {{remaining}}/{{modelLimit}} tokens ({{percent}}%)",
+        "contextLeftFallback": "컨텍스트 왼쪽 {{remaining}}/{{modelLimit}} tokens ({{percent}}%, 비어 있음 thread)",
+        "contextLeftUnavailable": "컨텍스트 왼쪽을 사용할 수 없음({{modelLimit}} token 제한, thread 점유 사용 불가)",
+        "contextLeftRecalculating": "압축 후 남은 컨텍스트를 다시 계산하는 중입니다 (제한 {{modelLimit}} token)"
+      },
+      "values": {
+        "left": "왼쪽",
+        "occupancyUnavailable": "thread 점유 불가",
+        "limitUnknown": "한계를 알 수 없음",
+        "notAvailable": "해당사항 없음",
+        "recalculating": "재계산 중..."
+      },
+      "metrics": {
+        "used": "Thread occ.",
+        "usedEstimated": "Thread occ. (예상)",
+        "usedMapped": "Thread occ. (매핑됨)",
+        "remaining": "컨텍스트가 남음",
+        "limit": "한계",
+        "turn": "최근 차례",
+        "spendRoll": "세션 지출",
+        "inputNoCache": "입력(캐시 없음)",
+        "cacheRead": "캐시 읽기",
+        "cacheWrite": "캐시 쓰기",
+        "turnEstTok": "에스토크를 돌려라",
+        "turnEstUsd": "미화로 바꾸세요",
+        "costConf": "비용 설정",
+        "continuity": "연속성",
+        "packet": "패킷",
+        "drift": "경향",
+        "compactionDelta": "압축 델타"
+      }
+    },
+    "cursor": {
+      "fullAccessRequired": "Cursor runs only with Full Access.",
+      "useFullAccess": "Use Full Access"
+    },
+    "composerArea": {
+      "selectProvider": "채팅을 시작하려면 아래에서 provider를 선택하세요.",
+      "selectThread": "메시지를 보내기 전에 thread를 선택하거나 생성하세요.",
+      "selectedModelMissing": "선택한 model를 사용하지 못할 수 있습니다. 작업 메뉴에서 선별된 models를 새로 고칩니다.",
+      "addApiKey": "시작하려면 설정에 API key를 추가하세요.",
+      "switchToExecute": "[[canon:execute]]로 전환",
+      "imagesDisabled": "이 model에 대한 이미지가 비활성화되었습니다. 파일 첨부는 활성화된 상태로 유지됩니다.",
+      "pipeline": {
+        "stepRunning": "Pipeline step {{currentStep}}/{{totalSteps}}: {{stepName}}",
+        "completed": "Pipeline complete",
+        "failedAt": "Pipeline failed at {{stepName}}",
+        "cancelled": "Pipeline cancelled",
+        "starting": "Starting pipeline ({{totalSteps}} steps)..."
+      },
+      "council": {
+        "completed": "협의회 완료({{successCount}}/{{memberCount}} 성공)",
+        "failed": "협의회 실패",
+        "cancelled": "협의회가 취소됨",
+        "running": "협의회 운영 중({{memberCount}} 회원{{suffix}})..."
+      }
+    },
+    "permissionMode": {
+      "planActive": "[[canon:plan]] 모드: 조사 및 계획 도구를 사용할 수 있으며 프로젝트 변경은 차단됩니다.",
+      "thinkingActive": "[[canon:thinking]] 모드: 읽기 및 조사 도구를 사용할 수 있으며 프로젝트 변경은 차단됩니다.",
+      "planDormant": "[[canon:plan]] 모드는 이번 턴에 도구 실행을 비활성화합니다.",
+      "thinkingDormant": "[[canon:thinking]] 모드는 이번 턴에 도구 실행을 비활성화합니다.",
+      "label": "허가",
+      "groupAriaLabel": "권한 모드",
+      "optionsAriaLabel": "권한 모드 옵션",
+      "helpers": {
+        "ask": "위험한 행동 전에 알림",
+        "autonomy": "Act inside workspace Guardrails",
+        "fullAccess": "호스트 수준 도구 실행"
+      }
+    },
+    "dispatchConfirmation": {
+      "dispatchFailed": "발송에 실패했습니다.",
+      "executed": "파견이 실행됨",
+      "executedDescription": "{{count}} 에이전트{{suffix}}가 파견되었습니다. 에이전트가 완료되면 아래에 결과가 표시됩니다.",
+      "failed": "발송 실패",
+      "unknownError": "알 수 없는 오류입니다.",
+      "retry": "다시 해 보다",
+      "title": "업무 파견 계획",
+      "selected": "{{selected}}/{{total}} 선택됨",
+      "dispatching": "파견 중...",
+      "executeTasks": "{{count}} 작업 실행{{suffix}}"
+    },
+    "questionUser": {
+      "clarificationNeeded": "설명이 필요함",
+      "waitingOnYou": "당신을 기다리고 있습니다",
+      "recommended": "추천",
+      "yourAnswer": "답변",
+      "answerPlaceholder": "답변을 입력하세요…",
+      "answerHint": "여기로 빠른 답변을 보내거나 아래 작성기에서 계속 편집하세요.",
+      "sending": "배상...",
+      "sendAnswer": "보내기",
+      "sendAnswerTitle": "답변 보내기 (Enter)"
+    },
+    "runbook": {
+      "status": {
+        "cancelled": "취소",
+        "finishedWithErrors": "오류가 발생하여 종료됨",
+        "finishedWithWarnings": "경고와 함께 끝났다",
+        "finished": "완성된",
+        "running": "달리기"
+      },
+      "filters": {
+        "all": "모두",
+        "commands": "명령",
+        "usage": "용법",
+        "reasoning": "추리",
+        "approvals": "승인"
+      },
+      "aria": {
+        "collapse": "축소 회전 runbook",
+        "expand": "회전 runbook 확장"
+      },
+      "summary": {
+        "actions": "액션 {{count}}",
+        "commands": "{{count}} 명령",
+        "files": "파일 {{count}}",
+        "usage": "사용법 {{count}}"
+      },
+      "sections": {
+        "actions": "행위",
+        "commands": "명령",
+        "usage": "용법"
+      }
+    },
+    "fileChanges": {
+      "header": "변경된 파일: {{count}}",
+      "unknownFile": "알 수 없는 파일",
+      "updatedAgo": "업데이트된 {{time}}",
+      "changeType": {
+        "applied": "적용된",
+        "modified": "수정됨",
+        "edited": "편집됨",
+        "deleted": "삭제됨",
+        "renamed": "이름이 변경됨",
+        "rolledBack": "롤백됨",
+        "created": "생성됨"
+      },
+      "syncStatus": {
+        "deleted": "삭제됨",
+        "undone": "푼",
+        "conflict": "갈등"
+      },
+      "reason": {
+        "changedSinceTurn": "이번 턴 이후로 변경됨",
+        "missingRevisionMetadata": "버전 메타데이터 누락"
+      },
+      "actions": {
+        "fallbackAction": "행동",
+        "openInEditor": "편집기에서 열기",
+        "openInDocumentViewer": "문서 뷰어에서 열기",
+        "openArtifacts": "[[canon:artifacts]] 열기",
+        "copyPath": "경로 복사",
+        "deleting": "삭제 중...",
+        "deleteFile": "파일 삭제",
+        "undoing": "타락...",
+        "undoChange": "변경 취소",
+        "menuTitle": "파일 작업"
+      },
+      "preview": {
+        "loading": "변경사항 로드 중...",
+        "noChangedLines": "미리 볼 변경된 줄이 없습니다.",
+        "collapse": "미리보기 접기",
+        "expand": "미리보기 펼치기",
+        "collapseForFile": "{{path}} 미리보기 축소",
+        "expandForFile": "{{path}} 미리보기 확장",
+        "fileChangeFallback": "파일 변경",
+        "limited": "미리보기 제한",
+        "limitWithLineCount": "파일 크기가 미리보기 제한({{lineCount}} 줄)을 초과합니다. 변경 사항을 검사하려면 편집기나 [[canon:artifacts]]에서 엽니다.",
+        "limitNoLineCount": "파일 크기가 미리보기 제한을 초과합니다. {{maxLines}} 라인 위에서는 미리보기가 비활성화됩니다."
+      },
+      "dialogs": {
+        "undoOne": {
+          "title": "파일 변경 취소",
+          "message": "{{path}}의 이전 버전을 복원하시겠습니까?",
+          "confirm": "변경 취소"
+        },
+        "deleteOne": {
+          "title": "생성된 파일 삭제",
+          "message": "{{path}}를 삭제하시겠습니까? 이렇게 하면 이번 차례에 생성된 파일이 디스크에서 제거됩니다.",
+          "confirm": "파일 삭제"
+        },
+        "undoAll": {
+          "title": "파일 변경 취소",
+          "message": "{{count}} 파일{{suffix}}의 이전 버전을 복원하시겠습니까?",
+          "confirm": "변경 사항 실행 취소"
+        },
+        "deleteAll": {
+          "title": "생성된 파일 삭제",
+          "message": "이번 차례에 생성된 {{count}} 파일{{suffix}}를 삭제하시겠습니까? 이렇게 하면 디스크에서 해당 항목이 제거됩니다.",
+          "confirm": "파일 삭제"
+        }
+      },
+      "feedback": {
+        "clipboardUnavailable": "이 환경에서는 클립보드를 사용할 수 없습니다.",
+        "copiedPath": "복사된 경로: {{path}}",
+        "copyFailed": "파일 경로를 복사하지 못했습니다.",
+        "undoUnavailable": "이 항목은 실행취소할 수 없습니다(수정본 메타데이터 누락).",
+        "undoSucceeded": "{{path}}를 취소했습니다.",
+        "undoFailed": "실행취소에 실패했습니다.",
+        "deleteUnavailable": "이 항목은 삭제할 수 없습니다(개정판 메타데이터 누락).",
+        "deleteSucceeded": "생성된 파일 {{path}}를 삭제했습니다.",
+        "deleteFailed": "삭제에 실패했습니다.",
+        "conflict": "{{path}}: 이번 턴부터 변경되었습니다.",
+        "actionFailed": "{{path}}: {{message}}",
+        "undoAllUnavailable": "사용할 수 없는 모든 항목을 실행취소합니다(개정 메타데이터 누락).",
+        "undoAllSummary": "모두 실행 취소: {{success}} 성공{{conflicts}}{{failed}}{{skipped}}.",
+        "undoAllFailed": "모두 실행취소하지 못했습니다.",
+        "deleteAllUnavailable": "사용할 수 없는 항목을 모두 삭제하세요(개정 메타데이터 누락).",
+        "deleteAllSummary": "생성된 파일 삭제: {{success}} 성공{{conflicts}}{{failed}}{{skipped}}.",
+        "deleteAllFailed": "생성된 파일을 삭제하지 못했습니다."
+      },
+      "activity": {
+        "undoOne": "파일 변경 취소: {{path}}",
+        "deleteOne": "삭제된 생성 파일: {{path}}",
+        "undoAll": "모든 파일 변경 취소({{success}} 성공{{conflicts}}{{failed}}{{skipped}})",
+        "deleteAll": "생성된 파일을 삭제했습니다({{success}} 성공{{conflicts}}{{failed}}{{skipped}})"
+      },
+      "bulkActions": {
+        "undoingTitle": "파일 변경 실행 취소",
+        "undoTitle": "이번 차례의 파일 변경사항 실행취소",
+        "deletingTitle": "생성된 파일 삭제",
+        "deleteTitle": "이번 차례에 생성된 파일 삭제"
+      }
+    },
+    "roleConfirmation": {
+      "title": "[[canon:ai_generated_agent_role]]",
+      "saveRole": "[[canon:save_role]]",
+      "saveRoleAndContinue": "[[canon:save_role_continue]]",
+      "useForDelegation": "[[canon:use_for_delegation]]",
+      "saving": "절약...",
+      "starting": "시작 중...",
+      "saved": "\"{{name}}\" 역할이 저장되었습니다.",
+      "usedForDelegation": "이 위임에 사용되는 역할 \"{{name}}\"",
+      "savedDescription": "즉시 위임 가능합니다.",
+      "usedTemporaryDescription": "이 임시 역할은 위임이 완료된 후 자동으로 제거됩니다.",
+      "roleName": "[[canon:role_name]]",
+      "instructions": "지침",
+      "noInstructions": "지침 없음",
+      "provider": "Provider",
+      "model": "Model",
+      "selectProvider": "provider를 선택하세요...",
+      "selectModel": "model를 선택하세요...",
+      "modelIdPlaceholder": "Model ID",
+      "emptyValue": "—",
+      "stagedWrites": {
+        "title": "Staged 파일 쓰기",
+        "enabledDescription": "이 역할에 대해 활성화됩니다. 이를 사용하면 위임 중에 stage 파일이 변경될 수 있습니다.",
+        "disabledDescription": "장애가 있는. 이 역할은 분석 및 권장 사항만 반환할 수 있습니다."
+      },
+      "allowStagedWrites": {
+        "title": "staged 파일 쓰기 허용",
+        "description": "상담원은 stage [[canon:write_file]] 제안을 할 수 있습니다."
+      },
+      "preview": "시사",
+      "edit": "편집하다",
+      "dismiss": "해고하다",
+      "errors": {
+        "roleNameRequired": "역할 이름이 필요합니다.",
+        "providerRequired": "Provider가 필요합니다.",
+        "modelRequired": "Model가 필요합니다.",
+        "saveFailed": "역할을 저장하지 못했습니다.",
+        "useTemporaryFailed": "임시 역할을 사용하지 못했습니다."
+      }
+    },
+    "writeConflict": {
+      "resolved": "{{path}}를 해결했습니다.",
+      "conflictBadge": "갈등",
+      "showDebugInfo": "디버그 정보 표시",
+      "hideDebugInfo": "디버그 정보 숨기기",
+      "hideDetails": "세부정보 숨기기",
+      "viewChanges": "변경된 내용 보기",
+      "loading": "로드 중...",
+      "loadingPreviews": "미리보기 로드 중...",
+      "previewUnavailable": "미리보기를 사용할 수 없습니다.",
+      "aiMerge": "AI 병합",
+      "dismiss": "해고하다",
+      "confirm": "확인하다",
+      "noModelSelected": "model가 선택되지 않았습니다.",
+      "generatingMerge": "병합 생성 중...",
+      "retry": "다시 해 보다",
+      "tryAgain": "다시 시도",
+      "accept": "수용하다",
+      "labels": {
+        "yoursVsBase": "변경사항과 기본",
+        "theirsVsBase": "기타 변경 사항과 기본 비교"
+      },
+      "errors": {
+        "unknown": "알 수 없는 오류",
+        "requestFailed": "요청 실패",
+        "applyFailed": "병합 해결을 적용하지 못했습니다.",
+        "mergeFailed": "병합에 실패했습니다.",
+        "revisionPreviewUnavailable": "이 렌더러 세션에서는 개정 미리보기를 사용할 수 없습니다.",
+        "loadRevisionPreviewFailed": "버전 미리보기를 로드할 수 없습니다.",
+        "loadRevisionContextFailed": "개정 컨텍스트를 로드할 수 없습니다."
+      }
+    },
+    "attachments": {
+      "actions": {
+        "menuAriaLabel": "{{name}} 첨부 파일 작업",
+        "showInFolder": "폴더에서 보기",
+        "copy": "복사",
+        "saveAs": "다른 이름으로 저장...",
+        "openWith": "연결 프로그램",
+        "defaultApp": "기본 앱",
+        "chooseAnotherApp": "다른 앱 선택...",
+        "copyFailed": "이 첨부 파일을 복사할 수 없습니다.",
+        "showInFolderFailed": "이 첨부 파일을 폴더에서 표시할 수 없습니다.",
+        "saveFailed": "이 첨부 파일을 저장할 수 없습니다.",
+        "openWithFailed": "선택한 앱으로 이 첨부 파일을 열 수 없습니다."
+      },
+      "common": {
+        "close": "닫다",
+        "cancel": "취소"
+      },
+      "errors": {
+        "cachedOpenFailed": "캐시된 첨부 파일을 열 수 없습니다.",
+        "unavailable": "이 빌드에서는 첨부 파일을 열 수 없습니다.",
+        "historyUnavailable": "이 첨부파일은 타임라인 기록에서 해당 데이터를 사용할 수 없기 때문에 다시 열 수 없습니다.",
+        "openFailed": "첨부 파일을 열 수 없습니다."
+      },
+      "labels": {
+        "pdfAttachment": "PDF 첨부",
+        "attachedImage": "첨부된 이미지",
+        "attachedFile": "첨부파일"
+      },
+      "image": {
+        "unavailable": "이미지 첨부가 불가능합니다.",
+        "open": "{{label}} 열기",
+        "previewAriaLabel": "이미지 미리보기",
+        "closePreviewAriaLabel": "이미지 미리보기 닫기"
+      },
+      "file": {
+        "openPdfViewer": "뷰어에서 PDF 열기",
+        "openAttachedFile": "첨부파일 열기",
+        "openPdfAttachment": "PDF 첨부파일 열기",
+        "openFileAttachment": "첨부파일 열기",
+        "clickOpenViewer": "뷰어에서 열려면 클릭하세요.",
+        "clickOpenFile": "파일을 열려면 클릭하세요."
+      },
+      "dialogs": {
+        "openFileAriaLabel": "파일 열기 확인",
+        "openPdfTitle": "기본 뷰어에서 PDF를 열까요?",
+        "closeFileOpenAriaLabel": "파일 열기 확인 닫기",
+        "openPdfDescription": "이 파일은 시스템 PDF 응용 프로그램을 사용하여 ADDOM 외부에서 열립니다.",
+        "openPdfConfirm": "PDF 열기"
+      }
+    },
+    "planRequests": {
+      "label": {
+        "memoryReview": "Inject saved context",
+        "artifactReview": "[[canon:artifacts]] 컨텍스트 삽입",
+        "webIngest": "웹사이트 수집",
+        "runRequest": "요청 실행"
+      },
+      "summary": {
+        "from": "#{{value}}에서",
+        "to": "#{{value}}로",
+        "tags": "태그: {{value}}",
+        "sources": "출처: {{value}}",
+        "limit": "{{value}} 제한",
+        "files": "파일: {{value}}",
+        "latestOnly": "최신만",
+        "revisionsPerFile": "개정판/파일: {{value}}",
+        "fromRev": "{{value}} 개정판에서",
+        "toRev": "{{value}}를 개정하려면"
+      }
+    },
+    "toolExecution": {
+      "runningCommandWithCommand": "실행 명령: {{command}}",
+      "runningCommand": "명령 실행 중...",
+      "renameFile": "실행 중: rename_file - {{oldPath}} -> {{newPath}}",
+      "browsingUrl": "검색 중: {{url}}",
+      "browserActionWithAction": "브라우저: {{action}}",
+      "browserAction": "브라우저 작업",
+      "runningToolWithPath": "실행 중: {{toolName}} - {{filePath}}",
+      "runningTool": "실행 중: {{toolName}}",
+      "result": {
+        "browserDenied": "browser_action - 거부됨",
+        "browserFailed": "browser_action - 실패",
+        "browserDone": "browser_action - 완료",
+        "toolDenied": "{{toolName}} - 거부됨",
+        "toolFailed": "{{toolName}} - 실패",
+        "toolDone": "{{toolName}} - 완료"
+      }
+    },
+    "mcpElicitation": {
+      "sendFailed": "이 응답을 보낼 수 없습니다."
+    },
+    "diff": {
+      "addedLine": "추가된 줄",
+      "removedLine": "삭제된 줄"
+    },
+    "providerTerms": {
+      "providerFallback": "이 제공자",
+      "title": "{{providerName}} 사용 전",
+      "lead": "이 제공자의 약관에 대한 책임은 사용자에게 있습니다. 프롬프트와 도구 활동이 이 기기를 떠날 수 있습니다.",
+      "cancel": "취소",
+      "openTerms": "약관 열기",
+      "continue": "계속"
+    }
+  },
+  "toolApprovalOverlay": {
+    "header": {
+      "title": "AI는 다음을 원합니다.",
+      "reviewFileChanges": "제안된 파일 변경 사항을 검토한 후 승인 또는 거부",
+      "reviewDiff": "아래 차이점을 검토한 후 승인 또는 거부하세요.",
+      "approveFilesystem": "파일 시스템에서 이 작업을 허용하려면 승인하세요.",
+      "expiresIn": "{{time}}에 만료됨"
+    },
+    "footer": {
+      "expired": "Approval expired",
+      "enterDisabled": "승격된 승인을 위해 단축키 입력이 비활성화되었습니다.",
+      "shortcuts": "단축키: 허용 입력, Esc 거부",
+      "submitting": "Submitting approval..."
+    },
+    "actions": {
+      "deny": "거부(Esc)",
+      "allowForSession": "세션 허용",
+      "allowForSessionTitle": "지원되는 경우 현재 앱 세션에 대해 이 승인을 허용하고 기억합니다.",
+      "openGuardrails": "Open Guardrails settings",
+      "openGuardrailsTitle": "Cancel this approval and open Guardrails settings",
+      "allowHostFallback": "호스트 대체 허용",
+      "allowHostFallbackTitle": "호스트 대체 허용(원샷)",
+      "allowHostFullAccessThisTurn": "호스트 전체 액세스 허용(이번 차례)",
+      "allowHostFullAccessThisTurnTitle": "이번 턴의 나머지 기간 동안 호스트의 전체 액세스를 허용합니다.",
+      "allowHostFullAccess": "호스트 전체 액세스 허용",
+      "allowHostFullAccessTitle": "호스트 전체 액세스 허용(원샷)",
+      "allowWslCompatibility": "WSL 호환성 실행 허용",
+      "allowWslCompatibilityTitle": "일회성 WSL 호환성 실행 허용",
+      "allowDisabledWslTitle": "이 명령에 대해 명시적인 WSL 호환성 승인을 사용하십시오.",
+      "allowDisabledHostTitle": "이 명령에 대해 명시적인 호스트 전체 액세스 작업을 사용하십시오.",
+      "allowTitle": "허용(입력)",
+      "allowDisabled": "허용(비활성화)",
+      "allowCaution": "허용(주의)",
+      "allow": "허용하다"
+    },
+    "review": {
+      "grantedRoot": "부여된 루트",
+      "empty": "이 승인 요청에는 파일 변경 사항이 포함되지 않았습니다.",
+      "file": "파일",
+      "unknownPath": "(알 수 없는 경로)",
+      "noDiff": "이 파일 변경에 대한 차이점은 제공되지 않았습니다."
+    },
+    "policy": {
+      "runCommandTitle": "명령 정책 실행",
+      "browserActionTitle": "브라우저 작업 정책",
+      "warnings": "경고",
+      "hints": "힌트",
+      "explicitHostElevation": "명시적인 호스트 권한 상승 필요",
+      "explicitHostElevationDescription": "이 명령은 `workspace_safe` 정책을 초과합니다. 계속 진행하려면 전용 원샷 host_full_access 작업을 사용하세요.",
+      "explicitWslApproval": "명시적인 WSL 호환성 승인 필요",
+      "explicitWslApprovalDescription": "WSL는 보안 경계가 아닙니다. 이 승인은 포함된 sandbox가 아닌 호스트 파일 시스템 연결 가능성과의 호환성 실행을 인정합니다."
+    },
+    "diff": {
+      "file": "파일",
+      "newFile": "새 파일",
+      "noChanges": "변경사항이 감지되지 않았습니다."
+    },
+    "risk": {
+      "readOnly": "읽기 전용",
+      "writesFile": "파일을 씁니다.",
+      "runsCode": "코드 실행"
+    },
+    "intent": {
+      "runCommand": "Run command",
+      "localShell": "Run local shell command",
+      "openTerminal": "Open terminal",
+      "useTerminal": "Use terminal",
+      "useBrowser": "Use browser",
+      "reviewFileChanges": "Review file changes",
+      "createDirectory": "Create directory",
+      "scopeSandboxUnavailable": "Sandbox unavailable; host fallback is available.",
+      "scopeInstallSandbox": "Runs in the install sandbox.",
+      "scopeHostAccess": "Requires host access.",
+      "scopeWorkspaceShell": "Runs in the workspace shell.",
+      "scopeBrowserTarget": "Target: {{target}}",
+      "scopeTerminalHostPath": "Opens against a host path.",
+      "scopeWorkingDirectory": "Working directory: {{cwd}}",
+      "warningExplicitHost": "This needs an explicit host access decision.",
+      "warningExplicitWsl": "WSL can reach host files. Use the explicit WSL action only if that is intended.",
+      "warningSandboxFallback": "The sandbox route is unavailable. Host fallback is a one-time exception.",
+      "warningPrivateNetwork": "This targets a local or private network address.",
+      "warningTerminalOutsideWorkspace": "This terminal opens outside the workspace."
+    },
+    "production": {
+      "deny": "Deny",
+      "allowForSession": "Allow for session",
+      "openGuardrails": "Settings",
+      "allowHostFallback": "Host fallback",
+      "allowHostFullAccessThisTurn": "Host this turn",
+      "allowHostFullAccess": "Host once",
+      "allowWslCompatibility": "WSL once",
+      "allowDisabled": "Choose explicit action",
+      "allowCaution": "Allow",
+      "allow": "Allow",
+      "explicitActionRequired": "Use an explicit approval action for this request.",
+      "browserRisk": "External action",
+      "reviewRisk": "Review",
+      "details": "Details",
+      "requestData": "Request data"
+    },
+    "productionPolicy": {
+      "command": "Command policy",
+      "browser": "Browser policy",
+      "terminal": "Terminal policy",
+      "hostAccessRequired": "Host access required",
+      "hostAccessDescription": "Use an explicit host action if this should run outside workspace-safe limits.",
+      "wslCompatibility": "WSL compatibility",
+      "wslDescription": "WSL can reach host files. Use the WSL action only when that is intended.",
+      "notes": "Notes"
+    }
+  },
+  "common": {
+    "close": "닫다",
+    "clear": "분명한",
+    "clearAll": "모두 지우기",
+    "cancel": "취소"
+  },
+  "settingsInstructions": {
+    "title": "ADDOM 사용",
+    "updated": "마지막 업데이트 {{date}}",
+    "description": "현재 ADDOM 동작, 안전 기본값 및 재교육이 필요할 때 확인할 수 있는 위치에 대한 간결한 가이드입니다.",
+    "sections": {
+      "chat-modes": {
+        "title": "Chat 모드",
+        "items": {
+          "0": "`[[canon:execute]]`를 사용하면 ADDOM가 선택한 [[canon:permission_mode]](`[[canon:ask]]`, `[[canon:autonomy]]` 또는 `[[canon:full_access]]`)에서 활성화된 도구를 사용할 수 있습니다.",
+          "1": "`[[canon:plan]]`는 도구 없이 회전을 유지하고 옵션, 질문 및 다음 단계에 중점을 둡니다.",
+          "2": "`[[canon:thinking]]`는 도구 실행 없이 브레인스토밍과 절충을 위한 것입니다.",
+          "3": "`[[canon:implement_plan]]`를 선택하면 보내기 전에 chat가 다시 `[[canon:execute]]`로 전환됩니다."
+        }
+      },
+      "tool-approvals": {
+        "title": "도구 승인",
+        "items": {
+          "0": "`[[canon:ask]]`는 위험한 작업 전에 프롬프트를 표시하고, `[[canon:autonomy]]`는 루틴 프롬프트를 억제하며, `[[canon:full_access]]`는 차례에 대한 호스트 수준 도구 실행을 허용합니다.",
+          "1": "`[[canon:full_access]]`에서도 파괴적인 명령 차단 목록은 여전히 ​​위험한 호스트 작업에 적용됩니다.",
+          "2": "명령 요청은 실행되기 전에 명령 안전 정책과 비교하여 확인됩니다.",
+          "3": "백그라운드 명령은 `[[canon:background_jobs]]`에 나타나며 여기서 이를 검사하거나 중지할 수 있습니다."
+        }
+      },
+      "memory": {
+        "title": "Memory 동작",
+        "items": {
+          "0": "프로젝트 memory는 메모, 요약 및 자동 로그된 컨텍스트를 SQLite에 로컬로 저장합니다.",
+          "1": "오래된 자동 로그는 설정에서 설정한 임계값 이후에 압축될 수 있습니다.",
+          "2": "압축된 항목은 삭제되지 않고 보관되며 계속 검토할 수 있습니다.",
+          "3": "Memory 활동은 chat 및 Memory 패널에서 볼 수 있습니다."
+        }
+      },
+      "continuity": {
+        "title": "[[canon:continuity_engine]]",
+        "items": {
+          "0": "연속성은 목표, 결정, 열린 루프, 오류 및 파일 참조를 차례대로 추적합니다.",
+          "1": "검색 범위는 기본적으로 `thread + project`로 설정되어 있으며 설정에서 조정할 수 있습니다.",
+          "2": "`economy`, `balanced` 및 `deep`와 같은 프로파일은 연속성이 주입되는 정도를 제어합니다.",
+          "3": "검색, 패킷 작성 또는 압축이 실행될 때 연속성 이벤트가 타임라인에 나타납니다.",
+          "4": "드리프트 검사는 새로운 방향이 확립된 맥락과 충돌하는 것처럼 보일 때 경고할 수 있습니다."
+        }
+      },
+      "artifacts": {
+        "title": "[[canon:artifacts]] 동작",
+        "items": {
+          "0": "승인된 각 AI 파일 쓰기는 해당 파일에 대한 아티팩트 개정을 생성합니다.",
+          "1": "[[canon:artifacts]]는 차이점 검토, 롤백/적용 및 개정 메타데이터를 지원합니다.",
+          "2": "아티팩트 컨텍스트에는 최신 버전뿐만 아니라 제한된 개정 내역도 포함될 수 있습니다."
+        }
+      },
+      "workspace": {
+        "title": "[[canon:workspace]] 지속성",
+        "items": {
+          "0": "프로젝트, threads 및 타임라인 이벤트는 SQLite에서 로컬로 유지됩니다.",
+          "1": "provider 또는 model를 전환하면 활성 thread가 유지되고 컨텍스트 부트스트랩 작업을 제공할 수 있습니다.",
+          "2": "재설정 제어는 thread 수준, 프로젝트 수준 및 전체 workspace 지우기를 지원합니다."
+        }
+      },
+      "commands": {
+        "title": "[[canon:background_jobs]]",
+        "items": {
+          "0": "개발 서버, 감시자 및 분리된 OpenAI 응답과 같은 장기 실행 작업은 chat가 계속될 수 있도록 백그라운드에서 실행될 수 있습니다.",
+          "1": "`[[canon:background_jobs]]`를 사용하여 출력을 검사하고, 작업을 중지하고, 백그라운드 활동을 검토하세요.",
+          "2": "지속되는 명령 출력은 타임라인의 응답성을 유지하기 위해 잘립니다."
+        }
+      },
+      "command-palette": {
+        "title": "[[canon:command_palette]]",
+        "items": {
+          "0": "ADDOM 전체에서 작업을 검색하려면 `Ctrl+Shift+P`로 전역 `[[canon:command_palette]]`를 엽니다.",
+          "1": "탐색하려면 `Up` 및 `Down`를 사용하고, 실행하려면 `Enter`를, 닫으려면 `Esc`를 사용하세요.",
+          "2": "명령은 `switch project`, `autofix` 또는 `outline`와 같은 제목과 별칭으로 검색할 수 있습니다.",
+          "3": "비활성화된 명령은 활성 thread가 없거나 열려 있는 편집기 탭이 없는 등의 이유로 계속 표시됩니다.",
+          "4": "더 빠른 반복 작업 흐름을 위해 검색이 비어 있으면 최근 명령이 표시됩니다."
+        }
+      },
+      "streaming-responses": {
+        "title": "스트리밍 응답",
+        "items": {
+          "0": "보조자 응답은 전체 회전이 완료될 때까지 기다리지 않고 응답 청크로 chat로 스트리밍됩니다.",
+          "1": "청크 크기와 케이던스는 provider 및 model에 따라 달라지며 정확한 tokenizer 단위는 아닙니다.",
+          "2": "ADDOM는 실시간 진행 상황을 유지하면서 깜박임을 줄이기 위해 UI에서 청크 전달을 원활하게 합니다.",
+          "3": "추론 텍스트는 provider가 노출할 때만 나타납니다. ADDOM는 숨겨진 사고방식을 조작하지 않습니다."
+        }
+      },
+      "runbook": {
+        "title": "[[canon:runbook]] 투명도를 켜십시오",
+        "items": {
+          "0": "각 model 턴은 시간순 작업과 함께 chat의 축소된 `Turn [[canon:runbook]]`로 그룹화됩니다.",
+          "1": "[[canon:runbook]]에는 승인, 명령 단계, 파일 변경, 사용 업데이트 및 회전 상태가 포함됩니다.",
+          "2": "파일 쓰기를 통한 회전에는 파일당 +/- 개수, 미리 보기 및 검토 작업이 포함된 `Files changed` 카드가 표시됩니다.",
+          "3": "실행 취소 작업에는 안전하지 않은 되돌리기를 방지하기 위한 `Changed since this turn`와 같은 충돌 보호 기능이 포함됩니다.",
+          "4": "UI에 표시되는 추론 텍스트는 provider 전용입니다. ADDOM는 숨겨진 사고방식을 결코 조작하지 않습니다."
+        }
+      },
+      "moa": {
+        "title": "[[canon:moa]] 모드",
+        "items": {
+          "0": "`[[canon:moa]]`는 오케스트레이터가 최종 권한을 유지하는 동안 병렬 에이전트 작업을 위임합니다.",
+          "1": "상담원 역할은 설정에서 구성되며 템플릿을 편집 가능한 시작점으로 사용할 수 있습니다.",
+          "2": "위임은 작업 한도, 시간 초과, token 예산 및 출력 잘림과 같은 제한을 적용합니다.",
+          "3": "예산 경고는 비용이 많이 드는 위임이 진행되기 전에 명시적인 선택을 요구할 수 있습니다.",
+          "4": "에이전트 파일 쓰기는 선택 사항이며 기본적으로 비활성화되어 있으며 staged는 직접 디스크 쓰기가 아닌 아티팩트 제안으로 사용됩니다.",
+          "5": "오케스트레이터만이 명시적 적용 작업을 통해 staged 에이전트 개정을 마무리할 수 있습니다.",
+          "6": "[[canon:moa]] 수명주기 이벤트는 [[canon:runbook]] 및 [[canon:moa]] 패널 모두에서 볼 수 있습니다.",
+          "7": "[[canon:moa]]는 단일 에이전트 전환보다 훨씬 더 많은 tokens를 소비할 수 있으므로 정책 및 사용량 지표를 모니터링하세요."
+        }
+      }
+    }
+  },
+  "commandPalette": {
+    "searchPlaceholder": "명령을 입력하거나 검색하세요...",
+    "results": {
+      "commands": "명령",
+      "recentAndCommands": "최근 + 명령",
+      "shown": "{{count}} 표시됨"
+    },
+    "filters": {
+      "all": "모두",
+      "recent": "최근의",
+      "filterByCategory": "{{label}}로 명령 필터링"
+    },
+    "categories": {
+      "ariaLabel": "명령 카테고리",
+      "navigation": "항해",
+      "chat": "Chat",
+      "editor": "편집자",
+      "memory": "Memory",
+      "terminal": "Terminal"
+    },
+    "empty": {
+      "title": "검색어와 일치하는 명령이 없습니다.",
+      "description": "다른 키워드나 별칭을 사용해 보세요."
+    },
+    "hint": {
+      "enter": "입력하다"
+    },
+    "reasons": {
+      "open_a_project_first": "먼저 프로젝트를 엽니다.",
+      "no_active_thread": "활성 thread 없음",
+      "thread_has_no_messages_yet": "[[canon:thread]]에는 아직 메시지가 없습니다",
+      "open_select_a_thread_first": "먼저 thread 열기/선택",
+      "direct_agents_are_only_available_in_execute_mode": "에이전트는 [[canon:execute]] 모드에서만 사용할 수 있습니다.",
+      "enable_moa_first": "먼저 [[canon:moa]]를 활성화하세요.",
+      "wait_for_the_current_response_to_finish": "현재 응답이 완료될 때까지 기다립니다.",
+      "provider_model_switch_context_banner_is_not_active": "Provider/model 스위치 컨텍스트 배너가 활성 상태가 아닙니다.",
+      "open_a_file_in_editor_first": "먼저 Editor에서 파일을 엽니다.",
+      "open_a_markdown_file_in_editor_first": "먼저 편집기에서 Markdown 파일을 엽니다.",
+      "open_the_editor_and_select_code_first": "편집기를 열고 먼저 코드를 선택하세요.",
+      "formatting_is_unavailable_for_the_current_file": "현재 파일에는 서식을 지정할 수 없습니다.",
+      "code_actions_are_unavailable_for_the_current_file": "현재 파일에는 코드 작업을 사용할 수 없습니다.",
+      "no_terminal_session_selected": "No terminal session selected",
+      "terminal_session_is_not_running": "Terminal session is not running",
+      "terminal_is_already_controlled_by_you": "Terminal is already controlled by you",
+      "terminal_is_already_controlled_by_ai": "Terminal is already controlled by AI",
+      "terminal_is_not_controlled_by_you": "Terminal is not controlled by you",
+      "terminal_is_not_controlled_by_ai": "Terminal is not controlled by AI",
+      "terminal_cannot_be_interrupted": "Terminal cannot be interrupted",
+      "terminal_cannot_be_closed": "Terminal cannot be closed",
+      "terminal_cannot_be_terminated": "Terminal cannot be terminated",
+      "no_terminal_dock_open": "No terminal dock open"
+    },
+    "commands": {
+      "nav": {
+        "chat": {
+          "title": "Chat로 이동"
+        },
+        "editor": {
+          "title": "편집자로 이동"
+        },
+        "artifacts": {
+          "title": "[[canon:artifacts]]로 이동"
+        },
+        "memory": {
+          "title": "Memory로 이동"
+        },
+        "settings": {
+          "title": "설정으로 이동"
+        },
+        "openProjectFolder": {
+          "title": "프로젝트 폴더 열기"
+        },
+        "sidebar": {
+          "toggle": {
+            "expandTitle": "사이드바 확장",
+            "collapseTitle": "사이드바 접기"
+          }
+        },
+        "projectEntry": {
+          "title": "Open Projects"
+        }
+      },
+      "chat": {
+        "thread": {
+          "new": {
+            "title": "새로운 Thread"
+          },
+          "rename": {
+            "title": "현재 Thread 이름 바꾸기"
+          },
+          "delete": {
+            "title": "현재 Thread 삭제"
+          },
+          "clear": {
+            "title": "현재 대화 지우기"
+          }
+        },
+        "focusComposer": {
+          "title": "포커스 Chat 작곡가"
+        },
+        "jumpToLatest": {
+          "title": "최신 메시지로 이동"
+        },
+        "openThreadSelector": {
+          "title": "Thread 선택기 열기"
+        },
+        "openBackgroundJobs": {
+          "title": "[[canon:background_jobs]] 열기"
+        },
+        "openDirectAgents": {
+          "title": "직접 상담원 메뉴 열기"
+        },
+        "toggleMoa": {
+          "title": "[[canon:moa]] 모드 전환"
+        },
+        "inject": {
+          "memory": {
+            "title": "Memory를 Chat에 주입"
+          },
+          "artifacts": {
+            "title": "[[canon:artifacts]]를 Chat에 주입"
+          },
+          "both": {
+            "title": "Memory + [[canon:artifacts]] 주입"
+          }
+        }
+      },
+      "editor": {
+        "formatDocument": {
+          "title": "문서 형식"
+        },
+        "fixAutofixable": {
+          "title": "Auto로 수정 가능한 문제 수정"
+        },
+        "toggleProblemsPanel": {
+          "title": "Toggle 문제 패널"
+        },
+        "toggleOutlinePanel": {
+          "title": "개요 패널 전환"
+        },
+        "markdownPreview": {
+          "toggle": {
+            "title": "Markdown: 미리보기 전환"
+          },
+          "open": {
+            "title": "Markdown: 측면으로 미리보기 열기"
+          }
+        },
+        "aiSelection": {
+          "explain": {
+            "title": "선택에 대한 AI: 설명"
+          },
+          "fix": {
+            "title": "선택 시 AI: 수정"
+          },
+          "refactor": {
+            "title": "선택에 대한 AI: 리팩터링"
+          },
+          "tests": {
+            "title": "선택에 대한 AI: 테스트 생성"
+          }
+        }
+      },
+      "memory": {
+        "exportProjectJson": {
+          "title": "프로젝트 컨텍스트 내보내기 JSON",
+          "alerts": {
+            "failedTitle": "내보내기 실패",
+            "failedMessage": "컨텍스트 JSON를 내보내지 못했습니다: {{error}}",
+            "completedTitle": "내보내기 완료",
+            "completedMessage": "내보낸 컨텍스트 JSON.\n\n파일: {{filePath}}\nMemory 노드: {{memoryNodeCount}}\n아티팩트 파일: {{artifactFileCount}}\n유물 개정: {{artifactRevisionCount}}"
+          }
+        },
+        "openPanel": {
+          "title": "Open notes panel"
+        }
+      },
+      "terminal": {
+        "focus": {
+          "title": "Focus Terminal"
+        },
+        "new": {
+          "title": "New Terminal"
+        },
+        "browseSessions": {
+          "title": "Browse Terminal Sessions"
+        },
+        "takeOver": {
+          "title": "Take Over Terminal"
+        },
+        "handBack": {
+          "title": "Hand Back Terminal to AI"
+        },
+        "interrupt": {
+          "title": "Interrupt Terminal"
+        },
+        "close": {
+          "title": "Close Terminal Session"
+        },
+        "hide": {
+          "title": "Hide Terminal Dock"
+        }
+      }
+    }
+  },
+  "executionStream": {
+    "showEarlier": "{{count}} 이전 이벤트 표시{{suffix}}",
+    "thought": {
+      "verb": "추론함",
+      "briefly": "짧게",
+      "show": "추론 표시",
+      "hide": "추론 숨기기"
+    },
+    "transport": {
+      "startingTurn": "차례 시작"
+    },
+    "compaction": {
+      "requested": "컨텍스트 압축 중...",
+      "running": "컨텍스트 압축 중...",
+      "applied": "OpenAI 압축 적용",
+      "failed": "OpenAI 압축 실패",
+      "milestoneTitle": "다음 턴 전에 컨텍스트가 압축됨",
+      "milestoneDetail": {
+        "codexThreadCompaction": "Codex 계정 thread 압축",
+        "providerServerSide": "OpenAI 서버 측 압축",
+        "manualServerSide": "OpenAI 수동 서버 측 압축"
+      }
+    },
+    "progress": {
+      "navigate": "탐색",
+      "click": "클릭 요소",
+      "type": "텍스트 입력",
+      "select": "옵션 선택",
+      "screenshot": "스크린샷 캡처 중",
+      "runningTool": "{{toolName}} 실행",
+      "working": "일하고 있는",
+      "terminalOpen": "Opening terminal",
+      "terminalOpenNamed": "Opening {{terminalLabel}}",
+      "terminalRead": "Reading terminal output",
+      "terminalReadNamed": "Reading output from {{terminalLabel}}",
+      "terminalAttach": "Reusing terminal session",
+      "terminalWrite": "Writing to terminal",
+      "terminalWriteNamed": "Writing to {{terminalLabel}}",
+      "terminalWait": "Waiting for terminal output",
+      "terminalWaitNamed": "Waiting for output from {{terminalLabel}}",
+      "terminalResize": "Resizing terminal session",
+      "terminalResizeNamed": "Resizing {{terminalLabel}}",
+      "terminalSignal": "Signaling terminal session",
+      "terminalSignalNamed": "Signaling {{terminalLabel}}",
+      "terminalClose": "Closing terminal session",
+      "terminalCloseNamed": "Closing {{terminalLabel}}"
+    },
+    "result": {
+      "listDirectory": "상장된 {{countPrefix}}in {{pathLabel}}",
+      "createDirectory": "{{pathLabel}} 폴더를 생성했습니다.",
+      "writeFile": "{{pathLabel}}를 작성함",
+      "editFile": "업데이트된 {{pathLabel}}",
+      "readFile": "{{pathLabel}} 읽기",
+      "deleteFile": "{{pathLabel}}를 삭제했습니다.",
+      "rollbackFile": "롤백된 {{pathLabel}}",
+      "renameFile": "{{oldPath}}에서 {{newPath}}로 이름 변경",
+      "searchCode": "{{searchPath}}에서 \"{{query}}\"에 대한 {{countPrefix}}를 찾았습니다.",
+      "grepFile": "{{pathLabel}}에서 \"{{pattern}}\"에 대한 일치 항목을 찾았습니다.",
+      "findFiles": "\"{{pattern}}\"에 대한 일치 항목을 찾았습니다.",
+      "fetchPage": "{{hostLabel}}를 가져왔습니다.",
+      "navigate": "탐색 완료",
+      "click": "클릭완료",
+      "type": "입력 완료",
+      "select": "선택 완료",
+      "screenshot": "스크린샷이 캡처되었습니다.",
+      "browserAction": "브라우저 작업 완료",
+      "gitStatusFailed": "Git 상태 실패",
+      "gitStatusDone": "Git 상태 완료",
+      "gitDiffFailed": "Git 비교 실패",
+      "gitDiffReady": "Git 비교 준비 완료",
+      "gitLogFailed": "Git 로그 실패",
+      "gitLogReady": "Git 기록 로드됨",
+      "gitCommitFailed": "Commit 실패",
+      "gitCommitCreated": "Commit가 생성되었습니다.",
+      "restoreFile": "{{refValue}}에서 복원된 {{pathLabel}}",
+      "commandDone": "{{commandScope}}에서 명령이 완료되었습니다.",
+      "commandFailed": "{{commandScope}}에서 명령이 실패했습니다.",
+      "commandDenied": "{{commandScope}}에서 명령이 거부되었습니다.",
+      "revisionApplyFailed": "버전 적용 실패",
+      "revisionApplied": "개정이 적용되었습니다.",
+      "planUpdated": "계획 업데이트됨",
+      "planUpdatedBatch": "계획 업데이트됨 (변경 {{count}}개)",
+      "genericToolResult": "{{toolName}} {{verb}}",
+      "actionFinished": "작업 완료",
+      "ranCommand": "실행 명령",
+      "terminalOpen": "Opened terminal",
+      "terminalOpenNamed": "Opened {{terminalLabel}}",
+      "terminalRead": "Read terminal output",
+      "terminalReadNamed": "Read output from {{terminalLabel}}",
+      "terminalAttach": "Reused terminal session in chat terminal dock",
+      "terminalAttachNamed": "Reused {{terminalLabel}} in chat terminal dock",
+      "terminalWrite": "Wrote to terminal",
+      "terminalWriteNamed": "Wrote to {{terminalLabel}}",
+      "terminalWait": "Waited for terminal output",
+      "terminalWaitNamed": "Waited for output in {{terminalLabel}}",
+      "terminalWaitMatched": "Matched expected terminal output",
+      "terminalWaitMatchedNamed": "Matched expected output in {{terminalLabel}}",
+      "terminalWaitTimedOut": "Timed out waiting for terminal output",
+      "terminalWaitTimedOutNamed": "Timed out waiting for {{terminalLabel}}",
+      "terminalResize": "Terminal session resized",
+      "terminalResizeNamed": "Resized {{terminalLabel}}",
+      "terminalSignal": "Terminal session signaled",
+      "terminalSignalNamed": "Signaled {{terminalLabel}}",
+      "terminalClose": "Closed terminal",
+      "terminalCloseNamed": "Closed {{terminalLabel}}"
+    },
+    "warning": {
+      "compactionFailed": "컨텍스트 압축 실패",
+      "generic": "경고"
+    },
+    "error": {
+      "toolFailed": "{{toolName}} 실패",
+      "actionFailed": "작업 실패"
+    },
+    "header": {
+      "title": "실행 스트림",
+      "show": "실시간 실행 스트림 표시",
+      "hide": "실시간 실행 스트림 숨기기",
+      "awaitingFirstEvent": "첫 번째 이벤트를 기다리고 있습니다",
+      "eventCount": "{{count}} 이벤트{{suffix}}",
+      "hiddenSummary": "최신 {{visibleItemCount}} 이벤트를 표시합니다. {{hiddenItemCount}} 이전 이벤트{{eventSuffix}}가 숨겨졌습니다.",
+      "hiddenSummaryPinned": "최신 {{visibleTailItemCount}} 이벤트와 {{pinnedArchiveCount}}를 표시하면 이전 추론 블록{{archiveSuffix}}가 축소되었습니다. {{hiddenItemCount}} 이전 이벤트{{eventSuffix}}가 숨겨졌습니다.",
+      "status": {
+        "failed": "실패한",
+        "completed": "완전한",
+        "started": "시작했다",
+        "generic": "{{status}}"
+      }
+    },
+    "output": {
+      "openCopyOptions": "복사 옵션 열기",
+      "copyCommand": "복사 명령",
+      "copyVisibleOutput": "보이는 출력 복사",
+      "copyPersistedPreview": "지속형 미리보기 복사",
+      "commandOutput": "명령 출력",
+      "showCommandOutput": "명령 출력 표시",
+      "hideCommandOutput": "명령 출력 숨기기",
+      "truncated": "잘린 출력"
+    },
+    "bridge": {
+      "native": {
+        "activity": "Codex 앱 서버 활동",
+        "webSearch": "Codex 앱 서버 웹 검색",
+        "command": "Codex 앱 서버 명령: {{commandName}}",
+        "fileChangeOne": "Codex 앱 서버 파일 변경",
+        "fileChangeOther": "Codex 앱 서버 파일 변경",
+        "mcpTool": "Codex 앱 서버 MCP 도구: {{toolName}}",
+        "imageView": "Codex 앱 서버 이미지 보기",
+        "planGenerated": "Codex 앱 서버 계획이 생성되었습니다.",
+        "reviewMode": "Codex 검토 모드 활동"
+      },
+      "source": {
+        "urlTitle": "출처: {{title}}",
+        "urlCaptured": "캡처된 소스 URL",
+        "documentTitle": "원본 문서: {{title}}",
+        "documentCaptured": "캡처된 원본 문서"
+      },
+      "providerTool": {
+        "modelRerouted": "모델이 다시 라우팅됨",
+        "configWarning": "구성 경고",
+        "hook": "훅",
+        "autoApprovalReview": "자동 승인 검토",
+        "providerError": "공급자 오류",
+        "input": "Provider 공구 입력: {{toolName}}",
+        "running": "Provider 도구 실행 중: {{toolName}}",
+        "collectingInput": "provider 공구 입력 수집 중...",
+        "imageGenerated": "OpenAI provider 도구로 생성된 이미지.",
+        "output": "Provider 도구 출력: {{toolName}}"
+      },
+      "continuity": {
+        "responseTracked": "OpenAI 응답 추적됨: {{responseId}}",
+        "metadataReceived": "OpenAI 응답 메타데이터 수신됨"
+      },
+      "websocket": {
+        "transportUpdate": "OpenAI WebSocket 전송 업데이트",
+        "reconnecting": "다시 연결하는 중... {{attempt}}/{{maxAttempts}}",
+        "recoveringStoredResponse": "저장된 상태에서 최종 응답 복구",
+        "recoveredStoredResponse": "저장된 상태에서 최종 응답을 복구했습니다.",
+        "storedRecoveryFailed": "저장 응답 복구 실패",
+        "recovered": "재시도 후 재접속됨 {{attempt}}/{{maxAttempts}}",
+        "bypassed": "이번 차례에는 표준 OpenAI 전송을 사용합니다.",
+        "fallback": "표준 OpenAI 스트림으로 대체",
+        "exhausted": "소진된 경우 다시 연결({{attempt}}/{{maxAttempts}})",
+        "cancelled": "재연결이 취소됨({{attempt}}/{{maxAttempts}})"
+      },
+      "background": {
+        "queued": "OpenAI 백그라운드 응답이 대기 중입니다.",
+        "completed": "OpenAI 백그라운드 응답 완료",
+        "failed": "OpenAI 백그라운드 응답이 실패했습니다.",
+        "cancelled": "OpenAI 백그라운드 응답이 취소되었습니다.",
+        "noteQueued": "OpenAI 백그라운드 응답이 대기 중입니다. 작업을 열어 진행 상황을 모니터링하거나 중지하세요.",
+        "noTextOutput": "OpenAI 백그라운드 응답이 텍스트 출력 없이 완료되었습니다.",
+        "errorPrefix": "오류: {{message}}"
+      }
+    }
+  },
+  "memoryPanel": {
+    "title": "Memory",
+    "visibleCount": {
+      "eventOne": "{{count}} 이벤트",
+      "eventOther": "{{count}} 이벤트",
+      "nodeOne": "{{count}} 노드",
+      "nodeOther": "{{count}} 노드"
+    },
+    "controls": {
+      "showArchived": "보관된 항목 표시",
+      "includeGlobal": "전역 포함",
+      "exportJsonTitle": "memory 로그 및 artifacts를 JSON로 내보내기",
+      "exporting": "내보내는 중...",
+      "exportJson": "JSON 내보내기",
+      "addNode": "Node 추가"
+    },
+    "tabs": {
+      "memory": "내구성이 뛰어난 Memory",
+      "history": "[[canon:thread_history]]"
+    },
+    "export": {
+      "completedTitle": "내보내기 완료",
+      "completedMessage": "내보낸 컨텍스트 JSON.\n\n파일: {{filePath}}\nMemory 노드: {{memoryNodeCount}}\n아티팩트 파일: {{artifactFileCount}}\n유물 개정: {{artifactRevisionCount}}",
+      "failedTitle": "내보내기 실패",
+      "failedMessage": "컨텍스트 JSON를 내보내지 못했습니다: {{message}}"
+    },
+    "search": {
+      "placeholder": "memory 검색...",
+      "searching": "수색...",
+      "resultOne": "{{count}} 결과",
+      "resultOther": "{{count}} 결과"
+    },
+    "compression": {
+      "latestBatchTitle": "최신 압축 배치",
+      "summary": "#{{rangeStart}}부터 #{{rangeEnd}}까지의 로그를 요약 노드({{archivedCount}} 보관됨)로 압축했습니다.",
+      "jumpToSummary": "요약으로 이동",
+      "dismiss": "해고하다"
+    },
+    "loading": {
+      "memory": "memory 로드 중...",
+      "threadHistory": "thread 기록 로드 중..."
+    },
+    "sections": {
+      "pinned": "고정됨",
+      "allNodes": "모든 Memory 노드"
+    },
+    "embedder": {
+      "downloading": "model {{progress}}% 다운로드 중",
+      "loading": "model 로드 중...",
+      "unavailable": "삽입할 수 없음"
+    },
+    "source": {
+      "userMemory": "사용자 memory",
+      "workspaceEvent": "Workspace 이벤트",
+      "terminalSummary": "Terminal 요약",
+      "validatedDecision": "검증된 결정",
+      "referenceNote": "참고사항"
+    },
+    "provenance": {
+      "ariaLabel": "Memory 출처",
+      "origin": "기원",
+      "terminalSession": "승인된 terminal 요약",
+      "session": "세션",
+      "thread": "Thread",
+      "saved": "저장됨"
+    },
+    "badges": {
+      "global": "글로벌",
+      "archived": "보관된",
+      "deletedThread": "삭제된 스레드"
+    },
+    "meta": {
+      "deletedThreadOrigin": "{{threadTitle}} · {{time}}에 삭제"
+    },
+    "actions": {
+      "unpin": "고정 해제",
+      "pin": "핀",
+      "edit": "편집하다",
+      "delete": "삭제",
+      "showLess": "간략히 보기",
+      "showMore": "더 보기",
+      "continue": "계속",
+      "continueDraft": "저장된 컨텍스트에서 계속합니다."
+    },
+    "scoreRef": "{{score}}% 참조",
+    "history": {
+      "userMessage": "사용자 메시지",
+      "assistantMessage": "어시스턴트 메시지",
+      "emptyTitle": "아직 thread 기록이 없습니다",
+      "noActiveThreadTitle": "활성 thread가 선택되지 않았습니다.",
+      "emptyDescription": "이 thread에 대한 사용자 및 보조 기록 이벤트가 여기에 표시됩니다.",
+      "noActiveThreadDescription": "thread를 열거나 생성하여 성적표 기록을 검사하세요."
+    },
+    "addForm": {
+      "title": "새로운 Memory Node 추가",
+      "topicPlaceholder": "주제/제목",
+      "contentPlaceholder": "모든 맥락, 사실, 지침을 적어보세요...",
+      "tagsPlaceholder": "태그(쉼표로 구분)",
+      "saveAsGlobal": "영구 글로벌 memory로 저장",
+      "saving": "절약...",
+      "saveNode": "Node 저장"
+    },
+    "editForm": {
+      "title": "Memory Node 편집",
+      "closeAriaLabel": "memory 노드 편집기 닫기",
+      "topicPlaceholder": "주제",
+      "contentPlaceholder": "콘텐츠",
+      "tagsPlaceholder": "태그(쉼표로 구분)",
+      "saving": "절약...",
+      "saveChanges": "변경 사항 저장"
+    },
+    "empty": {
+      "searchTitle": "일치하는 추억이 없습니다.",
+      "title": "아직 추억이 없습니다",
+      "searchDescription": "모든 memory 노드를 보려면 다른 검색어를 사용하거나 검색을 지우십시오.",
+      "description": "내구성이 뛰어난 memory는 명시적 메모, workspace 이벤트, 승인된 terminal 요약, 검증된 결정 및 참조 메모를 저장합니다. 원시 chat가 이제 대신 thread 기록에 게시됩니다."
+    }
+  },
+  "workspaceRail": {
+    "title": "프로젝트",
+    "ariaLabel": "프로젝트 및 스레드",
+    "show": "프로젝트 및 스레드 표시",
+    "showWithActivityOne": "프로젝트 및 스레드 표시. 숨겨진 스레드 {{count}}개, 최우선 상태: {{activity}}.",
+    "showWithActivityOther": "프로젝트 및 스레드 표시. 숨겨진 스레드 {{count}}개, 최우선 상태: {{activity}}.",
+    "hide": "프로젝트 및 스레드 숨기기",
+    "resize": "프로젝트 및 스레드 크기 조정",
+    "close": "프로젝트 및 스레드 닫기"
+  },
+  "projectEntry": {
+    "browserPreviewLimitation": {
+      "title": "Desktop workspace required",
+      "message": "Opening a project requires the Electron workspace bridge. Use the desktop app or an Electron-backed smoke run for this flow."
+    },
+    "clearProjectHistoryDialog": {
+      "title": "Clear project transcript history",
+      "message": "Clear transcript history for project \"{{name}}\"?\n\nThis does not delete project files.",
+      "confirm": "Clear history",
+      "cancel": "Cancel"
+    },
+    "archiveProjectDialog": {
+      "title": "진행 중인 작업을 중지하고 프로젝트를 보관할까요?",
+      "message": "\"{{name}}\"의 진행 중인 작업을 중지한 후 프로젝트를 보관함으로 이동합니다.",
+      "cancel": "취소"
+    },
+    "removeProjectDialog": {
+      "title": "Remove from ADDOM?",
+      "message": "\"{{name}}\" and all of its ADDOM history, Memory, Artifacts, and recovery data will be removed. Project files are unchanged.",
+      "path": "Folder: {{path}}",
+      "confirm": "Remove from ADDOM",
+      "failureTitle": "Could not remove from ADDOM",
+      "failureMessage": "Nothing was removed from ADDOM. Try again.",
+      "cancel": "Cancel"
+    },
+    "eyebrow": "Workspace",
+    "title": "Open a project",
+    "newProject": "새 프로젝트",
+    "newThreadInProject": "{{name}}에 새 스레드",
+    "openFolder": "Open folder",
+    "projectActions": {
+      "openFolder": "Open folder",
+      "archiveProject": "프로젝트 보관",
+      "clearHistory": "Clear history",
+      "removeProject": "Remove from ADDOM",
+      "ariaLabel": "Project actions for {{name}}",
+      "restoreToRecent": "Restore to Recent"
+    },
+    "archive": {
+      "title": "Archive",
+      "toggle": "Toggle Archive"
+    },
+    "projectDisclosure": {
+      "expand": "Expand {{name}}",
+      "collapse": "Collapse {{name}}"
+    },
+    "recentProjects": {
+      "title": "Recent projects",
+      "description": "Pick up a workspace with its threads and local context.",
+      "projectCount": "{count, plural, other {#개 프로젝트}}",
+      "fallbackProjectName": "Project",
+      "recent": "Recent",
+      "threadCount": "{count, plural, other {# thread}}",
+      "open": "Open"
+    },
+    "empty": {
+      "title": "No recent projects",
+      "description": "Open a folder to start working in the main workspace."
+    },
+    "home": {
+      "placeholder": "작업을 설명하고 시작하세요",
+      "noProject": "프로젝트 없음",
+      "projectMenu": "대상 프로젝트 선택",
+      "start": "작업 시작",
+      "commandsHint": "명령"
+    }
+  },
+  "agents": {
+    "fanoutConfirmation": {
+      "title": "Launch {{count}} agents?",
+      "description": "The orchestrator requested more agents than your {{limit}}-agent confirmation limit.",
+      "stopTurn": "Stop turn",
+      "limit": "Limit to {{count}}",
+      "launch": "Launch {{count}}"
+    }
+  },
+  "agentNavigator": {
+    "title": "에이전트",
+    "close": "에이전트 닫기",
+    "settings": "에이전트 설정",
+    "sectionActive": "진행 중",
+    "sectionDone": "완료 · {{count}}",
+    "emptyActive": "진행 중인 에이전트 없음",
+    "emptyThread": "이 스레드에 에이전트가 없습니다.",
+    "showMore": "{{count}}개 더 보기",
+    "expand": "펼치기",
+    "collapse": "접기",
+    "hidden": "+{{count}}",
+    "partialVisibility": "공급자 관리, 부분 가시성",
+    "age": {
+      "seconds": "{{count}}초",
+      "minutes": "{{count}}분",
+      "hours": "{{count}}시간",
+      "days": "{{count}}일"
+    },
+    "status": {
+      "queued": "대기열",
+      "running": "실행 중",
+      "waiting": "대기 중",
+      "paused": "일시 중지됨",
+      "approval_required": "승인 필요",
+      "cancelling": "취소 중",
+      "completed": "완료됨",
+      "failed": "실패",
+      "cancelled": "취소됨"
+    },
+    "live": {
+      "selected": "{{label}} · {{status}}",
+      "attention": "{{label}} needs attention · {{status}}"
+    }
+  },
+  "agentConversation": {
+    "back": "뒤로",
+    "rootLabel": "스레드",
+    "regionLabel": "에이전트 대화",
+    "loading": "기록을 불러오는 중…",
+    "empty": "아직 기록된 내용이 없습니다.",
+    "loadMore": "활동 더 불러오기",
+    "unavailableTitle": "에이전트를 사용할 수 없음",
+    "unavailableBody": "이 에이전트는 더 이상 실행에 포함되지 않습니다.",
+    "error": "이 에이전트의 기록을 불러오지 못했습니다.",
+    "actions": {
+      "menu": "에이전트 작업",
+      "message": "메시지",
+      "messagePrompt": "이 에이전트에게 메시지 보내기",
+      "messageDescription": "실행 중인 에이전트에게 후속 지시를 보냅니다.",
+      "messagePlaceholder": "간단한 지시 작성…",
+      "cancel": "취소",
+      "send": "보내기",
+      "sending": "보내는 중…",
+      "failure": "에이전트 작업을 완료하지 못했습니다.",
+      "interrupt": "중단",
+      "retry": "다시 시도",
+      "promote": "프로젝트 스레드로 계속"
+    },
+    "origin": {
+      "label": "{{role}}에서 분기 · 턴 {{turn}}",
+      "inspect": "원본 보기",
+      "unavailable": "원본을 사용할 수 없음",
+      "artifacts": "병합되지 않은 원본 아티팩트 {{count}}개",
+      "failure": "원본 에이전트를 열 수 없습니다."
+    }
+  },
+  "agentStream": {
+    "title": "에이전트 · {{count}}",
+    "open": "열기",
+    "delegationEchoSuppressed": "위임이 완료되었습니다. 자세한 내용은 Agents를 여세요."
+  },
+  "agentTrigger": {
+    "idle": "Agents",
+    "active": "Agents · {{count}} active",
+    "approval": "Agents · needs approval",
+    "failed": "Agents · {{count}} failed",
+    "open": "Open Agents",
+    "close": "Close Agents"
+  }
+}

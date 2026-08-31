@@ -1,0 +1,211 @@
+{
+  "providerId": "openai",
+  "onlyInModelsDevCount": 25,
+  "defaultPolicy": "upstream_only_unless_explicit_runtime_or_product_reason",
+  "bucketSummaries": {
+    "free_or_promo": {
+      "count": 0,
+      "ids": []
+    },
+    "preview_or_exp": {
+      "count": 1,
+      "ids": [
+        "o1-preview"
+      ]
+    },
+    "image_or_media": {
+      "count": 0,
+      "ids": []
+    },
+    "provider_family_match": {
+      "count": 0,
+      "ids": []
+    },
+    "other": {
+      "count": 24,
+      "ids": [
+        "codex-mini-latest",
+        "gpt-3.5-turbo",
+        "gpt-4-turbo",
+        "gpt-4.1-nano",
+        "gpt-4",
+        "gpt-4o-2024-05-13",
+        "gpt-4o-2024-08-06",
+        "gpt-4o-2024-11-20",
+        "gpt-4o",
+        "gpt-5-chat-latest",
+        "gpt-5.1-chat-latest",
+        "gpt-5.2-chat-latest",
+        "gpt-5.2-pro",
+        "o1-mini",
+        "o1-pro",
+        "o1",
+        "o3-deep-research",
+        "o3-mini",
+        "o3-pro",
+        "o3",
+        "o4-mini-deep-research",
+        "text-embedding-3-large",
+        "text-embedding-3-small",
+        "text-embedding-ada-002"
+      ]
+    }
+  },
+  "reviewCandidateCount": 25,
+  "suggestedActionSummary": {
+    "keep_upstream_only": 25
+  },
+  "suggestedActions": [
+    {
+      "id": "codex-mini-latest",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "gpt-3.5-turbo",
+      "action": "keep_upstream_only",
+      "reason": "older_model_not_needed",
+      "bucketId": "other"
+    },
+    {
+      "id": "gpt-4",
+      "action": "keep_upstream_only",
+      "reason": "older_model_not_needed",
+      "bucketId": "other"
+    },
+    {
+      "id": "gpt-4-turbo",
+      "action": "keep_upstream_only",
+      "reason": "older_model_not_needed",
+      "bucketId": "other"
+    },
+    {
+      "id": "gpt-4.1-nano",
+      "action": "keep_upstream_only",
+      "reason": "low_value_tier_not_needed",
+      "bucketId": "other"
+    },
+    {
+      "id": "gpt-4o",
+      "action": "keep_upstream_only",
+      "reason": "older_model_not_needed",
+      "bucketId": "other"
+    },
+    {
+      "id": "gpt-4o-2024-05-13",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "gpt-4o-2024-08-06",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "gpt-4o-2024-11-20",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "gpt-5-chat-latest",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "gpt-5.1-chat-latest",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "gpt-5.2-chat-latest",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "gpt-5.2-pro",
+      "action": "keep_upstream_only",
+      "reason": "not_in_current_curated_openai_scope",
+      "bucketId": "other"
+    },
+    {
+      "id": "o1",
+      "action": "keep_upstream_only",
+      "reason": "not_in_current_curated_openai_scope",
+      "bucketId": "other"
+    },
+    {
+      "id": "o1-mini",
+      "action": "keep_upstream_only",
+      "reason": "not_in_current_curated_openai_scope",
+      "bucketId": "other"
+    },
+    {
+      "id": "o1-preview",
+      "action": "keep_upstream_only",
+      "reason": "not_in_current_curated_openai_scope",
+      "bucketId": "preview_or_exp"
+    },
+    {
+      "id": "o1-pro",
+      "action": "keep_upstream_only",
+      "reason": "not_in_current_curated_openai_scope",
+      "bucketId": "other"
+    },
+    {
+      "id": "o3",
+      "action": "keep_upstream_only",
+      "reason": "not_in_current_curated_openai_scope",
+      "bucketId": "other"
+    },
+    {
+      "id": "o3-deep-research",
+      "action": "keep_upstream_only",
+      "reason": "provider_owned_research_surface_not_curated",
+      "bucketId": "other"
+    },
+    {
+      "id": "o3-mini",
+      "action": "keep_upstream_only",
+      "reason": "not_in_current_curated_openai_scope",
+      "bucketId": "other"
+    },
+    {
+      "id": "o3-pro",
+      "action": "keep_upstream_only",
+      "reason": "not_in_current_curated_openai_scope",
+      "bucketId": "other"
+    },
+    {
+      "id": "o4-mini-deep-research",
+      "action": "keep_upstream_only",
+      "reason": "provider_owned_research_surface_not_curated",
+      "bucketId": "other"
+    },
+    {
+      "id": "text-embedding-3-large",
+      "action": "keep_upstream_only",
+      "reason": "embedding_surface_not_curated",
+      "bucketId": "other"
+    },
+    {
+      "id": "text-embedding-3-small",
+      "action": "keep_upstream_only",
+      "reason": "embedding_surface_not_curated",
+      "bucketId": "other"
+    },
+    {
+      "id": "text-embedding-ada-002",
+      "action": "keep_upstream_only",
+      "reason": "embedding_surface_not_curated",
+      "bucketId": "other"
+    }
+  ],
+  "suggestedReviewQueue": []
+}

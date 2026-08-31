@@ -1,0 +1,75 @@
+{
+  "fixtureId": "long-answer-pager-ux",
+  "kind": "long_answer",
+  "title": "Pipeline (transferable IA)",
+  "sourceClass": "captured-db",
+  "provider": "cursor",
+  "model": "composer-2.5",
+  "streamShape": "mixed-opaque",
+  "semanticOwnership": "final-answer",
+  "contentFile": "content.md",
+  "canonicalPartsFile": "canonical-parts.json",
+  "sourceContentSha256": "28fb8d50dadbb6f36617661dcd505061f00a36c7a4ad71a1970503a2151b69a2",
+  "contentSha256": "6211732b726fda13de88f20ab8488e3e0085deabf120e4f1c601d18eb353763f",
+  "canonicalPartsSha256": "e1653e8cd0560ef42498f0593aaeaeb1886b8f0654181b71cc0ea49c79af36f3",
+  "captureProvenance": {
+    "source": "memory.db",
+    "captureMode": "read-only",
+    "sourceFiles": [
+      "runbook.md"
+    ],
+    "threadFixtureId": "thread_1784237606741_e89998e8",
+    "turnFixtureId": "turn_long_answer_pager_ux_001",
+    "messageFixtureId": "message_long_answer_pager_ux_001",
+    "sourceThreadId": "thread_1784237606741_e89998e8",
+    "sourceTurnId": "7cfea5d7-7e55-4c1c-86f9-9f7a78f89678",
+    "sourceEventId": 46477,
+    "threadTitle": "04 Pager and agent UX",
+    "provider": "cursor",
+    "model": "composer-2.5",
+    "queryTemplateFile": "runbook.md"
+  },
+  "redactionRecord": [
+    {
+      "kind": "absolute_windows_path",
+      "scope": "content",
+      "replacement": "REDACTED_WINDOWS_PATH"
+    },
+    {
+      "kind": "thread_id",
+      "scope": "content",
+      "replacement": "REDACTED_THREAD_ID"
+    },
+    {
+      "kind": "turn_id",
+      "scope": "content",
+      "replacement": "REDACTED_TURN_ID"
+    },
+    {
+      "kind": "project_id",
+      "scope": "content",
+      "replacement": "REDACTED_PROJECT_ID"
+    },
+    {
+      "kind": "request_id",
+      "scope": "content",
+      "replacement": "REDACTED_REQUEST_ID"
+    },
+    {
+      "kind": "session_id",
+      "scope": "content",
+      "replacement": "REDACTED_SESSION_ID"
+    },
+    {
+      "kind": "tool_or_item_id",
+      "scope": "content",
+      "replacement": "REDACTED_IDENTIFIER"
+    },
+    {
+      "kind": "uuid",
+      "scope": "content",
+      "replacement": "REDACTED_UUID"
+    }
+  ],
+  "sourceEventMetadataSha256": "4217923ef178a3c347b05d1b7533842d3fbe309909f5f2c75e95f3ac39dc7499"
+}

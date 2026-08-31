@@ -1,0 +1,168 @@
+{
+  "providerId": "mistral",
+  "onlyInModelsDevCount": 19,
+  "defaultPolicy": "upstream_only_unless_explicit_runtime_or_product_reason",
+  "bucketSummaries": {
+    "free_or_promo": {
+      "count": 0,
+      "ids": []
+    },
+    "preview_or_exp": {
+      "count": 0,
+      "ids": []
+    },
+    "image_or_media": {
+      "count": 0,
+      "ids": []
+    },
+    "provider_family_match": {
+      "count": 0,
+      "ids": []
+    },
+    "other": {
+      "count": 19,
+      "ids": [
+        "devstral-medium-latest",
+        "devstral-small-2505",
+        "labs-devstral-small-2512",
+        "magistral-medium-latest",
+        "magistral-small",
+        "ministral-3b-latest",
+        "ministral-8b-latest",
+        "mistral-embed",
+        "mistral-large-2411",
+        "mistral-large-latest",
+        "mistral-medium-2505",
+        "mistral-medium-latest",
+        "mistral-nemo",
+        "mistral-small-latest",
+        "open-mistral-7b",
+        "open-mixtral-8x22b",
+        "open-mixtral-8x7b",
+        "pixtral-12b",
+        "pixtral-large-latest"
+      ]
+    }
+  },
+  "reviewCandidateCount": 19,
+  "suggestedActionSummary": {
+    "keep_upstream_only": 19
+  },
+  "suggestedActions": [
+    {
+      "id": "devstral-medium-latest",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "devstral-small-2505",
+      "action": "keep_upstream_only",
+      "reason": "older_model_not_needed",
+      "bucketId": "other"
+    },
+    {
+      "id": "labs-devstral-small-2512",
+      "action": "keep_upstream_only",
+      "reason": "not_in_current_curated_mistral_scope",
+      "bucketId": "other"
+    },
+    {
+      "id": "magistral-medium-latest",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "magistral-small",
+      "action": "keep_upstream_only",
+      "reason": "not_in_current_curated_mistral_scope",
+      "bucketId": "other"
+    },
+    {
+      "id": "ministral-3b-latest",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "ministral-8b-latest",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "mistral-embed",
+      "action": "keep_upstream_only",
+      "reason": "embedding_surface_not_curated",
+      "bucketId": "other"
+    },
+    {
+      "id": "mistral-large-2411",
+      "action": "keep_upstream_only",
+      "reason": "older_model_not_needed",
+      "bucketId": "other"
+    },
+    {
+      "id": "mistral-large-latest",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "mistral-medium-2505",
+      "action": "keep_upstream_only",
+      "reason": "older_model_not_needed",
+      "bucketId": "other"
+    },
+    {
+      "id": "mistral-medium-latest",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "mistral-nemo",
+      "action": "keep_upstream_only",
+      "reason": "not_in_current_curated_mistral_scope",
+      "bucketId": "other"
+    },
+    {
+      "id": "mistral-small-latest",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    },
+    {
+      "id": "open-mistral-7b",
+      "action": "keep_upstream_only",
+      "reason": "open_weight_surface_not_curated",
+      "bucketId": "other"
+    },
+    {
+      "id": "open-mixtral-8x22b",
+      "action": "keep_upstream_only",
+      "reason": "open_weight_surface_not_curated",
+      "bucketId": "other"
+    },
+    {
+      "id": "open-mixtral-8x7b",
+      "action": "keep_upstream_only",
+      "reason": "open_weight_surface_not_curated",
+      "bucketId": "other"
+    },
+    {
+      "id": "pixtral-12b",
+      "action": "keep_upstream_only",
+      "reason": "image_surface_not_curated",
+      "bucketId": "other"
+    },
+    {
+      "id": "pixtral-large-latest",
+      "action": "keep_upstream_only",
+      "reason": "snapshot_or_alias",
+      "bucketId": "other"
+    }
+  ],
+  "suggestedReviewQueue": []
+}

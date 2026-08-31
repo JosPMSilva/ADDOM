@@ -1,0 +1,25 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": [
+    "electron-builder.config.cjs",
+    "src/preload/index.mjs",
+    "scripts/**/*.{js,cjs,mjs}",
+    "tests/integration/*.test.mjs",
+    "tests/live/*.test.mjs"
+  ],
+  "project": [
+    "src/**/*.{js,jsx,mjs,cjs}",
+    "scripts/**/*.{js,cjs,mjs}",
+    "tests/**/*.{js,jsx,mjs,cjs}"
+  ],
+  "ignoreFiles": [
+    "tests/fixtures/**",
+    "tests/live/fixtures/**",
+    "src/main/openai-account/codex-home-template/**"
+  ],
+  "ignoreDependencies": [
+    "node-pty",
+    "pyright",
+    "tailwindcss"
+  ]
+}

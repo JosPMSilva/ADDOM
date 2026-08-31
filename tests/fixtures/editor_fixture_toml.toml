@@ -1,0 +1,9 @@
+title = "editor-fixture-toml"
+version = 1
+
+[flags]
+active = true
+cached = false
+
+[paths]
+primary = "tests/fixtures/editor_fixture_toml.toml"

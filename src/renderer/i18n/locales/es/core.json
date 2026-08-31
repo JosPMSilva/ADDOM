@@ -1,0 +1,2265 @@
+{
+  "app": {
+    "workspacePanelSkeleton": {
+      "ariaLabel": "Cargando {{panelLabel}}",
+      "text": "Cargando {{panelLabel}}..."
+    },
+    "workspaceBootError": {
+      "title": "Falló el arranque del Workspace",
+      "message": "ADDOM no pudo preparar las cachés del Workspace requeridas para este panel.",
+      "retry": "Reintentar arranque"
+    },
+    "leaveWorkspace": {
+      "title": "Cambios sin guardar",
+      "message": "You have unsaved files. Choose how to proceed before switching projects.",
+      "noUnsavedFiles": "No hay archivos sin guardar.",
+      "cancel": "Cancelar",
+      "discardAndLeave": "Discard & Switch",
+      "saving": "Guardando...",
+      "saveAllAndLeave": "Save All & Switch"
+    },
+    "confirmDialog": {
+      "messageFallback": "¿Seguro que quieres continuar?",
+      "cancel": "Cancelar",
+      "confirm": "Confirmar"
+    },
+    "panelLabels": {
+      "chat": "Panel de chat",
+      "editor": "Panel del editor",
+      "sourceControl": "Panel de cambios",
+      "artifacts": "Panel de artifacts",
+      "memory": "Panel de memoria",
+      "settings": "Panel de Settings",
+      "agents": "Panel de agentes",
+      "projectEntry": "Project entry"
+    }
+  },
+  "companionDock": {
+    "resize": "Redimensionar panel complementario",
+    "views": "Vistas complementarias",
+    "restoreSplit": "Restaurar vista dividida",
+    "focus": "Enfocar panel complementario",
+    "close": "Cerrar vista complementaria",
+    "document": {
+      "search": "Buscar en el documento",
+      "missing": "Este documento ya no existe.",
+      "tooLarge": "Este documento es demasiado grande para previsualizarlo.",
+      "unavailable": "No se pudo cargar este documento.",
+      "changed": "Actualizando…",
+      "status": "Documento Markdown",
+      "openInEditor": "Abrir en el editor",
+      "reveal": "Mostrar en el explorador de archivos",
+      "reload": "Recargar documento",
+      "loading": "Cargando documento…",
+      "retry": "Reintentar",
+        "implementPlan": "Implement",
+        "changePlaceholder": "Describe the change…",
+        "resizeChangeEditor": "Resize change editor",
+        "addChange": "Add change",
+        "annotateChange": "Annotate change",
+        "reviewHint": "Hover a paragraph to suggest a change.",
+        "changeCount": "{{count}} changes",
+        "undoLastChange": "Undo latest change",
+        "submitChanges": "Submit changes",
+        "pendingChanges": "Pending plan changes",
+        "removeChange": "Remove change"
+    }
+  },
+  "startup": {
+    "bootstrapFailure": {
+      "eyebrow": "Startup failed",
+      "title": "ADDOM could not finish starting.",
+      "messageFallback": "Renderer bootstrap failed",
+      "reload": "Reload app"
+    }
+  },
+  "sourceControl": {
+    "openProject": "Abre una carpeta de proyecto para inspeccionar cambios.",
+    "navigationFailed": "No se pudo abrir el archivo seleccionado desde Source Control.",
+    "refresh": "Actualizar",
+    "loading": "Cargando cambios...",
+    "noRepo": "Este workspace no está dentro de un repositorio git.",
+    "clean": "Árbol de trabajo limpio.",
+    "emptyFilter": "Ningún archivo coincide con el filtro actual.",
+    "filters": {
+      "all": "Todos",
+      "staged": "Staged",
+      "unstaged": "Unstaged",
+      "conflicted": "Conflictos",
+      "untracked": "Sin seguimiento"
+    },
+    "search": {
+      "label": "Buscar archivos modificados",
+      "placeholder": "Buscar archivos modificados"
+    },
+    "groups": {
+      "staged": "Staged",
+      "unstaged": "Unstaged"
+    },
+    "actions": {
+      "stageFile": "Preparar archivo",
+      "unstageFile": "Quitar archivo del stage",
+      "stageAll": "Preparar todo",
+      "unstageAll": "Quitar todo del stage"
+    },
+    "summary": {
+      "title": "Cambios",
+      "branch": "Rama: {{branch}}",
+      "repoState": "{{repoRoot}}",
+      "chips": {
+        "staged": "Staged",
+        "unstaged": "Unstaged",
+        "conflicts": "Conflictos"
+      }
+    },
+    "commit": {
+      "title": "Commit",
+      "description": "Crea un commit solo con los cambios staged.",
+      "pending": "Haciendo commit...",
+      "action": "Commit",
+      "placeholder": "Mensaje del commit",
+      "disabledPlaceholder": "Haz stage de archivos para habilitar el commit"
+    },
+    "entry": {
+      "renameFrom": "desde {{path}}"
+    },
+    "detail": {
+      "stage": "Stage: {{scope}}",
+      "loading": "Cargando detalle de SCM...",
+      "title": "Detalle de SCM",
+      "path": "Ruta:",
+      "previousPath": "Ruta anterior:",
+      "previewSource": "Origen de la previsualización:",
+      "indexCommit": "Commit del índice:",
+      "worktreeCommit": "Commit del worktree:",
+      "dirtyWorktree": "Worktree sucio:",
+      "actions": {
+        "restoring": "Restaurando...",
+        "restoreFile": "Restaurar archivo",
+        "unstaging": "Quitando stage...",
+        "unstageDeletion": "Quitar stage de eliminación",
+        "unstageRename": "Quitar stage de renombrado"
+      }
+    },
+    "common": {
+      "yes": "sí",
+      "no": "no"
+    }
+  },
+  "terminal": {
+    "common": {
+      "cancel": "Cancelar",
+      "user": "Usuario",
+      "ai": "AI",
+      "session": "Sesión",
+      "host": "Host",
+      "workspace": "Workspace",
+      "shell": "shell",
+      "terminal": "terminal",
+      "terminalTitle": "Terminal",
+      "threadPrefix": "thread",
+      "status": {
+        "closing": "Cerrando",
+        "ended": "Finalizada",
+        "closed": "Cerrada",
+        "live": "Activa",
+        "failed": "Fallida",
+        "terminated": "Terminada"
+      },
+      "timestamp": {
+        "closedPrefix": "Cerrada",
+        "startedPrefix": "Iniciada"
+      },
+      "suggestion": {
+        "dismissed": "Descartada",
+        "suggested": "Sugerida",
+        "none": "Sin sugerencia"
+      }
+    },
+    "banner": {
+      "thisPlatform": "esta plataforma",
+      "anotherPlatform": "otra plataforma",
+      "runtimeDisabled": "Runtime deshabilitado",
+      "disabledByEnv": "La variable ADDOM_DISABLE_TERMINAL_SESSIONS está activada.",
+      "rolloutDisabled": "Rollout deshabilitado",
+      "disabledByRollout": "Las sesiones de terminal están deshabilitadas por la política actual de rollout.",
+      "platformGated": "Plataforma bloqueada",
+      "platformGatedDetail": "{{platform}} sigue detrás del rollout. La verificación empaquetada solo está registrada para {{allowedLabel}}.",
+      "unsupportedPlatform": "Plataforma no compatible",
+      "unsupportedPlatformDetail": "{{platform}} queda fuera del conjunto de destinos PTY compatibles para sesiones de terminal.",
+      "disabledGeneric": "Las sesiones de terminal están deshabilitadas en este runtime.",
+      "runtimeFailed": "Falló el runtime",
+      "failedDetail": "Falló la comprobación de salud del runtime PTY.",
+      "checkingRuntime": "Comprobando el runtime",
+      "checkingRuntimeDetail": "ADDOM está verificando el soporte PTY para este runtime de la app.",
+      "runtimeReady": "Runtime listo",
+      "runtimeReadyDetail": "Las sesiones de terminal interactivas están disponibles para este workspace.",
+      "lastActionFailed": "Falló la última acción"
+    },
+    "viewport": {
+      "sessionState": {
+        "archived": "Archivada",
+        "ended": "Finalizada",
+        "closed": "Cerrada",
+        "live": "Activa"
+      },
+      "workspaceShell": "Shell del workspace",
+      "startTitle": "Iniciar una sesión de terminal",
+      "unavailableTitle": "El terminal del chat no está disponible",
+      "startDescription": "Abre un terminal aquí para inspeccionar logs, ejecutar comandos del proyecto o dejar que AI continúe desde el mismo shell.",
+      "unavailableDescription": "Las sesiones de terminal aún no están disponibles en este runtime.",
+      "startingSession": "Iniciando sesión...",
+      "createSession": "Crear sesión",
+      "readOnly": "Solo lectura",
+      "model": "Modelo",
+      "workspaceRoot": "raíz del workspace",
+      "trimmed": "Recortado",
+      "clickToFocus": "Haz clic para enfocar",
+      "activateSurface": "Activar superficie",
+      "aria": {
+        "archivedViewport": "Viewport de terminal archivado",
+        "interactiveViewport": "Viewport de terminal interactivo",
+        "terminalActions": "Acciones del terminal"
+      },
+      "context": {
+        "copy": "Copiar",
+        "paste": "Pegar",
+        "selectAll": "Seleccionar todo",
+        "buffer": "Buffer",
+        "copyVisibleOutput": "Copiar salida visible",
+        "copyFullScrollback": "Copiar historial completo",
+        "pasteAsSingleLine": "Paste as single line",
+        "clear": "Limpiar",
+        "zoomIn": "Aumentar zoom",
+        "zoomOut": "Reducir zoom",
+        "zoomReset": "Restablecer zoom",
+        "terminalFontSize": "{{size}}px",
+        "sendOutputToChat": "Send output to chat",
+        "explainLastError": "Explain last error",
+        "summarizeSession": "Summarize session",
+        "saveSnapshotToMemory": "Save snapshot to notes",
+        "cut": "Cut selection"
+      },
+      "search": {
+        "placeholder": "Buscar en la salida del terminal",
+        "previous": "Coincidencia anterior",
+        "next": "Coincidencia siguiente",
+        "close": "Close search",
+        "noMatches": "Sin coincidencias",
+        "resultCount": "{{current}}/{{total}}"
+      },
+      "pasteConfirm": {
+        "title": "Confirm large paste",
+        "message": "Paste {{count}} lines into the terminal? This can run multiple commands at once."
+      }
+    },
+    "dock": {
+      "state": {
+        "approval": "Aprobación",
+        "approvalSuffix": "aprobación",
+        "denied": "Denegada",
+        "userTakeover": "Usuario al control",
+        "aiWaiting": "AI en espera",
+        "aiControlling": "IA al control",
+        "running": "En ejecución"
+      },
+      "announcements": {
+        "userTakeoverActive": "El usuario tiene el control.",
+        "takeoverRequired": "Toma el control de este terminal para empezar a escribir."
+      },
+      "resize": "Redimensionar el dock del terminal",
+      "tablistAriaLabel": "Sesiones de terminal del thread",
+      "unread": "Sin leer",
+      "terminalSessions": "Sesiones de terminal",
+      "workspaceRoot": "raíz del workspace",
+      "control": {
+        "aiControlsShell": "AI controla este shell. Toma el control antes de escribir.",
+        "userControlsShell": "Ahora mismo controlas este shell.",
+        "typingBlockedUntilTakeover": "La escritura está bloqueada hasta que confirmes el control.",
+        "aiWaitingForUser": "AI está esperando la confirmación del usuario para continuar."
+      },
+      "browser": {
+        "title": "Navegador del terminal",
+        "subtitle": "thread actual / Otras activas / Historial",
+        "sections": {
+          "currentThread": "thread actual",
+          "otherLive": "Otras activas",
+          "history": "Historial"
+        },
+        "empty": {
+          "currentThread": "Todavía no hay sesiones de terminal activas ni pendientes adjuntas a este thread.",
+          "otherLive": "Ningún otro thread tiene actividad de terminal activa ahora mismo.",
+          "history": "Todavía no hay historial archivado de terminal para este workspace."
+        },
+        "fields": {
+          "thread": "thread",
+          "scope": "Ámbito",
+          "updated": "Actualizado"
+        },
+        "requestedIn": "Solicitado en {{section}}",
+        "suggestionFallback": "Las tarjetas de sugerencias de timeline se mantienen separadas de este navegador.",
+        "crossThread": {
+          "title": "Sesión de otro thread",
+          "description": "Consulta aquí los metadatos y luego usa {{openThreadLabel}} para inspeccionar o interactuar desde el hilo propietario del chat."
+        },
+        "selectSession": "Selecciona una sesión de terminal",
+        "actions": {
+          "openThread": "Abrir thread",
+          "savedToMemory": "Guardado en memoria",
+          "noMemorySummary": "Sin resumen de memoria",
+          "saveToThreadMemory": "Save to conversation notes",
+          "saveToProjectMemory": "Save to project notes",
+          "deletingArchive": "Eliminando...",
+          "deleteArchive": "Eliminar archivo archivado",
+          "openTerminal": "Abrir terminal",
+          "backToDock": "Volver al dock",
+          "browseSessions": "Explorar sesiones",
+          "handBackToAi": "Devolver el control a la IA",
+          "confirmTakeover": "Confirmar control",
+          "takeOver": "Tomar control",
+          "expandBrowser": "Expandir navegador del terminal",
+          "collapseBrowser": "Contraer navegador del terminal",
+          "expand": "Expandir",
+          "collapse": "Contraer",
+          "openTerminalActions": "Terminal menu",
+          "terminalDockActions": "Acciones del dock del terminal",
+          "closeBrowser": "Cerrar navegador",
+          "interrupt": "Interrumpir",
+          "stopInput": "Detener entrada",
+          "closeSession": "Cerrar sesión",
+          "archiveSession": "Archivar sesión",
+          "hideTerminal": "Ocultar terminal",
+          "dismiss": "Descartar",
+          "forceTerminate": "Forzar terminación",
+          "killProcess": "Matar proceso",
+          "renameSession": "Rename session",
+          "editTitle": "Edit title",
+          "duplicateSession": "Duplicate session",
+          "sameCwdShell": "Same cwd and shell",
+          "newAtProjectRoot": "New at project root",
+          "newFromCurrentCwd": "New from current cwd",
+          "newFromEditorCwd": "New from editor folder",
+          "currentCwd": "Current cwd",
+          "editorFolder": "Editor folder",
+          "defaultShell": "Default shell",
+          "newWithShell": "New with shell",
+          "sendOutputToChat": "Send output to chat",
+          "explainLastError": "Explain last error",
+          "summarizeSession": "Summarize session",
+          "saveSnapshotToMemory": "Save snapshot to notes",
+          "prefillComposer": "Prefill composer",
+          "recentOutput": "Recent output",
+          "boundedOutput": "Bounded output",
+          "threadMemory": "Conversation notes"
+        }
+      },
+      "confirm": {
+        "forceTerminateHost": {
+          "title": "Forzar terminación del terminal del host",
+          "message": "¿Forzar la terminación de esta sesión de terminal con ámbito de host? Esto matará inmediatamente el proceso subyacente."
+        },
+        "forceTerminate": {
+          "title": "Forzar terminación del terminal",
+          "message": "¿Forzar la terminación de esta sesión de terminal? Esto matará inmediatamente el proceso subyacente."
+        },
+        "deleteArchive": {
+          "title": "Eliminar sesión de terminal archivada",
+          "message": "¿Eliminar esta sesión de terminal archivada?\n\nEsto solo elimina el registro archivado retenido y no se puede deshacer.",
+          "confirm": "Eliminar archivo"
+        }
+      },
+      "prompts": {
+        "renameSession": "Rename terminal session"
+      },
+      "actions": {
+        "openTerminal": "Abrir terminal",
+        "backToDock": "Volver al dock",
+        "browseSessions": "Explorar sesiones",
+        "handBackToAi": "Devolver el control a la IA",
+        "confirmTakeover": "Confirmar control",
+        "takeOver": "Tomar control",
+        "expandBrowser": "Expandir navegador de terminales",
+        "collapseBrowser": "Contraer navegador de terminales",
+        "expand": "Expandir",
+        "collapse": "Contraer",
+        "openTerminalActions": "Terminal menu",
+        "terminalDockActions": "Acciones del dock de terminal",
+        "closeBrowser": "Cerrar navegador",
+        "renameSession": "Rename session",
+        "editTitle": "Edit title",
+        "duplicateSession": "Duplicate session",
+        "sameCwdShell": "Mismo cwd y shell",
+        "newAtProjectRoot": "New at project root",
+        "newFromCurrentCwd": "Nueva desde el cwd actual",
+        "newFromEditorCwd": "Nueva desde carpeta del editor",
+        "currentCwd": "Cwd actual",
+        "editorFolder": "Carpeta del editor",
+        "defaultShell": "Shell predeterminada",
+        "newWithShell": "Nueva con shell",
+        "interrupt": "Interrumpir",
+        "stopInput": "Detener entrada",
+        "closeSession": "Close session",
+        "archiveSession": "Archive session",
+        "hideTerminal": "Ocultar terminal",
+        "dismiss": "Descartar",
+        "forceTerminate": "Force terminate",
+        "killProcess": "Matar proceso"
+      }
+    },
+    "globalIndicator": {
+      "threadCount": "{{count}} conversation{{suffix}}",
+      "liveCount": "{{count}} terminal{{suffix}} activo{{suffix}}",
+      "priority": {
+        "approval": "Aprobación necesaria",
+        "waiting": "Esperando al usuario"
+      }
+    },
+    "pendingApproval": {
+      "title": "Terminal waiting for approval",
+      "scopeLabel": "Scope",
+      "scopeHost": "Host access",
+      "scopeWorkspace": "Workspace",
+      "directoryLabel": "Directory",
+      "workspaceRoot": "workspace root"
+    }
+  },
+  "editor": {
+    "fileTree": {
+      "projectFallback": "Proyecto",
+      "syncing": "Sincronizando",
+      "openProjectFolder": "Abrir carpeta del proyecto",
+      "refresh": "Actualizar árbol de archivos",
+      "ariaLabel": "Archivos de {{projectName}}",
+      "loading": "Cargando...",
+      "emptyProject": "Proyecto vacío.",
+      "binaryTitle": "{{path}} (no se puede abrir un archivo binario)"
+    },
+    "emptyState": {
+      "title": "Selecciona un archivo del árbol para abrirlo",
+      "shortcutHint": "Ctrl+S para guardar | haz clic en x para cerrar la pestaña"
+    },
+    "loadingPane": "Cargando...",
+    "panel": {
+      "thisFile": "este archivo",
+      "closeDirty": {
+        "title": "Cambios sin guardar",
+        "message": "¿Guardar los cambios en {{fileLabel}} antes de cerrar?",
+        "confirm": "Guardar y cerrar",
+        "cancel": "Más opciones"
+      },
+      "saveFailed": {
+        "title": "Falló el guardado",
+        "message": "No se pudo guardar el archivo."
+      },
+      "discard": {
+        "title": "¿Descartar cambios?",
+        "message": "¿Descartar los cambios sin guardar en {{fileLabel}} y cerrarlo?",
+        "confirm": "Descartar cambios",
+        "cancel": "Seguir editando"
+      },
+      "formatActionTitle": "Formatear el documento con la ruta de formatter activa (Shift+Alt+F)",
+      "formatUnavailableTitle": "El formateo no está disponible para el archivo actual",
+      "fixActionTitle": "Aplicar incidencias corregibles automáticamente desde el provider activo de code actions",
+      "fixUnavailableTitle": "Las code actions no están disponibles para el archivo actual",
+      "serviceNotice": {
+        "providerDegraded": "{{providerLabel}} está degradado. Las funciones del editor pueden estar limitadas.",
+        "providerUnavailable": "{{providerLabel}} no está disponible. Las funciones del editor pueden estar limitadas.",
+        "genericUnavailable": "Algunos servicios del editor no están disponibles ahora mismo."
+      },
+      "emptyProject": "Abre una carpeta de proyecto para usar el editor.",
+      "resizeFileTree": "Cambiar tamaño del árbol de archivos",
+      "fileWatcherCap": "El watcher de archivos alcanzó el límite de directorios ({{watchedCount}}/{{maxDirectories}}). Algunas carpetas no se vigilan activamente para cambios externos.",
+      "dismiss": "Descartar",
+      "externalChangeDetected": "Se detectó un cambio externo en {{filePath}}. Tus ediciones sin guardar se conservaron.",
+      "reloadFromDisk": "Recargar desde el disco",
+      "resizeMarkdownPreview": "Cambiar tamaño del panel de vista previa Markdown",
+      "errors": {
+        "noProjectOrTabSelected": "No hay proyecto ni pestaña seleccionados."
+      }
+    },
+    "tabBar": {
+      "openTabsAriaLabel": "Abrir pestañas del editor",
+      "fallbackFileLabel": "archivo",
+      "fallbackTabLabel": "pestaña",
+      "saveTabAriaLabel": "Guardar {{fileLabel}}",
+      "unsavedChangesTitle": "Cambios sin guardar; haz clic para guardar",
+      "externalChangedTitle": "Se detectó un cambio externo en el archivo",
+      "problemSummaryTitle": "{{count}} problema{{suffix}} ({{error}} error{{errorSuffix}}, {{warning}} advertencia{{warningSuffix}}, {{info}} info)",
+      "closeTabAriaLabel": "Cerrar {{tabLabel}}",
+      "aiActionsTitle": "Acciones de AI para el código seleccionado",
+      "aiDraftHint": "Crea borradores para Chat usando la selección actual y el contexto cercano.",
+      "preview": "Vista previa",
+      "fix": "Corregir",
+      "format": "Formatear",
+      "auto": "Auto",
+      "togglePreviewTitle": "Alternar vista previa Markdown (Ctrl/Cmd+Shift+V)",
+      "toggleFormatOnSaveTitle": "Alternar formateo al guardar cuando el archivo actual tiene una ruta de formatter activa",
+      "aiSelection": {
+        "explain": {
+          "label": "Explicar",
+          "title": "Explicar el código seleccionado en Chat",
+          "description": "Explica el comportamiento, los supuestos y los riesgos."
+        },
+        "fix": {
+          "label": "Corregir",
+          "title": "Corregir el código seleccionado en Chat",
+          "description": "Corrige errores o incidencias en el código seleccionado."
+        },
+        "refactor": {
+          "label": "Refactorizar",
+          "title": "Refactorizar el código seleccionado en Chat",
+          "description": "Refactoriza preservando el comportamiento."
+        },
+        "tests": {
+          "label": "Tests",
+          "title": "Generar tests para el código seleccionado en Chat",
+          "description": "Escribe tests para el código seleccionado."
+        }
+      }
+    },
+    "diagnostics": {
+      "currentFile": "Archivo actual",
+      "common": {
+        "expand": "Expandir",
+        "collapse": "Contraer"
+      },
+      "filters": {
+        "all": "Todo",
+        "errors": "Errores",
+        "warnings": "Advertencias",
+        "info": "Información"
+      },
+      "severity": {
+        "error": "Error",
+        "warning": "Advertencia",
+        "info": "Información",
+        "hint": "Sugerencia"
+      },
+      "problems": {
+        "title": "Problemas",
+        "errorCount": "{{count}} error{{suffix}}",
+        "warningCount": "{{count}} advertencia{{suffix}}",
+        "infoCount": "{{count}} información",
+        "none": "No hay problemas",
+        "expandTitle": "Expandir panel de problemas",
+        "collapseTitle": "Contraer panel de problemas",
+        "setDefaultStateTitle": "Establecer el estado predeterminado del panel de problemas",
+        "defaultCollapsed": "Contraído por defecto",
+        "noMatch": "Ningún problema coincide con el filtro actual.",
+        "noneInFile": "No hay problemas en este archivo."
+      },
+      "outline": {
+        "title": "Esquema",
+        "expandTitle": "Expandir esquema",
+        "collapseTitle": "Contraer esquema",
+        "filterSymbols": "Filtrar símbolos",
+        "symbolCount": "{{count}} símbolo{{suffix}}",
+        "refreshing": "Actualizando...",
+        "setupTitle": "Configuración",
+        "hintCount": "{{count}} sugerencia{{suffix}}",
+        "dismissSetupHintTitle": "Descartar la sugerencia de configuración de {{actionLabel}}",
+        "unavailableForFileType": "El esquema aún no está disponible para este tipo de archivo.",
+        "loadingSymbols": "Cargando símbolos...",
+        "noneAvailable": "No hay esquema disponible.",
+        "noMatch": "Ningún símbolo coincide con el filtro actual.",
+        "noneDetected": "No se detectaron símbolos en este archivo.",
+        "symbolFallback": "Símbolo",
+        "messages": {
+          "serviceUnavailable": "Los símbolos no están disponibles porque el servicio del editor aún no está listo.",
+          "loadFailed": "No se pudieron cargar los símbolos.",
+          "realProviderMissing": "Este archivo se queda solo con sintaxis porque no hay ningún provider real disponible para este lenguaje.",
+          "formatOnlyLanguage": "Este lenguaje se queda solo con sintaxis en el editor por ahora.",
+          "missingBinary": "No se encontró {{providerLabel}} en este proyecto ni en PATH.",
+          "providerUnavailable": "{{providerLabel}} no está disponible para los símbolos de este archivo.",
+          "providerDegraded": "{{providerLabel}} está degradado para los símbolos de este archivo.",
+          "providerRequestFailed": "{{providerLabel}} falló al cargar los símbolos de este archivo.",
+          "unsupportedFile": "El esquema no está disponible para este tipo de archivo.",
+          "unsupported": "El esquema no está disponible para este archivo."
+        }
+      },
+      "setupHints": {
+        "messages": {
+          "formatting": {
+            "realProviderMissing": "El formateo requiere un provider real para este archivo.",
+            "biomeConfigRequired": "El formateo requiere una configuración de proyecto de Biome.",
+            "ruffConfigRequired": "El formateo requiere una configuración de proyecto de Ruff.",
+            "clangFormatConfigRequired": "El formateo requiere una configuración de proyecto .clang-format o _clang-format.",
+            "javaProjectContextRequired": "El formateo requiere un contexto de proyecto Maven o Gradle (pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts).",
+            "dotnetProjectRequired": "El formateo requiere un contexto real de .csproj o .sln.",
+            "missingBinary": "No se encontró {{providerLabel}} en este proyecto ni en PATH.",
+            "providerUnavailable": "{{providerLabel}} no está disponible para este archivo.",
+            "providerDegraded": "{{providerLabel}} está degradado para este archivo.",
+            "providerRequestFailed": "{{providerLabel}} falló al procesar este archivo.",
+            "formatOnlyLanguage": "Este lenguaje solo admite formateo por ahora."
+          },
+          "codeActions": {
+            "realProviderMissing": "Las code actions requieren un provider real para este archivo.",
+            "eslintProjectRequired": "Las code actions requieren un provider de ESLint configurado en el proyecto.",
+            "ruffConfigRequired": "Las code actions requieren una configuración de proyecto de Ruff.",
+            "clangTidyConfigRequired": "Las code actions requieren una configuración de proyecto .clang-tidy.",
+            "clangCompileContextRequired": "Las code actions requieren compile_commands.json o compile_flags.txt.",
+            "javaProjectContextRequired": "Las code actions requieren un contexto de proyecto Maven o Gradle (pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts).",
+            "dotnetProjectRequired": "Las code actions requieren un contexto real de .csproj o .sln.",
+            "javaNotInstalled": "No se encontró un JDK utilizable en PATH ni en JAVA_HOME. jdtls requiere Java.",
+            "dotnetNotInstalled": "No se encontró dotnet en PATH.",
+            "missingBinary": "No se encontró {{providerLabel}} en este proyecto ni en PATH.",
+            "providerUnavailable": "{{providerLabel}} no está disponible para este archivo.",
+            "providerDegraded": "{{providerLabel}} está degradado para este archivo.",
+            "providerRequestFailed": "{{providerLabel}} falló al procesar este archivo.",
+            "formatOnlyLanguage": "Este lenguaje solo admite formateo por ahora."
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "navigationTitle": "Navegación de Settings",
+    "overviewTitle": "Resumen",
+    "controls": {
+      "expandAll": "Expandir todo",
+      "collapseAll": "Contraer todo"
+    },
+    "counts": {
+      "sectionOne": "1 sección",
+      "sectionOther": "{{count}} secciones",
+      "visibleSectionOne": "1 sección visible",
+      "visibleSectionOther": "{{count}} secciones visibles"
+    },
+    "common": {
+      "yes": "Sí",
+      "no": "No",
+      "completed": "COMPLETADO",
+      "inProgress": "EN PROGRESO",
+      "ready": "Listo",
+      "notReady": "No listo",
+      "savedOnly": "solo guardado",
+      "unknown": "desconocido",
+      "checking": "Comprobando...",
+      "disabled": "Deshabilitado"
+    }
+  },
+  "artifacts": {
+    "emptyProject": "Abre una carpeta de proyecto para ver el historial de artifact.",
+    "trackedFilesTitle": "Archivos rastreados",
+    "scope": {
+      "label": "Ámbito de artefactos",
+      "entireProject": "Proyecto",
+      "thisThread": "Hilo",
+      "resultCount": "{{count}} archivos"
+    },
+    "loadingTrackedFiles": "Cargando archivos rastreados...",
+    "emptyTrackedFiles": "Aún no hay archivos versionados. Las escrituras de archivos de AI y las sugerencias de código aparecerán aquí.",
+    "deleteRevisionDialog": {
+      "title": "Eliminar revisión",
+      "message": "¿Eliminar la rev {{rev}} ({{source}}) de:\n{{filePath}}\n\nEsto no se puede deshacer.",
+      "confirm": "Eliminar revisión",
+      "cancel": "Cancelar"
+    },
+    "deleteHistoryDialog": {
+      "title": "Eliminar historial de revisiones",
+      "message": "¿Eliminar todo el historial de revisiones de:\n{{filePath}}\n\nEl archivo en disco NO se elimina.",
+      "confirm": "Eliminar historial",
+      "cancel": "Cancelar"
+    },
+    "selectFile": "Selecciona un archivo para ver su historial de revisiones.",
+    "labels": {
+      "fromBase": "Desde (base)",
+      "toHead": "Hasta (head)",
+      "base": "base",
+      "head": "head"
+    },
+    "deleteRevisionTitle": "Eliminar esta revisión",
+    "deleteFileHistoryTitle": "Eliminar todo el historial de este archivo",
+    "selectRevisions": "Selecciona revisiones arriba para compararlas.",
+    "revisionSource": {
+      "baseline": "baseline",
+      "rollback": "rollback",
+      "suggestion": "sugerencia",
+      "aiWrite": "AI write"
+    },
+    "revisionOrigin": {
+      "thread": "Hilo {{threadTitle}}",
+      "deletedThread": "Hilo eliminado {{threadTitle}} · {{date}}"
+    },
+    "suggestionBadge": "sugerencia",
+    "revisionCountOne": "{{count}} rev",
+    "revisionCountOther": "{{count}} revs",
+    "footer": {
+      "suggestionPending": "Esta revisión aún no se ha escrito en disco",
+      "apply": "Aplicar al disco",
+      "applying": "Aplicando...",
+      "rollbackNotice": "Rollback restaurará la rev {{rev}} al disco",
+      "rollback": "Rollback to base",
+      "rollingBack": "Haciendo rollback..."
+    },
+    "picker": {
+      "placeholder": "- {{label}} -",
+      "empty": "- archivo nuevo (vacío) -",
+      "notOnDisk": "no está en disco",
+      "option": "rev {{rev}} - {{source}}{{notOnDisk}} - {{date}}",
+      "optionWithProvenance": "rev {{rev}} - {{source}}{{notOnDisk}} - {{date}} · {{provenance}}"
+    },
+    "action": {
+      "rollbackSuccess": "Se hizo rollback a la rev {{rev}}. Se registró la nueva rev {{newRev}}.",
+      "rollbackFailed": "El rollback falló.",
+      "applySuccess": "Aplicado al disco. Se registró la nueva rev {{newRev}}.",
+      "applyFailed": "La aplicación falló.",
+      "revisionDeleted": "Rev {{rev}} eliminada."
+    },
+    "diffLoading": "Cargando diff...",
+    "diffTimeout": "El runtime de diff no pudo inicializarse. Recarga la app."
+  },
+  "workspaceDisposal": {
+    "activeMessage": "El trabajo activo debe detenerse antes de poder eliminar estos datos.",
+    "threadDeleteActiveMessage": "El trabajo activo en este [[canon:thread]] se detendrá antes de eliminarlo.",
+    "stopAndDelete": "Detener y eliminar",
+    "stopAndRemove": "Detener y quitar",
+    "stopAndClear": "Detener y borrar",
+    "stopAndArchive": "Detener y archivar"
+  },
+  "threadDrawer": {
+    "title": "Threads",
+    "threadCount": "{{count}} threads",
+    "previewRole": {
+      "user": "Tú",
+      "assistant": "AI"
+    },
+    "activity": {
+      "needsInput": "Requiere intervención",
+      "sessionFailed": "Falló",
+      "sessionCompleted": "Completado",
+      "sessionActive": "Sesión activa",
+      "sessionStale": "Sesión obsoleta",
+      "pendingApproval": "Aprobación pendiente",
+      "sessionBlocked": "Sesión bloqueada",
+      "idle": "Inactiva",
+      "pendingBadge": "Pendiente",
+      "blockedBadge": "Bloqueado"
+    },
+    "fallbackTitle": "Thread sin título",
+    "renameTitle": "Renombrar Thread",
+    "deleteTitle": "Eliminar Thread",
+    "searchPlaceholder": "Buscar conversaciones...",
+    "newThreadTitle": "Nuevo Thread",
+    "newThread": "Nuevo",
+    "emptySearch": "No hay conversaciones que coincidan.",
+    "empty": "Aún no hay Threads.",
+    "createThread": "Crear un Thread",
+    "loadMore": "Cargar más Threads ({{count}} ocultos)",
+    "resizeTitle": "Arrastrar para redimensionar"
+  },
+  "backgroundJobs": {
+    "status": {
+      "polling": "Sondeando",
+      "cancelRequested": "Cancelación solicitada",
+      "completed": "Completado",
+      "failed": "Falló",
+      "cancelled": "Cancelado",
+      "orphaned": "Huérfano",
+      "queued": "En cola"
+    },
+    "title": "[[canon:background_jobs]]",
+    "runningJobs": "Jobs en ejecución: {{count}}",
+    "updated": "Actualizado {{time}}",
+    "refresh": "Actualizar",
+    "close": "Cerrar",
+    "description": "Detén comandos locales de larga duración o respuestas OpenAI en background desacopladas cuando ya no sean necesarias.",
+    "stopAll": "Detener todo",
+    "stopping": "Deteniendo...",
+    "loading": "Cargando Background Jobs...",
+    "empty": "Actualmente no hay Background Jobs en ejecución.",
+    "table": {
+      "job": "Job",
+      "task": "Tarea",
+      "runtime": "Runtime",
+      "context": "Contexto",
+      "action": "Acción"
+    },
+    "statusLabel": "estado: {{status}}",
+    "openAiResponse": "OpenAI background response",
+    "detachedOpenAiResponse": "Detached OpenAI response",
+    "emptyCommand": "(vacío)",
+    "stop": "Detener"
+  },
+  "chat": {
+    "planDirection": {
+      "questionNavigation": "Preguntas sobre la dirección del plan",
+      "goToQuestion": "Ir a la pregunta {{count}}",
+      "continue": "Continuar",
+      "changeAnswer": "Cambiar respuesta",
+      "customPlaceholder": "O describe otra dirección",
+      "customAnswer": "Respuesta de dirección personalizada",
+      "recommendedShort": "Recomendado",
+      "synthesizing": "Actualizando la dirección según tus elecciones…",
+      "synthesisFailed": "No se pudo actualizar la dirección.",
+      "retryDraft": "Reintentar borrador del plan",
+      "retry": "Reintentar",
+      "reviewChoices": "Revisar elecciones",
+      "change": "Cambiar dirección",
+      "changeFeedback": "Comentarios sobre la dirección",
+      "changePlaceholder": "¿Qué debería cambiar en esta dirección?",
+      "updateDirection": "Actualizar dirección",
+      "creating": "Creando el plan Markdown administrado…",
+      "recommended": "Recomendado:",
+      "recommendationDetail": "{{profile}} - {{rationale}}",
+      "create": "Crear plan",
+      "profileMenu": "Perfiles de creación de planes",
+      "profiles": {
+        "implementation": "Plan de implementación",
+        "technicalDesign": "Diseño técnico",
+        "investigation": "Plan de investigación",
+        "deepImplementation": "Plan de implementación detallado"
+      },
+      "errors": {
+        "answerSave": "The direction answer could not be saved.",
+        "profileUnavailable": "The selected plan profile was unavailable.",
+        "changeFailed": "The direction feedback could not be saved.",
+        "retryFailed": "The direction update could not be retried."
+      }
+    },
+    "emptyState": {
+      "title": "Aún no hay mensajes",
+      "planDescription": "El modo [[canon:plan]] está activo. Usa [[canon:ask]] para un plan estructurado y luego utiliza las opciones interactivas de la respuesta para guiar el camino.",
+      "thinkingDescription": "El modo [[canon:thinking]] está activo. Explora opciones y tradeoffs aquí, y luego cambia a [[canon:execute]] cuando estés listo para implementar.",
+      "executeDescription": "Selecciona un provider y empieza a chatear. Usa el control [[canon:permission_mode]] del encabezado para cambiar entre [[canon:ask]], [[canon:autonomy]] y [[canon:full_access]] en los turnos de Execute.",
+      "needsProviderSetup": "Conecta la autenticación de cuenta de OpenAI o añade una API key en Configuración y luego selecciona un provider para empezar."
+    },
+    "composer": {
+      "placeholder": {
+        "selectProvider": "Selecciona un provider para empezar...",
+        "selectThread": "Select or create a conversation to continue...",
+        "streaming": "AI está pensando...",
+        "plan": "Pide un plan... (Enter para enviar, Shift+Enter para nueva línea)",
+        "thinking": "Explora ideas, tradeoffs y dirección... (Enter para enviar, Shift+Enter para nueva línea)",
+        "execute": "Pregunta lo que quieras sobre tu proyecto... (Enter para enviar, Shift+Enter para nueva línea)"
+      },
+      "blockLabels": {
+        "code": "Código",
+        "text": "Texto"
+      },
+      "codeLanguage": "Lenguaje del código",
+      "openAdvancedEditor": "Abrir editor de código avanzado",
+      "advanced": "Avanzado",
+      "removeBlock": "Eliminar bloque",
+      "removeCodeBlock": "Eliminar bloque de código",
+      "removeTextBlock": "Eliminar bloque de texto",
+      "codePlaceholder": "Código...",
+      "insertSnippet": "Insertar snippet",
+      "codeSnippet": "Snippet de código",
+      "textSnippet": "Snippet de texto"
+    },
+    "controlRail": {
+      "quickActionsTitle": "[[canon:quick_actions]]",
+      "refreshModels": "Actualizar modelos",
+      "refreshingModels": "Actualizando modelos",
+      "refreshing": "Actualizando...",
+      "openBackgroundJobs": "Abrir [[canon:background_jobs]]",
+      "backgroundJobs": "[[canon:background_jobs]]",
+      "agents": "Agentes",
+      "directAgentsMenu": "Menú de selección de agentes",
+      "moreActions": "Más acciones",
+      "stopResponse": "Detener respuesta",
+      "sendMessage": "Enviar mensaje",
+      "sendEnter": "Enviar (Enter)",
+      "attach": {
+        "filesImagesDisabled": "Adjuntar archivos (las imágenes están desactivadas para este modelo)",
+        "images": "Adjuntar imágenes",
+        "files": "Adjuntar archivos"
+      },
+      "collaborationMode": {
+        "defaultLabel": "[[canon:native_collaboration_mode]]",
+        "buttonTitle": "[[canon:native_collaboration_mode]]: {{value}}",
+        "optionsAriaLabel": "[[canon:native_collaboration_mode]] options"
+      },
+      "reasoningEffort": {
+        "providerDefault": "Predeterminado del provider",
+        "xhigh": "Xhigh",
+        "buttonTitle": "[[canon:reasoning_effort]]: {{value}}. Controla cuánto reasoning aplica el modelo.",
+        "buttonAriaLabel": "[[canon:reasoning_effort]]: {{value}}",
+        "optionsAriaLabel": "[[canon:reasoning_effort]] options"
+      },
+      "processingMode": {
+        "fast": "Rápido",
+        "standard": "Estándar",
+        "enable": "Usar procesamiento rápido",
+        "disable": "Usar procesamiento estándar",
+        "pricingNote": "El procesamiento rápido puede tener un precio superior.",
+        "returnedMode": "La última respuesta usó procesamiento {{mode}}."
+      },
+      "rateLimits": {
+        "title": "[[canon:rate_limits]]",
+        "remainingTitle": "Límites de tasa restantes de la cuenta de OpenAI",
+        "weekly": "Semanal",
+        "primary": "Primario",
+        "secondary": "Secundario"
+      }
+    },
+    "moaToggle": {
+      "activeTitle": "Modo [[canon:moa]] activo; haz clic para desactivarlo",
+      "enableTitle": "Activar [[canon:moa]] (Multi-Agent Orchestration)"
+    },
+    "threadModals": {
+      "common": {
+        "close": "Cerrar",
+        "closeModal": "Cerrar modal de [[canon:thread]]",
+        "cancel": "Cancelar"
+      },
+      "create": {
+        "title": "Crear [[canon:thread]]",
+        "description": "Introduce un título para el nuevo [[canon:thread]] de conversación.",
+        "placeholder": "Nuevo [[canon:thread]]",
+        "confirm": "Crear"
+      },
+      "rename": {
+        "title": "Renombrar [[canon:thread]]",
+        "description": "Actualiza el título del [[canon:thread]] de conversación actual.",
+        "placeholder": "Título de [[canon:thread]]",
+        "confirm": "Guardar"
+      },
+      "clear": {
+        "deleteTitle": "Eliminar [[canon:thread]]",
+        "deleteMessage": "¿Eliminar este [[canon:thread]]{{threadTitle}}? Se eliminarán la conversación, los archivos adjuntos y la actividad del [[canon:thread]]. Los archivos del proyecto, los artefactos y la memoria conservada permanecerán.",
+        "deleteConfirm": "Eliminar [[canon:thread]]"
+      }
+    },
+    "providerSwitchContextBanner": {
+      "title": "provider/modelo cambiado",
+      "previousProvider": "provider anterior",
+      "newProvider": "provider nuevo",
+      "movedFrom": "Se movió de",
+      "movedTo": "a",
+      "continuityHint": "Inyecta contexto antes de tu siguiente turno para evitar perder la continuidad del proyecto.",
+      "injectMemory": "Inyectar memoria",
+      "injectArtifacts": "Inyectar [[canon:artifacts]]",
+      "injectBoth": "Inyectar ambos",
+      "dismiss": "Descartar"
+    },
+    "contextMeter": {
+      "toggleDetails": "Alternar detalles de contexto",
+      "expandDetails": "Expandir detalles del medidor de contexto",
+      "collapseDetails": "Contraer detalles del medidor de contexto",
+      "visibleMetrics": "Métricas visibles",
+      "chooseVisibleMetrics": "Elegir métricas visibles",
+      "showAll": "Mostrar todo",
+      "hideAll": "Ocultar todo",
+      "noMetricsSelected": "No hay métricas seleccionadas.",
+      "title": {
+        "available": "Turno más reciente {{turnTokens}}/{{modelLimit}} tokens ({{percent}}%)",
+        "unavailable": "Ocupación de contexto no disponible (límite de {{modelLimit}} tokens)",
+        "limitUnavailable": "Límite de contexto no disponible para este modelo",
+        "contextLeftAvailable": "Contexto restante {{remaining}}/{{modelLimit}} tokens ({{percent}}%)",
+        "contextLeftFallback": "Contexto restante {{remaining}}/{{modelLimit}} tokens ({{percent}}%, thread vacío)",
+        "contextLeftUnavailable": "Contexto restante no disponible (límite de {{modelLimit}} tokens; ocupación del thread no disponible)",
+        "contextLeftRecalculating": "Contexto restante recalculándose tras la compactación (límite de {{modelLimit}} tokens)"
+      },
+      "values": {
+        "left": "restantes",
+        "occupancyUnavailable": "ocupación de thread no disponible",
+        "limitUnknown": "límite desconocido",
+        "notAvailable": "n/a",
+        "recalculating": "recalculando..."
+      },
+      "metrics": {
+        "used": "thread usado",
+        "usedEstimated": "thread usado (est.)",
+        "usedMapped": "thread usado (mapeado)",
+        "remaining": "Restante",
+        "limit": "Límite",
+        "turn": "Turno",
+        "spendRoll": "Gasto (roll)",
+        "inputNoCache": "Entrada (sin caché)",
+        "cacheRead": "Lectura de caché",
+        "cacheWrite": "Escritura de caché",
+        "turnEstTok": "Estimación tok del turno",
+        "turnEstUsd": "Estimación usd del turno",
+        "costConf": "Conf. de coste",
+        "continuity": "continuidad",
+        "packet": "Packet",
+        "drift": "Deriva",
+        "compactionDelta": "Delta de compactación"
+      }
+    },
+    "cursor": {
+      "fullAccessRequired": "Cursor runs only with Full Access.",
+      "useFullAccess": "Use Full Access"
+    },
+    "composerArea": {
+      "selectProvider": "Selecciona un provider abajo para empezar a chatear.",
+      "selectThread": "Selecciona o crea un [[canon:thread]] antes de enviar mensajes.",
+      "selectedModelMissing": "Es posible que el modelo seleccionado no esté disponible. Actualiza los modelos curados desde el menú de acciones.",
+      "addApiKey": "Añade una API key en Settings para empezar.",
+      "switchToExecute": "Cambiar a [[canon:execute]]",
+      "imagesDisabled": "Las imágenes están desactivadas para este modelo. Los archivos adjuntos siguen habilitados.",
+      "pipeline": {
+        "stepRunning": "Paso {{currentStep}}/{{totalSteps}}: {{stepName}}",
+        "completed": "Pipeline completado",
+        "failedAt": "El pipeline falló en {{stepName}}",
+        "cancelled": "Pipeline cancelado",
+        "starting": "Iniciando pipeline ({{totalSteps}} pasos)..."
+      },
+      "council": {
+        "completed": "Council completado ({{successCount}}/{{memberCount}} correctos)",
+        "failed": "Council falló",
+        "cancelled": "Council cancelado",
+        "running": "Council en ejecución ({{memberCount}} miembro{{suffix}})..."
+      }
+    },
+    "permissionMode": {
+      "planActive": "Modo [[canon:plan]]: las herramientas de investigación y planificación están disponibles; los cambios del proyecto están bloqueados.",
+      "thinkingActive": "Modo [[canon:thinking]]: las herramientas de lectura e investigación están disponibles; los cambios del proyecto están bloqueados.",
+      "planDormant": "[[canon:plan]] mode desactiva la ejecución de tools para este turno.",
+      "thinkingDormant": "[[canon:thinking]] mode desactiva la ejecución de tools para este turno.",
+      "label": "Permission",
+      "groupAriaLabel": "Permission mode",
+      "optionsAriaLabel": "Permission mode options",
+      "helpers": {
+        "ask": "Pide confirmación antes de acciones arriesgadas",
+        "autonomy": "Actúa dentro de las Guardrails del Workspace",
+        "fullAccess": "Ejecución de tools a nivel del host"
+      }
+    },
+    "dispatchConfirmation": {
+      "dispatchFailed": "El envío falló.",
+      "executed": "Envío ejecutado",
+      "executedDescription": "Se enviaron {{count}} agente{{suffix}}. Los resultados aparecerán abajo a medida que se completen.",
+      "failed": "Envío fallido",
+      "unknownError": "Error desconocido.",
+      "retry": "Reintentar",
+      "title": "Plan de envío de tareas",
+      "selected": "{{selected}}/{{total}} seleccionados",
+      "dispatching": "Enviando...",
+      "executeTasks": "Ejecutar {{count}} tarea{{suffix}}"
+    },
+    "questionUser": {
+      "clarificationNeeded": "Se necesita aclaración",
+      "waitingOnYou": "Esperando tu respuesta",
+      "recommended": "Recomendado",
+      "yourAnswer": "Tu respuesta",
+      "answerPlaceholder": "Escribe tu respuesta…",
+      "answerHint": "Envía aquí una respuesta rápida, o sigue editando en el composer de abajo.",
+      "sending": "Enviando...",
+      "sendAnswer": "Enviar",
+      "sendAnswerTitle": "Enviar respuesta (Enter)"
+    },
+    "runbook": {
+      "status": {
+        "cancelled": "cancelado",
+        "finishedWithErrors": "terminado con errores",
+        "finishedWithWarnings": "terminado con advertencias",
+        "finished": "terminado",
+        "running": "en ejecución"
+      },
+      "filters": {
+        "all": "Todo",
+        "commands": "Comandos",
+        "usage": "Uso",
+        "reasoning": "Reasoning",
+        "approvals": "Aprobaciones"
+      },
+      "aria": {
+        "collapse": "Contraer el runbook del turno",
+        "expand": "Expandir el runbook del turno"
+      },
+      "summary": {
+        "actions": "acciones {{count}}",
+        "commands": "comandos {{count}}",
+        "files": "archivos {{count}}",
+        "usage": "uso {{count}}"
+      },
+      "sections": {
+        "actions": "Acciones",
+        "commands": "Comandos",
+        "usage": "Uso"
+      }
+    },
+    "fileChanges": {
+      "header": "Archivos cambiados: {{count}}",
+      "unknownFile": "Archivo desconocido",
+      "updatedAgo": "actualizado {{time}}",
+      "changeType": {
+        "applied": "Aplicado",
+        "modified": "Modificado",
+        "edited": "Editado",
+        "deleted": "Eliminado",
+        "renamed": "Renombrado",
+        "rolledBack": "Revertido",
+        "created": "Creado"
+      },
+      "syncStatus": {
+        "deleted": "eliminado",
+        "undone": "deshecho",
+        "conflict": "conflicto"
+      },
+      "reason": {
+        "changedSinceTurn": "Cambiado desde este turno",
+        "missingRevisionMetadata": "Faltan metadatos de revisión"
+      },
+      "actions": {
+        "fallbackAction": "Acción",
+        "openInEditor": "Abrir en el editor",
+        "openInDocumentViewer": "Abrir en el visor de documentos",
+        "openArtifacts": "Abrir [[canon:artifacts]]",
+        "copyPath": "Copiar path",
+        "deleting": "Eliminando...",
+        "deleteFile": "Eliminar archivo",
+        "undoing": "Deshaciendo...",
+        "undoChange": "Deshacer cambio",
+        "menuTitle": "Acciones del archivo"
+      },
+      "preview": {
+        "loading": "Cargando cambios...",
+        "noChangedLines": "No hay líneas cambiadas para previsualizar.",
+        "collapse": "Contraer vista previa",
+        "expand": "Expandir vista previa",
+        "collapseForFile": "Contraer vista previa de {{path}}",
+        "expandForFile": "Expandir vista previa de {{path}}",
+        "fileChangeFallback": "cambio de archivo",
+        "limited": "vista previa limitada",
+        "limitWithLineCount": "El tamaño del archivo supera los límites de vista previa ({{lineCount}} líneas). Ábrelo en el editor o en [[canon:artifacts]] para inspeccionar los cambios.",
+        "limitNoLineCount": "El tamaño del archivo supera los límites de vista previa. La vista previa se desactiva por encima de {{maxLines}} líneas."
+      },
+      "dialogs": {
+        "undoOne": {
+          "title": "Deshacer cambio de archivo",
+          "message": "¿Restaurar la versión anterior de {{path}}?",
+          "confirm": "Deshacer cambio"
+        },
+        "deleteOne": {
+          "title": "Eliminar archivo creado",
+          "message": "¿Eliminar {{path}}? Esto quita del disco el archivo creado en este turno.",
+          "confirm": "Eliminar archivo"
+        },
+        "undoAll": {
+          "title": "Deshacer cambios de archivos",
+          "message": "¿Restaurar la versión anterior de {{count}} archivo{{suffix}}?",
+          "confirm": "Deshacer cambios"
+        },
+        "deleteAll": {
+          "title": "Eliminar archivos creados",
+          "message": "¿Eliminar {{count}} archivo{{suffix}} creado{{suffix}} en este turno? Esto los quita del disco.",
+          "confirm": "Eliminar archivos"
+        }
+      },
+      "feedback": {
+        "clipboardUnavailable": "El portapapeles no está disponible en este entorno.",
+        "copiedPath": "Path copiado: {{path}}",
+        "copyFailed": "No se pudo copiar el path del archivo.",
+        "undoUnavailable": "Deshacer no disponible para esta entrada (faltan metadatos de revisión).",
+        "undoSucceeded": "Se deshizo {{path}}.",
+        "undoFailed": "No se pudo deshacer.",
+        "deleteUnavailable": "Eliminar no disponible para esta entrada (faltan metadatos de revisión).",
+        "deleteSucceeded": "Se eliminó el archivo creado {{path}}.",
+        "deleteFailed": "No se pudo eliminar.",
+        "conflict": "{{path}}: cambió desde este turno.",
+        "actionFailed": "{{path}}: {{message}}",
+        "undoAllUnavailable": "Deshacer todo no disponible (faltan metadatos de revisión).",
+        "undoAllSummary": "Deshacer todo: {{success}} completado{{conflicts}}{{failed}}{{skipped}}.",
+        "undoAllFailed": "Deshacer todo falló.",
+        "deleteAllUnavailable": "Eliminar todo no disponible (faltan metadatos de revisión).",
+        "deleteAllSummary": "Eliminar archivos creados: {{success}} completado{{conflicts}}{{failed}}{{skipped}}.",
+        "deleteAllFailed": "Eliminar archivos creados falló."
+      },
+      "activity": {
+        "undoOne": "Se deshizo el cambio de archivo: {{path}}",
+        "deleteOne": "Se eliminó el archivo creado: {{path}}",
+        "undoAll": "Se deshicieron todos los cambios de archivos ({{success}} completado{{conflicts}}{{failed}}{{skipped}})",
+        "deleteAll": "Se eliminaron los archivos creados ({{success}} completado{{conflicts}}{{failed}}{{skipped}})"
+      },
+      "bulkActions": {
+        "undoingTitle": "Deshaciendo cambios de archivos",
+        "undoTitle": "Deshacer cambios de archivos de este turno",
+        "deletingTitle": "Eliminando archivos creados",
+        "deleteTitle": "Eliminar archivos creados de este turno"
+      }
+    },
+    "roleConfirmation": {
+      "title": "[[canon:ai_generated_agent_role]]",
+      "saveRole": "[[canon:save_role]]",
+      "saveRoleAndContinue": "[[canon:save_role_continue]]",
+      "useForDelegation": "[[canon:use_for_delegation]]",
+      "saving": "Guardando...",
+      "starting": "Iniciando...",
+      "saved": "Role \"{{name}}\" saved",
+      "usedForDelegation": "Role \"{{name}}\" usado para esta delegación",
+      "savedDescription": "Disponible para delegación de inmediato.",
+      "usedTemporaryDescription": "Este Role temporal se eliminará automáticamente cuando termine la delegación.",
+      "roleName": "[[canon:role_name]]",
+      "instructions": "Instrucciones",
+      "noInstructions": "Sin instrucciones",
+      "provider": "Provider",
+      "model": "modelo",
+      "selectProvider": "Selecciona provider...",
+      "selectModel": "Selecciona modelo...",
+      "modelIdPlaceholder": "modelo ID",
+      "emptyValue": "—",
+      "stagedWrites": {
+        "title": "Staged file writes",
+        "enabledDescription": "Habilitado para este Role. Al usarlo puede preparar cambios de archivos durante la delegación.",
+        "disabledDescription": "Deshabilitado. Este Role solo puede devolver análisis y recomendaciones."
+      },
+      "allowStagedWrites": {
+        "title": "Permitir staged file writes",
+        "description": "El Agent puede preparar sugerencias [[canon:write_file]]."
+      },
+      "preview": "Vista previa",
+      "edit": "Editar",
+      "dismiss": "Descartar",
+      "errors": {
+        "roleNameRequired": "Se requiere Role name.",
+        "providerRequired": "Se requiere Provider.",
+        "modelRequired": "Se requiere modelo.",
+        "saveFailed": "No se pudo guardar el Role.",
+        "useTemporaryFailed": "No se pudo usar el Role temporal."
+      }
+    },
+    "writeConflict": {
+      "resolved": "Resuelto {{path}}",
+      "conflictBadge": "conflicto",
+      "showDebugInfo": "Mostrar información de depuración",
+      "hideDebugInfo": "Ocultar información de depuración",
+      "hideDetails": "Ocultar detalles",
+      "viewChanges": "Ver qué cambió",
+      "loading": "Cargando...",
+      "loadingPreviews": "Cargando vistas previas...",
+      "previewUnavailable": "Vista previa no disponible.",
+      "aiMerge": "AI Merge",
+      "dismiss": "Descartar",
+      "confirm": "Confirmar",
+      "noModelSelected": "No hay ningún modelo seleccionado",
+      "generatingMerge": "Generando merge...",
+      "retry": "Reintentar",
+      "tryAgain": "Intentar de nuevo",
+      "accept": "Aceptar",
+      "labels": {
+        "yoursVsBase": "Tus cambios vs. base",
+        "theirsVsBase": "Otros cambios vs. base"
+      },
+      "errors": {
+        "unknown": "Error desconocido",
+        "requestFailed": "La solicitud falló",
+        "applyFailed": "No se pudo aplicar la resolución del merge.",
+        "mergeFailed": "El merge falló.",
+        "revisionPreviewUnavailable": "La vista previa de la revisión no está disponible en esta sesión del renderer.",
+        "loadRevisionPreviewFailed": "No se pudo cargar la vista previa de la revisión.",
+        "loadRevisionContextFailed": "No se pudo cargar el contexto de la revisión."
+      }
+    },
+    "attachments": {
+      "actions": {
+        "menuAriaLabel": "Acciones del archivo adjunto {{name}}",
+        "showInFolder": "Mostrar en la carpeta",
+        "copy": "Copiar",
+        "saveAs": "Guardar como...",
+        "openWith": "Abrir con",
+        "defaultApp": "Aplicación predeterminada",
+        "chooseAnotherApp": "Elegir otra aplicación...",
+        "copyFailed": "No se pudo copiar este archivo adjunto.",
+        "showInFolderFailed": "No se pudo mostrar este archivo adjunto en su carpeta.",
+        "saveFailed": "No se pudo guardar este archivo adjunto.",
+        "openWithFailed": "No se pudo abrir este archivo adjunto con la aplicación seleccionada."
+      },
+      "common": {
+        "close": "Cerrar",
+        "cancel": "Cancelar"
+      },
+      "errors": {
+        "cachedOpenFailed": "No se puede abrir el archivo adjunto en caché.",
+        "unavailable": "Abrir adjuntos no está disponible en esta build.",
+        "historyUnavailable": "Este adjunto no puede volver a abrirse porque sus datos no están disponibles en el historial de la línea temporal.",
+        "openFailed": "No se puede abrir el archivo adjunto."
+      },
+      "labels": {
+        "pdfAttachment": "Adjunto PDF",
+        "attachedImage": "Imagen adjunta",
+        "attachedFile": "Archivo adjunto"
+      },
+      "image": {
+        "unavailable": "Adjunto de imagen no disponible.",
+        "open": "Abrir {{label}}",
+        "previewAriaLabel": "Vista previa de la imagen",
+        "closePreviewAriaLabel": "Cerrar vista previa de la imagen"
+      },
+      "file": {
+        "openPdfViewer": "Abrir PDF en el visor",
+        "openAttachedFile": "Abrir archivo adjunto",
+        "openPdfAttachment": "Abrir adjunto PDF",
+        "openFileAttachment": "Abrir adjunto de archivo",
+        "clickOpenViewer": "Haz clic para abrir en el visor",
+        "clickOpenFile": "Haz clic para abrir el archivo"
+      },
+      "dialogs": {
+        "openFileAriaLabel": "Confirmación para abrir archivo",
+        "openPdfTitle": "¿Abrir el PDF en tu visor predeterminado?",
+        "closeFileOpenAriaLabel": "Cerrar confirmación para abrir archivo",
+        "openPdfDescription": "Este archivo se abrirá fuera de ADDOM usando la aplicación PDF de tu sistema.",
+        "openPdfConfirm": "Abrir PDF"
+      }
+    },
+    "planRequests": {
+      "label": {
+        "memoryReview": "Inject saved context",
+        "artifactReview": "Inyectar contexto de [[canon:artifacts]]",
+        "webIngest": "Ingerir sitio web",
+        "runRequest": "Ejecutar solicitud"
+      },
+      "summary": {
+        "from": "desde #{{value}}",
+        "to": "hasta #{{value}}",
+        "tags": "tags: {{value}}",
+        "sources": "sources: {{value}}",
+        "limit": "límite {{value}}",
+        "files": "archivos: {{value}}",
+        "latestOnly": "solo el más reciente",
+        "revisionsPerFile": "revisiones/archivo: {{value}}",
+        "fromRev": "desde rev {{value}}",
+        "toRev": "hasta rev {{value}}"
+      }
+    },
+    "toolExecution": {
+      "runningCommandWithCommand": "Ejecutando comando: {{command}}",
+      "runningCommand": "Ejecutando comando...",
+      "renameFile": "Ejecutando: rename_file - {{oldPath}} -> {{newPath}}",
+      "browsingUrl": "Navegando: {{url}}",
+      "browserActionWithAction": "Navegador: {{action}}",
+      "browserAction": "Acción del browser",
+      "runningToolWithPath": "Ejecutando: {{toolName}} - {{filePath}}",
+      "runningTool": "Ejecutando: {{toolName}}",
+      "result": {
+        "browserDenied": "browser_action - denegado",
+        "browserFailed": "browser_action - falló",
+        "browserDone": "browser_action - hecho",
+        "toolDenied": "{{toolName}} - denegado",
+        "toolFailed": "{{toolName}} - falló",
+        "toolDone": "{{toolName}} - hecho"
+      }
+    },
+    "mcpElicitation": {
+      "sendFailed": "No se pudo enviar esta respuesta."
+    },
+    "diff": {
+      "addedLine": "Línea añadida",
+      "removedLine": "Línea eliminada"
+    },
+    "providerTerms": {
+      "providerFallback": "este proveedor",
+      "title": "Antes de usar {{providerName}}",
+      "lead": "Tú eres responsable de los términos de este proveedor. Los prompts y la actividad de herramientas pueden salir de este equipo.",
+      "cancel": "Cancelar",
+      "openTerms": "Abrir términos",
+      "continue": "Continuar"
+    }
+  },
+  "toolApprovalOverlay": {
+    "header": {
+      "title": "AI quiere:",
+      "reviewFileChanges": "Revisa los cambios de archivo propuestos y luego aprueba o rechaza",
+      "reviewDiff": "Revisa el diff de abajo y luego aprueba o rechaza",
+      "approveFilesystem": "Aprueba para permitir esta acción en tu sistema de archivos",
+      "expiresIn": "Caduca en {{time}}"
+    },
+    "footer": {
+      "expired": "Approval expired",
+      "enterDisabled": "El atajo Enter está desactivado para aprobaciones elevadas",
+      "shortcuts": "Atajos: Enter permite, Esc rechaza",
+      "submitting": "Submitting approval..."
+    },
+    "actions": {
+      "deny": "Rechazar (Esc)",
+      "allowForSession": "Permitir en esta sesión",
+      "allowForSessionTitle": "Permitir y recordar esta aprobación para la sesión actual de la app cuando sea compatible",
+      "openGuardrails": "Abrir ajustes de Guardrails",
+      "openGuardrailsTitle": "Cancela esta aprobación y abre los ajustes de Guardrails",
+      "allowHostFallback": "Permitir Host Fallback",
+      "allowHostFallbackTitle": "Permitir host fallback (una sola vez)",
+      "allowHostFullAccessThisTurn": "Permitir Host Full Access (este turno)",
+      "allowHostFullAccessThisTurnTitle": "Permitir host full access durante el resto de este turno",
+      "allowHostFullAccess": "Permitir Host Full Access",
+      "allowHostFullAccessTitle": "Permitir host full access (una sola vez)",
+      "allowWslCompatibility": "Permitir ejecución de compatibilidad WSL",
+      "allowWslCompatibilityTitle": "Permitir una ejecución de compatibilidad WSL de una sola vez",
+      "allowDisabledWslTitle": "Usa una aprobación explícita de compatibilidad WSL para este comando",
+      "allowDisabledHostTitle": "Usa una acción explícita de host full access para este comando",
+      "allowTitle": "Permitir (Enter)",
+      "allowDisabled": "Permitir (desactivado)",
+      "allowCaution": "Permitir (precaución)",
+      "allow": "Permitir"
+    },
+    "review": {
+      "grantedRoot": "Raíz concedida",
+      "empty": "No se incluyeron cambios de archivo en esta solicitud de aprobación.",
+      "file": "Archivo",
+      "unknownPath": "(ruta desconocida)",
+      "noDiff": "No se proporcionó ningún diff para este cambio de archivo."
+    },
+    "policy": {
+      "runCommandTitle": "Política de ejecución de comandos",
+      "browserActionTitle": "Política de acciones del navegador",
+      "warnings": "Advertencias",
+      "hints": "Sugerencias",
+      "explicitHostElevation": "Se requiere elevación explícita de host",
+      "explicitHostElevationDescription": "Este comando supera la política `workspace_safe`. Usa la acción dedicada de una sola vez host_full_access para continuar.",
+      "explicitWslApproval": "Se requiere aprobación explícita de compatibilidad WSL",
+      "explicitWslApprovalDescription": "WSL no es un límite de seguridad. Esta aprobación reconoce una ejecución de compatibilidad con acceso al sistema de archivos del host, no un sandbox aislado."
+    },
+    "diff": {
+      "file": "archivo",
+      "newFile": "archivo nuevo",
+      "noChanges": "No se detectaron cambios."
+    },
+    "risk": {
+      "readOnly": "Solo lectura",
+      "writesFile": "Escribe archivo",
+      "runsCode": "Ejecuta código"
+    },
+    "intent": {
+      "runCommand": "Run command",
+      "localShell": "Run local shell command",
+      "openTerminal": "Open terminal",
+      "useTerminal": "Use terminal",
+      "useBrowser": "Use browser",
+      "reviewFileChanges": "Review file changes",
+      "createDirectory": "Create directory",
+      "scopeSandboxUnavailable": "Sandbox unavailable; host fallback is available.",
+      "scopeInstallSandbox": "Runs in the install sandbox.",
+      "scopeHostAccess": "Requires host access.",
+      "scopeWorkspaceShell": "Runs in the workspace shell.",
+      "scopeBrowserTarget": "Target: {{target}}",
+      "scopeTerminalHostPath": "Opens against a host path.",
+      "scopeWorkingDirectory": "Working directory: {{cwd}}",
+      "warningExplicitHost": "This needs an explicit host access decision.",
+      "warningExplicitWsl": "WSL can reach host files. Use the explicit WSL action only if that is intended.",
+      "warningSandboxFallback": "The sandbox route is unavailable. Host fallback is a one-time exception.",
+      "warningPrivateNetwork": "This targets a local or private network address.",
+      "warningTerminalOutsideWorkspace": "This terminal opens outside the workspace."
+    },
+    "production": {
+      "deny": "Deny",
+      "allowForSession": "Allow for session",
+      "openGuardrails": "Settings",
+      "allowHostFallback": "Host fallback",
+      "allowHostFullAccessThisTurn": "Host this turn",
+      "allowHostFullAccess": "Host once",
+      "allowWslCompatibility": "WSL once",
+      "allowDisabled": "Choose explicit action",
+      "allowCaution": "Allow",
+      "allow": "Allow",
+      "explicitActionRequired": "Use an explicit approval action for this request.",
+      "browserRisk": "External action",
+      "reviewRisk": "Review",
+      "details": "Details",
+      "requestData": "Request data"
+    },
+    "productionPolicy": {
+      "command": "Command policy",
+      "browser": "Browser policy",
+      "terminal": "Terminal policy",
+      "hostAccessRequired": "Host access required",
+      "hostAccessDescription": "Use an explicit host action if this should run outside workspace-safe limits.",
+      "wslCompatibility": "WSL compatibility",
+      "wslDescription": "WSL can reach host files. Use the WSL action only when that is intended.",
+      "notes": "Notes"
+    }
+  },
+  "common": {
+    "close": "Cerrar",
+    "clear": "Borrar",
+    "clearAll": "Borrar todo",
+    "cancel": "Cancelar"
+  },
+  "settingsInstructions": {
+    "title": "Usar ADDOM",
+    "updated": "Última actualización {{date}}",
+    "description": "Una guía concisa del comportamiento actual de ADDOM, los valores predeterminados de seguridad y dónde mirar cuando necesites un repaso.",
+    "sections": {
+      "chat-modes": {
+        "title": "Modos de chat",
+        "items": {
+          "0": "`[[canon:execute]]` permite que ADDOM use herramientas habilitadas bajo el [[canon:permission_mode]] seleccionado (`[[canon:ask]]`, `[[canon:autonomy]]` o `[[canon:full_access]]`).",
+          "1": "`[[canon:plan]]` mantiene el turno sin herramientas y se centra en opciones, preguntas y próximos pasos.",
+          "2": "`[[canon:thinking]]` sirve para explorar ideas y tradeoffs sin ejecución de herramientas.",
+          "3": "Elegir `[[canon:implement_plan]]` hace que el chat vuelva a `[[canon:execute]]` antes de enviar."
+        }
+      },
+      "tool-approvals": {
+        "title": "Aprobaciones de herramientas",
+        "items": {
+          "0": "`[[canon:ask]]` pide confirmación antes de acciones arriesgadas, `[[canon:autonomy]]` suprime avisos rutinarios y `[[canon:full_access]]` concede ejecución de herramientas a nivel de host para el turno.",
+          "1": "Incluso en `[[canon:full_access]]`, las blocklists de comandos destructivos siguen aplicándose a operaciones claramente peligrosas en el host.",
+          "2": "Las solicitudes de comandos se comprueban frente a tu política de seguridad de comandos antes de ejecutarse.",
+          "3": "Los comandos en segundo plano aparecen en `[[canon:background_jobs]]`, donde puedes inspeccionarlos o detenerlos."
+        }
+      },
+      "memory": {
+        "title": "Comportamiento de la memoria",
+        "items": {
+          "0": "La memoria del proyecto guarda notas, resúmenes y contexto registrado automáticamente de forma local en SQLite.",
+          "1": "Los registros automáticos más antiguos pueden comprimirse tras el umbral que configures en Configuración.",
+          "2": "Las entradas comprimidas se archivan, no se eliminan, y siguen pudiendo revisarse.",
+          "3": "La actividad de memoria es visible en el chat y en el panel memoria."
+        }
+      },
+      "continuity": {
+        "title": "Motor de continuidad",
+        "items": {
+          "0": "continuidad hace seguimiento de objetivos, decisiones, bucles abiertos, errores y referencias de archivos entre turnos.",
+          "1": "Su alcance de recuperación usa por defecto `thread + project` y puede ajustarse en Configuración.",
+          "2": "Perfiles como `economy`, `balanced` y `deep` controlan cuánta continuidad se inyecta.",
+          "3": "Los eventos de continuidad aparecen en la cronología cuando se ejecuta la recuperación, la creación de paquetes o la compactación.",
+          "4": "Las comprobaciones de deriva pueden avisar cuando un turno nuevo parece entrar en conflicto con el contexto establecido."
+        }
+      },
+      "artifacts": {
+        "title": "Comportamiento de [[canon:artifacts]]",
+        "items": {
+          "0": "Cada escritura de archivo de AI aprobada crea una revisión de artifact para ese archivo.",
+          "1": "[[canon:artifacts]] permiten revisión de diff, rollback/apply y metadatos de revisión.",
+          "2": "El contexto de Artifact puede incluir un historial de revisiones acotado, no solo la última versión."
+        }
+      },
+      "workspace": {
+        "title": "[[canon:workspace]] Persistence",
+        "items": {
+          "0": "Los proyectos, los threads y los eventos de la cronología se conservan localmente en SQLite.",
+          "1": "Cambiar de provider o modelo mantiene el thread activo y puede ofrecer acciones de arranque de contexto.",
+          "2": "Los controles de restablecimiento admiten limpieza a nivel de thread, proyecto y workspace completo."
+        }
+      },
+      "commands": {
+        "title": "[[canon:background_jobs]]",
+        "items": {
+          "0": "Las tareas de larga duración, como dev servers, watchers y respuestas desacopladas de OpenAI, pueden ejecutarse en segundo plano para que el chat continúe.",
+          "1": "Usa `[[canon:background_jobs]]` para inspeccionar la salida, detener una tarea o revisar la actividad en segundo plano.",
+          "2": "La salida persistida de comandos se recorta para mantener ágiles las cronologías."
+        }
+      },
+      "command-palette": {
+        "title": "[[canon:command_palette]]",
+        "items": {
+          "0": "Abre la `[[canon:command_palette]]` global con `Ctrl+Shift+P` para buscar acciones en todo ADDOM.",
+          "1": "Usa `Up` y `Down` para navegar, `Enter` para ejecutar y `Esc` para cerrar.",
+          "2": "Los comandos se pueden buscar por título y alias como `switch project`, `autofix` u `outline`.",
+          "3": "Los comandos desactivados siguen visibles con un motivo, como no tener un thread activo o no tener una pestaña abierta en el editor.",
+          "4": "Los comandos recientes se muestran cuando la búsqueda está vacía para repetir flujos de trabajo con más rapidez."
+        }
+      },
+      "streaming-responses": {
+        "title": "Respuestas en streaming",
+        "items": {
+          "0": "Las respuestas del asistente fluyen al chat como fragmentos en lugar de esperar a que termine el turno completo.",
+          "1": "El tamaño y la cadencia de los fragmentos dependen del provider y del modelo, y no son unidades exactas del tokenizer.",
+          "2": "ADDOM suaviza la entrega de fragmentos en la UI para reducir el parpadeo mientras conserva el progreso en tiempo real.",
+          "3": "El texto de reasoning aparece solo cuando el provider lo expone; ADDOM no fabrica chain-of-thought oculto."
+        }
+      },
+      "runbook": {
+        "title": "Transparencia de Turn [[canon:runbook]]",
+        "items": {
+          "0": "Cada turno del modelo se agrupa en un `Turn [[canon:runbook]]` contraído en el chat con acciones cronológicas.",
+          "1": "Los [[canon:runbook]] incluyen aprobaciones, pasos de comandos, cambios de archivos, actualizaciones de uso y estado del turno.",
+          "2": "Los turnos con escrituras de archivos muestran una tarjeta `Files changed` con conteos +/- por archivo, vistas previas y acciones de revisión.",
+          "3": "Las acciones de deshacer incluyen protecciones de conflicto como `Changed since this turn` para evitar reversiones inseguras.",
+          "4": "El texto de reasoning mostrado en la UI es exclusivo del provider; ADDOM nunca fabrica chain-of-thought oculto."
+        }
+      },
+      "moa": {
+        "title": "[[canon:moa]] Mode",
+        "items": {
+          "0": "`[[canon:moa]]` delega tareas paralelas de agentes mientras el orquestador mantiene la autoridad final.",
+          "1": "Los roles de agentes se configuran en Configuración y pueden usar plantillas como puntos de partida editables.",
+          "2": "Las delegaciones aplican límites como topes de tareas, timeouts, presupuestos de tokens y truncado de salida.",
+          "3": "Las advertencias de presupuesto pueden requerir una elección explícita antes de que continúe una delegación costosa.",
+          "4": "Las escrituras de archivos por agentes son opcionales, están desactivadas por defecto y se staged como sugerencias de artifact en lugar de escrituras directas en disco.",
+          "5": "Solo el orquestador puede finalizar revisiones de agentes staged mediante acciones explícitas de apply.",
+          "6": "Los eventos del ciclo de vida de [[canon:moa]] son visibles tanto en el [[canon:runbook]] como en el panel [[canon:moa]].",
+          "7": "[[canon:moa]] puede consumir sustancialmente más tokens que un turno de agente único, así que supervisa la política y las métricas de uso."
+        }
+      }
+    }
+  },
+  "commandPalette": {
+    "searchPlaceholder": "Escribe un comando o busca...",
+    "results": {
+      "commands": "Comandos",
+      "recentAndCommands": "Recientes + comandos",
+      "shown": "{{count}} mostrados"
+    },
+    "filters": {
+      "all": "Todo",
+      "recent": "Reciente",
+      "filterByCategory": "Filtrar comandos por {{label}}"
+    },
+    "categories": {
+      "ariaLabel": "Categorías de comandos",
+      "navigation": "Navegación",
+      "chat": "Chat",
+      "editor": "Editor",
+      "memory": "memoria",
+      "terminal": "Terminal"
+    },
+    "empty": {
+      "title": "Ningún comando coincide con tu búsqueda.",
+      "description": "Prueba otra palabra clave o alias."
+    },
+    "hint": {
+      "enter": "Intro"
+    },
+    "reasons": {
+      "open_a_project_first": "Abre primero un proyecto",
+      "no_active_thread": "No hay un thread activo",
+      "thread_has_no_messages_yet": "[[canon:thread]] aún no tiene mensajes",
+      "open_select_a_thread_first": "Abre o selecciona primero un thread",
+      "direct_agents_are_only_available_in_execute_mode": "Los agentes solo están disponibles en modo [[canon:execute]]",
+      "enable_moa_first": "Activa primero [[canon:moa]]",
+      "wait_for_the_current_response_to_finish": "Espera a que termine la respuesta actual",
+      "provider_model_switch_context_banner_is_not_active": "El banner de contexto de cambio de provider/modelo no está activo",
+      "open_a_file_in_editor_first": "Abre primero un archivo en el Editor",
+      "open_a_markdown_file_in_editor_first": "Abre primero un archivo Markdown en el Editor",
+      "open_the_editor_and_select_code_first": "Abre el Editor y selecciona código primero",
+      "formatting_is_unavailable_for_the_current_file": "El formateo no está disponible para el archivo actual",
+      "code_actions_are_unavailable_for_the_current_file": "Las code actions no están disponibles para el archivo actual",
+      "no_terminal_session_selected": "No terminal session selected",
+      "terminal_session_is_not_running": "Terminal session is not running",
+      "terminal_is_already_controlled_by_you": "El terminal ya est? controlado por ti",
+      "terminal_is_already_controlled_by_ai": "El terminal ya est? controlado por la IA",
+      "terminal_is_not_controlled_by_you": "El terminal no est? controlado por ti",
+      "terminal_is_not_controlled_by_ai": "El terminal no est? controlado por la IA",
+      "terminal_cannot_be_interrupted": "El terminal no se puede interrumpir",
+      "terminal_cannot_be_closed": "El terminal no se puede cerrar",
+      "terminal_cannot_be_terminated": "El terminal no se puede terminar",
+      "no_terminal_dock_open": "No terminal dock open"
+    },
+    "commands": {
+      "nav": {
+        "chat": {
+          "title": "Ir a Chat"
+        },
+        "editor": {
+          "title": "Ir al Editor"
+        },
+        "artifacts": {
+          "title": "Ir a [[canon:artifacts]]"
+        },
+        "memory": {
+          "title": "Ir a memoria"
+        },
+        "settings": {
+          "title": "Ir a Configuración"
+        },
+        "openProjectFolder": {
+          "title": "Abrir carpeta del proyecto"
+        },
+        "sidebar": {
+          "toggle": {
+            "expandTitle": "Expandir barra lateral",
+            "collapseTitle": "Contraer barra lateral"
+          }
+        },
+        "projectEntry": {
+          "title": "Open Projects"
+        }
+      },
+      "chat": {
+        "thread": {
+          "new": {
+            "title": "Nuevo Thread"
+          },
+          "rename": {
+            "title": "Renombrar Thread actual"
+          },
+          "delete": {
+            "title": "Eliminar Thread actual"
+          },
+          "clear": {
+            "title": "Borrar conversación actual"
+          }
+        },
+        "focusComposer": {
+          "title": "Enfocar compositor de Chat"
+        },
+        "jumpToLatest": {
+          "title": "Ir al último mensaje"
+        },
+        "openThreadSelector": {
+          "title": "Abrir selector de Thread"
+        },
+        "openBackgroundJobs": {
+          "title": "Abrir [[canon:background_jobs]]"
+        },
+        "openDirectAgents": {
+          "title": "Abrir menú de agentes directos"
+        },
+        "toggleMoa": {
+          "title": "Alternar modo [[canon:moa]]"
+        },
+        "inject": {
+          "memory": {
+            "title": "Inyectar memoria en Chat"
+          },
+          "artifacts": {
+            "title": "Inyectar [[canon:artifacts]] en Chat"
+          },
+          "both": {
+            "title": "Inyectar memoria + [[canon:artifacts]]"
+          }
+        }
+      },
+      "editor": {
+        "formatDocument": {
+          "title": "Formatear documento"
+        },
+        "fixAutofixable": {
+          "title": "Corregir incidencias auto-correctibles"
+        },
+        "toggleProblemsPanel": {
+          "title": "Alternar panel de problemas"
+        },
+        "toggleOutlinePanel": {
+          "title": "Alternar panel de esquema"
+        },
+        "markdownPreview": {
+          "toggle": {
+            "title": "Markdown: alternar vista previa"
+          },
+          "open": {
+            "title": "Markdown: abrir vista previa al lado"
+          }
+        },
+        "aiSelection": {
+          "explain": {
+            "title": "AI sobre la selección: explicar"
+          },
+          "fix": {
+            "title": "AI sobre la selección: corregir"
+          },
+          "refactor": {
+            "title": "AI sobre la selección: refactorizar"
+          },
+          "tests": {
+            "title": "AI sobre la selección: generar tests"
+          }
+        }
+      },
+      "memory": {
+        "exportProjectJson": {
+          "title": "Exportar JSON de contexto del proyecto",
+          "alerts": {
+            "failedTitle": "Falló la exportación",
+            "failedMessage": "Falló la exportación del JSON de contexto: {{error}}",
+            "completedTitle": "Exportación completada",
+            "completedMessage": "Se exportó el JSON de contexto.\n\nArchivo: {{filePath}}\nNodos de memoria: {{memoryNodeCount}}\nArchivos de artifact: {{artifactFileCount}}\nRevisiones de artifact: {{artifactRevisionCount}}"
+          }
+        },
+        "openPanel": {
+          "title": "Open notes panel"
+        }
+      },
+      "terminal": {
+        "focus": {
+          "title": "Enfocar terminal"
+        },
+        "new": {
+          "title": "Nuevo terminal"
+        },
+        "browseSessions": {
+          "title": "Explorar sesiones de terminal"
+        },
+        "takeOver": {
+          "title": "Tomar control del terminal"
+        },
+        "handBack": {
+          "title": "Devolver terminal a la IA"
+        },
+        "interrupt": {
+          "title": "Interrumpir terminal"
+        },
+        "close": {
+          "title": "Close Terminal Session"
+        },
+        "hide": {
+          "title": "Ocultar dock de terminal"
+        }
+      }
+    }
+  },
+  "executionStream": {
+    "showEarlier": "Mostrar {{count}} evento{{suffix}} de antes",
+    "thought": {
+      "verb": "Reflexionó",
+      "briefly": "brevemente",
+      "show": "Mostrar razonamiento",
+      "hide": "Ocultar razonamiento"
+    },
+    "transport": {
+      "startingTurn": "Iniciando turno"
+    },
+    "compaction": {
+      "requested": "Compactando contexto...",
+      "running": "Compactando contexto...",
+      "applied": "Se aplicó la compactación de OpenAI",
+      "failed": "Falló la compactación de OpenAI",
+      "milestoneTitle": "Contexto compactado antes del siguiente turno",
+      "milestoneDetail": {
+        "codexThreadCompaction": "Compactación de Thread de cuenta Codex",
+        "providerServerSide": "Compactación del lado del servidor de OpenAI",
+        "manualServerSide": "Compactación manual del lado del servidor de OpenAI"
+      }
+    },
+    "progress": {
+      "navigate": "Navegando",
+      "click": "Haciendo clic en el elemento",
+      "type": "Escribiendo texto",
+      "select": "Seleccionando opción",
+      "screenshot": "Capturando screenshot",
+      "runningTool": "Ejecutando {{toolName}}",
+      "working": "Trabajando",
+      "terminalOpen": "Opening terminal",
+      "terminalOpenNamed": "Opening {{terminalLabel}}",
+      "terminalRead": "Reading terminal output",
+      "terminalReadNamed": "Reading output from {{terminalLabel}}",
+      "terminalAttach": "Reusing terminal session",
+      "terminalWrite": "Writing to terminal",
+      "terminalWriteNamed": "Writing to {{terminalLabel}}",
+      "terminalWait": "Waiting for terminal output",
+      "terminalWaitNamed": "Waiting for output from {{terminalLabel}}",
+      "terminalResize": "Resizing terminal session",
+      "terminalResizeNamed": "Resizing {{terminalLabel}}",
+      "terminalSignal": "Signaling terminal session",
+      "terminalSignalNamed": "Signaling {{terminalLabel}}",
+      "terminalClose": "Closing terminal session",
+      "terminalCloseNamed": "Closing {{terminalLabel}}"
+    },
+    "result": {
+      "listDirectory": "Se listó {{countPrefix}}en {{pathLabel}}",
+      "createDirectory": "Se creó la carpeta {{pathLabel}}",
+      "writeFile": "Se escribió {{pathLabel}}",
+      "editFile": "Se actualizó {{pathLabel}}",
+      "readFile": "Se leyó {{pathLabel}}",
+      "deleteFile": "Se eliminó {{pathLabel}}",
+      "rollbackFile": "Se revirtió {{pathLabel}}",
+      "renameFile": "Se renombró {{oldPath}} a {{newPath}}",
+      "searchCode": "Se encontró {{countPrefix}}para \"{{query}}\" en {{searchPath}}",
+      "grepFile": "Se encontraron coincidencias de \"{{pattern}}\" en {{pathLabel}}",
+      "findFiles": "Se encontraron coincidencias de \"{{pattern}}\"",
+      "fetchPage": "Se obtuvo {{hostLabel}}",
+      "navigate": "Navegación completada",
+      "click": "Clic completado",
+      "type": "Escritura completada",
+      "select": "Selección completada",
+      "screenshot": "Screenshot capturada",
+      "browserAction": "Acción del navegador completada",
+      "gitStatusFailed": "Falló git status",
+      "gitStatusDone": "git status completado",
+      "gitDiffFailed": "Falló git diff",
+      "gitDiffReady": "git diff listo",
+      "gitLogFailed": "Falló git log",
+      "gitLogReady": "Historial de git cargado",
+      "gitCommitFailed": "Falló el commit",
+      "gitCommitCreated": "Commit creado",
+      "restoreFile": "Se restauró {{pathLabel}} desde {{refValue}}",
+      "commandDone": "El comando terminó en {{commandScope}}",
+      "commandFailed": "El comando falló en {{commandScope}}",
+      "commandDenied": "El comando fue denegado en {{commandScope}}",
+      "revisionApplyFailed": "Falló la aplicación de la revisión",
+      "revisionApplied": "Revisión aplicada",
+      "planUpdated": "Plan actualizado",
+      "planUpdatedBatch": "Plan actualizado ({{count}} cambios)",
+      "genericToolResult": "{{toolName}} {{verb}}",
+      "actionFinished": "Acción finalizada",
+      "ranCommand": "Se ejecutó el comando",
+      "terminalOpen": "Opened terminal",
+      "terminalOpenNamed": "Opened {{terminalLabel}}",
+      "terminalRead": "Read terminal output",
+      "terminalReadNamed": "Read output from {{terminalLabel}}",
+      "terminalAttach": "Reused terminal session in chat terminal dock",
+      "terminalAttachNamed": "Reused {{terminalLabel}} in chat terminal dock",
+      "terminalWrite": "Wrote to terminal",
+      "terminalWriteNamed": "Wrote to {{terminalLabel}}",
+      "terminalWait": "Waited for terminal output",
+      "terminalWaitNamed": "Waited for output in {{terminalLabel}}",
+      "terminalWaitMatched": "Matched expected terminal output",
+      "terminalWaitMatchedNamed": "Matched expected output in {{terminalLabel}}",
+      "terminalWaitTimedOut": "Timed out waiting for terminal output",
+      "terminalWaitTimedOutNamed": "Timed out waiting for {{terminalLabel}}",
+      "terminalResize": "Terminal session resized",
+      "terminalResizeNamed": "Resized {{terminalLabel}}",
+      "terminalSignal": "Terminal session signaled",
+      "terminalSignalNamed": "Signaled {{terminalLabel}}",
+      "terminalClose": "Closed terminal",
+      "terminalCloseNamed": "Closed {{terminalLabel}}"
+    },
+    "warning": {
+      "compactionFailed": "Falló la compactación del contexto",
+      "generic": "Advertencia"
+    },
+    "error": {
+      "toolFailed": "{{toolName}} falló",
+      "actionFailed": "La acción falló"
+    },
+    "header": {
+      "title": "Flujo de ejecución",
+      "show": "Mostrar live execution stream",
+      "hide": "Ocultar live execution stream",
+      "awaitingFirstEvent": "Esperando el primer evento",
+      "eventCount": "{{count}} evento{{suffix}}",
+      "hiddenSummary": "Mostrando los últimos {{visibleItemCount}} eventos. {{hiddenItemCount}} evento{{eventSuffix}} oculto{{eventSuffix}}.",
+      "hiddenSummaryPinned": "Mostrando los últimos {{visibleTailItemCount}} eventos además de {{pinnedArchiveCount}} bloque{{archiveSuffix}} de reasoning contraído{{archiveSuffix}}. {{hiddenItemCount}} evento{{eventSuffix}} oculto{{eventSuffix}}.",
+      "status": {
+        "failed": "falló",
+        "completed": "completado",
+        "started": "iniciado",
+        "generic": "{{status}}"
+      }
+    },
+    "output": {
+      "openCopyOptions": "Abrir opciones de copia",
+      "copyCommand": "Copiar comando",
+      "copyVisibleOutput": "Copiar salida visible",
+      "copyPersistedPreview": "Copiar vista previa persistida",
+      "commandOutput": "Salida del comando",
+      "showCommandOutput": "Mostrar salida del comando",
+      "hideCommandOutput": "Ocultar salida del comando",
+      "truncated": "Salida truncada"
+    },
+    "bridge": {
+      "native": {
+        "activity": "Actividad de Codex app-server",
+        "webSearch": "Búsqueda web de Codex app-server",
+        "command": "Comando de Codex app-server: {{commandName}}",
+        "fileChangeOne": "Cambio de archivo de Codex app-server",
+        "fileChangeOther": "Cambios de archivos de Codex app-server",
+        "mcpTool": "Herramienta MCP de Codex app-server: {{toolName}}",
+        "imageView": "Vista de imagen de Codex app-server",
+        "planGenerated": "Plan generado por Codex app-server",
+        "reviewMode": "Actividad del modo review de Codex"
+      },
+      "source": {
+        "urlTitle": "Fuente: {{title}}",
+        "urlCaptured": "URL de fuente capturada",
+        "documentTitle": "Documento fuente: {{title}}",
+        "documentCaptured": "Documento fuente capturado"
+      },
+      "providerTool": {
+        "modelRerouted": "Modelo redirigido",
+        "configWarning": "Advertencia de configuración",
+        "hook": "Hook",
+        "autoApprovalReview": "Revisión de aprobación automática",
+        "providerError": "Error del proveedor",
+        "input": "Entrada de la herramienta del provider: {{toolName}}",
+        "running": "Herramienta del provider en ejecución: {{toolName}}",
+        "collectingInput": "Recopilando la entrada de la herramienta del provider...",
+        "imageGenerated": "Imagen generada por una herramienta de provider de OpenAI.",
+        "output": "Salida de la herramienta del provider: {{toolName}}"
+      },
+      "continuity": {
+        "responseTracked": "Respuesta de OpenAI rastreada: {{responseId}}",
+        "metadataReceived": "Metadatos de respuesta de OpenAI recibidos"
+      },
+      "websocket": {
+        "transportUpdate": "Actualización de transporte WebSocket de OpenAI",
+        "reconnecting": "Reconectando... {{attempt}}/{{maxAttempts}}",
+        "recoveringStoredResponse": "Recuperando la respuesta final desde el estado almacenado",
+        "recoveredStoredResponse": "Se recuperó la respuesta final desde el estado almacenado",
+        "storedRecoveryFailed": "Falló la recuperación de la respuesta almacenada",
+        "recovered": "Se reconectó tras el reintento {{attempt}}/{{maxAttempts}}",
+        "bypassed": "Usando el transporte estándar de OpenAI para este turno",
+        "fallback": "Volviendo al stream estándar de OpenAI",
+        "exhausted": "Reconexión agotada ({{attempt}}/{{maxAttempts}})",
+        "cancelled": "Reconexión cancelada ({{attempt}}/{{maxAttempts}})"
+      },
+      "background": {
+        "queued": "Respuesta en segundo plano de OpenAI en cola",
+        "completed": "Respuesta en segundo plano de OpenAI completada",
+        "failed": "La respuesta en segundo plano de OpenAI falló.",
+        "cancelled": "La respuesta en segundo plano de OpenAI fue cancelada.",
+        "noteQueued": "Respuesta en segundo plano de OpenAI en cola. Abre Jobs para supervisar el progreso o detenerla.",
+        "noTextOutput": "La respuesta en segundo plano de OpenAI se completó sin salida de texto.",
+        "errorPrefix": "Error: {{message}}"
+      }
+    }
+  },
+  "memoryPanel": {
+    "title": "memoria",
+    "visibleCount": {
+      "eventOne": "{{count}} evento",
+      "eventOther": "{{count}} eventos",
+      "nodeOne": "{{count}} nodo",
+      "nodeOther": "{{count}} nodos"
+    },
+    "controls": {
+      "showArchived": "Mostrar archivados",
+      "includeGlobal": "Incluir global",
+      "exportJsonTitle": "Exportar registros de memoria y artifacts a JSON",
+      "exporting": "Exportando...",
+      "exportJson": "Exportar JSON",
+      "addNode": "Añadir nodo"
+    },
+    "tabs": {
+      "memory": "memoria duradera",
+      "history": "[[canon:thread_history]]"
+    },
+    "export": {
+      "completedTitle": "Exportación completada",
+      "completedMessage": "Se exportó el JSON de contexto.\n\nArchivo: {{filePath}}\nNodos de memoria: {{memoryNodeCount}}\nArchivos de artifact: {{artifactFileCount}}\nRevisiones de artifact: {{artifactRevisionCount}}",
+      "failedTitle": "Falló la exportación",
+      "failedMessage": "Falló la exportación del JSON de contexto: {{message}}"
+    },
+    "search": {
+      "placeholder": "Buscar en memoria...",
+      "searching": "Buscando...",
+      "resultOne": "{{count}} resultado",
+      "resultOther": "{{count}} resultados"
+    },
+    "compression": {
+      "latestBatchTitle": "Último lote de compresión",
+      "summary": "Se comprimieron los registros n.º {{rangeStart}} a n.º {{rangeEnd}} en un nodo de resumen ({{archivedCount}} archivados).",
+      "jumpToSummary": "Ir al resumen",
+      "dismiss": "Descartar"
+    },
+    "loading": {
+      "memory": "Cargando memoria...",
+      "threadHistory": "Cargando historial del thread..."
+    },
+    "sections": {
+      "pinned": "Fijados",
+      "allNodes": "Todos los nodos de memoria"
+    },
+    "embedder": {
+      "downloading": "Descargando modelo {{progress}}%",
+      "loading": "Cargando modelo...",
+      "unavailable": "Embedding no disponible"
+    },
+    "source": {
+      "userMemory": "memoria del usuario",
+      "workspaceEvent": "Evento de Workspace",
+      "terminalSummary": "Resumen de terminal",
+      "validatedDecision": "Decisión validada",
+      "referenceNote": "Nota de referencia"
+    },
+    "provenance": {
+      "ariaLabel": "Procedencia de la memoria",
+      "origin": "Origen",
+      "terminalSession": "Resumen de terminal aceptado",
+      "session": "Sesión",
+      "thread": "thread",
+      "saved": "Guardado"
+    },
+    "badges": {
+      "global": "global",
+      "archived": "archivado",
+      "deletedThread": "Hilo eliminado"
+    },
+    "meta": {
+      "deletedThreadOrigin": "{{threadTitle}} · eliminado {{time}}"
+    },
+    "actions": {
+      "unpin": "Desfijar",
+      "pin": "Fijar",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "showLess": "Mostrar menos",
+      "showMore": "Mostrar más",
+      "continue": "Continuar",
+      "continueDraft": "Continuar desde el contexto guardado."
+    },
+    "scoreRef": "ref {{score}}%",
+    "history": {
+      "userMessage": "Mensaje del usuario",
+      "assistantMessage": "Mensaje del asistente",
+      "emptyTitle": "Aún no hay historial de thread",
+      "noActiveThreadTitle": "No hay un thread activo seleccionado",
+      "emptyDescription": "Aquí aparecerán los eventos de transcripción de usuario y asistente de este thread.",
+      "noActiveThreadDescription": "Abre o crea un thread para inspeccionar su historial de transcripción."
+    },
+    "addForm": {
+      "title": "Añadir nuevo nodo de memoria",
+      "topicPlaceholder": "Tema / título",
+      "contentPlaceholder": "Anota cualquier contexto, hecho o instrucción...",
+      "tagsPlaceholder": "Etiquetas (separadas por comas)",
+      "saveAsGlobal": "Guardar como memoria global persistente",
+      "saving": "Guardando...",
+      "saveNode": "Guardar nodo"
+    },
+    "editForm": {
+      "title": "Editar nodo de memoria",
+      "closeAriaLabel": "Cerrar el editor del nodo de memoria",
+      "topicPlaceholder": "Tema",
+      "contentPlaceholder": "Contenido",
+      "tagsPlaceholder": "Etiquetas (separadas por comas)",
+      "saving": "Guardando...",
+      "saveChanges": "Guardar cambios"
+    },
+    "empty": {
+      "searchTitle": "No hay memorias coincidentes",
+      "title": "Aún no hay memorias",
+      "searchDescription": "Prueba un término de búsqueda distinto o borra la búsqueda para ver todos los nodos de memoria.",
+      "description": "La Memory duradera almacena notas explícitas, eventos de Workspace, decisiones validadas y notas de referencia. Los turnos de chat y terminal sin procesar ahora viven en el historial del thread."
+    }
+  },
+  "workspaceRail": {
+    "title": "Proyectos",
+    "ariaLabel": "Proyectos e hilos",
+    "show": "Mostrar proyectos e hilos",
+    "showWithActivityOne": "Mostrar proyectos e hilos. {{count}} hilo oculto; prioridad máxima: {{activity}}.",
+    "showWithActivityOther": "Mostrar proyectos e hilos. {{count}} hilos ocultos; prioridad máxima: {{activity}}.",
+    "hide": "Ocultar proyectos e hilos",
+    "resize": "Cambiar el tamaño de proyectos e hilos",
+    "close": "Cerrar proyectos e hilos"
+  },
+  "projectEntry": {
+    "browserPreviewLimitation": {
+      "title": "Desktop workspace required",
+      "message": "Opening a project requires the Electron workspace bridge. Use the desktop app or an Electron-backed smoke run for this flow."
+    },
+    "clearProjectHistoryDialog": {
+      "title": "Clear project transcript history",
+      "message": "Clear transcript history for project \"{{name}}\"?\n\nThis does not delete project files.",
+      "confirm": "Clear history",
+      "cancel": "Cancel"
+    },
+    "archiveProjectDialog": {
+      "title": "¿Detener el trabajo activo y archivar el proyecto?",
+      "message": "El trabajo activo en «{{name}}» se detendrá antes de mover el proyecto al Archivo.",
+      "cancel": "Cancelar"
+    },
+    "removeProjectDialog": {
+      "title": "Remove from ADDOM?",
+      "message": "\"{{name}}\" and all of its ADDOM history, Memory, Artifacts, and recovery data will be removed. Project files are unchanged.",
+      "path": "Folder: {{path}}",
+      "confirm": "Remove from ADDOM",
+      "failureTitle": "Could not remove from ADDOM",
+      "failureMessage": "Nothing was removed from ADDOM. Try again.",
+      "cancel": "Cancel"
+    },
+    "eyebrow": "Workspace",
+    "title": "Open a project",
+    "newProject": "Nuevo proyecto",
+    "newThreadInProject": "Nuevo hilo en {{name}}",
+    "openFolder": "Open folder",
+    "projectActions": {
+      "openFolder": "Open folder",
+      "archiveProject": "Archivar proyecto",
+      "clearHistory": "Clear history",
+      "removeProject": "Remove from ADDOM",
+      "ariaLabel": "Project actions for {{name}}",
+      "restoreToRecent": "Restore to Recent"
+    },
+    "archive": {
+      "title": "Archive",
+      "toggle": "Toggle Archive"
+    },
+    "projectDisclosure": {
+      "expand": "Expand {{name}}",
+      "collapse": "Collapse {{name}}"
+    },
+    "recentProjects": {
+      "title": "Recent projects",
+      "description": "Pick up a workspace with its threads and local context.",
+      "projectCount": "{count, plural, one {# proyecto} other {# proyectos}}",
+      "fallbackProjectName": "Project",
+      "recent": "Recent",
+      "threadCount": "{{count}} conversaciones",
+      "open": "Open"
+    },
+    "empty": {
+      "title": "No recent projects",
+      "description": "Open a folder to start working in the main workspace."
+    },
+    "home": {
+      "placeholder": "Describe una tarea para empezar a trabajar",
+      "noProject": "Sin proyecto",
+      "projectMenu": "Elegir proyecto de destino",
+      "start": "Iniciar tarea",
+      "commandsHint": "Comandos"
+    }
+  },
+  "agents": {
+    "fanoutConfirmation": {
+      "title": "Launch {{count}} agents?",
+      "description": "The orchestrator requested more agents than your {{limit}}-agent confirmation limit.",
+      "stopTurn": "Stop turn",
+      "limit": "Limit to {{count}}",
+      "launch": "Launch {{count}}"
+    }
+  },
+  "agentNavigator": {
+    "title": "Agentes",
+    "close": "Cerrar agentes",
+    "settings": "Configuración de agentes",
+    "sectionActive": "Activos",
+    "sectionDone": "Finalizados · {{count}}",
+    "emptyActive": "Sin agentes activos",
+    "emptyThread": "No hay agentes en este hilo.",
+    "showMore": "Mostrar {{count}} más",
+    "expand": "Expandir",
+    "collapse": "Contraer",
+    "hidden": "+{{count}}",
+    "partialVisibility": "gestionado por el proveedor, visibilidad parcial",
+    "age": {
+      "seconds": "{{count}} s",
+      "minutes": "{{count}} min",
+      "hours": "{{count}} h",
+      "days": "{{count}} d"
+    },
+    "status": {
+      "queued": "En cola",
+      "running": "En ejecución",
+      "waiting": "Esperando",
+      "paused": "En pausa",
+      "approval_required": "Requiere aprobación",
+      "cancelling": "Cancelando",
+      "completed": "Completado",
+      "failed": "Fallido",
+      "cancelled": "Cancelado"
+    },
+    "live": {
+      "selected": "{{label}} · {{status}}",
+      "attention": "{{label}} needs attention · {{status}}"
+    }
+  },
+  "agentConversation": {
+    "back": "Atrás",
+    "rootLabel": "Hilo",
+    "regionLabel": "Conversación del agente",
+    "loading": "Cargando transcripción…",
+    "empty": "Aún no hay transcripción registrada.",
+    "loadMore": "Cargar más actividad",
+    "unavailableTitle": "Agente no disponible",
+    "unavailableBody": "Este agente ya no forma parte de la ejecución.",
+    "error": "No se pudo cargar la transcripción de este agente.",
+    "actions": {
+      "menu": "Acciones del agente",
+      "message": "Mensaje",
+      "messagePrompt": "Enviar mensaje a este agente",
+      "messageDescription": "Envía una instrucción de seguimiento al agente en ejecución.",
+      "messagePlaceholder": "Escribe una instrucción breve…",
+      "cancel": "Cancelar",
+      "send": "Enviar",
+      "sending": "Enviando…",
+      "failure": "No se pudo completar la acción del agente.",
+      "interrupt": "Interrumpir",
+      "retry": "Reintentar",
+      "promote": "Continuar como hilo del proyecto"
+    },
+    "origin": {
+      "label": "Rama de {{role}} · Turno {{turn}}",
+      "inspect": "Inspeccionar origen",
+      "unavailable": "Origen no disponible",
+      "artifacts": "{{count}} artefactos de origen sin integrar",
+      "failure": "No se pudo abrir el agente de origen."
+    }
+  },
+  "agentStream": {
+    "title": "Agentes · {{count}}",
+    "open": "Abrir",
+    "delegationEchoSuppressed": "Delegación finalizada. Abra Agents para ver los detalles."
+  },
+  "agentTrigger": {
+    "idle": "Agents",
+    "active": "Agents · {{count}} active",
+    "approval": "Agents · needs approval",
+    "failed": "Agents · {{count}} failed",
+    "open": "Open Agents",
+    "close": "Close Agents"
+  }
+}

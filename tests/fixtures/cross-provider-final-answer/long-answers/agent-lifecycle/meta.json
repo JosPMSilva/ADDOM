@@ -1,0 +1,75 @@
+{
+  "fixtureId": "long-answer-agent-lifecycle",
+  "kind": "long_answer",
+  "title": "Grok Build: Agent / Subagent Lifecycle (Read-Only)",
+  "sourceClass": "captured-db",
+  "provider": "cursor",
+  "model": "composer-2.5",
+  "streamShape": "mixed-opaque",
+  "semanticOwnership": "final-answer",
+  "contentFile": "content.md",
+  "canonicalPartsFile": "canonical-parts.json",
+  "sourceContentSha256": "9bfc292a704043933065b94af33ee4d2bd59d6cdfb73098317b6bb695c05d2da",
+  "contentSha256": "9bfc292a704043933065b94af33ee4d2bd59d6cdfb73098317b6bb695c05d2da",
+  "canonicalPartsSha256": "68167a31ac0e5192082cb6e7f8549af5f4f23c3bce3a0b0cc98a92e08a1c95dc",
+  "captureProvenance": {
+    "source": "memory.db",
+    "captureMode": "read-only",
+    "sourceFiles": [
+      "runbook.md"
+    ],
+    "threadFixtureId": "thread_1784237720551_bc8abbc2",
+    "turnFixtureId": "turn_long_answer_agent_lifecycle_001",
+    "messageFixtureId": "message_long_answer_agent_lifecycle_001",
+    "sourceThreadId": "thread_1784237720551_bc8abbc2",
+    "sourceTurnId": "81624a53-0ca1-4a24-bebd-7b5ce7c54100",
+    "sourceEventId": 46522,
+    "threadTitle": "01 Agent lifecycle",
+    "provider": "cursor",
+    "model": "composer-2.5",
+    "queryTemplateFile": "runbook.md"
+  },
+  "redactionRecord": [
+    {
+      "kind": "absolute_windows_path",
+      "scope": "content",
+      "replacement": "REDACTED_WINDOWS_PATH"
+    },
+    {
+      "kind": "thread_id",
+      "scope": "content",
+      "replacement": "REDACTED_THREAD_ID"
+    },
+    {
+      "kind": "turn_id",
+      "scope": "content",
+      "replacement": "REDACTED_TURN_ID"
+    },
+    {
+      "kind": "project_id",
+      "scope": "content",
+      "replacement": "REDACTED_PROJECT_ID"
+    },
+    {
+      "kind": "request_id",
+      "scope": "content",
+      "replacement": "REDACTED_REQUEST_ID"
+    },
+    {
+      "kind": "session_id",
+      "scope": "content",
+      "replacement": "REDACTED_SESSION_ID"
+    },
+    {
+      "kind": "tool_or_item_id",
+      "scope": "content",
+      "replacement": "REDACTED_IDENTIFIER"
+    },
+    {
+      "kind": "uuid",
+      "scope": "content",
+      "replacement": "REDACTED_UUID"
+    }
+  ],
+  "sourceEventMetadataSha256": "6cf3843c34cc7a628f09237a3cae38e801f538aae5e1566f9444955b7ef9a4e6"
+}

@@ -1,0 +1,27 @@
+{
+  "fixtureId": "markdown-council-synthetic",
+  "kind": "markdown",
+  "title": "Council sample",
+  "sourceClass": "synthetic-repo-derived",
+  "provider": "repo",
+  "model": "repo-derived",
+  "streamShape": "none",
+  "semanticOwnership": "final-answer",
+  "contentFile": "content.md",
+  "sourceContentSha256": "0a9997533c8acffe325c357b5002f6f4140778cf964c01671caa427736ca32a9",
+  "contentSha256": "0a9997533c8acffe325c357b5002f6f4140778cf964c01671caa427736ca32a9",
+  "captureProvenance": {
+    "source": "repo-derived",
+    "captureMode": "read-only",
+    "sourceFiles": [
+      "runbook.md"
+    ]
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ]
+}

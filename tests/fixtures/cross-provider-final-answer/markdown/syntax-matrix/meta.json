@@ -1,0 +1,27 @@
+{
+  "fixtureId": "markdown-syntax-matrix",
+  "kind": "markdown",
+  "title": "Syntax matrix fixture",
+  "sourceClass": "repo-derived",
+  "provider": "repo",
+  "model": "repo-derived",
+  "streamShape": "none",
+  "semanticOwnership": "final-answer",
+  "contentFile": "content.md",
+  "sourceContentSha256": "7a65278c13fffa47991e88f4e338871c0cc1c197d79b8a59095637e8d60768f0",
+  "contentSha256": "7a65278c13fffa47991e88f4e338871c0cc1c197d79b8a59095637e8d60768f0",
+  "captureProvenance": {
+    "source": "repo-derived",
+    "captureMode": "read-only",
+    "sourceFiles": [
+      "runbook.md"
+    ]
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ]
+}

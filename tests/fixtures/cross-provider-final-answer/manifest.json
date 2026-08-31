@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-18T00:00:00Z",
+  "fixtures": [
+    {
+      "fixtureId": "long-answer-agent-lifecycle",
+      "metaFile": "long-answers/agent-lifecycle/meta.json"
+    },
+    {
+      "fixtureId": "long-answer-event-persistence",
+      "metaFile": "long-answers/event-persistence/meta.json"
+    },
+    {
+      "fixtureId": "long-answer-pager-ux",
+      "metaFile": "long-answers/pager-ux/meta.json"
+    },
+    {
+      "fixtureId": "markdown-prose",
+      "metaFile": "markdown/prose/meta.json"
+    },
+    {
+      "fixtureId": "markdown-dispatch-delegation",
+      "metaFile": "markdown/dispatch-delegation/meta.json"
+    },
+    {
+      "fixtureId": "markdown-role",
+      "metaFile": "markdown/role/meta.json"
+    },
+    {
+      "fixtureId": "markdown-council-synthetic",
+      "metaFile": "markdown/council-synthetic/meta.json"
+    },
+    {
+      "fixtureId": "markdown-review",
+      "metaFile": "markdown/review/meta.json"
+    },
+    {
+      "fixtureId": "markdown-patch",
+      "metaFile": "markdown/patch/meta.json"
+    },
+    {
+      "fixtureId": "markdown-syntax-matrix",
+      "metaFile": "markdown/syntax-matrix/meta.json"
+    },
+    {
+      "fixtureId": "markdown-tables",
+      "metaFile": "markdown/tables/meta.json"
+    },
+    {
+      "fixtureId": "markdown-literal-json",
+      "metaFile": "markdown/literal-json/meta.json"
+    },
+    {
+      "fixtureId": "provider-openai-account-append-delta",
+      "metaFile": "provider-streams/openai-account-append-delta/meta.json"
+    },
+    {
+      "fixtureId": "provider-cursor-cumulative-replay",
+      "metaFile": "provider-streams/cursor-cumulative-replay/meta.json"
+    },
+    {
+      "fixtureId": "provider-openrouter-anthropic-final-replacement",
+      "metaFile": "provider-streams/openrouter-anthropic-final-replacement/meta.json"
+    },
+    {
+      "fixtureId": "provider-opaque-mixed-opaque",
+      "metaFile": "provider-streams/opaque-mixed-opaque/meta.json"
+    },
+    {
+      "fixtureId": "provider-openai-live-reload",
+      "metaFile": "provider-streams/openai-live-reload/meta.json"
+    },
+    {
+      "fixtureId": "provider-cursor-duplicate",
+      "metaFile": "provider-streams/cursor-duplicate/meta.json"
+    },
+    {
+      "fixtureId": "provider-openrouter-delayed",
+      "metaFile": "provider-streams/openrouter-delayed/meta.json"
+    },
+    {
+      "fixtureId": "provider-opaque-out-of-order",
+      "metaFile": "provider-streams/opaque-out-of-order/meta.json"
+    }
+  ],
+  "findingCoverage": {
+    "F-01": [
+      "markdown-tables",
+      "long-answer-agent-lifecycle"
+    ],
+    "F-02": [
+      "long-answer-agent-lifecycle",
+      "provider-openai-account-append-delta",
+      "provider-cursor-cumulative-replay",
+      "provider-openrouter-anthropic-final-replacement"
+    ],
+    "F-03": [
+      "markdown-tables",
+      "long-answer-event-persistence"
+    ],
+    "F-04": [
+      "markdown-dispatch-delegation",
+      "markdown-patch",
+      "long-answer-pager-ux"
+    ],
+    "F-05": [
+      "provider-openai-live-reload",
+      "provider-cursor-duplicate",
+      "provider-openrouter-delayed",
+      "provider-opaque-out-of-order"
+    ],
+    "F-06": [
+      "long-answer-agent-lifecycle",
+      "long-answer-event-persistence",
+      "long-answer-pager-ux"
+    ],
+    "F-07": [
+      "long-answer-pager-ux",
+      "provider-openai-live-reload"
+    ],
+    "F-08": [
+      "markdown-prose",
+      "markdown-literal-json"
+    ],
+    "F-09": [
+      "markdown-syntax-matrix",
+      "markdown-tables"
+    ],
+    "F-10": [
+      "markdown-prose",
+      "provider-opaque-mixed-opaque"
+    ]
+  },
+  "runbookFile": "runbook.md"
+}

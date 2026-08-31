@@ -1,0 +1,13 @@
+{
+  "name": "editor-fixture-json",
+  "version": 1,
+  "flags": {
+    "active": true,
+    "cached": false
+  },
+  "items": [
+    "alpha",
+    "beta",
+    "gamma"
+  ]
+}

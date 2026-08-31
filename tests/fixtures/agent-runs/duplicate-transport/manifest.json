@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "duplicate-transport",
+  "sourceClass": "sanitized_existing_test",
+  "captureDate": "2026-07-22",
+  "providerRuntimeClass": "provider_transport_normalization",
+  "synthetic": false,
+  "networkRequired": false,
+  "sourceReferences": ["tests/integration/cursor-agent-event-mapper.test.mjs", "tests/integration/live-execution-canonical-reducer.test.mjs"],
+  "sanitization": { "method": "manual_shape_extraction", "privatePromptRemoved": true, "identifiersPlaceholdered": true, "pathsNormalized": true },
+  "contentHashAlgorithm": "sha256-canonical-json-v1",
+  "contentHash": "2c64c59be47302bff611291509344e06ab74771338572284b4ee961ca7d1f012",
+  "coverage": ["duplicate_events"],
+  "expectedCapabilities": { "addressableChildIdentity": false, "nodeScopedStream": false, "nodeCancellation": false, "rootFinalAuthority": true },
+  "currentContract": { "identity": "root_turn_only", "stream": "provider_event_deduplication", "cancellation": "root_turn_only", "rootFinalAuthority": "observed" },
+  "knownGaps": ["Current deduplication evidence is root-stream scoped, not recursive-node scoped."]
+}

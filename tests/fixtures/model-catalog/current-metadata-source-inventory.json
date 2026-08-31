@@ -1,0 +1,216 @@
+[
+  {
+    "path": "src/common/api-clients/generated/model-catalog.snapshot.mjs",
+    "kind": "generated_factual_catalog",
+    "currentRole": "Checked-in generated provider/model facts from models.dev.",
+    "fields": [
+      "provider identity",
+      "model identity",
+      "group/family",
+      "limits",
+      "pricing",
+      "reasoning capability",
+      "tool capability",
+      "attachment capability",
+      "modalities",
+      "provider transport",
+      "provenance"
+    ],
+    "consumers": [
+      "src/common/api-clients/model-catalog.mjs"
+    ],
+    "migrationAction": "Keep, but regenerate from vendored TOML instead of models.dev/api.json."
+  },
+  {
+    "path": "scripts/generate-model-catalog.mjs",
+    "kind": "generator",
+    "currentRole": "Fetches models.dev/api.json and emits the generated snapshot.",
+    "fields": [
+      "provider identity",
+      "model identity",
+      "limits",
+      "pricing",
+      "reasoning capability",
+      "tool capability",
+      "attachment capability",
+      "modalities"
+    ],
+    "consumers": [
+      "src/common/api-clients/generated/model-catalog.snapshot.mjs"
+    ],
+    "migrationAction": "Replace with vendored TOML parser/generator."
+  },
+  {
+    "path": "src/common/api-clients/model-catalog.mjs",
+    "kind": "merge_layer",
+    "currentRole": "Merges generated snapshot with overrides and alias/provider metadata.",
+    "fields": [
+      "provider metadata",
+      "model metadata",
+      "variants",
+      "availability",
+      "provenance"
+    ],
+    "consumers": [
+      "src/common/api-clients/model-registry.mjs"
+    ],
+    "migrationAction": "Keep as central merge point, narrow override path."
+  },
+  {
+    "path": "src/common/api-clients/model-catalog-overrides.mjs",
+    "kind": "override_bridge",
+    "currentRole": "Converts curated registry data into catalog overrides.",
+    "fields": [
+      "duplicate factual model metadata",
+      "provider metadata",
+      "availability",
+      "provider-native runtime",
+      "variants"
+    ],
+    "consumers": [
+      "src/common/api-clients/model-catalog.mjs"
+    ],
+    "migrationAction": "Shrink to runtime/product overlays only."
+  },
+  {
+    "path": "src/common/api-clients/model-registry-data.mjs",
+    "kind": "curated_mixed_catalog",
+    "currentRole": "Hand-curated provider/model metadata with facts and runtime semantics mixed together.",
+    "fields": [
+      "pricing",
+      "context window",
+      "max output",
+      "reasoning support",
+      "tool support",
+      "vision/PDF support",
+      "labels/groups",
+      "provider-native runtime",
+      "variants",
+      "availability notes"
+    ],
+    "consumers": [
+      "src/common/api-clients/model-catalog-overrides.mjs"
+    ],
+    "migrationAction": "Remove duplicate factual fields; keep only ADDOM-owned runtime/policy semantics."
+  },
+  {
+    "path": "src/common/api-clients/model-registry.mjs",
+    "kind": "registry_adapter",
+    "currentRole": "Normalizes merged catalog into provider/model records for callers.",
+    "fields": [
+      "normalized provider list",
+      "normalized model capabilities",
+      "alias resolution",
+      "replacement mapping"
+    ],
+    "consumers": [
+      "src/main/api-clients/provider-model-adapters.mjs",
+      "src/main/api-clients/provider-model-transform.mjs",
+      "src/main/api-clients/ai-provider-capability-probes.mjs",
+      "src/main/api-clients/model-context-limits.mjs"
+    ],
+    "migrationAction": "Keep as read adapter, not a fact source."
+  },
+  {
+    "path": "src/common/api-clients/model-catalog-visibility.mjs",
+    "kind": "factual_consumer",
+    "currentRole": "Builds visibility metadata for OpenRouter and selector surfaces.",
+    "fields": [
+      "tool support",
+      "reasoning support",
+      "vision support",
+      "review state"
+    ],
+    "consumers": [
+      "renderer settings visibility UI"
+    ],
+    "migrationAction": "Keep as consumer of generated factual catalog plus reviewed overlays."
+  },
+  {
+    "path": "src/common/attachments/attachment-support-policy.mjs",
+    "kind": "factual_consumer_with_legacy_fallbacks",
+    "currentRole": "Derives attachment/image/PDF support from model metadata and provider-wide fallback rules.",
+    "fields": [
+      "attachment support",
+      "vision support",
+      "PDF/file support"
+    ],
+    "consumers": [
+      "src/main/api-clients/provider-model-transform.mjs"
+    ],
+    "migrationAction": "Reduce provider-wide fallback rules as factual catalog quality improves."
+  },
+  {
+    "path": "src/main/api-clients/ai-provider-capability-probes.mjs",
+    "kind": "dynamic_manifest_and_probe_layer",
+    "currentRole": "Builds remote manifests, caches capabilities, and mixes catalog truth with live provider probes.",
+    "fields": [
+      "dynamic models",
+      "supportsTools",
+      "supportsReasoning",
+      "supportsVision"
+    ],
+    "consumers": [
+      "runtime capability checks",
+      "OpenRouter manifest flow"
+    ],
+    "migrationAction": "Use generated factual catalog as enrichment baseline; stop degrading OpenRouter live rows."
+  },
+  {
+    "path": "src/main/api-clients/model-context-limits.mjs",
+    "kind": "legacy_factual_fallbacks",
+    "currentRole": "Resolves context limits from registry, then provider/model prefix heuristics.",
+    "fields": [
+      "estimated context windows",
+      "estimated max output tokens"
+    ],
+    "consumers": [
+      "runtime request shaping"
+    ],
+    "migrationAction": "Delete or drastically shrink prefix heuristics after factual cutover."
+  },
+  {
+    "path": "src/common/api-clients/openrouter-compatibility-data.mjs",
+    "kind": "reviewed_overlay",
+    "currentRole": "Defines reviewed OpenRouter route remaps and exceptions.",
+    "fields": [
+      "route remap",
+      "reviewed status",
+      "reviewed notes"
+    ],
+    "consumers": [
+      "src/common/api-clients/model-catalog-visibility.mjs",
+      "src/common/api-clients/model-registry-data.mjs"
+    ],
+    "migrationAction": "Keep as ADDOM-owned reviewed overlay."
+  },
+  {
+    "path": "src/common/api-clients/openai-hosted-tool-catalog.mjs",
+    "kind": "runtime_policy_catalog",
+    "currentRole": "Defines OpenAI hosted tool policy and constraints.",
+    "fields": [
+      "tool risk",
+      "tool grouping",
+      "runtime execution requirements"
+    ],
+    "consumers": [
+      "OpenAI tool-surface runtime"
+    ],
+    "migrationAction": "Keep curated."
+  },
+  {
+    "path": "src/common/api-clients/moonshot-formula-catalog.mjs",
+    "kind": "runtime_policy_catalog",
+    "currentRole": "Defines Moonshot Formula provider-native tool catalog.",
+    "fields": [
+      "provider-native tool ids",
+      "tool labels",
+      "tool descriptions",
+      "risk levels"
+    ],
+    "consumers": [
+      "Moonshot provider-native runtime"
+    ],
+    "migrationAction": "Keep curated."
+  }
+]

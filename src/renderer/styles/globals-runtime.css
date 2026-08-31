@@ -1,0 +1,532 @@
+/* ── Base resets ─────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.addom-artifact-diff .monaco-editor .decorationsOverviewRuler {
+  width: 8px !important;
+  border-radius: 0;
+  overflow: hidden;
+  opacity: 0.92;
+}
+
+.addom-artifact-diff .monaco-editor .decorationsOverviewRuler canvas {
+  width: 8px !important;
+}
+
+.addom-artifact-diff .monaco-diff-editor .diffOverview {
+  background: rgb(var(--theme-highlight-rgb) / 0.015) !important;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.addom-artifact-diff .monaco-diff-editor .diffOverview .diffViewport {
+  background: rgb(var(--theme-accent-rgb) / 0.08) !important;
+  border: 1px solid rgb(var(--theme-accent-rgb) / 0.14);
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+.addom-artifact-diff .monaco-diff-editor .diffOverview .diffViewport:hover {
+  background: rgb(var(--theme-accent-rgb) / 0.11) !important;
+}
+
+.addom-artifact-diff .monaco-diff-editor .diffOverview .diffViewport:active {
+  background: rgb(var(--theme-accent-rgb) / 0.13) !important;
+}
+
+.addom-artifact-diff .original-in-monaco-diff-editor .scrollbar.vertical,
+.addom-artifact-diff .modified-in-monaco-diff-editor .scrollbar.vertical {
+  opacity: 0 !important;
+  background: transparent !important;
+}
+
+.addom-artifact-diff .original-in-monaco-diff-editor .scrollbar.vertical .slider,
+.addom-artifact-diff .modified-in-monaco-diff-editor .scrollbar.vertical .slider,
+.addom-artifact-diff .original-in-monaco-diff-editor .shadow.left,
+.addom-artifact-diff .modified-in-monaco-diff-editor .shadow.left {
+  opacity: 0 !important;
+  background: transparent !important;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color-scheme: var(--theme-color-scheme);
+}
+
+/* Keyboard users should always get a visible focus ring, even when components use outline-none. */
+:where(button,
+  [role="button"],
+  a[href],
+  input,
+  textarea,
+  select,
+  [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Fields with container-level focus-within styling avoid double focus rails. */
+[data-ui="chat-composer-input"]:focus-visible,
+[data-ui="chat-composer-input-segment"]:focus-visible,
+[data-ui="chat-composer-code-input"]:focus-visible,
+[data-ui="project-entry-home-input"]:focus-visible,
+[data-ui="document-companion-search-input"]:focus-visible,
+[data-ui="managed-plan-review-instruction"]:focus-visible,
+[data-ui="workspace-thread-rename-input"]:focus-visible {
+  outline: none;
+  outline-offset: 0;
+}
+
+[data-ui="workspace-thread-rename-input"][data-focus-origin="pointer"]:focus-visible {
+  box-shadow: none;
+}
+
+[data-ui="managed-plan-review-composer-input"]:focus-within {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-border-strong) 35%, transparent);
+}
+
+/* Respect system motion preferences for accessibility. */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Scrollbar styling ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-muted);
+}
+
+/* Light surfaces need stronger hierarchy without adding more chrome. */
+[data-app-theme='light'] [data-ui='chat-composer-stack-shell'],
+[data-app-theme='light'] [data-ui='agent-conversation-composer-input-surface'] {
+  border-color: rgb(var(--theme-accent-muted-rgb) / 0.72);
+  background: rgb(var(--theme-surface-raised-rgb) / 0.98);
+  box-shadow:
+    0 8px 22px rgb(var(--theme-shadow-rgb) / 0.1),
+    inset 0 1px 0 rgb(var(--theme-highlight-rgb) / 0.82);
+}
+
+[data-app-theme='light'] [data-ui='chat-composer-stack-shell']:focus-within,
+[data-app-theme='light'] [data-ui='agent-conversation-composer-input-surface']:focus-within {
+  border-color: rgb(var(--theme-accent-rgb) / 0.8);
+  box-shadow:
+    0 8px 22px rgb(var(--theme-shadow-rgb) / 0.1),
+    0 0 0 2px rgb(var(--theme-accent-rgb) / 0.14);
+}
+
+[data-app-theme='light'] :is(
+  [data-ui='chat-composer-control-rail'],
+  [data-ui='agent-conversation-composer-control-rail']
+) {
+  border-color: rgb(var(--theme-accent-muted-rgb) / 0.72);
+  background: rgb(var(--theme-surface-panel-alt-rgb) / 0.96);
+  box-shadow: inset 0 1px 0 rgb(var(--theme-highlight-rgb) / 0.62);
+}
+
+[data-app-theme='light'] [data-ui='live-execution-header-shell'][data-floating='true'] {
+  border: 1px solid rgb(var(--theme-surface-border-rgb) / 0.72);
+  background: rgb(var(--theme-surface-panel-alt-rgb) / 0.72);
+  box-shadow: 0 2px 8px rgb(var(--theme-shadow-rgb) / 0.055);
+}
+
+[data-app-theme='light'] [data-ui='project-entry-thread-row'][data-active='true'] {
+  background: rgb(var(--theme-surface-panel-rgb) / 0.88);
+}
+
+[data-app-theme='light'] [data-ui='agent-navigator-panel'] {
+  background: rgb(var(--theme-surface-panel-alt-rgb) / 0.34);
+}
+
+[data-app-theme='light'] [data-ui='agent-navigator-empty-section'] {
+  border: 1px solid rgb(var(--theme-surface-border-rgb) / 0.72);
+  background: rgb(var(--theme-surface-raised-rgb) / 0.66);
+}
+
+[data-app-theme='light'] [data-agent-row][data-selected='true'] {
+  background: rgb(var(--theme-surface-raised-rgb) / 0.92);
+  box-shadow:
+    inset 2px 0 0 rgb(var(--theme-accent-rgb) / 0.76),
+    0 1px 3px rgb(var(--theme-shadow-rgb) / 0.055);
+}
+
+[data-app-theme='light'] [data-agent-status='completed'] {
+  background-color: color-mix(in srgb, var(--color-success) 68%, var(--color-surface-raised) 32%);
+}
+
+[data-app-theme='light'] ::-webkit-scrollbar-thumb {
+  background: rgb(var(--theme-text-secondary-rgb) / 0.28);
+}
+
+[data-app-theme='light'] ::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--theme-accent-rgb) / 0.46);
+}
+
+[data-ui='chat-timeline-scroll'] {
+  /* Fade content opacity into the composer without painting or blurring the theme surface. */
+  mask-image: linear-gradient(to bottom, black calc(100% - 32px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 32px), transparent 100%);
+}
+
+.file-tree-scroll {
+  color-scheme: var(--theme-color-scheme);
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--theme-text-secondary-rgb) / 0.34) transparent;
+  overscroll-behavior: contain;
+}
+
+.file-tree-scroll::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.file-tree-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.file-tree-scroll::-webkit-scrollbar-thumb {
+  min-height: 28px;
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgb(var(--theme-text-secondary-rgb) / 0.34);
+  background-clip: content-box;
+}
+
+.file-tree-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--theme-accent-rgb) / 0.48);
+  background-clip: content-box;
+}
+
+.chat-code-viewport {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.chat-code-viewport::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Reset Monaco scrollbars: Monaco renders its own scrollbar and overview ruler
+   using absolutely-positioned divs and canvas elements. Hiding the native
+   browser scrollbar prevents layout interference that desynchronizes the
+   overview ruler marker positions from the minimap. */
+.monaco-editor ::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.monaco-editor .addom-git-line-hitbox {
+  background: transparent;
+}
+
+.monaco-editor .addom-git-line-added {
+  background: rgb(var(--theme-accent-rgb) / 0.06);
+}
+
+.monaco-editor .addom-git-line-modified {
+  background: rgb(var(--theme-accent-rgb) / 0.06);
+}
+
+.monaco-editor .addom-git-line-deleted {
+  background: rgb(var(--theme-accent-rgb) / 0.06);
+}
+
+.monaco-editor .addom-git-lines {
+  width: 2px !important;
+  margin-left: 3px;
+  border-radius: 2px;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: width 120ms ease, opacity 120ms ease;
+}
+
+.monaco-editor .addom-git-lines:hover {
+  width: 3px !important;
+  opacity: 1;
+}
+
+.monaco-editor .addom-git-lines-added {
+  background: rgb(var(--theme-success-rgb) / 0.9);
+}
+
+.monaco-editor .addom-git-lines-modified {
+  background: rgb(var(--theme-accent-rgb) / 0.9);
+}
+
+.monaco-editor .addom-git-lines-deleted {
+  background: rgb(var(--theme-danger-rgb) / 0.9);
+}
+
+.monaco-editor .addom-git-line-number {
+  cursor: pointer;
+}
+
+.monaco-editor .addom-git-line-number-added {
+  color: rgb(var(--theme-success-rgb) / 0.95) !important;
+}
+
+.monaco-editor .addom-git-line-number-modified {
+  color: rgb(var(--theme-accent-strong-rgb) / 0.95) !important;
+}
+
+.monaco-editor .addom-git-line-number-deleted {
+  color: rgb(var(--theme-danger-rgb) / 0.95) !important;
+}
+
+.addom-git-hunk-widget {
+  position: relative;
+  width: auto;
+  min-width: 218px;
+  max-width: 260px;
+  padding: 4px 4px 4px 8px;
+  border: 1px solid color-mix(in srgb, var(--color-surface-border) 72%, transparent);
+  border-radius: 8px;
+  background: rgb(var(--theme-surface-raised-rgb) / 0.95);
+  box-shadow: 0 8px 18px rgb(var(--theme-shadow-rgb) / 0.2);
+  color: var(--color-text-primary);
+  opacity: 0.72;
+  backdrop-filter: blur(6px);
+  transition: opacity 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.addom-git-hunk-widget:is(:hover, :focus-within) {
+  border-color: color-mix(in srgb, var(--color-surface-border) 92%, transparent);
+  background: rgb(var(--theme-surface-raised-rgb) / 0.96);
+  box-shadow: 0 10px 24px rgb(var(--theme-shadow-rgb) / 0.28);
+  opacity: 1;
+}
+
+.addom-git-hunk-widget__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.addom-git-hunk-widget__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+
+.addom-git-hunk-widget__scope {
+  font: 700 10px/1.3 var(--font-sans);
+  letter-spacing: 0;
+  color: var(--color-text-tertiary);
+  white-space: nowrap;
+}
+
+.addom-git-hunk-widget__header {
+  white-space: nowrap;
+  font: 600 11px/1.4 var(--font-mono);
+  color: var(--color-text-secondary);
+}
+
+.addom-git-hunk-widget__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.addom-git-hunk-widget__actions-primary {
+  justify-content: flex-end;
+  margin-top: 0;
+}
+
+.addom-git-hunk-widget__button {
+  min-height: 24px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.addom-git-hunk-widget__more-button {
+  padding: 0 7px;
+}
+
+.addom-git-hunk-widget__menu {
+  position: absolute;
+  right: 4px;
+  top: calc(100% + 4px);
+  z-index: 2;
+  min-width: 0;
+  width: max-content;
+  padding: 2px 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-surface-border) 86%, transparent);
+  border-radius: 6px;
+  background: rgb(var(--theme-surface-raised-rgb) / 0.96);
+  box-shadow: 0 10px 24px rgb(var(--theme-shadow-rgb) / 0.3);
+}
+
+.addom-git-hunk-widget__menu-button {
+  display: block;
+  width: auto;
+  min-height: 26px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0 9px;
+  color: var(--color-text-secondary);
+  font: 600 11px/1.3 var(--font-sans);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.addom-git-hunk-widget__menu-button:hover,
+.addom-git-hunk-widget__menu-button:focus-visible {
+  background: rgb(var(--theme-highlight-rgb) / 0.06);
+  color: var(--color-text-primary);
+}
+
+.addom-git-hunk-widget__menu-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.addom-git-hunk-widget__button-danger {
+  color: var(--color-danger-soft);
+  border-color: var(--color-danger-border);
+  background: rgb(var(--theme-danger-background-rgb) / 0.35);
+}
+
+.addom-git-hunk-widget__button-danger:hover,
+.addom-git-hunk-widget__menu-button-danger:hover,
+.addom-git-hunk-widget__menu-button-danger:focus-visible {
+  color: var(--color-danger-softer);
+  background: rgb(var(--theme-danger-background-rgb) / 0.55);
+}
+
+.addom-git-hunk-widget__line-meta {
+  margin-top: 8px;
+  font: 600 11px/1.4 var(--font-mono);
+  color: var(--color-text-secondary);
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.addom-git-hunk-widget__error {
+  margin-top: 8px;
+  font: 500 11px/1.4 var(--font-display);
+  color: var(--color-danger-soft);
+}
+
+.addom-artifact-diff .monaco-diff-editor .insert-sign,
+.addom-artifact-diff .monaco-diff-editor .delete-sign {
+  font-size: 8px !important;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* ── Custom titlebar drag region ─────────────────────────────────────────── */
+.titlebar-drag {
+  -webkit-app-region: drag;
+}
+
+.titlebar-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* ── Utility: panel transition ───────────────────────────────────────────── */
+.panel-slide {
+  transition: width 200ms ease, opacity 200ms ease;
+}
+
+[data-ui="terminal-viewport-shell"] .xterm {
+  height: 100%;
+  background: var(--color-terminal-background);
+}
+
+[data-ui="terminal-viewport-shell"] .xterm-viewport {
+  overscroll-behavior: contain;
+  background: transparent;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--theme-text-secondary-rgb) / 0.34) transparent;
+}
+
+[data-ui="terminal-viewport-shell"] .xterm .xterm-scrollable-element {
+  background: var(--color-terminal-background);
+}
+
+[data-ui="terminal-viewport-shell"] .xterm-viewport::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+[data-ui="terminal-viewport-shell"] .xterm-viewport::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-ui="terminal-viewport-shell"] .xterm-viewport::-webkit-scrollbar-thumb {
+  min-height: 28px;
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgb(var(--theme-text-secondary-rgb) / 0.32);
+  background-clip: content-box;
+}
+
+[data-ui="terminal-viewport-shell"] .xterm-viewport::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--theme-accent-rgb) / 0.44);
+  background-clip: content-box;
+}
+
+[data-ui="terminal-viewport-shell"] .xterm-screen canvas {
+  image-rendering: auto;
+}
+
+@keyframes addom-thinking-cursor {
+  0% {
+    opacity: 0.15;
+    transform: scaleY(0.66);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1.25);
+  }
+
+  100% {
+    opacity: 0.15;
+    transform: scaleY(0.66);
+  }
+}
+
+.thinking-cursor-strong {
+  animation: addom-thinking-cursor 0.9s ease-in-out infinite;
+}

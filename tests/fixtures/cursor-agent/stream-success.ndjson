@@ -1,0 +1,6 @@
+{"type":"system","subtype":"init","apiKeySource":"login","cwd":"C:\\workspace\\project","session_id":"00000000-0000-4000-8000-000000000001","model":"Composer 2.5","permissionMode":"default"}
+{"type":"user","message":{"role":"user","content":[{"type":"text","text":"Summarize README.md"}]},"session_id":"00000000-0000-4000-8000-000000000001"}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"I will inspect the project."}]},"session_id":"00000000-0000-4000-8000-000000000001"}
+{"type":"tool_call","subtype":"started","call_id":"tool_001","tool_call":{"readToolCall":{"args":{"path":"README.md"}}},"session_id":"00000000-0000-4000-8000-000000000001"}
+{"type":"tool_call","subtype":"completed","call_id":"tool_001","tool_call":{"readToolCall":{"args":{"path":"README.md"},"result":{"success":{"content":"# Project","isEmpty":false,"exceededLimit":false,"totalLines":1,"totalChars":9}}}},"session_id":"00000000-0000-4000-8000-000000000001"}
+{"type":"result","subtype":"success","duration_ms":1200,"duration_api_ms":900,"is_error":false,"result":"The README identifies the project.","session_id":"00000000-0000-4000-8000-000000000001","request_id":"00000000-0000-4000-8000-000000000002"}

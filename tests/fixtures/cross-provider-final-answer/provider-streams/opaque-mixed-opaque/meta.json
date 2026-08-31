@@ -1,0 +1,30 @@
+{
+  "fixtureId": "provider-opaque-mixed-opaque",
+  "kind": "provider_stream",
+  "title": "Opaque mixed stream",
+  "sourceClass": "synthetic-provider-shape",
+  "provider": "opaque",
+  "model": "opaque-runtime",
+  "streamShape": "mixed-opaque",
+  "scenario": "live",
+  "semanticOwnership": "provider-stream",
+  "contentFile": "stream.json",
+  "contentSha256": "cc73a6341c4818c353f217c655dd0dd6b90dd6999ad1c6c9e5873f3b40971cae",
+  "captureProvenance": {
+    "source": "synthetic",
+    "captureMode": "repo-authored",
+    "sourceFiles": [
+      "runbook.md"
+    ],
+    "notes": "Structured synthetic provider stream fixture."
+  },
+  "redactionRecord": [
+    {
+      "kind": "none",
+      "scope": "content",
+      "replacement": "NONE"
+    }
+  ],
+  "sourceContentSha256": "cc73a6341c4818c353f217c655dd0dd6b90dd6999ad1c6c9e5873f3b40971cae",
+  "expectedFinalMarkdownSha256": "23881db127d618b604a7d36be7302888ac085bca2abeffc19f418c6524516218"
+}

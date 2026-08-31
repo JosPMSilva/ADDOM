@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+set -e
+
+npm run check:docs-links
+npm run check:staged-syntax

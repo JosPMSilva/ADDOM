@@ -1,0 +1,2265 @@
+{
+  "app": {
+    "workspacePanelSkeleton": {
+      "ariaLabel": "Завантаження {{panelLabel}}",
+      "text": "Завантаження {{panelLabel}}..."
+    },
+    "workspaceBootError": {
+      "title": "Помилка завантаження Workspace",
+      "message": "ADDOM не вдалося підготувати кеші workspace, необхідні для цієї панелі.",
+      "retry": "Повторити завантаження"
+    },
+    "leaveWorkspace": {
+      "title": "Незбережені зміни",
+      "message": "You have unsaved files. Choose how to proceed before switching projects.",
+      "noUnsavedFiles": "Немає незбережених файлів.",
+      "cancel": "Скасувати",
+      "discardAndLeave": "Discard & Switch",
+      "saving": "Збереження...",
+      "saveAllAndLeave": "Save All & Switch"
+    },
+    "confirmDialog": {
+      "messageFallback": "Ви впевнені, що бажаєте продовжити?",
+      "cancel": "Скасувати",
+      "confirm": "Підтвердити"
+    },
+    "panelLabels": {
+      "chat": "Панель Chat",
+      "editor": "Панель редактора",
+      "sourceControl": "Панель змін",
+      "artifacts": "Панель Artifacts",
+      "memory": "Панель Memory",
+      "settings": "Панель налаштувань",
+      "agents": "Панель агентів",
+      "projectEntry": "Project entry"
+    }
+  },
+  "companionDock": {
+    "resize": "Змінити розмір допоміжної панелі",
+    "views": "Допоміжні подання",
+    "restoreSplit": "Відновити розділене подання",
+    "focus": "Розгорнути допоміжну панель",
+    "close": "Закрити допоміжне подання",
+    "document": {
+      "search": "Пошук у документі",
+      "missing": "Цей документ більше не існує.",
+      "tooLarge": "Цей документ завеликий для попереднього перегляду.",
+      "unavailable": "Не вдалося завантажити цей документ.",
+      "changed": "Оновлення…",
+      "status": "Документ Markdown",
+      "openInEditor": "Відкрити в редакторі",
+      "reveal": "Показати у файловому провіднику",
+      "reload": "Перезавантажити документ",
+      "loading": "Завантаження документа…",
+      "retry": "Повторити",
+        "implementPlan": "Implement",
+        "changePlaceholder": "Describe the change…",
+        "resizeChangeEditor": "Resize change editor",
+        "addChange": "Add change",
+        "annotateChange": "Annotate change",
+        "reviewHint": "Hover a paragraph to suggest a change.",
+        "changeCount": "{{count}} changes",
+        "undoLastChange": "Undo latest change",
+        "submitChanges": "Submit changes",
+        "pendingChanges": "Pending plan changes",
+        "removeChange": "Remove change"
+    }
+  },
+  "startup": {
+    "bootstrapFailure": {
+      "eyebrow": "Startup failed",
+      "title": "ADDOM could not finish starting.",
+      "messageFallback": "Renderer bootstrap failed",
+      "reload": "Reload app"
+    }
+  },
+  "sourceControl": {
+    "openProject": "Відкрийте папку проекту, щоб перевірити зміни.",
+    "navigationFailed": "Не вдалося відкрити вибраний файл із Source Control.",
+    "refresh": "Оновити",
+    "loading": "Завантаження змін...",
+    "noRepo": "Цей workspace не знаходиться в репозиторії git.",
+    "clean": "Робоче дерево чисте.",
+    "emptyFilter": "Жоден файл не відповідає поточному фільтру.",
+    "filters": {
+      "all": "всі",
+      "staged": "Staged",
+      "unstaged": "Unstaged",
+      "conflicted": "Конфлікти",
+      "untracked": "Не відстежується"
+    },
+    "search": {
+      "label": "Пошук змінених файлів",
+      "placeholder": "Пошук змінених файлів"
+    },
+    "groups": {
+      "staged": "Staged",
+      "unstaged": "Unstaged"
+    },
+    "actions": {
+      "stageFile": "Індексувати файл",
+      "unstageFile": "Скасувати індексацію файлу",
+      "stageAll": "Індексувати все",
+      "unstageAll": "Скасувати індексацію всього"
+    },
+    "summary": {
+      "title": "Зміни",
+      "branch": "Branch: {{branch}}",
+      "repoState": "{{repoRoot}}",
+      "chips": {
+        "staged": "Staged",
+        "unstaged": "Unstaged",
+        "conflicts": "Конфлікти"
+      }
+    },
+    "commit": {
+      "title": "Commit",
+      "description": "Створює commit лише зі змін staged.",
+      "pending": "Committing...",
+      "action": "Commit",
+      "placeholder": "Повідомлення Commit",
+      "disabledPlaceholder": "Stage files to enable commit authoring"
+    },
+    "entry": {
+      "renameFrom": "від {{path}}"
+    },
+    "detail": {
+      "stage": "Stage: {{scope}}",
+      "loading": "Завантаження деталей SCM...",
+      "title": "Деталь SCM",
+      "path": "Шлях:",
+      "previousPath": "Попередній шлях:",
+      "previewSource": "Джерело попереднього перегляду:",
+      "indexCommit": "Індекс commit:",
+      "worktreeCommit": "Worktree commit:",
+      "dirtyWorktree": "Dirty worktree:",
+      "actions": {
+        "restoring": "Відновлення...",
+        "restoreFile": "Відновити файл",
+        "unstaging": "Unstaging...",
+        "unstageDeletion": "Unstage deletion",
+        "unstageRename": "Unstage перейменувати"
+      }
+    },
+    "common": {
+      "yes": "так",
+      "no": "немає"
+    }
+  },
+  "terminal": {
+    "common": {
+      "cancel": "Скасувати",
+      "user": "Користувач",
+      "ai": "ШІ",
+      "session": "Сесія",
+      "host": "Хост",
+      "workspace": "Workspace",
+      "shell": "shell",
+      "terminal": "terminal",
+      "terminalTitle": "Terminal",
+      "threadPrefix": "Thread",
+      "status": {
+        "closing": "Закриття",
+        "ended": "Завершено",
+        "closed": "ЗАЧИНЕНО",
+        "live": "Жити",
+        "failed": "Не вдалося",
+        "terminated": "Припинено"
+      },
+      "timestamp": {
+        "closedPrefix": "ЗАЧИНЕНО",
+        "startedPrefix": "розпочато"
+      },
+      "suggestion": {
+        "dismissed": "Звільнено",
+        "suggested": "Запропоновано",
+        "none": "Жодної пропозиції"
+      }
+    },
+    "banner": {
+      "thisPlatform": "ця платформа",
+      "anotherPlatform": "інша платформа",
+      "runtimeDisabled": "Runtime вимкнено",
+      "disabledByEnv": "Перевизначення ADDOM_DISABLE_TERMINAL_SESSIONS увімкнено.",
+      "rolloutDisabled": "Розгортання вимкнено",
+      "disabledByRollout": "Сеанси Terminal вимкнено поточною політикою розгортання.",
+      "platformGated": "Платформа закрита",
+      "platformGatedDetail": "{{platform}} ще не розгортається. Пакетна перевірка записується лише для {{allowedLabel}}.",
+      "unsupportedPlatform": "Непідтримувана платформа",
+      "unsupportedPlatformDetail": "{{platform}} знаходиться за межами підтримуваного цільового набору PTY для сеансів terminal.",
+      "disabledGeneric": "Сеанси Terminal вимкнено на цьому runtime.",
+      "runtimeFailed": "Runtime не вдалося",
+      "failedDetail": "Збій перевірки працездатності PTY runtime.",
+      "checkingRuntime": "Перевірка runtime",
+      "checkingRuntimeDetail": "ADDOM перевіряє підтримку PTY для цієї програми runtime.",
+      "runtimeReady": "Runtime готовий",
+      "runtimeReadyDetail": "Для цього workspace доступні інтерактивні сесії terminal.",
+      "lastActionFailed": "Остання дія не вдалася"
+    },
+    "viewport": {
+      "sessionState": {
+        "archived": "Архівовано",
+        "ended": "Завершено",
+        "closed": "ЗАЧИНЕНО",
+        "live": "Жити"
+      },
+      "workspaceShell": "Workspace shell",
+      "startTitle": "Розпочніть сеанс terminal",
+      "unavailableTitle": "Chat terminal недоступний",
+      "startDescription": "Відкрийте terminal тут, щоб перевірити журнали, запустити команди проекту або дозволити ШІ продовжити роботу з того самого shell.",
+      "unavailableDescription": "Сеанси Terminal ще не доступні в цьому runtime.",
+      "startingSession": "Початок сеансу...",
+      "createSession": "Створити сеанс",
+      "readOnly": "Тільки для читання",
+      "model": "Model",
+      "workspaceRoot": "Корінь workspace",
+      "trimmed": "Обрізана",
+      "clickToFocus": "Натисніть, щоб сфокусуватися",
+      "activateSurface": "Активуйте поверхню",
+      "aria": {
+        "archivedViewport": "Заархівоване вікно перегляду terminal",
+        "interactiveViewport": "Інтерактивне вікно перегляду terminal",
+        "terminalActions": "Дії Terminal"
+      },
+      "context": {
+        "copy": "Копіювати",
+        "paste": "Вставити",
+        "selectAll": "Вибрати все",
+        "buffer": "Буфер",
+        "copyVisibleOutput": "Copy visible output",
+        "copyFullScrollback": "Copy full scrollback",
+        "pasteAsSingleLine": "Paste as single line",
+        "clear": "Clear",
+        "zoomIn": "Zoom in",
+        "zoomOut": "Zoom out",
+        "zoomReset": "Reset zoom",
+        "terminalFontSize": "{{size}}px",
+        "sendOutputToChat": "Send output to chat",
+        "explainLastError": "Explain last error",
+        "summarizeSession": "Summarize session",
+        "saveSnapshotToMemory": "Save snapshot to notes",
+        "cut": "Cut selection"
+      },
+      "search": {
+        "placeholder": "Search terminal output",
+        "previous": "Previous match",
+        "next": "Next match",
+        "close": "Close search",
+        "noMatches": "No matches",
+        "resultCount": "{{current}}/{{total}}"
+      },
+      "pasteConfirm": {
+        "title": "Confirm large paste",
+        "message": "Paste {{count}} lines into the terminal? This can run multiple commands at once."
+      }
+    },
+    "dock": {
+      "state": {
+        "approval": "Затвердження",
+        "approvalSuffix": "затвердження",
+        "denied": "Відмовлено",
+        "userTakeover": "Користувач керує",
+        "aiWaiting": "AI чекає",
+        "aiControlling": "ШІ керує",
+        "running": "Біг"
+      },
+      "announcements": {
+        "userTakeoverActive": "Цим shell керує користувач.",
+        "takeoverRequired": "Візьміть цей terminal, щоб почати друкувати."
+      },
+      "resize": "Змінити розмір док-станції terminal",
+      "tablistAriaLabel": "Сесії Thread terminal",
+      "unread": "Непрочитаний",
+      "terminalSessions": "Сеанси Terminal",
+      "workspaceRoot": "Корінь workspace",
+      "control": {
+        "aiControlsShell": "ШІ керує цим shell. Візьміть на себе перед тим, як набирати текст.",
+        "userControlsShell": "Зараз ви керуєте цим shell.",
+        "typingBlockedUntilTakeover": "Введення блокується, доки ви не підтвердите прийняття.",
+        "aiWaitingForUser": "AI чекає на підтвердження користувача, перш ніж продовжити."
+      },
+      "browser": {
+        "title": "Браузер Terminal",
+        "subtitle": "Поточний Thread / Інше в прямому ефірі / Історія",
+        "sections": {
+          "currentThread": "Актуальний Thread",
+          "otherLive": "Інше Live",
+          "history": "історія"
+        },
+        "empty": {
+          "currentThread": "До цього thread ще не долучено жодних поточних або незавершених сеансів terminal.",
+          "otherLive": "Жоден інший threads зараз не має прямої активності terminal.",
+          "history": "Для цього workspace ще немає архівної історії terminal."
+        },
+        "fields": {
+          "thread": "Thread",
+          "scope": "Область застосування",
+          "updated": "Оновлено"
+        },
+        "requestedIn": "Запитано в {{section}}",
+        "suggestionFallback": "Картки з пропозиціями хронології залишаються окремо від цього браузера.",
+        "crossThread": {
+          "title": "Перехресна сесія thread",
+          "description": "Перегляньте метадані тут, а потім використовуйте {{openThreadLabel}}, щоб перевірити або взаємодіяти з власника chat thread."
+        },
+        "selectSession": "Виберіть сеанс terminal",
+        "actions": {
+          "openThread": "Open thread",
+          "savedToMemory": "Збережено в Memory",
+          "noMemorySummary": "Немає резюме Memory",
+          "saveToThreadMemory": "Save to conversation notes",
+          "saveToProjectMemory": "Save to project notes",
+          "deletingArchive": "Видалення...",
+          "deleteArchive": "Видалити архів",
+          "openTerminal": "Відкрийте terminal",
+          "backToDock": "Назад до док-станції",
+          "browseSessions": "Огляд сеансів",
+          "handBackToAi": "Повернути керування ШІ",
+          "confirmTakeover": "Підтвердити прийом",
+          "takeOver": "Взяти на себе",
+          "expandBrowser": "Розгорніть браузер terminal",
+          "collapseBrowser": "Згорнути браузер terminal",
+          "expand": "Розгорнути",
+          "collapse": "Згорнути",
+          "openTerminalActions": "Terminal menu",
+          "terminalDockActions": "Дії дока Terminal",
+          "closeBrowser": "Закрити браузер",
+          "interrupt": "Переривати",
+          "stopInput": "Зупинити введення",
+          "closeSession": "Закрити сесію",
+          "archiveSession": "Архів сесії",
+          "hideTerminal": "Сховати terminal",
+          "dismiss": "Відхилити",
+          "forceTerminate": "Примусово завершити",
+          "killProcess": "Знищити процес",
+          "renameSession": "Rename session",
+          "editTitle": "Edit title",
+          "duplicateSession": "Duplicate session",
+          "sameCwdShell": "Same cwd and shell",
+          "newAtProjectRoot": "New at project root",
+          "newFromCurrentCwd": "New from current cwd",
+          "newFromEditorCwd": "New from editor folder",
+          "currentCwd": "Current cwd",
+          "editorFolder": "Editor folder",
+          "defaultShell": "Default shell",
+          "newWithShell": "New with shell",
+          "sendOutputToChat": "Send output to chat",
+          "explainLastError": "Explain last error",
+          "summarizeSession": "Summarize session",
+          "saveSnapshotToMemory": "Save snapshot to notes",
+          "prefillComposer": "Prefill composer",
+          "recentOutput": "Recent output",
+          "boundedOutput": "Bounded output",
+          "threadMemory": "Conversation notes"
+        }
+      },
+      "confirm": {
+        "forceTerminateHost": {
+          "title": "Примусово припинити роботу хоста Terminal",
+          "message": "Примусово завершити цей сеанс terminal із областю хоста? Це негайно знищить основний процес."
+        },
+        "forceTerminate": {
+          "title": "Примусово завершити Terminal",
+          "message": "Примусово припинити цей сеанс terminal? Це негайно знищить основний процес."
+        },
+        "deleteArchive": {
+          "title": "Видалити заархівований сеанс Terminal",
+          "message": "Видалити цей заархівований сеанс terminal?\n\nЦе видаляє лише збережений архівний запис і не може бути скасовано.",
+          "confirm": "Видалити архів"
+        }
+      },
+      "prompts": {
+        "renameSession": "Rename terminal session"
+      },
+      "actions": {
+        "openTerminal": "Open terminal",
+        "backToDock": "Back to dock",
+        "browseSessions": "Browse sessions",
+        "handBackToAi": "Повернути керування ШІ",
+        "confirmTakeover": "Confirm takeover",
+        "takeOver": "Take over",
+        "expandBrowser": "Expand terminal browser",
+        "collapseBrowser": "Collapse terminal browser",
+        "expand": "Expand",
+        "collapse": "Collapse",
+        "openTerminalActions": "Terminal menu",
+        "terminalDockActions": "Terminal dock actions",
+        "closeBrowser": "Close browser",
+        "renameSession": "Rename session",
+        "editTitle": "Edit title",
+        "duplicateSession": "Duplicate session",
+        "sameCwdShell": "Same cwd and shell",
+        "newAtProjectRoot": "New at project root",
+        "newFromCurrentCwd": "New from current cwd",
+        "newFromEditorCwd": "New from editor folder",
+        "currentCwd": "Current cwd",
+        "editorFolder": "Editor folder",
+        "defaultShell": "Default shell",
+        "newWithShell": "New with shell",
+        "interrupt": "Interrupt",
+        "stopInput": "Stop input",
+        "closeSession": "Close session",
+        "archiveSession": "Archive session",
+        "hideTerminal": "Hide terminal",
+        "dismiss": "Dismiss",
+        "forceTerminate": "Force terminate",
+        "killProcess": "Kill process"
+      }
+    },
+    "globalIndicator": {
+      "threadCount": "{{count}} conversation{{suffix}}",
+      "liveCount": "{{count}} live terminal{{suffix}}",
+      "priority": {
+        "approval": "Потрібне схвалення",
+        "waiting": "Очікування користувача"
+      }
+    },
+    "pendingApproval": {
+      "title": "Terminal waiting for approval",
+      "scopeLabel": "Scope",
+      "scopeHost": "Host access",
+      "scopeWorkspace": "Workspace",
+      "directoryLabel": "Directory",
+      "workspaceRoot": "workspace root"
+    }
+  },
+  "editor": {
+    "fileTree": {
+      "projectFallback": "Демонструвати",
+      "syncing": "Синхронізація",
+      "openProjectFolder": "Відкрити папку проекту",
+      "refresh": "Оновити дерево файлів",
+      "ariaLabel": "Файли {{projectName}}",
+      "loading": "Завантаження...",
+      "emptyProject": "Порожній проект.",
+      "binaryTitle": "{{path}} (неможливо відкрити двійковий файл)"
+    },
+    "emptyState": {
+      "title": "Виберіть файл із дерева, щоб відкрити його",
+      "shortcutHint": "Ctrl+S для збереження | натисніть x, щоб закрити вкладку"
+    },
+    "loadingPane": "Завантаження...",
+    "panel": {
+      "thisFile": "цей файл",
+      "closeDirty": {
+        "title": "Незбережені зміни",
+        "message": "Зберегти зміни в {{fileLabel}} перед закриттям?",
+        "confirm": "Зберегти та закрити",
+        "cancel": "Додаткові параметри"
+      },
+      "saveFailed": {
+        "title": "Не вдалося зберегти",
+        "message": "Не вдалося зберегти файл."
+      },
+      "discard": {
+        "title": "Скасувати зміни?",
+        "message": "Скасувати незбережені зміни в {{fileLabel}} і закрити його?",
+        "confirm": "Скасувати зміни",
+        "cancel": "Продовжуйте редагувати"
+      },
+      "formatActionTitle": "Відформатувати документ за допомогою активного форматера (Shift+Alt+F)",
+      "formatUnavailableTitle": "Форматування для поточного файлу недоступне",
+      "fixActionTitle": "Застосувати проблеми, які можна автоматично виправити, з активного коду provider",
+      "fixUnavailableTitle": "Дії коду недоступні для поточного файлу",
+      "serviceNotice": {
+        "providerDegraded": "{{providerLabel}} погіршено. Функції редактора можуть бути обмежені.",
+        "providerUnavailable": "{{providerLabel}} недоступний. Функції редактора можуть бути обмежені.",
+        "genericUnavailable": "Деякі служби редактора зараз недоступні."
+      },
+      "emptyProject": "Відкрийте папку проекту, щоб скористатися редактором.",
+      "resizeFileTree": "Змінити розмір дерева файлів",
+      "fileWatcherCap": "Переглядач файлів досяг обмеження каталогу ({{watchedCount}}/{{maxDirectories}}). Деякі папки не відстежуються для зовнішнього редагування.",
+      "dismiss": "Відхилити",
+      "externalChangeDetected": "Для {{filePath}} виявлено зовнішню зміну. Ваші незбережені зміни було збережено.",
+      "reloadFromDisk": "Перезавантажити з диска",
+      "resizeMarkdownPreview": "Змінити розмір панелі попереднього перегляду",
+      "errors": {
+        "noProjectOrTabSelected": "Не вибрано проект або вкладку."
+      }
+    },
+    "tabBar": {
+      "openTabsAriaLabel": "Відкрити вкладки редактора",
+      "fallbackFileLabel": "файл",
+      "fallbackTabLabel": "вкладка",
+      "saveTabAriaLabel": "Зберегти {{fileLabel}}",
+      "unsavedChangesTitle": "Незбережені зміни - натисніть, щоб зберегти",
+      "externalChangedTitle": "Виявлено зміну зовнішнього файлу",
+      "problemSummaryTitle": "Проблема {{count}}{{suffix}} (помилка {{error}}{{errorSuffix}}, попередження {{warning}}{{warningSuffix}}, інформація про {{info}})",
+      "closeTabAriaLabel": "Закрийте {{tabLabel}}",
+      "aiActionsTitle": "Дії ШІ для вибраного коду",
+      "aiDraftHint": "Чернетки до Chat з використанням поточного виділення та найближчого контексту.",
+      "preview": "Попередній перегляд",
+      "fix": "Виправити",
+      "format": "Формат",
+      "auto": "Auto",
+      "togglePreviewTitle": "Перемкнути попередній перегляд уцінки (Ctrl/Cmd+Shift+V)",
+      "toggleFormatOnSaveTitle": "Перемкнути формат під час збереження, коли поточний файл має активний маршрут форматування",
+      "aiSelection": {
+        "explain": {
+          "label": "Поясніть",
+          "title": "Поясніть вибраний код у Chat",
+          "description": "Поясніть поведінку, припущення та ризики."
+        },
+        "fix": {
+          "label": "Виправити",
+          "title": "Виправте вибраний код у Chat",
+          "description": "Виправте помилки/проблеми у вибраному коді."
+        },
+        "refactor": {
+          "label": "Рефактор",
+          "title": "Рефакторинг вибраного коду в Chat",
+          "description": "Рефакторинг, зберігаючи поведінку."
+        },
+        "tests": {
+          "label": "Тести",
+          "title": "Згенеруйте тести для вибраного коду в Chat",
+          "description": "Напишіть тести для вибраного коду."
+        }
+      }
+    },
+    "diagnostics": {
+      "currentFile": "Поточний файл",
+      "common": {
+        "expand": "Розгорнути",
+        "collapse": "Згорнути"
+      },
+      "filters": {
+        "all": "всі",
+        "errors": "Помилки",
+        "warnings": "Попередження",
+        "info": "Інформація"
+      },
+      "severity": {
+        "error": "Помилка",
+        "warning": "УВАГА",
+        "info": "Інформація",
+        "hint": "Підказка"
+      },
+      "problems": {
+        "title": "Проблеми",
+        "errorCount": "Помилка {{count}}{{suffix}}",
+        "warningCount": "Попередження {{count}}{{suffix}}",
+        "infoCount": "Інформація про {{count}}",
+        "none": "Ніяких проблем",
+        "expandTitle": "Розгорніть панель проблем",
+        "collapseTitle": "Згорнути панель проблем",
+        "setDefaultStateTitle": "Встановити стандартний стан панелі проблем",
+        "defaultCollapsed": "За замовчуванням згорнуто",
+        "noMatch": "Жодних проблем не відповідає поточному фільтру.",
+        "noneInFile": "У цьому файлі немає проблем."
+      },
+      "outline": {
+        "title": "Контур",
+        "expandTitle": "Розгорнути контур",
+        "collapseTitle": "Згорнути контур",
+        "filterSymbols": "Символи фільтрів",
+        "symbolCount": "Символ {{count}}{{suffix}}",
+        "refreshing": "Оновлення...",
+        "setupTitle": "Налаштування",
+        "hintCount": "{{count}} підказка{{suffix}}",
+        "dismissSetupHintTitle": "Відхилити підказку щодо налаштування {{actionLabel}}",
+        "unavailableForFileType": "Структура ще не доступна для цього типу файлу.",
+        "loadingSymbols": "Завантаження символів...",
+        "noneAvailable": "Контур недоступний.",
+        "noMatch": "Жоден символ не відповідає поточному фільтру.",
+        "noneDetected": "У цьому файлі не виявлено жодних символів.",
+        "symbolFallback": "символ",
+        "messages": {
+          "serviceUnavailable": "Символи недоступні, оскільки служба редактора не готова.",
+          "loadFailed": "Не вдалося завантажити символи.",
+          "realProviderMissing": "У цьому файлі залишається лише синтаксис, оскільки для цієї мови немає справжнього provider.",
+          "formatOnlyLanguage": "Ця мова зараз залишається лише синтаксисом у редакторі.",
+          "missingBinary": "{{providerLabel}} не знайдено в цьому проекті чи на PATH.",
+          "providerUnavailable": "{{providerLabel}} недоступний для символів у цьому файлі.",
+          "providerDegraded": "{{providerLabel}} погіршено для символів у цьому файлі.",
+          "providerRequestFailed": "{{providerLabel}} не вдалося завантажити символи для цього файлу.",
+          "unsupportedFile": "Структура недоступна для цього типу файлу.",
+          "unsupported": "Структура недоступна для цього файлу."
+        }
+      },
+      "setupHints": {
+        "messages": {
+          "formatting": {
+            "realProviderMissing": "Для форматування цього файлу потрібен справжній provider.",
+            "biomeConfigRequired": "Для форматування потрібна конфігурація проекту Biome.",
+            "ruffConfigRequired": "Для форматування потрібна конфігурація проекту Ruff.",
+            "clangFormatConfigRequired": "Для форматування потрібен проект.clang-format або конфігурація _clang-format.",
+            "javaProjectContextRequired": "Для форматування потрібен контекст проекту Maven або Gradle (pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts).",
+            "dotnetProjectRequired": "Для форматування потрібен справжній контекст.csproj або.sln.",
+            "missingBinary": "{{providerLabel}} не знайдено в цьому проекті чи на PATH.",
+            "providerUnavailable": "{{providerLabel}} недоступний для цього файлу.",
+            "providerDegraded": "{{providerLabel}} погіршено для цього файлу.",
+            "providerRequestFailed": "{{providerLabel}} не вдалося обслуговувати цей файл.",
+            "formatOnlyLanguage": "Ця мова зараз лише для форматування."
+          },
+          "codeActions": {
+            "realProviderMissing": "Для дій коду потрібен справжній provider для цього файлу.",
+            "eslintProjectRequired": "Для дій коду потрібен ESLint provider, налаштований у проекті.",
+            "ruffConfigRequired": "Для дій коду потрібна конфігурація проекту Ruff.",
+            "clangTidyConfigRequired": "Для дій коду потрібна конфігурація проекту.clang-tidy.",
+            "clangCompileContextRequired": "Для дій коду потрібен compile_commands.json або compile_flags.txt.",
+            "javaProjectContextRequired": "Для дій коду потрібен контекст проекту Maven або Gradle (pom.xml, build.gradle, build.gradle.kts, settings.gradle, settings.gradle.kts).",
+            "dotnetProjectRequired": "Дії коду потребують справжнього контексту.csproj або.sln.",
+            "javaNotInstalled": "JDK, який можна використовувати, не знайдено на PATH або JAVA_HOME. jdtls вимагає Java.",
+            "dotnetNotInstalled": "dotnet не знайдено на PATH.",
+            "missingBinary": "{{providerLabel}} не знайдено в цьому проекті чи на PATH.",
+            "providerUnavailable": "{{providerLabel}} недоступний для цього файлу.",
+            "providerDegraded": "{{providerLabel}} погіршено для цього файлу.",
+            "providerRequestFailed": "{{providerLabel}} не вдалося обслуговувати цей файл.",
+            "formatOnlyLanguage": "Ця мова зараз лише для форматування."
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "Налаштування",
+    "navigationTitle": "Налаштування навігації",
+    "overviewTitle": "Огляд",
+    "controls": {
+      "expandAll": "Розгорнути все",
+      "collapseAll": "Згорнути все"
+    },
+    "counts": {
+      "sectionOne": "1 розділ",
+      "sectionOther": "Розділи {{count}}",
+      "visibleSectionOne": "1 видимий розділ",
+      "visibleSectionOther": "{{count}} видимі секції"
+    },
+    "common": {
+      "yes": "так",
+      "no": "немає",
+      "completed": "ЗАВЕРШЕНО",
+      "inProgress": "В ПРОЦЕСІ",
+      "ready": "Готовий",
+      "notReady": "Не готовий",
+      "savedOnly": "збережено лише",
+      "unknown": "невідомий",
+      "checking": "Перевірка...",
+      "disabled": "Вимкнено"
+    }
+  },
+  "artifacts": {
+    "emptyProject": "Відкрийте папку проекту, щоб переглянути історію артефактів.",
+    "trackedFilesTitle": "Відстежені файли",
+    "scope": {
+      "label": "Область артефактів",
+      "entireProject": "Проєкт",
+      "thisThread": "Гілка",
+      "resultCount": "{{count}} файлів"
+    },
+    "loadingTrackedFiles": "Завантаження відстежених файлів...",
+    "emptyTrackedFiles": "Файлів із версіями ще немає. Тут з’являться записи файлів штучного інтелекту та пропозиції коду.",
+    "deleteRevisionDialog": {
+      "title": "Видалити версію",
+      "message": "Видалити версію {{rev}} ({{source}}) для:\n{{filePath}}\n\nЦе неможливо скасувати.",
+      "confirm": "Видалити версію",
+      "cancel": "Скасувати"
+    },
+    "deleteHistoryDialog": {
+      "title": "Видалити історію версій",
+      "message": "Видалити всю історію змін для:\n{{filePath}}\n\nФайл на диску НЕ видаляється.",
+      "confirm": "Видалити історію",
+      "cancel": "Скасувати"
+    },
+    "selectFile": "Виберіть файл, щоб переглянути історію його версій.",
+    "labels": {
+      "fromBase": "З (база)",
+      "toHead": "До (голова)",
+      "base": "база",
+      "head": "голова"
+    },
+    "deleteRevisionTitle": "Видалити цю версію",
+    "deleteFileHistoryTitle": "Видалити всю історію цього файлу",
+    "selectRevisions": "Виберіть версії вище для порівняння.",
+    "revisionSource": {
+      "baseline": "базова лінія",
+      "rollback": "відкат",
+      "suggestion": "пропозиція",
+      "aiWrite": "ШІ пишу"
+    },
+    "revisionOrigin": {
+      "thread": "Гілка {{threadTitle}}",
+      "deletedThread": "Видалена гілка {{threadTitle}} · {{date}}"
+    },
+    "suggestionBadge": "пропозиція",
+    "revisionCountOne": "{{count}} ред",
+    "revisionCountOther": "{{count}} об",
+    "footer": {
+      "suggestionPending": "Ця версія ще не була записана на диск",
+      "apply": "Застосувати до диска",
+      "applying": "Застосування...",
+      "rollbackNotice": "Відкат відновить версію {{rev}} на диск",
+      "rollback": "Відкат до бази",
+      "rollingBack": "Відкат назад..."
+    },
+    "picker": {
+      "placeholder": "- {{label}} -",
+      "empty": "- новий файл (порожній) -",
+      "notOnDisk": "не на диску",
+      "option": "ред. {{rev}} - {{source}}{{notOnDisk}} - {{date}}",
+      "optionWithProvenance": "ред. {{rev}} - {{source}}{{notOnDisk}} - {{date}} · {{provenance}}"
+    },
+    "action": {
+      "rollbackSuccess": "Відкат до версії {{rev}}. Нова версія {{newRev}} записана.",
+      "rollbackFailed": "Помилка відкоту.",
+      "applySuccess": "Нанесено на диск. Нова версія {{newRev}} записана.",
+      "applyFailed": "Не вдалося застосувати.",
+      "revisionDeleted": "Ред. {{rev}} видалено."
+    },
+    "diffLoading": "Завантаження різниці...",
+    "diffTimeout": "Diff runtime не вдалося ініціалізувати. Перезавантажте програму."
+  },
+  "workspaceDisposal": {
+    "activeMessage": "Перед видаленням цих даних потрібно зупинити активну роботу.",
+    "threadDeleteActiveMessage": "Активну роботу в цьому [[canon:thread]] буде зупинено перед видаленням.",
+    "stopAndDelete": "Зупинити й видалити",
+    "stopAndRemove": "Зупинити й прибрати",
+    "stopAndClear": "Зупинити й очистити",
+    "stopAndArchive": "Зупинити й архівувати"
+  },
+  "threadDrawer": {
+    "title": "Threads",
+    "threadCount": "{{count}} threads",
+    "previewRole": {
+      "user": "Ви",
+      "assistant": "ШІ"
+    },
+    "activity": {
+      "needsInput": "Потрібна відповідь",
+      "sessionFailed": "Помилка",
+      "sessionCompleted": "Завершено",
+      "sessionActive": "Сеанс активний",
+      "sessionStale": "Сеанс застарів",
+      "pendingApproval": "Очікує затвердження",
+      "sessionBlocked": "Сеанс заблоковано",
+      "idle": "Бездіяльність",
+      "pendingBadge": "В очікуванні",
+      "blockedBadge": "заблоковано"
+    },
+    "fallbackTitle": "thread без назви",
+    "renameTitle": "Перейменуйте thread",
+    "deleteTitle": "Видалити thread",
+    "searchPlaceholder": "Пошук threads...",
+    "newThreadTitle": "Новий thread",
+    "newThread": "новий",
+    "emptySearch": "Жоден threads не відповідає вашому пошуку.",
+    "empty": "threads ще немає.",
+    "createThread": "Створіть thread",
+    "loadMore": "Завантажити більше threads ({{count}} приховано)",
+    "resizeTitle": "Перетягніть, щоб змінити розмір"
+  },
+  "backgroundJobs": {
+    "status": {
+      "polling": "Опитування",
+      "cancelRequested": "Запит на скасування",
+      "completed": "Виконано",
+      "failed": "Не вдалося",
+      "cancelled": "Скасовано",
+      "orphaned": "Осиротіла",
+      "queued": "У черзі"
+    },
+    "title": "[[canon:background_jobs]]",
+    "runningJobs": "Виконувані завдання: {{count}}",
+    "updated": "Оновлено {{time}}",
+    "refresh": "Оновити",
+    "close": "Закрити",
+    "description": "Зупиніть довгострокові локальні команди або відокремлені фонові відповіді OpenAI, коли вони більше не потрібні.",
+    "stopAll": "Зупинити все",
+    "stopping": "Зупинка...",
+    "loading": "Завантаження фонових завдань...",
+    "empty": "Зараз фонові завдання не виконуються.",
+    "table": {
+      "job": "Робота",
+      "task": "завдання",
+      "runtime": "Runtime",
+      "context": "Контекст",
+      "action": "Дія"
+    },
+    "statusLabel": "статус: {{status}}",
+    "openAiResponse": "Фонова відповідь OpenAI",
+    "detachedOpenAiResponse": "Відокремлена відповідь OpenAI",
+    "emptyCommand": "(порожній)",
+    "stop": "СТІЙ"
+  },
+  "chat": {
+    "planDirection": {
+      "questionNavigation": "Запитання щодо напряму плану",
+      "goToQuestion": "Перейти до запитання {{count}}",
+      "continue": "Продовжити",
+      "changeAnswer": "Змінити відповідь",
+      "customPlaceholder": "Або опишіть інший напрям",
+      "customAnswer": "Власна відповідь щодо напряму",
+      "recommendedShort": "Рекомендовано",
+      "synthesizing": "Оновлення напряму за вашими виборами…",
+      "synthesisFailed": "Не вдалося оновити напрям.",
+      "retryDraft": "Повторити чернетку плану",
+      "retry": "Повторити",
+      "reviewChoices": "Переглянути вибори",
+      "change": "Змінити напрям",
+      "changeFeedback": "Відгук щодо напряму",
+      "changePlaceholder": "Що слід змінити в цьому напрямі?",
+      "updateDirection": "Оновити напрям",
+      "creating": "Створення керованого плану Markdown…",
+      "recommended": "Рекомендовано:",
+      "recommendationDetail": "{{profile}} - {{rationale}}",
+      "create": "Створити план",
+      "profileMenu": "Профілі створення плану",
+      "profiles": {
+        "implementation": "План реалізації",
+        "technicalDesign": "Технічний дизайн",
+        "investigation": "План дослідження",
+        "deepImplementation": "Детальний план реалізації"
+      },
+      "errors": {
+        "answerSave": "The direction answer could not be saved.",
+        "profileUnavailable": "The selected plan profile was unavailable.",
+        "changeFailed": "The direction feedback could not be saved.",
+        "retryFailed": "The direction update could not be retried."
+      }
+    },
+    "emptyState": {
+      "title": "Поки немає повідомлень",
+      "planDescription": "Режим [[canon:plan]] активний. [[canon:ask]] для структурованого плану, а потім використовуйте інтерактивні варіанти у відповіді, щоб направляти шлях.",
+      "thinkingDescription": "Режим [[canon:thinking]] активний. Тут обдумайте варіанти та компроміси, а потім перейдіть на [[canon:execute]], коли будете готові до впровадження.",
+      "executeDescription": "Виберіть provider і почніть спілкуватися. Використовуйте елемент керування заголовка [[canon:permission_mode]], щоб переключатися між [[canon:ask]], [[canon:autonomy]] і [[canon:full_access]] для виконання ходів.",
+      "needsProviderSetup": "Підключіть автентифікатор облікового запису OpenAI або додайте API key у налаштуваннях, а потім виберіть provider, щоб почати."
+    },
+    "composer": {
+      "placeholder": {
+        "selectProvider": "Виберіть provider, щоб почати...",
+        "selectThread": "Select or create a conversation to continue...",
+        "streaming": "AI думає...",
+        "plan": "Попросіть план... (Введіть, щоб надіслати, Shift+Enter для нового рядка)",
+        "thinking": "Обдумайте ідеї, компроміси та напрямок... (Введіть, щоб надіслати, Shift+Enter для нового рядка)",
+        "execute": "Запитуйте будь-що про свій проект... (Введіть, щоб надіслати, Shift+Enter для нового рядка)"
+      },
+      "blockLabels": {
+        "code": "Код",
+        "text": "текст"
+      },
+      "codeLanguage": "Мова коду",
+      "openAdvancedEditor": "Відкрийте розширений редактор коду",
+      "advanced": "Просунутий",
+      "removeBlock": "Зняти блок",
+      "removeCodeBlock": "Видаліть блок коду",
+      "removeTextBlock": "Видалити текстовий блок",
+      "codePlaceholder": "Код...",
+      "insertSnippet": "Вставте фрагмент",
+      "codeSnippet": "Фрагмент коду",
+      "textSnippet": "Текстовий фрагмент"
+    },
+    "controlRail": {
+      "quickActionsTitle": "[[canon:quick_actions]]",
+      "refreshModels": "Оновити models",
+      "refreshingModels": "Оновлення models",
+      "refreshing": "Оновлення...",
+      "openBackgroundJobs": "Відкрийте [[canon:background_jobs]]",
+      "backgroundJobs": "[[canon:background_jobs]]",
+      "agents": "Агенти",
+      "directAgentsMenu": "Меню вибору агента",
+      "moreActions": "Більше дій",
+      "stopResponse": "Зупинити відповідь",
+      "sendMessage": "Надіслати повідомлення",
+      "sendEnter": "Надіслати (Enter)",
+      "attach": {
+        "filesImagesDisabled": "Вкласти файли (зображення вимкнено для цього model)",
+        "images": "Додайте зображення",
+        "files": "Прикріпити файли"
+      },
+      "collaborationMode": {
+        "defaultLabel": "[[canon:native_collaboration_mode]]",
+        "buttonTitle": "[[canon:native_collaboration_mode]]: {{value}}",
+        "optionsAriaLabel": "Опції [[canon:native_collaboration_mode]]"
+      },
+      "reasoningEffort": {
+        "providerDefault": "Provider за замовчуванням",
+        "xhigh": "Xвисокий",
+        "buttonTitle": "[[canon:reasoning_effort]]: {{value}}. Контролює міру застосування model.",
+        "buttonAriaLabel": "[[canon:reasoning_effort]]: {{value}}",
+        "optionsAriaLabel": "Опції [[canon:reasoning_effort]]"
+      },
+      "processingMode": {
+        "fast": "Швидко",
+        "standard": "Стандартно",
+        "enable": "Використовувати швидку обробку",
+        "disable": "Використовувати стандартну обробку",
+        "pricingNote": "Швидка обробка може мати преміальну ціну.",
+        "returnedMode": "Остання відповідь використала режим {{mode}}."
+      },
+      "rateLimits": {
+        "title": "[[canon:rate_limits]]",
+        "remainingTitle": "OpenAI Ліміти ставок облікового запису залишилися",
+        "weekly": "Щотижня",
+        "primary": "Первинний",
+        "secondary": "Вторинний"
+      }
+    },
+    "moaToggle": {
+      "activeTitle": "Режим [[canon:moa]] активний - натисніть, щоб вимкнути",
+      "enableTitle": "Увімкнути [[canon:moa]] (мультиагентна оркестровка)"
+    },
+    "threadModals": {
+      "common": {
+        "close": "Закрити",
+        "closeModal": "Закрити модальний [[canon:thread]]",
+        "cancel": "Скасувати"
+      },
+      "create": {
+        "title": "Створіть [[canon:thread]]",
+        "description": "Введіть назву нової розмови [[canon:thread]].",
+        "placeholder": "Новий [[canon:thread]]",
+        "confirm": "Створити"
+      },
+      "rename": {
+        "title": "Перейменуйте [[canon:thread]]",
+        "description": "Оновіть назву для поточної розмови [[canon:thread]].",
+        "placeholder": "Назва [[canon:thread]]",
+        "confirm": "зберегти"
+      },
+      "clear": {
+        "deleteTitle": "Видалити [[canon:thread]]",
+        "deleteMessage": "Видалити цей [[canon:thread]]{{threadTitle}}? Розмову, вкладення та активність [[canon:thread]] буде видалено. Файли проєкту, Артефакти та збережена Пам’ять залишаться доступними.",
+        "deleteConfirm": "Видалити [[canon:thread]]"
+      }
+    },
+    "providerSwitchContextBanner": {
+      "title": "Provider/Model перемикається",
+      "previousProvider": "попередній provider",
+      "newProvider": "новий provider",
+      "movedFrom": "Переїхав з",
+      "movedTo": "до",
+      "continuityHint": "Введіть контекст перед наступним ходом, щоб уникнути втрати безперервності проекту.",
+      "injectMemory": "Введіть Memory",
+      "injectArtifacts": "Введіть [[canon:artifacts]]",
+      "injectBoth": "Введіть обидва",
+      "dismiss": "Відхилити"
+    },
+    "contextMeter": {
+      "toggleDetails": "Перемикати деталі контексту",
+      "expandDetails": "Розгорнути деталі вимірювача контексту",
+      "collapseDetails": "Згорнути деталі вимірювача контексту",
+      "visibleMetrics": "Видимі показники",
+      "chooseVisibleMetrics": "Виберіть видимі показники",
+      "showAll": "Показати все",
+      "hideAll": "Сховати все",
+      "noMetricsSelected": "Показники не вибрано.",
+      "title": {
+        "available": "Останній хід {{turnTokens}}/{{modelLimit}} tokens ({{percent}}%)",
+        "unavailable": "Використання останнього ходу недоступне (ліміт {{modelLimit}} token)",
+        "limitUnavailable": "Обмеження контексту недоступне для цього model",
+        "contextLeftAvailable": "Контекст ліворуч {{remaining}}/{{modelLimit}} tokens ({{percent}}%)",
+        "contextLeftFallback": "Контекст ліворуч {{remaining}}/{{modelLimit}} tokens ({{percent}}%, порожній thread)",
+        "contextLeftUnavailable": "Контекст залишився недоступним (ліміт {{modelLimit}} token; зайнятість thread недоступна)",
+        "contextLeftRecalculating": "Залишок контексту перераховується після компактування (ліміт {{modelLimit}} token)"
+      },
+      "values": {
+        "left": "зліва",
+        "occupancyUnavailable": "Заповнення thread недоступне",
+        "limitUnknown": "межа невідома",
+        "notAvailable": "n/a",
+        "recalculating": "перерахування..."
+      },
+      "metrics": {
+        "used": "Thread occ.",
+        "usedEstimated": "Thread occ. (приблизно)",
+        "usedMapped": "Thread occ. (на карті)",
+        "remaining": "Контекст залишився",
+        "limit": "Ліміт",
+        "turn": "Остання черга",
+        "spendRoll": "Провести сеанс",
+        "inputNoCache": "Введення (без кешу)",
+        "cacheRead": "Читання кешу",
+        "cacheWrite": "Запис кешу",
+        "turnEstTok": "Turn est tok",
+        "turnEstUsd": "Turn est usd",
+        "costConf": "Вартість конф",
+        "continuity": "Безперервність",
+        "packet": "пакет",
+        "drift": "Дрейф",
+        "compactionDelta": "Дельта ущільнення"
+      }
+    },
+    "cursor": {
+      "fullAccessRequired": "Cursor runs only with Full Access.",
+      "useFullAccess": "Use Full Access"
+    },
+    "composerArea": {
+      "selectProvider": "Виберіть provider нижче, щоб розпочати спілкування.",
+      "selectThread": "Виберіть або створіть thread перед надсиланням повідомлень.",
+      "selectedModelMissing": "Вибраний model може бути недоступним. Оновіть підібраний models у меню дій.",
+      "addApiKey": "Щоб почати, додайте API key у налаштуваннях.",
+      "switchToExecute": "Перейдіть на [[canon:execute]]",
+      "imagesDisabled": "Для цього model зображення вимкнено. Вкладення файлів залишаються активними.",
+      "pipeline": {
+        "stepRunning": "Pipeline step {{currentStep}}/{{totalSteps}}: {{stepName}}",
+        "completed": "Pipeline complete",
+        "failedAt": "Pipeline failed at {{stepName}}",
+        "cancelled": "Pipeline cancelled",
+        "starting": "Starting pipeline ({{totalSteps}} steps)..."
+      },
+      "council": {
+        "completed": "Рада завершена ({{successCount}}/{{memberCount}} успішно)",
+        "failed": "Рада провалилася",
+        "cancelled": "Рада скасована",
+        "running": "Рада працює (член {{memberCount}}{{suffix}})..."
+      }
+    },
+    "permissionMode": {
+      "planActive": "Режим [[canon:plan]]: доступні інструменти дослідження та планування; зміни проєкту заблоковано.",
+      "thinkingActive": "Режим [[canon:thinking]]: доступні інструменти читання та дослідження; зміни проєкту заблоковано.",
+      "planDormant": "Режим [[canon:plan]] вимикає виконання інструменту для цього ходу.",
+      "thinkingDormant": "Режим [[canon:thinking]] вимикає виконання інструменту для цього ходу.",
+      "label": "Дозвіл",
+      "groupAriaLabel": "Режим дозволу",
+      "optionsAriaLabel": "Параметри режиму дозволу",
+      "helpers": {
+        "ask": "Підказка перед ризикованими діями",
+        "autonomy": "Act inside workspace Guardrails",
+        "fullAccess": "Виконання інструменту на рівні хоста"
+      }
+    },
+    "dispatchConfirmation": {
+      "dispatchFailed": "Не вдалося відправити.",
+      "executed": "Відправка виконана",
+      "executedDescription": "Агент {{count}} {{suffix}} відправлено. Результати з’являться нижче, коли агенти завершать роботу.",
+      "failed": "Не вдалося відправити",
+      "unknownError": "Невідома помилка.",
+      "retry": "Повторіть спробу",
+      "title": "План виконання завдань",
+      "selected": "Вибрано {{selected}}/{{total}}",
+      "dispatching": "Відправка...",
+      "executeTasks": "Виконайте завдання {{count}}{{suffix}}"
+    },
+    "questionUser": {
+      "clarificationNeeded": "Потрібне роз'яснення",
+      "waitingOnYou": "Чекаю на вас",
+      "recommended": "Рекомендовано",
+      "yourAnswer": "Ваша відповідь",
+      "answerPlaceholder": "Введіть відповідь…",
+      "answerHint": "Надішліть швидку відповідь сюди або продовжуйте редагувати в редакторі нижче.",
+      "sending": "Надсилання...",
+      "sendAnswer": "Надіслати",
+      "sendAnswerTitle": "Надіслати відповідь (Enter)"
+    },
+    "runbook": {
+      "status": {
+        "cancelled": "скасовано",
+        "finishedWithErrors": "закінчено з помилками",
+        "finishedWithWarnings": "закінчено попередженнями",
+        "finished": "закінчено",
+        "running": "біг"
+      },
+      "filters": {
+        "all": "всі",
+        "commands": "Команди",
+        "usage": "Використання",
+        "reasoning": "Міркування",
+        "approvals": "Дозволи"
+      },
+      "aria": {
+        "collapse": "Згорнути поворот runbook",
+        "expand": "Розгорнути поворот runbook"
+      },
+      "summary": {
+        "actions": "дії {{count}}",
+        "commands": "команди {{count}}",
+        "files": "файли {{count}}",
+        "usage": "використання {{count}}"
+      },
+      "sections": {
+        "actions": "Дії",
+        "commands": "Команди",
+        "usage": "Використання"
+      }
+    },
+    "fileChanges": {
+      "header": "Змінено файли: {{count}}",
+      "unknownFile": "Невідомий файл",
+      "updatedAgo": "оновлений {{time}}",
+      "changeType": {
+        "applied": "Прикладний",
+        "modified": "Змінено",
+        "edited": "Відредаговано",
+        "deleted": "Видалено",
+        "renamed": "Перейменовано",
+        "rolledBack": "Відкочується",
+        "created": "Створено"
+      },
+      "syncStatus": {
+        "deleted": "видалено",
+        "undone": "скасовано",
+        "conflict": "конфлікт"
+      },
+      "reason": {
+        "changedSinceTurn": "Змінено з цього повороту",
+        "missingRevisionMetadata": "Відсутні метадані версії"
+      },
+      "actions": {
+        "fallbackAction": "Дія",
+        "openInEditor": "Відкрити в редакторі",
+        "openInDocumentViewer": "Відкрити у засобі перегляду документів",
+        "openArtifacts": "Відкрийте [[canon:artifacts]]",
+        "copyPath": "Копіювати шлях",
+        "deleting": "Видалення...",
+        "deleteFile": "Видалити файл",
+        "undoing": "Скасування...",
+        "undoChange": "Скасувати зміни",
+        "menuTitle": "Дії з файлами"
+      },
+      "preview": {
+        "loading": "Завантаження змін...",
+        "noChangedLines": "Немає змінених рядків для попереднього перегляду.",
+        "collapse": "Згорнути попередній перегляд",
+        "expand": "Розгорнути попередній перегляд",
+        "collapseForFile": "Згорнути попередній перегляд для {{path}}",
+        "expandForFile": "Розгорнути попередній перегляд для {{path}}",
+        "fileChangeFallback": "зміна файлу",
+        "limited": "попередній перегляд обмежено",
+        "limitWithLineCount": "Розмір файлу перевищує обмеження попереднього перегляду (рядки {{lineCount}}). Відкрийте в редакторі або [[canon:artifacts]], щоб переглянути зміни.",
+        "limitNoLineCount": "Розмір файлу перевищує обмеження попереднього перегляду. Попередній перегляд вимкнено над рядками {{maxLines}}."
+      },
+      "dialogs": {
+        "undoOne": {
+          "title": "Скасувати зміну файлу",
+          "message": "Відновити попередню версію {{path}}?",
+          "confirm": "Скасувати зміну"
+        },
+        "deleteOne": {
+          "title": "Видалити створений файл",
+          "message": "Видалити {{path}}? Це видаляє файл, створений у цьому ході, з диска.",
+          "confirm": "Видалити файл"
+        },
+        "undoAll": {
+          "title": "Скасувати зміни файлу",
+          "message": "Відновити попередню версію файлу {{count}} {{suffix}}?",
+          "confirm": "Скасувати зміни"
+        },
+        "deleteAll": {
+          "title": "Видалити створені файли",
+          "message": "Видалити файл {{count}} {{suffix}}, створений у цьому ході? Це видаляє їх з диска.",
+          "confirm": "Видалити файли"
+        }
+      },
+      "feedback": {
+        "clipboardUnavailable": "Буфер обміну недоступний у цьому середовищі.",
+        "copiedPath": "Скопійований шлях: {{path}}",
+        "copyFailed": "Не вдалося скопіювати шлях до файлу.",
+        "undoUnavailable": "Скасування недоступне для цього запису (відсутні метадані версії).",
+        "undoSucceeded": "Скасовано {{path}}.",
+        "undoFailed": "Не вдалося скасувати.",
+        "deleteUnavailable": "Видалення недоступне для цього запису (відсутні метадані версії).",
+        "deleteSucceeded": "Видалено створений файл {{path}}.",
+        "deleteFailed": "Не вдалося видалити.",
+        "conflict": "{{path}}: змінено з цього ходу.",
+        "actionFailed": "{{path}}: {{message}}",
+        "undoAllUnavailable": "Скасувати всі недоступні (відсутні метадані версії).",
+        "undoAllSummary": "Скасувати все: {{success}} вдалося {{conflicts}}{{failed}}{{skipped}}.",
+        "undoAllFailed": "Скасувати все не вдалося.",
+        "deleteAllUnavailable": "Видалити всі недоступні (відсутні метадані версії).",
+        "deleteAllSummary": "Видалити створені файли: {{success}} вдалося {{conflicts}}{{failed}}{{skipped}}.",
+        "deleteAllFailed": "Не вдалося видалити створені файли."
+      },
+      "activity": {
+        "undoOne": "Скасовано зміну файлу: {{path}}",
+        "deleteOne": "Видалено створений файл: {{path}}",
+        "undoAll": "Скасувати всі зміни файлу ({{success}} вдалося {{conflicts}}{{failed}}{{skipped}})",
+        "deleteAll": "Видалено створені файли ({{success}} вдалося {{conflicts}}{{failed}}{{skipped}})"
+      },
+      "bulkActions": {
+        "undoingTitle": "Скасування змін файлу",
+        "undoTitle": "Скасувати зміни файлу з цього ходу",
+        "deletingTitle": "Видалення створених файлів",
+        "deleteTitle": "Видалити створені файли з цього ходу"
+      }
+    },
+    "roleConfirmation": {
+      "title": "[[canon:ai_generated_agent_role]]",
+      "saveRole": "[[canon:save_role]]",
+      "saveRoleAndContinue": "[[canon:save_role_continue]]",
+      "useForDelegation": "[[canon:use_for_delegation]]",
+      "saving": "Збереження...",
+      "starting": "Починаючи...",
+      "saved": "Роль \"{{name}}\" збережено",
+      "usedForDelegation": "Для цього делегування використовується роль \"{{name}}\".",
+      "savedDescription": "Доступний для делегування негайно.",
+      "usedTemporaryDescription": "Цю тимчасову роль буде видалено автоматично після завершення делегування.",
+      "roleName": "[[canon:role_name]]",
+      "instructions": "Інструкції",
+      "noInstructions": "Ніяких інструкцій",
+      "provider": "Provider",
+      "model": "Model",
+      "selectProvider": "Виберіть provider...",
+      "selectModel": "Виберіть model...",
+      "modelIdPlaceholder": "Ідентифікатор Model",
+      "emptyValue": "—",
+      "stagedWrites": {
+        "title": "Staged записує файл",
+        "enabledDescription": "Увімкнено для цієї ролі. Його використання може змінювати файл stage під час делегування.",
+        "disabledDescription": "Вимкнено. Ця роль може повертати лише аналіз і рекомендації."
+      },
+      "allowStagedWrites": {
+        "title": "Дозволити запис у файл staged",
+        "description": "Агент може stage [[canon:write_file]] пропозиції."
+      },
+      "preview": "Попередній перегляд",
+      "edit": "Редагувати",
+      "dismiss": "Відхилити",
+      "errors": {
+        "roleNameRequired": "Потрібно вказати назву ролі.",
+        "providerRequired": "Потрібен Provider.",
+        "modelRequired": "Потрібен Model.",
+        "saveFailed": "Не вдалося зберегти роль.",
+        "useTemporaryFailed": "Не вдалося використати тимчасову роль."
+      }
+    },
+    "writeConflict": {
+      "resolved": "Вирішено {{path}}",
+      "conflictBadge": "конфлікт",
+      "showDebugInfo": "Показати інформацію про налагодження",
+      "hideDebugInfo": "Приховати інформацію про налагодження",
+      "hideDetails": "Приховати деталі",
+      "viewChanges": "Перегляньте, що змінилося",
+      "loading": "Завантаження...",
+      "loadingPreviews": "Завантаження попереднього перегляду...",
+      "previewUnavailable": "Попередній перегляд недоступний.",
+      "aiMerge": "ШІ злиття",
+      "dismiss": "Відхилити",
+      "confirm": "Підтвердити",
+      "noModelSelected": "model не вибрано",
+      "generatingMerge": "Створення об'єднання...",
+      "retry": "Повторіть спробу",
+      "tryAgain": "Спробуйте знову",
+      "accept": "прийняти",
+      "labels": {
+        "yoursVsBase": "Ваші зміни проти бази",
+        "theirsVsBase": "Інші зміни проти бази"
+      },
+      "errors": {
+        "unknown": "Невідома помилка",
+        "requestFailed": "Запит не виконано",
+        "applyFailed": "Не вдалося застосувати роздільну здатність об’єднання.",
+        "mergeFailed": "Не вдалося злити.",
+        "revisionPreviewUnavailable": "Попередній перегляд редакції недоступний у цьому сеансі візуалізації.",
+        "loadRevisionPreviewFailed": "Не вдалося завантажити попередній перегляд версії.",
+        "loadRevisionContextFailed": "Не вдалося завантажити контекст версії."
+      }
+    },
+    "attachments": {
+      "actions": {
+        "menuAriaLabel": "Дії з вкладенням {{name}}",
+        "showInFolder": "Показати в папці",
+        "copy": "Копіювати",
+        "saveAs": "Зберегти як...",
+        "openWith": "Відкрити за допомогою",
+        "defaultApp": "Типова програма",
+        "chooseAnotherApp": "Вибрати іншу програму...",
+        "copyFailed": "Не вдалося скопіювати це вкладення.",
+        "showInFolderFailed": "Не вдалося показати це вкладення в папці.",
+        "saveFailed": "Не вдалося зберегти це вкладення.",
+        "openWithFailed": "Не вдалося відкрити це вкладення у вибраній програмі."
+      },
+      "common": {
+        "close": "Закрити",
+        "cancel": "Скасувати"
+      },
+      "errors": {
+        "cachedOpenFailed": "Неможливо відкрити кешований файл вкладення.",
+        "unavailable": "Відкритий вкладений файл недоступний у цій збірці.",
+        "historyUnavailable": "Цей вкладений файл неможливо повторно відкрити, оскільки його дані недоступні в історії хронології.",
+        "openFailed": "Неможливо відкрити вкладений файл."
+      },
+      "labels": {
+        "pdfAttachment": "PDF вкладення",
+        "attachedImage": "Прикріплене зображення",
+        "attachedFile": "Прикріплений файл"
+      },
+      "image": {
+        "unavailable": "Вкладене зображення недоступне.",
+        "open": "Відкрийте {{label}}",
+        "previewAriaLabel": "Попередній перегляд зображення",
+        "closePreviewAriaLabel": "Закрити попередній перегляд зображення"
+      },
+      "file": {
+        "openPdfViewer": "Відкрити PDF у програмі перегляду",
+        "openAttachedFile": "Відкрити прикріплений файл",
+        "openPdfAttachment": "Відкрити PDF-додаток",
+        "openFileAttachment": "Відкрити вкладений файл",
+        "clickOpenViewer": "Натисніть, щоб відкрити у засобі перегляду",
+        "clickOpenFile": "Натисніть, щоб відкрити файл"
+      },
+      "dialogs": {
+        "openFileAriaLabel": "Підтвердження відкриття файлу",
+        "openPdfTitle": "Відкрити PDF у програмі перегляду за умовчанням?",
+        "closeFileOpenAriaLabel": "Закрити файл підтвердження відкриття",
+        "openPdfDescription": "Цей файл відкриється за межами ADDOM за допомогою вашої системної програми PDF.",
+        "openPdfConfirm": "Відкрити PDF"
+      }
+    },
+    "planRequests": {
+      "label": {
+        "memoryReview": "Inject saved context",
+        "artifactReview": "Ввести контекст [[canon:artifacts]]",
+        "webIngest": "Веб-сайт Ingest",
+        "runRequest": "Виконати запит"
+      },
+      "summary": {
+        "from": "від #{{value}}",
+        "to": "до #{{value}}",
+        "tags": "теги: {{value}}",
+        "sources": "Джерела: {{value}}",
+        "limit": "обмеження {{value}}",
+        "files": "файли: {{value}}",
+        "latestOnly": "тільки останній",
+        "revisionsPerFile": "версії/файл: {{value}}",
+        "fromRev": "з версії {{value}}",
+        "toRev": "до версії {{value}}"
+      }
+    },
+    "toolExecution": {
+      "runningCommandWithCommand": "Команда запуску: {{command}}",
+      "runningCommand": "Виконується команда...",
+      "renameFile": "Виконується: rename_file - {{oldPath}} -> {{newPath}}",
+      "browsingUrl": "Перегляд: {{url}}",
+      "browserActionWithAction": "Браузер: {{action}}",
+      "browserAction": "Дія браузера",
+      "runningToolWithPath": "Запуск: {{toolName}} - {{filePath}}",
+      "runningTool": "Запуск: {{toolName}}",
+      "result": {
+        "browserDenied": "browser_action - заборонено",
+        "browserFailed": "browser_action - не вдалося",
+        "browserDone": "browser_action - зроблено",
+        "toolDenied": "{{toolName}} - відхилено",
+        "toolFailed": "{{toolName}} - не вдалося",
+        "toolDone": "{{toolName}} - зроблено"
+      }
+    },
+    "mcpElicitation": {
+      "sendFailed": "Не вдалося надіслати цю відповідь."
+    },
+    "diff": {
+      "addedLine": "Доданий рядок",
+      "removedLine": "Видалений рядок"
+    },
+    "providerTerms": {
+      "providerFallback": "цього постачальника",
+      "title": "Перш ніж використовувати {{providerName}}",
+      "lead": "Ви відповідаєте за умови цього постачальника. Підказки та активність інструментів можуть залишити цей комп’ютер.",
+      "cancel": "Скасувати",
+      "openTerms": "Відкрити умови",
+      "continue": "Продовжити"
+    }
+  },
+  "toolApprovalOverlay": {
+    "header": {
+      "title": "AI хоче:",
+      "reviewFileChanges": "Перегляньте запропоновані зміни файлу, а потім схваліть або відхиліть",
+      "reviewDiff": "Перегляньте наведену нижче різницю, а потім схваліть або відхиліть",
+      "approveFilesystem": "Підтвердьте, щоб дозволити цю дію для вашої файлової системи",
+      "expiresIn": "Термін дії закінчується в {{time}}"
+    },
+    "footer": {
+      "expired": "Approval expired",
+      "enterDisabled": "Введіть ярлик вимкнено для підвищених схвалень",
+      "shortcuts": "Комбінації клавіш: Enter дозволити, Esc заборонити",
+      "submitting": "Submitting approval..."
+    },
+    "actions": {
+      "deny": "Заборонити (Esc)",
+      "allowForSession": "Дозволити сеанс",
+      "allowForSessionTitle": "Дозволити та запам’ятати це схвалення для поточного сеансу програми, якщо воно підтримується",
+      "openGuardrails": "Open Guardrails settings",
+      "openGuardrailsTitle": "Cancel this approval and open Guardrails settings",
+      "allowHostFallback": "Дозволити резервний хост",
+      "allowHostFallbackTitle": "Дозволити резервний хост (одноразово)",
+      "allowHostFullAccessThisTurn": "Дозволити повний доступ хосту (цього разу)",
+      "allowHostFullAccessThisTurnTitle": "Дозвольте хосту повний доступ до кінця цього ходу",
+      "allowHostFullAccess": "Дозволити повний доступ хосту",
+      "allowHostFullAccessTitle": "Дозволити хосту повний доступ (одноразово)",
+      "allowWslCompatibility": "Дозволити запуск сумісності WSL",
+      "allowWslCompatibilityTitle": "Дозволити одноразовий запуск сумісності WSL",
+      "allowDisabledWslTitle": "Використовуйте явне схвалення сумісності WSL для цієї команди",
+      "allowDisabledHostTitle": "Використовуйте явну дію повного доступу до хосту для цієї команди",
+      "allowTitle": "Дозволити (Enter)",
+      "allowDisabled": "Дозволити (вимкнено)",
+      "allowCaution": "Дозволити (обережно)",
+      "allow": "Дозволити"
+    },
+    "review": {
+      "grantedRoot": "Надано Root",
+      "empty": "У цей запит на схвалення не включено жодних змін у файлі.",
+      "file": "Файл",
+      "unknownPath": "(невідомий шлях)",
+      "noDiff": "Для цієї зміни файлу не надано відмінностей."
+    },
+    "policy": {
+      "runCommandTitle": "Політика запуску команд",
+      "browserActionTitle": "Політика дій браузера",
+      "warnings": "Попередження",
+      "hints": "Підказки",
+      "explicitHostElevation": "Потрібне явне підвищення прав хоста",
+      "explicitHostElevationDescription": "Ця команда перевищує політику `workspace_safe`. Щоб продовжити, використовуйте спеціальну одноразову дію host_full_access.",
+      "explicitWslApproval": "Потрібне чітке схвалення сумісності WSL",
+      "explicitWslApprovalDescription": "WSL не є кордоном безпеки. Це схвалення підтверджує роботу сумісності з доступністю файлової системи хоста, а не закритий sandbox."
+    },
+    "diff": {
+      "file": "файл",
+      "newFile": "новий файл",
+      "noChanges": "Змін не виявлено."
+    },
+    "risk": {
+      "readOnly": "Тільки для читання",
+      "writesFile": "Записує файл",
+      "runsCode": "Запускає код"
+    },
+    "intent": {
+      "runCommand": "Run command",
+      "localShell": "Run local shell command",
+      "openTerminal": "Open terminal",
+      "useTerminal": "Use terminal",
+      "useBrowser": "Use browser",
+      "reviewFileChanges": "Review file changes",
+      "createDirectory": "Create directory",
+      "scopeSandboxUnavailable": "Sandbox unavailable; host fallback is available.",
+      "scopeInstallSandbox": "Runs in the install sandbox.",
+      "scopeHostAccess": "Requires host access.",
+      "scopeWorkspaceShell": "Runs in the workspace shell.",
+      "scopeBrowserTarget": "Target: {{target}}",
+      "scopeTerminalHostPath": "Opens against a host path.",
+      "scopeWorkingDirectory": "Working directory: {{cwd}}",
+      "warningExplicitHost": "This needs an explicit host access decision.",
+      "warningExplicitWsl": "WSL can reach host files. Use the explicit WSL action only if that is intended.",
+      "warningSandboxFallback": "The sandbox route is unavailable. Host fallback is a one-time exception.",
+      "warningPrivateNetwork": "This targets a local or private network address.",
+      "warningTerminalOutsideWorkspace": "This terminal opens outside the workspace."
+    },
+    "production": {
+      "deny": "Deny",
+      "allowForSession": "Allow for session",
+      "openGuardrails": "Settings",
+      "allowHostFallback": "Host fallback",
+      "allowHostFullAccessThisTurn": "Host this turn",
+      "allowHostFullAccess": "Host once",
+      "allowWslCompatibility": "WSL once",
+      "allowDisabled": "Choose explicit action",
+      "allowCaution": "Allow",
+      "allow": "Allow",
+      "explicitActionRequired": "Use an explicit approval action for this request.",
+      "browserRisk": "External action",
+      "reviewRisk": "Review",
+      "details": "Details",
+      "requestData": "Request data"
+    },
+    "productionPolicy": {
+      "command": "Command policy",
+      "browser": "Browser policy",
+      "terminal": "Terminal policy",
+      "hostAccessRequired": "Host access required",
+      "hostAccessDescription": "Use an explicit host action if this should run outside workspace-safe limits.",
+      "wslCompatibility": "WSL compatibility",
+      "wslDescription": "WSL can reach host files. Use the WSL action only when that is intended.",
+      "notes": "Notes"
+    }
+  },
+  "common": {
+    "close": "Закрити",
+    "clear": "ясно",
+    "clearAll": "Очистити все",
+    "cancel": "Скасувати"
+  },
+  "settingsInstructions": {
+    "title": "Використання ADDOM",
+    "updated": "Останнє оновлення {{date}}",
+    "description": "Стислий посібник щодо поточної поведінки ADDOM, параметрів безпеки за замовчуванням і того, де шукати, коли потрібно оновити знання.",
+    "sections": {
+      "chat-modes": {
+        "title": "Режими Chat",
+        "items": {
+          "0": "`[[canon:execute]]` дозволяє ADDOM використовувати ввімкнені інструменти під вибраним [[canon:permission_mode]] (`[[canon:ask]]`, `[[canon:autonomy]]` або `[[canon:full_access]]`).",
+          "1": "`[[canon:plan]]` зберігає поворот без інструментів і зосереджується на варіантах, питаннях і наступних кроках.",
+          "2": "`[[canon:thinking]]` призначений для мозкового штурму та компромісів без використання інструментів.",
+          "3": "Вибір `[[canon:implement_plan]]` повертає chat на `[[canon:execute]]` перед надсиланням."
+        }
+      },
+      "tool-approvals": {
+        "title": "Схвалення інструментів",
+        "items": {
+          "0": "`[[canon:ask]]` підказує перед ризикованими діями, `[[canon:autonomy]]` пригнічує звичайні підказки, а `[[canon:full_access]]` надає виконання інструменту на рівні хоста для ходу.",
+          "1": "Навіть у `[[canon:full_access]]` блоковані списки деструктивних команд все ще застосовуються до явно небезпечних операцій на хості.",
+          "2": "Перед виконанням командні запити перевіряються на відповідність вашій політиці безпеки команд.",
+          "3": "Фонові команди з’являються в `[[canon:background_jobs]]`, де їх можна перевірити або зупинити."
+        }
+      },
+      "memory": {
+        "title": "Поведінка Memory",
+        "items": {
+          "0": "Проект memory зберігає примітки, підсумки та автоматично зареєстрований контекст локально в SQLite.",
+          "1": "Старіші автоматичні журнали можна стиснути після порогового значення, яке ви встановили в налаштуваннях.",
+          "2": "Стиснуті записи архівуються, не видаляються, і їх можна переглядати.",
+          "3": "Активність Memory видно в chat і на панелі Memory."
+        }
+      },
+      "continuity": {
+        "title": "[[canon:continuity_engine]]",
+        "items": {
+          "0": "Безперервність відстежує цілі, рішення, незамкнені цикли, помилки та посилання на файли за ходами.",
+          "1": "Його область отримання за замовчуванням `thread + project` і може бути налаштована в налаштуваннях.",
+          "2": "Такі профілі, як `economy`, `balanced` і `deep`, контролюють рівень безперервності.",
+          "3": "Події безперервності з’являються на часовій шкалі, коли виконується пошук, створення пакетів або стиснення.",
+          "4": "Перевірки дрейфу можуть попередити, коли новий поворот суперечить усталеному контексту."
+        }
+      },
+      "artifacts": {
+        "title": "Поведінка [[canon:artifacts]]",
+        "items": {
+          "0": "Кожна схвалена запис файлу штучного інтелекту створює ревізію артефакту для цього файлу.",
+          "1": "[[canon:artifacts]] підтримує перегляд відмінностей, відкат/застосування та перегляд метаданих.",
+          "2": "Контекст артефакту може включати обмежену історію версій, а не лише останню версію."
+        }
+      },
+      "workspace": {
+        "title": "[[canon:workspace]] Наполегливість",
+        "items": {
+          "0": "Проекти, threads і події часової шкали зберігаються локально в SQLite.",
+          "1": "Перемикання provider або model зберігає активним thread і може запропонувати дії початкового завантаження контексту.",
+          "2": "Елементи керування скиданням підтримують очищення рівня thread, рівня проекту та повного очищення workspace."
+        }
+      },
+      "commands": {
+        "title": "[[canon:background_jobs]]",
+        "items": {
+          "0": "Тривалі завдання, такі як сервери розробників, спостерігачі та відокремлені відповіді OpenAI, можуть виконуватися у фоновому режимі, щоб chat міг продовжувати роботу.",
+          "1": "Використовуйте `[[canon:background_jobs]]`, щоб перевірити вихідні дані, зупинити завдання або переглянути фонову активність.",
+          "2": "Постійний вихід команди скорочується, щоб часові шкали реагували."
+        }
+      },
+      "command-palette": {
+        "title": "[[canon:command_palette]]",
+        "items": {
+          "0": "Відкрийте глобальний `[[canon:command_palette]]` за допомогою `Ctrl+Shift+P`, щоб шукати дії в ADDOM.",
+          "1": "Використовуйте `Up` і `Down` для навігації, `Enter` для запуску та `Esc` для закриття.",
+          "2": "Команди можна шукати за назвою та псевдонімами, наприклад `switch project`, `autofix` або `outline`.",
+          "3": "Вимкнені команди залишаються видимими з певної причини, наприклад відсутність активного thread або відсутність відкритої вкладки редактора.",
+          "4": "Останні команди відображаються, коли пошук пустий для швидшого повторення робочих процесів."
+        }
+      },
+      "streaming-responses": {
+        "title": "Потокове передавання відповідей",
+        "items": {
+          "0": "Відповіді Асистента надходять у chat у вигляді блоків відповідей замість того, щоб чекати завершення повного ходу.",
+          "1": "Розмір блока та ритм залежать від provider та model і не є точними одиницями tokenizer.",
+          "2": "ADDOM згладжує доставку фрагментів в інтерфейс користувача, щоб зменшити мерехтіння, зберігаючи прогрес у реальному часі.",
+          "3": "Текст аргументації з’являється лише тоді, коли provider розкриває його; ADDOM не вигадує прихований ланцюг думок."
+        }
+      },
+      "runbook": {
+        "title": "Перетворіть [[canon:runbook]] Transparency",
+        "items": {
+          "0": "Кожен хід model згрупований у згорнутий `Turn [[canon:runbook]]` у chat із хронологічними діями.",
+          "1": "[[canon:runbook]] включає схвалення, кроки команд, зміни файлів, оновлення використання та стан повороту.",
+          "2": "Хіди із записом у файл показують картку `Files changed` із підрахунками +/- для кожного файлу, попередніми переглядами та діями перегляду.",
+          "3": "Дії скасування включають засоби захисту від конфлікту, такі як `Changed since this turn`, щоб уникнути небезпечних повернення.",
+          "4": "Текст міркування, який відображається в інтерфейсі користувача, стосується лише provider; ADDOM ніколи не вигадує прихований ланцюг думок."
+        }
+      },
+      "moa": {
+        "title": "Режим [[canon:moa]]",
+        "items": {
+          "0": "`[[canon:moa]]` делегує завдання паралельного агента, тоді як оркестровка зберігає остаточні повноваження.",
+          "1": "Ролі агентів налаштовуються в налаштуваннях і можуть використовувати шаблони як початкові точки для редагування.",
+          "2": "Делегування встановлює такі обмеження, як обмеження завдань, тайм-аути, бюджети token і скорочення вихідних даних.",
+          "3": "Попередження щодо бюджету можуть вимагати чіткого вибору, перш ніж дороге делегування продовжиться.",
+          "4": "Запис у файл агента є необов’язковим, вимкнено за замовчуванням, і staged є пропозицією артефакту, а не прямим записом на диск.",
+          "5": "Лише оркестровник може завершити версії агента staged за допомогою явних дій застосування.",
+          "6": "Події життєвого циклу [[canon:moa]] відображаються як на панелі [[canon:runbook]], так і на панелі [[canon:moa]].",
+          "7": "[[canon:moa]] може споживати значно більше tokens, ніж хід одного агента, тому слідкуйте за політикою та показниками використання."
+        }
+      }
+    }
+  },
+  "commandPalette": {
+    "searchPlaceholder": "Введіть команду або знайдіть...",
+    "results": {
+      "commands": "Команди",
+      "recentAndCommands": "Останні + команди",
+      "shown": "Показано {{count}}"
+    },
+    "filters": {
+      "all": "всі",
+      "recent": "Останні",
+      "filterByCategory": "Фільтрувати команди за {{label}}"
+    },
+    "categories": {
+      "ariaLabel": "Командні категорії",
+      "navigation": "Навігація",
+      "chat": "Chat",
+      "editor": "редактор",
+      "memory": "Memory",
+      "terminal": "Terminal"
+    },
+    "empty": {
+      "title": "Жодна команда не відповідає вашому пошуковому запиту.",
+      "description": "Спробуйте інше ключове слово або псевдонім."
+    },
+    "hint": {
+      "enter": "Введіть"
+    },
+    "reasons": {
+      "open_a_project_first": "Спочатку відкрийте проект",
+      "no_active_thread": "Немає активного thread",
+      "thread_has_no_messages_yet": "У [[canon:thread]] ще немає повідомлень",
+      "open_select_a_thread_first": "Спочатку відкрийте/виберіть thread",
+      "direct_agents_are_only_available_in_execute_mode": "Агенти доступні лише в режимі [[canon:execute]]",
+      "enable_moa_first": "Спочатку увімкніть [[canon:moa]]",
+      "wait_for_the_current_response_to_finish": "Дочекайтеся завершення поточної відповіді",
+      "provider_model_switch_context_banner_is_not_active": "Банер контексту перемикання Provider/model неактивний",
+      "open_a_file_in_editor_first": "Спочатку відкрийте файл у редакторі",
+      "open_a_markdown_file_in_editor_first": "Спочатку відкрийте файл Markdown у редакторі",
+      "open_the_editor_and_select_code_first": "Відкрийте редактор і спочатку виберіть код",
+      "formatting_is_unavailable_for_the_current_file": "Форматування для поточного файлу недоступне",
+      "code_actions_are_unavailable_for_the_current_file": "Дії коду недоступні для поточного файлу",
+      "no_terminal_session_selected": "No terminal session selected",
+      "terminal_session_is_not_running": "Terminal session is not running",
+      "terminal_is_already_controlled_by_you": "Terminal is already controlled by you",
+      "terminal_is_already_controlled_by_ai": "Terminal is already controlled by AI",
+      "terminal_is_not_controlled_by_you": "Terminal is not controlled by you",
+      "terminal_is_not_controlled_by_ai": "Terminal is not controlled by AI",
+      "terminal_cannot_be_interrupted": "Terminal cannot be interrupted",
+      "terminal_cannot_be_closed": "Terminal cannot be closed",
+      "terminal_cannot_be_terminated": "Terminal cannot be terminated",
+      "no_terminal_dock_open": "No terminal dock open"
+    },
+    "commands": {
+      "nav": {
+        "chat": {
+          "title": "Перейдіть до Chat"
+        },
+        "editor": {
+          "title": "Перейдіть до редактора"
+        },
+        "artifacts": {
+          "title": "Перейдіть до [[canon:artifacts]]"
+        },
+        "memory": {
+          "title": "Перейдіть до Memory"
+        },
+        "settings": {
+          "title": "Перейдіть до Налаштувань"
+        },
+        "openProjectFolder": {
+          "title": "Відкрийте папку проекту"
+        },
+        "sidebar": {
+          "toggle": {
+            "expandTitle": "Розгорніть бічну панель",
+            "collapseTitle": "Згорнути бічну панель"
+          }
+        },
+        "projectEntry": {
+          "title": "Open Projects"
+        }
+      },
+      "chat": {
+        "thread": {
+          "new": {
+            "title": "Новий Thread"
+          },
+          "rename": {
+            "title": "Перейменуйте поточний Thread"
+          },
+          "delete": {
+            "title": "Видалити поточний Thread"
+          },
+          "clear": {
+            "title": "Очистити поточну розмову"
+          }
+        },
+        "focusComposer": {
+          "title": "Композитор Focus Chat"
+        },
+        "jumpToLatest": {
+          "title": "Перейти до останнього повідомлення"
+        },
+        "openThreadSelector": {
+          "title": "Відкрийте селектор Thread"
+        },
+        "openBackgroundJobs": {
+          "title": "Відкрийте [[canon:background_jobs]]"
+        },
+        "openDirectAgents": {
+          "title": "Відкрийте меню прямих агентів"
+        },
+        "toggleMoa": {
+          "title": "Перемкнути режим [[canon:moa]]"
+        },
+        "inject": {
+          "memory": {
+            "title": "Введіть Memory в Chat"
+          },
+          "artifacts": {
+            "title": "Введіть [[canon:artifacts]] в Chat"
+          },
+          "both": {
+            "title": "Ввести Memory + [[canon:artifacts]]"
+          }
+        }
+      },
+      "editor": {
+        "formatDocument": {
+          "title": "Форматувати документ"
+        },
+        "fixAutofixable": {
+          "title": "Виправлення проблем, які можна виправити Auto"
+        },
+        "toggleProblemsPanel": {
+          "title": "Перемкнути панель проблем"
+        },
+        "toggleOutlinePanel": {
+          "title": "Перемкнути панель контуру"
+        },
+        "markdownPreview": {
+          "toggle": {
+            "title": "Markdown: Перемкнути попередній перегляд"
+          },
+          "open": {
+            "title": "Markdown: відкрити попередній перегляд збоку"
+          }
+        },
+        "aiSelection": {
+          "explain": {
+            "title": "AI на вибір: поясніть"
+          },
+          "fix": {
+            "title": "ШІ на вибір: виправлено"
+          },
+          "refactor": {
+            "title": "AI щодо вибору: рефакторинг"
+          },
+          "tests": {
+            "title": "AI на вибір: генеруйте тести"
+          }
+        }
+      },
+      "memory": {
+        "exportProjectJson": {
+          "title": "Експортувати контекст проекту JSON",
+          "alerts": {
+            "failedTitle": "Помилка експорту",
+            "failedMessage": "Не вдалося експортувати контекст JSON: {{error}}",
+            "completedTitle": "Експорт завершено",
+            "completedMessage": "Експортований контекст JSON.\n\nФайл: {{filePath}}\nВузли Memory: {{memoryNodeCount}}\nФайли артефактів: {{artifactFileCount}}\nВерсії артефакту: {{artifactRevisionCount}}"
+          }
+        },
+        "openPanel": {
+          "title": "Open notes panel"
+        }
+      },
+      "terminal": {
+        "focus": {
+          "title": "Focus Terminal"
+        },
+        "new": {
+          "title": "New Terminal"
+        },
+        "browseSessions": {
+          "title": "Browse Terminal Sessions"
+        },
+        "takeOver": {
+          "title": "Take Over Terminal"
+        },
+        "handBack": {
+          "title": "Hand Back Terminal to AI"
+        },
+        "interrupt": {
+          "title": "Interrupt Terminal"
+        },
+        "close": {
+          "title": "Close Terminal Session"
+        },
+        "hide": {
+          "title": "Hide Terminal Dock"
+        }
+      }
+    }
+  },
+  "executionStream": {
+    "showEarlier": "Показати попередню подію {{count}}{{suffix}}",
+    "thought": {
+      "verb": "Міркував",
+      "briefly": "стисло",
+      "show": "Показати міркування",
+      "hide": "Сховати міркування"
+    },
+    "transport": {
+      "startingTurn": "Стартовий поворот"
+    },
+    "compaction": {
+      "requested": "Ущільнення контексту...",
+      "running": "Ущільнення контексту...",
+      "applied": "Застосовано ущільнення OpenAI",
+      "failed": "Не вдалося стиснути OpenAI",
+      "milestoneTitle": "Контекст ущільнено перед наступним ходом",
+      "milestoneDetail": {
+        "codexThreadCompaction": "Codex рахунок thread ущільнення",
+        "providerServerSide": "OpenAI Ущільнення на стороні сервера",
+        "manualServerSide": "OpenAI ручне ущільнення на стороні сервера"
+      }
+    },
+    "progress": {
+      "navigate": "Навігація",
+      "click": "Натискаючи елемент",
+      "type": "Введення тексту",
+      "select": "Вибір варіанту",
+      "screenshot": "Створення знімка екрана",
+      "runningTool": "Працює {{toolName}}",
+      "working": "Працює",
+      "terminalOpen": "Opening terminal",
+      "terminalOpenNamed": "Opening {{terminalLabel}}",
+      "terminalRead": "Reading terminal output",
+      "terminalReadNamed": "Reading output from {{terminalLabel}}",
+      "terminalAttach": "Reusing terminal session",
+      "terminalWrite": "Writing to terminal",
+      "terminalWriteNamed": "Writing to {{terminalLabel}}",
+      "terminalWait": "Waiting for terminal output",
+      "terminalWaitNamed": "Waiting for output from {{terminalLabel}}",
+      "terminalResize": "Resizing terminal session",
+      "terminalResizeNamed": "Resizing {{terminalLabel}}",
+      "terminalSignal": "Signaling terminal session",
+      "terminalSignalNamed": "Signaling {{terminalLabel}}",
+      "terminalClose": "Closing terminal session",
+      "terminalCloseNamed": "Closing {{terminalLabel}}"
+    },
+    "result": {
+      "listDirectory": "Перераховано {{countPrefix}} в {{pathLabel}}",
+      "createDirectory": "Створено папку {{pathLabel}}",
+      "writeFile": "Написав {{pathLabel}}",
+      "editFile": "Оновлено {{pathLabel}}",
+      "readFile": "Прочитайте {{pathLabel}}",
+      "deleteFile": "Видалено {{pathLabel}}",
+      "rollbackFile": "Відкотив {{pathLabel}}",
+      "renameFile": "Перейменовано {{oldPath}} на {{newPath}}",
+      "searchCode": "Знайдено {{countPrefix}} для \"{{query}}\" у {{searchPath}}",
+      "grepFile": "Знайдено збіги для \"{{pattern}}\" у {{pathLabel}}",
+      "findFiles": "Знайдено збіги для \"{{pattern}}\"",
+      "fetchPage": "Отримано {{hostLabel}}",
+      "navigate": "Навігацію завершено",
+      "click": "Натисніть завершено",
+      "type": "Введення завершено",
+      "select": "Вибір завершено",
+      "screenshot": "Скріншот зроблено",
+      "browserAction": "Дія браузера завершена",
+      "gitStatusFailed": "Помилка стану Git",
+      "gitStatusDone": "Статус Git виконано",
+      "gitDiffFailed": "Git diff не вдалося",
+      "gitDiffReady": "Готова диференціація Git",
+      "gitLogFailed": "Помилка журналу Git",
+      "gitLogReady": "Історія Git завантажена",
+      "gitCommitFailed": "Commit не вдалося",
+      "gitCommitCreated": "Commit створено",
+      "restoreFile": "Відновлено {{pathLabel}} з {{refValue}}",
+      "commandDone": "Команда завершена в {{commandScope}}",
+      "commandFailed": "Помилка команди в {{commandScope}}",
+      "commandDenied": "Команда відхилена в {{commandScope}}",
+      "revisionApplyFailed": "Не вдалося застосувати перегляд",
+      "revisionApplied": "Редакція застосована",
+      "planUpdated": "План оновлено",
+      "planUpdatedBatch": "План оновлено ({{count}} змін)",
+      "genericToolResult": "{{toolName}} {{verb}}",
+      "actionFinished": "Дія завершена",
+      "ranCommand": "Виконала команду",
+      "terminalOpen": "Opened terminal",
+      "terminalOpenNamed": "Opened {{terminalLabel}}",
+      "terminalRead": "Read terminal output",
+      "terminalReadNamed": "Read output from {{terminalLabel}}",
+      "terminalAttach": "Reused terminal session in chat terminal dock",
+      "terminalAttachNamed": "Reused {{terminalLabel}} in chat terminal dock",
+      "terminalWrite": "Wrote to terminal",
+      "terminalWriteNamed": "Wrote to {{terminalLabel}}",
+      "terminalWait": "Waited for terminal output",
+      "terminalWaitNamed": "Waited for output in {{terminalLabel}}",
+      "terminalWaitMatched": "Matched expected terminal output",
+      "terminalWaitMatchedNamed": "Matched expected output in {{terminalLabel}}",
+      "terminalWaitTimedOut": "Timed out waiting for terminal output",
+      "terminalWaitTimedOutNamed": "Timed out waiting for {{terminalLabel}}",
+      "terminalResize": "Terminal session resized",
+      "terminalResizeNamed": "Resized {{terminalLabel}}",
+      "terminalSignal": "Terminal session signaled",
+      "terminalSignalNamed": "Signaled {{terminalLabel}}",
+      "terminalClose": "Closed terminal",
+      "terminalCloseNamed": "Closed {{terminalLabel}}"
+    },
+    "warning": {
+      "compactionFailed": "Не вдалося стиснути контекст",
+      "generic": "УВАГА"
+    },
+    "error": {
+      "toolFailed": "{{toolName}} не вдалося",
+      "actionFailed": "Не вдалося виконати дію"
+    },
+    "header": {
+      "title": "Потік виконання",
+      "show": "Показати пряму трансляцію виконання",
+      "hide": "Приховати пряму трансляцію виконання",
+      "awaitingFirstEvent": "В очікуванні першої події",
+      "eventCount": "Подія {{count}}{{suffix}}",
+      "hiddenSummary": "Показано останні події {{visibleItemCount}}. {{hiddenItemCount}} попередня подія{{eventSuffix}} прихована.",
+      "hiddenSummaryPinned": "Показ останніх подій {{visibleTailItemCount}} плюс {{pinnedArchiveCount}} згорнутий попередній блок міркувань {{archiveSuffix}}. {{hiddenItemCount}} попередня подія{{eventSuffix}} прихована.",
+      "status": {
+        "failed": "не вдалося",
+        "completed": "завершено",
+        "started": "почався",
+        "generic": "{{status}}"
+      }
+    },
+    "output": {
+      "openCopyOptions": "Відкрийте параметри копіювання",
+      "copyCommand": "Копіювати команду",
+      "copyVisibleOutput": "Копіювати видимий вихід",
+      "copyPersistedPreview": "Копіювати постійний попередній перегляд",
+      "commandOutput": "Вивід команди",
+      "showCommandOutput": "Показати вихід команди",
+      "hideCommandOutput": "Приховати вихід команди",
+      "truncated": "Вихідні дані скорочені"
+    },
+    "bridge": {
+      "native": {
+        "activity": "Активність сервера програм Codex",
+        "webSearch": "Веб-пошук на сервері додатків Codex",
+        "command": "Команда сервера програм Codex: {{commandName}}",
+        "fileChangeOne": "Зміна файлу сервера програм Codex",
+        "fileChangeOther": "Codex зміни файлу сервера додатків",
+        "mcpTool": "Сервер програм Codex Інструмент MCP: {{toolName}}",
+        "imageView": "Перегляд зображення сервера програм Codex",
+        "planGenerated": "Згенеровано план сервера програм Codex",
+        "reviewMode": "Режим перегляду Codex"
+      },
+      "source": {
+        "urlTitle": "Джерело: {{title}}",
+        "urlCaptured": "URL-адресу джерела зафіксовано",
+        "documentTitle": "Вихідний документ: {{title}}",
+        "documentCaptured": "Вихідний документ захоплено"
+      },
+      "providerTool": {
+        "modelRerouted": "Модель перенаправлена",
+        "configWarning": "Попередження конфігурації",
+        "hook": "Хук",
+        "autoApprovalReview": "Автоматична перевірка схвалення",
+        "providerError": "Помилка провайдера",
+        "input": "Введення інструменту Provider: {{toolName}}",
+        "running": "Інструмент Provider працює: {{toolName}}",
+        "collectingInput": "Збір даних інструмента provider...",
+        "imageGenerated": "Зображення, створене інструментом OpenAI provider.",
+        "output": "Вихід інструмента Provider: {{toolName}}"
+      },
+      "continuity": {
+        "responseTracked": "Відстежена відповідь OpenAI: {{responseId}}",
+        "metadataReceived": "Отримано метадані відповіді OpenAI"
+      },
+      "websocket": {
+        "transportUpdate": "OpenAI Оновлення транспорту WebSocket",
+        "reconnecting": "Повторне підключення... {{attempt}}/{{maxAttempts}}",
+        "recoveringStoredResponse": "Відновлення остаточної відповіді зі збереженого стану",
+        "recoveredStoredResponse": "Відновлено остаточну відповідь із збереженого стану",
+        "storedRecoveryFailed": "Не вдалося відновити збережену відповідь",
+        "recovered": "Повторне підключення після повторної спроби {{attempt}}/{{maxAttempts}}",
+        "bypassed": "Використовуючи стандартний транспорт OpenAI для цього повороту",
+        "fallback": "Повертаючись до стандартного потоку OpenAI",
+        "exhausted": "Повторне підключення вичерпано ({{attempt}}/{{maxAttempts}})",
+        "cancelled": "Повторне підключення скасовано ({{attempt}}/{{maxAttempts}})"
+      },
+      "background": {
+        "queued": "Фонова відповідь OpenAI у черзі",
+        "completed": "Фонова відповідь OpenAI завершена",
+        "failed": "Фонова відповідь OpenAI не вдалася.",
+        "cancelled": "Фонову відповідь OpenAI скасовано.",
+        "noteQueued": "Фонова відповідь OpenAI у черзі. Відкрийте завдання, щоб відстежувати прогрес або зупиняти його.",
+        "noTextOutput": "Фонова відповідь OpenAI завершена без виведення тексту.",
+        "errorPrefix": "Помилка: {{message}}"
+      }
+    }
+  },
+  "memoryPanel": {
+    "title": "Memory",
+    "visibleCount": {
+      "eventOne": "Подія {{count}}",
+      "eventOther": "Події {{count}}",
+      "nodeOne": "вузол {{count}}",
+      "nodeOther": "Вузли {{count}}"
+    },
+    "controls": {
+      "showArchived": "Показати в архіві",
+      "includeGlobal": "Включати глобальні",
+      "exportJsonTitle": "Експорт журналів memory і artifacts до JSON",
+      "exporting": "Експорт...",
+      "exportJson": "Експорт JSON",
+      "addNode": "Додайте Node"
+    },
+    "tabs": {
+      "memory": "Міцний Memory",
+      "history": "[[canon:thread_history]]"
+    },
+    "export": {
+      "completedTitle": "Експорт завершено",
+      "completedMessage": "Експортований контекст JSON.\n\nФайл: {{filePath}}\nВузли Memory: {{memoryNodeCount}}\nФайли артефактів: {{artifactFileCount}}\nВерсії артефакту: {{artifactRevisionCount}}",
+      "failedTitle": "Помилка експорту",
+      "failedMessage": "Не вдалося експортувати контекст JSON: {{message}}"
+    },
+    "search": {
+      "placeholder": "Пошук memory...",
+      "searching": "Пошук...",
+      "resultOne": "Результат {{count}}",
+      "resultOther": "Результати {{count}}"
+    },
+    "compression": {
+      "latestBatchTitle": "Остання партія стиснення",
+      "summary": "Стиснуті журнали від #{{rangeStart}} до #{{rangeEnd}} у підсумковий вузол ({{archivedCount}} заархівовано).",
+      "jumpToSummary": "Перейти до підсумку",
+      "dismiss": "Відхилити"
+    },
+    "loading": {
+      "memory": "Завантаження memory...",
+      "threadHistory": "Завантаження історії thread..."
+    },
+    "sections": {
+      "pinned": "Закріплено",
+      "allNodes": "Усі вузли Memory"
+    },
+    "embedder": {
+      "downloading": "Завантаження model {{progress}}%",
+      "loading": "Завантаження model...",
+      "unavailable": "Вбудовування недоступне"
+    },
+    "source": {
+      "userMemory": "Користувач memory",
+      "workspaceEvent": "Подія Workspace",
+      "terminalSummary": "Короткий опис Terminal",
+      "validatedDecision": "Підтверджене рішення",
+      "referenceNote": "Опорна записка"
+    },
+    "provenance": {
+      "ariaLabel": "Походження Memory",
+      "origin": "Походження",
+      "terminalSession": "Прийнятий підсумок terminal",
+      "session": "Сесія",
+      "thread": "Thread",
+      "saved": "Збережено"
+    },
+    "badges": {
+      "global": "глобальний",
+      "archived": "заархівований",
+      "deletedThread": "Видалена гілка"
+    },
+    "meta": {
+      "deletedThreadOrigin": "{{threadTitle}} · видалено {{time}}"
+    },
+    "actions": {
+      "unpin": "Відкріпити",
+      "pin": "Pin",
+      "edit": "Редагувати",
+      "delete": "Видалити",
+      "showLess": "Показувати менше",
+      "showMore": "Показати більше",
+      "continue": "Продовжити",
+      "continueDraft": "Продовжити зі збереженого контексту."
+    },
+    "scoreRef": "{{score}}% реф",
+    "history": {
+      "userMessage": "Повідомлення користувача",
+      "assistantMessage": "Повідомлення помічника",
+      "emptyTitle": "Історії thread ще немає",
+      "noActiveThreadTitle": "Не вибрано жодного активного thread",
+      "emptyDescription": "Стенограми подій користувача та помічника для цього thread відображатимуться тут.",
+      "noActiveThreadDescription": "Відкрийте або створіть thread, щоб переглянути історію його транскрипції."
+    },
+    "addForm": {
+      "title": "Додати новий Memory Node",
+      "topicPlaceholder": "Тема / назва",
+      "contentPlaceholder": "Запишіть будь-який контекст, факти чи вказівки...",
+      "tagsPlaceholder": "Теги (розділені комами)",
+      "saveAsGlobal": "Зберегти як постійний глобальний memory",
+      "saving": "Збереження...",
+      "saveNode": "Зберегти Node"
+    },
+    "editForm": {
+      "title": "Редагувати Memory Node",
+      "closeAriaLabel": "Закрийте редактор вузлів memory",
+      "topicPlaceholder": "Тема",
+      "contentPlaceholder": "Зміст",
+      "tagsPlaceholder": "Теги (розділені комами)",
+      "saving": "Збереження...",
+      "saveChanges": "Зберегти зміни"
+    },
+    "empty": {
+      "searchTitle": "Немає відповідних спогадів",
+      "title": "Ще немає спогадів",
+      "searchDescription": "Спробуйте інший термін пошуку або очистіть пошук, щоб побачити всі вузли memory.",
+      "description": "Durable memory зберігає чіткі нотатки, події workspace, прийняті підсумки terminal, перевірені рішення та довідкові примітки. Необроблені повороти chat тепер опубліковані в історії thread."
+    }
+  },
+  "workspaceRail": {
+    "title": "Проєкти",
+    "ariaLabel": "Проєкти й потоки",
+    "show": "Показати проєкти й потоки",
+    "showWithActivityOne": "Показати проєкти й потоки. {{count}} прихований потік; найвищий пріоритет: {{activity}}.",
+    "showWithActivityOther": "Показати проєкти й потоки. {{count}} прихованих потоків; найвищий пріоритет: {{activity}}.",
+    "hide": "Сховати проєкти й потоки",
+    "resize": "Змінити розмір проєктів і потоків",
+    "close": "Закрити проєкти й потоки"
+  },
+  "projectEntry": {
+    "browserPreviewLimitation": {
+      "title": "Desktop workspace required",
+      "message": "Opening a project requires the Electron workspace bridge. Use the desktop app or an Electron-backed smoke run for this flow."
+    },
+    "clearProjectHistoryDialog": {
+      "title": "Clear project transcript history",
+      "message": "Clear transcript history for project \"{{name}}\"?\n\nThis does not delete project files.",
+      "confirm": "Clear history",
+      "cancel": "Cancel"
+    },
+    "archiveProjectDialog": {
+      "title": "Зупинити активну роботу й архівувати проєкт?",
+      "message": "Активну роботу в «{{name}}» буде зупинено перед переміщенням проєкту до архіву.",
+      "cancel": "Скасувати"
+    },
+    "removeProjectDialog": {
+      "title": "Remove from ADDOM?",
+      "message": "\"{{name}}\" and all of its ADDOM history, Memory, Artifacts, and recovery data will be removed. Project files are unchanged.",
+      "path": "Folder: {{path}}",
+      "confirm": "Remove from ADDOM",
+      "failureTitle": "Could not remove from ADDOM",
+      "failureMessage": "Nothing was removed from ADDOM. Try again.",
+      "cancel": "Cancel"
+    },
+    "eyebrow": "Workspace",
+    "title": "Open a project",
+    "newProject": "Новий проєкт",
+    "newThreadInProject": "Нова гілка в {{name}}",
+    "openFolder": "Open folder",
+    "projectActions": {
+      "openFolder": "Open folder",
+      "archiveProject": "Архівувати проєкт",
+      "clearHistory": "Clear history",
+      "removeProject": "Remove from ADDOM",
+      "ariaLabel": "Project actions for {{name}}",
+      "restoreToRecent": "Restore to Recent"
+    },
+    "archive": {
+      "title": "Archive",
+      "toggle": "Toggle Archive"
+    },
+    "projectDisclosure": {
+      "expand": "Expand {{name}}",
+      "collapse": "Collapse {{name}}"
+    },
+    "recentProjects": {
+      "title": "Recent projects",
+      "description": "Pick up a workspace with its threads and local context.",
+      "projectCount": "{count, plural, one {# проєкт} few {# проєкти} many {# проєктів} other {# проєкту}}",
+      "fallbackProjectName": "Project",
+      "recent": "Recent",
+      "threadCount": "{count, plural, one {# thread} other {# threads}}",
+      "open": "Open"
+    },
+    "empty": {
+      "title": "No recent projects",
+      "description": "Open a folder to start working in the main workspace."
+    },
+    "home": {
+      "placeholder": "Опишіть завдання, щоб почати роботу",
+      "noProject": "Немає проєкту",
+      "projectMenu": "Вибрати цільовий проєкт",
+      "start": "Почати завдання",
+      "commandsHint": "Команди"
+    }
+  },
+  "agents": {
+    "fanoutConfirmation": {
+      "title": "Launch {{count}} agents?",
+      "description": "The orchestrator requested more agents than your {{limit}}-agent confirmation limit.",
+      "stopTurn": "Stop turn",
+      "limit": "Limit to {{count}}",
+      "launch": "Launch {{count}}"
+    }
+  },
+  "agentNavigator": {
+    "title": "Агенти",
+    "close": "Закрити агентів",
+    "settings": "Налаштування агентів",
+    "sectionActive": "Активні",
+    "sectionDone": "Завершено · {{count}}",
+    "emptyActive": "Немає активних агентів",
+    "emptyThread": "У цій темі немає агентів.",
+    "showMore": "Показати ще {{count}}",
+    "expand": "Розгорнути",
+    "collapse": "Згорнути",
+    "hidden": "+{{count}}",
+    "partialVisibility": "керується провайдером, часткова видимість",
+    "age": {
+      "seconds": "{{count}} с",
+      "minutes": "{{count}} хв",
+      "hours": "{{count}} год",
+      "days": "{{count}} дн"
+    },
+    "status": {
+      "queued": "У черзі",
+      "running": "Виконується",
+      "waiting": "Очікує",
+      "paused": "Призупинено",
+      "approval_required": "Потрібне схвалення",
+      "cancelling": "Скасування",
+      "completed": "Завершено",
+      "failed": "Помилка",
+      "cancelled": "Скасовано"
+    },
+    "live": {
+      "selected": "{{label}} · {{status}}",
+      "attention": "{{label}} needs attention · {{status}}"
+    }
+  },
+  "agentConversation": {
+    "back": "Назад",
+    "rootLabel": "Тема",
+    "regionLabel": "Розмова агента",
+    "loading": "Завантаження стенограми…",
+    "empty": "Стенограму ще не записано.",
+    "loadMore": "Завантажити більше активності",
+    "unavailableTitle": "Агент недоступний",
+    "unavailableBody": "Цей агент більше не є частиною запуску.",
+    "error": "Не вдалося завантажити стенограму цього агента.",
+    "actions": {
+      "menu": "Дії агента",
+      "message": "Повідомлення",
+      "messagePrompt": "Надіслати повідомлення цьому агенту",
+      "messageDescription": "Надішліть додаткову інструкцію активному агенту.",
+      "messagePlaceholder": "Напишіть стислу інструкцію…",
+      "cancel": "Скасувати",
+      "send": "Надіслати",
+      "sending": "Надсилання…",
+      "failure": "Не вдалося виконати дію агента.",
+      "interrupt": "Перервати",
+      "retry": "Повторити",
+      "promote": "Продовжити як потік проєкту"
+    },
+    "origin": {
+      "label": "Відгалужено від {{role}} · Хід {{turn}}",
+      "inspect": "Переглянути джерело",
+      "unavailable": "Джерело недоступне",
+      "artifacts": "{{count}} необ’єднаних артефактів джерела",
+      "failure": "Не вдалося відкрити агента-джерело."
+    }
+  },
+  "agentStream": {
+    "title": "Агенти · {{count}}",
+    "open": "Відкрити",
+    "delegationEchoSuppressed": "Делегування завершено. Відкрийте Agents, щоб переглянути деталі."
+  },
+  "agentTrigger": {
+    "idle": "Agents",
+    "active": "Agents · {{count}} active",
+    "approval": "Agents · needs approval",
+    "failed": "Agents · {{count}} failed",
+    "open": "Open Agents",
+    "close": "Close Agents"
+  }
+}

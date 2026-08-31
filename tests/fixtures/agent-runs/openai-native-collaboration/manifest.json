@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "openai-native-collaboration",
+  "sourceClass": "sanitized_existing_test",
+  "captureDate": "2026-07-27",
+  "providerRuntimeClass": "openai_account_native_collaboration",
+  "synthetic": false,
+  "networkRequired": false,
+  "sourceReferences": [
+    "tests/integration/ai-provider-openai-account.test.mjs",
+    "src/main/openai-account/openai-account-bridge.mjs",
+    "src/main/openai-account/openai-account-bridge-config.mjs",
+    "src/main/api-clients/ai-provider-openai-account.mjs"
+  ],
+  "sanitization": { "method": "manual_shape_extraction", "privatePromptRemoved": true, "identifiersPlaceholdered": true, "pathsNormalized": true },
+  "contentHashAlgorithm": "sha256-canonical-json-v1",
+  "contentHash": "aa017ff66446e870c751e4c31db02e5df221dc61d447c28b5a2baf86655034eb",
+  "coverage": ["normal_completion", "nested_provider_metadata", "multi_receiver_identity", "bridge_surface_no_child_transcript_rpc"],
+  "expectedCapabilities": { "addressableChildIdentity": true, "nodeScopedStream": false, "nodeCancellation": false, "rootFinalAuthority": true },
+  "currentContract": { "identity": "provider_receiver_thread_partial", "stream": "unavailable_no_child_transcript_rpc", "cancellation": "root_turn_only", "rootFinalAuthority": "observed" },
+  "knownGaps": [
+    "OpenAIAccountBridge exposes no child transcript read RPC (wired methods are account/*, thread/start|resume|compact/start, turn/start|interrupt, collaborationMode/list only).",
+    "Collab item handlers emit lifecycle then return; they never attach child message/tool/reasoning text to the collaboration event.",
+    "Root turn scope ignores notifications whose threadId is not the bridge root thread, so receiver-thread streams would not enter the parent turn handler even if upstream emitted them.",
+    "Bridge config forces history.persistence=none; there is no durable child history replay surface.",
+    "No node-scoped cancellation control is proven.",
+    "Live ChatGPT-account CDP probe of undocumented upstream methods remains optional; ADDOM substance (childStreams) stays false until a real child transcript surface is wrapped and captured."
+  ]
+}

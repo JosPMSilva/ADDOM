@@ -1,0 +1,937 @@
+{
+  "shell": {
+    "badges": {
+      "projectRootSet": "kumpulan akar proyek",
+      "projectRootMissing": "akar proyek hilang",
+      "languageSystem": "bahasa: sistem",
+      "languageNamed": "bahasa: {{label}}",
+      "updatesNamed": "pembaruan: {{status}}",
+      "updatesIdle": "pembaruan menganggur",
+      "uiScale": "di {{percent}}%{{modeSuffix}}",
+      "uiScaleAutoSuffix": "mobil",
+      "typographyScale": "teks {{percent}}%",
+      "providersCount": "{{count}} providers",
+      "configuredCount": "{{count}} dikonfigurasi",
+      "noProvidersConfigured": "tidak ada providers yang dikonfigurasi",
+      "permissionMode": "izin: {{mode}}",
+      "liveStreamOn": "siaran langsung aktif",
+      "liveStreamOff": "streaming langsung mati",
+      "debugVisible": "debug terlihat",
+      "debugHidden": "debug disembunyikan",
+      "compressionOn": "kompresi aktif",
+      "compressionOff": "kompresi mati",
+      "threshold": "ambang batas {{value}}",
+      "globalMemoryContextOn": "konteks memori global aktif",
+      "globalMemoryContextOff": "konteks memori global nonaktif",
+      "enabled": "diaktifkan",
+      "disabled": "dengan disabilitas",
+      "rolesCount": "Peran {{count}}",
+      "tier": "tingkat: {{tier}}",
+      "projectSelected": "proyek dipilih",
+      "noActiveProject": "tidak ada proyek aktif",
+      "threadSelected": "percakapan dipilih",
+      "noActiveThread": "tidak ada percakapan yang aktif"
+    }
+  },
+  "categories": {
+    "general": {
+      "label": "Umum",
+      "description": "Language, product guidance, updates, and app information."
+    },
+    "appearance": {
+      "label": "Tampilan",
+      "description": "Choose a theme, interface density, reading scale, and workspace tone."
+    },
+    "terminal": {
+      "label": "Terminal",
+      "description": "Configure terminal type, shell, working folder, and interaction behavior."
+    },
+    "agents": {
+      "label": "Agen",
+      "description": "Set persistent instructions and manage Subagent roles."
+    },
+    "providers": {
+      "label": "Providers",
+      "description": "Provider connections, credentials, OpenAI account access, and Project Knowledge when enabled."
+    },
+    "toolsSafety": {
+      "label": "Safety",
+      "description": "Execution mode and concise guardrail behavior."
+    },
+    "dataPrivacy": {
+      "label": "Data",
+      "description": "Export, restore, delete, or reset local ADDOM data."
+    }
+  },
+  "sections": {
+    "general": {
+      "instructions": {
+        "title": "Panduan Penggunaan",
+        "summary": "Buka panduan dalam aplikasi untuk mengetahui perilaku saat ini, default keselamatan, dan alur kerja."
+      },
+      "language": {
+        "title": "Bahasa",
+        "summary": "Select the ADDOM app language."
+      },
+      "projectFolder": {
+        "title": "Folder Proyek",
+        "summary": "Pilih root proyek aktif untuk alat file dan perintah shell."
+      },
+      "assistantPrompt": {
+        "title": "Custom instructions",
+        "summary": "Add persistent guidance to each chat turn."
+      },
+      "uiScaling": {
+        "title": "Penskalaan UI",
+        "summary": "Adjust shell density and chat text size."
+      },
+      "updates": {
+        "title": "Pembaruan",
+        "summary": "Periksa, unduh, dan instal pembaruan ADDOM."
+      },
+      "about": {
+        "title": "Tentang",
+        "summary": "Versi dan buat informasi."
+      },
+      "terminal": {
+        "title": "Terminal",
+        "summary": "Set terminal font, shell, start folder, and copy behavior."
+      },
+      "appearanceMode": {
+        "title": "Theme",
+        "summary": "Choose light, dark, or system appearance."
+      },
+      "backgroundTone": {
+        "title": "Background",
+        "summary": "Choose a gray workspace tone."
+      }
+    },
+    "providers": {
+      "apiKeys": {
+        "title": "API Keys",
+        "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project Knowledge",
+        "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+      }
+    },
+    "toolsSafety": {
+      "executionMode": {
+        "title": "Modus Eksekusi",
+        "summary": "Choose how much ADDOM should pause before running tools."
+      },
+      "commandSafety": {
+        "title": "Guardrails",
+        "summary": "Hard guardrails and first-risky-use behavior."
+      }
+    },
+    "moa": {
+      "agents": {
+        "title": "Agent roles",
+        "summary": "Configure agent roles, models, skills, and instructions."
+      }
+    },
+    "dataPrivacy": {
+      "resetCleanup": {
+        "title": "Setel Ulang & Pembersihan",
+        "summary": "Ekspor/impor percakapan JSON dan lakukan pembersihan di cakupan percakapan, proyek, atau workspace."
+      }
+    }
+  },
+  "common": {
+    "permissionRow": {
+      "alwaysOn": "Selalu aktif",
+      "toggleSetting": "Alihkan pengaturan",
+      "unavailable": "Tidak tersedia",
+      "clickToDisable": "Klik untuk menonaktifkan",
+      "clickToEnable": "Klik untuk mengaktifkan"
+    }
+  },
+  "alerts": {
+    "executionModeSaveFailed": {
+      "title": "Penyimpanan Mode Eksekusi Gagal",
+      "message": "ADDOM could not persist the selected access mode. The UI was reset to the last saved value."
+    },
+    "languageSaveFailed": {
+      "title": "Penyimpanan Bahasa Gagal",
+      "message": "ADDOM tidak dapat mempertahankan bahasa aplikasi yang dipilih."
+    },
+    "restartRequired": {
+      "title": "Diperlukan Mulai Ulang",
+      "message": "Proses utama ADDOM yang berjalan tidak mengakui pengaturan penskalaan UI yang baru. Mulai ulang aplikasi sehingga proses utama memuat ulang pengendali pengaturan yang diperbarui."
+    },
+    "uiScalingSaveFailed": {
+      "title": "Penyimpanan Penskalaan UI Gagal",
+      "message": "ADDOM tidak dapat mempertahankan pengaturan penskalaan UI yang dipilih."
+    },
+    "appearanceSaveFailed": {
+      "title": "Theme Save Failed",
+      "message": "ADDOM could not persist the selected theme."
+    },
+    "backgroundToneSaveFailed": {
+      "title": "Background Tone Save Failed",
+      "message": "ADDOM could not persist the selected background tone."
+    },
+    "backgroundToneRestartRequired": {
+      "message": "The running ADDOM main process did not acknowledge the new background tone. Restart the app so the main process reloads the updated settings handlers."
+    }
+  },
+  "blocks": {
+    "instructions": {
+      "title": "Panduan Penggunaan",
+      "description": "Tinjau perilaku ADDOM saat ini, default keselamatan, dan panduan alur kerja.",
+      "guideLabel": "Panduan Dalam Aplikasi",
+      "guideVersion": "Versi {{version}}",
+      "guideUpdated": "{{date}} yang diperbarui",
+      "openGuide": "Buka Panduan",
+      "note": "Gunakan panduan ini sebagai referensi cepat tentang bagaimana mode chat, persetujuan, memori, [[canon:artifacts]], dan [[canon:moa]] saat ini berperilaku."
+    },
+    "projectFolder": {
+      "title": "Folder Akar Proyek",
+      "description": "Pilih root proyek aktif yang digunakan ADDOM untuk alat file dan perintah shell.",
+      "currentProjectPath": "Jalur proyek saat ini",
+      "noProjectDirectorySelected": "Tidak ada direktori proyek yang dipilih",
+      "changeFolder": "Ganti Folder"
+    },
+    "executionMode": {
+      "title": "Modus Eksekusi",
+      "description": "Permukaan sekunder untuk mode [[canon:ask]] / [[canon:autonomy]] / [[canon:full_access]] default yang digunakan dengan mengeksekusi putaran.",
+      "noticeLabel": "[[canon:info]]",
+      "currentDefault": "Default saat ini:",
+      "mode": {
+        "ask": "[[canon:ask]]",
+        "autonomy": "[[canon:autonomy]]",
+        "fullAccess": "[[canon:full_access]]"
+      },
+      "summary": {
+        "ask": "Eksekusi secara bergantian dilanjutkan secara normal untuk tindakan aman workspace dan jeda ketika langkah-langkah yang lebih berisiko terhadap jaringan, instalasi, atau host memerlukan persetujuan.",
+        "autonomy": "Giliran Execute dapat berjalan di dalam workspace Guardrails tanpa konfirmasi rutin. Blok keras dan tindakan di luar cakupan tetap ditampilkan secara eksplisit.",
+        "fullAccess": "Eksekusi secara otomatis menyetujui alat untuk sesi ini sementara kebijakan tegas yang tegas menolak masih memblokir jalur berbahaya."
+      },
+      "notice": "Jalankan bergantian menggunakan default yang disimpan ini. Mode Rencana dan Berpikir menjaga tampilan default yang sama di chat tetapi jangan menjalankan alat secara membabi buta."
+    },
+    "assistantPrompt": {
+      "title": "Custom instructions",
+      "description": "Add persistent guidance to each chat turn.",
+      "placeholder": "Contoh: Lebih suka TypeScript. Jaga agar perubahan kode tetap minimal dan uji terlebih dahulu. Jangan gunakan Tailwind.",
+      "save": "Save instructions"
+    },
+    "language": {
+      "title": "Bahasa",
+      "description": "Pilih bahasa aplikasi ADDOM hanya untuk permukaan UI perender.",
+      "appLanguage": "Bahasa aplikasi",
+      "systemDefaultDescription": "Default sistem mengikuti bahasa OS Anda. Balasan asisten, perilaku [[canon:backend]], perintah, dan teknis tokens tetap dalam bahasa Inggris kanonik.",
+      "savedSetting": "Pengaturan tersimpan",
+      "currentRendererLocale": "Lokal penyaji saat ini",
+      "systemResolvedNotice": "Bahasa sistem Anda saat ini ditetapkan ke {{label}}. Jika lokal tersebut belum dikirimkan, ADDOM akan kembali ke bahasa Inggris.",
+      "validationOnlyNotice": "{{label}} adalah lokal validasi. Itu tetap tersembunyi dari pengaturan rilis normal dan hanya boleh diaktifkan selama pemeriksaan pelokalan.",
+      "savedOnlyNotice": "{{label}} disimpan, namun ADDOM saat ini hanya mengirimkan string penyaji berbahasa Inggris. UI tetap dalam bahasa Inggris hingga lokal tersebut dikirimkan."
+    },
+    "apiKeys": {
+      "title": "API Keys & Identitas",
+      "description": "Konfigurasikan kredensial dan identitas provider jarak jauh. providers lokal seperti Ollama mungkin tidak memerlukan kunci.",
+      "noProviders": "Tidak ada providers yang tersedia untuk dikonfigurasi.",
+      "cursor": {
+        "accountMethod": "Cursor account",
+        "runtimeReady": "Runtime {{version}} is ready",
+        "runtimeMissing": "Cursor Agent runtime is not installed.",
+        "installRuntime": "Install runtime",
+        "installingRuntime": "Installing runtime",
+        "checkRuntime": "Check runtime",
+        "executionScope": "Composer 2.5 runs in Chat Execute with Full Access.",
+        "accountConnected": "Cursor account connected",
+        "accountDisconnected": "Cursor account not connected",
+        "connect": "Connect account",
+        "disconnect": "Disconnect",
+        "disconnectTitle": "Disconnect Cursor?",
+        "disconnectMessage": "ADDOM will stop using this Cursor account until you reconnect. Your API key and project files are unchanged.",
+        "apiKeyLabel": "Cursor API key",
+        "actionFailed": "Cursor could not complete this action."
+      },
+      "loginErrors": {
+        "callbackPortInUse": "Port panggilan balik login OpenAI lokal sudah digunakan. Coba lagi alur login atau tutup proses konflik dan coba lagi.",
+        "consentDenied": "Langkah persetujuan browser OpenAI dibatalkan atau ditolak. Mulai alur login lagi untuk mencoba lagi.",
+        "callbackNotCompleted": "Proses masuk browser OpenAI tidak menyelesaikan panggilan balik localhost. Coba lagi alur login dan selesaikan persetujuan sebelum kembali ke ADDOM.",
+        "browserOpenFailed": "ADDOM tidak dapat membuka halaman login OpenAI secara otomatis. Gunakan Buka browser lagi atau Salin tautan login.",
+        "missingAuthUrl": "Tautan login OpenAI tidak lagi tersedia. Mulai alur masuk lagi untuk meminta tautan browser baru.",
+        "bridgeProcessExited": "Codex runtime berhenti saat menunggu panggilan balik browser OpenAI. Mulai alur login lagi.",
+        "loginTimedOut": "Alur login OpenAI habis waktunya sebelum panggilan balik browser selesai. Mulai alur login lagi untuk mencoba lagi."
+      },
+      "loginAlerts": {
+        "unavailable": "Login Akun OpenAI Tidak Tersedia",
+        "callbackPortInUse": "Port Panggilan Balik Lokal Sibuk",
+        "consentDenied": "Persetujuan Browser Ditolak",
+        "callbackNotCompleted": "Panggilan Balik Browser Tidak Lengkap",
+        "browserOpenFailed": "Peluncuran Peramban Gagal",
+        "missingAuthUrl": "Tautan Masuk Tidak Tersedia",
+        "bridgeProcessExited": "Codex Runtime Berhenti",
+        "loginTimedOut": "Waktu Masuk Habis"
+      },
+      "account": {
+        "connected": "Sesi akun OpenAI terhubung.",
+        "waitingForCallback": "Selesaikan proses masuk dan persetujuan di browser, lalu kembali setelah panggilan balik localhost selesai.",
+        "waitingForBrowser": "ADDOM sedang menunggu alur login browser dimulai.",
+        "notCompleted": "Login akun OpenAI belum selesai.",
+        "storedKeyInactive": "API key yang disimpan tetap tersedia tetapi tidak aktif.",
+        "preparingRuntime": "Mempersiapkan Codex runtime",
+        "reconnect": "Hubungkan kembali",
+        "continueInBrowser": "Lanjutkan di browser",
+        "openBrowserAgain": "Buka peramban lagi",
+        "copyLoginLink": "Salin tautan masuk",
+        "copiedLink": "Tautan disalin"
+      },
+      "accessMethod": {
+        "label": "Sign in with",
+        "apiKey": "API key",
+        "openAiAccount": "akun OpenAI",
+        "selectedAccount": "Using your OpenAI account.",
+        "selectedApiKey": "Using an API key."
+      },
+      "localProvider": {
+        "label": "provider lokal",
+        "downloadTitle": "Unduh {{name}}",
+        "running": "Running - {{count}} model{{suffix}}",
+        "notRunning": "Tidak berjalan"
+      },
+      "removeDialog": {
+        "title": "Hapus API Key",
+        "message": "Hapus API key untuk {{name}}?",
+        "confirm": "Hapus Kunci"
+      },
+      "disconnectDialog": {
+        "title": "Putuskan sambungan Akun OpenAI",
+        "message": "Putuskan sambungan sesi akun OpenAI yang disimpan untuk profil ADDOM ini?",
+        "confirm": "Putuskan"
+      },
+      "copyFailed": {
+        "title": "Penyalinan Gagal",
+        "message": "ADDOM tidak dapat menyalin link login akun OpenAI ke clipboard."
+      },
+      "apiKeyInput": {
+        "placeholder": "Tempel API key Anda...",
+        "save": "Simpan kunci",
+        "getKeyTitle": "Dapatkan API key dari {{name}}"
+      },
+      "configured": "Dikonfigurasi",
+      "saved": "Disimpan",
+      "replaceKey": "Ganti kunci",
+      "recommendedAccount": {
+        "title": "Recommended for OpenAI",
+        "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+        "action": "Use OpenAI account"
+      }
+    },
+    "chatTypography": {
+      "title": "Teks chat",
+      "description": "Terapkan satu faktor skala global ke permukaan teks chat yang sudah dipetakan.",
+      "globalScaleFactor": "Faktor skala global",
+      "globalScaleDescription": "Ini menskalakan token teks chat yang sudah dipetakan secara bersamaan. Nilai bawaan per elemen tetap berada di luar Setelan.",
+      "typographyScale": "Skala teks",
+      "range": "Rentang {{min}}% hingga {{max}}%",
+      "reset": "Mengatur ulang",
+      "notice": "Skala ini berlaku untuk token teks yang sudah dipetakan dan digunakan di pesan pengguna, keluaran orkestrator, agen, aliran eksekusi, serta kartu di sekitar chat."
+    },
+    "uiScaling": {
+      "description": "Kontrol kepadatan ADDOM shell dan penskalaan teks chat dari satu tempat.",
+      "appShellDensity": "Kepadatan aplikasi shell",
+      "appShellDensityDescription": "Mode [[canon:auto]] mengikuti area pandang efektif setelah penskalaan OS. Mode [[canon:manual]] menyematkan kepadatan shell di seluruh layar.",
+      "effective": "{{percent}}% efektif",
+      "auto": "[[canon:auto]]",
+      "manual": "[[canon:manual]]",
+      "autoModeDescription": "Mode [[canon:auto]] menjaga geometri shell tetap selaras pada pengaturan 1080p dan 4K dengan bereaksi terhadap area pandang CSS yang sebenarnya.",
+      "manualModeDescription": "Mode [[canon:manual]] berguna jika Anda menginginkan kepadatan shell yang tetap, apa pun skala tampilannya.",
+      "shellScale": "Skala Shell",
+      "shellScaleDescription": "Ini menskalakan geometri shell tokens yang digunakan oleh sidebar, laci percakapan, rel [[canon:moa]], dan lebar konten chat.",
+      "chatTypographyScale": "Skala teks",
+      "chatTypographyScaleDescription": "Sesuaikan ukuran teks chat bersama kepadatan shell agar kedua lapisan bisa disetel bersamaan.",
+      "range": "Rentang {{min}}% hingga {{max}}%",
+      "reset": "Mengatur ulang",
+      "notice": "Panel yang ditambatkan tetap selaras karena lebar shell dan rel konten diskalakan dari pengaturan bersama yang sama model dan bukannya diciutkan secara independen."
+    },
+    "commandSafety": {
+      "title": "Guardrails & diagnostik",
+      "description": "Hard guardrails stay on in all access modes. [[canon:ask]], [[canon:autonomy]], and [[canon:full_access]] only change when approvals interrupt a turn.",
+      "common": {
+        "unknown": "tidak dikenal"
+      },
+      "approvalRuleLabels": {
+        "readFile": "Membaca file",
+        "writeFile": "Menulis file",
+        "listDirectory": "Daftar direktori",
+        "searchCode": "Kode pencarian",
+        "applyArtifactRevision": "Terapkan revisi artefak",
+        "toolOperation": "Pengoperasian alat",
+        "projectReadonlyShell": "Jalankan perintah shell proyek hanya-baca",
+        "projectBuildTest": "Jalankan perintah pembangunan/pengujian proyek",
+        "projectMutation": "Jalankan perintah mutasi proyek",
+        "processControl": "Jalankan perintah kontrol proses proyek",
+        "projectDependencyInstallSandboxed": "Jalankan penginstalan ketergantungan proyek dalam sandbox",
+        "projectDependencyInstall": "Jalankan pemasangan ketergantungan proyek",
+        "runCommandOperations": "Jalankan operasi perintah"
+      },
+      "riskyActionApprovals": {
+        "title": "Persetujuan tindakan berisiko",
+        "description": "Pengambilan jaringan berisiko pertama dan pemasangan dependensi proyek dapat diingat untuk proyek aktif selama sesi app ini. Path di luar workspace, tindakan destruktif, pemasangan global, dan host access yang ditingkatkan tetap memerlukan persetujuan eksplisit.",
+        "activeProjectScope": "Cakupan sesi proyek aktif:",
+        "noActiveWorkspace": "Belum ada workspace aktif yang terdeteksi. Tindakan berisiko cakupan sesi memori dimulai setelah root proyek terbuka."
+      },
+      "modeEffect": {
+        "title": "Dampak mode",
+        "description": "[[canon:ask]] berhenti pada tindakan berisiko. [[canon:autonomy]] menjaga pekerjaan rutin workspace tetap berjalan dan hanya menginterupsi pada penggunaan jaringan/instalasi berisiko pertama atau blok Guardrails yang ketat. [[canon:full_access]] menyetujui eksekusi rutin secara otomatis, sementara hasil kebijakan hard-deny yang eksplisit tetap memblokir."
+      }
+    },
+    "moaAgents": {
+      "title": "Agent roles",
+      "description": "Create and manage the agent roles ADDOM can delegate work to.",
+      "roles": {
+        "guidance": "Nama peran harus unik. ID peran dihasilkan dan tidak dapat diubah.",
+        "idLabel": "pengenal:",
+        "writesLabel": "menulis:",
+        "templateLabel": "templat:",
+        "edit": "Sunting",
+        "delete": "Menghapus",
+        "newRole": "Peran agen baru",
+        "addRole": "+ Tambahkan peran agen",
+        "removeDialog": {
+          "title": "Hapus Peran Agen",
+          "message": "Hapus peran agen ini?",
+          "confirm": "Hapus Peran"
+        },
+        "editRoleTitle": "Edit agent role",
+        "addRoleTitle": "Add agent role",
+        "namePlaceholder": "Role name (e.g. Security Reviewer)",
+        "providerPlaceholder": "Select provider...",
+        "modelPlaceholder": "Select model...",
+        "modelIdPlaceholder": "Model ID (e.g. gpt-4o)",
+        "openRouterRoutePlaceholder": "Or enter a custom OpenRouter route ID",
+        "sourceTemplateLabel": "Source template:",
+        "hideAdvancedInstructions": "Hide advanced role instructions",
+        "showAdvancedInstructions": "Advanced role instructions",
+        "instructionsPlaceholder": "Optional instructions for this agent role (max 2000 chars)",
+        "saveChanges": "Save changes",
+        "addRoleAction": "Add role"
+      },
+      "templateGallery": {
+        "loading": "Memuat katalog keterampilan...",
+        "title": "Katalog Keterampilan",
+        "skillCount": "Keterampilan {{count}}",
+        "searchPlaceholder": "Keterampilan pencarian...",
+        "clearSearch": "Hapus pencarian keterampilan",
+        "searchResults": "{{count}} hasil{{suffix}} untuk \"{{query}}\"{{categorySuffix}}",
+        "inCategory": "di {{category}}",
+        "emptySearch": "Tidak ada keahlian yang cocok dengan pencarian Anda.",
+        "canWrite": "Bisa menulis",
+        "readOnly": "Hanya baca",
+        "added": "Ditambahkan",
+        "use": "Menggunakan",
+        "update": "Perbarui",
+        "categories": {
+          "all": "Semua",
+          "security": "Keamanan",
+          "frontend": "[[canon:frontend]]",
+          "backend": "[[canon:backend]]",
+          "quality": "Kualitas",
+          "engineering": "Rekayasa",
+          "devops": "DevOps",
+          "testing": "Pengujian",
+          "content": "Isi",
+          "web": "jaring",
+          "performance": "Pertunjukan",
+          "desktop": "Desktop",
+          "general": "Umum"
+        }
+      },
+      "runtime": {
+        "title": "Agent settings",
+        "description": "Control delegation and capacity without changing your saved roles.",
+        "enabled": "Enable agents",
+        "disabled": "Agent delegation is disabled.",
+        "summary": "{{profile}} capacity · {{count}} active at once",
+        "delegation": "Agent delegation",
+        "delegationEnabled": "ADDOM can delegate work to the roles below.",
+        "delegationDisabled": "Roles stay available to configure while delegation is off.",
+        "profile": "Capacity",
+        "profileDescription": "Sets sensible limits for parallel and nested agents.",
+        "advanced": "Advanced limits",
+        "advancedSummary": "{{count}} active · depth {{depth}}",
+        "fanoutConfirmationThreshold": "Ask before launching more than",
+        "agentsUnit": "agents",
+        "providerOverrides": "Provider overrides",
+        "noProviderOverrides": "No provider-specific limits.",
+        "addProviderOverride": "Add provider override…",
+        "removeOverride": "Remove",
+        "discard": "Discard",
+        "saveChanges": "Save changes",
+        "isolationDescription": "Agent file changes stay isolated until the orchestrator integrates them.",
+        "limits": {
+          "maxLiveAgents": "Active at once",
+          "maxDepth": "Nesting depth",
+          "maxDescendants": "Agents per run",
+          "maxTotalTokens": "Token budget",
+          "maxCostUsd": "Cost budget",
+          "maxDurationMs": "Time budget"
+        }
+      }
+    },
+    "openRouterCatalogVisibility": {
+      "title": "Visibilitas Katalog OpenRouter",
+      "description": "Kontrol keluarga dan rute OpenRouter mana yang muncul di permukaan penjelajahan chat dan [[canon:moa]].",
+      "notAvailable": "OpenRouter tidak tersedia di manifes provider saat ini.",
+      "loading": "Memuat katalog OpenRouter...",
+      "browsingVisibility": "visibilitas penjelajahan OpenRouter",
+      "browsingVisibilityDescription": "Sembunyikan keluarga provider atau rute individual dari penelusuran tanpa menghapus dukungan rute khusus yang eksplisit.",
+      "counts": {
+        "filtered": "{{shown}} ditampilkan, {{enabled}} diaktifkan",
+        "default": "{{enabled}} / {{total}} diaktifkan"
+      },
+      "filtersTitle": "Filter",
+      "filters": {
+        "reviewedOnly": "Hanya ditinjau",
+        "anyTools": "Alat apa pun",
+        "reasoning": "Pemikiran",
+        "vision": "Penglihatan"
+      },
+      "quickActionsTitle": "Tindakan cepat",
+      "quickActions": {
+        "showAll": "Tunjukkan semuanya",
+        "hideAll": "Sembunyikan semua",
+        "reset": "Mengatur ulang"
+      },
+      "searchPlaceholder": "Cari namespace OpenRouter atau ID rute",
+      "empty": "Tidak ada rute OpenRouter yang cocok dengan pencarian saat ini.",
+      "clearSearch": "Hapus pencarian",
+      "namespaceRow": {
+        "collapse": "Ciutkan ruang nama",
+        "expand": "Perluas ruang nama",
+        "filteredCount": "{{shown}}/{{total}} ditampilkan",
+        "enabledCount": "{{enabled}}/{{total}} diaktifkan",
+        "visibilityAriaLabel": "Visibilitas namespace {{label}}"
+      },
+      "modelRow": {
+        "visibilityAriaLabel": "visibilitas {{label}}"
+      },
+      "inlineTitle": "Catalog visibility",
+      "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+      "showInlineAction": "Manage visibility",
+      "hideInlineAction": "Hide controls"
+    },
+    "dataReset": {
+      "title": "Reset & Pembersihan Data",
+      "description": "Ekspor cadangan percakapan, hapus riwayat tersimpan, atau setel ulang data ADDOM lokal.",
+      "migrationTitle": "Migrasi percakapan Aktif",
+      "migrationDescription": "Ekspor chat aktif Anda langsung ke cadangan JSON portabel, atau pulihkan riwayat secara lokal.",
+      "exportCurrentThread": "Export Current Conversation",
+      "restoreFromJson": "Pulihkan dari JSON",
+      "noActiveConversation": "Tidak ada percakapan aktif yang dipilih untuk diekspor.",
+      "localProfileResetTitle": "Reset Profil Lokal",
+      "localProfileResetDescription": "Hapus API keys provider yang disimpan, atau reset sepenuhnya profile lokal ADDOM. Reset penuh akan menghapus riwayat lokal, models yang tersimpan di cache, lampiran, dan settings yang disimpan, lalu memulai ulang app.",
+      "profile": "Profil:",
+      "providers": "Providers:",
+      "providersStored": "{{count}} disimpan",
+      "memoryIndex": "Indeks memori:",
+      "indexed": "Terindeks",
+      "empty": "Kosong",
+      "settings": "Pengaturan:",
+      "present": "Hadiah",
+      "attachments": "Lampiran:",
+      "cached": "Di-cache",
+      "modelCache": "Tembolok model:",
+      "mounted": "Dipasang",
+      "providerBudget": {
+        "title": "Anggaran Provider yang Adaptif",
+        "description": "Periksa status anggaran provider yang dipelajari dan hapus riwayat anggaran adaptif yang sudah usang tanpa memperlihatkan header atau identitas kredensial provider mentah.",
+        "refresh": "Menyegarkan",
+        "total": "{{count}} dipelajari",
+        "active": "{{count}} aktif",
+        "stale": "{{count}} basi",
+        "expired": "{{count}} kedaluwarsa",
+        "pruneEligible": "{{count}} siap dibersihkan",
+        "lastObserved": "Terakhir diamati: {{value}}",
+        "lastResolved": "Terakhir diselesaikan: {{value}}",
+        "emptyState": "Belum ada profil anggaran provider yang dipelajari yang dicatat untuk profil ini.",
+        "cleanupAction": "Bersihkan anggaran yang dipelajari",
+        "resetAction": "Atur ulang anggaran yang dipelajari",
+        "never": "Tidak pernah",
+        "recent": "Terkini"
+      },
+      "spillover": {
+        "title": "Limpahan Hasil Alat",
+        "description": "Periksa penyimpanan limpahan hasil alat yang masih ada, pangkas entri yang kedaluwarsa, dan bersihkan akar limpahan tanpa memperlihatkan badan keluaran mentah.",
+        "refresh": "Menyegarkan",
+        "files": "File {{count}}",
+        "zeroBytes": "0 B",
+        "bytesValue": "{{count}} {{unit}}",
+        "retentionValue": "File {{files}} / {{bytes}} / {{days}} hari",
+        "sessionCleanupAt": "Pembersihan sesi ini: {{value}}",
+        "sessionCleanupResult": "Pembersihan sesi ini menghapus file {{files}} / {{bytes}}.",
+        "sessionEmptyState": "Belum ada pembersihan limpahan yang dijalankan dalam sesi aplikasi ini.",
+        "emptyState": "Tidak ada file limpahan hasil alat yang bertahan untuk profil ini saat ini.",
+        "cleanupAction": "Pangkas limpahan",
+        "resetAction": "Hapus limpahan",
+        "rootPath": "Akar limpahan: {{path}}",
+        "states": {
+          "none": "Tidak ada status pembersihan sesi",
+          "sessionNone": "Tidak ada pembersihan yang menjalankan sesi ini",
+          "pruned": "Dipangkas",
+          "prunedWithFailures": "Dipangkas dengan kegagalan",
+          "retentionExceeded": "Retensi terlampaui",
+          "prunedRetentionExceeded": "Dipangkas, retensi masih terlampaui",
+          "failed": "Pembersihan gagal",
+          "cleared": "Dibersihkan"
+        }
+      },
+      "deleteSavedApiKeys": "Hapus kunci API yang disimpan",
+      "resetLocalProfileAndRestart": "Setel ulang profil lokal & mulai ulang",
+      "importFallbackTitle": "percakapan yang diimpor",
+      "dialogs": {
+        "deleteApiKeys": {
+          "title": "Hapus API Keys",
+          "message": "Hapus semua kunci API yang tersimpan dari perangkat ini sekarang? Percakapan, memori, artifacts, dan pengaturan akan tetap ada. Hal ini tidak dapat dibatalkan.",
+          "confirm": "Hapus API Keys"
+        },
+        "cleanupProviderBudgets": {
+          "title": "Bersihkan Anggaran yang Dipelajari",
+          "message": "Hapus profil anggaran provider yang sudah habis masa berlakunya atau sudah lama tidak digunakan? Profil aktif terkini akan tetap ada.",
+          "confirm": "Pembersihan"
+        },
+        "resetProviderBudgets": {
+          "title": "Atur Ulang Anggaran yang Dipelajari",
+          "message": "Hapus semua profil anggaran provider yang dipelajari dari profil ini? Tindakan ini menghapus riwayat anggaran adaptif hingga observasi baru dicatat.",
+          "confirm": "Atur Ulang Anggaran"
+        },
+        "cleanupToolResultSpillover": {
+          "title": "Limpahan Pangkas",
+          "message": "Pangkas file limpahan hasil alat yang kedaluwarsa atau melebihi anggaran dari profil ini? Dampak buruk terkini yang diperlukan oleh kebijakan retensi saat ini akan tetap ada.",
+          "confirm": "Limpahan Pangkas"
+        },
+        "resetToolResultSpillover": {
+          "title": "Hapus Limpahan",
+          "message": "Hapus semua file limpahan hasil alat yang ada dari profil ini? Hal ini tidak mengubah kebijakan retensi dan tidak dapat dibatalkan.",
+          "confirm": "Hapus Limpahan"
+        },
+        "deleteAllLocalData": {
+          "title": "Hapus Semua Data Lokal",
+          "message": "Hapus semua data lokal ADDOM untuk profil ini dan mulai ulang? Ini menghapus API keys, percakapan, log memori, Artifacts, sesi proyek, lampiran cache, cache model lokal, dan settings. Ekspor apa pun yang Anda perlukan terlebih dahulu. Tindakan ini tidak dapat dibatalkan.",
+          "confirm": "Hapus dan Mulai Ulang"
+        }
+      },
+      "feedback": {
+        "deleteFailed": {
+          "title": "Penghapusan Gagal"
+        },
+        "refreshFailed": {
+          "title": "Penyegaran Gagal",
+          "providerBudgetDefaultMessage": "Tidak dapat menyegarkan ringkasan anggaran provider yang dipelajari.",
+          "spilloverDefaultMessage": "Tidak dapat menyegarkan ringkasan limpahan hasil alat."
+        },
+        "localDataApiUnavailable": "Data lokal API tidak tersedia.",
+        "apiKeysDeleted": {
+          "title": "API Keys Dihapus",
+          "message": "Kunci API yang disimpan telah dihapus dari perangkat ini."
+        },
+        "deleteApiKeysFailed": "Gagal menghapus kunci API: {{message}}",
+        "refreshProviderBudgetFailed": "Gagal menyegarkan anggaran provider yang dipelajari: {{message}}",
+        "refreshToolResultSpilloverFailed": "Gagal menyegarkan limpahan hasil alat: {{message}}",
+        "providerBudgetCleanupComplete": {
+          "title": "Pembersihan Selesai",
+          "message": "Menghapus profil anggaran {{count}} yang dipelajari."
+        },
+        "providerBudgetCleanupFailed": "Gagal membersihkan anggaran provider yang dipelajari: {{message}}",
+        "toolResultSpilloverCleanupComplete": {
+          "title": "Pemangkasan Selesai",
+          "message": "Menghapus file limpahan {{count}}."
+        },
+        "toolResultSpilloverCleanupFailed": "Gagal memangkas limpahan hasil alat: {{message}}",
+        "resetFailed": {
+          "title": "Setel Ulang Gagal"
+        },
+        "deleteLocalDataFailed": "Gagal menghapus data lokal: {{message}}",
+        "providerBudgetResetComplete": {
+          "title": "Setel Ulang Selesai",
+          "message": "Menghapus profil anggaran {{count}} yang dipelajari."
+        },
+        "providerBudgetResetFailed": "Gagal menyetel ulang anggaran provider yang dipelajari: {{message}}",
+        "toolResultSpilloverResetComplete": {
+          "title": "Limpahan Dibersihkan",
+          "message": "Menghapus file limpahan {{count}}."
+        },
+        "toolResultSpilloverResetFailed": "Gagal menghapus limpahan hasil alat: {{message}}",
+        "exportComplete": {
+          "title": "Ekspor Selesai",
+          "copiedMessage": "percakapan diekspor. JSON disalin ke clipboard dan pengunduhan dimulai.",
+          "downloadMessage": "Ekspor percakapan dibuat dan pengunduhan dimulai."
+        },
+        "exportFailed": {
+          "title": "Ekspor Gagal",
+          "message": "Gagal mengekspor percakapan: {{message}}"
+        },
+        "invalidJson": {
+          "title": "JSON tidak valid",
+          "message": "Muatan JSON tidak valid."
+        },
+        "importComplete": {
+          "title": "Impor Selesai",
+          "messageOne": "percakapan \"{{title}}\" yang diimpor dengan acara {{count}}.",
+          "messageOther": "percakapan \"{{title}}\" yang diimpor dengan acara {{count}}."
+        },
+        "importFailed": {
+          "title": "Impor Gagal",
+          "message": "Gagal mengimpor percakapan: {{message}}"
+        }
+      },
+      "exportPreflight": {
+        "kicker": "Ekspor pra-penerbangan",
+        "title": "Pengingat kepatuhan sebelum ekspor",
+        "description": "Ekspor percakapan bersifat portabel. Jangan gunakan ekspor untuk distilasi terlarang, pengambilan benchmark, atau alur kerja yang melewati kebijakan provider.",
+        "preserveCitationsLabel": "Pertahankan kutipan dan metadata atribusi dalam ekspor",
+        "preserveCitationsHint": "Direkomendasikan untuk providers/models dengan istilah yang sensitif terhadap atribusi.",
+        "strictConfirmLabel": "Saya mengonfirmasi bahwa ekspor ini ditujukan untuk alur kerja yang sesuai persyaratan di sesi ini.",
+        "strictConfirmHint": "Mode ketat memerlukan konfirmasi eksplisit sebelum mengekspor.",
+        "exporting": "Mengekspor...",
+        "continueExport": "Lanjutkan Ekspor"
+      },
+      "importThread": {
+        "kicker": "Impor percakapan",
+        "title": "Impor percakapan JSON",
+        "description": "Tempelkan payload percakapan yang diekspor sebelumnya untuk mengimpornya ke proyek aktif.",
+        "fieldLabel": "JSON ekspor percakapan",
+        "placeholder": "{\"thread\": {...}, \"events\": [...]}",
+        "importing": "Pengimporan...",
+        "confirm": "Impor percakapan"
+      }
+    },
+    "updates": {
+      "title": "Pembaruan",
+      "description": "ADDOM memeriksa pembaruan secara otomatis saat peluncuran. Anda mengontrol kapan pembaruan diunduh dan diinstal.",
+      "status": {
+        "upToDate": "Terkini",
+        "checking": "Memeriksa pembaruan...",
+        "latest": "Anda menggunakan versi terbaru",
+        "available": "Pembaruan tersedia - v{{version}}",
+        "downloading": "Mengunduh... {{percent}}%",
+        "readyToInstall": "v{{version}} siap dipasang",
+        "error": "Kesalahan pembaruan: {{message}}"
+      },
+      "actions": {
+        "checkForUpdates": "Periksa pembaruan",
+        "download": "Unduh v{{version}}",
+        "restartAndInstall": "Mulai ulang dan Instal"
+      }
+    },
+    "about": {
+      "title": "Tentang",
+      "tagline": "Asisten pengkodean AI lokal pertama | BYOK | Tidak ada telemetri",
+      "copyright": "Copyright (c) 2026 ADDOM contributors.",
+      "licenseLineOne": "Dilisensikan berdasarkan Lisensi MIT.",
+      "licenseLineTwo": "Lihat LICENSE untuk detail.",
+      "openSourceNotices": "Pemberitahuan sumber terbuka",
+      "thirdPartyInventory": "Inventaris pihak ketiga",
+      "openLegalDocumentError": "Tidak dapat membuka dokumen hukum.",
+      "legalDocumentsUnavailable": "Dokumen hukum tidak tersedia: {{error}}"
+    },
+    "openAiKnowledgeBase": {
+      "title": "Project knowledge",
+      "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+      "notices": {
+        "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+        "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+        "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+      },
+      "projectScope": "Ruang lingkup proyek",
+      "noActiveProjectSelected": "Tidak ada proyek aktif yang dipilih",
+      "filesLabel": "Uploaded files",
+      "storeLabel": "Toko:",
+      "quickSetup": "Pengaturan Cepat",
+      "ready": "Ready",
+      "actionNeeded": "Action needed",
+      "nextStepLabel": "Langkah selanjutnya:",
+      "nextStep": {
+        "addApiKey": "Tambahkan OpenAI API key.",
+        "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+        "openProjectWorkspace": "Buka proyek workspace.",
+        "uploadFiles": "Unggah file yang ingin Anda cari.",
+        "createVectorStore": "Prepare project knowledge storage.",
+        "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+        "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+        "readyForRetrieval": "Project knowledge is ready for retrieval."
+      },
+      "quickFacts": {
+        "key": "Kunci:",
+        "connected": "Terhubung",
+        "missing": "Hilang",
+        "access": "Mengakses:",
+        "account": "Akun",
+        "apiKey": "API key",
+        "project": "Proyek:",
+        "active": "Aktif",
+        "uploads": "Unggahan:",
+        "attached": "Terlampir:"
+      },
+      "actions": {
+        "refresh": "Menyegarkan",
+        "uploadFiles": "Upload files",
+        "reuseVectorStore": "Refresh project knowledge",
+        "createVectorStore": "Prepare project knowledge",
+        "attachFiles": "Attach files",
+        "attachFilesWithCount": "Attach files ({{count}})",
+        "deleteVectorStore": "Reset project knowledge",
+        "remove": "Menghapus"
+      },
+      "uploadedFilesTitle": "Uploaded files",
+      "pendingAttachLabel": "Needs attach",
+      "emptyFiles": "No project knowledge files uploaded yet.",
+      "fileState": {
+        "attached": "Terlampir",
+        "uploadedOnly": "Uploaded only"
+      },
+      "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly.",
+      "attachedFilesLabel": "Attached files"
+    },
+    "terminal": {
+      "title": "Terminal",
+      "description": "Pertahankan default terminal yang konservatif tanpa mengubah tipografi global aplikasi.",
+      "fontSizeLabel": "Ukuran font",
+      "fontSizeDescription": "Ukuran font dasar xterm untuk permukaan terminal baru dan aktif.",
+      "fontFamilyLabel": "Keluarga font",
+      "fontFamilyDescription": "Pilih font terminal yang digunakan oleh xterm.",
+      "scrollbackLabel": "Baris scrollback",
+      "scrollbackDescription": "Berapa banyak riwayat terminal yang disimpan xterm di memori.",
+      "scrollbackHint": "baris",
+      "defaultShellLabel": "Shell default",
+      "defaultShellDescription": "Shell default yang dipakai ketika terminal baru tidak meminta shell tertentu.",
+      "defaultCwdBehaviorLabel": "Perilaku cwd default",
+      "defaultCwdBehaviorDescription": "Pilih dari mana terminal baru dimulai saat tidak ada cwd eksplisit yang diberikan.",
+      "copyOnSelectionLabel": "Salin saat memilih",
+      "copyOnSelectionDescription": "Salin pilihan terminal ke clipboard segera setelah teks dipilih.",
+      "pasteConfirmationLabel": "Konfirmasi tempel besar",
+      "pasteConfirmationDescription": "Minta konfirmasi untuk tempelan multi-baris ketika mencapai jumlah baris ini.",
+      "zeroDisablesHint": "0 menonaktifkan prompt",
+      "cwdBehavior": {
+        "project_root": "Akar proyek",
+        "editor_folder": "Folder editor",
+        "session_cwd": "cwd sesi saat ini"
+      },
+      "fontFamilyOptions": {
+        "geist_mono": "Geist Mono",
+        "jetbrains_mono": "JetBrains Mono",
+        "fira_code": "Fira Code",
+        "cascadia_code": "Cascadia Code",
+        "system_mono": "System monospace"
+      },
+      "shellOptions": {
+        "default": "Default sistem",
+        "cmd": "Command Prompt",
+        "powershell": "Windows PowerShell",
+        "pwsh": "PowerShell 7+",
+        "bash": "Bash",
+        "zsh": "Zsh",
+        "git_bash": "Git Bash",
+        "wsl": "WSL"
+      },
+      "advancedDetailsTitle": "Terminal history and paste safety"
+    },
+    "appearanceMode": {
+      "description": "Choose a light or dark interface, or follow your system setting.",
+      "mode": "Color theme",
+      "modeDescription": "Updates the entire app, including editors and terminals.",
+      "selected": "Selected {{name}}",
+      "systemResolved": "System currently uses {{name}}.",
+      "modes": {
+        "dark": "Dark",
+        "light": "Light",
+        "system": "System"
+      }
+    },
+    "backgroundTone": {
+      "darkOnly": "Workspace tones are available when the resolved theme is Dark.",
+      "description": "Choose a gray workspace tone. Graphite matches the current ADDOM default.",
+      "tone": "Workspace tone",
+      "toneDescription": "Shifts the shared surface, panel, and border stack together.",
+      "selected": "Selected {{name}}",
+      "tones": {
+        "obsidian": "Obsidian",
+        "charcoal": "Charcoal",
+        "graphite": "Graphite",
+        "slate": "Slate",
+        "ash": "Ash"
+      }
+    }
+  },
+  "settings": {
+    "categories": {
+      "providers": {
+        "description": "Provider connections, model availability, and project knowledge controls when advanced OpenAI hosted tools are enabled."
+      }
+    },
+    "sections": {
+      "providers": {
+        "apiKeys": {
+          "summary": "Save provider credentials, use the preferred OpenAI sign-in path, and inspect local provider availability."
+        },
+        "openAiKnowledgeBase": {
+          "title": "Project Knowledge",
+          "summary": "Project-scoped files for OpenAI file_search retrieval when hosted tools are enabled in advanced config."
+        }
+      }
+    },
+    "blocks": {
+      "apiKeys": {
+        "accessMethod": {
+          "label": "Sign in with",
+          "selectedAccount": "Using your OpenAI account.",
+          "selectedApiKey": "Using an API key."
+        },
+        "localProvider": {
+          "running": "Running - {{count}} model{{suffix}}"
+        },
+        "recommendedAccount": {
+          "title": "Recommended for OpenAI",
+          "description": "OpenAI account is the primary production sign-in path. API key mode stays available as an alternate for direct API access.",
+          "action": "Use OpenAI account"
+        }
+      },
+      "openRouterCatalogVisibility": {
+        "inlineTitle": "Catalog visibility",
+        "inlineDescription": "Hide OpenRouter namespaces or routes from browsing without removing explicit route entry.",
+        "showInlineAction": "Manage visibility",
+        "hideInlineAction": "Hide controls"
+      },
+      "openAiKnowledgeBase": {
+        "title": "Project knowledge",
+        "description": "Project-scoped files for OpenAI hosted retrieval. Uploads are explicit, and files added here stay separate from normal chat attachments.",
+        "notices": {
+          "addApiKey": "Add an OpenAI API key to upload project knowledge files.",
+          "accountModeUnsupported": "Project knowledge currently requires OpenAI API key access. Switch the provider to API key mode to use this panel.",
+          "projectRequired": "Open a project first. Project knowledge is scoped to the active project."
+        },
+        "filesLabel": "Uploaded files",
+        "attachedFilesLabel": "Attached files",
+        "ready": "Ready",
+        "actionNeeded": "Action needed",
+        "pendingAttachLabel": "Needs attach",
+        "nextStep": {
+          "switchBackToApiKey": "Switch OpenAI to API key mode. Project knowledge currently needs API-key access.",
+          "createVectorStore": "Prepare project knowledge storage.",
+          "attachPendingOne": "Attach {{count}} uploaded file to Project knowledge.",
+          "attachPendingOther": "Attach {{count}} uploaded files to Project knowledge.",
+          "readyForRetrieval": "Project knowledge is ready for retrieval."
+        },
+        "actions": {
+          "uploadFiles": "Upload files",
+          "reuseVectorStore": "Refresh project knowledge",
+          "createVectorStore": "Prepare project knowledge",
+          "attachFiles": "Attach files",
+          "attachFilesWithCount": "Attach files ({{count}})",
+          "deleteVectorStore": "Reset project knowledge"
+        },
+        "uploadedFilesTitle": "Uploaded files",
+        "emptyFiles": "No project knowledge files uploaded yet.",
+        "fileState": {
+          "uploadedOnly": "Uploaded only"
+        },
+        "footerNotice": "Files added here are stored for project retrieval. Normal chat attachments stay local unless you add them to Project knowledge explicitly."
+      }
+    }
+  }
+}
