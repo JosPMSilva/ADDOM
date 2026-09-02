@@ -2,6 +2,8 @@
 
 Local-first desktop workspace for multi-provider AI coding, with guarded tools, an integrated editor, memory, and delegated agents. No telemetry or data collection by the ADDOM developer.
 
+![ADDOM desktop workspace showing a project-aware AI coding conversation with permission mode, provider selection, and thread history in one window](./docs/media/addom-workspace.png)
+
 ## Project Status
 
 ADDOM is alpha software and currently distributed source-first. The repository prepares Windows, macOS, and Linux build targets, while terminal sessions and packaged smoke verification are presently Windows-first. Signed installers and public releases are not available yet.
@@ -27,6 +29,7 @@ Current capabilities include:
 - npm
 - Git
 - platform build prerequisites required by Electron native dependencies
+  - On Windows, install Python and Visual Studio Build Tools with the **Desktop development with C++** workload if npm needs to compile a native dependency locally.
 
 ```powershell
 git clone https://github.com/JosPMSilva/ADDOM.git
@@ -65,6 +68,20 @@ npm run build:renderer
 ```
 
 Platform package commands are `npm run build:win`, `npm run build:mac`, and `npm run build:linux`. Build a platform target on its native host; generated packages are unsigned unless signing is configured externally.
+
+## Screenshots
+
+**Integrated editor** — project source, symbol outline, problems, and reviewable changes next to the conversation that produced them.
+
+![ADDOM integrated Monaco editor displaying project source with repository navigation, outline pane, and problems panel](./docs/media/addom-editor.png)
+
+**Agent roles** — delegate bounded tasks to specialist roles, each with its own provider, model, skills, and working scope.
+
+![ADDOM agent settings showing specialist reviewer roles with per-role provider and model assignments](./docs/media/addom-agents.png)
+
+**Provider connections** — configure supported cloud and local providers once, then choose per thread.
+
+![ADDOM provider settings showing multiple configured AI provider connections including local model paths](./docs/media/addom-providers.png)
 
 ## Documentation
 

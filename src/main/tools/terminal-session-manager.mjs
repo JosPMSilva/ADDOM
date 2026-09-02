@@ -35,6 +35,7 @@ import { defaultSpawnTerminal, resolveTerminalShellLaunch } from './terminal-ses
 export { resolveAvailableTerminalShells, resolveTerminalShellLaunch } from './terminal-session-shell.mjs'
 import { createTerminalOutputMatcher } from './terminal-session-output-text.mjs'
 import { buildTerminalWritePayload, markSessionIdleFromOutputBuffer, markSessionIdleFromVisibleSnapshot } from './terminal-session-command-state.mjs'
+import { createSanitizedChildProcessEnv } from './process-environment-policy.mjs'
 import {
   attachTerminalDataListener,
   attachTerminalErrorListener,
@@ -47,7 +48,6 @@ import {
   normalizeSurface,
   toPublicSession,
 } from './terminal-session-snapshots.mjs'
-
 function defaultGenerateSessionId() { return `term_${crypto.randomUUID()}` }
 export function createTerminalSessionManager({
   platform = process.platform,
@@ -332,7 +332,7 @@ export function createTerminalSessionManager({
         cols: size.cols,
         rows: size.rows,
         cwd: path.resolve(String(cwd || process.cwd())),
-        env: { ...env },
+        env: createSanitizedChildProcessEnv(env),
         ...(platform === 'win32' ? { useConpty: true, useConptyDll: true } : {}),
       },
     })

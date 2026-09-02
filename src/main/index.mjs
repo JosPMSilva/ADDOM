@@ -19,13 +19,13 @@ import {
   DEFAULT_ATTACHMENT_TEMP_MAX_AGE_MS,
 } from './attachments/attachment-temp-cleanup.mjs'
 import { createAttachmentPreviewRateLimiter } from './attachments/attachment-preview-guard.mjs'
-import { validateExternalHttpUrl } from './utils/shell-open-guards.mjs'
 import { sendVersioned } from './ipc/ipc-versioning.mjs'
 import { ATTACHMENT_TEMP_DIR } from './attachment-open-handler.mjs'
 import { buildStartupSplashHtml } from './startup-splash-html.mjs'
 import { registerMainProcessIpcHandlers } from './main-ipc-registration.mjs'
 import { createAppQuitCoordinator } from './app-quit-coordinator.mjs'
 import { registerPrivilegedSchemes } from './main-protocol-registration.mjs'
+import { installDenyAllWebPermissions, installMainWindowWebGuards } from './main-web-security-policy.mjs'
 import { runPackagedRuntimeSmoke } from './packaged-smoke-startup.mjs'
 import { closeAllBrowserTools } from './tools/browser-tool.mjs'
 import { createTerminalSessionManager } from './tools/terminal-session-manager.mjs'
@@ -610,6 +610,11 @@ function createMainWindow() {
     bounds: mainWindow.getBounds?.(),
   })
 
+  installMainWindowWebGuards(mainWindow.webContents, {
+    isDev: IS_DEV,
+    openExternal: (url) => shell.openExternal(url),
+  })
+
   // Load renderer
   if (IS_DEV) {
     mainWindow.loadURL('http://localhost:5173')
@@ -640,14 +645,6 @@ function createMainWindow() {
     mainWindow = null
   })
 
-  // Open external links in the OS browser, not in the Electron window
-  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-    const validation = validateExternalHttpUrl(url)
-    if (validation.ok) {
-      void shell.openExternal(validation.url)
-    }
-    return { action: 'deny' }
-  })
 }
 
 // Tray
@@ -748,6 +745,7 @@ function installCSPHeader() {
 // App lifecycle
 app.whenReady().then(async () => {
   startNativeAppearanceSync(getSettings)
+  installDenyAllWebPermissions(session.defaultSession)
   registerRendererAppProtocol()
   registerAttachmentPreviewProtocol()
   installCSPHeader()

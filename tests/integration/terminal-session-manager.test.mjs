@@ -156,6 +156,39 @@ test('terminal session manager runs one deterministic interactive lifecycle', ()
   manager.dispose()
 })
 
+test('terminal session manager strips inherited credentials without losing shell environment', () => {
+  const pty = new FakePty()
+  const spawnCalls = []
+  const manager = createTerminalSessionManager({
+    platform: 'win32',
+    env: {
+      ComSpec: 'C:\\Windows\\System32\\cmd.exe',
+      Path: 'C:\\Windows\\System32',
+      OPENAI_API_KEY: 'secret-openai',
+      GH_TOKEN: 'secret-github',
+      CUSTOM_PASSWORD: 'secret-password',
+      SAFE_SETTING: 'preserved',
+    },
+    generateSessionId: () => 'term_filtered_env',
+    spawnTerminal: (spec) => {
+      spawnCalls.push(spec)
+      return pty
+    },
+  })
+
+  manager.createSession({ cwd: process.cwd(), shell: 'default' })
+
+  assert.equal(spawnCalls.length, 1)
+  assert.equal(spawnCalls[0].options.env.OPENAI_API_KEY, undefined)
+  assert.equal(spawnCalls[0].options.env.GH_TOKEN, undefined)
+  assert.equal(spawnCalls[0].options.env.CUSTOM_PASSWORD, undefined)
+  assert.equal(spawnCalls[0].options.env.SAFE_SETTING, 'preserved')
+  assert.equal(spawnCalls[0].options.env.ComSpec, 'C:\\Windows\\System32\\cmd.exe')
+  assert.equal(spawnCalls[0].options.env.PATH, 'C:\\Windows\\System32')
+
+  manager.dispose()
+})
+
 test('terminal session manager bounds buffered output snapshots', () => {
   const pty = new FakePty()
   const manager = createTerminalSessionManager({

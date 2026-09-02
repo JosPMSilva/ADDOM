@@ -5,6 +5,9 @@
   "description": "Local-first multi-provider AI coding workspace with guarded tools, delegated agents, and no developer telemetry",
   "author": "JosPMSilva",
   "main": "src/main/index.mjs",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "preinstall": "node scripts/check-blocked-packages.mjs",
     "dev": "node scripts/with-native-runtime.mjs electron -- npm run dev:raw",

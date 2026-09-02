@@ -85,6 +85,7 @@ When multiple threads execute concurrently:
 - Terminal sessions are a separate subsystem from `run_command` and `local_shell`.
 - Opening a terminal session uses the explicit `terminal_session_open` approval path.
 - Reuse actions such as `terminal_session_write` and `terminal_session_signal` stay explicit and do not collapse into undocumented shell passthrough.
+- Spawned shells keep normal host environment variables but omit credential-shaped values such as API keys, access tokens, passwords, and private keys; provider credentials stored by ADDOM are never injected into terminal sessions.
 - Terminal panel visibility and model-facing `terminal_session_*` tool exposure both follow terminal runtime health.
 - The live Terminal panel is a real emulator-backed surface:
   - `@xterm/xterm` owns terminal semantics in the renderer

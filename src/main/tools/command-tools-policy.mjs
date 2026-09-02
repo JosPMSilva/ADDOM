@@ -1,4 +1,5 @@
 import { isLikelyLongRunningCommand } from './command-tools-command-classifier.mjs'
+import { createSanitizedChildProcessEnv } from './process-environment-policy.mjs'
 
 export const DEFAULT_COMMAND_TIMEOUT_MS = 300_000
 export const MAX_COMMAND_TIMEOUT_MS = 3_600_000
@@ -10,16 +11,6 @@ export const MAX_COMMAND_CHAIN_OPERATORS = 24
 
 // SECURITY: This blocklist is defense-in-depth only. Approval flow and execution
 // profile gating remain the primary protection layers for risky commands.
-const SENSITIVE_ENV_PATTERNS = [
-  /^(ANTHROPIC|OPENAI|GOOGLE|GEMINI|GROQ|MISTRAL|XAI|PERPLEXITY|OPENROUTER|COHERE|DEEPSEEK)_API_KEY$/i,
-  /^(AWS_ACCESS_KEY_ID|AWS_SECRET_ACCESS_KEY|AWS_SESSION_TOKEN)$/i,
-  /^(AZURE_(CLIENT_SECRET|OPENAI_API_KEY|OPENAI_KEY|SUBSCRIPTION_ID|TENANT_ID))$/i,
-  /^(GH_TOKEN|GITHUB_TOKEN|GITLAB_TOKEN|NPM_TOKEN)$/i,
-  /^(DATABASE_URL|REDIS_URL|MONGO_URI|MONGODB_URI)$/i,
-  /^(JWT_SECRET|SESSION_SECRET|ENCRYPTION_KEY|SECRET_KEY|PRIVATE_KEY)$/i,
-  /(_API_KEY|ACCESS_TOKEN|AUTH_TOKEN|BEARER_TOKEN|PRIVATE_KEY|SECRET(_KEY)?|PASSWORD)$/i,
-]
-
 const BLOCKED_COMMAND_PATTERNS = [
   { pattern: /\brm\s+-rf\s+\/(\s|$)/i, reason: 'Refusing destructive root delete commands.' },
   { pattern: /\brm\s+-rf\s+~(\s|$|[\\/])/i, reason: 'Refusing destructive delete commands targeting the home directory.' },
@@ -117,17 +108,9 @@ export function normalizeTimeoutMs(timeoutMs) {
 }
 
 export function createCommandEnv() {
-  const filtered = {}
-  for (const [key, value] of Object.entries(process.env || {})) {
-    if (SENSITIVE_ENV_PATTERNS.some((pattern) => pattern.test(key))) continue
-    filtered[key] = value
-  }
-  const inheritedPath = filtered.PATH || filtered.Path || filtered.path || ''
-  delete filtered.Path
-  delete filtered.path
+  const filtered = createSanitizedChildProcessEnv(process.env)
   return {
     ...filtered,
-    PATH: inheritedPath,
     CI: filtered.CI || '1',
     DEBIAN_FRONTEND: filtered.DEBIAN_FRONTEND || 'noninteractive',
     PIP_DISABLE_PIP_VERSION_CHECK: filtered.PIP_DISABLE_PIP_VERSION_CHECK || '1',

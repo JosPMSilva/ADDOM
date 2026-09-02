@@ -27,6 +27,8 @@ const TEXT_SCAN_ROOTS = [
   '.github',
 ]
 
+const TEXT_SCAN_EXCLUDED_DIRECTORIES = new Set(['node_modules'])
+
 const TEXT_EXTENSIONS = new Set([
   '.cjs', '.css', '.html', '.js', '.json', '.jsx', '.md', '.mjs', '.ps1', '.txt', '.yml', '.yaml',
 ])
@@ -41,11 +43,16 @@ function walkTextFiles(relativeRoot) {
     const current = pending.pop()
     for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
       const entryPath = path.join(current, entry.name)
-      if (entry.isDirectory()) pending.push(entryPath)
+      if (entry.isDirectory() && !TEXT_SCAN_EXCLUDED_DIRECTORIES.has(entry.name)) pending.push(entryPath)
       else if (TEXT_EXTENSIONS.has(path.extname(entry.name).toLowerCase())) files.push(entryPath)
     }
   }
   return files
+}
+
+function containsPrivateWorkstationPath(text = '') {
+  const forbidden = /C:[/\\]+Users[/\\]+(?!(?:example|me|test)[/\\]+)[a-z0-9][a-z0-9._-]*[/\\]+|\/Users\/(?!(?:example|me|test)\/)[a-z0-9][a-z0-9._-]*\//iu
+  return forbidden.test(String(text || ''))
 }
 
 test('public export contains only release-owned top-level material', () => {
@@ -68,14 +75,25 @@ test('public export declares the MIT license consistently', () => {
 })
 
 test('public text does not contain the private workstation identity or paths', () => {
-  const forbidden = /C:[/\\]Users[/\\]compw|\/Users\/compw|AppData[/\\](?:Local|Roaming)[/\\]addom-dev/iu
   const violations = []
 
   for (const filePath of TEXT_SCAN_ROOTS.flatMap(walkTextFiles)) {
-    if (forbidden.test(fs.readFileSync(filePath, 'utf8'))) {
+    if (containsPrivateWorkstationPath(fs.readFileSync(filePath, 'utf8'))) {
       violations.push(path.relative(ROOT, filePath).replaceAll('\\', '/'))
     }
   }
 
   assert.deepEqual(violations, [])
+})
+
+test('public path scanner rejects real profile names while allowing documented placeholders', () => {
+  const windowsPrivatePath = ['C:', 'Users', 'local-account', 'Documents', 'ADDOM'].join('\\')
+  const macPrivatePath = ['', 'Users', 'local-account', 'Documents', 'ADDOM'].join('/')
+  const windowsExamplePath = ['C:', 'Users', 'example', 'Documents', 'ADDOM'].join('\\')
+  const macExamplePath = ['', 'Users', 'me', 'Documents', 'ADDOM'].join('/')
+
+  assert.equal(containsPrivateWorkstationPath(windowsPrivatePath), true)
+  assert.equal(containsPrivateWorkstationPath(macPrivatePath), true)
+  assert.equal(containsPrivateWorkstationPath(windowsExamplePath), false)
+  assert.equal(containsPrivateWorkstationPath(macExamplePath), false)
 })
