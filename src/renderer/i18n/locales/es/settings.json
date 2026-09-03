@@ -711,7 +711,9 @@
         "available": "Actualización disponible - v{{version}}",
         "downloading": "Descargando... {{percent}}%",
         "readyToInstall": "v{{version}} lista para instalar",
-        "error": "Error de actualización: {{message}}"
+        "error": "No se pudo comprobar si hay actualizaciones. Inténtalo de nuevo más tarde.",
+        "errorUnavailable": "El servicio de actualizaciones aún no está disponible. Inténtalo de nuevo más tarde.",
+        "errorNetwork": "No se pudo acceder al servicio de actualizaciones. Comprueba tu conexión e inténtalo de nuevo."
       },
       "actions": {
         "checkForUpdates": "Comprobar actualizaciones",

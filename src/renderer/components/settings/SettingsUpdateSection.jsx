@@ -9,7 +9,16 @@ function UpdateStatusText({ status, info, pct, t }) {
   if (status === 'available') return <span className={className}>{t('settings:blocks.updates.status.available', { defaultValue: 'Update available - v{{version}}', version: info?.version })}</span>
   if (status === 'downloading') return <span className={className}>{t('settings:blocks.updates.status.downloading', { defaultValue: 'Downloading... {{percent}}%', percent: pct })}</span>
   if (status === 'downloaded') return <span className={className}>{t('settings:blocks.updates.status.readyToInstall', { defaultValue: 'v{{version}} ready to install', version: info?.version })}</span>
-  if (status === 'error') return <span className="text-[11px] font-medium text-danger-soft">{t('settings:blocks.updates.status.error', { defaultValue: 'Update error: {{message}}', message: info?.message })}</span>
+  if (status === 'error') {
+    const errorCode = String(info?.code || '').trim()
+    if (errorCode === 'unavailable') {
+      return <span className="text-[11px] font-medium text-danger-soft">{t('settings:blocks.updates.status.errorUnavailable', { defaultValue: 'The update service is not available yet. Try again later.' })}</span>
+    }
+    if (errorCode === 'network') {
+      return <span className="text-[11px] font-medium text-danger-soft">{t('settings:blocks.updates.status.errorNetwork', { defaultValue: "Couldn't reach the update service. Check your connection and try again." })}</span>
+    }
+    return <span className="text-[11px] font-medium text-danger-soft">{t('settings:blocks.updates.status.error', { defaultValue: "Couldn't check for updates. Try again later." })}</span>
+  }
   return null
 }
 

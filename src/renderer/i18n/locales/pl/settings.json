@@ -711,7 +711,9 @@
         "available": "Dostępna aktualizacja - v{{version}}",
         "downloading": "Pobieram... {{percent}}%",
         "readyToInstall": "v{{version}} gotowy do instalacji",
-        "error": "Błąd aktualizacji: {{message}}"
+        "error": "Nie udało się sprawdzić aktualizacji. Spróbuj ponownie później.",
+        "errorUnavailable": "Usługa aktualizacji nie jest jeszcze dostępna. Spróbuj ponownie później.",
+        "errorNetwork": "Nie udało się połączyć z usługą aktualizacji. Sprawdź połączenie i spróbuj ponownie."
       },
       "actions": {
         "checkForUpdates": "Sprawdź aktualizacje",

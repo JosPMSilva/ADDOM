@@ -737,7 +737,9 @@
         "available": "Update available - v{{version}}",
         "downloading": "Downloading... {{percent}}%",
         "readyToInstall": "v{{version}} ready to install",
-        "error": "Update error: {{message}}"
+        "error": "Couldn't check for updates. Try again later.",
+        "errorUnavailable": "The update service is not available yet. Try again later.",
+        "errorNetwork": "Couldn't reach the update service. Check your connection and try again."
       },
       "actions": {
         "checkForUpdates": "Check for updates",

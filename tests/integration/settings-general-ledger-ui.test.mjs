@@ -97,3 +97,19 @@ test('unavailable updater state uses a calm no-results message', () => {
 
   assert.match(html, /No updates found\./)
 })
+
+test('updater failures never render upstream response details', () => {
+  const unsafeDetails = '404 GET https://github.com/example/private/releases.atom set-cookie: _gh_sess=secret authorization: Bearer token'
+  const html = renderToStaticMarkup(React.createElement(SettingsUpdateSection, {
+    status: 'error',
+    info: {
+      code: 'unavailable',
+      message: unsafeDetails,
+    },
+    pct: 0,
+    onCheck: () => {},
+  }))
+
+  assert.match(html, /The update service is not available yet\. Try again later\./)
+  assert.doesNotMatch(html, /github\.com|set-cookie|_gh_sess|Bearer token|secret/i)
+})

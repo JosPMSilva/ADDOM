@@ -711,7 +711,9 @@
         "available": "Update verfügbar – v{{version}}",
         "downloading": "Wird heruntergeladen... {{percent}}%",
         "readyToInstall": "v{{version}} bereit zur Installation",
-        "error": "Update-Fehler: {{message}}"
+        "error": "Updates konnten nicht geprüft werden. Versuchen Sie es später erneut.",
+        "errorUnavailable": "Der Update-Dienst ist noch nicht verfügbar. Versuchen Sie es später erneut.",
+        "errorNetwork": "Der Update-Dienst ist nicht erreichbar. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut."
       },
       "actions": {
         "checkForUpdates": "Suchen Sie nach Updates",

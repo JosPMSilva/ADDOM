@@ -711,7 +711,9 @@
         "available": "可用更新 - v{{version}}",
         "downloading": "正在下载...{{percent}}%",
         "readyToInstall": "v{{version}} 准备安装",
-        "error": "更新错误：{{message}}"
+        "error": "无法检查更新。请稍后重试。",
+        "errorUnavailable": "更新服务尚不可用。请稍后重试。",
+        "errorNetwork": "无法连接更新服务。请检查网络连接后重试。"
       },
       "actions": {
         "checkForUpdates": "检查更新",

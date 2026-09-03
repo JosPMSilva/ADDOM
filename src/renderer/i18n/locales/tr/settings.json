@@ -711,7 +711,9 @@
         "available": "Güncelleme mevcut - v{{version}}",
         "downloading": "İndiriliyor... {{percent}}%",
         "readyToInstall": "v{{version}} kuruluma hazır",
-        "error": "Güncelleme hatası: {{message}}"
+        "error": "Güncellemeler denetlenemedi. Daha sonra tekrar deneyin.",
+        "errorUnavailable": "Güncelleme hizmeti henüz kullanılamıyor. Daha sonra tekrar deneyin.",
+        "errorNetwork": "Güncelleme hizmetine ulaşılamadı. Bağlantınızı kontrol edip tekrar deneyin."
       },
       "actions": {
         "checkForUpdates": "Güncellemeleri kontrol edin",

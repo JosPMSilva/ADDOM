@@ -711,7 +711,9 @@
         "available": "Update beschikbaar - v{{version}}",
         "downloading": "Bezig met downloaden... {{percent}}%",
         "readyToInstall": "v{{version}} klaar voor installatie",
-        "error": "Updatefout: {{message}}"
+        "error": "Kan niet controleren op updates. Probeer het later opnieuw.",
+        "errorUnavailable": "De updateservice is nog niet beschikbaar. Probeer het later opnieuw.",
+        "errorNetwork": "Kan de updateservice niet bereiken. Controleer uw verbinding en probeer het opnieuw."
       },
       "actions": {
         "checkForUpdates": "Controleer op updates",

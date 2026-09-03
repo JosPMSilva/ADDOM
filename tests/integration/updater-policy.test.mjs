@@ -15,4 +15,7 @@ test('updater accepts only the official ADDOM GitHub release feed', () => {
   assert.match(source, /if \(!hasSupportedPackagedUpdateConfig\(\)\) return null/)
   assert.match(source, /if \(IS_DEV \|\| !hasSupportedPackagedUpdateConfig\(\)\)/)
   assert.match(source, /status: 'disabled'/)
+  assert.doesNotMatch(source, /message:\s*err\.message/)
+  assert.doesNotMatch(source, /error:\s*err\.message/)
+  assert.match(source, /classifyUpdaterFailure\(err\)/)
 })

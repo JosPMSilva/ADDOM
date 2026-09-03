@@ -711,7 +711,9 @@
         "available": "利用可能なアップデート - v{{version}}",
         "downloading": "ダウンロード中... {{percent}}%",
         "readyToInstall": "v{{version}} をインストールする準備ができました",
-        "error": "アップデートエラー: {{message}}"
+        "error": "更新を確認できませんでした。後でもう一度お試しください。",
+        "errorUnavailable": "更新サービスはまだ利用できません。後でもう一度お試しください。",
+        "errorNetwork": "更新サービスに接続できませんでした。接続を確認して、もう一度お試しください。"
       },
       "actions": {
         "checkForUpdates": "アップデートをチェックする",

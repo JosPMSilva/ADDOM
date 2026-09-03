@@ -711,7 +711,9 @@
         "available": "Pembaruan tersedia - v{{version}}",
         "downloading": "Mengunduh... {{percent}}%",
         "readyToInstall": "v{{version}} siap dipasang",
-        "error": "Kesalahan pembaruan: {{message}}"
+        "error": "Tidak dapat memeriksa pembaruan. Coba lagi nanti.",
+        "errorUnavailable": "Layanan pembaruan belum tersedia. Coba lagi nanti.",
+        "errorNetwork": "Tidak dapat menjangkau layanan pembaruan. Periksa koneksi Anda dan coba lagi."
       },
       "actions": {
         "checkForUpdates": "Periksa pembaruan",

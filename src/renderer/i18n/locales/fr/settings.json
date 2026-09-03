@@ -711,7 +711,9 @@
         "available": "Mise à jour disponible - v{{version}}",
         "downloading": "Téléchargement... {{percent}}%",
         "readyToInstall": "v{{version}} prêt à installer",
-        "error": "Erreur de mise à jour: {{message}}"
+        "error": "Impossible de vérifier les mises à jour. Réessayez plus tard.",
+        "errorUnavailable": "Le service de mise à jour n’est pas encore disponible. Réessayez plus tard.",
+        "errorNetwork": "Impossible de joindre le service de mise à jour. Vérifiez votre connexion et réessayez."
       },
       "actions": {
         "checkForUpdates": "Vérifier les mises à jour",

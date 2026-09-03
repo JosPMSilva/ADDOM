@@ -36,6 +36,7 @@ import {
   normalizeAnthropicRuntimeSettingsForUi,
   normalizeOpenAIRuntimeSettingsForUi,
   readSettingsPanelActiveCategoryId,
+  resolveUpdateCheckFallbackInfo,
   resolveUpdateCheckFallbackStatus,
   writeSettingsPanelActiveCategoryId,
   isStaleSettingsPersistError,
@@ -241,7 +242,10 @@ export default function SettingsPanelRoot() {
     setUpdateInfo(null)
     const result = await window.addom.updater.checkForUpdates()
     const fallbackStatus = resolveUpdateCheckFallbackStatus(result)
-    if (fallbackStatus) setUpdateStatus(fallbackStatus)
+    if (fallbackStatus) {
+      setUpdateStatus(fallbackStatus)
+      setUpdateInfo(resolveUpdateCheckFallbackInfo(result))
+    }
   }, [])
   const handleDownloadUpdate = useCallback(async () => {
     setUpdateStatus('downloading')
