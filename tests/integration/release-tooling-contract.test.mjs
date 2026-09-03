@@ -232,10 +232,29 @@ test('manual release artifact workflow packages native targets without publishin
   assert.match(workflowSource, /os: ubuntu-latest[\s\S]*target: --linux[\s\S]*arch: --x64/)
   assert.match(workflowSource, /os: macos-15-intel[\s\S]*target: --mac[\s\S]*arch: --x64/)
   assert.match(workflowSource, /os: macos-15[\s\S]*target: --mac[\s\S]*arch: --arm64/)
+  assert.match(workflowSource, /os: macos-15-intel[\s\S]*package_arch: x64/)
+  assert.match(workflowSource, /os: macos-15[\s\S]*package_arch: arm64/)
+  assert.match(workflowSource, /ADDOM_PACKAGE_ARCH: \$\{\{ matrix\.package_arch \}\}/)
   assert.equal((workflowSource.match(/actions\/upload-artifact@[a-f0-9]{40} # v7/g) || []).length, 1)
   assert.match(workflowSource, /if-no-files-found: error/)
   assert.match(workflowSource, /retention-days: 30/)
   assert.match(workflowSource, /electron-builder[^\r\n]+--publish never/)
+})
+
+test('release architecture override limits every configured macOS target', () => {
+  for (const architecture of ['x64', 'arm64']) {
+    const result = spawnSync(process.execPath, ['-e', [
+      `process.env.ADDOM_PACKAGE_ARCH = '${architecture}'`,
+      "const config = require('./electron-builder.config.cjs')",
+      'process.stdout.write(JSON.stringify(config.mac.target.map((target) => target.arch)))',
+    ].join(';')], {
+      cwd: ROOT,
+      encoding: 'utf8',
+    })
+
+    assert.equal(result.status, 0, result.stderr)
+    assert.deepEqual(JSON.parse(result.stdout), [[architecture], [architecture]])
+  }
 })
 
 test('CI packaging prepares current legal artifacts before packaging', () => {

@@ -37,6 +37,7 @@ jobs:
             os: macos-15-intel
             target: --mac
             arch: --x64
+            package_arch: x64
             artifact_name: ADDOM-macOS-x64
             artifact_path: |
               dist-electron/*.dmg
@@ -45,6 +46,7 @@ jobs:
             os: macos-15
             target: --mac
             arch: --arm64
+            package_arch: arm64
             artifact_name: ADDOM-macOS-arm64
             artifact_path: |
               dist-electron/*.dmg
@@ -78,6 +80,7 @@ jobs:
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: "false"
           ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL: "1"
+          ADDOM_PACKAGE_ARCH: ${{ matrix.package_arch }}
         run: npx electron-builder ${{ matrix.target }} ${{ matrix.arch }} --config electron-builder.config.cjs --publish never
 
       - name: Verify primary package output
