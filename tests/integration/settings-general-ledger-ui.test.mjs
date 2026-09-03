@@ -71,6 +71,7 @@ test('general setting sources avoid decorative container chrome', () => {
   for (const source of generalSources) {
     assert.doesNotMatch(source, /bg-gradient|rounded-xl|hover:shadow|shadow-inner/)
   }
+  assert.doesNotMatch(generalSources.join('\n'), /version \?\? '1\.0\.0'/)
 })
 
 test('dense settings surfaces keep consistent vertical breathing room', () => {

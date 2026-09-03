@@ -63,7 +63,7 @@ export function AboutBlock({ version }) {
   return (
     <SettingsSection title={<><Icon name="info" className="text-accent" size={18} weight="fill" /> {t('settings:blocks.about.title', { defaultValue: 'About' })}</>} description="">
       <div data-ui="settings-about" className="flex flex-col gap-3 py-3 text-xs text-text-muted font-mono">
-        <span>ADDOM v{version ?? '1.0.0'}</span>
+        <span>ADDOM v{version || 'unknown'}</span>
         <span>{t('settings:blocks.about.tagline', { defaultValue: 'Local-first AI coding assistant | BYOK | No telemetry' })}</span>
         <span className="mt-1 text-text-tertiary">{t('settings:blocks.about.copyright', { defaultValue: 'Copyright (c) 2026 ADDOM contributors.' })}</span>
         <span>{t('settings:blocks.about.licenseLineOne', { defaultValue: 'Licensed under the MIT License.' })}</span>

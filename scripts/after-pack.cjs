@@ -2,7 +2,7 @@ const fs = require('fs/promises')
 const path = require('path')
 
 function updatesEnabled() {
-  return String(process.env.ADDOM_UPDATE_BASE_URL || '').trim().length > 0
+  return String(process.env.ADDOM_UPDATE_PROVIDER || '').trim().toLowerCase() === 'github'
 }
 
 async function removeIfPresent(targetPath) {

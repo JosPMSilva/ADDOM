@@ -23,8 +23,12 @@ jobs:
             os: windows-latest
             target: --win
             arch: --x64
+            update_provider: github
             artifact_name: ADDOM-Windows-x64
-            artifact_path: dist-electron/*.exe
+            artifact_path: |
+              dist-electron/*.exe
+              dist-electron/*.blockmap
+              dist-electron/latest.yml
           - name: Linux x64
             os: ubuntu-latest
             target: --linux
@@ -81,9 +85,12 @@ jobs:
           CSC_IDENTITY_AUTO_DISCOVERY: "false"
           ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL: "1"
           ADDOM_PACKAGE_ARCH: ${{ matrix.package_arch }}
+          ADDOM_UPDATE_PROVIDER: ${{ matrix.update_provider }}
         run: npx electron-builder ${{ matrix.target }} ${{ matrix.arch }} --config electron-builder.config.cjs --publish never
 
       - name: Verify primary package output
+        env:
+          ADDOM_UPDATE_PROVIDER: ${{ matrix.update_provider }}
         run: node scripts/check-ci-package-output.mjs
 
       - name: Upload release files

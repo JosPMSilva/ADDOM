@@ -980,7 +980,7 @@ function resolveAppVersion() {
   if (envVersion) return envVersion
   const argvVersion = readVersionFromProcessArgs()
   if (argvVersion) return argvVersion
-  return '1.0.0'
+  return '0.1.0-alpha'
 }
 
 function resolveInitialAppearance() {

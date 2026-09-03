@@ -155,9 +155,9 @@ test('preload exposes addom API contract and versioned IPC helpers', async () =>
   assert.equal(typeof addom.agents?.respondFanoutConfirm, 'function')
 })
 
-test('preload resolves app version from package metadata when npm_package_version is unset', async () => {
-  const harness = await createPreloadHarness({ npmPackageVersion: null })
-  assert.equal(harness.addom._version, '1.0.0')
+test('preload uses the current release fallback when version inputs are unavailable', async () => {
+  const harness = await createPreloadHarness({ npmPackageVersion: null, processArgv: [] })
+  assert.equal(harness.addom._version, '0.1.0-alpha')
 })
 
 test('preload resolves app version from additional process arguments in sandbox-safe mode', async () => {

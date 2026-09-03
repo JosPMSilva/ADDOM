@@ -14,6 +14,8 @@ Provides update controls, thread export/import, and scoped data reset actions.
 ## Step-by-Step Tasks
 
 ### 1. Check and Install Updates
+Windows release builds use ADDOM's official published GitHub releases as their update source. ADDOM does not download an update until you choose to do so, and installation requires your confirmation. Draft releases are not offered. macOS and Linux updates are currently manual.
+
 1. Open `Settings > General > Updates`.
 2. Check for updates.
 3. Download update when available.

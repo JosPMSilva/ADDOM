@@ -8,7 +8,9 @@ const require = createRequire(import.meta.url)
 
 const IS_DEV = process.env.ADDOM_DEV === '1' || (!app.isPackaged && process.env.ADDOM_DEV !== '0')
 const DISABLED_STATUS = Object.freeze({ status: 'disabled' })
-const ALLOWED_PACKAGED_UPDATE_PROVIDER = 'generic'
+const ALLOWED_PACKAGED_UPDATE_PROVIDER = 'github'
+const ALLOWED_GITHUB_OWNER = 'JosPMSilva'
+const ALLOWED_GITHUB_REPOSITORY = 'ADDOM'
 
 let autoUpdater = null
 
@@ -45,7 +47,8 @@ function hasSupportedPackagedUpdateConfig() {
   const config = readPackagedUpdateConfig()
   if (!config) return false
   return String(config.provider || '').trim().toLowerCase() === ALLOWED_PACKAGED_UPDATE_PROVIDER
-    && String(config.url || '').trim().length > 0
+    && String(config.owner || '').trim().toLowerCase() === ALLOWED_GITHUB_OWNER.toLowerCase()
+    && String(config.repo || '').trim().toLowerCase() === ALLOWED_GITHUB_REPOSITORY.toLowerCase()
 }
 
 function getUpdater() {
@@ -55,6 +58,7 @@ function getUpdater() {
     autoUpdater = require('electron-updater').autoUpdater
     autoUpdater.autoDownload         = false
     autoUpdater.autoInstallOnAppQuit = true
+    autoUpdater.allowPrerelease      = String(app.getVersion() || '').includes('-')
   } catch (err) {
     if (IS_DEV) {
       console.warn('[updater] electron-updater not available:', err.message)

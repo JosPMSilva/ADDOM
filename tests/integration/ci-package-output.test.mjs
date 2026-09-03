@@ -4,7 +4,10 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 
-import { findPrimaryPackageOutputs } from '../../scripts/check-ci-package-output.mjs'
+import {
+  findPrimaryPackageOutputs,
+  findUpdateMetadataOutput,
+} from '../../scripts/check-ci-package-output.mjs'
 
 test('CI package output gate recognizes each platform primary installer', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'addom-ci-package-output-'))
@@ -30,6 +33,11 @@ test('CI package output gate recognizes each platform primary installer', () => 
       findPrimaryPackageOutputs({ directory: root, platform: 'win32' }).map((filePath) => path.basename(filePath)),
       ['ADDOM Setup 1.0.0.exe'],
     )
+    assert.equal(
+      path.basename(findUpdateMetadataOutput({ directory: root, platform: 'win32' })),
+      'latest.yml',
+    )
+    assert.equal(findUpdateMetadataOutput({ directory: root, platform: 'darwin' }), '')
   } finally {
     fs.rmSync(root, { recursive: true, force: true })
   }
@@ -39,8 +47,13 @@ test('CI package output gate fails closed for absent and unsupported outputs', (
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'addom-ci-package-output-empty-'))
   try {
     assert.deepEqual(findPrimaryPackageOutputs({ directory: root, platform: 'linux' }), [])
+    assert.equal(findUpdateMetadataOutput({ directory: root, platform: 'win32' }), '')
     assert.throws(
       () => findPrimaryPackageOutputs({ directory: root, platform: 'freebsd' }),
+      /Unsupported package platform/,
+    )
+    assert.throws(
+      () => findUpdateMetadataOutput({ directory: root, platform: 'freebsd' }),
       /Unsupported package platform/,
     )
   } finally {
