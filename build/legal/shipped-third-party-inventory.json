@@ -8,7 +8,7 @@
     "installer",
     "dir"
   ],
-  "itemCount": 431,
+  "itemCount": 432,
   "items": [
     {
       "id": "npm:@ai-sdk/anthropic@3.0.46",
@@ -582,9 +582,9 @@
       "forbiddenLicense": false
     },
     {
-      "id": "npm:@humanfs/core@0.19.1",
+      "id": "npm:@humanfs/core@0.19.2",
       "name": "@humanfs/core",
-      "version": "0.19.1",
+      "version": "0.19.2",
       "license": "Apache-2.0",
       "repository": "git+https://github.com/humanwhocodes/humanfs.git",
       "homepage": "https://github.com/humanwhocodes/humanfs#readme",
@@ -605,9 +605,9 @@
       "forbiddenLicense": false
     },
     {
-      "id": "npm:@humanfs/node@0.16.7",
+      "id": "npm:@humanfs/node@0.16.8",
       "name": "@humanfs/node",
-      "version": "0.16.7",
+      "version": "0.16.8",
       "license": "Apache-2.0",
       "repository": "git+https://github.com/humanwhocodes/humanfs.git",
       "homepage": "https://github.com/humanwhocodes/humanfs#readme",
@@ -623,6 +623,27 @@
       "licenseFiles": [
         "node_modules/@humanfs/node/LICENSE"
       ],
+      "noticeFiles": [],
+      "manualOverride": false,
+      "forbiddenLicense": false
+    },
+    {
+      "id": "npm:@humanfs/types@0.15.0",
+      "name": "@humanfs/types",
+      "version": "0.15.0",
+      "license": "Apache-2.0",
+      "repository": "git+https://github.com/humanwhocodes/humanfs.git",
+      "homepage": "https://github.com/humanwhocodes/humanfs#readme",
+      "sourceRef": "git+https://github.com/humanwhocodes/humanfs.git",
+      "directness": "transitive",
+      "prodDevClassification": "prod",
+      "classification": "shipped_runtime",
+      "shipped": true,
+      "sourceType": "npm",
+      "sourcePaths": [
+        "node_modules/@humanfs/types"
+      ],
+      "licenseFiles": [],
       "noticeFiles": [],
       "manualOverride": false,
       "forbiddenLicense": false

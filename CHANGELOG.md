@@ -10,6 +10,7 @@ This changelog is maintained going forward from the current repository baseline.
 - Improved plan direction controls, companion layout, and project/thread entry behavior.
 - Ordered provider settings by the primary product routes: OpenAI, Cursor, OpenRouter, Anthropic, Gemini, DeepSeek, and xAI Grok.
 - Added focused coverage for plan workflows, initial thread creation, provider ordering, and preload contracts.
+- Updated transitive build dependencies to resolve the current published security advisories.
 
 ## 0.1.0-alpha
 

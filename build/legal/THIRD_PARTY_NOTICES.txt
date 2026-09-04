@@ -1981,9 +1981,9 @@ Apache License
    See the License for the specific language governing permissions and
    limitations under the License.
 
-=== npm:@humanfs/core@0.19.1 ===
+=== npm:@humanfs/core@0.19.2 ===
 Name: @humanfs/core
-Version: 0.19.1
+Version: 0.19.2
 Classification: shipped_runtime
 License: Apache-2.0
 Source: git+https://github.com/humanwhocodes/humanfs.git
@@ -2195,9 +2195,9 @@ Apache License
    See the License for the specific language governing permissions and
    limitations under the License.
 
-=== npm:@humanfs/node@0.16.7 ===
+=== npm:@humanfs/node@0.16.8 ===
 Name: @humanfs/node
-Version: 0.16.7
+Version: 0.16.8
 Classification: shipped_runtime
 License: Apache-2.0
 Source: git+https://github.com/humanwhocodes/humanfs.git
@@ -2408,6 +2408,16 @@ Apache License
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
+=== npm:@humanfs/types@0.15.0 ===
+Name: @humanfs/types
+Version: 0.15.0
+Classification: shipped_runtime
+License: Apache-2.0
+Source: git+https://github.com/humanwhocodes/humanfs.git
+Repository: git+https://github.com/humanwhocodes/humanfs.git
+Homepage: https://github.com/humanwhocodes/humanfs#readme
+Shipped paths: node_modules/@humanfs/types
 
 === npm:@humanwhocodes/module-importer@1.0.1 ===
 Name: @humanwhocodes/module-importer

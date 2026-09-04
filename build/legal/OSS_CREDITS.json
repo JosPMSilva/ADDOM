@@ -213,17 +213,25 @@
       "sourceRef": "git+https://github.com/huggingface/transformers.js.git"
     },
     {
-      "id": "npm:@humanfs/core@0.19.1",
+      "id": "npm:@humanfs/core@0.19.2",
       "name": "@humanfs/core",
-      "version": "0.19.1",
+      "version": "0.19.2",
       "license": "Apache-2.0",
       "classification": "shipped_runtime",
       "sourceRef": "git+https://github.com/humanwhocodes/humanfs.git"
     },
     {
-      "id": "npm:@humanfs/node@0.16.7",
+      "id": "npm:@humanfs/node@0.16.8",
       "name": "@humanfs/node",
-      "version": "0.16.7",
+      "version": "0.16.8",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/humanwhocodes/humanfs.git"
+    },
+    {
+      "id": "npm:@humanfs/types@0.15.0",
+      "name": "@humanfs/types",
+      "version": "0.15.0",
       "license": "Apache-2.0",
       "classification": "shipped_runtime",
       "sourceRef": "git+https://github.com/humanwhocodes/humanfs.git"
