@@ -50,6 +50,7 @@ The guides in this directory describe the current `0.1.0-alpha` release. Start w
 
 - [Contributing Guide](../CONTRIBUTING.md)
 - [Security Policy](../SECURITY.md)
+- [Code Signing Policy](./code-signing-policy.md)
 - [Security CSP Threat Model](./security-csp-threat-model.md)
 - [Changelog](../CHANGELOG.md)
 

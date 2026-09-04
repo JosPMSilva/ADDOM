@@ -88,6 +88,8 @@ Platform package commands are `npm run build:win`, `npm run build:mac`, and `npm
 - [docs/README.md](./docs/README.md) — documentation index
 - [CONTRIBUTING.md](./CONTRIBUTING.md) — contributor workflow
 - [SECURITY.md](./SECURITY.md) — security reporting policy
+- [Code signing policy](./docs/code-signing-policy.md) — release provenance,
+  signing roles, and current signing status
 - [CHANGELOG.md](./CHANGELOG.md) — release notes
 - [DESIGN.md](./DESIGN.md) — visual design contract
 
