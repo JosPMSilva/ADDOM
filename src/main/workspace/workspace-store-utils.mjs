@@ -233,7 +233,7 @@ export function ensureDefaultThreadInternal(db, projectId) {
     db.prepare(`
       INSERT INTO chat_threads (id, project_id, title, last_provider, last_model, created_at, updated_at, last_viewed_at, archived)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)
-    `).run(id, projectId, 'Main', projectProvider, projectModel, ts, ts, ts)
+    `).run(id, projectId, 'New Thread', projectProvider, projectModel, ts, ts, ts)
     existing = db.prepare('SELECT * FROM chat_threads WHERE id = ?').get(id)
   }
 

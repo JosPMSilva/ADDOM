@@ -6,7 +6,7 @@ Local-first desktop workspace for multi-provider AI coding, with guarded tools, 
 
 ## Project Status
 
-ADDOM `0.1.0-alpha` is early software. Preview builds are prepared for Windows, macOS, and Linux; the Windows installer has been verified locally, while macOS and Linux builds still need broader platform testing. Builds are currently unsigned. Windows builds can check, download, and install updates from ADDOM's official published GitHub releases; macOS and Linux updates remain manual while their packaging paths are hardened.
+ADDOM `0.1.1-alpha` is early software. Preview builds are prepared for Windows, macOS, and Linux; the Windows installer has been verified locally, while macOS and Linux builds still need broader platform testing. Builds are currently unsigned. Windows builds can check, download, and install updates from ADDOM's official published GitHub releases; macOS and Linux updates remain manual while their packaging paths are hardened.
 
 ## Why ADDOM
 

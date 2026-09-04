@@ -49,6 +49,8 @@ export default function DocumentCompanionView({ view }) {
   const [documentState, setDocumentState] = useState(() => view?.initialDocument || null)
   const [loading, setLoading] = useState(() => !view?.initialDocument)
   const [actionError, setActionError] = useState('')
+  const [fileActionBusy, setFileActionBusy] = useState(false)
+  const [savedCopyPath, setSavedCopyPath] = useState('')
   const [activePlanBlock, setActivePlanBlock] = useState(null)
   const [reviewHintDismissed, setReviewHintDismissed] = useState(false)
   const [reviewInstruction, setReviewInstruction] = useState('')
@@ -115,6 +117,7 @@ export default function DocumentCompanionView({ view }) {
     setDocumentState(view?.initialDocument || null)
     setLoading(!view?.initialDocument)
     setActionError('')
+    setSavedCopyPath('')
     setActivePlanBlock(null)
     setReviewInstruction('')
     setReviewComposerHeight(MIN_PLAN_REVIEW_COMPOSER_HEIGHT)
@@ -158,8 +161,18 @@ export default function DocumentCompanionView({ view }) {
     [],
   )
 
-  const openInEditor = () => {
-    if (view?.sourceKind === 'managed_plan') return
+  const openInEditor = async () => {
+    if (view?.sourceKind === 'managed_plan') {
+      setActionError('')
+      try {
+        const result = await useEditorStore.getState().openEvidenceFileAtLocation(documentState?.document?.filePath)
+        if (!result?.ok) throw new Error('plan_document_unavailable')
+        setActivePanel('editor')
+      } catch {
+        setActionError(documentErrorCopy(t, 'document_unavailable'))
+      }
+      return
+    }
     setActivePanel('editor')
     if (view?.sourceKind === 'evidence') {
       void useEditorStore.getState().openEvidenceFileAtLocation?.(view.filePath)
@@ -174,7 +187,13 @@ export default function DocumentCompanionView({ view }) {
   const reveal = async () => {
     setActionError('')
     try {
-      if (view?.sourceKind === 'managed_plan') return
+      if (view?.sourceKind === 'managed_plan') {
+        const result = await window.addom.documents.revealManagedPlan({
+          projectRoot: view.projectRoot, threadId: view.threadId, planId: view.planId,
+        })
+        if (!result?.ok) setActionError(documentErrorCopy(t, result?.error))
+        return
+      }
       if (view?.sourceKind === 'evidence') {
         await window?.addom?.shell?.openPath?.(view.sourceRoot)
         return
@@ -183,6 +202,31 @@ export default function DocumentCompanionView({ view }) {
       if (result?.ok === false) setActionError(documentErrorCopy(t, result.error))
     } catch {
       setActionError(documentErrorCopy(t, 'document_unavailable'))
+    }
+  }
+
+  const saveCopy = async () => {
+    if (fileActionBusy) return
+    setFileActionBusy(true)
+    setActionError('')
+    setSavedCopyPath('')
+    try {
+      const result = await window.addom.documents.saveManagedPlanCopy({
+        projectRoot: view.projectRoot, threadId: view.threadId, planId: view.planId,
+        expectedRevision: documentState?.revision,
+      })
+      if (result?.cancelled) return
+      if (result?.error === 'plan_revision_conflict') {
+        setActionError(t('core:companionDock.document.stalePlan'))
+      } else if (!result?.ok) {
+        setActionError(t('core:companionDock.document.saveCopyFailed'))
+      } else {
+        setSavedCopyPath(result.filePath)
+      }
+    } catch {
+      setActionError(t('core:companionDock.document.saveCopyFailed'))
+    } finally {
+      setFileActionBusy(false)
     }
   }
 
@@ -450,13 +494,20 @@ export default function DocumentCompanionView({ view }) {
                   })}
             </button>
           ) : null}
+          {view?.sourceKind === 'managed_plan' ? <button
+            type="button"
+            onClick={saveCopy}
+            disabled={fileActionBusy || !content || loading}
+            className="rounded-md px-2 py-1 text-xs text-text-secondary outline-none hover:bg-surface-panel hover:text-text-primary disabled:opacity-50 focus-visible:ring-1 focus-visible:ring-border-strong"
+          >{t('core:companionDock.document.saveCopy')}</button> : null}
           <button
             type="button"
             onClick={openInEditor}
-            aria-label={t('core:companionDock.document.openInEditor', {
+            disabled={view?.sourceKind === 'managed_plan' && !documentState?.document?.filePath}
+            aria-label={t(view?.sourceKind === 'managed_plan' ? 'core:companionDock.document.openReadOnly' : 'core:companionDock.document.openInEditor', {
               defaultValue: 'Open in editor',
             })}
-            title={t('core:companionDock.document.openInEditor', {
+            title={t(view?.sourceKind === 'managed_plan' ? 'core:companionDock.document.openReadOnly' : 'core:companionDock.document.openInEditor', {
               defaultValue: 'Open in editor',
             })}
             className="flex size-7 items-center justify-center rounded-md text-text-tertiary outline-none transition-colors hover:bg-surface-panel hover:text-text-primary focus-visible:ring-1 focus-visible:ring-border-strong"
@@ -495,6 +546,13 @@ export default function DocumentCompanionView({ view }) {
           </button>
         </div>
       </div>
+      {view?.sourceKind === 'managed_plan' && documentState?.document?.filePath ? <p
+        className="shrink-0 truncate px-3 py-1 font-mono text-[11px] text-text-tertiary select-text"
+        title={documentState.document.filePath}
+      >{documentState.document.filePath}</p> : null}
+      {savedCopyPath ? <p className="shrink-0 break-all px-3 py-1 text-xs text-text-secondary" role="status">
+        {t('core:companionDock.document.savedCopy', { path: savedCopyPath })}
+      </p> : null}
 
       {view?.sourceKind === 'managed_plan' && activePlanBlock ? (
         <div className="relative shrink-0 border-b border-surface-border bg-surface-subtle px-3 py-2" data-ui="managed-plan-review-tray">

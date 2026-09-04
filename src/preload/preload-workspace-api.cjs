@@ -133,6 +133,17 @@ function createDocumentsApi({ invokeVersioned, asTrimmedString, asPlainObject })
       threadId: asTrimmedString(threadId),
       planId: asTrimmedString(planId),
     }),
+    revealManagedPlan: ({ projectRoot, threadId, planId } = {}) => invokeVersioned('documents:reveal-managed-plan', {
+      projectRoot: asTrimmedString(projectRoot),
+      threadId: asTrimmedString(threadId),
+      planId: asTrimmedString(planId),
+    }),
+    saveManagedPlanCopy: ({ projectRoot, threadId, planId, expectedRevision } = {}) => invokeVersioned('documents:save-managed-plan-copy', {
+      projectRoot: asTrimmedString(projectRoot),
+      threadId: asTrimmedString(threadId),
+      planId: asTrimmedString(planId),
+      expectedRevision: Number.isInteger(expectedRevision) ? expectedRevision : -1,
+    }),
     addPlanReviewChange: ({ projectRoot, threadId, planId, headingAnchor, blockId, blockKind, blockText, instruction, expectedRevision } = {}) => invokeVersioned('documents:add-plan-review-change', {
       projectRoot: asTrimmedString(projectRoot),
       threadId: asTrimmedString(threadId),

@@ -19,12 +19,11 @@ test('new project folder selection enters through the guarded target boundary', 
   const transitionSource = readSource('src/renderer/use-workspace-target-transition.js')
   assert.match(appSource, /const handleCreateProject = useCallback/)
   assert.match(appSource, /const folder = await openFolder\(\)/)
-  assert.match(appSource, /requestWorkspaceTarget\(\{ projectPath: folder, createThread: true \}\)/)
+  assert.match(appSource, /requestWorkspaceTarget\(\{ projectPath: folder \}\)/)
   assert.doesNotMatch(appSource, /if \(projectFolder\) return window\.addom\?\.shell\?\.openPath/)
   assert.doesNotMatch(appSource, /folder \? openProjectPath\(folder\) : null/)
-  assert.match(transitionSource, /clearActiveProject\(\{ notifyRenderer: false \}\)/)
-  assert.match(transitionSource, /try \{[\s\S]*clearActiveProject[\s\S]*\} catch \{[\s\S]*\}[\s\S]*leaveToProjectEntry\(\)/)
-  assert.match(transitionSource, /leaveToProjectEntry\(\)/)
+  assert.match(transitionSource, /thread: opened\.activeThread/)
+  assert.doesNotMatch(transitionSource, /\.createThread\(\)/)
 })
 
 test('canonical rail owns project creation and each project row owns thread creation', () => {

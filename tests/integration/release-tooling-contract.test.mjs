@@ -57,7 +57,7 @@ test('release build scripts route multi-target packaging through the host-aware 
   const preCommitHookSource = fs.readFileSync(path.join(ROOT, '.githooks', 'pre-commit'), 'utf8')
   const ciWorkflowSource = fs.readFileSync(path.join(ROOT, '.github', 'workflows', 'ci-cross-platform.yml'), 'utf8')
 
-  assert.equal(packageJson.version, '0.1.0-alpha')
+  assert.equal(packageJson.version, '0.1.1-alpha')
   assert.deepEqual(packageJson.engines, { node: '>=24' })
   assert.equal(String(scripts['native:node'] || ''), 'node scripts/ensure-native-runtime.mjs node')
   assert.equal(String(scripts['native:electron'] || ''), 'node scripts/ensure-native-runtime.mjs electron')

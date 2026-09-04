@@ -70,14 +70,18 @@ test('providers settings show Project knowledge only when advanced file_search i
   assert.deepEqual(ids, ['api-keys', 'openai-project-knowledge'])
 })
 
-test('api keys block keeps OpenAI first and opens OpenRouter visibility as a detail view', () => {
+test('api keys block keeps the preferred provider order and opens OpenRouter visibility as a detail view', () => {
   assert.equal(typeof ApiKeysBlock, 'function')
 
   const html = renderToStaticMarkup(React.createElement(ApiKeysBlock, {
     providers: [
+      { id: 'grok', name: 'xAI Grok', noKeyRequired: false, hasApiKey: false, authMethod: 'api_key' },
       { id: 'anthropic', name: 'Anthropic', noKeyRequired: false, hasApiKey: false, authMethod: 'api_key' },
       { id: 'ollama', name: 'Ollama', noKeyRequired: true, localAvailable: true, models: [{ id: 'llama3' }] },
+      { id: 'deepseek', name: 'DeepSeek', noKeyRequired: false, hasApiKey: false, authMethod: 'api_key' },
       { id: 'openrouter', name: 'OpenRouter', noKeyRequired: false, hasApiKey: true, authMethod: 'api_key' },
+      { id: 'gemini', name: 'Google Gemini', noKeyRequired: false, hasApiKey: false, authMethod: 'api_key' },
+      { id: 'cursor', name: 'Cursor', noKeyRequired: false, hasApiKey: false, authMethod: 'api_key', runtimeStatus: 'runtime_missing' },
       { id: 'openai', name: 'OpenAI', noKeyRequired: false, hasApiKey: false, authMethod: 'api_key', accountRuntimeSupported: true },
     ],
     modelCatalogVisibility: {},
@@ -87,8 +91,11 @@ test('api keys block keeps OpenAI first and opens OpenRouter visibility as a det
     openDetailView: () => {},
   }))
 
-  assert.ok(html.indexOf('OpenAI') < html.indexOf('Anthropic'))
-  assert.ok(html.indexOf('OpenAI') < html.lastIndexOf('Ollama'))
+  const preferredLabels = ['OpenAI', 'Cursor', 'OpenRouter', 'Anthropic', 'Google Gemini', 'DeepSeek', 'xAI Grok']
+  const preferredPositions = preferredLabels.map((label) => html.indexOf(`>${label}</span>`))
+  assert.ok(preferredPositions.every((position) => position >= 0))
+  assert.deepEqual(preferredPositions, [...preferredPositions].sort((a, b) => a - b))
+  assert.ok(preferredPositions.at(-1) < html.lastIndexOf('Ollama'))
   assert.match(html, /data-ui="settings-provider-credential-row"/)
   assert.match(html, /bg-transparent/)
   assert.match(html, /data-ui="settings-openrouter-manage"/)

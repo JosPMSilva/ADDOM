@@ -157,7 +157,7 @@ test('preload exposes addom API contract and versioned IPC helpers', async () =>
 
 test('preload uses the current release fallback when version inputs are unavailable', async () => {
   const harness = await createPreloadHarness({ npmPackageVersion: null, processArgv: [] })
-  assert.equal(harness.addom._version, '0.1.0-alpha')
+  assert.equal(harness.addom._version, '0.1.1-alpha')
 })
 
 test('preload resolves app version from additional process arguments in sandbox-safe mode', async () => {
@@ -294,6 +294,8 @@ test('preload bridge methods invoke only on versioned channels', async () => {
   await addom.openaiMcp.deleteServer('docs')
   await addom.openaiMcp.setServerSecret('docs', { type: 'bearer', bearerToken: 'token' })
   await addom.openaiMcp.testServer('docs')
+  await addom.documents.revealManagedPlan({ projectRoot: 'C:\\repo', threadId: 'thread-1', planId: 'plan-1' })
+  await addom.documents.saveManagedPlanCopy({ projectRoot: 'C:\\repo', threadId: 'thread-1', planId: 'plan-1', expectedRevision: 4 })
   await addom.settings.detectInstallSandboxBackend({ mode: 'strict' })
   await addom.settings.getAdvancedConfigDiagnostics()
   await addom.settings.reloadAdvancedConfig()
@@ -326,6 +328,8 @@ test('preload bridge methods invoke only on versioned channels', async () => {
   assert.match(invokedChannels.join('|'), /v1:workspace:list-projects/)
   assert.match(invokedChannels.join('|'), /v1:documents:read/)
   assert.match(invokedChannels.join('|'), /v1:documents:reveal/)
+  assert.match(invokedChannels.join('|'), /v1:documents:reveal-managed-plan/)
+  assert.match(invokedChannels.join('|'), /v1:documents:save-managed-plan-copy/)
   assert.match(invokedChannels.join('|'), /v1:documents:answer-plan-direction/)
   assert.match(invokedChannels.join('|'), /v1:documents:change-plan-direction/)
   assert.match(invokedChannels.join('|'), /v1:documents:retry-plan-direction/)

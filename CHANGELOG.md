@@ -4,6 +4,13 @@ This changelog is maintained going forward from the current repository baseline.
 
 ## Unreleased
 
+## 0.1.1-alpha
+
+- Added managed-plan reveal and save-copy actions with revision-safe document handling.
+- Improved plan direction controls, companion layout, and project/thread entry behavior.
+- Ordered provider settings by the primary product routes: OpenAI, Cursor, OpenRouter, Anthropic, Gemini, DeepSeek, and xAI Grok.
+- Added focused coverage for plan workflows, initial thread creation, provider ordering, and preload contracts.
+
 ## 0.1.0-alpha
 
 - Reworked public setup, contribution, privacy, provider, and platform guidance against the current application.

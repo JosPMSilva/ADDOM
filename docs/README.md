@@ -1,6 +1,6 @@
 # ADDOM Documentation
 
-The guides in this directory describe the current `0.1.0-alpha` release. Start with the setup path, then use the task guides and references for the surface you are working with.
+The guides in this directory describe the current `0.1.1-alpha` release. Start with the setup path, then use the task guides and references for the surface you are working with.
 
 ## Start Here
 

@@ -104,6 +104,8 @@ export default function PlanDirectionCard({
   const [drafts, setDrafts] = React.useState(() => createPlanDirectionDrafts(questions))
   const [feedbackOpen, setFeedbackOpen] = React.useState(false)
   const [feedback, setFeedback] = React.useState('')
+  const [feedbackBusy, setFeedbackBusy] = React.useState(false)
+  const feedbackPendingRef = React.useRef(false)
   const pointerStart = React.useRef(null)
   const question = questions[index] || null
   const draft = question ? drafts[question.id] : null
@@ -141,6 +143,20 @@ export default function PlanDirectionCard({
   const setDraft = (next) => {
     if (!question) return
     setDrafts((current) => ({ ...current, [question.id]: next }))
+  }
+  const submitDirection = async () => {
+    if (disabled || feedbackPendingRef.current || !feedback.trim()) return
+    feedbackPendingRef.current = true
+    setFeedbackBusy(true)
+    try {
+      if (await onChangeDirection(feedback.trim()) === true) {
+        setFeedback('')
+        setFeedbackOpen(false)
+      }
+    } finally {
+      feedbackPendingRef.current = false
+      setFeedbackBusy(false)
+    }
   }
 
   return <PromptSurface
@@ -242,6 +258,7 @@ export default function PlanDirectionCard({
         <textarea
           value={feedback}
           onChange={(event) => setFeedback(event.target.value)}
+          disabled={disabled || feedbackBusy}
           rows={2}
           autoFocus
           aria-label={t('core:chat.planDirection.changeFeedback')}
@@ -249,10 +266,10 @@ export default function PlanDirectionCard({
           className="w-full resize-y rounded bg-surface px-2.5 py-2 text-xs text-text-primary outline-none focus-visible:bg-surface-panel-alt"
         />
         <div className="flex gap-2">
-          <ActionButton size="sm" disabled={disabled || !feedback.trim()} onClick={() => onChangeDirection(feedback.trim())}>
+          <ActionButton size="sm" disabled={disabled || feedbackBusy || !feedback.trim()} onClick={submitDirection}>
             {t('core:chat.planDirection.updateDirection')}
           </ActionButton>
-          <ActionButton size="sm" disabled={disabled} onClick={() => { setFeedbackOpen(false); setFeedback('') }}>
+          <ActionButton size="sm" disabled={disabled || feedbackBusy} onClick={() => { setFeedbackOpen(false); setFeedback('') }}>
             {t('core:common.cancel')}
           </ActionButton>
         </div>

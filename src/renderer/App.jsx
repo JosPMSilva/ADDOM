@@ -291,7 +291,7 @@ export default function App() {
     }
     const folder = await openFolder()
     return folder
-      ? requestWorkspaceTarget({ projectPath: folder, createThread: true })
+      ? requestWorkspaceTarget({ projectPath: folder })
       : null
   }, [requestWorkspaceTarget])
 

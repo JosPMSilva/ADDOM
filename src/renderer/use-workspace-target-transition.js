@@ -22,19 +22,7 @@ export default function useWorkspaceTargetTransition({ onTargetActivated } = {})
       if (target.projectPath) {
         const opened = await workspace.openProjectPath(target.projectPath)
         if (!opened?.project) return null
-        const thread = target.createThread
-          ? await useWorkspaceStore.getState().createThread()
-          : opened.activeThread
-        if (target.createThread && !thread) {
-          try {
-            await window.addom.workspace.clearActiveProject({ notifyRenderer: false })
-          } catch {
-            // Renderer restoration must not depend on best-effort backend rollback.
-          }
-          useWorkspaceStore.getState().leaveToProjectEntry()
-          return null
-        }
-        result = thread ? { project: opened.project, thread, created: target.createThread } : null
+        result = opened.activeThread ? { project: opened.project, thread: opened.activeThread } : null
       } else {
         result = await workspace.activateWorkspaceTarget(target)
       }

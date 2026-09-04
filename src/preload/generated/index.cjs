@@ -980,7 +980,7 @@ function resolveAppVersion() {
   if (envVersion) return envVersion
   const argvVersion = readVersionFromProcessArgs()
   if (argvVersion) return argvVersion
-  return '0.1.0-alpha'
+  return '0.1.1-alpha'
 }
 
 function resolveInitialAppearance() {
@@ -1582,6 +1582,17 @@ function createDocumentsApi({ invokeVersioned, asTrimmedString, asPlainObject })
       projectRoot: asTrimmedString(projectRoot),
       threadId: asTrimmedString(threadId),
       planId: asTrimmedString(planId),
+    }),
+    revealManagedPlan: ({ projectRoot, threadId, planId } = {}) => invokeVersioned('documents:reveal-managed-plan', {
+      projectRoot: asTrimmedString(projectRoot),
+      threadId: asTrimmedString(threadId),
+      planId: asTrimmedString(planId),
+    }),
+    saveManagedPlanCopy: ({ projectRoot, threadId, planId, expectedRevision } = {}) => invokeVersioned('documents:save-managed-plan-copy', {
+      projectRoot: asTrimmedString(projectRoot),
+      threadId: asTrimmedString(threadId),
+      planId: asTrimmedString(planId),
+      expectedRevision: Number.isInteger(expectedRevision) ? expectedRevision : -1,
     }),
     addPlanReviewChange: ({ projectRoot, threadId, planId, headingAnchor, blockId, blockKind, blockText, instruction, expectedRevision } = {}) => invokeVersioned('documents:add-plan-review-change', {
       projectRoot: asTrimmedString(projectRoot),

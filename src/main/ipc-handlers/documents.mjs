@@ -17,15 +17,26 @@ import {
   selectPlanAuthoringProfile,
 } from '../chat/plan-runtime-state.mjs'
 import { migrateLegacyRendererPlanState } from '../chat/plan-runtime-legacy-migration.mjs'
+import { revealManagedPlan, saveManagedPlanCopy } from '../documents/managed-plan-file-actions.mjs'
 
-const { ipcMain, shell } = electron
+const { ipcMain, shell, dialog, BrowserWindow } = electron
 
 export function registerDocumentHandlers({
   ipcMain: ipcMainImpl = ipcMain,
   listProjects,
   showItemInFolder = (targetPath) => shell.showItemInFolder(targetPath),
+  showSaveDialog = (event, options) => {
+    const parent = BrowserWindow.fromWebContents(event.sender)
+    return parent ? dialog.showSaveDialog(parent, options) : dialog.showSaveDialog(options)
+  },
 } = {}) {
   const deps = { listProjects, showItemInFolder }
+  handleVersioned(ipcMainImpl, 'documents:reveal-managed-plan', (_event, payload = {}) => (
+    revealManagedPlan(payload, { showItemInFolder })
+  ))
+  handleVersioned(ipcMainImpl, 'documents:save-managed-plan-copy', (event, payload = {}) => (
+    saveManagedPlanCopy(payload, { showSaveDialog: (options) => showSaveDialog(event, options) })
+  ))
   handleVersioned(ipcMainImpl, 'documents:read', (_event, payload = {}) => (
     readProjectDocument(payload, deps)
   ))

@@ -136,7 +136,7 @@ export default function ChatPanelComposerArea({
   }, [activeThreadId, onPlanLifecycleAction, pendingPlanDirection, setPendingPlanDirection, t])
   const changePlanDirection = React.useCallback(async (feedback) => {
     const plan = pendingPlanDirection
-    if (!plan?.planId || !plan?.project || !activeThreadId) return
+    if (!plan?.planId || !plan?.project || !activeThreadId) return false
     setPlanDirectionError('')
     try {
       const result = await window?.addom?.documents?.changePlanDirection?.({
@@ -152,8 +152,10 @@ export default function ChatPanelComposerArea({
         expectedRevision: result.plan.revision,
       })
       if (!started) throw new Error(t('core:chat.planDirection.errors.changeFailed'))
+      return true
     } catch (error) {
       setPlanDirectionError(String(error?.message || t('core:chat.planDirection.errors.changeFailed')))
+      return false
     }
   }, [activeThreadId, onPlanLifecycleAction, pendingPlanDirection, setPendingPlanDirection, t])
   const retryPlanDirection = React.useCallback(async () => {
@@ -487,6 +489,7 @@ export default function ChatPanelComposerArea({
           />
         )}
         {pendingPlanDirection ? <PlanDirectionCard
+          key={`${activeThreadId}:${pendingPlanDirection.planId}`}
           plan={pendingPlanDirection}
           disabled={disabled || isStreaming}
           error={planDirectionError}

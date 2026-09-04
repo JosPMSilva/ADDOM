@@ -22,8 +22,16 @@ import FieldRow from '../ui/FieldRow.jsx'
 import { useSettingsTranslator } from './settings-panel-ui-utils.mjs'
 
 const SHOW_DEV_SETTINGS_SURFACES = import.meta.env.DEV
-const OPENAI_PROVIDER_ID = 'openai'
 const OPENROUTER_PROVIDER_ID = 'openrouter'
+const PROVIDER_SORT_ORDER = new Map([
+  ['openai', 0],
+  ['cursor', 1],
+  ['openrouter', 2],
+  ['anthropic', 3],
+  ['gemini', 4],
+  ['deepseek', 5],
+  ['grok', 6],
+])
 const LOCAL_PROVIDER_NAMES = ['ollama', 'vm studio', 'lm studio', 'lmstudio']
 
 function isLocalProvider(provider = {}) {
@@ -33,9 +41,9 @@ function isLocalProvider(provider = {}) {
 
 function getProviderSortRank(provider = {}) {
   const providerId = String(provider?.id || '').trim().toLowerCase()
-  if (providerId === OPENAI_PROVIDER_ID) return 0
-  if (isLocalProvider(provider)) return 2
-  return 1
+  if (PROVIDER_SORT_ORDER.has(providerId)) return PROVIDER_SORT_ORDER.get(providerId)
+  if (isLocalProvider(provider)) return 101
+  return 100
 }
 
 function OpenRouterCatalogManageAction({ onOpen = () => {} }) {
