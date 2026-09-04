@@ -141,7 +141,7 @@
     "globals": "^15.15.0",
     "highlight.js": "^11.11.1",
     "i18next": "^26.0.3",
-    "i18next-icu": "^2.4.3",
+    "i18next-icu": "^2.4.4",
     "monaco-editor": "^0.56.0",
     "node-pty": "^1.1.0",
     "openai": "^6.25.0",
