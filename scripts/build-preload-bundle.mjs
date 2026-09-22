@@ -61,7 +61,7 @@ function buildBundle() {
     '  __preloadModules[id](module, module.exports)',
     '  return module.exports',
     '}',
-    bundledEntry,
+    bundledEntry.trimEnd(),
     '',
   ].join('\n')
 }
