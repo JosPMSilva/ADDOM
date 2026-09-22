@@ -28,13 +28,19 @@ function truncateLines(value = '', maxLines = MAX_OUTPUT_LINES) {
   return `${truncateText(kept)}\n… ${hidden} more line${hidden === 1 ? '' : 's'}`
 }
 
-function pushSection(sections, { key, label, value, mono = true } = {}) {
+function pushSection(sections, {
+  key,
+  label,
+  value,
+  mono = true,
+  truncate = true,
+} = {}) {
   const text = normalizeText(value)
   if (!text || isPlaceholderStatusText(text)) return
   sections.push({
     key,
     label,
-    value: mono ? truncateLines(text) : truncateText(text),
+    value: truncate ? (mono ? truncateLines(text) : truncateText(text)) : text,
     mono,
   })
 }
@@ -50,7 +56,12 @@ export function buildExecutionEvidenceSections({
   const outputs = Array.isArray(evidence?.outputs) ? evidence.outputs : []
 
   if (kind === 'command') {
-    pushSection(sections, { key: 'command', label: 'Command', value: input })
+    pushSection(sections, {
+      key: 'command',
+      label: 'Command',
+      value: input,
+      truncate: false,
+    })
   } else if (kind.startsWith('file_')) {
     pushSection(sections, { key: 'path', label: 'Path', value: input })
   } else if (kind === 'search') {
@@ -71,16 +82,48 @@ export function buildExecutionEvidenceSections({
     })
   }
 
+  if (evidence?.outputTruncated === true) {
+    pushSection(sections, {
+      key: 'output-retention',
+      label: 'Output retention',
+      value: 'Earlier output was omitted from this bounded preview.',
+      mono: false,
+    })
+  }
+
   if (result && result !== input) {
     pushSection(sections, { key: 'result', label: 'Result', value: result })
+  }
+
+  if (
+    kind === 'command'
+    && evidence?.exitCode !== null
+    && evidence?.exitCode !== undefined
+    && evidence?.exitCode !== ''
+    && Number.isFinite(Number(evidence.exitCode))
+  ) {
+    pushSection(sections, {
+      key: 'exit-code',
+      label: 'Exit code',
+      value: String(Number(evidence.exitCode)),
+      mono: false,
+    })
   }
 
   const startedAt = Number(evidence?.startedAt || 0) || 0
   const completedAt = Number(evidence?.completedAt || 0) || 0
   const hasPrimaryEvidence = sections.length > 0
   // Duration alone is not enough to make a row expandable.
-  if (hasPrimaryEvidence && startedAt > 0 && completedAt > startedAt) {
-    const durationMs = completedAt - startedAt
+  const explicitDurationMs = (
+    evidence?.durationMs !== null
+    && evidence?.durationMs !== undefined
+    && evidence?.durationMs !== ''
+    && Number.isFinite(Number(evidence.durationMs))
+  ) ? Number(evidence.durationMs) : 0
+  const durationMs = explicitDurationMs > 0
+    ? explicitDurationMs
+    : (startedAt > 0 && completedAt > startedAt ? completedAt - startedAt : 0)
+  if (hasPrimaryEvidence && durationMs > 0) {
     const durationLabel = durationMs >= 1000
       ? `${(durationMs / 1000).toFixed(durationMs >= 10_000 ? 0 : 1)}s`
       : `${durationMs}ms`

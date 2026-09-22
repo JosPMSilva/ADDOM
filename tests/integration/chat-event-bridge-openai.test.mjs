@@ -137,6 +137,46 @@ test('native command output uses the canonical command presentation instead of r
   assert.doesNotMatch(activity.detail, /aggregatedOutput|commandExecution/)
 })
 
+test('provider command completion flushes buffered output before settling the tool row', () => {
+  const handlers = new Map()
+  const calls = []
+  registerOpenAIEventBridgeHandlers({
+    safeSub: (_eventKey, handler, name) => {
+      handlers.set(name, handler)
+      return () => {}
+    },
+    chatApi: {},
+    useChatStore: {
+      getState: () => ({
+        pushToolActivity: (activity) => calls.push(['activity', activity]),
+      }),
+    },
+    flushToolOutputBuffersByStep: (identity) => calls.push(['flush', identity]),
+  })
+
+  handlers.get('onProviderToolOutput')({
+    threadId: 'thread-command',
+    turnId: 'turn-command',
+    toolCallId: 'command-1',
+    toolName: 'command_execution',
+    output: {
+      type: 'commandExecution',
+      command: 'npm test',
+      status: 'completed',
+      aggregatedOutput: 'Tests passed.',
+      exitCode: 0,
+    },
+  })
+
+  assert.deepEqual(calls.map(([type]) => type), ['flush', 'activity'])
+  assert.deepEqual(calls[0][1], {
+    turnId: 'turn-command',
+    stepId: 'command-1',
+  })
+  assert.equal(calls[1][1].eventKind, 'provider_tool_output')
+  assert.equal(calls[1][1].toolName, 'run_command')
+})
+
 test('unknown recoverable account activity remains diagnostic-only', () => {
   const rows = buildOpenAIAccountNativeActivityRows({
     threadId: 'thread-unknown',
@@ -632,10 +672,12 @@ test('openai continuity status emits native Codex account activity summaries int
         actionTypes: ['search'],
       },
       commandExecution: {
-        itemIds: ['cmd_native_1'],
-        commands: ['git status'],
+        itemIds: ['cmd_native_1', 'cmd_native_2', 'cmd_native_3'],
+        completedItemIds: ['cmd_native_1', 'cmd_native_2'],
+        failedItemIds: ['cmd_native_3'],
+        commands: ['git status', 'npm test', 'Get-Content missing.mjs'],
         cwds: ['C:/repo'],
-        statuses: ['completed'],
+        statuses: ['completed', 'failed'],
         aggregatedOutput: 'On branch main',
       },
       fileChange: {
@@ -691,7 +733,11 @@ test('openai continuity status emits native Codex account activity summaries int
   assert.equal(activities[1].eventKind, 'openai_account_native_web_search')
   assert.match(String(activities[1].detail || ''), /queries: Codex app-server items/)
   assert.equal(activities[2].eventKind, 'openai_account_native_command_execution')
-  assert.match(String(activities[2].detail || ''), /output: On branch main/)
+  assert.equal(activities[2].type, 'result')
+  assert.equal(activities[2].toolName, 'command_summary')
+  assert.equal(activities[2].isError, false)
+  assert.equal(activities[2].label, '3 commands · 2 completed · 1 failed')
+  assert.equal(activities[2].detail, '3 commands · 2 completed · 1 failed')
   assert.equal(activities[3].eventKind, 'openai_account_native_file_change')
   assert.equal(Array.isArray(activities[3].fileChanges), true)
   assert.equal(activities[3].fileChanges.length, 2)

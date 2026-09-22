@@ -13,7 +13,7 @@ test('gemini family catalog resolution keeps the curated default and generated p
   const model = getCatalogModel(provider, 'gemini-2.5-pro')
 
   assert.ok(provider)
-  assert.equal(provider.defaultModel, 'gemini-3.5-flash')
+  assert.equal(provider.defaultModel, 'gemini-3.8-flash')
   assert.ok(model)
   assert.equal(model.capabilities.reasoning.supported, true)
   assert.equal(model.provenance.source, 'models.dev')
@@ -72,6 +72,26 @@ test('gemini 3.1 Pro omits the unsupported minimal thinking level', () => {
 
   assert.equal(pro.registryModel?.variants?.some((variant) => variant.id === 'minimal'), false)
   assert.equal(pro.registryModel?.variants?.some((variant) => variant.id === 'low'), true)
+})
+
+test('Gemini 3.8 Flash rejects minimal while 3.5 Flash-Lite defaults to it', () => {
+  const flash38 = resolveProviderModelTransform({
+    providerId: 'gemini',
+    modelId: 'gemini-3.8-flash',
+  })
+  const flashLite35 = resolveProviderModelTransform({
+    providerId: 'gemini',
+    modelId: 'gemini-3.5-flash-lite',
+  })
+
+  assert.deepEqual(flash38.registryModel?.variants?.map((variant) => variant.id), ['low', 'medium', 'high'])
+  assert.deepEqual(flash38.buildProviderOptions(), {
+    google: { thinkingConfig: { includeThoughts: true, thinkingLevel: 'medium' } },
+  })
+  assert.deepEqual(flashLite35.registryModel?.variants?.map((variant) => variant.id), ['minimal', 'low', 'medium', 'high'])
+  assert.deepEqual(flashLite35.buildProviderOptions(), {
+    google: { thinkingConfig: { includeThoughts: true, thinkingLevel: 'minimal' } },
+  })
 })
 
 test('gemini 2.5 variants change thinking effort rather than only summary visibility', () => {

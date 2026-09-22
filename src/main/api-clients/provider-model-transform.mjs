@@ -1,5 +1,6 @@
 import { normalizeAssistantPhase } from '../../common/chat/assistant-phase.mjs'
 import { resolveRegistryModel } from '../../common/api-clients/model-registry.mjs'
+import { resolveProviderProcessingMode } from '../../common/api-clients/provider-processing-mode.mjs'
 import {
   resolveModelAttachmentSupport,
 } from '../../common/attachments/attachment-support-policy.mjs'
@@ -9,7 +10,7 @@ import { normalizeGeminiToolSchemas } from './gemini-tool-schema-normalization.m
 import { resolveProviderPromptBudgetProfile } from '../chat/provider-prompt-budget-profile.mjs'
 import {
   annotateAnthropicPromptCacheControl,
-  adaptNormalizedToolResultMessage,
+  adaptNormalizedToolResultMessages,
   applyMistralSequenceShim,
   downgradeUnsupportedUserAttachments,
   filterAnthropicEmptyMessageParts,
@@ -173,6 +174,7 @@ function resolveMetadataDrivenOptions({
 
   if (provider === 'anthropic') {
     Object.assign(options, buildAnthropicProviderOptions({
+      modelId,
       runtimeSettings,
       requestContext,
       registryModel,
@@ -207,6 +209,7 @@ function resolveAnthropicRequestSettingValue(requestContext = {}, runtimeSetting
 }
 
 function buildAnthropicProviderOptions({
+  modelId = '',
   runtimeSettings = null,
   requestContext = {},
   registryModel = null,
@@ -239,6 +242,13 @@ function buildAnthropicProviderOptions({
   const supportsAnthropicThinkingType = reasoningControls.includes('anthropic:thinking.type')
   const supportsAnthropicThinkingDisable = reasoningControls.includes('anthropic:thinking.disable')
   const supportsAnthropicEffort = reasoningControls.includes('anthropic:effort')
+  const processing = resolveProviderProcessingMode({
+    providerId: 'anthropic',
+    modelId,
+    authMethod: 'api_key',
+    providerConfigured: true,
+    requestedMode: requestContext?.processingMode,
+  })
 
   if (
     supportsAnthropicThinkingType
@@ -254,6 +264,10 @@ function buildAnthropicProviderOptions({
 
   if (supportsAnthropicEffort && normalizedEffort && normalizedEffort !== 'provider_default') {
     options.effort = normalizedEffort
+  }
+
+  if (processing.request?.speed === 'fast') {
+    options.speed = 'fast'
   }
 
   if (useContextManagementCompaction) {
@@ -439,6 +453,12 @@ function normalizeMessagesWithTransform({
   }
 
   const normalized = []
+  let pendingToolResultImageContent = []
+  const flushPendingToolResultImages = () => {
+    if (pendingToolResultImageContent.length === 0) return
+    normalized.push({ role: 'user', content: pendingToolResultImageContent })
+    pendingToolResultImageContent = []
+  }
   const mistralIdMap = provider === 'mistral' ? new Map() : null
   for (const rawMessage of rows) {
     const nextMessage = normalizeSingleMessage(rawMessage)
@@ -448,8 +468,25 @@ function normalizeMessagesWithTransform({
       message: nextMessage,
       mistralIdMap,
     })
-    normalized.push(adaptNormalizedToolResultMessage(providerNormalizedMessage))
+    if (String(providerNormalizedMessage?.role || '').trim().toLowerCase() !== 'tool') {
+      flushPendingToolResultImages()
+    }
+    const adaptedMessages = adaptNormalizedToolResultMessages(providerNormalizedMessage, {
+      supportsVision: attachment?.supportsVision === true,
+      separateToolResultImages: (
+        attachment?.supportsVision === true
+        && (provider === 'grok' || provider === 'openrouter')
+      ),
+    })
+    normalized.push(adaptedMessages[0])
+    if (adaptedMessages[1]?.role === 'user' && Array.isArray(adaptedMessages[1]?.content)) {
+      if (pendingToolResultImageContent.length === 0) {
+        pendingToolResultImageContent.push(adaptedMessages[1].content[0])
+      }
+      pendingToolResultImageContent.push(...adaptedMessages[1].content.slice(1))
+    }
   }
+  flushPendingToolResultImages()
 
   const providerNormalizedMessages = provider === 'anthropic'
     ? annotateAnthropicPromptCacheControl(normalized)

@@ -1960,6 +1960,8 @@
         "activity": "Aktywność serwera aplikacji Codex",
         "webSearch": "Wyszukiwanie internetowe serwera aplikacji Codex",
         "command": "Komenda serwera aplikacji Codex: {{commandName}}",
+        "commandSummary": "{{total}} poleceń · {{completed}} ukończono · {{failed}} nieudanych",
+        "commandSummaryPending": "{{total}} poleceń · szczegóły wyników niedostępne",
         "fileChangeOne": "Zmiana pliku serwera aplikacji Codex",
         "fileChangeOther": "Zmiany plików serwera aplikacji Codex",
         "mcpTool": "Codex serwer aplikacji MCP narzędzie: {{toolName}}",

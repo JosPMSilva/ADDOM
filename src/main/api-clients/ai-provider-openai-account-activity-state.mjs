@@ -4,6 +4,9 @@ import {
   normalizeId,
   normalizeObject,
 } from './ai-provider-openai-account-shared.mjs'
+import { syncAggregatedText, trackCommandExecutionOutcome } from './ai-provider-openai-account-activity-utils.mjs'
+
+export { syncAggregatedText } from './ai-provider-openai-account-activity-utils.mjs'
 
 const ACCOUNT_NATIVE_PROVIDER_TOOL_NAMES = Object.freeze({
   plan: 'plan',
@@ -76,6 +79,8 @@ export function createAccountNativeActivityState() {
     },
     commandExecution: {
       ...createAccountNativeActivityBucket(),
+      completedItemIds: [],
+      failedItemIds: [],
       commands: [],
       cwds: [],
       exitCodes: [],
@@ -237,6 +242,8 @@ export function cloneAccountNativeActivityState(state = null) {
     },
     commandExecution: {
       ...commandExecution,
+      completedItemIds: normalizeStringList(source.commandExecution?.completedItemIds),
+      failedItemIds: normalizeStringList(source.commandExecution?.failedItemIds),
       commands: normalizeStringList(source.commandExecution?.commands),
       cwds: normalizeStringList(source.commandExecution?.cwds),
       exitCodes: normalizeNumberList(source.commandExecution?.exitCodes),
@@ -641,6 +648,7 @@ export function trackAccountNativeActivityItem(state = null, item = null, phase 
     pushUniqueValue(bucket.cwds, item?.cwd)
     const exitCode = Number(item?.exitCode)
     if (Number.isFinite(exitCode) && !bucket.exitCodes.includes(exitCode)) bucket.exitCodes.push(exitCode)
+    trackCommandExecutionOutcome(bucket, { itemId, status, exitCode, phase })
     const durationMs = Number(item?.durationMs)
     if (Number.isFinite(durationMs) && !bucket.durationsMs.includes(durationMs)) bucket.durationsMs.push(durationMs)
     const commandActions = Array.isArray(item?.commandActions) ? item.commandActions : []
@@ -783,17 +791,4 @@ export function trackAccountNativeActivityDelta(state = null, {
   }
 
   return target
-}
-
-export function syncAggregatedText(currentValue = '', nextValue = '', emitChunk = null) {
-  const current = String(currentValue || '')
-  const next = String(nextValue || '')
-  if (!next) return current
-  if (next === current) return current
-  if (next.startsWith(current)) {
-    const delta = next.slice(current.length)
-    if (delta && typeof emitChunk === 'function') emitChunk(delta)
-    return next
-  }
-  return next
 }

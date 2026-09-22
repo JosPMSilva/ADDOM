@@ -46,21 +46,29 @@ function expandRequiredOnlyObjectBranch(schema, branch) {
   const isObjectSchema = type.includes('object') || isPlainObject(schema.properties)
   if (!isObjectSchema || !isPlainObject(schema.properties)) return branch
 
-  const properties = {}
-  const required = []
-  for (const propertyName of branch.required) {
-    if (!Object.prototype.hasOwnProperty.call(schema.properties, propertyName)) continue
-    properties[propertyName] = schema.properties[propertyName]
-    required.push(propertyName)
-  }
+  const parentRequired = new Set(Array.isArray(schema.required) ? schema.required : [])
+  const branchRequired = new Set(
+    branch.required.filter((propertyName) => (
+      Object.prototype.hasOwnProperty.call(schema.properties, propertyName)
+    )),
+  )
+  if (branchRequired.size === 0) return branch
 
-  if (required.length === 0) return branch
+  const properties = Object.fromEntries(
+    Object.entries(schema.properties).map(([propertyName, propertySchema]) => [
+      propertyName,
+      parentRequired.has(propertyName) || branchRequired.has(propertyName)
+        ? propertySchema
+        : makeSchemaNullable(propertySchema),
+    ]),
+  )
 
   return {
     ...branch,
     type: 'object',
     properties,
-    required,
+    required: Object.keys(properties),
+    additionalProperties: false,
   }
 }
 

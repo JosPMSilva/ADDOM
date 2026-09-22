@@ -1960,6 +1960,8 @@
         "activity": "Codex App-Server-Aktivität",
         "webSearch": "Codex App-Server-Websuche",
         "command": "Codex App-Server-Befehl: {{commandName}}",
+        "commandSummary": "{{total}} Befehle · {{completed}} abgeschlossen · {{failed}} fehlgeschlagen",
+        "commandSummaryPending": "{{total}} Befehle · Ergebnisdetails nicht verfügbar",
         "fileChangeOne": "Codex App-Server-Dateiänderung",
         "fileChangeOther": "Codex App-Server-Dateiänderungen",
         "mcpTool": "Codex App-Server MCP Tool: {{toolName}}",

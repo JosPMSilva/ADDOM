@@ -94,6 +94,22 @@ test('anthropic family transform merges runtime reasoning effort into Anthropic 
   })
 })
 
+test('anthropic family transform sends Fast only for eligible Opus models', () => {
+  for (const modelId of ['claude-opus-5', 'claude-opus-4-8']) {
+    const transform = resolveProviderModelTransform({ providerId: 'anthropic', modelId })
+    const config = transform.resolveInvocationConfig({
+      requestContext: { processingMode: 'fast' },
+    })
+    assert.equal(config.providerOptions?.anthropic?.speed, 'fast')
+  }
+
+  const fable = resolveProviderModelTransform({
+    providerId: 'anthropic',
+    modelId: 'claude-fable-5-1',
+  }).resolveInvocationConfig({ requestContext: { processingMode: 'fast' } })
+  assert.equal(fable.providerOptions?.anthropic?.speed, undefined)
+})
+
 test('anthropic provider-default thinking models omit unnecessary thinking configuration', () => {
   const fableTransform = resolveProviderModelTransform({
     providerId: 'anthropic',
@@ -105,7 +121,7 @@ test('anthropic provider-default thinking models omit unnecessary thinking confi
   })
 
   assert.deepEqual(fableTransform.buildProviderOptions(), {
-    anthropic: { effort: 'high' },
+    anthropic: { thinking: { type: 'adaptive' }, effort: 'high' },
   })
   assert.deepEqual(transform.buildProviderOptions(), {
     anthropic: { effort: 'high' },

@@ -5,6 +5,7 @@ import {
   TIMELINE_VIRTUALIZATION_MAX_MOUNTED_BLOCKS,
   buildTimelineBlockLayout,
   buildTimelineVirtualizationState,
+  createTimelineAnchorCorrectionScheduler,
   pruneTimelineHeightCache,
   resolveTimelineAnchorCorrection,
 } from '../../src/renderer/components/chat/chat-timeline-virtualization.mjs'
@@ -114,6 +115,62 @@ test('resolveTimelineAnchorCorrection adjusts only measurements above the visibl
     previousSize: 204,
     nextSize: 128,
   }), 0)
+})
+
+test('timeline anchor corrections accumulate until the scheduled frame', () => {
+  const callbacks = new Map()
+  const applied = []
+  let nextFrameId = 1
+  const scheduler = createTimelineAnchorCorrectionScheduler({
+    requestFrame(callback) {
+      const frameId = nextFrameId
+      nextFrameId += 1
+      callbacks.set(frameId, callback)
+      return frameId
+    },
+    cancelFrame(frameId) {
+      callbacks.delete(frameId)
+    },
+    applyCorrection(correction) {
+      applied.push(correction)
+    },
+  })
+
+  scheduler.schedule(20)
+  scheduler.schedule(40)
+  assert.equal(callbacks.size, 1)
+
+  const [[frameId, callback]] = callbacks.entries()
+  callbacks.delete(frameId)
+  callback()
+
+  assert.deepEqual(applied, [60])
+})
+
+test('timeline anchor correction yields to scrolling before the frame is applied', () => {
+  const callbacks = new Map()
+  const applied = []
+  let nextFrameId = 1
+  const scheduler = createTimelineAnchorCorrectionScheduler({
+    requestFrame(callback) {
+      const frameId = nextFrameId
+      nextFrameId += 1
+      callbacks.set(frameId, callback)
+      return frameId
+    },
+    cancelFrame(frameId) {
+      callbacks.delete(frameId)
+    },
+    applyCorrection(correction) {
+      applied.push(correction)
+    },
+  })
+
+  scheduler.schedule(32)
+  scheduler.cancelPending()
+
+  assert.equal(callbacks.size, 0)
+  assert.deepEqual(applied, [])
 })
 
 test('independent project caches cannot leak measurements into each other', () => {

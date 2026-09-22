@@ -322,6 +322,7 @@ const openaiProviderAdapter = {
         onReasoning: args?.onReasoning,
         onProviderToolStatus: args?.options?.onProviderToolStatus,
         onProviderToolOutput: args?.options?.onProviderToolOutput,
+        onProviderToolOutputChunk: args?.options?.onProviderToolOutputChunk,
         onProviderToolBoundary: args?.options?.onProviderToolBoundary,
         onContextUsageUpdate: args?.options?.onContextUsageUpdate,
         onCompactionEvent: args?.options?.onCompactionEvent,

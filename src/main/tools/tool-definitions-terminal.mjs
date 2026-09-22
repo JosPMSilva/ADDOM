@@ -109,10 +109,12 @@ export const TERMINAL_SESSION_TOOLS = [
         },
         pattern: {
           type: 'string',
+          minLength: 1,
           description: 'Regular expression source to match against the bounded terminal tail.',
         },
         text: {
           type: 'string',
+          minLength: 1,
           description: 'Literal text to wait for in the bounded terminal tail.',
         },
         sinceSequence: {

@@ -41,6 +41,7 @@ export function createProviderTextChunkRouter({
       executionChunks.write('execution_commentary_chunk', {
         content: commentaryPhase.currentBuffer, phase: payload.phase,
         sequence: commentaryChunkSequence, emittedAt, reasoningSegment: commentaryPhase.segment,
+        flushImmediately: payload.boundaryBefore === true,
       })
       payload.chunk = bounded.delta
       payload.reasoningSegment = commentaryPhase.segment

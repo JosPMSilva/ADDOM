@@ -19,8 +19,23 @@ function codeLanguage(children) {
   return String(className.match(/language-([a-z0-9_+.-]+)/i)?.[1] || 'text').toLowerCase()
 }
 
-function FinalAnswerLink({ href = '', children = null, currentFilePath = '' }) {
+function FinalAnswerLink({ href = '', children = null, currentFilePath = '', ...props }) {
   const label = nodeText(children).trim()
+  const isFootnoteLink = props['data-footnote-ref'] != null || props['data-footnote-backref'] != null
+  if (isFootnoteLink && /^#[a-z0-9_:.~-]+$/i.test(String(href || ''))) {
+    const domProps = { ...props }
+    delete domProps.node
+    const className = [
+      'final-answer-link text-accent underline decoration-current/50 underline-offset-2 hover:text-text-primary',
+      domProps.className,
+    ].filter(Boolean).join(' ')
+    delete domProps.className
+    return (
+      <a href={href} className={className} {...domProps}>
+        {children}
+      </a>
+    )
+  }
   return (
     <ProjectFileReferenceLink
       href={href}
@@ -108,11 +123,19 @@ export function createFinalAnswerMarkdownComponents({
       </button>
     )
   }
-  const heading = (level, node, children) => {
+  const heading = (level, node, children, props = {}) => {
     const Tag = `h${level}`
+    const domProps = { ...props }
+    delete domProps.node
+    const className = [
+      `final-answer-heading final-answer-heading-${level}`,
+      domProps.className,
+    ].filter(Boolean).join(' ')
+    delete domProps.className
     return (
       <Tag
-        className={`final-answer-heading final-answer-heading-${level}`}
+        className={className}
+        {...domProps}
         {...annotationProps(node, 'heading', children)}
       >
         {children}
@@ -160,24 +183,27 @@ export function createFinalAnswerMarkdownComponents({
       )
     },
     ul({ children }) { return <ul className="final-answer-list final-answer-list-unordered">{children}</ul> },
-    ol({ children }) { return <ol className="final-answer-list final-answer-list-ordered">{children}</ol> },
-    li({ node, children }) {
+    ol({ children, start }) {
+      return <ol className="final-answer-list final-answer-list-ordered" start={start}>{children}</ol>
+    },
+    li({ node, children, ...props }) {
+      const className = ['final-answer-list-item', props.className].filter(Boolean).join(' ')
       return (
-        <li className="final-answer-list-item" {...annotationProps(node, 'list-item', children)}>
+        <li {...props} className={className} {...annotationProps(node, 'list-item', children)}>
           {renderFileReferenceText(children, 'list-item')}
           {annotationAction(node, 'list-item', children)}
         </li>
       )
     },
-    h1({ node, children }) { return heading(1, node, children) },
-    h2({ node, children }) { return heading(2, node, children) },
-    h3({ node, children }) { return heading(3, node, children) },
-    h4({ node, children }) { return heading(4, node, children) },
-    h5({ node, children }) { return heading(5, node, children) },
-    h6({ node, children }) { return heading(6, node, children) },
+    h1({ node, children, ...props }) { return heading(1, node, children, props) },
+    h2({ node, children, ...props }) { return heading(2, node, children, props) },
+    h3({ node, children, ...props }) { return heading(3, node, children, props) },
+    h4({ node, children, ...props }) { return heading(4, node, children, props) },
+    h5({ node, children, ...props }) { return heading(5, node, children, props) },
+    h6({ node, children, ...props }) { return heading(6, node, children, props) },
     blockquote({ children }) { return <blockquote className="final-answer-blockquote">{children}</blockquote> },
-    a({ href, children }) {
-      return <FinalAnswerLink href={href} currentFilePath={currentFilePath}>{children}</FinalAnswerLink>
+    a({ href, children, ...props }) {
+      return <FinalAnswerLink href={href} currentFilePath={currentFilePath} {...props}>{children}</FinalAnswerLink>
     },
     img({ src = '', alt = '' }) {
       const artifact = resolveGeneratedArtifactImage(src, generatedArtifacts)

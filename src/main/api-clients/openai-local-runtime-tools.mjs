@@ -51,6 +51,14 @@ async function executeOpenAILocalShell({
   if (!action || String(action.type || '').trim().toLowerCase() !== 'exec') {
     throw new Error('Unsupported OpenAI local_shell action.')
   }
+  if (
+    action.env
+    && typeof action.env === 'object'
+    && !Array.isArray(action.env)
+    && Object.keys(action.env).length > 0
+  ) {
+    throw new Error('Environment overrides are blocked by shared shell policy.')
+  }
   const command = buildCommandString(action.command)
   const cwd = normalizeId(action.workingDirectory) || '.'
   const execResult = await executeTool(
@@ -59,9 +67,6 @@ async function executeOpenAILocalShell({
     {
       command,
       cwd,
-      env: action.env && typeof action.env === 'object' && !Array.isArray(action.env)
-        ? { ...action.env }
-        : undefined,
       timeout_ms: Number(action.timeoutMs || 0) > 0 ? Number(action.timeoutMs) : undefined,
       background: false,
     },

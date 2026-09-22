@@ -149,6 +149,52 @@ test('moonshot runtime streams reasoning before text and requests usage-inclusiv
   }
 })
 
+test('moonshot runtime sends Kimi K3 default max reasoning effort on the wire', async () => {
+  let requestBody = null
+  const server = await startServer(async (req, res) => {
+    requestBody = await readJsonBody(req)
+    res.writeHead(200, {
+      'content-type': 'text/event-stream',
+      'cache-control': 'no-cache',
+      connection: 'keep-alive',
+    })
+    writeSse(res, {
+      id: 'chatcmpl_k3',
+      object: 'chat.completion.chunk',
+      created: 1,
+      model: 'kimi-k3',
+      choices: [{ index: 0, delta: { content: 'Ready' }, finish_reason: null }],
+    })
+    writeSse(res, {
+      id: 'chatcmpl_k3',
+      object: 'chat.completion.chunk',
+      created: 1,
+      model: 'kimi-k3',
+      choices: [{ index: 0, delta: {}, finish_reason: 'stop' }],
+    })
+    res.end('data: [DONE]\n\n')
+  })
+
+  process.env.ADDOM_MOONSHOT_BASE_URL = server.url
+
+  try {
+    await createStreamWithTools(
+      'moonshot',
+      'moonshot-secret',
+      [{ role: 'user', content: 'Say hello.' }],
+      { model: 'kimi-k3', tools: {} },
+      () => {},
+      () => {},
+    )
+
+    assert.equal(requestBody?.model, 'kimi-k3')
+    assert.equal(requestBody?.reasoning_effort, 'max')
+  } finally {
+    await server.close()
+    restoreMoonshotBaseUrl()
+  }
+})
+
 test('moonshot runtime reconstructs streamed tool calls', async () => {
   const server = await startServer(async (req, res) => {
     const url = new URL(req.url, 'http://127.0.0.1')

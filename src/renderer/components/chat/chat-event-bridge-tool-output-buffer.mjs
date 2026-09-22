@@ -1,5 +1,7 @@
 const TOOL_OUTPUT_FLUSH_INTERVAL_MS = 48
-const TOOL_OUTPUT_IMMEDIATE_FLUSH_CHARS = 1600
+const MAX_PENDING_TOOL_OUTPUT_CHARS = 64_000
+const MAX_PENDING_TOOL_OUTPUT_SEGMENTS = 64
+const OMITTED_OUTPUT_MARKER = '[Earlier buffered output omitted]\n'
 
 export function flushMatchingToolOutputBuffers(toolOutputBuffers, flushToolOutputBuffer, {
   threadId = '',
@@ -21,71 +23,100 @@ export function flushMatchingToolOutputBuffers(toolOutputBuffers, flushToolOutpu
   return flushedCount
 }
 
+function trimPendingSegments(buffer) {
+  while (
+    buffer.segments.length > MAX_PENDING_TOOL_OUTPUT_SEGMENTS
+    || (buffer.pendingChars > MAX_PENDING_TOOL_OUTPUT_CHARS && buffer.segments.length > 1)
+  ) {
+    const removed = buffer.segments.shift()
+    buffer.pendingChars -= String(removed?.chunk || '').length
+    buffer.outputOmitted = true
+  }
+
+  if (buffer.pendingChars <= MAX_PENDING_TOOL_OUTPUT_CHARS || buffer.segments.length === 0) return
+  const first = buffer.segments[0]
+  const chunk = String(first?.chunk || '')
+  first.chunk = chunk.slice(-MAX_PENDING_TOOL_OUTPUT_CHARS)
+  buffer.pendingChars = first.chunk.length
+  buffer.outputOmitted = true
+}
+
 export function createToolOutputBufferRuntime({ useChatStore } = {}) {
   const toolOutputBuffers = new Map()
 
-      const flushToolOutputBuffer = (bufferKey) => {
-        const key = String(bufferKey || '').trim()
-        if (!key) return
-        const buffer = toolOutputBuffers.get(key)
-        if (!buffer) return
-        if (buffer.timer) {
-          clearTimeout(buffer.timer)
-          buffer.timer = null
-        }
-        if (!buffer.pendingText) return
-        useChatStore.getState().appendLiveExecutionToolOutput({
-          threadId: buffer.threadId,
-          turnId: buffer.turnId,
-          stepId: buffer.stepId,
-          sequence: buffer.sequence,
-          toolName: buffer.toolName,
-          stream: buffer.stream,
-          chunk: buffer.pendingText,
-          emittedAt: buffer.lastEmittedAt || Date.now(),
-        })
-        buffer.pendingText = ''
-        buffer.lastEmittedAt = 0
-      }
-  
-      const flushToolOutputBuffersByStep = ({ turnId = '', stepId = '' } = {}) => {
-        flushMatchingToolOutputBuffers(toolOutputBuffers, flushToolOutputBuffer, { turnId, stepId })
-      }
-  
-      const queueToolOutputChunk = (payload = {}) => {
-        const turnId = String(payload.turnId || '').trim()
-        const stepId = String(payload.stepId || '').trim()
-        const stream = String(payload.stream || '').trim().toLowerCase() === 'stderr' ? 'stderr' : 'stdout'
-        const chunk = String(payload.chunk ?? '')
-        if (!turnId || !stepId || !chunk) return
-        const key = `${turnId}:${stepId}:${stream}`
-        const existing = toolOutputBuffers.get(key) || {
-          threadId: String(payload.threadId || '').trim(),
-          turnId,
-          stepId,
-          sequence: Number(payload.sequence || 0) || 0,
-          toolName: String(payload.toolName || '').trim(),
-          stream,
-          pendingText: '',
-          lastEmittedAt: 0,
-          timer: null,
-        }
-        existing.threadId = String(payload.threadId || existing.threadId || '').trim()
-        existing.sequence = Number(payload.sequence || existing.sequence || 0) || 0
-        existing.toolName = String(payload.toolName || existing.toolName || '').trim()
-        existing.pendingText += chunk
-        existing.lastEmittedAt = Number(payload.emittedAt || 0) || Date.now()
-        toolOutputBuffers.set(key, existing)
-  
-        if (existing.pendingText.length >= TOOL_OUTPUT_IMMEDIATE_FLUSH_CHARS) {
-          flushToolOutputBuffer(key)
-          return
-        }
-        if (existing.timer) return
-        existing.timer = setTimeout(() => {
-          flushToolOutputBuffer(key)
-        }, TOOL_OUTPUT_FLUSH_INTERVAL_MS)
-      }
+  const flushToolOutputBuffer = (bufferKey) => {
+    const key = String(bufferKey || '').trim()
+    if (!key) return
+    const buffer = toolOutputBuffers.get(key)
+    if (!buffer) return
+    if (buffer.timer) clearTimeout(buffer.timer)
+    toolOutputBuffers.delete(key)
+    if (!Array.isArray(buffer.segments) || buffer.segments.length === 0) return
+
+    const segments = buffer.segments.map((segment) => ({ ...segment }))
+    if (buffer.outputOmitted === true) {
+      segments[0].chunk = `${OMITTED_OUTPUT_MARKER}${segments[0].chunk}`
+    }
+    for (const segment of segments) {
+      useChatStore.getState().appendLiveExecutionToolOutput({
+        threadId: buffer.threadId,
+        turnId: buffer.turnId,
+        stepId: buffer.stepId,
+        sequence: segment.sequence,
+        toolName: buffer.toolName,
+        stream: segment.stream,
+        chunk: segment.chunk,
+        emittedAt: segment.emittedAt || Date.now(),
+      })
+    }
+  }
+
+  const flushToolOutputBuffersByStep = ({ turnId = '', stepId = '' } = {}) => {
+    flushMatchingToolOutputBuffers(toolOutputBuffers, flushToolOutputBuffer, { turnId, stepId })
+  }
+
+  const queueToolOutputChunk = (payload = {}) => {
+    const turnId = String(payload.turnId || '').trim()
+    const stepId = String(payload.stepId || '').trim()
+    const stream = String(payload.stream || '').trim().toLowerCase() === 'stderr' ? 'stderr' : 'stdout'
+    const chunk = String(payload.chunk ?? '')
+    if (!turnId || !stepId || !chunk) return
+    const key = `${turnId}:${stepId}`
+    const buffer = toolOutputBuffers.get(key) || {
+      threadId: String(payload.threadId || '').trim(),
+      turnId,
+      stepId,
+      toolName: String(payload.toolName || '').trim(),
+      segments: [],
+      pendingChars: 0,
+      outputOmitted: false,
+      timer: null,
+    }
+    buffer.threadId = String(payload.threadId || buffer.threadId || '').trim()
+    buffer.toolName = String(payload.toolName || buffer.toolName || '').trim()
+
+    const sequence = Number(payload.sequence || 0) || 0
+    const emittedAt = Number(payload.emittedAt || 0) || Date.now()
+    const previous = buffer.segments.at(-1)
+    if (previous?.stream === stream) {
+      previous.chunk += chunk
+      previous.sequence = sequence || previous.sequence
+      previous.emittedAt = emittedAt
+    } else {
+      buffer.segments.push({ stream, chunk, sequence, emittedAt })
+    }
+    buffer.pendingChars += chunk.length
+    trimPendingSegments(buffer)
+    toolOutputBuffers.set(key, buffer)
+
+    if (buffer.timer) return
+    buffer.timer = setTimeout(() => flushToolOutputBuffer(key), TOOL_OUTPUT_FLUSH_INTERVAL_MS)
+  }
 
   return { toolOutputBuffers, flushToolOutputBuffer, flushToolOutputBuffersByStep, queueToolOutputChunk }
 }
+
+export const __testToolOutputBuffer = Object.freeze({
+  MAX_PENDING_TOOL_OUTPUT_CHARS,
+  MAX_PENDING_TOOL_OUTPUT_SEGMENTS,
+})

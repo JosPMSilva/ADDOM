@@ -80,6 +80,12 @@ export function createOpenAIAccountServerRequestHandler({
         'OpenAI account runtime received a dynamic tool call without a valid tool name.',
       )
     }
+    if (toolCall.invalid === true) {
+      throw createOpenAIAccountRuntimeError(
+        'account_runtime_dynamic_tool_invalid_input',
+        `OpenAI account runtime received malformed input for ${toolCall.toolName}.`,
+      )
+    }
     if (typeof onProviderToolBoundary === 'function') {
       onProviderToolBoundary({
         toolCallId: toolCall.id,

@@ -13,6 +13,7 @@ const RUN_COMMAND_ASK_AUTO_ALLOW_HOST = new Set([
 
 const FILE_TOOL_ASK_AUTO_ALLOW = new Set([
   'read_file',
+  'read_tool_result',
   'list_directory',
   'search_code',
   'view_file_range',
@@ -27,6 +28,7 @@ const FILE_TOOL_ASK_AUTO_ALLOW = new Set([
 
 const FILE_TOOL_AUTONOMY_SAFE_READS = new Set([
   'read_file',
+  'read_tool_result',
   'list_directory',
   'search_code',
   'view_file_range',

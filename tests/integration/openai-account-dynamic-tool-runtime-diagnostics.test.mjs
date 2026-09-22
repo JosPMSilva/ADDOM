@@ -71,6 +71,10 @@ test('OpenAI account dynamic write-tool attempts update shared workflow diagnost
     toolWorkflowFamilyCounts: {},
     toolWorkflowToolAttemptCounts: {},
     toolWorkflowFailureClassCounts: {},
+    toolWorkflowFailureStageCounts: {},
+    toolWorkflowFailureReasonCounts: {},
+    toolWorkflowToolIdentityFailureCounts: {},
+    toolWorkflowExecutionPathFailureCounts: {},
     toolWorkflowToolFailureCounts: {},
     toolWorkflowWriteFailureCounts: {},
     toolWorkflowWriteIntentDetected: false,
@@ -104,5 +108,9 @@ test('OpenAI account dynamic write-tool attempts update shared workflow diagnost
   assert.equal(errorDiagnostics.toolWorkflowWriteIntentDetected, true)
   assert.equal(errorDiagnostics.toolWorkflowToolAttemptCounts.edit_file, 1)
   assert.equal(errorDiagnostics.toolWorkflowWriteFailureCounts.edit_file, 1)
+  assert.equal(errorDiagnostics.toolWorkflowFailureStageCounts.pre_execution_guard, 1)
+  assert.equal(errorDiagnostics.toolWorkflowFailureReasonCounts.inspection_required, 1)
+  assert.equal(errorDiagnostics.toolWorkflowToolIdentityFailureCounts['edit_file=>edit_file'], 1)
+  assert.equal(errorDiagnostics.toolWorkflowExecutionPathFailureCounts.pre_execution, 1)
   assert.equal(errorDiagnostics.toolWorkflowSuccessfulMutationCount, 0)
 })

@@ -554,6 +554,7 @@ export default function ChatEventBridge() {
       chatApi,
       useChatStore,
       setReasoningMetaForMessage,
+      flushToolOutputBuffersByStep,
     })
     const unAnthropicSubscriptions = registerAnthropicEventBridgeHandlers({
       safeSub,

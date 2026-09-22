@@ -13,12 +13,12 @@
   },
   "items": [
     {
-      "id": "npm:@ai-sdk/anthropic@3.0.46",
+      "id": "npm:@ai-sdk/anthropic@3.0.118",
       "name": "@ai-sdk/anthropic",
-      "version": "3.0.46",
+      "version": "3.0.118",
       "license": "Apache-2.0",
       "classification": "shipped_runtime",
-      "sourceRef": "git+https://github.com/vercel/ai.git"
+      "sourceRef": "https://github.com/vercel/ai"
     },
     {
       "id": "npm:@ai-sdk/gateway@3.0.53",
@@ -83,6 +83,22 @@
       "license": "Apache-2.0",
       "classification": "shipped_runtime",
       "sourceRef": "git+https://github.com/vercel/ai.git"
+    },
+    {
+      "id": "npm:@ai-sdk/provider-utils@4.0.51",
+      "name": "@ai-sdk/provider-utils",
+      "version": "4.0.51",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/vercel/ai"
+    },
+    {
+      "id": "npm:@ai-sdk/provider@3.0.16",
+      "name": "@ai-sdk/provider",
+      "version": "3.0.16",
+      "license": "Apache-2.0",
+      "classification": "shipped_runtime",
+      "sourceRef": "https://github.com/vercel/ai"
     },
     {
       "id": "npm:@ai-sdk/provider@3.0.8",
@@ -637,9 +653,9 @@
       "sourceRef": "git+https://github.com/acornjs/acorn.git"
     },
     {
-      "id": "npm:adm-zip@0.6.0",
+      "id": "npm:adm-zip@0.6.1",
       "name": "adm-zip",
-      "version": "0.6.0",
+      "version": "0.6.1",
       "license": "MIT",
       "classification": "shipped_runtime",
       "sourceRef": "https://github.com/cthackers/adm-zip.git"
@@ -659,6 +675,14 @@
       "license": "MIT",
       "classification": "shipped_runtime",
       "sourceRef": "https://github.com/ajv-validator/ajv.git"
+    },
+    {
+      "id": "npm:ajv@8.20.0",
+      "name": "ajv",
+      "version": "8.20.0",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "ajv-validator/ajv"
     },
     {
       "id": "npm:ansi-styles@4.3.0",
@@ -1253,9 +1277,9 @@
       "sourceRef": "http://github.com/estools/esutils.git"
     },
     {
-      "id": "npm:eventsource-parser@3.0.6",
+      "id": "npm:eventsource-parser@3.1.1",
       "name": "eventsource-parser",
-      "version": "3.0.6",
+      "version": "3.1.1",
       "license": "MIT",
       "classification": "shipped_runtime",
       "sourceRef": "git+ssh://git@github.com/rexxars/eventsource-parser.git"
@@ -1291,6 +1315,14 @@
       "license": "MIT",
       "classification": "shipped_runtime",
       "sourceRef": "https://github.com/hiddentao/fast-levenshtein.git"
+    },
+    {
+      "id": "npm:fast-uri@3.1.6",
+      "name": "fast-uri",
+      "version": "3.1.6",
+      "license": "BSD-3-Clause",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/fastify/fast-uri.git"
     },
     {
       "id": "npm:fdir@6.5.0",
@@ -1936,6 +1968,14 @@
       "id": "npm:json-schema-traverse@0.4.1",
       "name": "json-schema-traverse",
       "version": "0.4.1",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "git+https://github.com/epoberezkin/json-schema-traverse.git"
+    },
+    {
+      "id": "npm:json-schema-traverse@1.0.0",
+      "name": "json-schema-traverse",
+      "version": "1.0.0",
       "license": "MIT",
       "classification": "shipped_runtime",
       "sourceRef": "git+https://github.com/epoberezkin/json-schema-traverse.git"
@@ -2861,6 +2901,14 @@
       "sourceRef": "https://github.com/remarkjs/remark/tree/main/packages/remark-stringify"
     },
     {
+      "id": "npm:require-from-string@2.0.2",
+      "name": "require-from-string",
+      "version": "2.0.2",
+      "license": "MIT",
+      "classification": "shipped_runtime",
+      "sourceRef": "floatdrop/require-from-string"
+    },
+    {
       "id": "npm:resolve-from@4.0.0",
       "name": "resolve-from",
       "version": "4.0.0",
@@ -3037,9 +3085,9 @@
       "sourceRef": "git+https://github.com/ljharb/side-channel.git"
     },
     {
-      "id": "npm:smol-toml@1.6.1",
+      "id": "npm:smol-toml@1.8.0",
       "name": "smol-toml",
-      "version": "1.6.1",
+      "version": "1.8.0",
       "license": "BSD-3-Clause",
       "classification": "shipped_runtime",
       "sourceRef": "github:squirrelchat/smol-toml"

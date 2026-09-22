@@ -57,10 +57,20 @@ test('Gemini schema normalization expands required-only anyOf object branches in
     assert.equal(branch?.type, 'object')
     assert.equal(branch?.additionalProperties, false)
     assert.equal(Array.isArray(branch?.required), true)
-    assert.equal(branch.required.length, 1)
-    assert.equal(
-      Object.prototype.hasOwnProperty.call(branch?.properties || {}, branch.required[0]),
-      true,
-    )
+    assert.deepEqual(branch.required, Object.keys(taskItem.properties))
+    assert.deepEqual(Object.keys(branch.properties), Object.keys(taskItem.properties))
   }
+})
+
+test('Gemini schema normalization preserves canonical input validation', async () => {
+  const tools = toAISDKTools('ask', true)
+  const normalized = normalizeGeminiToolSchemas(tools)
+  const validate = normalized.write_file?.inputSchema?.validate
+
+  assert.equal(typeof validate, 'function')
+  assert.equal((await validate({ path: 'fixture.txt' })).success, false)
+  assert.deepEqual(await validate({ path: 'fixture.txt', content: '' }), {
+    success: true,
+    value: { path: 'fixture.txt', content: '' },
+  })
 })

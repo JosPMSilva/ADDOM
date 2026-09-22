@@ -45,6 +45,49 @@ test('OpenAI Fast uses the auth-specific API priority or account fast service ti
   assert.deepEqual(codex.availableModes, ['standard'])
 })
 
+test('Astra Fast preserves auth-specific OpenAI service tiers', () => {
+  for (const [authMethod, serviceTier] of [['api_key', 'priority'], ['account', 'fast']]) {
+    const processing = resolveProviderProcessingMode({
+      providerId: 'openai',
+      modelId: 'gpt-6-astra',
+      authMethod,
+      providerConfigured: true,
+      requestedMode: 'fast',
+    })
+
+    assert.deepEqual(processing.availableModes, ['standard', 'fast'])
+    assert.deepEqual(processing.request, { serviceTier })
+    assert.equal(processing.premiumPricing, true)
+  }
+})
+
+test('Anthropic Fast is available only for Opus 5 and Opus 4.8 API-key requests', () => {
+  for (const modelId of ['claude-opus-5', 'claude-opus-4-8']) {
+    const processing = resolveProviderProcessingMode({
+      providerId: 'anthropic',
+      modelId,
+      authMethod: 'api_key',
+      providerConfigured: true,
+      requestedMode: 'fast',
+      returnedProviderMode: 'fast',
+    })
+
+    assert.deepEqual(processing.availableModes, ['standard', 'fast'])
+    assert.deepEqual(processing.request, { speed: 'fast' })
+    assert.equal(processing.returnedMode, 'fast')
+    assert.equal(processing.effectiveMode, 'fast')
+  }
+
+  const fable = resolveProviderProcessingMode({
+    providerId: 'anthropic',
+    modelId: 'claude-fable-5-1',
+    authMethod: 'api_key',
+    providerConfigured: true,
+    requestedMode: 'fast',
+  })
+  assert.deepEqual(fable.availableModes, ['standard'])
+})
+
 test('Moonshot Fast selects the K2.7 Code HighSpeed route without changing catalog identity', () => {
   const supported = resolveProviderProcessingMode({
     providerId: 'moonshot',
@@ -60,12 +103,22 @@ test('Moonshot Fast selects the K2.7 Code HighSpeed route without changing catal
     providerConfigured: true,
     requestedMode: 'fast',
   })
+  const kimiK3 = resolveProviderProcessingMode({
+    providerId: 'moonshot',
+    modelId: 'kimi-k3',
+    authMethod: 'api_key',
+    providerConfigured: true,
+    requestedMode: 'fast',
+  })
 
   assert.equal(supported.modelId, 'kimi-k2.7-code')
   assert.deepEqual(supported.request, { modelId: 'kimi-k2.7-code-highspeed' })
   assert.equal(supported.requestedMode, 'fast')
   assert.deepEqual(unrelated.availableModes, ['standard'])
   assert.equal(unrelated.requestedMode, 'standard')
+  assert.equal(kimiK3.modelId, 'kimi-k3')
+  assert.deepEqual(kimiK3.availableModes, ['standard'])
+  assert.equal(kimiK3.request, null)
 })
 
 test('returned provider state takes precedence over the requested processing mode', () => {

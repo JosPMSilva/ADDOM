@@ -16,12 +16,6 @@ function asStringList(values = []) {
     : []
 }
 
-function asNumberList(values = []) {
-  return Array.isArray(values)
-    ? values.map((value) => Number(value)).filter((value) => Number.isFinite(value))
-    : []
-}
-
 export function buildOpenAIAccountNativeActivityRows(
   payload = {},
   translate = (_key, defaultValue) => String(defaultValue || ''),
@@ -87,24 +81,32 @@ export function buildOpenAIAccountNativeActivityRows(
     ? native.commandExecution
     : null
   if (commandExecution && (asStringList(commandExecution.itemIds).length > 0 || asStringList(commandExecution.commands).length > 0)) {
-    pushRow('command_execution', {
-      type: 'provider_tool',
-      label: translate(
-        'core:executionStream.bridge.native.command',
-        'Codex app-server command: {{commandName}}',
-        { commandName: asStringList(commandExecution.commands)[0] || 'command' },
-      ),
-      detail: [
-        asStringList(commandExecution.cwds).length > 0 ? `cwd: ${asStringList(commandExecution.cwds).join(', ')}` : '',
-        asStringList(commandExecution.statuses).length > 0 ? `statuses: ${asStringList(commandExecution.statuses).join(', ')}` : '',
-        asNumberList(commandExecution.exitCodes).length > 0 ? `exit_codes: ${asNumberList(commandExecution.exitCodes).join(', ')}` : '',
-        asNumberList(commandExecution.durationsMs).length > 0 ? `durations_ms: ${asNumberList(commandExecution.durationsMs).join(', ')}` : '',
-        asStringList(commandExecution.commandActionKinds).length > 0
-          ? `actions: ${asStringList(commandExecution.commandActionKinds).join(', ')}`
-          : '',
-        trimDetail(commandExecution.aggregatedOutput) ? `output: ${trimDetail(commandExecution.aggregatedOutput)}` : '',
-      ].filter(Boolean).join('\n'),
-    })
+    const totalCount = asStringList(commandExecution.itemIds).length
+      || asStringList(commandExecution.commands).length
+    const completedCount = asStringList(commandExecution.completedItemIds).length
+    const failedCount = asStringList(commandExecution.failedItemIds).length
+    const hasExactOutcomeCounts = totalCount > 0 && completedCount + failedCount === totalCount
+    const summary = hasExactOutcomeCounts
+      ? translate(
+          'core:executionStream.bridge.native.commandSummary',
+          '{{total}} commands · {{completed}} completed · {{failed}} failed',
+          { total: totalCount, completed: completedCount, failed: failedCount },
+        )
+      : translate(
+          'core:executionStream.bridge.native.commandSummaryPending',
+          '{{total}} commands · outcome details unavailable',
+          { total: totalCount },
+        )
+    if (totalCount > 1) {
+      pushRow('command_execution', {
+        type: 'result',
+        toolName: 'command_summary',
+        stepId: 'native-command-summary',
+        isError: false,
+        label: summary,
+        detail: summary,
+      })
+    }
   }
 
   const fileChange = native.fileChange && typeof native.fileChange === 'object' ? native.fileChange : null

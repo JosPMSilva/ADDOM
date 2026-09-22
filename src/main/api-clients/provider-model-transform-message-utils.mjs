@@ -10,6 +10,7 @@ export {
 } from './provider-model-transform-content-utils.mjs'
 export {
   adaptNormalizedToolResultMessage,
+  adaptNormalizedToolResultMessages,
   normalizeToolResultMediaMessages,
 } from './provider-model-transform-tool-result-utils.mjs'
 export {

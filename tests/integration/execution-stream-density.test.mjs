@@ -4,6 +4,7 @@ import assert from 'node:assert/strict'
 import { extractOpenRouterReasoningFromRawChunk } from '../../src/main/api-clients/ai-provider-openrouter-reasoning.mjs'
 import { resolveExecutionCapabilityProfile } from '../../src/common/chat/execution-capabilities.mjs'
 import { reduceCanonicalExecutionEvent } from '../../src/renderer/store/chat/live-execution-canonical-reducer.mjs'
+import { mapActivityToCanonicalExecutionEvents } from '../../src/renderer/store/chat/live-execution-store-activity.mjs'
 import { buildExecutionStreamItems } from '../../src/renderer/components/chat/live-execution-stream-items.mjs'
 import {
   formatExecutionToolLabel,
@@ -45,6 +46,15 @@ test('formatExecutionToolLabel puts short identity on L2 rows', () => {
 
 test('resolveExecutionToolLabelParts splits verb and identity for gray hierarchy', () => {
   assert.deepEqual(resolveExecutionToolLabelParts({
+    toolKind: 'command',
+    state: 'succeeded',
+    inputDetail: '"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe" -Command \'node --test tests/integration/example.test.mjs\'',
+  }), {
+    label: 'Ran node --test tests/integration/example.test.mjs',
+    verb: 'Ran',
+    identity: 'node --test tests/integration/example.test.mjs',
+  })
+  assert.deepEqual(resolveExecutionToolLabelParts({
     toolKind: 'file_edit',
     state: 'succeeded',
     inputDetail: 'src/pdfa_checker.py',
@@ -80,17 +90,69 @@ test('buildExecutionEvidenceSections curates command evidence', () => {
       input: 'npm test',
       result: 'exit 1',
       outputs: [{ eventId: 'o1', stream: 'stderr', detail: 'failed' }],
+      exitCode: 1,
+      durationMs: 1500,
       startedAt: 1000,
       completedAt: 2500,
     },
   })
-  assert.deepEqual(sections.map((section) => section.label), ['Command', 'Stderr', 'Result', 'Duration'])
+  assert.deepEqual(sections.map((section) => section.label), ['Command', 'Stderr', 'Result', 'Exit code', 'Duration'])
   assert.equal(sections[0].value, 'npm test')
+  assert.equal(sections.find((section) => section.key === 'exit-code')?.value, '1')
   assert.equal(hasUsefulExecutionEvidence(sections), true)
   assert.equal(hasUsefulExecutionEvidence(buildExecutionEvidenceSections({
     toolKind: 'file_read',
     evidence: { startedAt: 1, completedAt: 50 },
   })), false)
+})
+
+test('command result metadata survives activity mapping into expanded evidence', () => {
+  const fullCommand = 'npm test -- --reporter spec\n# preserve this exact command evidence'
+  const [event] = mapActivityToCanonicalExecutionEvents({
+    id: 'provider_tool:turn-1:command-1',
+    type: 'result',
+    eventKind: 'provider_tool_output',
+    threadId: 'thread-1',
+    turnId: 'turn-1',
+    stepId: 'command-1',
+    toolName: 'run_command',
+    toolInput: { command: fullCommand },
+    detail: 'Tests passed.',
+    output: { status: 'completed' },
+    exitCode: 0,
+    durationMs: 842,
+    createdAt: 1000,
+  })
+  const state = reduceCanonicalExecutionEvent({ turnsById: {}, turnOrder: [] }, event)
+  const [item] = buildExecutionStreamItems(state.turnsById['turn-1'], { tools: true })
+
+  assert.equal(item.fullIdentity, fullCommand)
+  assert.equal(item.expandedEvidence.input, fullCommand)
+  assert.equal(item.expandedEvidence.exitCode, 0)
+  assert.equal(item.expandedEvidence.durationMs, 842)
+  assert.equal(item.evidenceSections.find((section) => section.key === 'exit-code')?.value, '0')
+  assert.equal(item.evidenceSections.find((section) => section.key === 'duration')?.value, '842ms')
+})
+
+test('buildExecutionStreamItems keeps command summaries neutral and non-expandable', () => {
+  const [event] = mapActivityToCanonicalExecutionEvents({
+    id: 'openai_account_native:turn-summary:command_execution',
+    type: 'result',
+    eventKind: 'openai_account_native_command_execution',
+    threadId: 'thread-summary',
+    turnId: 'turn-summary',
+    stepId: 'native-command-summary',
+    toolName: 'command_summary',
+    detail: '9 commands · 7 completed · 2 failed',
+    isError: false,
+    createdAt: 1000,
+  })
+  const state = reduceCanonicalExecutionEvent({ turnsById: {}, turnOrder: [] }, event)
+  const [summary] = buildExecutionStreamItems(state.turnsById['turn-summary'], { tools: true })
+  assert.equal(summary.label, '9 commands · 7 completed · 2 failed')
+  assert.equal(summary.statusMark, '')
+  assert.equal(summary.accessibleStatus, '')
+  assert.equal(summary.expandable, false)
 })
 
 test('projectExecutionStreamClusters collapses settled contiguous tools and breaks on reasoning', () => {
@@ -116,6 +178,29 @@ test('projectExecutionStreamClusters collapses settled contiguous tools and brea
     { toolKind: 'file_read', state: 'succeeded' },
     { toolKind: 'file_read', state: 'succeeded' },
   ]), /1 failed/)
+})
+
+test('projectExecutionStreamClusters keeps a durable cluster identity as settled tools append', () => {
+  const settledTools = [
+    { id: 't1', kind: 'tool', toolKind: 'file_read', state: 'succeeded', label: 'Read a.js' },
+    { id: 't2', kind: 'tool', toolKind: 'file_read', state: 'succeeded', label: 'Read b.js' },
+    { id: 't3', kind: 'tool', toolKind: 'file_edit', state: 'succeeded', label: 'Edited c.js' },
+    { id: 't4', kind: 'tool', toolKind: 'command', state: 'succeeded', label: 'Ran npm test' },
+  ]
+
+  const initialProjection = projectExecutionStreamClusters(settledTools.slice(0, 3), {
+    threshold: 3,
+    collapseSettled: true,
+  })
+  const appendedProjection = projectExecutionStreamClusters(settledTools, {
+    threshold: 3,
+    collapseSettled: true,
+  })
+
+  assert.equal(initialProjection[0].kind, 'cluster')
+  assert.equal(appendedProjection[0].kind, 'cluster')
+  assert.equal(appendedProjection[0].id, initialProjection[0].id)
+  assert.equal(appendedProjection[0].items.length, 4)
 })
 
 test('formatToolClusterSummary ignores empty interrupted ghost failures', () => {

@@ -16,6 +16,40 @@ export const WORKSPACE_TOOLS = [
     },
   },
   {
+    name: 'read_tool_result',
+    description: 'Read a bounded range from a previously truncated tool result using the opaque handle in its truncation notice. The handle only works in the same project, task, turn, and retention window. Use query to find literal text without rerunning the original tool.',
+    parameters: {
+      type: 'object',
+      properties: {
+        handle: {
+          type: 'string',
+          description: 'Opaque spillover handle from a truncated tool result notice.',
+          pattern: '^spill_[A-Za-z0-9_-]{24,}$',
+        },
+        offset: {
+          type: 'integer',
+          description: 'Unicode character offset for a range read, or the search starting offset. Defaults to 0.',
+          minimum: 0,
+          default: 0,
+        },
+        max_chars: {
+          type: 'integer',
+          description: 'Maximum Unicode characters to return. Defaults to 4000 and cannot exceed 12000.',
+          minimum: 1,
+          maximum: 12000,
+          default: 4000,
+        },
+        query: {
+          type: 'string',
+          description: 'Optional literal text to locate in the stored result. Returns bounded context around the first match.',
+          minLength: 1,
+          maxLength: 256,
+        },
+      },
+      required: ['handle'],
+    },
+  },
+  {
     name: 'write_file',
     description: 'Write complete content to a file in the project folder (creates or overwrites). Read the file first when replacing existing content.',
     parameters: {

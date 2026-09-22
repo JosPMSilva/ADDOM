@@ -1,4 +1,7 @@
 import assert from 'node:assert/strict'
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
 import test from 'node:test'
 
 import Database from 'better-sqlite3'
@@ -9,6 +12,8 @@ import {
   ensureWorkspaceTables,
 } from '../../src/main/memory/db-schema-workspace.mjs'
 import { runMigrations, SCHEMA_VERSION } from '../../src/main/memory/db-migrations.mjs'
+import { createCanonicalRootEventWriter } from '../../src/main/chat/canonical-root-event-writer.mjs'
+import { createProgressiveExecutionChunkWriter } from '../../src/main/chat/chat-stream-progressive-chunks.mjs'
 import { createRootEventRepository } from '../../src/main/workspace/root-event-repository.mjs'
 import {
   MAX_EVENTS_PER_THREAD,
@@ -17,8 +22,8 @@ import {
 
 const BASE_TIME = 1_754_100_000_000
 
-function database() {
-  const db = new Database(':memory:')
+function database(filename = ':memory:') {
+  const db = new Database(filename)
   db.pragma('foreign_keys = ON')
   runMigrations(db)
   db.prepare(`
@@ -34,6 +39,63 @@ function database() {
   `).run('thread_01', 'project_01', 'Thread 01', BASE_TIME, BASE_TIME, BASE_TIME)
   return db
 }
+
+test('coalesced progressive preview survives a database close and reopen', () => {
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'addom-progressive-recovery-'))
+  const databasePath = path.join(tempRoot, 'workspace.db')
+  let db = null
+  try {
+    db = database(databasePath)
+    const repository = createRootEventRepository(db, { now: () => BASE_TIME + 100 })
+    let eventSequence = 0
+    const canonicalWriter = createCanonicalRootEventWriter({
+      projectId: 'project_01',
+      threadId: 'thread_01',
+      turnId: 'turn_01',
+      assistantMessageId: 'assistant_01',
+      providerId: 'openai',
+      now: () => BASE_TIME + 100,
+      idFactory: () => `progressive_event_${++eventSequence}`,
+      appendOne: (_threadId, draftValue) => repository.append(draftValue),
+      appendMany: (_threadId, drafts) => repository.appendMany(drafts),
+      listRecords: () => [],
+    })
+    const progressiveWriter = createProgressiveExecutionChunkWriter({
+      persistTimelineEvent: canonicalWriter.persistTimelineEvent,
+      threadId: 'thread_01',
+      turnId: 'turn_01',
+      assistantMessageId: 'assistant_01',
+      round: 1,
+      providerId: 'openai',
+      model: 'gpt-test',
+      now: () => BASE_TIME + 100,
+    })
+
+    progressiveWriter.write('execution_reasoning_chunk', {
+      content: 'First.', sequence: 1, reasoningSegment: 0,
+    })
+    progressiveWriter.write('execution_reasoning_chunk', {
+      content: 'First. Second.', sequence: 2, reasoningSegment: 0,
+    })
+    progressiveWriter.flush()
+    db.close()
+    db = new Database(databasePath, { readonly: true })
+
+    const rows = db.prepare(`
+      SELECT content, lifecycle, progressive_key, payload_json
+      FROM chat_events
+      WHERE thread_id = ? AND turn_id = ?
+    `).all('thread_01', 'turn_01')
+    assert.equal(rows.length, 1)
+    assert.equal(rows[0].content, 'First. Second.')
+    assert.equal(rows[0].lifecycle, 'active')
+    assert.equal(rows[0].progressive_key, 'execution_reasoning:1:0')
+    assert.equal(JSON.parse(rows[0].payload_json).timeline.content, 'First. Second.')
+  } finally {
+    try { db?.close() } catch { /* best-effort test cleanup */ }
+    fs.rmSync(tempRoot, { recursive: true, force: true })
+  }
+})
 
 function draft(overrides = {}) {
   return {

@@ -1960,6 +1960,8 @@
         "activity": "Codex 应用程序服务器活动",
         "webSearch": "Codex 应用程序服务器网络搜索",
         "command": "Codex 应用程序服务器命令：{{commandName}}",
+        "commandSummary": "{{total}} 个命令 · {{completed}} 个已完成 · {{failed}} 个失败",
+        "commandSummaryPending": "{{total}} 个命令 · 结果详情不可用",
         "fileChangeOne": "Codex 应用程序服务器文件更改",
         "fileChangeOther": "Codex 应用程序服务器文件更改",
         "mcpTool": "Codex 应用程序服务器 MCP 工具：{{toolName}}",

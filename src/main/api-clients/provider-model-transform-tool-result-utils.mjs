@@ -13,7 +13,13 @@ function createToolResultMediaPlaceholder(part = {}, prefix = 'Tool result attac
   }
 }
 
-function sanitizeToolResultContentParts(parts = []) {
+function sanitizeToolResultContentParts(
+  parts = [],
+  {
+    supportsVision = false,
+    imagePlaceholderPrefix = 'Tool result image omitted',
+  } = {},
+) {
   const sourceParts = Array.isArray(parts) ? parts : []
   const sanitizedParts = []
   let changed = false
@@ -21,9 +27,15 @@ function sanitizeToolResultContentParts(parts = []) {
   for (const rawPart of sourceParts) {
     const part = rawPart && typeof rawPart === 'object' ? rawPart : {}
     const type = toStringSafe(part?.type).toLowerCase()
-    if (type === 'image') {
+    const mediaType = normalizeMediaType(part?.mediaType || part?.mimeType || '')
+    const isImage = type === 'image' || (type === 'media' && mediaType.startsWith('image/'))
+    if (type === 'media' && isImage && supportsVision === true) {
+      sanitizedParts.push(rawPart)
+      continue
+    }
+    if (isImage) {
       changed = true
-      sanitizedParts.push(createToolResultMediaPlaceholder(part, 'Tool result image omitted'))
+      sanitizedParts.push(createToolResultMediaPlaceholder(part, imagePlaceholderPrefix))
       continue
     }
     if (type === 'file') {
@@ -63,7 +75,13 @@ function flattenStructuredToolResultValue(value = {}) {
   return lines.join('\n').trim() || serializeStructuredValue(value)
 }
 
-function sanitizeToolResultOutput(output = null) {
+function sanitizeToolResultOutput(
+  output = null,
+  {
+    supportsVision = false,
+    imagePlaceholderPrefix = 'Tool result image omitted',
+  } = {},
+) {
   const payload = output && typeof output === 'object' ? output : null
   if (!payload) {
     return { changed: false, output }
@@ -73,7 +91,10 @@ function sanitizeToolResultOutput(output = null) {
   const value = payload.value
 
   if (Array.isArray(value)) {
-    const sanitized = sanitizeToolResultContentParts(value)
+    const sanitized = sanitizeToolResultContentParts(value, {
+      supportsVision,
+      imagePlaceholderPrefix,
+    })
     if (!sanitized.changed) {
       return { changed: false, output }
     }
@@ -94,7 +115,10 @@ function sanitizeToolResultOutput(output = null) {
 
     for (const key of ['content', 'parts']) {
       if (!Array.isArray(nextValue[key])) continue
-      const sanitized = sanitizeToolResultContentParts(nextValue[key])
+      const sanitized = sanitizeToolResultContentParts(nextValue[key], {
+        supportsVision,
+        imagePlaceholderPrefix,
+      })
       if (!sanitized.changed) continue
       nextValue[key] = sanitized.sanitizedParts
       changed = true
@@ -107,7 +131,7 @@ function sanitizeToolResultOutput(output = null) {
       nextValue.screenshotPlaceholder = createToolResultMediaPlaceholder({
         filename: toStringSafe(nextValue.screenshotFilepath || ''),
         mediaType: normalizeMediaType(nextValue.screenshotMediaType || '', 'image/jpeg'),
-      }, 'Tool result image omitted').text
+      }, imagePlaceholderPrefix).text
       changed = true
     }
 
@@ -131,6 +155,8 @@ function sanitizeToolResultOutput(output = null) {
 
 function adaptToolResultMediaMessage({
   message = {},
+  supportsVision = false,
+  imagePlaceholderPrefix = 'Tool result image omitted',
 } = {}) {
   const content = Array.isArray(message?.content) ? message.content : []
   if (content.length === 0) {
@@ -147,7 +173,10 @@ function adaptToolResultMediaMessage({
       nextContent.push(rawPart)
       continue
     }
-    const sanitized = sanitizeToolResultOutput(part?.output)
+    const sanitized = sanitizeToolResultOutput(part?.output, {
+      supportsVision,
+      imagePlaceholderPrefix,
+    })
     if (sanitized.changed) changed = true
     nextContent.push({
       ...part,
@@ -167,6 +196,8 @@ function adaptToolResultMediaMessage({
 
 function adaptNormalizedMessage({
   message = {},
+  supportsVision = false,
+  imagePlaceholderPrefix = 'Tool result image omitted',
 } = {}) {
   const role = String(message?.role || '').trim().toLowerCase()
   if (role !== 'tool') return message
@@ -174,13 +205,93 @@ function adaptNormalizedMessage({
     message: {
       ...message,
     },
+    supportsVision,
+    imagePlaceholderPrefix,
   })
 }
 
-export function normalizeToolResultMediaMessages(messages = []) {
-  return (Array.isArray(messages) ? messages : []).map((message) => adaptNormalizedMessage({ message }))
+function collectImageParts(parts = [], images = []) {
+  for (const rawPart of Array.isArray(parts) ? parts : []) {
+    const part = rawPart && typeof rawPart === 'object' ? rawPart : {}
+    const type = toStringSafe(part?.type).toLowerCase()
+    const mediaType = normalizeMediaType(part?.mediaType || part?.mimeType || '')
+    const isImage = type === 'image' || (type === 'media' && mediaType.startsWith('image/'))
+    const data = toStringSafe(part?.data || part?.image || '')
+    if (!isImage || !data) continue
+    images.push({
+      type: 'file',
+      data,
+      mediaType: mediaType || 'image/jpeg',
+      ...(toStringSafe(part?.filename || '') ? { filename: toStringSafe(part.filename) } : {}),
+    })
+  }
+  return images
 }
 
-export function adaptNormalizedToolResultMessage(message = {}) {
-  return adaptNormalizedMessage({ message })
+function collectToolResultImages(message = {}) {
+  const images = []
+  for (const rawPart of Array.isArray(message?.content) ? message.content : []) {
+    const part = rawPart && typeof rawPart === 'object' ? rawPart : {}
+    if (toStringSafe(part?.type).toLowerCase() !== 'tool-result') continue
+    const value = part?.output?.value
+    if (Array.isArray(value)) {
+      collectImageParts(value, images)
+      continue
+    }
+    if (!value || typeof value !== 'object') continue
+    collectImageParts(value.content, images)
+    collectImageParts(value.parts, images)
+    const screenshotBase64 = toStringSafe(value.screenshotBase64 || '')
+    if (screenshotBase64) {
+      images.push({
+        type: 'file',
+        data: screenshotBase64,
+        mediaType: normalizeMediaType(value.screenshotMediaType || '', 'image/jpeg'),
+        ...(toStringSafe(value.screenshotFilepath || '')
+          ? { filename: toStringSafe(value.screenshotFilepath) }
+          : {}),
+      })
+    }
+  }
+  const seen = new Set()
+  return images.filter((image) => {
+    const key = `${image.mediaType}:${image.data}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
+export function normalizeToolResultMediaMessages(messages = [], options = {}) {
+  return (Array.isArray(messages) ? messages : []).map((message) => adaptNormalizedMessage({ message, ...options }))
+}
+
+export function adaptNormalizedToolResultMessage(message = {}, options = {}) {
+  return adaptNormalizedMessage({ message, ...options })
+}
+
+export function adaptNormalizedToolResultMessages(message = {}, options = {}) {
+  if (options?.separateToolResultImages !== true) {
+    return [adaptNormalizedMessage({ message, ...options })]
+  }
+  const images = collectToolResultImages(message)
+  if (images.length === 0) {
+    return [adaptNormalizedMessage({ message, ...options })]
+  }
+  const adaptedToolMessage = adaptNormalizedMessage({
+    message,
+    ...options,
+    supportsVision: false,
+    imagePlaceholderPrefix: 'Tool result image attached separately',
+  })
+  return [
+    adaptedToolMessage,
+    {
+      role: 'user',
+      content: [
+        { type: 'text', text: 'Visual output from the preceding tool result.' },
+        ...images,
+      ],
+    },
+  ]
 }

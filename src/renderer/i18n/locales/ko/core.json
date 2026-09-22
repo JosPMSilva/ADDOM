@@ -1960,6 +1960,8 @@
         "activity": "Codex 앱 서버 활동",
         "webSearch": "Codex 앱 서버 웹 검색",
         "command": "Codex 앱 서버 명령: {{commandName}}",
+        "commandSummary": "{{total}}개 명령 · {{completed}}개 완료 · {{failed}}개 실패",
+        "commandSummaryPending": "{{total}}개 명령 · 결과 세부 정보를 사용할 수 없음",
         "fileChangeOne": "Codex 앱 서버 파일 변경",
         "fileChangeOther": "Codex 앱 서버 파일 변경",
         "mcpTool": "Codex 앱 서버 MCP 도구: {{toolName}}",

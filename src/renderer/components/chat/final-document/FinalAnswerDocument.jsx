@@ -11,6 +11,17 @@ import { normalizeGeneratedArtifactMarkdownImages } from './generated-artifact-i
 
 const CHAT_RENDER_DEBUG = import.meta.env.DEV && import.meta.env.VITE_CHAT_PERF_DEBUG === '1'
 
+function finalAnswerFootnotePrefix(messageId = '') {
+  const source = String(messageId || 'message')
+  let hash = 0x811c9dc5
+  for (let index = 0; index < source.length; index += 1) {
+    hash ^= source.charCodeAt(index)
+    hash = Math.imul(hash, 0x01000193)
+  }
+  const label = source.toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '').slice(-32)
+  return `addom-${label || 'message'}-${(hash >>> 0).toString(36)}-`
+}
+
 function FinalAnswerFallback({ text = '' }) {
   return <p className="final-answer-fallback whitespace-pre-wrap break-words">{String(text ?? '')}</p>
 }
@@ -18,6 +29,7 @@ function FinalAnswerFallback({ text = '' }) {
 const FinalAnswerMarkdownBlock = React.memo(function FinalAnswerMarkdownBlock({
   block = null,
   components = null,
+  remarkRehypeOptions = null,
 }) {
   useEffect(() => {
     if (!CHAT_RENDER_DEBUG || !block?.id) return undefined
@@ -31,6 +43,7 @@ const FinalAnswerMarkdownBlock = React.memo(function FinalAnswerMarkdownBlock({
     <MemoProseMarkdown
       text={text}
       components={components}
+      remarkRehypeOptions={remarkRehypeOptions}
       fallback={<FinalAnswerFallback text={text} />}
     />
   )
@@ -60,6 +73,10 @@ export default function FinalAnswerDocument({
     () => createFinalAnswerMarkdownComponents({ generatedArtifacts, messageId, threadId }),
     [generatedArtifacts, messageId, threadId],
   )
+  const remarkRehypeOptions = useMemo(
+    () => ({ clobberPrefix: finalAnswerFootnotePrefix(messageId) }),
+    [messageId],
+  )
   const projectionRef = useRef(null)
   const projection = useMemo(() => projectStreamingFinalDocument({
     previous: projectionRef.current,
@@ -69,6 +86,9 @@ export default function FinalAnswerDocument({
   }), [isStreaming, messageId, renderText])
   projectionRef.current = projection
   if (!renderText) return null
+  const renderedBlocks = projection.requiresDocumentContext
+    ? [projection.document]
+    : projection.blocks
 
   return (
     <div
@@ -76,17 +96,24 @@ export default function FinalAnswerDocument({
       data-final-answer-document="true"
       data-final-answer-message-id={String(messageId || '').trim() || undefined}
       data-final-answer-streaming={isStreaming ? 'true' : 'false'}
-      data-final-answer-completed-blocks={projection.blocks.length}
+      data-final-answer-completed-blocks={renderedBlocks.length}
+      data-final-answer-document-context={projection.requiresDocumentContext ? 'true' : undefined}
       data-final-answer-delegation-echo-suppressed={echoSuppressed ? 'true' : undefined}
     >
-      {projection.blocks.map((block) => (
-        <FinalAnswerMarkdownBlock key={block.id} block={block} components={components} />
+      {renderedBlocks.map((block) => (
+        <FinalAnswerMarkdownBlock
+          key={block.id}
+          block={block}
+          components={components}
+          remarkRehypeOptions={remarkRehypeOptions}
+        />
       ))}
-      {projection.tail.renderText ? (
+      {!projection.requiresDocumentContext && projection.tail.renderText ? (
         <FinalAnswerMarkdownBlock
           key={projection.tail.id}
           block={projection.tail}
           components={components}
+          remarkRehypeOptions={remarkRehypeOptions}
         />
       ) : null}
     </div>

@@ -69,6 +69,8 @@ test('executeApprovedToolStep prefers provider-native execution when a Moonshot 
 
   assert.equal(result.result, 'provider-native result')
   assert.equal(result.isError, false)
+  assert.equal(result.toolExecutionPath, 'provider_native')
+  assert.equal(result.canonicalToolName, 'moonshot_formula__web_search__search')
   assert.equal(genericExecuteCalled, false)
 })
 
@@ -115,6 +117,143 @@ test('executeApprovedToolStep rejects malformed apply_patch before executor disp
   assert.equal(result.lintResult?.decision, TOOL_CALL_LINT_DECISIONS.REJECT)
   assert.equal(result.lintResult?.lintCode, TOOL_CALL_LINT_CODES.APPLY_PATCH_MISSING_HUNK)
   assert.match(result.result, /^Tool error: pre-execution lint/)
+})
+
+test('executeApprovedToolStep preserves trusted Playwright task authorization at the execution boundary', async () => {
+  let genericExecuteCalled = false
+  const result = await executeApprovedToolStep({
+    tc: { name: 'run_command' },
+    toolInput: { command: 'npx playwright test --ui' },
+    taskAuthorization: { playwrightTestsRequested: true },
+    projectFolder: 'C:\\Users\\example\\Documents\\ADDOM',
+    activeThreadId: 'thread_playwright_authorized',
+    activeTurnId: 'turn_playwright_authorized',
+    loop: {
+      abortController: new AbortController(),
+      cancelled: false,
+    },
+    helpers: {
+      takeShellWriteSnapshot: async () => null,
+      detectShellWriteArtifactChanges: async () => [],
+      executeOpenAILocalRuntimeTool: async () => {
+        throw new Error('unexpected openai local runtime execution')
+      },
+      isOpenAILocalRuntimeToolName: () => false,
+      executeTool: async () => {
+        genericExecuteCalled = true
+        return { result: 'authorized Playwright result' }
+      },
+      executeProviderNativeToolCall: async () => null,
+      resolveToolWriteArtifactMeta: async () => null,
+      buildMissingDependencyInstallHint: () => '',
+      isAbortError: () => false,
+    },
+  })
+
+  assert.equal(genericExecuteCalled, true)
+  assert.equal(result.isError, false)
+  assert.equal(result.result, 'authorized Playwright result')
+  assert.equal(result.toolExecutionPath, 'addom_native')
+  assert.equal(result.lintResult?.decision, TOOL_CALL_LINT_DECISIONS.WARN)
+  assert.equal(result.lintResult?.lintCode, TOOL_CALL_LINT_CODES.RUN_COMMAND_PLAYWRIGHT_TEST_RUNNER_MISUSE)
+})
+
+test('executeApprovedToolStep assigns monotonic identities to local output chunks', async () => {
+  const emitted = []
+  const result = await executeApprovedToolStep({
+    tc: { name: 'run_command' },
+    toolInput: { command: 'synthetic-output' },
+    projectFolder: 'C:\\Users\\example\\Documents\\ADDOM',
+    activeThreadId: 'thread-output-sequence',
+    activeTurnId: 'turn-output-sequence',
+    stepId: 'step-output-sequence',
+    stepSequence: 17,
+    loop: { abortController: new AbortController(), cancelled: false },
+    send: (channel, payload) => emitted.push({ channel, payload }),
+    helpers: {
+      takeShellWriteSnapshot: async () => null,
+      detectShellWriteArtifactChanges: async () => [],
+      executeOpenAILocalRuntimeTool: async () => { throw new Error('unexpected local runtime') },
+      isOpenAILocalRuntimeToolName: () => false,
+      executeProviderNativeToolCall: async () => null,
+      executeTool: async (_projectRoot, _toolName, _toolInput, options) => {
+        options.onOutputChunk({ stream: 'stdout', chunk: 'A', emittedAt: 100 })
+        options.onOutputChunk({ stream: 'stderr', chunk: 'B', emittedAt: 100 })
+        return { result: 'done' }
+      },
+      resolveToolWriteArtifactMeta: async () => null,
+      buildMissingDependencyInstallHint: () => '',
+      isAbortError: () => false,
+    },
+  })
+
+  assert.equal(result.isError, false)
+  assert.deepEqual(emitted.map((entry) => entry.payload.sequence), [1, 2])
+  assert.deepEqual(emitted.map((entry) => entry.payload.stream), ['stdout', 'stderr'])
+})
+
+test('executeApprovedToolStep preserves bounded browser screenshot media for the next model request', async () => {
+  const result = await executeApprovedToolStep({
+    tc: { name: 'browser_action' },
+    toolInput: { action: 'screenshot' },
+    projectFolder: 'C:\\Users\\example\\Documents\\ADDOM',
+    activeThreadId: 'thread_screenshot',
+    activeTurnId: 'turn_screenshot',
+    loop: { abortController: new AbortController(), cancelled: false },
+    helpers: {
+      takeShellWriteSnapshot: async () => null,
+      detectShellWriteArtifactChanges: async () => [],
+      executeOpenAILocalRuntimeTool: async () => { throw new Error('unexpected local runtime') },
+      isOpenAILocalRuntimeToolName: () => false,
+      executeProviderNativeToolCall: async () => null,
+      executeTool: async () => ({
+        result: 'Screenshot captured.',
+        screenshotBase64: 'aW1hZ2UtYnl0ZXM=',
+        screenshotMediaType: 'image/jpeg',
+        screenshotFilepath: 'C:\\private\\capture.jpg',
+      }),
+      resolveToolWriteArtifactMeta: async () => null,
+      buildMissingDependencyInstallHint: () => '',
+      isAbortError: () => false,
+    },
+  })
+
+  assert.equal(result.isError, false)
+  assert.deepEqual(result.toolResultMedia, {
+    type: 'image',
+    data: 'aW1hZ2UtYnl0ZXM=',
+    mediaType: 'image/jpeg',
+  })
+  assert.doesNotMatch(JSON.stringify(result), /C:\\\\private/)
+})
+
+test('executeApprovedToolStep replaces oversized screenshot media with an explicit text fallback', async () => {
+  const result = await executeApprovedToolStep({
+    tc: { name: 'browser_action' },
+    toolInput: { action: 'screenshot' },
+    projectFolder: 'C:\\Users\\example\\Documents\\ADDOM',
+    activeThreadId: 'thread_large_screenshot',
+    activeTurnId: 'turn_large_screenshot',
+    loop: { abortController: new AbortController(), cancelled: false },
+    helpers: {
+      takeShellWriteSnapshot: async () => null,
+      detectShellWriteArtifactChanges: async () => [],
+      executeOpenAILocalRuntimeTool: async () => { throw new Error('unexpected local runtime') },
+      isOpenAILocalRuntimeToolName: () => false,
+      executeProviderNativeToolCall: async () => null,
+      executeTool: async () => ({
+        result: 'Screenshot captured.',
+        screenshotBase64: 'A'.repeat(4_000_001),
+        screenshotMediaType: 'image/jpeg',
+      }),
+      resolveToolWriteArtifactMeta: async () => null,
+      buildMissingDependencyInstallHint: () => '',
+      isAbortError: () => false,
+    },
+  })
+
+  assert.equal(result.toolResultMedia, null)
+  assert.match(result.result, /omitted from model input because it is invalid or exceeds the media limit/i)
 })
 
 test('executeApprovedToolStep rejects edit_file no-op before executor dispatch', async () => {

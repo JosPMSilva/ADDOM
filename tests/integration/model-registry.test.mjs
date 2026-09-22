@@ -21,11 +21,13 @@ function modelIds(provider) {
 const APPROVED_DIRECT_PROVIDER_MODELS = Object.freeze({
   anthropic: [
     'claude-sonnet-5',
+    'claude-opus-5',
+    'claude-fable-5-1',
     'claude-opus-4-8',
-    'claude-fable-5',
     'claude-haiku-4-5',
   ],
   openai: [
+    'gpt-6-astra',
     'gpt-5.6-sol',
     'gpt-5.6-terra',
     'gpt-5.6-luna',
@@ -34,7 +36,9 @@ const APPROVED_DIRECT_PROVIDER_MODELS = Object.freeze({
     'gpt-5.4',
   ],
   gemini: [
+    'gemini-3.8-flash',
     'gemini-3.5-flash',
+    'gemini-3.5-flash-lite',
     'gemini-3.1-pro-preview',
     'gemini-3.1-flash-lite',
     'gemini-2.5-pro',
@@ -44,8 +48,10 @@ const APPROVED_DIRECT_PROVIDER_MODELS = Object.freeze({
     'openai/gpt-oss-20b',
     'qwen/qwen3.6-27b',
     'groq/compound',
+    'groq/compound-mini',
   ],
   grok: [
+    'grok-4.6',
     'grok-4.5',
     'grok-4.3',
     'grok-4.20-multi-agent-0309',
@@ -56,12 +62,13 @@ const APPROVED_DIRECT_PROVIDER_MODELS = Object.freeze({
     'mistral-large-2512',
   ],
   deepseek: [
-    'deepseek-v4-flash',
+    'deepseek-flash',
     'deepseek-v4-pro',
   ],
   moonshot: [
-    'kimi-k2.6',
+    'kimi-k3',
     'kimi-k2.7-code',
+    'kimi-k2.6',
   ],
   perplexity: [
     'sonar-pro',
@@ -71,7 +78,7 @@ const APPROVED_DIRECT_PROVIDER_MODELS = Object.freeze({
   ],
 })
 
-test('direct provider registry contains exactly the approved 32 models', () => {
+test('direct provider registry contains exactly the approved 39 models', () => {
   const directModelIds = []
 
   for (const [providerId, expectedModelIds] of Object.entries(APPROVED_DIRECT_PROVIDER_MODELS)) {
@@ -82,7 +89,7 @@ test('direct provider registry contains exactly the approved 32 models', () => {
     directModelIds.push(...modelIds(provider))
   }
 
-  assert.equal(directModelIds.length, 32)
+  assert.equal(directModelIds.length, 39)
 })
 
 test('canonical registry providers/models expose normalized schema fields', () => {
@@ -179,24 +186,105 @@ test('curated remote providers use the approved defaults and high-value capabili
     assert.equal(currentModel.contextWindowTokens, 1_050_000)
     assert.equal(currentModel.maxOutputTokens, 128_000)
   }
-  assert.equal(gemini.defaultModel, 'gemini-3.5-flash')
-  assert.equal(moonshot.defaultModel, 'kimi-k2.6')
-  assert.equal(grok.defaultModel, 'grok-4.5')
+  const astra = openai.models.find((model) => model.id === 'gpt-6-astra')
+  assert.ok(astra)
+  assert.equal(astra.contextWindowTokens, 1_050_000)
+  assert.equal(astra.maxOutputTokens, 128_000)
+  assert.equal(astra.structuredOutput, true)
+  assert.equal(astra.knowledge, '2026-04')
+  assert.equal(astra.pricing.inputUsdPer1M, 10)
+  assert.equal(astra.pricing.cacheReadUsdPer1M, 1)
+  assert.equal(astra.pricing.cacheWriteUsdPer1M, 12.5)
+  assert.equal(astra.pricing.outputUsdPer1M, 50)
+  assert.deepEqual(astra.pricing.tiers[0], {
+    id: 'long-context',
+    sizeUsdPer1M: 272_000,
+    inputUsdPer1M: 20,
+    outputUsdPer1M: 75,
+    cacheReadUsdPer1M: 2,
+    cacheWriteUsdPer1M: 25,
+    notes: 'Requests with more than 272K input tokens use long-context rates for the full request.',
+  })
+
+  assert.equal(gemini.defaultModel, 'gemini-3.8-flash')
+  assert.equal(moonshot.defaultModel, 'kimi-k3')
+  const kimiK3 = moonshot.models.find((model) => model.id === 'kimi-k3')
+  assert.equal(kimiK3.reasoning, true)
+  assert.equal(kimiK3.structuredOutput, true)
+  assert.equal(kimiK3.openWeights, true)
+  assert.equal(kimiK3.releaseDate, '2026-07-16')
+  assert.equal(kimiK3.contextWindowTokens, 1_000_000)
+  assert.equal(kimiK3.maxOutputTokens, 1_048_576)
+  assert.equal(kimiK3.pricing.inputUsdPer1M, 3)
+  assert.equal(kimiK3.pricing.cacheReadUsdPer1M, 0.3)
+  assert.equal(kimiK3.pricing.outputUsdPer1M, 15)
+  assert.deepEqual(kimiK3.variants.map((variant) => variant.id), ['low', 'high', 'max'])
+  assert.equal(kimiK3.variants.find((variant) => variant.id === 'max')?.default, true)
+  assert.equal(kimiK3.capabilities.interleavedReasoning.supported, true)
+  assert.equal(grok.defaultModel, 'grok-4.6')
+  assert.equal(grok.models.find((model) => model.id === 'grok-4.6').contextWindowTokens, 500_000)
   assert.equal(grok.models.find((model) => model.id === 'grok-4.5').contextWindowTokens, 500_000)
   assert.equal(grok.models.find((model) => model.id === 'grok-4.20-multi-agent-0309').supportsTools, false)
   for (const modelId of ['grok-4.3', 'grok-4.20-multi-agent-0309']) {
     assert.equal(grok.models.find((model) => model.id === modelId).contextWindowTokens, 1_000_000)
   }
   assert.equal(groq.defaultModel, 'openai/gpt-oss-120b')
+  for (const compoundId of ['groq/compound', 'groq/compound-mini']) {
+    const compound = groq.models.find((model) => model.id === compoundId)
+    assert.equal(compound.capabilities.toolCall.supported, false)
+    assert.equal(compound.supportsTools, false)
+  }
   assert.equal(mistral.defaultModel, 'mistral-medium-2604')
-  assert.equal(deepseek.defaultModel, 'deepseek-v4-flash')
+  assert.equal(deepseek.defaultModel, 'deepseek-flash')
+  const deepseekFlash = deepseek.models.find((model) => model.id === 'deepseek-flash')
+  const deepseekPro = deepseek.models.find((model) => model.id === 'deepseek-v4-pro')
+  for (const currentModel of [deepseekFlash, deepseekPro]) {
+    assert.equal(currentModel.reasoning, true)
+    assert.equal(currentModel.structuredOutput, true)
+    assert.equal(currentModel.maxOutputTokens, 393_216)
+    assert.deepEqual(currentModel.variants.map((variant) => variant.id), ['none', 'low', 'high', 'max'])
+  }
+  assert.equal(deepseekFlash.releaseDate, '2026-09-10')
+  assert.equal(deepseekPro.releaseDate, '2026-08-13')
+  assert.equal(deepseekFlash.vision, true)
+  assert.equal(deepseekFlash.contextWindowTokens, 1_000_000)
+  assert.equal(deepseekFlash.capabilities.interleavedReasoning.supported, true)
+  assert.deepEqual(deepseekFlash.pricing, {
+    inputUsdPer1M: 0.3,
+    outputUsdPer1M: 1.2,
+    cacheReadUsdPer1M: 0.006,
+    tiers: [
+      {
+        id: 'off-peak',
+        inputUsdPer1M: 0.15,
+        outputUsdPer1M: 0.6,
+        cacheReadUsdPer1M: 0.003,
+        notes: 'Outside weekday peak hours (01:00-04:00 and 06:00-10:00 UTC).',
+      },
+      {
+        id: 'peak',
+        inputUsdPer1M: 0.3,
+        outputUsdPer1M: 1.2,
+        cacheReadUsdPer1M: 0.006,
+        notes: 'Weekdays 01:00-04:00 and 06:00-10:00 UTC.',
+      },
+    ],
+    notes: 'Base prices use peak rates; off-peak rates apply outside the listed weekday windows.',
+  })
+  assert.equal(deepseekPro.pricing.inputUsdPer1M, 1.32)
+  assert.equal(deepseekPro.pricing.outputUsdPer1M, 3.96)
+  assert.equal(deepseekPro.pricing.cacheReadUsdPer1M, 0.044)
+  assert.equal(deepseekPro.pricing.tiers[0].id, 'off-peak')
+  assert.notEqual(deepseekPro.vision, true)
 })
 
 test('removed direct-provider models are absent from normal and migration/debug registry views', () => {
   const retiredByProvider = {
-    anthropic: ['claude-opus-4-0', 'claude-sonnet-4-0', 'claude-opus-4-1'],
+    anthropic: ['claude-opus-4-0', 'claude-sonnet-4-0', 'claude-opus-4-1', 'claude-mythos-5'],
+    openai: ['gpt-6-astra-pro'],
     gemini: ['gemini-3-pro-preview', 'gemini-3.1-flash-lite-preview', 'gemini-2.0-flash', 'gemini-2.0-flash-lite'],
     grok: ['grok-4-fast-reasoning', 'grok-4-fast-non-reasoning', 'grok-4-1-fast-reasoning', 'grok-4-1-fast-non-reasoning', 'grok-code-fast-1', 'grok-3'],
+    groq: ['qwen/qwen3.8-27b'],
     mistral: ['mistral-medium-2508', 'mistral-small-2506', 'magistral-medium-2509'],
   }
 
@@ -217,6 +305,7 @@ test('openrouter provider exposes reviewed route ids without inheriting native-p
   const kimi = provider.models.find((model) => model.id === 'moonshotai/kimi-k2.5')
   const deepseekChat = provider.models.find((model) => model.id === 'deepseek/deepseek-chat-v3.1')
   const deepseekV32 = provider.models.find((model) => model.id === 'deepseek/deepseek-v3.2')
+  const deepseekFlash = provider.models.find((model) => model.id === 'deepseek/deepseek-v4.1-flash')
   const grokMultiAgent = provider.models.find((model) => model.id === 'x-ai/grok-4.20-multi-agent')
   const sonar = provider.models.find((model) => model.id === 'perplexity/sonar-pro')
 
@@ -258,22 +347,34 @@ test('openrouter provider exposes reviewed route ids without inheriting native-p
   assert.equal(deepseekV32.supportsTools, true)
   assert.equal(deepseekV32.supportsAnyToolSurface, true)
   assert.equal(deepseekV32.contextSource, 'verified_fallback')
+  assert.ok(deepseekFlash)
+  assert.equal(deepseekFlash.reasoning, true)
+  assert.equal(deepseekFlash.maxOutputTokens, 393_216)
+  assert.equal(deepseekFlash.vision, true)
+  assert.equal(deepseekFlash.capabilities.interleavedReasoning.supported, true)
   assert.ok(grokMultiAgent)
   assert.equal(grokMultiAgent.capabilities.toolCall.supported, false)
   assert.equal(grokMultiAgent.supportsTools, false)
   assert.equal(sonar, undefined)
 })
 
-test('OpenRouter reviewed routes track the current July 2026 catalog', () => {
+test('OpenRouter reviewed routes track the verified September 2026 catalog', () => {
   const routeIds = new Set(OPENROUTER_SUPPORTED_ROUTE_IDS)
   for (const routeId of [
+    'openai/gpt-6-astra',
+    'anthropic/claude-opus-5',
+    'anthropic/claude-fable-5.1',
     'anthropic/claude-sonnet-5',
     'openai/gpt-5.6-sol',
+    'google/gemini-3.8-flash',
     'google/gemini-3.5-flash',
+    'google/gemini-3.5-flash-lite',
+    'moonshotai/kimi-k3',
     'moonshotai/kimi-k2.6',
+    'x-ai/grok-4.6',
     'x-ai/grok-4.5',
     'mistralai/mistral-medium-3-5',
-    'deepseek/deepseek-v4-flash',
+    'deepseek/deepseek-v4.1-flash',
   ]) {
     assert.equal(routeIds.has(routeId), true, `missing current OpenRouter route ${routeId}`)
   }
@@ -289,6 +390,8 @@ test('OpenRouter reviewed routes track the current July 2026 catalog', () => {
     'x-ai/grok-3-mini',
     'mistralai/devstral-medium-2507',
     'mistralai/devstral-small-2507',
+    'deepseek/deepseek-v4-flash',
+    'groq/compound-mini',
   ]) {
     assert.equal(routeIds.has(routeId), false, `retired OpenRouter route remains reviewed ${routeId}`)
   }
@@ -322,10 +425,15 @@ test('curated registry preserves provider defaults, controls, and variants for n
   const groq = getRegistryProvider('groq')
 
   const claudeOpus = anthropic.models.find((model) => model.id === 'claude-opus-4-8')
+  const claudeOpus5 = anthropic.models.find((model) => model.id === 'claude-opus-5')
+  const claudeFable51 = anthropic.models.find((model) => model.id === 'claude-fable-5-1')
   const claude = anthropic.models.find((model) => model.id === 'claude-sonnet-5')
   const claudeHaiku = anthropic.models.find((model) => model.id === 'claude-haiku-4-5')
   const geminiPro = gemini.models.find((model) => model.id === 'gemini-2.5-pro')
   const geminiFlashLite = gemini.models.find((model) => model.id === 'gemini-3.1-flash-lite')
+  const gemini38Flash = gemini.models.find((model) => model.id === 'gemini-3.8-flash')
+  const gemini35FlashLite = gemini.models.find((model) => model.id === 'gemini-3.5-flash-lite')
+  const grok46 = grok.models.find((model) => model.id === 'grok-4.6')
   const grokReasoning = grok.models.find((model) => model.id === 'grok-4.3')
   const groqReasoning = groq.models.find((model) => model.id === 'qwen/qwen3.6-27b')
 
@@ -343,6 +451,30 @@ test('curated registry preserves provider defaults, controls, and variants for n
   })
   assert.equal(claudeOpus.capabilities.reasoning.providerControls.includes('anthropic:effort'), true)
   assert.equal(claudeOpus.variants.some((variant) => variant.id === 'deep'), true)
+
+  for (const model of [claudeOpus5, claudeFable51]) {
+    assert.ok(model)
+    assert.equal(model.contextWindowTokens, 1_000_000)
+    assert.equal(model.maxOutputTokens, 128_000)
+    assert.equal(model.structuredOutput, true)
+    assert.deepEqual(model.capabilities.inputModalities, ['text', 'image', 'file'])
+    assert.deepEqual(model.capabilities.outputModalities, ['text'])
+    assert.deepEqual(
+      model.variants.map((variant) => variant.providerOptions?.anthropic?.effort),
+      ['low', 'medium', 'high', 'xhigh', 'max'],
+    )
+    assert.equal(model.variants.find((variant) => variant.providerOptions?.anthropic?.effort === 'high')?.default, true)
+  }
+  assert.equal(claudeOpus5.releaseDate, '2026-07-24')
+  assert.equal(claudeOpus5.knowledge, '2026-05')
+  assert.equal(claudeOpus5.pricing.inputUsdPer1M, 5)
+  assert.equal(claudeOpus5.pricing.outputUsdPer1M, 25)
+  assert.equal(claudeOpus5.pricing.cacheReadUsdPer1M, 0.5)
+  assert.equal(claudeFable51.releaseDate, '2026-09-01')
+  assert.equal(claudeFable51.knowledge, '2026-06')
+  assert.equal(claudeFable51.pricing.inputUsdPer1M, 10)
+  assert.equal(claudeFable51.pricing.outputUsdPer1M, 50)
+  assert.equal(claudeFable51.pricing.cacheReadUsdPer1M, 0.25)
 
   assert.deepEqual(claude.defaultProviderOptions, {
     anthropic: {
@@ -378,6 +510,22 @@ test('curated registry preserves provider defaults, controls, and variants for n
   })
   assert.equal(geminiFlashLite.capabilities.reasoning.providerControls.includes('google:thinkingConfig.includeThoughts'), true)
   assert.equal(geminiFlashLite.variants.some((variant) => variant.id === 'minimal'), true)
+
+  assert.ok(gemini38Flash)
+  assert.deepEqual(gemini38Flash.variants.map((variant) => variant.id), ['low', 'medium', 'high'])
+  assert.equal(gemini38Flash.variants.some((variant) => variant.id === 'minimal'), false)
+  assert.equal(gemini38Flash.variants.find((variant) => variant.id === 'medium')?.default, true)
+
+  assert.ok(gemini35FlashLite)
+  assert.deepEqual(gemini35FlashLite.variants.map((variant) => variant.id), ['minimal', 'low', 'medium', 'high'])
+  assert.equal(gemini35FlashLite.variants.find((variant) => variant.id === 'minimal')?.default, true)
+
+  assert.ok(grok46)
+  assert.deepEqual(
+    grok46.variants.map((variant) => variant.providerOptions?.xai?.reasoningEffort),
+    ['low', 'medium', 'high', 'xhigh'],
+  )
+  assert.equal(grok46.variants.find((variant) => variant.providerOptions?.xai?.reasoningEffort === 'high')?.default, true)
 
   assert.deepEqual(grokReasoning.defaultProviderOptions, {
     xai: {
@@ -426,6 +574,23 @@ test('canonicalizeRegistryModelSelection keeps approved models and leaves remove
   }
 })
 
+test('canonicalizeRegistryModelSelection migrates superseded curated ids without losing provider selection', () => {
+  for (const [providerId, legacyModelId, replacementModelId] of [
+    ['anthropic', 'claude-fable-5', 'claude-fable-5-1'],
+    ['deepseek', 'deepseek-v4-flash', 'deepseek-flash'],
+  ]) {
+    const migrated = canonicalizeRegistryModelSelection(providerId, legacyModelId)
+    assert.equal(migrated.changed, true)
+    assert.equal(migrated.modelId, replacementModelId)
+    assert.equal(migrated.reason, 'alias')
+
+    const alias = resolveRegistryModelAlias(providerId, legacyModelId)
+    assert.ok(alias)
+    assert.equal(alias.replacementModelId, replacementModelId)
+    assert.equal(alias.reason, 'alias')
+  }
+})
+
 test('resolveRegistryModelAlias returns exact metadata only for approved rows', () => {
   const approved = resolveRegistryModelAlias('openai', 'gpt-5.3-codex')
   assert.ok(approved)
@@ -463,15 +628,18 @@ test('buildStaticProviderManifest exposes only the approved direct-provider matr
 
   const moonshot = findProvider(manifest, 'moonshot')
   assert.ok(moonshot)
-  assert.equal(moonshot.defaultModel, 'kimi-k2.6')
-  const kimiK26 = moonshot.models.find((row) => row.id === 'kimi-k2.6')
-  assert.equal(kimiK26.vision, true)
-  assert.equal(kimiK26.supportsPdf, false)
-  assert.equal(kimiK26.supportsProviderNativeRuntime, true)
-  assert.equal(kimiK26.supportsAnyToolSurface, true)
-  assert.equal(kimiK26.providerNativeRuntimeFamily, 'moonshot_formula')
-  assert.equal(kimiK26.providerNativeRuntimeMode, 'remote_tool_bundle')
-  assert.equal(Array.isArray(kimiK26.capabilities?.inputModalities), true)
+  assert.equal(moonshot.defaultModel, 'kimi-k3')
+  const kimiK3 = moonshot.models.find((row) => row.id === 'kimi-k3')
+  assert.equal(kimiK3.vision, true)
+  assert.equal(kimiK3.reasoning, true)
+  assert.equal(kimiK3.structuredOutput, true)
+  assert.equal(kimiK3.maxOutputTokens, 1_048_576)
+  assert.equal(kimiK3.supportsPdf, false)
+  assert.equal(kimiK3.supportsProviderNativeRuntime, false)
+  assert.equal(kimiK3.supportsAnyToolSurface, true)
+  assert.equal(kimiK3.providerNativeRuntimeFamily, undefined)
+  assert.equal(kimiK3.providerNativeRuntimeMode, undefined)
+  assert.equal(Array.isArray(kimiK3.capabilities?.inputModalities), true)
 
   const perplexity = findProvider(manifest, 'perplexity')
   const sonar = perplexity.models.find((row) => row.id === 'sonar-pro')

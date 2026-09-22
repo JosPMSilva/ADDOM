@@ -73,15 +73,34 @@ function hasGeneratedAttachment(model = null) {
 function normalizeModelOverride(providerId = '', model = {}) {
   const normalizedProviderId = trimString(providerId).toLowerCase()
   const generatedModel = getGeneratedModel(providerId, model.id)
+  const authoritativeFields = new Set(
+    Array.isArray(model.authoritativeFields)
+      ? model.authoritativeFields.map((field) => trimString(field).toLowerCase()).filter(Boolean)
+      : [],
+  )
   const preserveLegacyFactualFields = normalizedProviderId === 'openrouter' && !generatedModel
-  const preserveLimits = preserveLegacyFactualFields || !hasGeneratedLimits(generatedModel)
-  const preservePricing = preserveLegacyFactualFields || !hasGeneratedPricing(generatedModel)
-  const preserveReasoning = (model.reasoning === true) && (preserveLegacyFactualFields || !hasGeneratedReasoning(generatedModel))
+  const preserveLimits = authoritativeFields.has('limits') || preserveLegacyFactualFields || !hasGeneratedLimits(generatedModel)
+  const preservePricing = authoritativeFields.has('pricing') || preserveLegacyFactualFields || !hasGeneratedPricing(generatedModel)
+  const preserveRelease = authoritativeFields.has('release') || preserveLegacyFactualFields
+  const preserveKnowledge = authoritativeFields.has('knowledge') || preserveLegacyFactualFields
+  const preserveOpenWeights = authoritativeFields.has('openweights') || preserveLegacyFactualFields
+  const preserveStructuredOutput = authoritativeFields.has('structuredoutput') || preserveLegacyFactualFields
+  const preserveReasoning = (model.reasoning === true) && (
+    authoritativeFields.has('reasoning')
+    || preserveLegacyFactualFields
+    || !hasGeneratedReasoning(generatedModel)
+  )
   const preserveAttachment = (model.vision === true || model.supportsPdf === true)
-    && (preserveLegacyFactualFields || !hasGeneratedAttachment(generatedModel))
+    && (
+      authoritativeFields.has('attachment')
+      || preserveLegacyFactualFields
+      || !hasGeneratedAttachment(generatedModel)
+    )
   const rawCapabilities = isPlainObject(model.capabilities) ? cloneJson(model.capabilities) : {}
   const rawReasoning = isPlainObject(rawCapabilities.reasoning) ? rawCapabilities.reasoning : {}
   const rawAttachment = isPlainObject(rawCapabilities.attachment) ? rawCapabilities.attachment : {}
+  const preserveToolCall = authoritativeFields.has('toolcall')
+    && typeof rawCapabilities?.toolCall?.supported === 'boolean'
   const rawProviderNativeRuntime = isPlainObject(rawCapabilities.providerNativeRuntime)
     ? rawCapabilities.providerNativeRuntime
     : {}
@@ -115,6 +134,41 @@ function normalizeModelOverride(providerId = '', model = {}) {
       reason: 'retained_curated_attachment_until_toml_migration',
     }
   }
+  if (preserveToolCall) {
+    provenanceFields.toolCall = {
+      state: 'override',
+      trustLevel: 'override',
+      reason: 'retained_curated_tool_call_until_toml_migration',
+    }
+  }
+  if (preserveRelease) {
+    provenanceFields.release = {
+      state: 'override',
+      trustLevel: 'override',
+      reason: 'retained_curated_release_until_toml_migration',
+    }
+  }
+  if (preserveStructuredOutput) {
+    provenanceFields.structuredOutput = {
+      state: 'override',
+      trustLevel: 'override',
+      reason: 'retained_curated_structured_output_until_toml_migration',
+    }
+  }
+  if (preserveKnowledge) {
+    provenanceFields.knowledge = {
+      state: 'override',
+      trustLevel: 'override',
+      reason: 'retained_curated_knowledge_until_toml_migration',
+    }
+  }
+  if (preserveOpenWeights) {
+    provenanceFields.openWeights = {
+      state: 'override',
+      trustLevel: 'override',
+      reason: 'retained_curated_open_weights_until_toml_migration',
+    }
+  }
 
   return {
     id: trimString(model.id),
@@ -123,10 +177,11 @@ function normalizeModelOverride(providerId = '', model = {}) {
     ...(Array.isArray(model.aliases) && model.aliases.length > 0 ? { aliases: model.aliases.map((entry) => trimString(entry)).filter(Boolean) } : {}),
     ...(model.deprecated === true ? { deprecated: true } : {}),
     ...(trimString(model.replacementModelId) ? { replacementModelId: trimString(model.replacementModelId) } : {}),
-    ...(preserveLegacyFactualFields && trimString(model.releaseDate) ? { releaseDate: trimString(model.releaseDate) } : {}),
-    ...(preserveLegacyFactualFields && trimString(model.lastUpdated) ? { lastUpdated: trimString(model.lastUpdated) } : {}),
-    ...(preserveLegacyFactualFields && trimString(model.knowledge) ? { knowledge: trimString(model.knowledge) } : {}),
-    ...(preserveLegacyFactualFields && typeof model.structuredOutput === 'boolean' ? { structuredOutput: model.structuredOutput === true } : {}),
+    ...(preserveRelease && trimString(model.releaseDate) ? { releaseDate: trimString(model.releaseDate) } : {}),
+    ...(preserveRelease && trimString(model.lastUpdated) ? { lastUpdated: trimString(model.lastUpdated) } : {}),
+    ...(preserveKnowledge && trimString(model.knowledge) ? { knowledge: trimString(model.knowledge) } : {}),
+    ...(preserveOpenWeights && typeof model.openWeights === 'boolean' ? { openWeights: model.openWeights === true } : {}),
+    ...(preserveStructuredOutput && typeof model.structuredOutput === 'boolean' ? { structuredOutput: model.structuredOutput === true } : {}),
     ...(preserveAttachment && model.vision === true ? { vision: true } : {}),
     ...(preserveAttachment && model.supportsPdf === true ? { supportsPdf: true } : {}),
     ...(preserveLimits

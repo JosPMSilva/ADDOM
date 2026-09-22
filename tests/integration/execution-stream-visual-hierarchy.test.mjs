@@ -255,3 +255,55 @@ test('evidence disclosure uses icons instead of encoded chevron text', () => {
   assert.match(source, /<Icon name=\{expanded \? 'caret-down' : 'caret-right'\}/)
   assert.doesNotMatch(source, /â–|Ã¢|Â/)
 })
+
+test('truncated command rows expose the exact command on hover and keyboard focus', () => {
+  const fullCommand = '"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe" -Command \'node --test tests/integration/a-very-long-command-name.test.mjs\''
+  const html = renderToStaticMarkup(
+    React.createElement(CanonicalExecutionStream, {
+      items: [{
+        id: 'tool:long-command',
+        kind: 'tool',
+        toolKind: 'command',
+        label: 'Ran node --test tests/integration/a-very-long-command…',
+        verb: 'Ran',
+        identity: 'node --test tests/integration/a-very-long-command…',
+        fullIdentity: fullCommand,
+        statusMark: '✓',
+        accessibleStatus: 'Succeeded',
+        expandable: true,
+        expandedEvidence: { input: fullCommand },
+        evidenceSections: [{ key: 'command', label: 'Command', value: fullCommand }],
+      }],
+    }),
+  )
+
+  assert.match(html, /role="tooltip"/)
+  assert.match(html, /aria-describedby="execution-command-tooltip-tool-long-command"/)
+  assert.match(html, /a-very-long-command-name\.test\.mjs/)
+})
+
+test('command identity tooltips dismiss on expansion and allow contained scrolling', () => {
+  const source = fs.readFileSync(
+    path.resolve('src/renderer/components/chat/ExecutionEvidenceDisclosure.jsx'),
+    'utf8',
+  )
+
+  assert.match(source, /setIdentityTooltipOpen\(false\)\s*\n\s*setExpanded/)
+  assert.match(source, /event\.key !== 'Escape'/)
+  assert.match(source, /overflow-y-auto/)
+  assert.match(source, /overscroll-contain/)
+  assert.match(source, /pointer-events-auto/)
+  assert.doesNotMatch(source, /group-focus-within:visible group-focus-within:opacity-100/)
+})
+
+test('command identity tooltips wait before opening on pointer hover', () => {
+  const source = fs.readFileSync(
+    path.resolve('src/renderer/components/chat/ExecutionEvidenceDisclosure.jsx'),
+    'utf8',
+  )
+
+  assert.match(source, /const IDENTITY_TOOLTIP_HOVER_DELAY_MS = [1-9]\d*/)
+  assert.match(source, /setTimeout\([\s\S]*IDENTITY_TOOLTIP_HOVER_DELAY_MS/)
+  assert.match(source, /clearIdentityTooltipHoverTimer\(\)/)
+  assert.match(source, /matches\(':focus-visible'\)/)
+})

@@ -11,6 +11,7 @@ import {
 } from '../../src/renderer/store/chat/live-execution-store.mjs'
 import { mapTimelineFromPersistedEvents } from '../../src/renderer/store/chat/timeline-hydration.mjs'
 import { threadSessionHasLiveState } from '../../src/renderer/store/chat/thread-session-store-utils.mjs'
+import { MAX_CANONICAL_TOOL_OUTPUT_SEGMENTS } from '../../src/renderer/store/chat/live-execution-canonical-reducer.mjs'
 
 function createMemoryLocalStorage() {
   const map = new Map()
@@ -127,6 +128,100 @@ test('upsertLiveExecutionActivity applies later provider progress to one stable 
     turn.sessionsById['session:turn-progress:mcp-progress'].inputDetail,
     'Reviewing exports',
   )
+})
+
+test('provider command output preserves command identity and start order across interleaved reverse completion', () => {
+  let state = createEmptyLiveExecutionState()
+  const starts = [
+    ['command-a', 'git status', 100],
+    ['command-b', 'npm test', 110],
+  ]
+  for (const [stepId, command, createdAt] of starts) {
+    state = upsertLiveExecutionActivity(state, {
+      id: `provider_tool:turn-parallel:${stepId}`,
+      type: 'provider_tool',
+      eventKind: 'provider_tool_status',
+      threadId: 'thread-parallel',
+      turnId: 'turn-parallel',
+      stepId,
+      toolName: 'command_execution',
+      detail: `command: ${command}\ncwd: C:/repo\nstatus: inProgress`,
+      createdAt,
+    })
+  }
+
+  const initialTurn = state.turnsById['turn-parallel']
+  const initialOrder = [...initialTurn.itemOrder]
+  const initialIdentityByStep = Object.fromEntries(starts.map(([stepId]) => [
+    stepId,
+    initialTurn.sessionsById[`session:turn-parallel:${stepId}`].inputDetail,
+  ]))
+
+  for (let sequence = 1; sequence <= 100; sequence += 1) {
+    for (const stepId of ['command-a', 'command-b']) {
+      state = appendLiveExecutionToolOutput(state, {
+        threadId: 'thread-parallel',
+        turnId: 'turn-parallel',
+        stepId,
+        sequence,
+        toolName: 'command_execution',
+        chunk: `${stepId}:${sequence}\n`,
+        emittedAt: 110 + sequence,
+      })
+    }
+  }
+
+  for (const [stepId, command, finishedAt] of [
+    ['command-b', 'npm test', 300],
+    ['command-a', 'git status', 310],
+  ]) {
+    state = upsertLiveExecutionActivity(state, {
+      id: `provider_tool:turn-parallel:${stepId}`,
+      type: 'result',
+      eventKind: 'provider_tool_output',
+      threadId: 'thread-parallel',
+      turnId: 'turn-parallel',
+      stepId,
+      toolName: 'run_command',
+      toolInput: { command, cwd: 'C:/repo' },
+      detail: `${stepId} completed`,
+      finishedAt,
+    })
+  }
+
+  const completedTurn = state.turnsById['turn-parallel']
+  assert.deepEqual(completedTurn.itemOrder, initialOrder)
+  for (const [stepId] of starts) {
+    const session = completedTurn.sessionsById[`session:turn-parallel:${stepId}`]
+    assert.equal(session.inputDetail, initialIdentityByStep[stepId])
+    assert.equal(session.state, 'succeeded')
+    assert.ok(session.outputs.length <= MAX_CANONICAL_TOOL_OUTPUT_SEGMENTS)
+    assert.equal(session.outputs.at(-1).sequence, 100)
+    assert.equal(session.outputTruncated, true)
+    assert.doesNotMatch(session.inputDetail, new RegExp(`${stepId}:100`))
+  }
+})
+
+test('live execution retains lightweight lifecycle rows beyond the legacy 96-session evidence limit', () => {
+  let state = createEmptyLiveExecutionState()
+  for (let index = 1; index <= 100; index += 1) {
+    state = upsertLiveExecutionActivity(state, {
+      id: `tool-start:turn-many:tool-${index}`,
+      type: 'executing',
+      eventKind: 'tool_started',
+      threadId: 'thread-many',
+      turnId: 'turn-many',
+      stepId: `tool-${index}`,
+      toolName: 'read_file',
+      detail: `path: fixture-${index}.txt`,
+      createdAt: 100 + index,
+    })
+  }
+
+  const turn = state.turnsById['turn-many']
+  assert.equal(turn.sessionOrder.length, 100)
+  assert.equal(Object.keys(turn.sessionsById).length, 100)
+  assert.equal(turn.itemOrder.filter((itemId) => itemId.startsWith('tool:')).length, 100)
 })
 
 test('upsertLiveExecutionActivity maps completed error turns to an error turn status', () => {

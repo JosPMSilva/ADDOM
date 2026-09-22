@@ -70,14 +70,13 @@ export function ensureWorkspaceThreadColumns(db) {
   }
   if (!hasColumn(db, 'chat_threads', 'title_source')) {
     db.exec("ALTER TABLE chat_threads ADD COLUMN title_source TEXT NOT NULL DEFAULT 'manual'")
-    db.exec(`
-      UPDATE chat_threads
-      SET title_source = CASE
-        WHEN lower(trim(title)) = 'new thread' THEN 'default'
-        ELSE 'manual'
-      END
-    `)
   }
+  db.exec(`
+    UPDATE chat_threads
+    SET title_source = 'default'
+    WHERE title_source = 'manual'
+      AND lower(trim(title)) = 'new thread'
+  `)
 }
 
 export function ensureCanonicalChatEventColumns(db) {

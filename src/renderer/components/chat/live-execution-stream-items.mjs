@@ -28,11 +28,15 @@ function buildToolItem(session = {}) {
       detail: session?.detail,
       toolKind,
     })
+  const fullIdentity = String(session?.fullIdentity ?? input)
   const result = String(session?.detail || '')
   const expandedEvidence = {
-    input,
+    input: fullIdentity,
     outputs,
+    outputTruncated: session?.outputTruncated === true,
     result,
+    exitCode: session?.exitCode,
+    durationMs: session?.durationMs,
     startedAt: Number(session?.startedAt || 0) || 0,
     completedAt: Number(session?.completedAt || 0) || 0,
   }
@@ -41,6 +45,25 @@ function buildToolItem(session = {}) {
     evidence: expandedEvidence,
   })
   const identity = resolveShortToolIdentity(toolKind, input)
+  if (toolKind === 'command_summary') {
+    const summary = input || result || 'Command summary'
+    return {
+      id: `tool:${String(session?.id || '')}`,
+      kind: 'tool',
+      sessionId: String(session?.id || ''),
+      toolKind,
+      state,
+      label: summary,
+      verb: summary,
+      identity: '',
+      fullIdentity: '',
+      statusMark: '',
+      accessibleStatus: '',
+      expandable: false,
+      expandedEvidence,
+      evidenceSections: [],
+    }
+  }
   const failedLike = ['failed', 'error', 'cancelled', 'canceled', 'interrupted'].includes(state)
   // Drop unnamed generic tool failures/orphans — they render as "Tool failed" noise.
   // Keep successful generic "Ran tool" rows for provider-parity fixtures.
@@ -79,6 +102,7 @@ function buildToolItem(session = {}) {
     }),
     verb: labelParts.verb,
     identity: labelParts.identity,
+    fullIdentity,
     ...presentation,
     expandable: hasUsefulExecutionEvidence(evidenceSections),
     expandedEvidence,

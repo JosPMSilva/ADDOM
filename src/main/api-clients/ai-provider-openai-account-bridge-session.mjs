@@ -148,13 +148,18 @@ export function buildTurnLaunchParams({
   serviceTier = '',
 } = {}) {
   const policy = launchPolicy && typeof launchPolicy === 'object' ? launchPolicy : {}
+  const normalizedModel = normalizeId(model).toLowerCase().replace(/-\d{4}-\d{2}-\d{2}$/, '')
+  const normalizedEffort = normalizeId(effort).toLowerCase()
+  const allowedEfforts = normalizedModel === 'gpt-6-astra'
+    ? ['low', 'medium', 'high', 'xhigh', 'max', 'ultra']
+    : ['none', 'minimal', 'low', 'medium', 'high', 'xhigh']
   const params = {
     threadId: normalizeId(bridgeThreadId),
     input: Array.isArray(input) ? input : [],
     approvalPolicy: normalizeId(policy.turnApprovalPolicy) || 'never',
     model: normalizeId(model),
-    effort: ['none', 'minimal', 'low', 'medium', 'high', 'xhigh'].includes(normalizeId(effort).toLowerCase())
-      ? normalizeId(effort).toLowerCase()
+    effort: allowedEfforts.includes(normalizedEffort)
+      ? normalizedEffort
       : 'medium',
     summary: 'concise',
     personality: 'pragmatic',

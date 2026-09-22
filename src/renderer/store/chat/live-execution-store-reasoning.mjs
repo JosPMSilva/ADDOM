@@ -394,9 +394,22 @@ export function trimTurnBucket(turn) {
   }
 
   syncReasoningArchiveEvent(turn)
-  while (turn.sessionOrder.length > MAX_LIVE_SESSIONS_PER_TURN) {
-    const removedId = turn.sessionOrder.shift()
-    if (removedId) delete turn.sessionsById[removedId]
+  let settledEvidenceToCompact = Math.max(0, turn.sessionOrder.length - MAX_LIVE_SESSIONS_PER_TURN)
+  for (const sessionId of turn.sessionOrder) {
+    if (settledEvidenceToCompact <= 0) break
+    const session = turn.sessionsById[sessionId]
+    const status = String(session?.status || '').trim().toLowerCase()
+    if (!session || ['queued', 'active', 'running', 'pending'].includes(status)) continue
+    const hasOutput = Object.values(session.output || {}).some((entry) => String(entry?.text || '').length > 0)
+    turn.sessionsById[sessionId] = {
+      ...session,
+      output: {
+        stdout: { text: '', truncated: hasOutput, updatedAt: Number(session?.updatedAt || 0) || 0 },
+        stderr: { text: '', truncated: hasOutput, updatedAt: Number(session?.updatedAt || 0) || 0 },
+      },
+      evidenceCompacted: hasOutput || session?.evidenceCompacted === true,
+    }
+    settledEvidenceToCompact -= 1
   }
   return turn
 }

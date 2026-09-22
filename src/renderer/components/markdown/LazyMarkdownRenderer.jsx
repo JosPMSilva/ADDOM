@@ -32,6 +32,7 @@ function ProseMarkdown({
   components,
   remarkPlugins,
   rehypePlugins,
+  remarkRehypeOptions,
   fallback = null,
 }) {
   const normalizedText = String(text ?? '')
@@ -44,6 +45,7 @@ function ProseMarkdown({
         components={components}
         remarkPlugins={remarkPlugins}
         rehypePlugins={rehypePlugins}
+        remarkRehypeOptions={remarkRehypeOptions}
       />
     )
   }
@@ -53,8 +55,9 @@ function ProseMarkdown({
       <LazyClientMarkdownContent
         text={normalizedText}
         components={components}
-        remarkPlugins={remarkPlugins}
-        rehypePlugins={rehypePlugins}
+      remarkPlugins={remarkPlugins}
+      rehypePlugins={rehypePlugins}
+      remarkRehypeOptions={remarkRehypeOptions}
       />
     </Suspense>
   )
@@ -67,6 +70,7 @@ const MemoProseMarkdown = React.memo(
     && prev.components === next.components
     && prev.remarkPlugins === next.remarkPlugins
     && prev.rehypePlugins === next.rehypePlugins
+    && prev.remarkRehypeOptions === next.remarkRehypeOptions
     && prev.fallback === next.fallback
   ),
 )

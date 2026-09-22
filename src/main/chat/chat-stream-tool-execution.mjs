@@ -10,6 +10,19 @@ import {
 } from './terminal-session-events.mjs'
 import { resolveModeCapability } from './turn-mode.mjs'
 import { buildAgentCatalogSnapshot } from '../moa/agent-catalog-service.mjs'
+import { validateToolInput } from '../tools/tool-input-validator.mjs'
+
+const MAX_TOOL_RESULT_IMAGE_BASE64_CHARS = 4_000_000
+
+function createBoundedScreenshotMedia(execResult = null) {
+  const source = execResult && typeof execResult === 'object' ? execResult : null
+  const data = String(source?.screenshotBase64 || '').trim()
+  const mediaType = String(source?.screenshotMediaType || '').trim().toLowerCase()
+  if (!data || !mediaType.startsWith('image/')) return null
+  if (data.length > MAX_TOOL_RESULT_IMAGE_BASE64_CHARS) return null
+  if (!/^[a-z0-9+/]+={0,2}$/i.test(data)) return null
+  return { type: 'image', data, mediaType }
+}
 
 function serializeAgentCatalog({ input = {}, roles = [], policy = {}, getApiKey, getCachedCapabilities } = {}) {
   const snapshot = buildAgentCatalogSnapshot({
@@ -103,6 +116,7 @@ export async function executeApprovedToolStep({
   approvalEffectiveCommandSafety,
   approvalCommandSafetyOverride,
   fileSystemHostFullAccess = false,
+  taskAuthorization = {},
   applyPreviewContent = null,
   moaRoles = [],
   moaPolicy = {},
@@ -110,7 +124,6 @@ export async function executeApprovedToolStep({
   getCachedCapabilities = null,
   send = () => {},
   stepId = '',
-  stepSequence = 0,
   stepStartedAt = 0,
   helpers = {},
 } = {}) {
@@ -127,9 +140,26 @@ export async function executeApprovedToolStep({
     getBaseRevisionId: getBaseRevisionIdHelper,
   } = helpers
 
+  const executionToolName = String(toolExecutionMap?.[tc?.name] || tc?.name || '').trim()
+  const inputValidation = validateToolInput(executionToolName, toolInput)
+  if (!inputValidation.success) {
+    return {
+      result: `Tool error: ${inputValidation.error.message}`,
+      isError: true,
+      missingDependencySuspected: false,
+      writeArtifactMeta: null,
+      writeArtifactChanges: [],
+      inputValidationError: inputValidation.error,
+      canonicalToolName: executionToolName,
+      toolExecutionPath: 'pre_execution',
+    }
+  }
+  toolInput = inputValidation.value
+
   const lintResult = lintToolCall({
     toolName: tc?.name,
     toolInput,
+    taskAuthorization,
   })
   const modeCapability = resolveModeCapability(tc?.name, mode, {
     backendToolName: toolExecutionMap?.[tc?.name],
@@ -143,6 +173,8 @@ export async function executeApprovedToolStep({
       writeArtifactMeta: null,
       writeArtifactChanges: [],
       modeCapability,
+      canonicalToolName: executionToolName,
+      toolExecutionPath: 'pre_execution',
     }
   }
   if (lintResult.decision === TOOL_CALL_LINT_DECISIONS.REJECT) {
@@ -156,6 +188,8 @@ export async function executeApprovedToolStep({
       writeArtifactMeta: null,
       writeArtifactChanges: [],
       lintResult,
+      canonicalToolName: executionToolName,
+      toolExecutionPath: 'pre_execution',
     }
   }
 
@@ -166,7 +200,9 @@ export async function executeApprovedToolStep({
   let writeArtifactChanges = []
   let shellWriteDiagnostics = null
   let terminalSessionActivityMeta = null
-  const executionToolName = String(toolExecutionMap?.[tc?.name] || tc?.name || '').trim()
+  let toolResultMedia = null
+  let toolExecutionPath = ''
+  let toolOutputSequence = 0
   const emitToolOutputChunk = ({ stream = 'stdout', chunk = '', emittedAt = 0 } = {}) => {
     const text = String(chunk ?? '')
     if (!text) return
@@ -174,7 +210,7 @@ export async function executeApprovedToolStep({
       threadId: activeThreadId,
       turnId: activeTurnId,
       stepId,
-      sequence: stepSequence,
+      sequence: ++toolOutputSequence,
       startedAt: stepStartedAt,
       toolName: tc.name,
       stream,
@@ -239,8 +275,10 @@ export async function executeApprovedToolStep({
       })
       : null
     if (agentCatalogResult !== null) {
+      toolExecutionPath = 'addom_native'
       result = agentCatalogResult
     } else if (terminalSessionResult) {
+      toolExecutionPath = 'terminal_session'
       result = terminalSessionResult.result
       isError = terminalSessionResult.isError === true
       terminalSessionActivityMeta = terminalSessionResult.terminalSessionActivityMeta || null
@@ -256,6 +294,7 @@ export async function executeApprovedToolStep({
       })
       : null
       if (providerNativeResult) {
+        toolExecutionPath = 'provider_native'
         result = providerNativeResult.result
         isError = providerNativeResult.ok !== true
       } else {
@@ -263,6 +302,7 @@ export async function executeApprovedToolStep({
           String(providerId || '').trim().toLowerCase() === 'openai'
           && isOpenAILocalRuntimeToolName(tc.name)
         ) {
+          toolExecutionPath = 'openai_local_runtime'
           const execResult = await executeOpenAILocalRuntimeTool({
             projectRoot: projectFolder,
             toolName: executionToolName || tc.name,
@@ -294,6 +334,7 @@ export async function executeApprovedToolStep({
             writeArtifactChanges = resolvedArtifacts.writeArtifactChanges
           }
         } else {
+          toolExecutionPath = 'addom_native'
           const execResult = await executeTool(
             projectFolder,
             executionToolName || tc.name,
@@ -311,6 +352,10 @@ export async function executeApprovedToolStep({
             },
           )
           result = execResult.result
+          toolResultMedia = createBoundedScreenshotMedia(execResult)
+          if (execResult?.screenshotBase64 && !toolResultMedia) {
+            result = `${String(result || '').trim()}\nScreenshot image omitted from model input because it is invalid or exceeds the media limit.`.trim()
+          }
           if (String(tc?.name || '').trim().toLowerCase() === 'apply_patch') {
             const resolvedArtifacts = await resolveApplyPatchArtifactChanges({
               tc,
@@ -386,6 +431,11 @@ export async function executeApprovedToolStep({
     writeArtifactChanges,
     shellWriteDiagnostics,
     terminalSessionActivityMeta,
+    toolResultMedia,
     lintResult,
+    inputValidationError: null,
+    modeCapability,
+    canonicalToolName: executionToolName,
+    toolExecutionPath,
   }
 }

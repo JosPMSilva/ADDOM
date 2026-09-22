@@ -26,11 +26,32 @@ export const ANTHROPIC_ADAPTIVE_REASONING_DEFAULT_PROVIDER_OPTIONS = Object.free
 })
 export const ANTHROPIC_ADAPTIVE_REASONING_VARIANTS = Object.freeze([
   {
+    id: 'fast',
+    label: 'Fast',
+    providerOptions: {
+      anthropic: { thinking: { type: 'adaptive' }, effort: 'low' },
+    },
+  },
+  {
+    id: 'medium',
+    label: 'Medium',
+    providerOptions: {
+      anthropic: { thinking: { type: 'adaptive' }, effort: 'medium' },
+    },
+  },
+  {
     id: 'balanced',
     label: 'Balanced',
     default: true,
     providerOptions: {
       anthropic: { thinking: { type: 'adaptive' }, effort: 'high' },
+    },
+  },
+  {
+    id: 'xhigh',
+    label: 'XHigh',
+    providerOptions: {
+      anthropic: { thinking: { type: 'adaptive' }, effort: 'xhigh' },
     },
   },
   {
@@ -40,18 +61,25 @@ export const ANTHROPIC_ADAPTIVE_REASONING_VARIANTS = Object.freeze([
       anthropic: { thinking: { type: 'adaptive' }, effort: 'max' },
     },
   },
-  {
-    id: 'fast',
-    label: 'Fast',
-    providerOptions: {
-      anthropic: { thinking: { type: 'adaptive' }, effort: 'low' },
-    },
-  },
 ])
 export const ANTHROPIC_EFFORT_REASONING_DEFAULT_PROVIDER_OPTIONS = Object.freeze({
   anthropic: { effort: 'high' },
 })
 export const ANTHROPIC_EFFORT_REASONING_VARIANTS = Object.freeze([
+  {
+    id: 'fast',
+    label: 'Fast',
+    providerOptions: {
+      anthropic: { effort: 'low' },
+    },
+  },
+  {
+    id: 'medium',
+    label: 'Medium',
+    providerOptions: {
+      anthropic: { effort: 'medium' },
+    },
+  },
   {
     id: 'balanced',
     label: 'Balanced',
@@ -61,17 +89,17 @@ export const ANTHROPIC_EFFORT_REASONING_VARIANTS = Object.freeze([
     },
   },
   {
+    id: 'xhigh',
+    label: 'XHigh',
+    providerOptions: {
+      anthropic: { effort: 'xhigh' },
+    },
+  },
+  {
     id: 'deep',
     label: 'Deep',
     providerOptions: {
       anthropic: { effort: 'max' },
-    },
-  },
-  {
-    id: 'fast',
-    label: 'Fast',
-    providerOptions: {
-      anthropic: { effort: 'low' },
     },
   },
 ])

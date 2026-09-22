@@ -91,6 +91,7 @@ async function startOpenAIAccountTurnOperation({
   onReasoning = null,
   onProviderToolStatus = null,
   onProviderToolOutput = null,
+  onProviderToolOutputChunk = null,
   onProviderToolBoundary = null,
   onContextUsageUpdate = null,
   onCompactionEvent = null,
@@ -297,6 +298,7 @@ async function startOpenAIAccountTurnOperation({
   } = createAccountNativeActivityEmitters({
     emitProviderToolStatus,
     emitProviderToolOutput,
+    emitProviderToolOutputChunk: typeof onProviderToolOutputChunk === 'function' ? onProviderToolOutputChunk : () => {},
   })
 
   const {

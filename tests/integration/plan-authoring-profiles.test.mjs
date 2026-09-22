@@ -105,29 +105,28 @@ test('planning-skill lookup is available in Plan and Execute but denied in Think
   assert.match(String(result.result?.instructions || ''), /evidence/i)
   await assert.rejects(
     executeTool('', 'planning_skill_read', { profile_id: 'not-real' }),
-    /unknown plan-authoring profile/i,
+    /profile_id must be equal to one of the allowed values/i,
   )
 })
 
-test('the Plan-only direction tool persists no more than five questions', async () => {
+test('the Plan-only direction tool rejects more than five questions before persistence', async () => {
   const userDataPath = fs.mkdtempSync(path.join(os.tmpdir(), 'addom-direction-tool-'))
-  const result = await executeTool(process.cwd(), 'plan_direction_update', {
-    summary: 'Plan the durable review workflow.',
-    questions: Array.from({ length: 6 }, (_, index) => ({
-      id: `question_${index + 1}`,
-      question: `Question ${index + 1}?`,
-    })),
-    recommended_plan_profile: 'implementation',
-    recommendation_rationale: 'The work is repository-grounded.',
-    expected_revision: 0,
-  }, {
-    threadId: 'direction-tool-thread',
-    userDataPath,
-  })
-
-  assert.equal(result.result.plan.lifecycle, 'awaiting_decision')
-  assert.equal(result.result.plan.direction.questions.length, 5)
-  assert.equal(result.result.plan.direction.recommendation.profile, 'implementation')
+  await assert.rejects(
+    executeTool(process.cwd(), 'plan_direction_update', {
+      summary: 'Plan the durable review workflow.',
+      questions: Array.from({ length: 6 }, (_, index) => ({
+        id: `question_${index + 1}`,
+        question: `Question ${index + 1}?`,
+      })),
+      recommended_plan_profile: 'implementation',
+      recommendation_rationale: 'The work is repository-grounded.',
+      expected_revision: 0,
+    }, {
+      threadId: 'direction-tool-thread',
+      userDataPath,
+    }),
+    /questions must NOT have more than 5 items/i,
+  )
 })
 
 test('direction tools expose compact choices and a revision-bound synthesis finalizer', () => {

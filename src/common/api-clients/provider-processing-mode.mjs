@@ -24,6 +24,11 @@ function normalizeReturnedProviderMode(providerId = '', value = '') {
     if (returned === 'kimi-k2.7-code') return PROVIDER_PROCESSING_MODE_STANDARD
   }
 
+  if (provider === 'anthropic') {
+    if (returned === 'fast') return PROVIDER_PROCESSING_MODE_FAST
+    if (returned === 'standard') return PROVIDER_PROCESSING_MODE_STANDARD
+  }
+
   return ''
 }
 

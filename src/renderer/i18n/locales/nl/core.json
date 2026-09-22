@@ -1960,6 +1960,8 @@
         "activity": "Codex app-serveractiviteit",
         "webSearch": "Codex app-server zoeken op internet",
         "command": "Codex app-serveropdracht: {{commandName}}",
+        "commandSummary": "{{total}} opdrachten · {{completed}} voltooid · {{failed}} mislukt",
+        "commandSummaryPending": "{{total}} opdrachten · resultaatdetails niet beschikbaar",
         "fileChangeOne": "Codex app-serverbestand wijzigen",
         "fileChangeOther": "Codex app-serverbestandswijzigingen",
         "mcpTool": "Codex app-server MCP tool: {{toolName}}",

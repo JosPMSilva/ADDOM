@@ -8,16 +8,16 @@
     "installer",
     "dir"
   ],
-  "itemCount": 432,
+  "itemCount": 438,
   "items": [
     {
-      "id": "npm:@ai-sdk/anthropic@3.0.46",
+      "id": "npm:@ai-sdk/anthropic@3.0.118",
       "name": "@ai-sdk/anthropic",
-      "version": "3.0.46",
+      "version": "3.0.118",
       "license": "Apache-2.0",
-      "repository": "git+https://github.com/vercel/ai.git",
+      "repository": "https://github.com/vercel/ai",
       "homepage": "https://ai-sdk.dev/docs",
-      "sourceRef": "git+https://github.com/vercel/ai.git",
+      "sourceRef": "https://github.com/vercel/ai",
       "directness": "direct",
       "prodDevClassification": "prod",
       "classification": "shipped_runtime",
@@ -211,6 +211,50 @@
         "node_modules/@ai-sdk/provider-utils"
       ],
       "licenseFiles": [],
+      "noticeFiles": [],
+      "manualOverride": false,
+      "forbiddenLicense": false
+    },
+    {
+      "id": "npm:@ai-sdk/provider-utils@4.0.51",
+      "name": "@ai-sdk/provider-utils",
+      "version": "4.0.51",
+      "license": "Apache-2.0",
+      "repository": "https://github.com/vercel/ai",
+      "homepage": "https://ai-sdk.dev/docs",
+      "sourceRef": "https://github.com/vercel/ai",
+      "directness": "transitive",
+      "prodDevClassification": "prod",
+      "classification": "shipped_runtime",
+      "shipped": true,
+      "sourceType": "npm",
+      "sourcePaths": [
+        "node_modules/@ai-sdk/anthropic/node_modules/@ai-sdk/provider-utils"
+      ],
+      "licenseFiles": [],
+      "noticeFiles": [],
+      "manualOverride": false,
+      "forbiddenLicense": false
+    },
+    {
+      "id": "npm:@ai-sdk/provider@3.0.16",
+      "name": "@ai-sdk/provider",
+      "version": "3.0.16",
+      "license": "Apache-2.0",
+      "repository": "https://github.com/vercel/ai",
+      "homepage": "https://ai-sdk.dev/docs",
+      "sourceRef": "https://github.com/vercel/ai",
+      "directness": "transitive",
+      "prodDevClassification": "prod",
+      "classification": "shipped_runtime",
+      "shipped": true,
+      "sourceType": "npm",
+      "sourcePaths": [
+        "node_modules/@ai-sdk/anthropic/node_modules/@ai-sdk/provider"
+      ],
+      "licenseFiles": [
+        "node_modules/@ai-sdk/anthropic/node_modules/@ai-sdk/provider/LICENSE"
+      ],
       "noticeFiles": [],
       "manualOverride": false,
       "forbiddenLicense": false
@@ -1828,9 +1872,9 @@
       "forbiddenLicense": false
     },
     {
-      "id": "npm:adm-zip@0.6.0",
+      "id": "npm:adm-zip@0.6.1",
       "name": "adm-zip",
-      "version": "0.6.0",
+      "version": "0.6.1",
       "license": "MIT",
       "repository": "https://github.com/cthackers/adm-zip.git",
       "homepage": "https://github.com/cthackers/adm-zip",
@@ -1881,7 +1925,32 @@
       "repository": "https://github.com/ajv-validator/ajv.git",
       "homepage": "https://github.com/ajv-validator/ajv",
       "sourceRef": "https://github.com/ajv-validator/ajv.git",
-      "directness": "transitive",
+      "directness": "direct",
+      "prodDevClassification": "prod",
+      "classification": "shipped_runtime",
+      "shipped": true,
+      "sourceType": "npm",
+      "sourcePaths": [
+        "node_modules/@eslint/eslintrc/node_modules/ajv",
+        "node_modules/eslint/node_modules/ajv"
+      ],
+      "licenseFiles": [
+        "node_modules/@eslint/eslintrc/node_modules/ajv/LICENSE",
+        "node_modules/eslint/node_modules/ajv/LICENSE"
+      ],
+      "noticeFiles": [],
+      "manualOverride": false,
+      "forbiddenLicense": false
+    },
+    {
+      "id": "npm:ajv@8.20.0",
+      "name": "ajv",
+      "version": "8.20.0",
+      "license": "MIT",
+      "repository": "ajv-validator/ajv",
+      "homepage": "https://ajv.js.org",
+      "sourceRef": "ajv-validator/ajv",
+      "directness": "direct",
       "prodDevClassification": "prod",
       "classification": "shipped_runtime",
       "shipped": true,
@@ -3615,9 +3684,9 @@
       "forbiddenLicense": false
     },
     {
-      "id": "npm:eventsource-parser@3.0.6",
+      "id": "npm:eventsource-parser@3.1.1",
       "name": "eventsource-parser",
-      "version": "3.0.6",
+      "version": "3.1.1",
       "license": "MIT",
       "repository": "git+ssh://git@github.com/rexxars/eventsource-parser.git",
       "homepage": "https://github.com/rexxars/eventsource-parser#readme",
@@ -3724,6 +3793,29 @@
       ],
       "licenseFiles": [
         "node_modules/fast-levenshtein/LICENSE.md"
+      ],
+      "noticeFiles": [],
+      "manualOverride": false,
+      "forbiddenLicense": false
+    },
+    {
+      "id": "npm:fast-uri@3.1.6",
+      "name": "fast-uri",
+      "version": "3.1.6",
+      "license": "BSD-3-Clause",
+      "repository": "git+https://github.com/fastify/fast-uri.git",
+      "homepage": "https://github.com/fastify/fast-uri",
+      "sourceRef": "git+https://github.com/fastify/fast-uri.git",
+      "directness": "transitive",
+      "prodDevClassification": "prod",
+      "classification": "shipped_runtime",
+      "shipped": true,
+      "sourceType": "npm",
+      "sourcePaths": [
+        "node_modules/fast-uri"
+      ],
+      "licenseFiles": [
+        "node_modules/fast-uri/LICENSE"
       ],
       "noticeFiles": [],
       "manualOverride": false,
@@ -5564,6 +5656,31 @@
       "id": "npm:json-schema-traverse@0.4.1",
       "name": "json-schema-traverse",
       "version": "0.4.1",
+      "license": "MIT",
+      "repository": "git+https://github.com/epoberezkin/json-schema-traverse.git",
+      "homepage": "https://github.com/epoberezkin/json-schema-traverse#readme",
+      "sourceRef": "git+https://github.com/epoberezkin/json-schema-traverse.git",
+      "directness": "transitive",
+      "prodDevClassification": "prod",
+      "classification": "shipped_runtime",
+      "shipped": true,
+      "sourceType": "npm",
+      "sourcePaths": [
+        "node_modules/@eslint/eslintrc/node_modules/json-schema-traverse",
+        "node_modules/eslint/node_modules/json-schema-traverse"
+      ],
+      "licenseFiles": [
+        "node_modules/@eslint/eslintrc/node_modules/json-schema-traverse/LICENSE",
+        "node_modules/eslint/node_modules/json-schema-traverse/LICENSE"
+      ],
+      "noticeFiles": [],
+      "manualOverride": false,
+      "forbiddenLicense": false
+    },
+    {
+      "id": "npm:json-schema-traverse@1.0.0",
+      "name": "json-schema-traverse",
+      "version": "1.0.0",
       "license": "MIT",
       "repository": "git+https://github.com/epoberezkin/json-schema-traverse.git",
       "homepage": "https://github.com/epoberezkin/json-schema-traverse#readme",
@@ -8234,6 +8351,29 @@
       "forbiddenLicense": false
     },
     {
+      "id": "npm:require-from-string@2.0.2",
+      "name": "require-from-string",
+      "version": "2.0.2",
+      "license": "MIT",
+      "repository": "floatdrop/require-from-string",
+      "homepage": "",
+      "sourceRef": "floatdrop/require-from-string",
+      "directness": "transitive",
+      "prodDevClassification": "prod",
+      "classification": "shipped_runtime",
+      "shipped": true,
+      "sourceType": "npm",
+      "sourcePaths": [
+        "node_modules/require-from-string"
+      ],
+      "licenseFiles": [
+        "node_modules/require-from-string/LICENSE"
+      ],
+      "noticeFiles": [],
+      "manualOverride": false,
+      "forbiddenLicense": false
+    },
+    {
       "id": "npm:resolve-from@4.0.0",
       "name": "resolve-from",
       "version": "4.0.0",
@@ -8751,9 +8891,9 @@
       "forbiddenLicense": false
     },
     {
-      "id": "npm:smol-toml@1.6.1",
+      "id": "npm:smol-toml@1.8.0",
       "name": "smol-toml",
-      "version": "1.6.1",
+      "version": "1.8.0",
       "license": "BSD-3-Clause",
       "repository": "github:squirrelchat/smol-toml",
       "homepage": "",

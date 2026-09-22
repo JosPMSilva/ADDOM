@@ -574,6 +574,8 @@ export async function createSharedStreamWithTools({
       id: toolCall.toolCallId,
       name: toolCall.toolName,
       input: toolCall.input ?? {},
+      ...(toolCall.invalid === true ? { invalid: true } : {}),
+      ...(toolCall.error ? { error: toolCall.error } : {}),
     })),
     sources: Array.isArray(streamPayload.sources) ? streamPayload.sources : [],
     providerToolOutputs: Array.isArray(streamPayload.providerToolOutputs) ? streamPayload.providerToolOutputs : [],

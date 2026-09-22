@@ -231,12 +231,29 @@ export function buildAssistantToolUseMessage(text, toolCalls, {
 }
 
 export function buildToolResultMessage(toolCallId, toolName, result, isError, metadata = {}) {
+  const metadataSource = metadata && typeof metadata === 'object' ? metadata : {}
+  const toolResultMedia = metadataSource.toolResultMedia && typeof metadataSource.toolResultMedia === 'object'
+    ? metadataSource.toolResultMedia
+    : null
+  const normalizedMetadata = { ...metadataSource }
+  delete normalizedMetadata.toolResultMedia
   const output = isError
     ? { type: 'error-text', value: String(result ?? '') }
-    : (typeof result === 'string'
-      ? { type: 'text', value: result }
-      : { type: 'json', value: result ?? null })
-  const normalizedMetadata = metadata && typeof metadata === 'object' ? metadata : {}
+    : (toolResultMedia?.type === 'image' && toolResultMedia.data && toolResultMedia.mediaType
+      ? {
+          type: 'content',
+          value: [
+            { type: 'text', text: String(result ?? '') },
+            {
+              type: 'media',
+              data: String(toolResultMedia.data),
+              mediaType: String(toolResultMedia.mediaType),
+            },
+          ],
+        }
+      : (typeof result === 'string'
+        ? { type: 'text', value: result }
+        : { type: 'json', value: result ?? null }))
 
   return {
     role: 'tool',

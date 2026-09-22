@@ -1,7 +1,7 @@
 import { formatToolResultForDisplay } from '../../common/chat/tool-result-display.mjs'
 import { normalizeQuestionUserRequest } from '../../common/chat/question-user-request.mjs'
 import { buildToolContextFacts, persistToolContextFacts } from './tool-context-facts.mjs'
-import { resolveToolFailureClass } from './tool-failure-classifier.mjs'
+import { resolveToolFailureDiagnostics } from './tool-failure-classifier.mjs'
 import { resolveProviderPromptBudgetProfile } from './provider-prompt-budget-profile.mjs'
 import { recordToolResultSpilloverOutcome } from './chat-runtime-diagnostics.mjs'
 import { budgetToolResultForModel } from '../tools/tool-result-budget.mjs'
@@ -404,17 +404,24 @@ export function recordToolStepOutcome({
   durationMs = 0,
   threadId = '',
   turnId = '',
+  projectFolder = '',
   runCommandPolicyActivityMeta = null,
   browserActionPolicyActivityMeta = null,
   terminalSessionActivityMeta = null,
   writeArtifactMeta = null,
   writeArtifactChanges = [],
   shellWriteDiagnostics = null,
+  toolResultMedia = null,
   lintResult = null,
   providerId = '',
   model = '',
   promptBudgetProfile = null,
   errorDiagnostics = null,
+  canonicalToolName = '',
+  toolExecutionPath = '',
+  inputValidationError = null,
+  modeCapability = null,
+  cancelled = false,
 } = {}) {
   const resultDisplay = formatToolResultForDisplay(tc.name, result)
   const normalizedToolName = String(tc?.name || '').trim().toLowerCase()
@@ -482,13 +489,23 @@ export function recordToolStepOutcome({
           : {}),
       }
     : {}
-  const failureClass = resolveToolFailureClass({
+  const failureDiagnostics = resolveToolFailureDiagnostics({
     toolName: tc?.name,
     result,
+    isError,
     decision,
     denyReason,
     lintResult,
+    inputValidationError,
+    modeCapability,
+    missingDependencySuspected,
+    cancelled,
   })
+  const failureClass = failureDiagnostics.failureClass
+  const failureStage = failureDiagnostics.failureStage
+  const failureReasonCode = failureDiagnostics.failureReasonCode
+  const normalizedCanonicalToolName = String(canonicalToolName || tc?.name || '').trim()
+  const normalizedToolExecutionPath = String(toolExecutionPath || '').trim().toLowerCase()
   const effectivePromptBudgetProfile = promptBudgetProfile && typeof promptBudgetProfile === 'object'
     ? promptBudgetProfile
     : resolveProviderPromptBudgetProfile({ providerId, modelId: model })
@@ -504,6 +521,7 @@ export function recordToolStepOutcome({
     fileChanges: writeChangesForEmission,
     threadId,
     turnId,
+    projectRoot: projectFolder,
   })
   const resultForModel = budgetedResult.resultText
   const toolResultBudget = budgetedResult.truncationMetadata
@@ -533,6 +551,10 @@ export function recordToolStepOutcome({
     artifactTracking,
     lintCode: String(lintResult?.lintCode || '').trim(),
     failureClass,
+    failureStage,
+    failureReasonCode,
+    canonicalToolName: normalizedCanonicalToolName,
+    toolExecutionPath: normalizedToolExecutionPath,
     rerouteToolName: String(lintResult?.rerouteToolName || '').trim(),
     lintDecision: String(lintResult?.decision || '').trim(),
     ...(questionUser ? { questionUser } : {}),
@@ -550,6 +572,10 @@ export function recordToolStepOutcome({
     decision,
     writeArtifactChanges: writeChangesForEmission,
     failureClass,
+    failureStage,
+    failureReasonCode,
+    canonicalToolName: normalizedCanonicalToolName,
+    toolExecutionPath: normalizedToolExecutionPath,
     lintCode: String(lintResult?.lintCode || '').trim(),
     rerouteToolName: String(lintResult?.rerouteToolName || '').trim(),
   })
@@ -563,10 +589,14 @@ export function recordToolStepOutcome({
       isError: !!isError,
       errorSeverity,
       missingDependencySuspected,
+      canonicalToolName: normalizedCanonicalToolName,
+      toolExecutionPath: normalizedToolExecutionPath,
+      failureClass,
+      failureStage,
+      failureReasonCode,
       ...(lintResult && typeof lintResult === 'object'
         ? {
           lintCode: String(lintResult.lintCode || '').trim(),
-          failureClass,
           rerouteToolName: String(lintResult.rerouteToolName || '').trim(),
           lintDecision: String(lintResult.decision || '').trim(),
         }
@@ -606,10 +636,14 @@ export function recordToolStepOutcome({
     decision,
     denyReason,
     missingDependencySuspected,
+    canonicalToolName: normalizedCanonicalToolName,
+    toolExecutionPath: normalizedToolExecutionPath,
+    failureClass,
+    failureStage,
+    failureReasonCode,
     ...(lintResult && typeof lintResult === 'object'
       ? {
         lintCode: String(lintResult.lintCode || '').trim(),
-        failureClass,
         rerouteToolName: String(lintResult.rerouteToolName || '').trim(),
         lintDecision: String(lintResult.decision || '').trim(),
       }
@@ -724,10 +758,13 @@ export function recordToolStepOutcome({
   const resultMsg = buildToolResultMessage(tc.id, tc.name, resultForModel, isError, {
     lintCode: String(lintResult?.lintCode || '').trim(),
     failureClass,
+    ...(failureStage ? { failureStage } : {}),
+    ...(failureReasonCode ? { failureReasonCode } : {}),
     rerouteToolName: String(lintResult?.rerouteToolName || '').trim(),
     lintDecision: String(lintResult?.decision || '').trim(),
     isError: !!isError,
     decision,
+    ...(toolResultMedia ? { toolResultMedia } : {}),
   })
   history.push(resultMsg)
 }

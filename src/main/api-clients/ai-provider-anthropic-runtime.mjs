@@ -1,4 +1,27 @@
 import { normalizeUsage } from './ai-provider-stream-utils.mjs'
+import { resolveProviderProcessingMode } from '../../common/api-clients/provider-processing-mode.mjs'
+
+export const ANTHROPIC_FAST_MODE_BETA = 'fast-mode-2026-02-01'
+
+export function buildAnthropicClientOptions({
+  apiKey = '',
+  modelId = '',
+  requestContext = {},
+} = {}) {
+  const processing = resolveProviderProcessingMode({
+    providerId: 'anthropic',
+    modelId,
+    authMethod: 'api_key',
+    providerConfigured: true,
+    requestedMode: requestContext?.processingMode,
+  })
+  return processing.request?.speed === 'fast'
+    ? {
+        apiKey,
+        headers: { 'anthropic-beta': ANTHROPIC_FAST_MODE_BETA },
+      }
+    : { apiKey }
+}
 
 function trimString(value = '') {
   return String(value || '').trim()
@@ -76,8 +99,15 @@ export function extractAnthropicResponseMeta(providerMetadata = null, response =
     || response?.usage
     || null,
   )
+  const processingMode = resolveProviderProcessingMode({
+    providerId: 'anthropic',
+    modelId: String(response?.modelId || response?.model || fallbackModelId || '').trim(),
+    authMethod: 'api_key',
+    providerConfigured: true,
+    returnedProviderMode: anthropicMetadata?.usage?.speed || anthropicMetadata?.speed,
+  }).returnedMode
 
-  if (!contextManagementApplied && !compactionSummaryDetected && iterations.length === 0) {
+  if (!contextManagementApplied && !compactionSummaryDetected && iterations.length === 0 && !processingMode) {
     return null
   }
 
@@ -88,6 +118,7 @@ export function extractAnthropicResponseMeta(providerMetadata = null, response =
     contextManagementAppliedEdits: appliedEdits,
     compactionApplied,
     compactionSummaryDetected,
+    ...(processingMode ? { processingMode } : {}),
     usageSemantics: {
       currentTurnInputMayExcludeCompaction: iterations.length > 0,
       billedTotalsDerivedFromIterations: iterations.length > 0,

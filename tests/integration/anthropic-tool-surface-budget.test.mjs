@@ -18,6 +18,7 @@ const ANTHROPIC_CORE_TOOLS = [
   'plan_update',
   'question_user',
   'read_file',
+  'read_tool_result',
   'run_command',
   'search_code',
   'view_file_range',

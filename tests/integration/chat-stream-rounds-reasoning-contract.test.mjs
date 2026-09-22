@@ -240,11 +240,9 @@ test('runSingleStreamRound preserves provider-declared reasoning phase boundarie
       'Inspecting the workspace.',
       `Inspecting the workspace.${REASONING_PHASE_BOUNDARY}`,
       `Inspecting the workspace.${REASONING_PHASE_BOUNDARY}Checking the result.`,
-      `Inspecting the workspace.${REASONING_PHASE_BOUNDARY}Checking the result.`,
     ],
   )
   assert.deepEqual(persistedReasoning.map((entry) => entry.payload.lifecycle), [
-    'active',
     'active',
     'active',
     'completed',

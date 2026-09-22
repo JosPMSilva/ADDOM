@@ -13,6 +13,7 @@ import { sealObjectSchema } from './tool-definition-schema-utils.mjs'
 import { getToolMetaFromIdentity } from './tool-identity-registry.mjs'
 import { BASE_TOOLS } from './tool-definitions-base.mjs'
 import { TERMINAL_SESSION_TOOLS } from './tool-definitions-terminal.mjs'
+import { validateToolInput } from './tool-input-validator.mjs'
 
 /**
  * Return tools in AI SDK format:
@@ -34,7 +35,9 @@ export function toAISDKTools(_permissionMode = 'ask', delegationAvailable = fals
       : sealObjectSchema(t.parameters)
     result[t.name] = {
       description: t.description,
-      inputSchema: jsonSchema(inputSchema),
+      inputSchema: jsonSchema(inputSchema, {
+        validate: (value) => validateToolInput(t.name, value),
+      }),
     }
   }
   return result

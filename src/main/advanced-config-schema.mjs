@@ -104,7 +104,7 @@ const ADVANCED_CONFIG_SPECS = Object.freeze([
   spec('providers.openai.runtime.websocket_fallback_to_stream', 'providerRuntimeSettings.openai.websocketFallbackToStream', 'boolean'),
   spec('providers.openai.runtime.websocket_warmup_enabled', 'providerRuntimeSettings.openai.websocketWarmupEnabled', 'boolean'),
   spec('providers.openai.runtime.reasoning_summary', 'providerRuntimeSettings.openai.reasoningSummary', 'string', { enum: ['auto', 'none'] }),
-  spec('providers.openai.runtime.reasoning_effort', 'providerRuntimeSettings.openai.reasoningEffort', 'string', { enum: ['high', 'low', 'max', 'medium', 'minimal', 'none', 'provider_default', 'xhigh'] }),
+  spec('providers.openai.runtime.reasoning_effort', 'providerRuntimeSettings.openai.reasoningEffort', 'string', { enum: ['high', 'low', 'max', 'medium', 'minimal', 'none', 'provider_default', 'ultra', 'xhigh'] }),
   spec('providers.openai.runtime.text_verbosity', 'providerRuntimeSettings.openai.textVerbosity', 'string', { enum: ['high', 'low', 'medium', 'provider_default'] }),
   spec('providers.openai.runtime.service_tier', 'providerRuntimeSettings.openai.serviceTier', 'string', { enum: ['auto', 'default', 'flex', 'priority'] }),
   spec('providers.openai.runtime.prompt_caching_enabled', 'providerRuntimeSettings.openai.promptCachingEnabled', 'boolean'),
@@ -137,7 +137,7 @@ const ADVANCED_CONFIG_SPECS = Object.freeze([
   spec('providers.openai.hosted_tools.enabled_tools', 'providerRuntimeSettings.openai.enabledHostedTools', 'string_array', { values: OPENAI_HOSTED_TOOL_IDS, maxItems: 16 }),
 
   spec('providers.anthropic.runtime.thinking_type', 'providerRuntimeSettings.anthropic.thinkingType', 'string', { enum: ['disabled', 'enabled', 'provider_default'] }),
-  spec('providers.anthropic.runtime.reasoning_effort', 'providerRuntimeSettings.anthropic.reasoningEffort', 'string', { enum: ['high', 'low', 'max', 'medium', 'provider_default'] }),
+  spec('providers.anthropic.runtime.reasoning_effort', 'providerRuntimeSettings.anthropic.reasoningEffort', 'string', { enum: ['high', 'low', 'max', 'medium', 'provider_default', 'xhigh'] }),
   spec('providers.anthropic.runtime.use_context_management_compaction', 'providerRuntimeSettings.anthropic.useContextManagementCompaction', 'boolean'),
   spec('providers.anthropic.runtime.context_management_compaction_threshold_tokens', 'providerRuntimeSettings.anthropic.contextManagementCompactionThresholdTokens', 'integer', { min: 0, max: 2_000_000 }),
   spec('providers.anthropic.runtime.provider_truncation_soft_trigger_percent', 'providerRuntimeSettings.anthropic.providerTruncationSoftTriggerPercent', 'integer', { min: 10, max: 95 }),

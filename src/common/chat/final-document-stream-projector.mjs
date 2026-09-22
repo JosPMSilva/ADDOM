@@ -26,13 +26,31 @@ function stableTextHash(text = '') {
   return (hash >>> 0).toString(36)
 }
 
-function validTopLevelNodes(text = '') {
-  const tree = markdownParser.parse(text)
+function validTopLevelNodesFromTree(tree = null) {
   return (Array.isArray(tree?.children) ? tree.children : []).filter((node) => {
     const start = Number(node?.position?.start?.offset)
     const end = Number(node?.position?.end?.offset)
     return Number.isInteger(start) && Number.isInteger(end) && start >= 0 && end >= start
   })
+}
+
+function treeRequiresDocumentContext(tree = null) {
+  const pending = Array.isArray(tree?.children) ? [...tree.children] : []
+  while (pending.length > 0) {
+    const node = pending.pop()
+    const type = String(node?.type || '')
+    if (
+      type === 'definition'
+      || type === 'footnoteDefinition'
+      || type === 'linkReference'
+      || type === 'imageReference'
+      || type === 'footnoteReference'
+    ) {
+      return true
+    }
+    if (Array.isArray(node?.children)) pending.push(...node.children)
+  }
+  return false
 }
 
 function trailingBoundaryIsStable(text = '', lastNode = null) {
@@ -65,13 +83,13 @@ function repairOpenFence(text = '') {
   return `${text}${text.endsWith('\n') ? '' : '\n'}${closing}`
 }
 
-function createBlock({ messageId = '', start = 0, end = 0, text = '' } = {}) {
+function createBlock({ id = '', messageId = '', start = 0, end = 0, text = '', renderText = text } = {}) {
   return Object.freeze({
-    id: `${messageId || 'message'}:final-block:${start}:${end}:${stableTextHash(text)}`,
+    id: id || `${messageId || 'message'}:final-block:${start}:${end}:${stableTextHash(text)}`,
     start,
     end,
     text,
-    renderText: text,
+    renderText,
   })
 }
 
@@ -129,10 +147,18 @@ export function projectStreamingFinalDocument({
   const blocks = canReuseStableBlocks ? [...previous.blocks] : []
   const sourceStart = canReuseStableBlocks ? previousStableText.length : 0
   const source = canonicalText.slice(sourceStart)
-  const nodes = validTopLevelNodes(source)
+  const sourceTree = markdownParser.parse(source)
+  const nodes = validTopLevelNodesFromTree(sourceTree)
+  const documentTree = sourceStart === 0 ? sourceTree : markdownParser.parse(canonicalText)
+  const requiresDocumentContext = treeRequiresDocumentContext(documentTree)
 
   let completeCount = settled ? nodes.length : Math.max(0, nodes.length - 1)
-  if (!settled && nodes.length > 0 && trailingBoundaryIsStable(source, nodes.at(-1))) {
+  if (
+    !settled
+    && nodes.length > 0
+    && nodes.at(-1)?.type !== 'list'
+    && trailingBoundaryIsStable(source, nodes.at(-1))
+  ) {
     completeCount = nodes.length
   }
 
@@ -155,6 +181,15 @@ export function projectStreamingFinalDocument({
     messageId: normalizedMessageId,
     text: canonicalText,
     settled: settled === true,
+    requiresDocumentContext,
+    document: createBlock({
+      id: `${normalizedMessageId}:final-document-context`,
+      messageId: normalizedMessageId,
+      start: 0,
+      end: canonicalText.length,
+      text: canonicalText,
+      renderText: settled ? canonicalText : repairOpenFence(canonicalText),
+    }),
     blocks,
     tail: {
       id: `${normalizedMessageId}:final-tail:${sourceStart + cursor}`,

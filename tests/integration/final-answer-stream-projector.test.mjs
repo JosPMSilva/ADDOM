@@ -91,6 +91,43 @@ test('stream projector keeps tables, lists, links, and code spans in the mutable
   }
 })
 
+test('stream projector keeps a trailing list mutable across blank lines', () => {
+  const first = projectStreamingFinalDocument({
+    messageId: 'assistant_loose_list',
+    text: '1. First\n\n',
+  })
+  assert.equal(first.blocks.length, 0)
+  assert.equal(first.tail.text, '1. First\n\n')
+
+  const second = projectStreamingFinalDocument({
+    previous: first,
+    messageId: 'assistant_loose_list',
+    text: '1. First\n\n2. Second',
+  })
+  assert.equal(second.blocks.length, 0)
+  assert.equal(second.tail.text, '1. First\n\n2. Second')
+})
+
+test('stream projector requests document-wide rendering for reference and footnote definitions', () => {
+  const text = [
+    'Read [the docs][docs].',
+    '',
+    'A note[^one].',
+    '',
+    '[docs]: https://example.com/docs',
+    '',
+    '[^one]: Footnote body.',
+  ].join('\n')
+  const projection = projectStreamingFinalDocument({
+    messageId: 'assistant_shared_context',
+    text,
+  })
+
+  assert.equal(projection.requiresDocumentContext, true)
+  assert.equal(projection.document.text, text)
+  assert.equal(projection.document.renderText, text)
+})
+
 test('tail replacement preserves stable block identity while settled reload reconstructs the same keys', () => {
   const initial = projectStreamingFinalDocument({
     messageId: 'assistant_replace',

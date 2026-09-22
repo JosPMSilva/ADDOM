@@ -1960,6 +1960,8 @@
         "activity": "Hoạt động của máy chủ ứng dụng Codex",
         "webSearch": "Tìm kiếm trên web máy chủ ứng dụng Codex",
         "command": "Lệnh máy chủ ứng dụng Codex: {{commandName}}",
+        "commandSummary": "{{total}} lệnh · {{completed}} hoàn tất · {{failed}} thất bại",
+        "commandSummaryPending": "{{total}} lệnh · không có chi tiết kết quả",
         "fileChangeOne": "Thay đổi tệp máy chủ ứng dụng Codex",
         "fileChangeOther": "Thay đổi tệp máy chủ ứng dụng Codex",
         "mcpTool": "Máy chủ ứng dụng Codex Công cụ MCP: {{toolName}}",

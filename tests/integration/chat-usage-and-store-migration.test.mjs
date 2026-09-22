@@ -1849,7 +1849,7 @@ test('hydration ignores non-authoritative finalDocument payloads when assistantM
   ])
 })
 
-test('useChatStore persist merge retains exact and custom selectedModel ids without legacy remaps', async () => {
+test('useChatStore persist merge retains exact and custom ids while migrating curated aliases', async () => {
   await withChatStore(async ({ store }) => {
     const merge = store.persist?.getOptions?.().merge
     assert.equal(typeof merge, 'function')
@@ -1874,6 +1874,20 @@ test('useChatStore persist merge retains exact and custom selectedModel ids with
       selectedModel: 'gemini-3.5-flash',
     }, currentState)
     assert.equal(retainedGemini.selectedModel, 'gemini-3.5-flash')
+
+    const migratedFable = merge({
+      selectedProvider: 'anthropic',
+      selectedModel: 'claude-fable-5',
+    }, currentState)
+    assert.equal(migratedFable.selectedProvider, 'anthropic')
+    assert.equal(migratedFable.selectedModel, 'claude-fable-5-1')
+
+    const migratedDeepSeek = merge({
+      selectedProvider: 'deepseek',
+      selectedModel: 'deepseek-v4-flash',
+    }, currentState)
+    assert.equal(migratedDeepSeek.selectedProvider, 'deepseek')
+    assert.equal(migratedDeepSeek.selectedModel, 'deepseek-flash')
 
     const removedLegacyModel = merge({
       selectedProvider: 'grok',

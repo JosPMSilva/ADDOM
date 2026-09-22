@@ -1,5 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { createXai } from '@ai-sdk/xai'
+import { createOpenAICompatible } from '@ai-sdk/openai-compatible'
 
 import { toAISDKTools } from '../../src/main/tools/tool-definitions.mjs'
 import {
@@ -56,6 +58,24 @@ test('provider model transform derives Grok reasoning defaults and selected vari
   })
 })
 
+test('provider model transform maps all four Grok 4.6 effort variants exactly', () => {
+  const transform = resolveProviderModelTransform({
+    providerId: 'grok',
+    modelId: 'grok-4.6',
+  })
+
+  for (const [variantId, effort] of [
+    ['fast', 'low'],
+    ['balanced', 'medium'],
+    ['deep', 'high'],
+    ['max', 'xhigh'],
+  ]) {
+    const config = transform.resolveInvocationConfig({ requestContext: { variantId } })
+    assert.equal(config.providerOptions?.xai?.reasoningEffort, effort)
+  }
+  assert.equal(transform.resolveInvocationConfig().selectedVariantId, 'deep')
+})
+
 test('provider model transform keeps standard and multi-agent Grok reasoning controls distinct', () => {
   const standard = resolveProviderModelTransform({
     providerId: 'grok',
@@ -104,6 +124,55 @@ test('provider model transform derives Groq reasoning defaults and selected vari
   })
 })
 
+test('provider model transform maps DeepSeek thinking mode and effort variants exactly', () => {
+  const transform = resolveProviderModelTransform({
+    providerId: 'deepseek',
+    modelId: 'deepseek-flash',
+  })
+
+  for (const [variantId, reasoningEffort, thinkingType] of [
+    ['none', 'none', 'disabled'],
+    ['low', 'low', 'enabled'],
+    ['high', 'high', 'enabled'],
+    ['max', 'max', 'enabled'],
+  ]) {
+    const config = transform.resolveInvocationConfig({ requestContext: { variantId } })
+    assert.equal(config.providerOptions?.deepseek?.reasoningEffort, reasoningEffort)
+    assert.equal(config.providerOptions?.deepseek?.thinking?.type, thinkingType)
+  }
+
+  const defaultConfig = transform.resolveInvocationConfig()
+  assert.equal(defaultConfig.selectedVariantId, 'high')
+  assert.equal(defaultConfig.modelMaxOutputTokens, 393_216)
+})
+
+test('provider model transform maps Kimi K3 reasoning effort and replay metadata', () => {
+  const transform = resolveProviderModelTransform({
+    providerId: 'moonshot',
+    modelId: 'kimi-k3',
+  })
+
+  for (const effort of ['low', 'high', 'max']) {
+    const config = transform.resolveInvocationConfig({
+      requestContext: { variantId: effort },
+    })
+    assert.equal(config.providerOptions?.moonshot?.reasoningEffort, effort)
+  }
+
+  const defaultConfig = transform.resolveInvocationConfig()
+  assert.equal(defaultConfig.selectedVariantId, 'max')
+  assert.equal(defaultConfig.modelMaxOutputTokens, 1_048_576)
+  assert.deepEqual(
+    resolveInterleavedReasoningReplayTarget(
+      transform.registryModel?.capabilities?.interleavedReasoning,
+    ),
+    {
+      providerNamespace: 'openaiCompatible',
+      field: 'reasoning_content',
+    },
+  )
+})
+
 test('provider model transform keeps OpenAI processing mode independent from reasoning effort', () => {
   const transform = resolveProviderModelTransform({
     providerId: 'openai',
@@ -132,6 +201,22 @@ test('provider model transform omits Fast for unsupported OpenAI models', () => 
 
   assert.equal(
     transform.buildProviderOptions({ requestContext: { processingMode: 'fast' } })?.openai?.serviceTier,
+    undefined,
+  )
+})
+
+test('Astra API requests accept max but reject account-only ultra effort', () => {
+  const transform = resolveProviderModelTransform({
+    providerId: 'openai',
+    modelId: 'gpt-6-astra',
+  })
+
+  assert.equal(
+    transform.buildProviderOptions({ runtimeSettings: { reasoningEffort: 'max' } })?.openai?.reasoningEffort,
+    'max',
+  )
+  assert.equal(
+    transform.buildProviderOptions({ runtimeSettings: { reasoningEffort: 'ultra' } })?.openai?.reasoningEffort,
     undefined,
   )
 })
@@ -330,6 +415,160 @@ test('provider model transform keeps canonical tool history while sanitizing too
   assert.equal(Object.prototype.hasOwnProperty.call(sanitizedValue, 'screenshotBase64'), false)
   assert.equal(sanitizedValue.screenshotOmitted, true)
   assert.equal(sanitizedValue.screenshotPlaceholder, '[Tool result image omitted: captures/page.jpg]')
+})
+
+test('provider model transform keeps screenshot tool media only for vision-capable models', () => {
+  const message = {
+    role: 'tool',
+    content: [{
+      type: 'tool-result',
+      toolCallId: 'call_browser_media',
+      toolName: 'browser_action',
+      output: {
+        type: 'content',
+        value: [
+          { type: 'text', text: 'Screenshot captured.' },
+          { type: 'media', data: 'aW1hZ2UtYnl0ZXM=', mediaType: 'image/jpeg' },
+        ],
+      },
+    }],
+  }
+  const vision = resolveProviderModelTransform({
+    providerId: 'openai',
+    modelId: 'vision-fixture',
+    adapterProfile: { attachment: { supportsVision: true } },
+    registryModelOverride: {
+      id: 'vision-fixture',
+      attachment: { supported: true, supportsVision: true, kinds: ['image'] },
+    },
+  })
+  const textOnly = resolveProviderModelTransform({
+    providerId: 'openai',
+    modelId: 'text-fixture',
+    adapterProfile: { attachment: { supportsVision: false } },
+    registryModelOverride: {
+      id: 'text-fixture',
+      attachment: { supported: false, supportsVision: false, kinds: [] },
+    },
+  })
+
+  assert.deepEqual(vision.normalizeMessages({ messages: [message] })[0].content[0].output.value, [
+    { type: 'text', text: 'Screenshot captured.' },
+    { type: 'media', data: 'aW1hZ2UtYnl0ZXM=', mediaType: 'image/jpeg' },
+  ])
+  assert.deepEqual(textOnly.normalizeMessages({ messages: [message] })[0].content[0].output.value, [
+    { type: 'text', text: 'Screenshot captured.' },
+    { type: 'text', text: '[Tool result image omitted: image/jpeg]' },
+  ])
+
+  const curatedVision = resolveProviderModelTransform({
+    providerId: 'gemini',
+    modelId: 'gemini-2.5-pro',
+  })
+  assert.equal(curatedVision.attachment.supportsVision, true)
+  assert.deepEqual(curatedVision.normalizeMessages({ messages: [message] })[0].content[0].output.value, [
+    { type: 'text', text: 'Screenshot captured.' },
+    { type: 'media', data: 'aW1hZ2UtYnl0ZXM=', mediaType: 'image/jpeg' },
+  ])
+})
+
+test('Grok and OpenRouter serialize screenshot tool results as image input instead of JSON base64 text', async () => {
+  const base64Image = 'VE9PTC1JTUFHRS1QQVlMT0FE'
+  const secondBase64Image = 'U0VDT05ELVRPT0wtSU1BR0U'
+  const messages = [
+    {
+      role: 'assistant',
+      content: [{
+        type: 'tool-call',
+        toolCallId: 'call_browser_wire',
+        toolName: 'browser_action',
+        input: {},
+      }, {
+        type: 'tool-call',
+        toolCallId: 'call_browser_wire_second',
+        toolName: 'browser_action',
+        input: {},
+      }],
+    },
+    {
+      role: 'tool',
+      content: [{
+        type: 'tool-result',
+        toolCallId: 'call_browser_wire',
+        toolName: 'browser_action',
+        output: {
+          type: 'content',
+          value: [
+            { type: 'text', text: 'Screenshot captured.' },
+            { type: 'media', data: base64Image, mediaType: 'image/jpeg' },
+          ],
+        },
+      }],
+    },
+    {
+      role: 'tool',
+      content: [{
+        type: 'tool-result',
+        toolCallId: 'call_browser_wire_second',
+        toolName: 'browser_action',
+        output: {
+          type: 'content',
+          value: [
+            { type: 'text', text: 'Second screenshot captured.' },
+            { type: 'media', data: secondBase64Image, mediaType: 'image/png' },
+          ],
+        },
+      }],
+    },
+  ]
+
+  for (const providerId of ['grok', 'openrouter']) {
+    const transform = resolveProviderModelTransform({
+      providerId,
+      modelId: 'vision-wire-fixture',
+      adapterProfile: {
+        providerId,
+        transportFamily: providerId === 'grok' ? 'xai_responses' : 'openai_compatible',
+        attachment: { supportsVision: true },
+      },
+      registryModelOverride: {
+        id: 'vision-wire-fixture',
+        attachment: { supported: true, supportsVision: true, kinds: ['image'] },
+      },
+    })
+    const prompt = transform.normalizeMessages({ messages })
+    let requestBody = null
+    const fetch = async (_url, init) => {
+      requestBody = JSON.parse(init.body)
+      return new Response(JSON.stringify({ error: { message: 'capture complete' } }), {
+        status: 400,
+        headers: { 'content-type': 'application/json' },
+      })
+    }
+    const model = providerId === 'grok'
+      ? createXai({ apiKey: 'test-key', fetch })('grok-4')
+      : createOpenAICompatible({
+          name: 'openrouter',
+          baseURL: 'https://openrouter.invalid/v1',
+          apiKey: 'test-key',
+          fetch,
+        })('openai/gpt-4o')
+
+    await assert.rejects(model.doGenerate({ prompt, maxOutputTokens: 16 }))
+
+    const wireMessages = requestBody?.input || requestBody?.messages
+    assert.equal(Array.isArray(wireMessages), true)
+    assert.equal(wireMessages[1]?.role, 'tool')
+    assert.equal(wireMessages[2]?.role, 'tool')
+    assert.doesNotMatch(String(wireMessages[1]?.content || ''), new RegExp(base64Image))
+    assert.doesNotMatch(String(wireMessages[2]?.content || ''), new RegExp(secondBase64Image))
+    assert.equal(wireMessages[3]?.role, 'user')
+    const wireImages = wireMessages[3]?.content?.filter((part) => part?.type === 'image_url')
+    assert.deepEqual(wireImages?.map((part) => part?.image_url?.url), [
+      `data:image/jpeg;base64,${base64Image}`,
+      `data:image/png;base64,${secondBase64Image}`,
+    ])
+  }
 })
 
 test('provider model transform normalizes Mistral tool ids and repairs tool-to-user message sequencing', () => {

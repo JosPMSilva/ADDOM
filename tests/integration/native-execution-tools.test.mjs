@@ -89,7 +89,7 @@ test('native apply_patch rejects legacy operation input now that the contract is
           diff: '@@ -0,0 +1,1 @@\n+legacy\n',
         },
       }),
-      /non-empty patch string/i,
+      /patch is required/i,
     )
   } finally {
     fs.rmSync(projectRoot, { recursive: true, force: true })

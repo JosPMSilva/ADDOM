@@ -3,6 +3,8 @@ import assert from 'node:assert/strict'
 
 import {
   closeIncompleteToolSessions,
+  MAX_CANONICAL_TOOL_OUTPUT_CHARS,
+  MAX_CANONICAL_TOOL_OUTPUT_SEGMENTS,
   pruneDuplicatedExecutionCommentaryFromCanonicalState,
   reduceCanonicalExecutionEvent,
 } from '../../src/renderer/store/chat/live-execution-canonical-reducer.mjs'
@@ -44,6 +46,54 @@ test('canonical reducer aggregates a tool lifecycle into one session', () => {
     ],
   )
   assert.equal(turn.status, 'active')
+})
+
+test('canonical reducer bounds high-volume output while retaining the newest ordered evidence', () => {
+  const events = [
+    event('tool_started', {
+      eventId: 'burst-start',
+      sessionId: 'burst-step',
+      toolKind: 'command',
+      state: 'active',
+    }),
+  ]
+  for (let sequence = 1; sequence <= 4_000; sequence += 1) {
+    events.push(event('tool_output', {
+      eventId: `burst-${sequence}`,
+      sessionId: 'burst-step',
+      stream: sequence % 2 === 0 ? 'stderr' : 'stdout',
+      detail: `${String(sequence).padStart(4, '0')}:${'x'.repeat(1_594)}\n`,
+      sequence,
+      emittedAt: 100 + sequence,
+    }))
+  }
+
+  const state = reduce(events)
+  const session = state.turnsById['turn-1'].sessionsById['burst-step']
+  const retainedChars = session.outputs.reduce(
+    (total, output) => total + String(output?.detail || '').length,
+    0,
+  )
+
+  assert.ok(session.outputs.length <= MAX_CANONICAL_TOOL_OUTPUT_SEGMENTS)
+  assert.ok(retainedChars <= MAX_CANONICAL_TOOL_OUTPUT_CHARS)
+  assert.equal(session.outputTruncated, true)
+  assert.equal(session.lastOutputSequence, 4_000)
+  assert.match(session.outputs.at(-1).detail, /^4000:/)
+  assert.equal(Object.keys(state.turnsById['turn-1'].seenEventIds).length, 1)
+})
+
+test('canonical reducer rejects replayed output sequences without losing later chunks', () => {
+  const state = reduce([
+    event('tool_output', { sessionId: 'step-1', detail: 'first', sequence: 1, emittedAt: 101 }),
+    event('tool_output', { sessionId: 'step-1', detail: 'duplicate', sequence: 1, emittedAt: 102 }),
+    event('tool_output', { sessionId: 'step-1', detail: 'second', sequence: 2, emittedAt: 103 }),
+  ])
+
+  assert.deepEqual(
+    state.turnsById['turn-1'].sessionsById['step-1'].outputs.map((output) => output.detail),
+    ['first', 'second'],
+  )
 })
 
 test('failed attempts stay local and successful terminal state is authoritative', () => {

@@ -19,6 +19,9 @@ const TERMINAL_STATUS_BY_STATE = Object.freeze({
   interrupted: 'interrupted',
 })
 
+export const MAX_CANONICAL_TOOL_OUTPUT_CHARS = 12_000
+export const MAX_CANONICAL_TOOL_OUTPUT_SEGMENTS = 96
+
 function eventIdentity(event) {
   if (event.eventId) return event.eventId
   if (event.kind === 'reasoning_chunk') return ''
@@ -39,6 +42,49 @@ function cloneSession(session = {}) {
     outputs: Array.isArray(session?.outputs) ? [...session.outputs] : [],
     diagnosticIds: Array.isArray(session?.diagnosticIds) ? [...session.diagnosticIds] : [],
   }
+}
+
+function resolveFullToolIdentity(toolInput = null, toolKind = '') {
+  if (!toolInput || typeof toolInput !== 'object' || Array.isArray(toolInput)) return ''
+  const args = toolInput.args && typeof toolInput.args === 'object' && !Array.isArray(toolInput.args)
+    ? toolInput.args
+    : toolInput
+  const kind = String(toolKind || '').trim().toLowerCase()
+  if (kind === 'command') return String(args.command ?? args.script ?? '')
+  if (kind.startsWith('file_')) {
+    return String(args.path ?? args.filePath ?? args.file_path ?? args.targetFile ?? args.target_file ?? '')
+  }
+  if (kind === 'search' || kind === 'web') {
+    return String(args.query ?? args.url ?? args.pattern ?? args.glob ?? args.globPattern ?? '')
+  }
+  return ''
+}
+
+function trimSessionOutputs(session) {
+  let outputs = Array.isArray(session?.outputs) ? session.outputs : []
+  let retainedChars = outputs.reduce((total, output) => total + String(output?.detail || '').length, 0)
+  let truncated = session?.outputTruncated === true
+
+  while (outputs.length > MAX_CANONICAL_TOOL_OUTPUT_SEGMENTS) {
+    retainedChars -= String(outputs.shift()?.detail || '').length
+    truncated = true
+  }
+  while (outputs.length > 1 && retainedChars > MAX_CANONICAL_TOOL_OUTPUT_CHARS) {
+    retainedChars -= String(outputs.shift()?.detail || '').length
+    truncated = true
+  }
+  if (outputs.length === 1 && retainedChars > MAX_CANONICAL_TOOL_OUTPUT_CHARS) {
+    const output = outputs[0]
+    const detail = String(output?.detail || '')
+    outputs = [{
+      ...output,
+      detail: detail.slice(-MAX_CANONICAL_TOOL_OUTPUT_CHARS),
+    }]
+    truncated = true
+  }
+
+  session.outputs = outputs
+  session.outputTruncated = truncated
 }
 
 function cloneTurn(turn = {}, event = {}) {
@@ -144,9 +190,13 @@ function reduceToolEvent(turn, event, identity) {
       })
       if (extracted) session.inputDetail = extracted
     }
+    const fullIdentity = resolveFullToolIdentity(event.toolInput, session.toolKind || event.toolKind)
+    if (fullIdentity) session.fullIdentity = fullIdentity
     return
   }
   if (event.kind === 'tool_output') {
+    const outputSequence = Number(event.sequence || 0) || 0
+    if (outputSequence > 0 && outputSequence <= Number(session.lastOutputSequence || 0)) return
     session.outputs.push({
       eventId: identity,
       stream: event.stream || 'stdout',
@@ -158,11 +208,24 @@ function reduceToolEvent(turn, event, identity) {
       (Number(left?.sequence || 0) - Number(right?.sequence || 0))
       || (Number(left?.emittedAt || 0) - Number(right?.emittedAt || 0))
     ))
+    if (outputSequence > 0) session.lastOutputSequence = outputSequence
+    trimSessionOutputs(session)
     return
   }
   session.state = event.state || 'succeeded'
   session.completedAt = event.emittedAt
   if (event.detail) session.detail = event.detail
+  const fullIdentity = resolveFullToolIdentity(event.toolInput, session.toolKind || event.toolKind)
+  if (fullIdentity) session.fullIdentity = fullIdentity
+  const output = event.output && typeof event.output === 'object' ? event.output : null
+  const exitCode = output?.exitCode
+  if (exitCode !== null && exitCode !== undefined && exitCode !== '' && Number.isFinite(Number(exitCode))) {
+    session.exitCode = Number(exitCode)
+  }
+  const durationMs = output?.durationMs
+  if (durationMs !== null && durationMs !== undefined && durationMs !== '' && Number.isFinite(Number(durationMs))) {
+    session.durationMs = Number(durationMs)
+  }
   if (!session.inputDetail || isPlaceholderToolInputDetail(session.inputDetail)) {
     const extracted = extractToolIdentityDetail({
       detail: event.detail,
@@ -237,13 +300,19 @@ export function reduceCanonicalExecutionEvent(state = { turnsById: {}, turnOrder
   const event = normalizeExecutionEvent(input)
   const identity = eventIdentity(event)
   const currentTurn = state?.turnsById?.[event.turnId]
-  if (identity && currentTurn?.seenEventIds?.[identity]) return state
+  const usesOutputSequence = event.kind === 'tool_output' && Number(event.sequence || 0) > 0
+  if (usesOutputSequence) {
+    const currentSession = currentTurn?.sessionsById?.[event.sessionId]
+    if (Number(event.sequence || 0) <= Number(currentSession?.lastOutputSequence || 0)) return state
+  } else if (identity && currentTurn?.seenEventIds?.[identity]) {
+    return state
+  }
 
   const turn = cloneTurn(currentTurn, {
     ...event,
     ...(providerId ? { providerId } : {}),
   })
-  if (identity) turn.seenEventIds[identity] = true
+  if (identity && !usesOutputSequence) turn.seenEventIds[identity] = true
   turn.updatedAt = Math.max(Number(turn.updatedAt || 0), Number(event.emittedAt || 0))
   if (providerId && !turn.providerId) {
     turn.providerId = providerId

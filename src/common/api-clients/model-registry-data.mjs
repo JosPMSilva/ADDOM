@@ -5,15 +5,15 @@ import {
   ANTHROPIC_ADAPTIVE_REASONING_DEFAULT_PROVIDER_OPTIONS,
   ANTHROPIC_ADAPTIVE_REASONING_VARIANTS,
   ANTHROPIC_DISABLEABLE_REASONING_CAPABILITY,
-  ANTHROPIC_EFFORT_REASONING_CAPABILITY,
   ANTHROPIC_EFFORT_REASONING_DEFAULT_PROVIDER_OPTIONS,
   ANTHROPIC_EFFORT_REASONING_VARIANTS,
   ANTHROPIC_MANUAL_REASONING_DEFAULT_PROVIDER_OPTIONS,
   ANTHROPIC_MANUAL_REASONING_VARIANTS,
   ANTHROPIC_THINKING_CAPABILITY,
 } from './model-registry-anthropic-reasoning-data.mjs'
+import * as PROVIDER_REFRESH from './model-registry-provider-refresh-data.mjs'
 
-const OPENROUTER_VERIFIED_AT = '2026-07-14'
+const OPENROUTER_VERIFIED_AT = '2026-09-16'
 const TERMS_VERSION = '2026-02-28'
 const DELEGATION_CAPABILITY = Object.freeze({
   supported: true,
@@ -93,6 +93,14 @@ function googleThinkingLevelVariants(levels, defaultLevel) {
 const GOOGLE_FLASH_35_REASONING_VARIANTS = googleThinkingLevelVariants(
   ['minimal', 'low', 'medium', 'high'],
   'medium',
+)
+const GOOGLE_FLASH_38_REASONING_VARIANTS = googleThinkingLevelVariants(
+  ['low', 'medium', 'high'],
+  'medium',
+)
+const GOOGLE_FLASH_LITE_35_REASONING_VARIANTS = googleThinkingLevelVariants(
+  ['minimal', 'low', 'medium', 'high'],
+  'minimal',
 )
 const GOOGLE_PRO_31_REASONING_VARIANTS = googleThinkingLevelVariants(
   ['low', 'medium', 'high'],
@@ -211,11 +219,6 @@ const GROQ_QWEN_REASONING_VARIANTS = Object.freeze([
     providerOptions: { groq: { reasoningEffort: 'none' } },
   },
 ])
-const OPENAI_COMPAT_INTERLEAVED_REASONING_CAPABILITY = Object.freeze({
-  supported: true,
-  providerControls: ['openaiCompatible:reasoning_content'],
-  notes: 'This model emits execution-time reasoning as interleaved OpenAI-compatible text content that should be replayed through the reasoning lane.',
-})
 const GENERATED_MODEL_MAP = Object.freeze(
   Object.fromEntries(
     (Array.isArray(GENERATED_MODEL_CATALOG_SNAPSHOT) ? GENERATED_MODEL_CATALOG_SNAPSHOT : [])
@@ -464,8 +467,75 @@ const BASE_MODEL_PROVIDER_REGISTRY_DATA = [
     termsVersion: TERMS_VERSION,
     models: [
       model('claude-sonnet-5', 'Claude Sonnet 5', 'Claude 5', { capabilities: { reasoning: ANTHROPIC_DISABLEABLE_REASONING_CAPABILITY, delegation: DELEGATION_CAPABILITY }, defaultProviderOptions: ANTHROPIC_EFFORT_REASONING_DEFAULT_PROVIDER_OPTIONS, variants: ANTHROPIC_EFFORT_REASONING_VARIANTS }),
-      model('claude-opus-4-8', 'Claude Opus 4.8', 'Claude 4', { capabilities: { reasoning: ANTHROPIC_ADAPTIVE_REASONING_CAPABILITY, delegation: DELEGATION_CAPABILITY }, defaultProviderOptions: ANTHROPIC_ADAPTIVE_REASONING_DEFAULT_PROVIDER_OPTIONS, variants: ANTHROPIC_ADAPTIVE_REASONING_VARIANTS }),
-      model('claude-fable-5', 'Claude Fable 5', 'Claude 5', { capabilities: { reasoning: ANTHROPIC_EFFORT_REASONING_CAPABILITY, delegation: DELEGATION_CAPABILITY }, defaultProviderOptions: ANTHROPIC_EFFORT_REASONING_DEFAULT_PROVIDER_OPTIONS, variants: ANTHROPIC_EFFORT_REASONING_VARIANTS }),
+      model('claude-opus-5', 'Claude Opus 5', 'Claude 5', {
+        authoritativeFields: ['limits', 'pricing', 'reasoning', 'attachment', 'release', 'knowledge', 'structuredOutput'],
+        vision: true,
+        supportsPdf: true,
+        structuredOutput: true,
+        releaseDate: '2026-07-24',
+        lastUpdated: '2026-07-24',
+        knowledge: '2026-05',
+        contextWindowTokens: 1_000_000,
+        maxOutputTokens: 128_000,
+        pricing: {
+          inputUsdPer1M: 5,
+          outputUsdPer1M: 25,
+          cacheReadUsdPer1M: 0.5,
+          cacheWriteUsdPer1M: 6.25,
+          cacheWrite1hUsdPer1M: 10,
+          notes: 'Cache write base price is the 5-minute rate; the 1-hour rate is recorded separately.',
+        },
+        capabilities: {
+          inputModalities: ['text', 'image'],
+          outputModalities: ['text'],
+          reasoning: ANTHROPIC_ADAPTIVE_REASONING_CAPABILITY,
+          toolCall: { supported: true },
+          attachment: { supported: true, kinds: ['image', 'pdf'], modalities: ['text', 'image', 'pdf'] },
+          delegation: DELEGATION_CAPABILITY,
+          processing: PROVIDER_REFRESH.ANTHROPIC_FAST_PROCESSING_CAPABILITY,
+        },
+        defaultProviderOptions: ANTHROPIC_ADAPTIVE_REASONING_DEFAULT_PROVIDER_OPTIONS,
+        variants: ANTHROPIC_ADAPTIVE_REASONING_VARIANTS,
+      }),
+      model('claude-fable-5-1', 'Claude Fable 5.1', 'Claude 5', {
+        aliases: ['claude-fable-5'],
+        authoritativeFields: ['limits', 'pricing', 'reasoning', 'attachment', 'release', 'knowledge', 'structuredOutput'],
+        vision: true,
+        supportsPdf: true,
+        structuredOutput: true,
+        releaseDate: '2026-09-01',
+        lastUpdated: '2026-09-01',
+        knowledge: '2026-06',
+        contextWindowTokens: 1_000_000,
+        maxOutputTokens: 128_000,
+        pricing: {
+          inputUsdPer1M: 10,
+          outputUsdPer1M: 50,
+          cacheReadUsdPer1M: 0.25,
+          cacheWriteUsdPer1M: 12.5,
+          cacheWrite1hUsdPer1M: 20,
+          notes: 'Cache write base price is the 5-minute rate; the 1-hour rate is recorded separately.',
+        },
+        capabilities: {
+          inputModalities: ['text', 'image'],
+          outputModalities: ['text'],
+          reasoning: ANTHROPIC_ADAPTIVE_REASONING_CAPABILITY,
+          toolCall: { supported: true },
+          attachment: { supported: true, kinds: ['image', 'pdf'], modalities: ['text', 'image', 'pdf'] },
+          delegation: DELEGATION_CAPABILITY,
+        },
+        defaultProviderOptions: ANTHROPIC_ADAPTIVE_REASONING_DEFAULT_PROVIDER_OPTIONS,
+        variants: ANTHROPIC_ADAPTIVE_REASONING_VARIANTS,
+      }),
+      model('claude-opus-4-8', 'Claude Opus 4.8', 'Claude 4', {
+        capabilities: {
+          reasoning: ANTHROPIC_ADAPTIVE_REASONING_CAPABILITY,
+          delegation: DELEGATION_CAPABILITY,
+          processing: PROVIDER_REFRESH.ANTHROPIC_FAST_PROCESSING_CAPABILITY,
+        },
+        defaultProviderOptions: ANTHROPIC_ADAPTIVE_REASONING_DEFAULT_PROVIDER_OPTIONS,
+        variants: ANTHROPIC_ADAPTIVE_REASONING_VARIANTS,
+      }),
       model('claude-haiku-4-5', 'Claude Haiku 4.5', 'Claude 4', { capabilities: { reasoning: ANTHROPIC_THINKING_CAPABILITY }, defaultProviderOptions: ANTHROPIC_MANUAL_REASONING_DEFAULT_PROVIDER_OPTIONS, variants: ANTHROPIC_MANUAL_REASONING_VARIANTS }),
     ],
   },
@@ -478,13 +548,31 @@ const BASE_MODEL_PROVIDER_REGISTRY_DATA = [
     termsUrl: 'https://openai.com/policies/service-terms',
     termsVersion: TERMS_VERSION,
     models: [
+      model('gpt-6-astra', 'GPT-6 Astra', 'GPT-6', {
+        authoritativeFields: ['limits', 'pricing', 'reasoning', 'attachment', 'knowledge', 'structuredOutput'],
+        reasoning: true,
+        vision: true,
+        supportsPdf: true,
+        structuredOutput: true,
+        knowledge: '2026-04',
+        contextWindowTokens: 1_050_000,
+        maxOutputTokens: 128_000,
+        pricing: PROVIDER_REFRESH.OPENAI_ASTRA_PRICING,
+        capabilities: {
+          reasoning: { supported: true },
+          toolCall: { supported: true },
+          attachment: { supported: true, kinds: ['image', 'pdf'], modalities: ['text', 'image', 'pdf'] },
+          delegation: DELEGATION_CAPABILITY,
+          processing: OPENAI_FAST_PROCESSING_CAPABILITY,
+        },
+      }),
       model('gpt-5.6-sol', 'GPT-5.6 Sol', 'GPT-5.6', { capabilities: { delegation: DELEGATION_CAPABILITY, processing: OPENAI_FAST_PROCESSING_CAPABILITY }, contextWindowTokens: 1_050_000, maxOutputTokens: 128_000 }),
       model('gpt-5.6-terra', 'GPT-5.6 Terra', 'GPT-5.6', { capabilities: { delegation: DELEGATION_CAPABILITY, processing: OPENAI_FAST_PROCESSING_CAPABILITY }, contextWindowTokens: 1_050_000, maxOutputTokens: 128_000 }),
       model('gpt-5.6-luna', 'GPT-5.6 Luna', 'GPT-5.6', { capabilities: { delegation: DELEGATION_CAPABILITY, processing: OPENAI_FAST_PROCESSING_CAPABILITY }, contextWindowTokens: 1_050_000, maxOutputTokens: 128_000 }),
       model('gpt-5.3-codex', 'GPT-5.3 Codex', 'Codex', {
         capabilities: {
           delegation: DELEGATION_CAPABILITY,
-          interleavedReasoning: OPENAI_COMPAT_INTERLEAVED_REASONING_CAPABILITY,
+          interleavedReasoning: PROVIDER_REFRESH.OPENAI_COMPAT_INTERLEAVED_REASONING_CAPABILITY,
         },
         notes: 'Responses API only.',
       }),
@@ -495,13 +583,40 @@ const BASE_MODEL_PROVIDER_REGISTRY_DATA = [
   {
     providerId: 'gemini',
     name: 'Google Gemini',
-    defaultModel: 'gemini-3.5-flash',
+    defaultModel: 'gemini-3.8-flash',
     keyHint: 'AIza...',
     keyUrl: 'https://aistudio.google.com/app/apikey',
     termsUrl: 'https://ai.google.dev/gemini-api/terms',
     termsVersion: TERMS_VERSION,
     models: [
+      model('gemini-3.8-flash', 'Gemini 3.8 Flash', 'Gemini 3', {
+        vision: true,
+        supportsPdf: true,
+        contextWindowTokens: 1_048_576,
+        maxOutputTokens: 65_536,
+        capabilities: {
+          reasoning: GOOGLE_THINKING_LEVEL_CAPABILITY,
+          toolCall: { supported: true },
+          attachment: { supported: true, kinds: ['image', 'pdf'], modalities: ['text', 'image', 'pdf'] },
+          delegation: DELEGATION_CAPABILITY,
+        },
+        defaultProviderOptions: googleThinkingLevelOptions('medium'),
+        variants: GOOGLE_FLASH_38_REASONING_VARIANTS,
+      }),
       model('gemini-3.5-flash', 'Gemini 3.5 Flash', 'Gemini 3', { capabilities: { reasoning: GOOGLE_THINKING_LEVEL_CAPABILITY, delegation: DELEGATION_CAPABILITY }, defaultProviderOptions: googleThinkingLevelOptions('medium'), variants: GOOGLE_FLASH_35_REASONING_VARIANTS }),
+      model('gemini-3.5-flash-lite', 'Gemini 3.5 Flash-Lite', 'Gemini 3', {
+        vision: true,
+        supportsPdf: true,
+        contextWindowTokens: 1_048_576,
+        maxOutputTokens: 65_536,
+        capabilities: {
+          reasoning: GOOGLE_THINKING_LEVEL_CAPABILITY,
+          toolCall: { supported: true },
+          attachment: { supported: true, kinds: ['image', 'pdf'], modalities: ['text', 'image', 'pdf'] },
+        },
+        defaultProviderOptions: googleThinkingLevelOptions('minimal'),
+        variants: GOOGLE_FLASH_LITE_35_REASONING_VARIANTS,
+      }),
       model('gemini-3.1-pro-preview', 'Gemini 3.1 Pro (Preview)', 'Gemini 3', { capabilities: { reasoning: GOOGLE_THINKING_LEVEL_CAPABILITY, delegation: DELEGATION_CAPABILITY }, defaultProviderOptions: googleThinkingLevelOptions('high'), variants: GOOGLE_PRO_31_REASONING_VARIANTS }),
       model('gemini-3.1-flash-lite', 'Gemini 3.1 Flash Lite', 'Gemini 3', { capabilities: { reasoning: GOOGLE_THINKING_LEVEL_CAPABILITY }, defaultProviderOptions: googleThinkingLevelOptions('minimal'), variants: GOOGLE_FLASH_LITE_31_REASONING_VARIANTS }),
       model('gemini-2.5-pro', 'Gemini 2.5 Pro', 'Gemini 2.5', { capabilities: { reasoning: GOOGLE_THINKING_LEVEL_CAPABILITY, delegation: DELEGATION_CAPABILITY }, defaultProviderOptions: GOOGLE_REASONING_DEFAULT_PROVIDER_OPTIONS, variants: GOOGLE_25_REASONING_VARIANTS }),
@@ -510,19 +625,20 @@ const BASE_MODEL_PROVIDER_REGISTRY_DATA = [
   {
     providerId: 'moonshot',
     name: 'Moonshot AI',
-    defaultModel: 'kimi-k2.6',
+    defaultModel: 'kimi-k3',
     keyHint: 'sk-...',
     keyUrl: 'https://platform.moonshot.ai/console/api-keys',
     termsUrl: 'https://platform.moonshot.ai/docs/agreement/modeluse',
     termsVersion: TERMS_VERSION,
     baseUrl: 'https://api.moonshot.ai/v1',
     models: [
-      model('kimi-k2.6', 'Kimi K2.6', 'Kimi K2', {
-        capabilities: { delegation: DELEGATION_CAPABILITY },
-        providerNativeRuntime: MOONSHOT_FORMULA_RUNTIME,
-      }),
+      model('kimi-k3', 'Kimi K3', 'Kimi K3', PROVIDER_REFRESH.MOONSHOT_K3_CATALOG_DATA),
       model('kimi-k2.7-code', 'Kimi K2.7 Code', 'Code', {
         capabilities: { delegation: DELEGATION_CAPABILITY, processing: MOONSHOT_FAST_PROCESSING_CAPABILITY },
+        providerNativeRuntime: MOONSHOT_FORMULA_RUNTIME,
+      }),
+      model('kimi-k2.6', 'Kimi K2.6', 'Kimi K2', {
+        capabilities: { delegation: DELEGATION_CAPABILITY },
         providerNativeRuntime: MOONSHOT_FORMULA_RUNTIME,
       }),
     ],
@@ -530,12 +646,24 @@ const BASE_MODEL_PROVIDER_REGISTRY_DATA = [
   {
     providerId: 'grok',
     name: 'xAI Grok',
-    defaultModel: 'grok-4.5',
+    defaultModel: 'grok-4.6',
     keyHint: 'xai-...',
     keyUrl: 'https://console.x.ai/',
     termsUrl: 'https://x.ai/legal/enterprise-terms-of-service',
     termsVersion: TERMS_VERSION,
     models: [
+      model('grok-4.6', 'Grok 4.6', 'Grok 4', {
+        vision: true,
+        contextWindowTokens: 500_000,
+        capabilities: {
+          reasoning: XAI_REASONING_CAPABILITY,
+          toolCall: { supported: true },
+          attachment: { supported: true, kinds: ['image'], modalities: ['text', 'image'] },
+          delegation: DELEGATION_CAPABILITY,
+        },
+        defaultProviderOptions: XAI_REASONING_DEFAULT_PROVIDER_OPTIONS,
+        variants: PROVIDER_REFRESH.XAI_46_REASONING_VARIANTS,
+      }),
       model('grok-4.5', 'Grok 4.5', 'Grok 4', { capabilities: { reasoning: XAI_REASONING_CAPABILITY, delegation: DELEGATION_CAPABILITY }, contextWindowTokens: 500_000, defaultProviderOptions: XAI_REASONING_DEFAULT_PROVIDER_OPTIONS, variants: XAI_REASONING_VARIANTS }),
       model('grok-4.3', 'Grok 4.3', 'Grok 4', { capabilities: { reasoning: XAI_REASONING_CAPABILITY, delegation: DELEGATION_CAPABILITY }, contextWindowTokens: 1_000_000, defaultProviderOptions: XAI_REASONING_DEFAULT_PROVIDER_OPTIONS, variants: XAI_REASONING_VARIANTS }),
       model('grok-4.20-multi-agent-0309', 'Grok 4.20 Multi-Agent', 'Grok 4.20', { aliases: ['grok-4.20-multi-agent'], capabilities: { reasoning: XAI_MULTI_AGENT_REASONING_CAPABILITY, delegation: DELEGATION_CAPABILITY }, contextWindowTokens: 1_000_000, defaultProviderOptions: XAI_REASONING_DEFAULT_PROVIDER_OPTIONS, variants: XAI_MULTI_AGENT_REASONING_VARIANTS }),
@@ -553,7 +681,14 @@ const BASE_MODEL_PROVIDER_REGISTRY_DATA = [
       model('openai/gpt-oss-120b', 'GPT OSS 120B', 'OSS', { capabilities: { reasoning: GROQ_REASONING_CAPABILITY }, defaultProviderOptions: GROQ_REASONING_DEFAULT_PROVIDER_OPTIONS, variants: GROQ_REASONING_VARIANTS }),
       model('openai/gpt-oss-20b', 'GPT OSS 20B', 'OSS', { capabilities: { reasoning: GROQ_REASONING_CAPABILITY }, defaultProviderOptions: GROQ_REASONING_DEFAULT_PROVIDER_OPTIONS, variants: GROQ_REASONING_VARIANTS }),
       model('qwen/qwen3.6-27b', 'Qwen3.6 27B', 'Reasoning', { capabilities: { reasoning: GROQ_REASONING_CAPABILITY }, defaultProviderOptions: GROQ_QWEN_REASONING_DEFAULT_PROVIDER_OPTIONS, variants: GROQ_QWEN_REASONING_VARIANTS }),
-      model('groq/compound', 'Compound', 'Groq', {}),
+      model('groq/compound', 'Compound', 'Groq', {
+        authoritativeFields: ['toolCall'],
+        capabilities: { toolCall: PROVIDER_REFRESH.GROQ_COMPOUND_CUSTOM_TOOL_CAPABILITY },
+      }),
+      model('groq/compound-mini', 'Compound Mini', 'Groq', {
+        authoritativeFields: ['toolCall'],
+        capabilities: { toolCall: PROVIDER_REFRESH.GROQ_COMPOUND_MINI_CUSTOM_TOOL_CAPABILITY },
+      }),
     ],
   },
   {
@@ -573,14 +708,51 @@ const BASE_MODEL_PROVIDER_REGISTRY_DATA = [
   {
     providerId: 'deepseek',
     name: 'DeepSeek',
-    defaultModel: 'deepseek-v4-flash',
+    defaultModel: 'deepseek-flash',
     keyHint: 'sk-...',
     keyUrl: 'https://platform.deepseek.com/api_keys',
     termsUrl: 'https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html',
     termsVersion: TERMS_VERSION,
     models: [
-      model('deepseek-v4-flash', 'DeepSeek V4 Flash', 'DeepSeek V4', { capabilities: { delegation: DELEGATION_CAPABILITY } }),
-      model('deepseek-v4-pro', 'DeepSeek V4 Pro', 'DeepSeek V4', { capabilities: { delegation: DELEGATION_CAPABILITY } }),
+      model('deepseek-flash', 'DeepSeek V4.1 Flash', 'DeepSeek V4', {
+        aliases: ['deepseek-v4-flash'],
+        authoritativeFields: ['limits', 'pricing', 'reasoning', 'attachment', 'release', 'structuredOutput'],
+        reasoning: true,
+        vision: true,
+        structuredOutput: true,
+        releaseDate: '2026-09-10',
+        lastUpdated: '2026-09-10',
+        contextWindowTokens: 1_000_000,
+        maxOutputTokens: 393_216,
+        pricing: PROVIDER_REFRESH.DEEPSEEK_FLASH_PRICING,
+        capabilities: {
+          reasoning: PROVIDER_REFRESH.DEEPSEEK_REASONING_CAPABILITY,
+          toolCall: { supported: true },
+          attachment: { supported: true, kinds: ['image'], modalities: ['text', 'image'] },
+          delegation: DELEGATION_CAPABILITY,
+          interleavedReasoning: PROVIDER_REFRESH.OPENAI_COMPAT_INTERLEAVED_REASONING_CAPABILITY,
+        },
+        defaultProviderOptions: PROVIDER_REFRESH.DEEPSEEK_REASONING_DEFAULT_PROVIDER_OPTIONS,
+        variants: PROVIDER_REFRESH.DEEPSEEK_REASONING_VARIANTS,
+      }),
+      model('deepseek-v4-pro', 'DeepSeek V4 Pro', 'DeepSeek V4', {
+        authoritativeFields: ['limits', 'pricing', 'reasoning', 'release', 'structuredOutput'],
+        reasoning: true,
+        structuredOutput: true,
+        releaseDate: '2026-08-13',
+        lastUpdated: '2026-08-13',
+        contextWindowTokens: 1_000_000,
+        maxOutputTokens: 393_216,
+        pricing: PROVIDER_REFRESH.DEEPSEEK_PRO_PRICING,
+        capabilities: {
+          reasoning: PROVIDER_REFRESH.DEEPSEEK_REASONING_CAPABILITY,
+          toolCall: { supported: true },
+          delegation: DELEGATION_CAPABILITY,
+          interleavedReasoning: PROVIDER_REFRESH.OPENAI_COMPAT_INTERLEAVED_REASONING_CAPABILITY,
+        },
+        defaultProviderOptions: PROVIDER_REFRESH.DEEPSEEK_REASONING_DEFAULT_PROVIDER_OPTIONS,
+        variants: PROVIDER_REFRESH.DEEPSEEK_REASONING_VARIANTS,
+      }),
     ],
   },
   {

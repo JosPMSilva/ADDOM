@@ -26,6 +26,11 @@ function incrementCount(target = {}, key = '') {
   target[normalizedKey] = (Number(target[normalizedKey] || 0) || 0) + 1
 }
 
+function ensureCountMap(source = {}, key = '') {
+  if (!source[key] || typeof source[key] !== 'object') source[key] = {}
+  return source[key]
+}
+
 function normalizeTerminalState(value = '') {
   return String(value || '').trim().toLowerCase()
 }
@@ -153,6 +158,10 @@ export function recordToolWorkflowOutcome(errorDiagnostics = {}, {
   decision = '',
   isError = false,
   failureClass = '',
+  failureStage = '',
+  failureReasonCode = '',
+  canonicalToolName = '',
+  toolExecutionPath = '',
   rerouteToolName = '',
   writeArtifactChanges = [],
   shellWriteDiagnostics = null,
@@ -165,11 +174,30 @@ export function recordToolWorkflowOutcome(errorDiagnostics = {}, {
   const normalizedToolName = String(toolName || '').trim().toLowerCase()
   const normalizedDecision = String(decision || '').trim().toLowerCase()
   const normalizedFailureClass = String(failureClass || '').trim()
+  const normalizedFailureStage = String(failureStage || '').trim().toLowerCase()
+  const normalizedFailureReasonCode = String(failureReasonCode || '').trim().toLowerCase()
+  const normalizedCanonicalToolName = String(canonicalToolName || normalizedToolName).trim().toLowerCase()
+  const normalizedToolExecutionPath = String(toolExecutionPath || '').trim().toLowerCase()
   const normalizedRerouteToolName = String(rerouteToolName || '').trim().toLowerCase()
   const toolFamily = classifyToolWorkflowFamily(normalizedToolName)
   if (toolFamily) incrementCount(diagnostics.toolWorkflowFamilyCounts, toolFamily)
   if (normalizedToolName) incrementCount(diagnostics.toolWorkflowToolAttemptCounts, normalizedToolName)
   if (normalizedFailureClass) incrementCount(diagnostics.toolWorkflowFailureClassCounts, normalizedFailureClass)
+  if (normalizedFailureStage) {
+    incrementCount(ensureCountMap(diagnostics, 'toolWorkflowFailureStageCounts'), normalizedFailureStage)
+  }
+  if (normalizedFailureReasonCode) {
+    incrementCount(ensureCountMap(diagnostics, 'toolWorkflowFailureReasonCounts'), normalizedFailureReasonCode)
+  }
+  if ((normalizedFailureStage || normalizedFailureReasonCode) && normalizedToolName) {
+    incrementCount(
+      ensureCountMap(diagnostics, 'toolWorkflowToolIdentityFailureCounts'),
+      `${normalizedToolName}=>${normalizedCanonicalToolName || normalizedToolName}`,
+    )
+  }
+  if ((normalizedFailureStage || normalizedFailureReasonCode) && normalizedToolExecutionPath) {
+    incrementCount(ensureCountMap(diagnostics, 'toolWorkflowExecutionPathFailureCounts'), normalizedToolExecutionPath)
+  }
   if (isError === true && normalizedToolName) incrementCount(diagnostics.toolWorkflowToolFailureCounts, normalizedToolName)
   if (isError === true && TOOL_WORKFLOW_WRITE_TOOL_NAMES.has(normalizedToolName)) {
     incrementCount(diagnostics.toolWorkflowWriteFailureCounts, normalizedToolName)
@@ -276,9 +304,10 @@ export function buildToolWorkflowTelemetryPayload(errorDiagnostics = {}, {
   const payload = {
     threadId: String(threadId || '').trim(),
     turnId: String(turnId || '').trim(),
-    version: 1,
+    version: 2,
     providerId: String(diagnostics.providerId || '').trim().toLowerCase(),
     model: String(diagnostics.model || '').trim(),
+    authMethod: String(diagnostics.authMethod || '').trim().toLowerCase(),
     toolSurfaceKind: String(diagnostics.toolSurfaceKind || '').trim().toLowerCase(),
     delegationBackend: String(diagnostics.delegationBackend || '').trim().toLowerCase(),
     delegationBackendPreference: String(diagnostics.delegationBackendPreference || '').trim().toLowerCase(),
@@ -306,6 +335,18 @@ export function buildToolWorkflowTelemetryPayload(errorDiagnostics = {}, {
     firstSuccessfulMutationLatencyMs: Number(diagnostics.toolWorkflowFirstSuccessfulMutationLatencyMs || 0) || 0,
     failureClassCounts: diagnostics.toolWorkflowFailureClassCounts && typeof diagnostics.toolWorkflowFailureClassCounts === 'object'
       ? { ...diagnostics.toolWorkflowFailureClassCounts }
+      : {},
+    failureStageCounts: diagnostics.toolWorkflowFailureStageCounts && typeof diagnostics.toolWorkflowFailureStageCounts === 'object'
+      ? { ...diagnostics.toolWorkflowFailureStageCounts }
+      : {},
+    failureReasonCounts: diagnostics.toolWorkflowFailureReasonCounts && typeof diagnostics.toolWorkflowFailureReasonCounts === 'object'
+      ? { ...diagnostics.toolWorkflowFailureReasonCounts }
+      : {},
+    toolIdentityFailureCounts: diagnostics.toolWorkflowToolIdentityFailureCounts && typeof diagnostics.toolWorkflowToolIdentityFailureCounts === 'object'
+      ? { ...diagnostics.toolWorkflowToolIdentityFailureCounts }
+      : {},
+    executionPathFailureCounts: diagnostics.toolWorkflowExecutionPathFailureCounts && typeof diagnostics.toolWorkflowExecutionPathFailureCounts === 'object'
+      ? { ...diagnostics.toolWorkflowExecutionPathFailureCounts }
       : {},
     toolAttemptCounts: diagnostics.toolWorkflowToolAttemptCounts && typeof diagnostics.toolWorkflowToolAttemptCounts === 'object'
       ? { ...diagnostics.toolWorkflowToolAttemptCounts }
@@ -339,6 +380,8 @@ export function buildToolWorkflowTelemetryPayload(errorDiagnostics = {}, {
     || payload.fetchBrowserCoexposureCount > 0
     || payload.firstSuccessfulMutationLatencyMs > 0
     || Object.keys(payload.failureClassCounts).length > 0
+    || Object.keys(payload.failureStageCounts).length > 0
+    || Object.keys(payload.failureReasonCounts).length > 0
     || Object.keys(payload.toolFailureCounts).length > 0
     || Object.keys(payload.writeToolFailureCounts).length > 0
     || Object.keys(payload.lintCodeCounts).length > 0

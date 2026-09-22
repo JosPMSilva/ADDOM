@@ -167,6 +167,7 @@ test('formatRuntimeDiagnosticsDetail emits the strict runtime contract summary',
   const detail = formatRuntimeDiagnosticsDetail({
     providerId: 'openai',
     model: 'gpt-5.4',
+    authMethod: 'account',
     permissionMode: 'autonomy',
     persistedPermissionMode: 'ask',
     permissionModeInSync: false,
@@ -622,6 +623,7 @@ test('tool workflow telemetry helpers keep a low-cardinality payload', () => {
   const diagnostics = {
     providerId: 'openai',
     model: 'gpt-5.4',
+    authMethod: 'account',
     delegationBackend: 'addom_moa',
     delegationBackendPreference: 'addom_moa',
     availableDelegationBackends: ['openai_native', 'addom_moa'],
@@ -665,6 +667,10 @@ test('tool workflow telemetry helpers keep a low-cardinality payload', () => {
     decision: 'approved',
     isError: true,
     failureClass: 'MALFORMED_PATCH_SYNTAX',
+    failureStage: 'pre_execution_lint',
+    failureReasonCode: 'lint_rejected',
+    canonicalToolName: 'apply_patch',
+    toolExecutionPath: 'pre_execution',
     rerouteToolName: 'write_file',
     turnStartedAt: 100,
     finishedAt: 180,
@@ -689,9 +695,10 @@ test('tool workflow telemetry helpers keep a low-cardinality payload', () => {
   assert.deepEqual(payload, {
     threadId: 'thread_telemetry',
     turnId: 'turn_telemetry',
-    version: 1,
+    version: 2,
     providerId: 'openai',
     model: 'gpt-5.4',
+    authMethod: 'account',
     toolSurfaceKind: '',
     delegationBackend: 'addom_moa',
     delegationBackendPreference: 'addom_moa',
@@ -716,6 +723,10 @@ test('tool workflow telemetry helpers keep a low-cardinality payload', () => {
     fetchBrowserCoexposureCount: 1,
     firstSuccessfulMutationLatencyMs: 160,
     failureClassCounts: { MALFORMED_PATCH_SYNTAX: 2 },
+    failureStageCounts: { pre_execution_lint: 1 },
+    failureReasonCounts: { lint_rejected: 1 },
+    toolIdentityFailureCounts: { 'apply_patch=>apply_patch': 1 },
+    executionPathFailureCounts: { pre_execution: 1 },
     toolAttemptCounts: { apply_patch: 1, write_file: 1 },
     toolFailureCounts: { apply_patch: 1 },
     writeToolFailureCounts: { apply_patch: 1 },
@@ -724,6 +735,10 @@ test('tool workflow telemetry helpers keep a low-cardinality payload', () => {
   })
   assert.match(detail, /tool_workflow_summary: lint_reject=1, lint_warn=0, reroute=1, wrong_tool_retry=1/i)
   assert.match(detail, /tool_workflow_failure_classes: MALFORMED_PATCH_SYNTAX=2/i)
+  assert.match(detail, /tool_workflow_failure_stages: pre_execution_lint=1/i)
+  assert.match(detail, /tool_workflow_failure_reasons: lint_rejected=1/i)
+  assert.match(detail, /tool_workflow_tool_identity_failures: apply_patch=>apply_patch=1/i)
+  assert.match(detail, /tool_workflow_execution_path_failures: pre_execution=1/i)
   assert.match(detail, /tool_workflow_tool_failures: apply_patch=1/i)
   assert.match(detail, /tool_workflow_write_tool_failures: apply_patch=1/i)
   assert.match(detail, /tool_workflow_lint_codes: apply_patch_missing_hunk=1/i)
@@ -771,9 +786,10 @@ test('buildToolWorkflowTelemetryPayload emits baseline payloads for narrowed zer
   assert.deepEqual(payload, {
     threadId: 'thread_zero',
     turnId: 'turn_zero',
-    version: 1,
+    version: 2,
     providerId: 'openai',
     model: 'gpt-5.4',
+    authMethod: '',
     toolSurfaceKind: 'addom_native',
     delegationBackend: '',
     delegationBackendPreference: '',
@@ -798,6 +814,10 @@ test('buildToolWorkflowTelemetryPayload emits baseline payloads for narrowed zer
     fetchBrowserCoexposureCount: 1,
     firstSuccessfulMutationLatencyMs: 0,
     failureClassCounts: {},
+    failureStageCounts: {},
+    failureReasonCounts: {},
+    toolIdentityFailureCounts: {},
+    executionPathFailureCounts: {},
     toolAttemptCounts: {},
     toolFailureCounts: {},
     writeToolFailureCounts: {},

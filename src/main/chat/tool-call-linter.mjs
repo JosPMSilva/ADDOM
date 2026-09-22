@@ -131,6 +131,56 @@ function looksLikeShellApplyPatchInvocation(command = '') {
     || /\bwhere(?:\.exe)?\s+apply_patch\b/i.test(text)
 }
 
+const PLAYWRIGHT_TEST_OPTIONS_WITH_VALUES = new Set([
+  '--browser',
+  '--config',
+  '--global-timeout',
+  '--grep',
+  '--grep-invert',
+  '--max-failures',
+  '--only-changed',
+  '--output',
+  '--project',
+  '--repeat-each',
+  '--reporter',
+  '--retries',
+  '--shard',
+  '--timeout',
+  '--trace',
+  '--tsconfig',
+  '--ui-host',
+  '--ui-port',
+  '--update-snapshots',
+  '--workers',
+])
+
+function tokenizeCommandArguments(value = '') {
+  return String(value || '')
+    .match(/"[^"]*"|'[^']*'|\S+/g)
+    ?.map((token) => token.replace(/^(["'])|(["'])$/g, ''))
+    .filter(Boolean) || []
+}
+
+function hasScopedPlaywrightTestTarget(tokens = []) {
+  for (let index = 0; index < tokens.length; index += 1) {
+    const token = String(tokens[index] || '')
+    if (!token || token === '--') continue
+    if (/^--(?:config|project)=.+/i.test(token)) return true
+    if (/^--(?:config|project)$/i.test(token)) {
+      return Boolean(tokens[index + 1] && !String(tokens[index + 1]).startsWith('-'))
+    }
+    if (token.startsWith('-')) {
+      const optionName = token.split('=')[0].toLowerCase()
+      if (!token.includes('=') && PLAYWRIGHT_TEST_OPTIONS_WITH_VALUES.has(optionName)) {
+        index += 1
+      }
+      continue
+    }
+    return true
+  }
+  return false
+}
+
 function looksLikeGenericPlaywrightTestRunner(command = '') {
   const text = normalizePlaywrightCliInvocation(command)
   if (!text) return false
@@ -138,15 +188,13 @@ function looksLikeGenericPlaywrightTestRunner(command = '') {
   if (!match) return false
   const rest = String(match[1] || '').trim()
   if (!rest) return true
-  const tokens = rest.split(/\s+/).filter(Boolean)
-  if (tokens.length === 0) return true
-  return tokens.every((token) => token.startsWith('-') || /^[\w-]+=/.test(token))
+  return !hasScopedPlaywrightTestTarget(tokenizeCommandArguments(rest))
 }
 
 function looksLikePlaywrightBrowserInstall(command = '') {
   const text = normalizePlaywrightCliInvocation(command)
   if (!text) return false
-  const match = text.match(/^playwright\s+install(?:\s+(.+))?$/i)
+  const match = text.match(/^playwright\s+(?:install|install-deps)(?:\s+(.+))?$/i)
   if (!match) return false
   const rest = String(match[1] || '').trim()
   if (!rest) return true
@@ -171,7 +219,6 @@ function looksLikePlaywrightCliBrowserAutomation(command = '') {
     'firefox',
     'wk',
     'webkit',
-    'install-deps',
   ]).has(subcommand)
 }
 
@@ -180,7 +227,7 @@ function normalizePlaywrightCliInvocation(command = '') {
   if (!text) return ''
   return text
     .replace(/^(?:npx|bunx)\s+playwright\b/i, 'playwright')
-    .replace(/^(?:npm|pnpm)\s+(?:exec|x|dlx)\s+playwright\b/i, 'playwright')
+    .replace(/^(?:npm|pnpm)\s+(?:exec|x|dlx)\s+(?:--\s+)?playwright\b/i, 'playwright')
     .replace(/^yarn\s+(?:dlx\s+)?playwright\b/i, 'playwright')
     .replace(/^pnpm\s+playwright\b/i, 'playwright')
 }
@@ -203,17 +250,20 @@ function looksLikePlaywrightPackageInstall(command = '') {
   })
 }
 
-function lintRunCommand(toolInput = {}) {
+function lintRunCommand(toolInput = {}, taskAuthorization = {}) {
   const command = String(toolInput?.command || '')
   const background = toolInput?.background === true
   if (looksLikeGenericPlaywrightTestRunner(command)) {
+    const explicitlyRequested = taskAuthorization?.playwrightTestsRequested === true
     return buildLintResult({
-      decision: TOOL_CALL_LINT_DECISIONS.REJECT,
+      decision: explicitlyRequested ? TOOL_CALL_LINT_DECISIONS.WARN : TOOL_CALL_LINT_DECISIONS.REJECT,
       lintCode: TOOL_CALL_LINT_CODES.RUN_COMMAND_PLAYWRIGHT_TEST_RUNNER_MISUSE,
-      failureClass: TOOL_CALL_FAILURE_CLASSES.COMMAND_POLICY_BLOCKED,
-      message: 'run_command was asked to run the generic Playwright test runner. ADDOM already provides browser automation through browser_action; use inspect or find_elements before interaction, list_options before unknown select values, and console_messages/network_errors for UI debugging. Only run Playwright tests when the user asked for tests and you have a specific test file, config, or project script.',
+      failureClass: explicitlyRequested ? '' : TOOL_CALL_FAILURE_CLASSES.COMMAND_POLICY_BLOCKED,
+      message: explicitlyRequested
+        ? 'The user explicitly requested Playwright tests, so this generic test command may run. Prefer a specific test file, config, project, or project script when available.'
+        : 'run_command was asked to run the generic Playwright test runner. ADDOM already provides browser automation through browser_action; use inspect or find_elements before interaction, list_options before unknown select values, and console_messages/network_errors for UI debugging. Run a specific Playwright test file, config, project, or project script, or obtain an explicit user request for the generic suite.',
       rerouteToolName: 'browser_action',
-      severity: TOOL_CALL_LINT_SEVERITIES.ERROR,
+      severity: explicitlyRequested ? TOOL_CALL_LINT_SEVERITIES.WARNING : TOOL_CALL_LINT_SEVERITIES.ERROR,
     })
   }
   if (looksLikePlaywrightBrowserInstall(command)) {
@@ -227,13 +277,16 @@ function lintRunCommand(toolInput = {}) {
     })
   }
   if (looksLikePlaywrightCliBrowserAutomation(command)) {
+    const explicitlyRequested = taskAuthorization?.playwrightCliRequested === true
     return buildLintResult({
-      decision: TOOL_CALL_LINT_DECISIONS.REJECT,
+      decision: explicitlyRequested ? TOOL_CALL_LINT_DECISIONS.WARN : TOOL_CALL_LINT_DECISIONS.REJECT,
       lintCode: TOOL_CALL_LINT_CODES.RUN_COMMAND_PLAYWRIGHT_CLI_BROWSER_MISUSE,
-      failureClass: TOOL_CALL_FAILURE_CLASSES.COMMAND_POLICY_BLOCKED,
-      message: 'run_command was asked to use the Playwright CLI for browser automation. ADDOM exposes that workflow through browser_action; use inspect/find_elements before choosing targets, list_options before select_option when values are unknown, screenshot for visual evidence, and console_messages/network_errors for diagnostics. Only use Playwright CLI commands when the user explicitly asks for that external CLI workflow.',
+      failureClass: explicitlyRequested ? '' : TOOL_CALL_FAILURE_CLASSES.COMMAND_POLICY_BLOCKED,
+      message: explicitlyRequested
+        ? 'The user explicitly requested the Playwright CLI, so this command may run. ADDOM browser_action remains preferred for integrated inspection and diagnostics.'
+        : 'run_command was asked to use the Playwright CLI for browser automation. ADDOM exposes that workflow through browser_action; use inspect/find_elements before choosing targets, list_options before select_option when values are unknown, screenshot for visual evidence, and console_messages/network_errors for diagnostics. Use Playwright CLI commands only when the user explicitly requests that external CLI workflow.',
       rerouteToolName: 'browser_action',
-      severity: TOOL_CALL_LINT_SEVERITIES.ERROR,
+      severity: explicitlyRequested ? TOOL_CALL_LINT_SEVERITIES.WARNING : TOOL_CALL_LINT_SEVERITIES.ERROR,
     })
   }
   if (looksLikePlaywrightPackageInstall(command)) {
@@ -307,6 +360,7 @@ export function buildLintBlockedResult({ toolName = '', lintResult = {} } = {}) 
 export function lintToolCall({
   toolName = '',
   toolInput = {},
+  taskAuthorization = {},
 } = {}) {
   const normalizedToolName = String(toolName || '').trim().toLowerCase()
   switch (normalizedToolName) {
@@ -315,10 +369,34 @@ export function lintToolCall({
     case 'edit_file':
       return lintEditFile(toolInput)
     case 'run_command':
-      return lintRunCommand(toolInput)
+      return lintRunCommand(toolInput, taskAuthorization)
     case 'browser_action':
       return lintBrowserAction(toolInput)
     default:
       return buildLintResult()
+  }
+}
+
+export function resolveToolLintTaskAuthorization({ userMessage = '' } = {}) {
+  const message = String(userMessage || '').trim()
+  const mentionsPlaywright = /\bplaywright\b/i.test(message)
+  const negatesPlaywright = /\b(?:do not|don't|dont|never|without|avoid)\b[^.!?\n]{0,80}\bplaywright\b/i.test(message)
+    || /\bplaywright\b[^.!?\n]{0,80}\b(?:do not|don't|dont|never|without|avoid)\b/i.test(message)
+  if (!mentionsPlaywright || negatesPlaywright) {
+    return {
+      playwrightTestsRequested: false,
+      playwrightCliRequested: false,
+    }
+  }
+  const explicitTestCommand = /\b(?:npx|bunx|npm\s+exec|pnpm\s+(?:exec|dlx)|yarn(?:\s+dlx)?)\s+playwright\s+test\b/i.test(message)
+  const requestedTests = /\b(?:run|execute|start|launch|rerun|re-run)\b[^.!?\n]{0,80}\bplaywright\b[^.!?\n]{0,50}\btests?\b/i.test(message)
+    || /\b(?:run|execute|start|launch|rerun|re-run)\b[^.!?\n]{0,50}\btests?\b[^.!?\n]{0,80}\bplaywright\b/i.test(message)
+    || explicitTestCommand
+  const explicitCliCommand = /\b(?:npx|bunx|npm\s+exec|pnpm\s+(?:exec|dlx)|yarn(?:\s+dlx)?)\s+playwright\s+(?:open|codegen|screenshot|pdf|cr|chromium|ff|firefox|wk|webkit)\b/i.test(message)
+  const requestedCli = /\b(?:use|run|execute|start|launch)\b[^.!?\n]{0,80}\bplaywright\s+cli\b/i.test(message)
+    || explicitCliCommand
+  return {
+    playwrightTestsRequested: requestedTests,
+    playwrightCliRequested: requestedCli,
   }
 }

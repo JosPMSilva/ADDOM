@@ -37,7 +37,7 @@ test('anthropic runtime settings normalize public fields, ignore hidden adaptive
     providerRuntimeSettings: {
       anthropic: {
         thinkingType: 'enabled',
-        reasoningEffort: 'max',
+        reasoningEffort: 'xhigh',
         useContextManagementCompaction: true,
         contextManagementCompactionThresholdTokens: '50000',
         providerTruncationSoftTriggerPercent: '50',
@@ -57,7 +57,7 @@ test('anthropic runtime settings normalize public fields, ignore hidden adaptive
 
   assert.deepEqual(first.providerRuntimeSettings.anthropic, {
     thinkingType: 'enabled',
-    reasoningEffort: 'max',
+    reasoningEffort: 'xhigh',
     useContextManagementCompaction: true,
     contextManagementCompactionThresholdTokens: 50_000,
     providerTruncationSoftTriggerPercent: 50,

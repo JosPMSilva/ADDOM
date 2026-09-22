@@ -54,6 +54,32 @@ function truncateIdentity(value = '', maxLength = 64) {
   return `${normalized.slice(0, Math.max(1, maxLength - 1)).trimEnd()}…`
 }
 
+function stripMatchingOuterQuotes(value = '') {
+  const text = String(value || '').trim()
+  if (text.length < 2) return text
+  const first = text[0]
+  const last = text[text.length - 1]
+  return (first === last && (first === '"' || first === "'"))
+    ? text.slice(1, -1).trim()
+    : text
+}
+
+/** Keep launch mechanics out of L2 while retaining the exact command in fullIdentity/L3. */
+function unwrapCommandLauncher(value = '') {
+  const command = String(value || '').trim()
+  if (!command) return ''
+  const launchers = [
+    /^(?:"[^"]*(?:powershell|pwsh)\.exe"|(?:[^\s"]*[\\/])?(?:powershell|pwsh)(?:\.exe)?)\s+-(?:command|c)\s+([\s\S]+)$/i,
+    /^(?:"[^"]*cmd\.exe"|(?:[^\s"]*[\\/])?cmd(?:\.exe)?)\s+\/(?:c|k)\s+([\s\S]+)$/i,
+    /^(?:"[^"]*(?:bash|sh)(?:\.exe)?"|(?:[^\s"]*[\\/])?(?:bash|sh)(?:\.exe)?)\s+-lc\s+([\s\S]+)$/i,
+  ]
+  for (const pattern of launchers) {
+    const match = command.match(pattern)
+    if (match?.[1]) return stripMatchingOuterQuotes(match[1])
+  }
+  return command
+}
+
 function isUsefulIdentity(value = '', toolKind = '') {
   const normalized = normalizeIdentity(value)
   if (!normalized) return false
@@ -81,7 +107,7 @@ export function resolveShortToolIdentity(toolKind = '', inputDetail = '') {
   if (kind === 'agent') return ''
 
   if (kind.startsWith('file_')) return truncateIdentity(basenameIdentity(detail), 48)
-  if (kind === 'command') return truncateIdentity(detail, 56)
+  if (kind === 'command') return truncateIdentity(unwrapCommandLauncher(detail), 56)
   if (kind === 'search' || kind === 'web') {
     const withoutPrefix = detail.replace(/^(?:query|pattern|url):\s*/i, '')
     // Absolute search roots are noisy; keep the leaf folder/file name.

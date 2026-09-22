@@ -74,6 +74,7 @@ import {
   resolvePreviousThreadRuntimeContext,
 } from './chat-stream-handler-helpers.mjs'
 import { createOpenAIAccountDynamicToolExecutor } from './chat-stream-handler-account-tool-executor.mjs'
+import { resolveToolLintTaskAuthorization } from '../chat/tool-call-linter.mjs'
 import { createRuntimeDiagnosticsEmitter } from './chat-stream-handler-runtime-diagnostics.mjs'
 import { failPendingPlanDirectionAction } from './chat-stream-plan-action.mjs'
 import { safeDebug } from '../utils/safe-console.mjs'
@@ -360,6 +361,7 @@ export async function handleChatStream(event, payload = {}, runRegistry) {
       const { orchestratorIntent, delegationSelectionIntent, requestedDelegation } = resolveDelegationTurnContext({
         turnOptions, userMessage, history: sourceHistoryMessages,
       })
+      const toolLintTaskAuthorization = resolveToolLintTaskAuthorization({ userMessage })
       const { exposeTools: delegationAvailable, rejectExplicitRequest } = resolveDelegationTurnPolicy({
         providerId, model: model ?? '', mode,
         requestedDelegation,
@@ -544,6 +546,7 @@ export async function handleChatStream(event, payload = {}, runRegistry) {
         getCachedModelCapabilities,
         requestFanoutConfirmation,
         history, turnToolResults, errorDiagnostics,
+        taskAuthorization: toolLintTaskAuthorization,
         send,
         persistTimelineEvent,
       })

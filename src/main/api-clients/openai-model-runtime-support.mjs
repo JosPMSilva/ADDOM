@@ -99,9 +99,13 @@ function withAccountAuthRuntimeSupport(baseSupport = {}) {
     supportsDelegatedToolSurface: contract?.capabilities?.delegated_tool_surface?.supported === true,
     ...delegationSupport,
     hostedToolSupport,
-    reasoningEffortOptions: Array.isArray(baseSupport.reasoningEffortOptions)
-      ? baseSupport.reasoningEffortOptions.filter((effort) => effort !== 'max')
-      : [],
+    reasoningEffortOptions: normalizeOpenAIModelSnapshotAlias(baseSupport.modelId) === 'gpt-6-astra'
+      ? ['low', 'medium', 'high', 'xhigh', 'max', 'ultra']
+      : (
+          Array.isArray(baseSupport.reasoningEffortOptions)
+            ? baseSupport.reasoningEffortOptions.filter((effort) => effort !== 'max')
+            : []
+        ),
     accountCapabilityContract: contract,
     accountCapabilityExceptions: Array.isArray(contract?.exceptions) ? [...contract.exceptions] : [],
   }
@@ -123,6 +127,7 @@ export function resolveOpenAIModelRuntimeSupport(modelId = '', { authMethod = 'a
   }
 
   const normalizedAuthMethod = String(authMethod || '').trim().toLowerCase()
+  const isAstra = canonicalModelId === 'gpt-6-astra'
   const isGpt55 = canonicalModelId === 'gpt-5.5'
   const isGpt56 = canonicalModelId.startsWith('gpt-5.6-')
   const isGpt54 = canonicalModelId === 'gpt-5.4'
@@ -133,7 +138,9 @@ export function resolveOpenAIModelRuntimeSupport(modelId = '', { authMethod = 'a
   const supportsRemoteShell = !isCodexFamily
 
   let reasoningEffortOptions = []
-  if (isGpt56) {
+  if (isAstra) {
+    reasoningEffortOptions = ['low', 'medium', 'high', 'xhigh', 'max']
+  } else if (isGpt56) {
     reasoningEffortOptions = ['none', 'low', 'medium', 'high', 'xhigh', 'max']
   } else if (isGpt53Codex) {
     reasoningEffortOptions = ['low', 'medium', 'high', 'xhigh']
@@ -141,7 +148,7 @@ export function resolveOpenAIModelRuntimeSupport(modelId = '', { authMethod = 'a
     reasoningEffortOptions = ['none', 'low', 'medium', 'high', 'xhigh']
   }
 
-  const supportsProviderChainCompaction = isGpt56 || isGpt55 || isGpt54
+  const supportsProviderChainCompaction = isAstra || isGpt56 || isGpt55 || isGpt54
   const supportsProviderTruncation = false
   const preferredCompactionMode = resolvePreferredCompactionMode({
     supportsProviderChainCompaction,
@@ -161,7 +168,7 @@ export function resolveOpenAIModelRuntimeSupport(modelId = '', { authMethod = 'a
     providerNativeRuntimeMode: 'none',
     isReasoningModel: true,
     supportsReasoningSummary: true,
-    supportsAssistantPhase: isGpt56 || isGpt55 || isGpt54 || isGpt53Codex,
+    supportsAssistantPhase: isAstra || isGpt56 || isGpt55 || isGpt54 || isGpt53Codex,
     supportsTextVerbosity: !isGpt53Codex,
     supportsPromptCaching: true,
     supportsPromptCache24h: true,

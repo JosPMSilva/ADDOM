@@ -6,6 +6,7 @@ import {
   emitReasoningDone,
   recordToolStepOutcome,
 } from '../../src/main/chat/chat-turn-events.mjs'
+import { buildToolResultMessage } from '../../src/main/api-clients/ai-provider.mjs'
 
 function recordToolOutcome(overrides = {}) {
   const persisted = []
@@ -65,6 +66,70 @@ test('buildInterruptedReasoningSnapshot ignores an already-captured trailing buf
   })
 
   assert.equal(snapshot, 'Captured reasoning.')
+})
+
+test('recordToolStepOutcome projects stable stage, reason, path, and canonical identity', () => {
+  const { persisted, sent, turnToolResults } = recordToolOutcome({
+    tc: { id: 'call_command', name: 'run_command' },
+    toolInput: { command: 'private command text' },
+    toolEventInput: { command: 'private command text' },
+    result: 'Tool error: Command failed with exit code 2 (PowerShell).',
+    isError: true,
+    canonicalToolName: 'local_shell',
+    toolExecutionPath: 'addom_native',
+  })
+
+  assert.equal(turnToolResults[0]?.failureStage, 'execution')
+  assert.equal(turnToolResults[0]?.failureReasonCode, 'nonzero_exit')
+  assert.equal(turnToolResults[0]?.canonicalToolName, 'local_shell')
+  assert.equal(turnToolResults[0]?.toolExecutionPath, 'addom_native')
+  const persistedResult = persisted.find((row) => row.kind === 'tool_result')
+  const sentResult = sent.find((row) => row.channel === 'chat:tool-result')
+  assert.equal(persistedResult?.payload?.meta?.failureReasonCode, 'nonzero_exit')
+  assert.equal(sentResult?.payload?.canonicalToolName, 'local_shell')
+})
+
+test('recordToolStepOutcome carries screenshot media only in the model-bound tool result', () => {
+  const history = []
+  const persisted = []
+  const sent = []
+  recordToolStepOutcome({
+    turnToolResults: [],
+    history,
+    send: (channel, payload) => sent.push({ channel, payload }),
+    persistTimelineEvent: (kind, payload) => persisted.push({ kind, payload }),
+    buildToolResultMessage,
+    trimText: (value) => String(value || ''),
+    extractRunCommandMeta: () => ({}),
+    tc: { id: 'call_browser', name: 'browser_action' },
+    toolInput: { action: 'screenshot' },
+    toolEventInput: { action: 'screenshot' },
+    result: 'Screenshot captured.',
+    toolResultMedia: {
+      type: 'image',
+      data: 'aW1hZ2UtYnl0ZXM=',
+      mediaType: 'image/jpeg',
+    },
+    isError: false,
+    decision: 'approved',
+    stepId: 'turn_browser:step:1',
+    sequence: 1,
+    startedAt: 10,
+    finishedAt: 20,
+    durationMs: 10,
+    threadId: 'thread_browser',
+    turnId: 'turn_browser',
+  })
+
+  assert.deepEqual(history[0].content[0].output, {
+    type: 'content',
+    value: [
+      { type: 'text', text: 'Screenshot captured.' },
+      { type: 'media', data: 'aW1hZ2UtYnl0ZXM=', mediaType: 'image/jpeg' },
+    ],
+  })
+  assert.doesNotMatch(JSON.stringify(persisted), /aW1hZ2UtYnl0ZXM=/)
+  assert.doesNotMatch(JSON.stringify(sent), /aW1hZ2UtYnl0ZXM=/)
 })
 
 test('recordToolStepOutcome persists tool context facts alongside tool results', () => {

@@ -1,6 +1,7 @@
 import { createAnthropic } from '@ai-sdk/anthropic'
 import { createIneligibleBackgroundTurnPayload, createSharedInlineCompletion, createSharedStreamWithTools } from './ai-provider-adapter-core.mjs'
 import {
+  buildAnthropicClientOptions,
   extractAnthropicReasoningHistoryParts,
   extractAnthropicResponseMeta,
 } from './ai-provider-anthropic-runtime.mjs'
@@ -12,8 +13,12 @@ const anthropicProviderAdapter = {
   providerId: 'anthropic',
   extractResponseMeta: extractAnthropicResponseMeta,
   extractReasoningHistoryParts: extractAnthropicReasoningHistoryParts,
-  buildModel({ apiKey, modelId }) {
-    return createAnthropic({ apiKey })(modelId)
+  buildModel({ apiKey, modelId, requestContext = {} }) {
+    return createAnthropic(buildAnthropicClientOptions({
+      apiKey,
+      modelId,
+      requestContext,
+    }))(modelId)
   },
   buildProviderOptions({ modelId, runtimeSettings, requestContext, adapterProfile }) {
     return resolveProviderModelTransform({

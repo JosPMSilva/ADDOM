@@ -26,6 +26,40 @@ const {
   respondToOpenAIAccountPendingMcpElicitation,
   __resetOpenAIAccountPendingMcpElicitationsForTests,
 } = await import('../../src/main/api-clients/ai-provider-openai-account-elicitation-pending.mjs')
+const {
+  buildTurnLaunchParams,
+} = await import('../../src/main/api-clients/ai-provider-openai-account-bridge-session.mjs')
+const {
+  createAccountNativeActivityState,
+  trackAccountNativeActivityItem,
+} = await import('../../src/main/api-clients/ai-provider-openai-account-activity-state.mjs')
+
+test('OpenAI account launch accepts Astra max and ultra but keeps other model effort limits', () => {
+  assert.equal(buildTurnLaunchParams({ model: 'gpt-6-astra', effort: 'max' }).effort, 'max')
+  assert.equal(buildTurnLaunchParams({ model: 'gpt-6-astra', effort: 'ultra' }).effort, 'ultra')
+  assert.equal(buildTurnLaunchParams({ model: 'gpt-6-astra-2026-09-15', effort: 'ultra' }).effort, 'ultra')
+  assert.equal(buildTurnLaunchParams({ model: 'gpt-6-astra', effort: 'none' }).effort, 'medium')
+  assert.equal(buildTurnLaunchParams({ model: 'gpt-5.6-sol', effort: 'ultra' }).effort, 'medium')
+})
+
+test('OpenAI account native command outcomes count successes and failures by command id', () => {
+  const state = createAccountNativeActivityState()
+  trackAccountNativeActivityItem(state, {
+    id: 'command-success',
+    type: 'commandExecution',
+    status: 'completed',
+    exitCode: 0,
+  }, 'completed')
+  trackAccountNativeActivityItem(state, {
+    id: 'command-failure',
+    type: 'commandExecution',
+    status: 'completed',
+    exitCode: 1,
+  }, 'completed')
+
+  assert.deepEqual(state.commandExecution.completedItemIds, ['command-success'])
+  assert.deepEqual(state.commandExecution.failedItemIds, ['command-failure'])
+})
 
 function signatureFor(value) {
   return crypto.createHash('sha256').update(value).digest('hex').slice(0, 16)
@@ -3643,6 +3677,8 @@ test('OpenAI account runtime accepts commandExecution lifecycle and output delta
     started: true,
     completed: true,
     itemIds: ['cmd_account_1'],
+    completedItemIds: ['cmd_account_1'],
+    failedItemIds: [],
     statuses: ['inProgress', 'completed'],
     commands: ['git status'],
     cwds: ['C:/repo'],
@@ -3837,6 +3873,7 @@ test('OpenAI account runtime treats Plan content lifecycle as non-executable act
 test('OpenAI account runtime accepts fileChange lifecycle and output deltas without aborting the turn', async () => {
   const seenStatuses = []
   const seenOutputs = []
+  const seenOutputChunks = []
   const bridge = new FakeBridge({
     turnId: 'turn_account_file_change',
     onStartTurn(params, target) {
@@ -3946,13 +3983,16 @@ test('OpenAI account runtime accepts fileChange lifecycle and output deltas with
     onProviderToolOutput: (output) => {
       seenOutputs.push(output)
     },
+    onProviderToolOutputChunk: (output) => {
+      seenOutputChunks.push(output)
+    },
     onProviderToolStatus: (status) => {
       seenStatuses.push(status)
     },
   })
 
   assert.equal(payload.text, 'Files updated.')
-  assert.equal(seenStatuses.filter((entry) => entry.toolCallId === 'file_account_1').length, 2)
+  assert.equal(seenStatuses.filter((entry) => entry.toolCallId === 'file_account_1').length, 1)
   assert.deepEqual(
     [...new Set(
       seenStatuses
@@ -3961,6 +4001,15 @@ test('OpenAI account runtime accepts fileChange lifecycle and output deltas with
     )],
     ['file_change'],
   )
+  assert.deepEqual(seenOutputChunks, [{
+    type: 'tool-output-delta',
+    toolCallId: 'file_account_1',
+    toolName: 'file_change',
+    stream: 'stdout',
+    chunk: 'apply_patch succeeded',
+    sequence: 1,
+    providerExecuted: true,
+  }])
   assert.equal(
     seenOutputs.filter((entry) => entry.toolCallId === 'file_account_1').length,
     1,
@@ -4211,7 +4260,9 @@ test('OpenAI account runtime emits ordered durable plan, diff, terminal, and MCP
     onProviderToolStatus: (status) => seenStatuses.push(status),
   })
 
-  const progressStatuses = seenStatuses.filter((entry) => entry.durable === true)
+  const durableStatuses = seenStatuses.filter((entry) => entry.durable === true)
+  const progressStatuses = durableStatuses.filter((entry) => entry.activityKind)
+  const nativeStarts = durableStatuses.filter((entry) => !entry.activityKind)
   assert.equal(payload.text, 'Progress captured.')
   assert.deepEqual(
     progressStatuses.map((entry) => entry.activityKind),
@@ -4236,6 +4287,15 @@ test('OpenAI account runtime emits ordered durable plan, diff, terminal, and MCP
   assert.match(progressStatuses[6].delta, /\+extra/)
   assert.equal(progressStatuses[2].delta, 'Terminal input sent (13 characters).')
   assert.doesNotMatch(JSON.stringify(progressStatuses), /super-secret|process-private-id/)
+  assert.deepEqual(
+    nativeStarts.map(({ type, toolCallId, toolName }) => ({ type, toolCallId, toolName })),
+    [
+      { type: 'running', toolCallId: 'cmd_progress_1', toolName: 'command_execution' },
+      { type: 'running', toolCallId: 'mcp_progress_1', toolName: 'mcp_tool_call' },
+    ],
+  )
+  assert.match(nativeStarts[0].delta, /command: node app\.mjs/)
+  assert.match(nativeStarts[1].delta, /server: filesystem/)
   assert.equal(payload.providerResponseMeta?.accountProtocol?.unknownActivities?.length || 0, 0)
 })
 
@@ -5016,6 +5076,15 @@ test('OpenAI account runtime emits normalized provider-tool events for account-n
           },
         })
         target.emit('notification', {
+          method: 'item/commandExecution/outputDelta',
+          params: {
+            threadId: params.threadId,
+            turnId: target.turnId,
+            itemId: 'cmd_evt_1',
+            delta: '\nYour branch is up to date.',
+          },
+        })
+        target.emit('notification', {
           method: 'item/completed',
           params: {
             threadId: params.threadId,
@@ -5168,6 +5237,7 @@ test('OpenAI account runtime emits normalized provider-tool events for account-n
 
   const seenStatuses = []
   const seenOutputs = []
+  const seenOutputChunks = []
   const payload = await createOpenAIAccountStreamPayload({
     messages: [{ role: 'user', content: 'Do several native activities.' }],
     options: {
@@ -5178,13 +5248,43 @@ test('OpenAI account runtime emits normalized provider-tool events for account-n
     },
     onProviderToolStatus: (status) => seenStatuses.push(status),
     onProviderToolOutput: (output) => seenOutputs.push(output),
+    onProviderToolOutputChunk: (output) => seenOutputChunks.push(output),
   })
 
   assert.equal(payload.text, 'Native activities emitted.')
   assert.equal(seenStatuses.some((entry) => entry.toolName === 'web_search'), true)
-  assert.equal(seenStatuses.some((entry) => entry.toolName === 'command_execution' && String(entry.delta || '').includes('On branch main')), true)
-  assert.equal(seenStatuses.some((entry) => entry.toolName === 'file_change' && String(entry.delta || '').includes('apply_patch succeeded')), true)
+  assert.equal(seenStatuses.some((entry) => entry.toolName === 'command_execution' && String(entry.delta || '').includes('On branch main')), false)
+  assert.equal(seenStatuses.some((entry) => entry.toolName === 'file_change' && String(entry.delta || '').includes('apply_patch succeeded')), false)
   assert.equal(seenStatuses.some((entry) => entry.toolName === 'plan' && String(entry.delta || '').includes('Step 1: inspect')), true)
+  assert.deepEqual(seenOutputChunks, [
+    {
+      type: 'tool-output-delta',
+      toolCallId: 'cmd_evt_1',
+      toolName: 'command_execution',
+      stream: 'stdout',
+      chunk: 'On branch main',
+      sequence: 1,
+      providerExecuted: true,
+    },
+    {
+      type: 'tool-output-delta',
+      toolCallId: 'cmd_evt_1',
+      toolName: 'command_execution',
+      stream: 'stdout',
+      chunk: '\nYour branch is up to date.',
+      sequence: 2,
+      providerExecuted: true,
+    },
+    {
+      type: 'tool-output-delta',
+      toolCallId: 'file_evt_1',
+      toolName: 'file_change',
+      stream: 'stdout',
+      chunk: 'apply_patch succeeded',
+      sequence: 1,
+      providerExecuted: true,
+    },
+  ])
   assert.deepEqual(
     new Set(seenOutputs.map((entry) => entry.toolName)),
     new Set(['web_search', 'command_execution', 'mcp_tool_call', 'image_view', 'plan', 'review_mode']),

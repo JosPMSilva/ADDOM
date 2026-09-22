@@ -175,3 +175,48 @@ export function resolveTimelineAnchorCorrection({
   if (Number(blockIndex) < 0 || Number(blockIndex) >= Number(visibleStartIndex || 0)) return 0
   return Number(nextSize || 0) - Number(previousSize || 0)
 }
+
+export function createTimelineAnchorCorrectionScheduler({
+  requestFrame,
+  cancelFrame,
+  applyCorrection,
+} = {}) {
+  if (typeof requestFrame !== 'function' || typeof cancelFrame !== 'function') {
+    throw new TypeError('Timeline anchor correction scheduling requires frame controls.')
+  }
+  if (typeof applyCorrection !== 'function') {
+    throw new TypeError('Timeline anchor correction scheduling requires an apply callback.')
+  }
+
+  let frameId = 0
+  let pendingCorrection = 0
+  let disposed = false
+
+  const cancelPending = () => {
+    pendingCorrection = 0
+    if (!frameId) return
+    cancelFrame(frameId)
+    frameId = 0
+  }
+
+  return {
+    schedule(correction) {
+      if (disposed) return
+      const normalizedCorrection = Number(correction) || 0
+      if (!normalizedCorrection) return
+      pendingCorrection += normalizedCorrection
+      if (frameId) return
+      frameId = requestFrame(() => {
+        frameId = 0
+        const accumulatedCorrection = pendingCorrection
+        pendingCorrection = 0
+        if (!disposed && accumulatedCorrection) applyCorrection(accumulatedCorrection)
+      })
+    },
+    cancelPending,
+    dispose() {
+      disposed = true
+      cancelPending()
+    },
+  }
+}

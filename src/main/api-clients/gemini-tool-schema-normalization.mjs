@@ -129,9 +129,12 @@ export function normalizeGeminiToolSchemas(tools = {}) {
       next[toolName] = definition
       continue
     }
+    const validate = definition?.inputSchema?.validate
     next[toolName] = {
       ...definition,
-      inputSchema: jsonSchema(normalizeGeminiJsonSchema(schema)),
+      inputSchema: jsonSchema(normalizeGeminiJsonSchema(schema), {
+        ...(typeof validate === 'function' ? { validate } : {}),
+      }),
     }
   }
   return next

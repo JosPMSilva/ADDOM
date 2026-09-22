@@ -350,6 +350,54 @@ test('chat composer control rail exposes a labelled lightning toggle for support
   assert.doesNotMatch(unsupportedHtml, /data-ui="chat-composer-processing-mode"/)
 })
 
+test('chat composer control rail exposes Fast for Astra and eligible Anthropic Opus models only', () => {
+  const astraHtml = renderRail({
+    providers: [{
+      id: 'openai',
+      name: 'OpenAI',
+      hasCredential: true,
+      authMethod: 'account',
+      defaultModel: 'gpt-6-astra',
+      models: [],
+    }],
+    selectedProvider: 'openai',
+    selectedModel: 'gpt-6-astra',
+  })
+  const opusHtml = renderRail({
+    providers: [{
+      id: 'anthropic',
+      name: 'Anthropic',
+      hasCredential: true,
+      authMethod: 'api_key',
+      defaultModel: 'claude-opus-5',
+      models: [],
+    }],
+    selectedProvider: 'anthropic',
+    selectedModel: 'claude-opus-5',
+  })
+  const fableHtml = renderRail({
+    providers: [{
+      id: 'anthropic',
+      name: 'Anthropic',
+      hasCredential: true,
+      authMethod: 'api_key',
+      defaultModel: 'claude-fable-5-1',
+      models: [],
+    }],
+    selectedProvider: 'anthropic',
+    selectedModel: 'claude-fable-5-1',
+  })
+
+  assert.match(astraHtml, /data-ui="chat-composer-processing-mode"/)
+  assert.match(opusHtml, /data-ui="chat-composer-processing-mode"/)
+  assert.doesNotMatch(fableHtml, /data-ui="chat-composer-processing-mode"/)
+})
+
+test('Anthropic reasoning effort options include Extra High', () => {
+  const source = readSource('src/renderer/components/chat/chat-composer-control-rail-helpers.jsx')
+  assert.match(source, /\['low', 'medium', 'high', 'xhigh', 'max'\]/)
+})
+
 test('enabled fast processing uses a filled control with a dark lightning glyph', () => {
   const source = readSource('src/renderer/components/chat/ChatProcessingModeControl.jsx')
 

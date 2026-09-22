@@ -15,7 +15,9 @@ const NON_TERMINAL_LIFECYCLE_RANK = new Map([
 ])
 
 function textPayload(event) {
-  return typeof event?.payload?.text === 'string' ? event.payload.text : ''
+  if (typeof event?.payload?.text === 'string') return event.payload.text
+  if (typeof event?.payload?.timeline?.content === 'string') return event.payload.timeline.content
+  return ''
 }
 
 function compatibilityRole(event) {

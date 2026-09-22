@@ -3,13 +3,13 @@ ADDOM Third-Party Notices
 This bundle covers the third-party software, vendored assets, and bundled runtimes redistributed with ADDOM builds.
 Preserve these notices together with packaged outputs for commercial distribution.
 
-=== npm:@ai-sdk/anthropic@3.0.46 ===
+=== npm:@ai-sdk/anthropic@3.0.118 ===
 Name: @ai-sdk/anthropic
-Version: 3.0.46
+Version: 3.0.118
 Classification: shipped_runtime
 License: Apache-2.0
-Source: git+https://github.com/vercel/ai.git
-Repository: git+https://github.com/vercel/ai.git
+Source: https://github.com/vercel/ai
+Repository: https://github.com/vercel/ai
 Homepage: https://ai-sdk.dev/docs
 Shipped paths: node_modules/@ai-sdk/anthropic
 License file: node_modules/@ai-sdk/anthropic/LICENSE
@@ -220,6 +220,42 @@ Source: git+https://github.com/vercel/ai.git
 Repository: git+https://github.com/vercel/ai.git
 Homepage: https://ai-sdk.dev/docs
 Shipped paths: node_modules/@ai-sdk/provider-utils
+
+=== npm:@ai-sdk/provider-utils@4.0.51 ===
+Name: @ai-sdk/provider-utils
+Version: 4.0.51
+Classification: shipped_runtime
+License: Apache-2.0
+Source: https://github.com/vercel/ai
+Repository: https://github.com/vercel/ai
+Homepage: https://ai-sdk.dev/docs
+Shipped paths: node_modules/@ai-sdk/anthropic/node_modules/@ai-sdk/provider-utils
+
+=== npm:@ai-sdk/provider@3.0.16 ===
+Name: @ai-sdk/provider
+Version: 3.0.16
+Classification: shipped_runtime
+License: Apache-2.0
+Source: https://github.com/vercel/ai
+Repository: https://github.com/vercel/ai
+Homepage: https://ai-sdk.dev/docs
+Shipped paths: node_modules/@ai-sdk/anthropic/node_modules/@ai-sdk/provider
+License file: node_modules/@ai-sdk/anthropic/node_modules/@ai-sdk/provider/LICENSE
+
+LICENSE (node_modules/@ai-sdk/anthropic/node_modules/@ai-sdk/provider/LICENSE)
+Copyright 2023 Vercel, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 === npm:@ai-sdk/provider@3.0.8 ===
 Name: @ai-sdk/provider
@@ -5112,9 +5148,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-=== npm:adm-zip@0.6.0 ===
+=== npm:adm-zip@0.6.1 ===
 Name: adm-zip
-Version: 0.6.0
+Version: 0.6.1
 Classification: shipped_runtime
 License: MIT
 Source: https://github.com/cthackers/adm-zip.git
@@ -5180,13 +5216,70 @@ License: MIT
 Source: https://github.com/ajv-validator/ajv.git
 Repository: https://github.com/ajv-validator/ajv.git
 Homepage: https://github.com/ajv-validator/ajv
+Shipped paths: node_modules/@eslint/eslintrc/node_modules/ajv, node_modules/eslint/node_modules/ajv
+License files: node_modules/@eslint/eslintrc/node_modules/ajv/LICENSE, node_modules/eslint/node_modules/ajv/LICENSE
+
+LICENSE (node_modules/@eslint/eslintrc/node_modules/ajv/LICENSE)
+The MIT License (MIT)
+
+Copyright (c) 2015-2017 Evgeny Poberezkin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+LICENSE (node_modules/eslint/node_modules/ajv/LICENSE)
+The MIT License (MIT)
+
+Copyright (c) 2015-2017 Evgeny Poberezkin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+=== npm:ajv@8.20.0 ===
+Name: ajv
+Version: 8.20.0
+Classification: shipped_runtime
+License: MIT
+Source: ajv-validator/ajv
+Repository: ajv-validator/ajv
+Homepage: https://ajv.js.org
 Shipped paths: node_modules/ajv
 License file: node_modules/ajv/LICENSE
 
 LICENSE (node_modules/ajv/LICENSE)
 The MIT License (MIT)
 
-Copyright (c) 2015-2017 Evgeny Poberezkin
+Copyright (c) 2015-2021 Evgeny Poberezkin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -9177,9 +9270,9 @@ Repository: http://github.com/estools/esutils.git
 Homepage: https://github.com/estools/esutils
 Shipped paths: node_modules/esutils
 
-=== npm:eventsource-parser@3.0.6 ===
+=== npm:eventsource-parser@3.1.1 ===
 Name: eventsource-parser
-Version: 3.0.6
+Version: 3.1.1
 Classification: shipped_runtime
 License: MIT
 Source: git+ssh://git@github.com/rexxars/eventsource-parser.git
@@ -9191,7 +9284,7 @@ License file: node_modules/eventsource-parser/LICENSE
 LICENSE (node_modules/eventsource-parser/LICENSE)
 MIT License
 
-Copyright (c) 2025 Espen Hovlandsdal <espen@hovlandsdal.com>
+Copyright (c) 2026 Espen Hovlandsdal <espen@hovlandsdal.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -9348,6 +9441,49 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
+
+=== npm:fast-uri@3.1.6 ===
+Name: fast-uri
+Version: 3.1.6
+Classification: shipped_runtime
+License: BSD-3-Clause
+Source: git+https://github.com/fastify/fast-uri.git
+Repository: git+https://github.com/fastify/fast-uri.git
+Homepage: https://github.com/fastify/fast-uri
+Shipped paths: node_modules/fast-uri
+License file: node_modules/fast-uri/LICENSE
+
+LICENSE (node_modules/fast-uri/LICENSE)
+Copyright (c) 2011-2021, Gary Court until https://github.com/garycourt/uri-js/commit/a1acf730b4bba3f1097c9f52e7d9d3aba8cdcaae
+Copyright (c) 2021-present The Fastify team <https://github.com/fastify/fastify#team>
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * The names of any contributors may not be used to endorse or promote
+      products derived from this software without specific prior written
+      permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS AND CONTRIBUTORS BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+                                  *   *   *
+
+The complete list of contributors can be found at:
+- https://github.com/garycourt/uri-js/graphs/contributors
 
 === npm:fdir@6.5.0 ===
 Name: fdir
@@ -11967,6 +12103,63 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 === npm:json-schema-traverse@0.4.1 ===
 Name: json-schema-traverse
 Version: 0.4.1
+Classification: shipped_runtime
+License: MIT
+Source: git+https://github.com/epoberezkin/json-schema-traverse.git
+Repository: git+https://github.com/epoberezkin/json-schema-traverse.git
+Homepage: https://github.com/epoberezkin/json-schema-traverse#readme
+Shipped paths: node_modules/@eslint/eslintrc/node_modules/json-schema-traverse, node_modules/eslint/node_modules/json-schema-traverse
+License files: node_modules/@eslint/eslintrc/node_modules/json-schema-traverse/LICENSE, node_modules/eslint/node_modules/json-schema-traverse/LICENSE
+
+LICENSE (node_modules/@eslint/eslintrc/node_modules/json-schema-traverse/LICENSE)
+MIT License
+
+Copyright (c) 2017 Evgeny Poberezkin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+LICENSE (node_modules/eslint/node_modules/json-schema-traverse/LICENSE)
+MIT License
+
+Copyright (c) 2017 Evgeny Poberezkin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+=== npm:json-schema-traverse@1.0.0 ===
+Name: json-schema-traverse
+Version: 1.0.0
 Classification: shipped_runtime
 License: MIT
 Source: git+https://github.com/epoberezkin/json-schema-traverse.git
@@ -22601,6 +22794,39 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
+=== npm:require-from-string@2.0.2 ===
+Name: require-from-string
+Version: 2.0.2
+Classification: shipped_runtime
+License: MIT
+Source: floatdrop/require-from-string
+Repository: floatdrop/require-from-string
+Shipped paths: node_modules/require-from-string
+License file: node_modules/require-from-string/LICENSE
+
+LICENSE (node_modules/require-from-string/LICENSE)
+The MIT License (MIT)
+
+Copyright (c) Vsevolod Strukchinsky <floatdrop@gmail.com> (github.com/floatdrop)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
 === npm:resolve-from@4.0.0 ===
 Name: resolve-from
 Version: 4.0.0
@@ -23511,9 +23737,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-=== npm:smol-toml@1.6.1 ===
+=== npm:smol-toml@1.8.0 ===
 Name: smol-toml
-Version: 1.6.1
+Version: 1.8.0
 Classification: shipped_runtime
 License: BSD-3-Clause
 Source: github:squirrelchat/smol-toml

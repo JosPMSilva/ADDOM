@@ -1960,6 +1960,8 @@
         "activity": "Aktivitas server aplikasi Codex",
         "webSearch": "Pencarian web server aplikasi Codex",
         "command": "Perintah server aplikasi Codex: {{commandName}}",
+        "commandSummary": "{{total}} perintah · {{completed}} selesai · {{failed}} gagal",
+        "commandSummaryPending": "{{total}} perintah · detail hasil tidak tersedia",
         "fileChangeOne": "Perubahan file server aplikasi Codex",
         "fileChangeOther": "Perubahan file server aplikasi Codex",
         "mcpTool": "Alat MCP server aplikasi Codex: {{toolName}}",

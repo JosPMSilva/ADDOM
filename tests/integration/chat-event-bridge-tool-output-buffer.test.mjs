@@ -4,6 +4,7 @@ import assert from 'node:assert/strict'
 import { closeViteSsrLoader, ssrLoadRendererModule } from '../helpers/vite-ssr-loader.mjs'
 
 let flushMatchingToolOutputBuffers = null
+let createToolOutputBufferRuntime = null
 let resolveTerminalStreamingNote = null
 let isTerminalMemorySuggestionToolResult = null
 let buildTurnStateActivity = null
@@ -13,6 +14,7 @@ before(async () => {
   const bufferMod = await ssrLoadRendererModule('/components/chat/chat-event-bridge-tool-output-buffer.mjs')
   const turnMod = await ssrLoadRendererModule('/components/chat/chat-event-bridge-turn-state.mjs')
   flushMatchingToolOutputBuffers = bufferMod?.flushMatchingToolOutputBuffers || null
+  createToolOutputBufferRuntime = bufferMod?.createToolOutputBufferRuntime || null
   resolveTerminalStreamingNote = turnMod?.resolveTerminalStreamingNote || null
   isTerminalMemorySuggestionToolResult = turnMod?.isTerminalMemorySuggestionToolResult || null
   buildTurnStateActivity = turnMod?.buildTurnStateActivity || null
@@ -78,6 +80,56 @@ test('flushMatchingToolOutputBuffers can target one step without touching siblin
 
   assert.equal(flushedCount, 1)
   assert.deepEqual(flushed, ['turn-c:step-2:stdout'])
+})
+
+test('tool output buffering preserves stdout and stderr chronology within one flush interval', () => {
+  const appended = []
+  const runtime = createToolOutputBufferRuntime({
+    useChatStore: {
+      getState: () => ({
+        appendLiveExecutionToolOutput: (payload) => appended.push(payload),
+      }),
+    },
+  })
+
+  runtime.queueToolOutputChunk({ turnId: 'turn-order', stepId: 'step-order', stream: 'stdout', chunk: 'A', sequence: 1, emittedAt: 101 })
+  runtime.queueToolOutputChunk({ turnId: 'turn-order', stepId: 'step-order', stream: 'stderr', chunk: 'B', sequence: 2, emittedAt: 102 })
+  runtime.queueToolOutputChunk({ turnId: 'turn-order', stepId: 'step-order', stream: 'stdout', chunk: 'C', sequence: 3, emittedAt: 103 })
+  runtime.flushToolOutputBuffersByStep({ turnId: 'turn-order', stepId: 'step-order' })
+
+  assert.deepEqual(appended.map(({ stream, chunk, sequence }) => ({ stream, chunk, sequence })), [
+    { stream: 'stdout', chunk: 'A', sequence: 1 },
+    { stream: 'stderr', chunk: 'B', sequence: 2 },
+    { stream: 'stdout', chunk: 'C', sequence: 3 },
+  ])
+})
+
+test('tool output buffering keeps burst callbacks bounded until the scheduled flush', () => {
+  const appended = []
+  const runtime = createToolOutputBufferRuntime({
+    useChatStore: {
+      getState: () => ({
+        appendLiveExecutionToolOutput: (payload) => appended.push(payload),
+      }),
+    },
+  })
+
+  for (let sequence = 1; sequence <= 2_000; sequence += 1) {
+    runtime.queueToolOutputChunk({
+      turnId: 'turn-burst',
+      stepId: 'step-burst',
+      stream: 'stdout',
+      chunk: `${sequence}:${'x'.repeat(1_594)}\n`,
+      sequence,
+      emittedAt: 100 + sequence,
+    })
+  }
+
+  assert.equal(appended.length, 0)
+  runtime.flushToolOutputBuffersByStep({ turnId: 'turn-burst', stepId: 'step-burst' })
+  assert.ok(appended.length <= 2)
+  assert.ok(appended.reduce((total, payload) => total + payload.chunk.length, 0) <= 66_000)
+  assert.match(appended.at(-1).chunk, /2000:/)
 })
 
 test('resolveTerminalStreamingNote keeps cancelled turns readable without affecting successful completions', () => {

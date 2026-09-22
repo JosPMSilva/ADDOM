@@ -1,7 +1,9 @@
 import React from 'react'
 import { useRendererTranslation } from '../../i18n/use-renderer-translation.mjs'
+import { MemoProseMarkdown } from '../markdown/LazyMarkdownRenderer.jsx'
 import ActionButton from '../ui/ActionButton.jsx'
 import PromptSurface from '../ui/PromptSurface.jsx'
+import { useChatMarkdownComponents } from './chat-rich-content-renderer.jsx'
 import {
   createPlanDirectionAnswer,
   createPlanDirectionDrafts,
@@ -14,6 +16,13 @@ const PROFILE_LABEL_KEYS = Object.freeze({
   technical_design: 'technicalDesign',
   investigation: 'investigation',
   deep_implementation: 'deepImplementation',
+})
+
+const PLAN_DIRECTION_MARKDOWN_CONFIG = Object.freeze({
+  paragraphClassName: 'mb-2 text-text-secondary last:mb-0',
+  unorderedListClassName: 'chat-list chat-list-ul mb-2',
+  orderedListClassName: 'chat-list chat-list-ol mb-2',
+  listItemClassName: 'text-text-secondary',
 })
 
 function answerText(answer = null) {
@@ -83,6 +92,19 @@ function ProfileMenu({ disabled = false, recommendation = null, onCreatePlan = (
   </div>
 }
 
+function PlanDirectionScrollRegion({ summary = '', markdownComponents = {}, children = null }) {
+  return <div
+    data-ui="plan-direction-scroll-region"
+    tabIndex={0}
+    className="min-h-0 max-h-[min(42vh,420px)] overflow-y-auto overscroll-contain rounded-sm pr-1 outline-none focus-visible:ring-1 focus-visible:ring-border-strong"
+  >
+    <div className="prose-chat chat-typo-agent-task min-w-0 break-words select-text text-text-secondary">
+      <MemoProseMarkdown text={String(summary || '')} components={markdownComponents} />
+    </div>
+    {children}
+  </div>
+}
+
 export default function PlanDirectionCard({
   plan = null,
   disabled = false,
@@ -107,6 +129,10 @@ export default function PlanDirectionCard({
   const [feedbackBusy, setFeedbackBusy] = React.useState(false)
   const feedbackPendingRef = React.useRef(false)
   const pointerStart = React.useRef(null)
+  const markdownComponents = useChatMarkdownComponents({
+    mode: 'execution-stream',
+    config: PLAN_DIRECTION_MARKDOWN_CONFIG,
+  })
   const question = questions[index] || null
   const draft = question ? drafts[question.id] : null
 
@@ -225,35 +251,36 @@ export default function PlanDirectionCard({
         {t('core:chat.planDirection.retry')}
       </ActionButton>
     </> : plan?.lifecycle === 'drafting' ? <>
-      <p className="text-xs leading-5 text-text-secondary">{direction.summary}</p>
+      <PlanDirectionScrollRegion summary={direction.summary} markdownComponents={markdownComponents} />
       <p className="text-[11px] text-text-tertiary">{t('core:chat.planDirection.creating')}</p>
       <ActionButton size="sm" disabled={disabled} onClick={onRetryDraft}>
         {t('core:chat.planDirection.retryDraft')}
       </ActionButton>
     </> : <>
-      <p className="text-xs leading-5 text-text-secondary">{direction.summary}</p>
-      {questions.some((item) => item.answer) ? <details className="text-[11px] text-text-tertiary">
-        <summary className="cursor-pointer select-none">{t('core:chat.planDirection.reviewChoices')}</summary>
-        <div className="mt-1.5 space-y-1.5">
-          {questions.filter((item) => item.answer).map((item) => <p key={item.id}>
-            <span className="font-medium text-text-secondary">{item.header || item.question}</span>
-            <span className="block">{answerText(item.answer)}</span>
-          </p>)}
-        </div>
-      </details> : null}
-      {direction.recommendation ? <p data-ui="plan-direction-recommendation" className="text-[11px] leading-4 text-text-tertiary">
-        <span data-ui="plan-direction-recommendation-label" className="block font-medium text-text-secondary">
-          {t('core:chat.planDirection.recommended')}
-        </span>
-        <span data-ui="plan-direction-recommendation-detail" className="mt-0.5 block">
-          {t('core:chat.planDirection.recommendationDetail', {
-            profile: PROFILE_LABEL_KEYS[direction.recommendation.profile]
-              ? t(`core:chat.planDirection.profiles.${PROFILE_LABEL_KEYS[direction.recommendation.profile]}`)
-              : direction.recommendation.profile,
-            rationale: direction.recommendation.rationale,
-          })}
-        </span>
-      </p> : null}
+      <PlanDirectionScrollRegion summary={direction.summary} markdownComponents={markdownComponents}>
+        {questions.some((item) => item.answer) ? <details className="mt-2.5 text-[11px] text-text-tertiary">
+          <summary className="cursor-pointer select-none">{t('core:chat.planDirection.reviewChoices')}</summary>
+          <div className="mt-1.5 space-y-1.5">
+            {questions.filter((item) => item.answer).map((item) => <p key={item.id}>
+              <span className="font-medium text-text-secondary">{item.header || item.question}</span>
+              <span className="block">{answerText(item.answer)}</span>
+            </p>)}
+          </div>
+        </details> : null}
+        {direction.recommendation ? <p data-ui="plan-direction-recommendation" className="mt-2.5 text-[11px] leading-4 text-text-tertiary">
+          <span data-ui="plan-direction-recommendation-label" className="block font-medium text-text-secondary">
+            {t('core:chat.planDirection.recommended')}
+          </span>
+          <span data-ui="plan-direction-recommendation-detail" className="mt-0.5 block">
+            {t('core:chat.planDirection.recommendationDetail', {
+              profile: PROFILE_LABEL_KEYS[direction.recommendation.profile]
+                ? t(`core:chat.planDirection.profiles.${PROFILE_LABEL_KEYS[direction.recommendation.profile]}`)
+                : direction.recommendation.profile,
+              rationale: direction.recommendation.rationale,
+            })}
+          </span>
+        </p> : null}
+      </PlanDirectionScrollRegion>
       {feedbackOpen ? <div className="space-y-2">
         <textarea
           value={feedback}
@@ -273,7 +300,7 @@ export default function PlanDirectionCard({
             {t('core:common.cancel')}
           </ActionButton>
         </div>
-      </div> : <div className="flex items-center gap-2">
+      </div> : <div data-ui="plan-direction-actions" className="flex items-center gap-2">
         <ActionButton size="sm" disabled={disabled} onClick={() => setFeedbackOpen(true)}>
           {t('core:chat.planDirection.change')}
         </ActionButton>

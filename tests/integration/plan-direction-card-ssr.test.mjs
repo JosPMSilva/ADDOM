@@ -75,6 +75,57 @@ test('Plan Direction Card renders the profile decision state without legacy plan
   assert.doesNotMatch(html, /Continue Planning|Implement Plan/)
 })
 
+test('Plan Direction Card renders Markdown in an intrinsic-height bounded scroller above fixed actions', () => {
+  const html = renderToStaticMarkup(React.createElement(PlanDirectionCard, {
+    plan: {
+      revision: 3,
+      lifecycle: 'awaiting_decision',
+      direction: {
+        stage: 'review',
+        summary: '# Direction\n\nKeep the surface compact.\n\n## Phases\n\n1. Inspect\n2. Implement',
+        questions: [],
+      },
+    },
+  }))
+
+  assert.match(html, /data-ui="plan-direction-scroll-region"/)
+  assert.match(html, /max-h-\[min\(42vh,420px\)\]/)
+  assert.match(html, /overflow-y-auto/)
+  assert.doesNotMatch(html, /(?:^|\s)h-\[min\(42vh,420px\)\]/)
+  assert.match(html, /<h1[^>]*>Direction<\/h1>/)
+  assert.match(html, /<h2[^>]*>Phases<\/h2>/)
+  assert.match(html, /<ol[^>]*>.*<li[^>]*>Inspect<\/li>.*<li[^>]*>Implement<\/li>.*<\/ol>/s)
+  assert.match(html, /data-ui="plan-direction-actions"/)
+  assert.ok(
+    html.indexOf('data-ui="plan-direction-scroll-region"') < html.indexOf('data-ui="plan-direction-actions"'),
+  )
+})
+
+test('Plan Direction Card preserves bounded Markdown while the managed plan is drafting', () => {
+  const html = renderToStaticMarkup(React.createElement(PlanDirectionCard, {
+    plan: {
+      revision: 4,
+      lifecycle: 'drafting',
+      direction: {
+        stage: 'review',
+        summary: '# Direction\n\n## Phases\n\n- Inspect\n- Implement',
+        questions: [],
+      },
+    },
+  }))
+
+  assert.match(html, /data-ui="plan-direction-scroll-region"/)
+  assert.match(html, /max-h-\[min\(42vh,420px\)\]/)
+  assert.match(html, /<h1[^>]*>Direction<\/h1>/)
+  assert.match(html, /<h2[^>]*>Phases<\/h2>/)
+  assert.match(html, /<ul[^>]*>.*<li[^>]*>Inspect<\/li>.*<li[^>]*>Implement<\/li>.*<\/ul>/s)
+  assert.match(html, /Creating the managed Markdown plan/)
+  assert.match(html, /Retry plan draft/)
+  assert.ok(
+    html.indexOf('data-ui="plan-direction-scroll-region"') < html.indexOf('Creating the managed Markdown plan'),
+  )
+})
+
 test('Plan Direction Card renders synthesis progress and an explicit retry after failure', () => {
   const html = renderToStaticMarkup(React.createElement(PlanDirectionCard, {
     plan: {

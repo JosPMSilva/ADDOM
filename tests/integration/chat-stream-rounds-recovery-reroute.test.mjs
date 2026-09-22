@@ -89,6 +89,42 @@ function createBaseArgs(overrides = {}) {
   }
 }
 
+test('runToolCallBatchForRound records malformed provider arguments without approval or execution', async () => {
+  let recorded = null
+  let approvalCalls = 0
+  let executeCalls = 0
+  const args = createBaseArgs({
+    toolCalls: [{
+      id: 'call_invalid_arguments',
+      name: 'write_file',
+      input: '{"path":',
+      invalid: true,
+    }],
+    helpers: {
+      recordToolStepOutcome: (payload) => {
+        recorded = payload
+      },
+      resolveToolApprovalForStep: async () => {
+        approvalCalls += 1
+        return { decision: 'approved', denyReason: '' }
+      },
+      executeTool: async () => {
+        executeCalls += 1
+        return { result: 'unexpected execution' }
+      },
+    },
+  })
+
+  await runToolCallBatchForRound(args)
+
+  assert.equal(approvalCalls, 0)
+  assert.equal(executeCalls, 0)
+  assert.match(recorded?.result || '', /malformed tool arguments/i)
+  assert.deepEqual(recorded?.toolInput, {})
+  assert.deepEqual(recorded?.toolEventInput, {})
+  assert.equal(recorded?.toolExecutionPath, 'provider_adapter')
+})
+
 test('runToolCallBatchForRound recovers hidden-known tool calls by priming the capability for the next round', async () => {
   const history = []
   const turnToolResults = []
@@ -399,5 +435,50 @@ test('runToolCallBatchForRound disables blind edit_file retries after exact-text
     }),
   }))
 
+  assert.equal(loop.blockedToolNames.has('edit_file'), false)
+})
+
+test('runToolCallBatchForRound applies successful inspection recovery before a later edit in the same batch', async () => {
+  const turnToolResults = []
+  const loop = {
+    cancelled: false,
+    abortController: new AbortController(),
+    blockedToolNames: new Set(['edit_file']),
+    blockedToolStates: new Map([['edit_file', {
+      lintCode: 'edit_file_disabled_for_turn',
+      failureClass: 'EXACT_TEXT_NO_MATCH',
+      rerouteToolName: 'read_file',
+    }]]),
+  }
+  const executedToolNames = []
+  const activeToolDefinitions = buildTools(['read_file', 'edit_file'])
+
+  await runToolCallBatchForRound(createBaseArgs({
+    turnToolResults,
+    loop,
+    activeToolDefinitions,
+    tools: { ...activeToolDefinitions },
+    toolCalls: [
+      { id: 'tc_read_same_batch', name: 'read_file', input: { path: 'src/app.js' } },
+      {
+        id: 'tc_edit_same_batch',
+        name: 'edit_file',
+        input: { path: 'src/app.js', old_text: 'before', new_text: 'after' },
+      },
+    ],
+    executeTool: async (_projectFolder, toolName) => {
+      executedToolNames.push(toolName)
+      return {
+        result: toolName === 'read_file' ? 'before' : 'Edit applied.',
+        isError: false,
+        missingDependencySuspected: false,
+        writeArtifactMeta: null,
+        writeArtifactChanges: [],
+      }
+    },
+  }))
+
+  assert.deepEqual(executedToolNames, ['read_file', 'edit_file'])
+  assert.equal(turnToolResults.some((row) => row.isError), false)
   assert.equal(loop.blockedToolNames.has('edit_file'), false)
 })

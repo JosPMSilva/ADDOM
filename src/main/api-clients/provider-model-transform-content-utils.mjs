@@ -61,11 +61,11 @@ export function flattenContentPartsToString(
       if (text) lines.push(text)
       continue
     }
-    if (type === 'image') {
+    if (type === 'image' || (type === 'media' && normalizeMediaType(part.mediaType).startsWith('image/'))) {
       lines.push(`[${imagePrefix}: ${toAttachmentLabel(part, 'image')}]`)
       continue
     }
-    if (type === 'file') {
+    if (type === 'file' || type === 'file-data' || type === 'file-url' || type === 'file-id' || type === 'media') {
       lines.push(`[${filePrefix}: ${toAttachmentLabel(part, 'file')}]`)
       continue
     }

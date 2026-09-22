@@ -19,18 +19,33 @@ const ACCOUNT_DYNAMIC_TOOL_CANONICAL_NAME_BY_TRANSPORT = Object.freeze(
 )
 
 function normalizeDynamicToolInput(value = null, { toolName = '' } = {}) {
-  if (!value) return {}
+  if (value === null || value === undefined) return { input: {}, invalid: false }
   if (typeof value === 'string') {
     try {
       const parsed = JSON.parse(value)
-      return normalizeObject(parsed)
-    } catch {
-      return String(toolName || '').trim().toLowerCase() === 'apply_patch'
-        ? { patch: value }
-        : {}
+      if (
+        String(toolName || '').trim().toLowerCase() === 'apply_patch'
+        && typeof parsed === 'string'
+      ) {
+        return { input: { patch: parsed }, invalid: false }
+      }
+      return { input: normalizeObject(parsed), invalid: false }
+    } catch (error) {
+      if (String(toolName || '').trim().toLowerCase() === 'apply_patch') {
+        return { input: { patch: value }, invalid: false }
+      }
+      return {
+        input: {},
+        invalid: true,
+        rawInput: value,
+        inputError: {
+          code: 'invalid_json',
+          message: String(error?.message || 'Tool input is not valid JSON.'),
+        },
+      }
     }
   }
-  return normalizeObject(value)
+  return { input: normalizeObject(value), invalid: false }
 }
 
 function toAccountDynamicToolTransportName(toolName = '') {
@@ -127,10 +142,16 @@ export function extractDynamicToolCall(params = null) {
     ?? item.input
     ?? null
   )
+  const normalizedInput = normalizeDynamicToolInput(rawInput, { toolName })
   return {
     id: normalizeId(source.itemId || source.toolCallId || item.id),
     toolName,
-    input: normalizeDynamicToolInput(rawInput, { toolName }),
+    input: normalizedInput.input,
+    ...(normalizedInput.invalid === true ? {
+      invalid: true,
+      rawInput: normalizedInput.rawInput,
+      inputError: normalizedInput.inputError,
+    } : {}),
   }
 }
 

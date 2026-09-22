@@ -84,6 +84,10 @@ test('buildToolContextFacts records deterministic read, write, command, and fail
     isError: true,
     decision: 'approved',
     failureClass: 'MALFORMED_PATCH_SYNTAX',
+    failureStage: 'pre_execution_lint',
+    failureReasonCode: 'lint_rejected',
+    canonicalToolName: 'apply_patch',
+    toolExecutionPath: 'pre_execution',
     lintCode: 'apply_patch_missing_hunks',
     rerouteToolName: 'write_file',
   })
@@ -91,8 +95,29 @@ test('buildToolContextFacts records deterministic read, write, command, and fail
     kind: 'failure_class',
     toolName: 'apply_patch',
     failureClass: 'MALFORMED_PATCH_SYNTAX',
+    failureStage: 'pre_execution_lint',
+    failureReasonCode: 'lint_rejected',
+    canonicalToolName: 'apply_patch',
+    toolExecutionPath: 'pre_execution',
     lintCode: 'apply_patch_missing_hunks',
     rerouteToolName: 'write_file',
+  }])
+
+  const genericFailureFacts = buildToolContextFacts({
+    toolName: 'shell',
+    isError: true,
+    failureStage: 'execution',
+    failureReasonCode: 'nonzero_exit',
+    canonicalToolName: 'run_command',
+    toolExecutionPath: 'addom_native',
+  })
+  assert.deepEqual(genericFailureFacts, [{
+    kind: 'failure_class',
+    toolName: 'shell',
+    failureStage: 'execution',
+    failureReasonCode: 'nonzero_exit',
+    canonicalToolName: 'run_command',
+    toolExecutionPath: 'addom_native',
   }])
 
   const terminalFacts = buildToolContextFacts({

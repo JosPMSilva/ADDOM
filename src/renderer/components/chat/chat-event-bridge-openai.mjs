@@ -219,6 +219,13 @@ export function buildOpenAIContinuityStatusActivity(payload = {}) {
   const websocketStoredResponseRecoveryAttempted = payload?.websocketStoredResponseRecoveryAttempted === true
   const websocketRecoveredFromStoredResponse = payload?.websocketRecoveredFromStoredResponse === true
   const nativeActivityRows = buildOpenAIAccountNativeActivityRows(payload)
+  const nativeActivityKinds = nativeActivityRows
+    .map((row) => String(row.eventKind || '').replace('openai_account_native_', ''))
+  const nativeCommands = payload?.accountNativeActivity?.commandExecution
+  if (
+    !nativeActivityKinds.includes('command_execution')
+    && (nativeCommands?.itemIds?.length > 0 || nativeCommands?.commands?.length > 0)
+  ) nativeActivityKinds.push('command_execution')
   const hostedToolIds = Array.isArray(payload?.hostedToolIds)
     ? payload.hostedToolIds.map((value) => normalizeId(value)).filter(Boolean)
     : null
@@ -272,8 +279,8 @@ export function buildOpenAIContinuityStatusActivity(payload = {}) {
         ? `server_side_threshold_tokens: ${Number(payload.serverSideCompactionThresholdTokens)}`
         : '',
       serviceTier ? `service_tier: ${serviceTier}` : '',
-      nativeActivityRows.length > 0
-        ? `native_items: ${nativeActivityRows.map((row) => String(row.eventKind || '').replace('openai_account_native_', '')).join(', ')}`
+      nativeActivityKinds.length > 0
+        ? `native_items: ${nativeActivityKinds.join(', ')}`
         : '',
       Array.isArray(hostedToolIds) ? `hosted_tools: ${hostedToolIds.join(', ') || 'none'}` : '',
     ].filter(Boolean).join('\n'),
@@ -486,6 +493,7 @@ export function registerOpenAIEventBridgeHandlers({
   chatApi = {},
   useChatStore,
   setReasoningMetaForMessage = () => {},
+  flushToolOutputBuffersByStep = () => {},
 } = {}) {
   const providerToolInputBufferByActivityId = new Map()
   const resolvePayloadThreadMessages = (state, threadId = '') => {
@@ -599,6 +607,10 @@ export function registerOpenAIEventBridgeHandlers({
     const state = resolveStoreState(useChatStore)
     const activityId = resolveProviderToolInputActivityId(payload)
     if (activityId) providerToolInputBufferByActivityId.delete(activityId)
+    flushToolOutputBuffersByStep({
+      turnId: normalizeId(payload?.turnId),
+      stepId: normalizeId(payload?.toolCallId),
+    })
     state?.pushToolActivity?.(buildOpenAIProviderToolOutputActivity(payload))
   }, 'onProviderToolOutput')
 

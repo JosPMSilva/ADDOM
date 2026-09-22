@@ -90,3 +90,60 @@ test('final-answer document preserves non-Latin authored text', () => {
   assert.doesNotMatch(html, /\ufffd/)
   assert.match(html, /final-answer-inline-code/)
 })
+
+test('final-answer document preserves cross-block references, footnotes, and ordered-list starts', () => {
+  const content = [
+    'Read [the docs][docs].',
+    '',
+    'A note[^one].',
+    '',
+    '3. Third',
+    '4. Fourth',
+    '',
+    '[docs]: https://example.com/docs',
+    '',
+    '[^one]: Footnote body.',
+  ].join('\n')
+
+  for (const status of ['streaming', 'done']) {
+    const html = renderToStaticMarkup(React.createElement(MessageBubble, {
+      message: {
+        id: `fixture:shared-context:${status}`,
+        role: 'assistant',
+        content,
+        finalDocument: { schemaVersion: 1, text: content, parts: [] },
+        status,
+      },
+    }))
+
+    assert.match(html, /href="https:\/\/example\.com\/docs"/)
+    assert.match(html, /data-footnote-ref/)
+    assert.match(html, /Footnote body/)
+    assert.match(html, /<ol[^>]*start="3"/)
+  }
+})
+
+test('final-answer footnote anchors stay unique across assistant messages', () => {
+  const content = 'A note[^same].\n\n[^same]: Shared label, distinct document.'
+  const html = renderToStaticMarkup(React.createElement(
+    React.Fragment,
+    null,
+    ...['message-one', 'message-two'].map((messageId) => React.createElement(MessageBubble, {
+      key: messageId,
+      message: {
+        id: messageId,
+        role: 'assistant',
+        content,
+        finalDocument: { schemaVersion: 1, text: content, parts: [] },
+        status: 'done',
+      },
+    })),
+  ))
+  const definitionIds = [...html.matchAll(/id="([^"]*fn-same)"/g)].map((match) => match[1])
+
+  assert.equal(definitionIds.length, 2)
+  assert.equal(new Set(definitionIds).size, 2)
+  for (const definitionId of definitionIds) {
+    assert.match(html, new RegExp(`href="#${definitionId}"`))
+  }
+})

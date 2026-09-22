@@ -231,8 +231,11 @@ export function ensureDefaultThreadInternal(db, projectId) {
     const projectProvider = String(project.last_provider || '').trim()
     const projectModel = String(project.last_model || '').trim()
     db.prepare(`
-      INSERT INTO chat_threads (id, project_id, title, last_provider, last_model, created_at, updated_at, last_viewed_at, archived)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)
+      INSERT INTO chat_threads (
+        id, project_id, title, title_source, last_provider, last_model,
+        created_at, updated_at, last_viewed_at, archived
+      )
+      VALUES (?, ?, ?, 'default', ?, ?, ?, ?, ?, 0)
     `).run(id, projectId, 'New Thread', projectProvider, projectModel, ts, ts, ts)
     existing = db.prepare('SELECT * FROM chat_threads WHERE id = ?').get(id)
   }

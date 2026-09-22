@@ -12,11 +12,13 @@ function MarkdownRuntimeServer({
   components,
   remarkPlugins,
   rehypePlugins,
+  remarkRehypeOptions,
 }) {
   return (
     <ReactMarkdown
       remarkPlugins={Array.isArray(remarkPlugins) ? remarkPlugins : DEFAULT_REMARK_PLUGINS}
       rehypePlugins={Array.isArray(rehypePlugins) ? rehypePlugins : DEFAULT_REHYPE_PLUGINS}
+      remarkRehypeOptions={remarkRehypeOptions}
       components={components}
       urlTransform={sanitizePreviewHref}
     >
@@ -32,6 +34,7 @@ const MemoMarkdownRuntimeServer = React.memo(
     && prev.components === next.components
     && prev.remarkPlugins === next.remarkPlugins
     && prev.rehypePlugins === next.rehypePlugins
+    && prev.remarkRehypeOptions === next.remarkRehypeOptions
   ),
 )
 

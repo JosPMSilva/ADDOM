@@ -6,6 +6,12 @@ This changelog is maintained going forward from the current repository baseline.
 
 ## 0.1.2-alpha
 
+- Refreshed the curated provider/model catalog, including GPT-6 Astra and current Anthropic, Gemini, xAI, and OpenRouter entries, with model-specific reasoning and capability settings.
+- Hardened tool-call schemas, input validation, result retrieval, edit recovery, and provider-specific image delivery across account and API transports.
+- Separated native command output from tool lifecycle events, batched high-volume streaming, and kept command identities and execution rows stable.
+- Improved final-answer streaming, long-plan Markdown presentation, execution evidence summaries, command details, and delayed, scrollable command tooltips.
+- Repaired first-message thread naming after an initial failed turn and refined companion/editor behavior at constrained widths.
+- Updated the bundled ZIP dependency to its patched release for local model-runtime packaging.
 - Corrected public documentation to distinguish the `0.1.1-alpha` published baseline from the future `0.1.2-alpha` development target and documented the remaining localization gaps.
 - Added a calm sidebar update control with available, download-progress, ready, blocked, installing, and failure states.
 - Added launch and 30-minute background update checks with explicit user-controlled download and installation.
@@ -13,6 +19,7 @@ This changelog is maintained going forward from the current repository baseline.
 - Switched Windows update handoff to silent installation and direct executable relaunch.
 - Refined intermittent history, terminal, recovery, diagnostics, question, and memory surfaces to match ADDOM's compact visual language.
 - Removed semantic-colored vertical edge accents from prompts, notices, dialogs, banners, recovery cards, and panels.
+- Provider/model live qualification remains incomplete; this alpha candidate has automated coverage, but not a full paid-API streaming matrix.
 
 ## 0.1.1-alpha
 

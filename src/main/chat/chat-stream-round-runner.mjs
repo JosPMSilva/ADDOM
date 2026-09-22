@@ -2,6 +2,7 @@ import { createOpenAIResponseMetaEmitter, maybeQueueOpenAIBackgroundTurn } from 
 import { runProviderModelRound } from './chat-stream-model-round.mjs'
 import { preparePreCallRoundContext } from './chat-stream-precall-round.mjs'
 import { runToolCallBatchForRound } from './chat-stream-rounds.mjs'
+import { resolveToolLintTaskAuthorization } from './tool-call-linter.mjs'
 
 export async function runSingleStreamRound({
   round = 0,
@@ -386,6 +387,7 @@ export async function runSingleStreamRound({
     sender,
     wid,
     settings,
+    taskAuthorization: resolveToolLintTaskAuthorization({ userMessage }),
     mode,
     permissionMode,
     projectFolder,

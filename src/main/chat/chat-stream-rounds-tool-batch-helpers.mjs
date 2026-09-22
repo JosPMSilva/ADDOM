@@ -53,6 +53,85 @@ function setMalformedPatchFailureCount(loop = null, count = 0) {
   return normalized
 }
 
+export function updatePerToolRecoveryState({
+  roundResults = [],
+  loop = null,
+  errorDiagnostics = {},
+} = {}) {
+  const blockedToolNames = getBlockedToolNames(loop)
+  const blockedToolStates = getBlockedToolStates(loop)
+  let malformedPatchFailureCount = getMalformedPatchFailureCount(loop)
+
+  for (const row of Array.isArray(roundResults) ? roundResults : []) {
+    const toolName = String(row?.toolName || '').trim().toLowerCase()
+    const failureClass = String(row?.failureClass || '').trim().toUpperCase()
+    const approvedSuccess = String(row?.decision || '').trim().toLowerCase() === 'approved'
+      && row?.isError !== true
+
+    if (failureClass === 'MALFORMED_PATCH_SYNTAX') {
+      const previousCount = malformedPatchFailureCount
+      malformedPatchFailureCount = setMalformedPatchFailureCount(loop, previousCount + 1)
+      if (previousCount < 1 && malformedPatchFailureCount >= 1) {
+        errorDiagnostics.toolWorkflowApplyPatchRetryAllowedCount = Number(
+          errorDiagnostics.toolWorkflowApplyPatchRetryAllowedCount || 0,
+        ) + 1
+      }
+      if (malformedPatchFailureCount >= 2) {
+        blockedToolNames.add('apply_patch')
+        blockedToolStates.set('apply_patch', {
+          lintCode: 'apply_patch_disabled_for_turn',
+          failureClass: 'MALFORMED_PATCH_SYNTAX',
+          rerouteToolName: 'write_file',
+        })
+        if (previousCount < 2) {
+          errorDiagnostics.toolWorkflowApplyPatchHardBlockCount = Number(
+            errorDiagnostics.toolWorkflowApplyPatchHardBlockCount || 0,
+          ) + 1
+        }
+      }
+    } else if (toolName === 'apply_patch' && approvedSuccess) {
+      malformedPatchFailureCount = setMalformedPatchFailureCount(loop, 0)
+      blockedToolNames.delete('apply_patch')
+      blockedToolStates.delete('apply_patch')
+    }
+
+    if (failureClass === 'EXACT_TEXT_NO_MATCH') {
+      blockedToolNames.add('edit_file')
+      blockedToolStates.set('edit_file', {
+        lintCode: 'edit_file_disabled_for_turn',
+        failureClass: 'EXACT_TEXT_NO_MATCH',
+        rerouteToolName: 'read_file',
+      })
+    } else if (
+      approvedSuccess
+      && (toolName === 'read_file' || toolName === 'view_file_range')
+    ) {
+      blockedToolNames.delete('edit_file')
+      blockedToolStates.delete('edit_file')
+    }
+  }
+
+  return malformedPatchFailureCount
+}
+
+export function createPendingToolRecoveryOutcomeApplier({
+  turnToolResults = [],
+  loop = null,
+  errorDiagnostics = {},
+} = {}) {
+  let cursor = turnToolResults.length
+  return () => {
+    const pendingOutcomes = turnToolResults.slice(cursor)
+    cursor = turnToolResults.length
+    if (pendingOutcomes.length === 0) return
+    updatePerToolRecoveryState({
+      roundResults: pendingOutcomes,
+      loop,
+      errorDiagnostics,
+    })
+  }
+}
+
 export function buildBlockedToolResult({ toolName = '', blockedState = null } = {}) {
   const normalizedToolName = String(toolName || '').trim().toLowerCase()
   const rerouteToolName = String(blockedState?.rerouteToolName || '').trim()
@@ -114,11 +193,13 @@ export function recordBlockedToolRetryStep({
   stepStartedAt = 0,
   activeThreadId = '',
   activeTurnId = '',
+  projectFolder = '',
   providerId = '',
   model = '',
   promptBudgetProfile = null,
   errorDiagnostics = {},
   turnStartedAt = 0,
+  toolExecutionMap = {},
 } = {}) {
   const toolName = String(tc?.name || '').trim().toLowerCase()
   if (!toolName || !blockedToolNames.has(toolName)) return false
@@ -152,11 +233,14 @@ export function recordBlockedToolRetryStep({
     durationMs,
     threadId: activeThreadId,
     turnId: activeTurnId,
+    projectFolder,
     providerId,
     model,
     promptBudgetProfile,
     errorDiagnostics,
     lintResult: blockedTool.lintResult,
+    canonicalToolName: String(toolExecutionMap?.[tc?.name] || tc?.name || '').trim(),
+    toolExecutionPath: 'recovery_guard',
   })
   const blockedOutcome = turnToolResults[turnToolResults.length - 1] || {}
   recordToolWorkflowOutcome(errorDiagnostics, {
@@ -164,10 +248,120 @@ export function recordBlockedToolRetryStep({
     decision: 'approved',
     isError: true,
     failureClass: blockedOutcome.failureClass || blockedTool.lintResult?.failureClass || '',
+    failureStage: blockedOutcome.failureStage || '',
+    failureReasonCode: blockedOutcome.failureReasonCode || '',
+    canonicalToolName: blockedOutcome.canonicalToolName || tc?.name,
+    toolExecutionPath: blockedOutcome.toolExecutionPath || 'recovery_guard',
     rerouteToolName: blockedOutcome.rerouteToolName || blockedTool.lintResult?.rerouteToolName || '',
     turnStartedAt,
     finishedAt: stepFinishedAt,
     repeatedBlockedRetry: true,
+  })
+  return true
+}
+
+export function recordInvalidProviderToolCallStep({
+  tc = null,
+  toolExecutionMap = {},
+  recordToolStepOutcome = () => {},
+  recordToolWorkflowOutcome = () => {},
+  turnToolResults = [],
+  history = [],
+  send = () => {},
+  persistTimelineEvent = () => {},
+  buildToolResultMessage = () => ({}),
+  trimText = (value) => String(value ?? ''),
+  extractRunCommandMeta = () => ({}),
+  stepId = '',
+  stepSequence = 0,
+  stepStartedAt = 0,
+  activeThreadId = '',
+  activeTurnId = '',
+  projectFolder = '',
+  providerId = '',
+  model = '',
+  promptBudgetProfile = null,
+  errorDiagnostics = {},
+  turnStartedAt = 0,
+} = {}) {
+  if (tc?.invalid !== true) return false
+  const stepFinishedAt = Date.now()
+  const canonicalToolName = String(toolExecutionMap?.[tc.name] || tc.name || '').trim()
+  const result = `Tool error: Provider returned malformed tool arguments for ${String(tc.name || 'tool')}; the call was not executed.`
+  recordToolStepOutcome({
+    turnToolResults, history, send, persistTimelineEvent,
+    buildToolResultMessage, trimText, extractRunCommandMeta,
+    approvalId: '', tc, toolInput: {}, toolEventInput: {}, result,
+    isError: true, decision: 'approved', denyReason: '', stepId,
+    sequence: stepSequence, startedAt: stepStartedAt, finishedAt: stepFinishedAt,
+    durationMs: Math.max(0, stepFinishedAt - stepStartedAt),
+    threadId: activeThreadId, turnId: activeTurnId, projectFolder,
+    providerId, model, promptBudgetProfile, errorDiagnostics,
+    canonicalToolName, toolExecutionPath: 'provider_adapter',
+  })
+  const latestOutcome = turnToolResults[turnToolResults.length - 1] || {}
+  recordToolWorkflowOutcome(errorDiagnostics, {
+    toolName: tc.name, decision: 'approved', isError: true,
+    failureClass: latestOutcome.failureClass || '',
+    failureStage: latestOutcome.failureStage || 'argument_parse',
+    failureReasonCode: latestOutcome.failureReasonCode || 'arguments_parse_failed',
+    canonicalToolName: latestOutcome.canonicalToolName || canonicalToolName,
+    toolExecutionPath: latestOutcome.toolExecutionPath || 'provider_adapter',
+    turnStartedAt, finishedAt: stepFinishedAt,
+  })
+  return true
+}
+
+export function recordEditInspectionGuardStep({
+  editGuard = null,
+  tc = null,
+  toolInput = {},
+  toolEventInput = {},
+  toolExecutionMap = {},
+  recordToolStepOutcome = () => {},
+  recordToolWorkflowOutcome = () => {},
+  turnToolResults = [],
+  history = [],
+  send = () => {},
+  persistTimelineEvent = () => {},
+  buildToolResultMessage = () => ({}),
+  trimText = (value) => String(value ?? ''),
+  extractRunCommandMeta = () => ({}),
+  stepId = '',
+  stepSequence = 0,
+  stepStartedAt = 0,
+  activeThreadId = '',
+  activeTurnId = '',
+  projectFolder = '',
+  providerId = '',
+  model = '',
+  promptBudgetProfile = null,
+  errorDiagnostics = {},
+  turnStartedAt = 0,
+} = {}) {
+  if (editGuard?.blocked !== true) return false
+  const stepFinishedAt = Date.now()
+  const canonicalToolName = String(toolExecutionMap?.[tc?.name] || tc?.name || '').trim()
+  recordToolStepOutcome({
+    turnToolResults, history, send, persistTimelineEvent,
+    buildToolResultMessage, trimText, extractRunCommandMeta,
+    approvalId: '', tc, toolInput, toolEventInput, result: editGuard.message,
+    isError: true, decision: 'approved', denyReason: '', missingDependencySuspected: false,
+    stepId, sequence: stepSequence, startedAt: stepStartedAt, finishedAt: stepFinishedAt,
+    durationMs: Math.max(0, stepFinishedAt - stepStartedAt),
+    threadId: activeThreadId, turnId: activeTurnId, projectFolder,
+    providerId, model, promptBudgetProfile, errorDiagnostics,
+    canonicalToolName, toolExecutionPath: 'pre_execution',
+  })
+  const latestOutcome = turnToolResults[turnToolResults.length - 1] || {}
+  recordToolWorkflowOutcome(errorDiagnostics, {
+    toolName: tc?.name, decision: 'approved', isError: true,
+    failureClass: latestOutcome.failureClass || '',
+    failureStage: latestOutcome.failureStage || '',
+    failureReasonCode: latestOutcome.failureReasonCode || '',
+    canonicalToolName: latestOutcome.canonicalToolName || canonicalToolName,
+    toolExecutionPath: latestOutcome.toolExecutionPath || 'pre_execution',
+    turnStartedAt, finishedAt: stepFinishedAt,
   })
   return true
 }
@@ -210,44 +404,16 @@ export function updateToolBatchFailureState({
   errorDiagnostics = {},
   history = [],
   buildToolRecoveryPrompt = () => '',
+  recoveryStateApplied = false,
 } = {}) {
+  const malformedPatchFailuresAfterRound = recoveryStateApplied
+    ? getMalformedPatchFailureCount(loop)
+    : updatePerToolRecoveryState({ roundResults, loop, errorDiagnostics })
   const roundAllFailed = roundResults.length > 0
     && roundResults.every((result) => result.isError)
   if (!roundAllFailed) return 0
 
-  const blockedToolNames = getBlockedToolNames(loop)
-  const blockedToolStates = getBlockedToolStates(loop)
   const nextConsecutiveErrorRounds = consecutiveErrorRounds + 1
-  const malformedPatchFailuresThisRound = roundResults.filter((row) => String(row?.failureClass || '').trim().toUpperCase() === 'MALFORMED_PATCH_SYNTAX').length
-  const malformedPatchFailuresBeforeRound = getMalformedPatchFailureCount(loop)
-  const malformedPatchFailuresAfterRound = setMalformedPatchFailureCount(
-    loop,
-    malformedPatchFailuresBeforeRound + malformedPatchFailuresThisRound,
-  )
-  if (malformedPatchFailuresBeforeRound < 1 && malformedPatchFailuresAfterRound >= 1) {
-    errorDiagnostics.toolWorkflowApplyPatchRetryAllowedCount = Number(errorDiagnostics.toolWorkflowApplyPatchRetryAllowedCount || 0) + 1
-  }
-  const shouldDisableApplyPatch = malformedPatchFailuresAfterRound >= 2
-  if (shouldDisableApplyPatch) {
-    blockedToolNames.add('apply_patch')
-    blockedToolStates.set('apply_patch', {
-      lintCode: 'apply_patch_disabled_for_turn',
-      failureClass: 'MALFORMED_PATCH_SYNTAX',
-      rerouteToolName: 'write_file',
-    })
-    if (malformedPatchFailuresBeforeRound < 2) {
-      errorDiagnostics.toolWorkflowApplyPatchHardBlockCount = Number(errorDiagnostics.toolWorkflowApplyPatchHardBlockCount || 0) + 1
-    }
-  }
-  const shouldDisableEditFile = roundResults.some((row) => String(row?.failureClass || '').trim().toUpperCase() === 'EXACT_TEXT_NO_MATCH')
-  if (shouldDisableEditFile) {
-    blockedToolNames.add('edit_file')
-    blockedToolStates.set('edit_file', {
-      lintCode: 'edit_file_disabled_for_turn',
-      failureClass: 'EXACT_TEXT_NO_MATCH',
-      rerouteToolName: 'read_file',
-    })
-  }
   if (nextConsecutiveErrorRounds < maxConsecutiveErrorRounds && !moaSpecializedContinuationPromptInjectedThisRound) {
     history.push({
       role: 'system',

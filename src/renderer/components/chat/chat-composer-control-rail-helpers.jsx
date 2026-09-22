@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ANTHROPIC_REASONING_EFFORT_OPTIONS = Object.freeze(['low', 'medium', 'high', 'max'])
+export const ANTHROPIC_REASONING_EFFORT_OPTIONS = Object.freeze(['low', 'medium', 'high', 'xhigh', 'max'])
 
 export const RAIL_INLINE_GAP_PX = 10
 

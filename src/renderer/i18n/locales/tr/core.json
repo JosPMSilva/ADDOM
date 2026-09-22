@@ -1960,6 +1960,8 @@
         "activity": "Codex uygulama sunucusu etkinliği",
         "webSearch": "Codex uygulama sunucusu web araması",
         "command": "Codex uygulama sunucusu komutu: {{commandName}}",
+        "commandSummary": "{{total}} komut · {{completed}} tamamlandı · {{failed}} başarısız",
+        "commandSummaryPending": "{{total}} komut · sonuç ayrıntıları kullanılamıyor",
         "fileChangeOne": "Codex uygulama sunucusu dosya değişikliği",
         "fileChangeOther": "Codex uygulama sunucusu dosyası değişiklikleri",
         "mcpTool": "Codex uygulama sunucusu MCP aracı: {{toolName}}",

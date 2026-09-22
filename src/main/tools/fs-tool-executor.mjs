@@ -38,9 +38,12 @@ import {
   todoWrite,
 } from './todo-tools.mjs'
 import { planningSkillRead } from '../chat/plan-authoring-profiles.mjs'
+import { assertValidToolInput } from './tool-input-validator.mjs'
+import { readToolResult } from './tool-result-retrieval-tool.mjs'
 
 const TOOL_FNS = {
   read_file: readFile,
+  read_tool_result: readToolResult,
   write_file: writeFile,
   edit_file: editFile,
   apply_patch: (projectRoot, toolInput, options = {}) => executeApplyPatchOperation({
@@ -118,6 +121,7 @@ export async function executeTool(projectRoot, toolName, toolInput, options = {}
   const opts = options && typeof options === 'object' ? options : {}
   const fn = TOOL_FNS[toolName]
   if (!fn) throw new Error(`Unknown tool: ${toolName}`)
+  toolInput = assertValidToolInput(toolName, toolInput)
   rejectVirtualCatalogMutation(toolName, toolInput)
   const normalizedProjectRoot = String(projectRoot || '').trim()
   if (!normalizedProjectRoot && !PROJECT_ROOT_OPTIONAL_TOOL_NAMES.has(String(toolName || '').trim())) {

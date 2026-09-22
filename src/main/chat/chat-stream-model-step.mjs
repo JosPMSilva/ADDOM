@@ -39,7 +39,6 @@ function resolveScopedProviderRuntimeSettings(providerId = '', providerRuntimeSe
     .some((key) => KNOWN_PROVIDER_SETTING_KEYS.has(String(key || '').trim().toLowerCase()))
   return looksLikeProviderSettingsMap ? null : providerRuntimeSettings
 }
-
 export async function executeProviderModelStream({
   providerId = '',
   apiKey = '',
@@ -93,6 +92,20 @@ export async function executeProviderModelStream({
     onProviderToolStatus: persistProviderToolStatus,
     onProviderToolOutput: generatedArtifactRuntime.handleProviderToolOutput,
   })
+  const handleProviderToolOutputChunk = (payload = {}) => {
+    const stepId = String(payload?.toolCallId || '').trim()
+    const chunk = String(payload?.chunk ?? '')
+    if (!stepId || !chunk) return
+    reasoningPhases.markProviderToolBoundary(payload)
+    send('chat:tool-output', {
+      threadId: activeThreadId, turnId: activeTurnId,
+      stepId, sequence: Number(payload?.sequence || 0) || 0,
+      toolName: String(payload?.toolName || '').trim(),
+      stream: String(payload?.stream || '').trim().toLowerCase() === 'stderr' ? 'stderr' : 'stdout',
+      chunk,
+      emittedAt: Number(payload?.emittedAt || 0) || Date.now(),
+    })
+  }
   const handleProviderWarning = createProviderWarningHandler({ providerId, sendNotice })
   const executionChunks = createProgressiveExecutionChunkWriter({
     persistTimelineEvent, threadId: activeThreadId, turnId: activeTurnId,
@@ -109,6 +122,7 @@ export async function executeProviderModelStream({
     const sequence = ++reasoningChunkSequence
     executionChunks.write('execution_reasoning_chunk', {
       content: currentBuffer, sequence, emittedAt, reasoningSegment: segment,
+      flushImmediately: chunk === REASONING_PHASE_BOUNDARY,
     })
     send('chat:reasoning-chunk', {
       chunk,
@@ -169,6 +183,7 @@ export async function executeProviderModelStream({
       },
       onProviderToolStatus: reasoningPhases.handleProviderToolStatus,
       onProviderToolOutput: reasoningPhases.handleProviderToolOutput,
+      onProviderToolOutputChunk: handleProviderToolOutputChunk,
       onProviderToolBoundary: reasoningPhases.markProviderToolBoundary,
       onContextUsageUpdate: createAccountContextUsageUpdateHandler({
         activeThreadId, activeTurnId, providerId, modelContext,
@@ -215,10 +230,9 @@ export async function executeProviderModelStream({
     },
   )
   let streamResult = null
-  let streamSettled = false
+  let executionChunksSettled = false
   try {
     streamResult = await settleProviderStreamWithCollaboration(streamPromise, collaborationIngest)
-    streamSettled = true
     const latestUserMessage = [...history].reverse().find((entry) => entry?.role === 'user')
     const textSnapshot = textChunks.snapshot()
     const recoveredTerminalText = splitTerminalTextByExactPrefix({
@@ -242,6 +256,7 @@ export async function executeProviderModelStream({
     }
     const phase = reasoningPhases.snapshot()
     const settledText = textChunks.snapshot()
+    executionChunksSettled = true
     executionChunks.settle({
       reasoningContent: phase.currentBuffer, reasoningSequence: reasoningChunkSequence, reasoningSegment: phase.segment,
       commentaryContent: phase.currentCommentaryBuffer, commentarySequence: settledText.commentaryChunkSequence,
@@ -249,9 +264,10 @@ export async function executeProviderModelStream({
       lifecycle: 'completed',
     })
   } catch (error) {
-    if (!streamSettled) {
+    if (!executionChunksSettled) {
       const phase = reasoningPhases.snapshot()
       const failedText = textChunks.snapshot()
+      executionChunksSettled = true
       executionChunks.settle({
         reasoningContent: phase.currentBuffer, reasoningSequence: reasoningChunkSequence, reasoningSegment: phase.segment,
         commentaryContent: phase.currentCommentaryBuffer, commentarySequence: failedText.commentaryChunkSequence,
@@ -263,7 +279,6 @@ export async function executeProviderModelStream({
   } finally {
     await generatedArtifactRuntime.settle()
   }
-
   const phase = reasoningPhases.snapshot()
   const textSnapshot = textChunks.snapshot()
   return {

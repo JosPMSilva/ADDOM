@@ -5,6 +5,9 @@ import { getUserDataPath } from '../platform/electron-app.mjs'
 
 const TOOL_RESULT_SPILLOVER_DIR_NAME = 'tool-result-spillover'
 const TOOL_RESULT_SPILLOVER_SCHEMA_VERSION = 1
+const TOOL_RESULT_SPILLOVER_HANDLE_PREFIX = 'spill_'
+const DEFAULT_RETRIEVAL_MAX_CHARS = 4_000
+const MAX_RETRIEVAL_CHARS = 12_000
 const DEFAULT_TOOL_RESULT_SPILLOVER_RETENTION_POLICY = Object.freeze({
   maxFileCount: 64,
   maxAggregateBytes: 20 * 1024 * 1024,
@@ -41,6 +44,41 @@ function clampNonNegativeInt(value, fallback = 0) {
 
 function normalizeContextId(value = '') {
   return String(value || '').trim()
+}
+
+function resolveProjectScopeId(projectRoot = '') {
+  const normalizedProjectRoot = String(projectRoot || '').trim()
+  if (!normalizedProjectRoot) return ''
+  const resolvedProjectRoot = path.resolve(normalizedProjectRoot)
+  const canonicalProjectRoot = process.platform === 'win32'
+    ? resolvedProjectRoot.toLowerCase()
+    : resolvedProjectRoot
+  return crypto.createHash('sha256').update(canonicalProjectRoot, 'utf8').digest('hex')
+}
+
+function buildUnavailableRetrievalResult() {
+  return {
+    ok: false,
+    code: 'spillover_unavailable',
+    message: 'The stored tool result is unavailable or outside this project, task, turn, or retention window.',
+  }
+}
+
+function findCodePointSequence(haystack = [], needle = [], startAt = 0) {
+  if (needle.length === 0 || haystack.length < needle.length) return -1
+  const start = Math.min(haystack.length, clampNonNegativeInt(startAt, 0))
+  const lastStart = haystack.length - needle.length
+  for (let index = start; index <= lastStart; index += 1) {
+    let matches = true
+    for (let offset = 0; offset < needle.length; offset += 1) {
+      if (haystack[index + offset] !== needle[offset]) {
+        matches = false
+        break
+      }
+    }
+    if (matches) return index
+  }
+  return -1
 }
 
 function atomicWriteFile(targetPath = '', text = '') {
@@ -416,6 +454,7 @@ export function persistToolResultSpillover({
   userDataPath = '',
   threadId = '',
   turnId = '',
+  projectRoot = '',
   retentionPolicy = null,
   now = Date.now(),
 } = {}) {
@@ -423,6 +462,7 @@ export function persistToolResultSpillover({
   if (!output) {
     return {
       persistedOutputPath: '',
+      persistedOutputHandle: '',
       persistedOutputSha256: '',
       persistence: 'disabled',
       spilloverPersistenceState: 'empty_output',
@@ -440,9 +480,12 @@ export function persistToolResultSpillover({
   try {
     const normalizedThreadId = normalizeContextId(threadId)
     const normalizedTurnId = normalizeContextId(turnId)
+    const projectScopeId = resolveProjectScopeId(projectRoot)
     const spilloverRoot = resolveToolResultSpilloverRoot(userDataPath)
     const sha256 = crypto.createHash('sha256').update(output, 'utf8').digest('hex')
-    const createdAt = new Date().toISOString()
+    const normalizedNow = Number.isFinite(Number(now)) ? Number(now) : Date.now()
+    const createdAt = new Date(normalizedNow).toISOString()
+    const handle = `${TOOL_RESULT_SPILLOVER_HANDLE_PREFIX}${crypto.randomBytes(24).toString('base64url')}`
     const fileName = [
       createdAt.replace(/[:.]/g, '-'),
       normalizeFileSegment(providerId, 'provider'),
@@ -458,6 +501,8 @@ export function persistToolResultSpillover({
       providerId: String(providerId || '').trim().toLowerCase(),
       model: String(model || '').trim(),
       toolName: String(toolName || '').trim(),
+      handle,
+      projectScopeId,
       threadId: normalizedThreadId,
       turnId: normalizedTurnId,
       originalChars: Math.max(0, Number(originalChars || 0) || 0),
@@ -528,6 +573,7 @@ export function persistToolResultSpillover({
     if (!persistedAfterCleanup) {
       return {
         persistedOutputPath: '',
+        persistedOutputHandle: '',
         persistedOutputSha256: '',
         persistence: 'disabled',
         spilloverPersistenceState: 'missing_after_cleanup',
@@ -545,6 +591,7 @@ export function persistToolResultSpillover({
     }
     return {
       persistedOutputPath: targetPath,
+      persistedOutputHandle: handle,
       persistedOutputSha256: sha256,
       persistence: 'enabled',
       spilloverPersistenceState: cleanupDegraded ? 'persisted_with_cleanup_degraded' : 'persisted',
@@ -560,6 +607,7 @@ export function persistToolResultSpillover({
     console.warn('[tool-result-spillover] failed to persist tool output:', error?.message || error)
     return {
       persistedOutputPath: '',
+      persistedOutputHandle: '',
       persistedOutputSha256: '',
       persistence: 'disabled',
       spilloverPersistenceState: 'write_failed',
@@ -571,6 +619,122 @@ export function persistToolResultSpillover({
       spilloverDegraded: true,
       spilloverRetentionPolicy: resolvedRetentionPolicy,
     }
+  }
+}
+
+export function retrieveToolResultSpillover({
+  handle = '',
+  projectRoot = '',
+  threadId = '',
+  turnId = '',
+  offset = 0,
+  maxChars = DEFAULT_RETRIEVAL_MAX_CHARS,
+  query = '',
+  userDataPath = '',
+  retentionPolicy = null,
+  now = Date.now(),
+} = {}) {
+  const normalizedHandle = String(handle || '').trim()
+  const normalizedThreadId = normalizeContextId(threadId)
+  const normalizedTurnId = normalizeContextId(turnId)
+  const projectScopeId = resolveProjectScopeId(projectRoot)
+  if (
+    !normalizedHandle.startsWith(TOOL_RESULT_SPILLOVER_HANDLE_PREFIX)
+    || !projectScopeId
+    || !normalizedThreadId
+    || !normalizedTurnId
+  ) {
+    return buildUnavailableRetrievalResult()
+  }
+
+  const rootPath = resolveToolResultSpilloverRoot(userDataPath)
+  const policy = resolveToolResultSpilloverRetentionPolicy(retentionPolicy)
+  const normalizedNow = Number.isFinite(Number(now)) ? Number(now) : Date.now()
+  let entries = []
+  try {
+    entries = listToolResultSpilloverEntries(rootPath)
+  } catch {
+    return buildUnavailableRetrievalResult()
+  }
+
+  let record = null
+  for (const entry of entries) {
+    try {
+      const candidate = JSON.parse(fs.readFileSync(entry.entryPath, 'utf8'))
+      if (String(candidate?.handle || '').trim() === normalizedHandle) {
+        record = candidate
+        break
+      }
+    } catch {
+      // Invalid or concurrently removed entries are unavailable by design.
+    }
+  }
+
+  const createdAtMs = Date.parse(String(record?.createdAt || ''))
+  const scopeMatches = (
+    record
+    && String(record.kind || '').trim() === 'tool_result_spillover'
+    && typeof record.output === 'string'
+    && String(record.projectScopeId || '').trim() === projectScopeId
+    && normalizeContextId(record.threadId) === normalizedThreadId
+    && normalizeContextId(record.turnId) === normalizedTurnId
+    && Number.isFinite(createdAtMs)
+    && createdAtMs <= normalizedNow
+    && normalizedNow - createdAtMs <= policy.maxAgeMs
+  )
+  if (!scopeMatches) return buildUnavailableRetrievalResult()
+
+  const outputPoints = Array.from(record.output)
+  const totalChars = outputPoints.length
+  const boundedMaxChars = Math.min(
+    MAX_RETRIEVAL_CHARS,
+    clampPositiveInt(maxChars, DEFAULT_RETRIEVAL_MAX_CHARS),
+  )
+  const normalizedOffset = Math.min(totalChars, clampNonNegativeInt(offset, 0))
+  const normalizedQuery = String(query || '')
+
+  if (normalizedQuery) {
+    const queryPoints = Array.from(normalizedQuery).slice(0, 256)
+    const matchOffset = findCodePointSequence(outputPoints, queryPoints, normalizedOffset)
+    if (matchOffset < 0) {
+      return {
+        ok: true,
+        mode: 'search',
+        content: '',
+        queryFound: false,
+        offset: normalizedOffset,
+        totalChars,
+        hasMore: false,
+        nextOffset: null,
+      }
+    }
+    const leadingContext = Math.max(0, Math.floor((boundedMaxChars - queryPoints.length) / 2))
+    const startOffset = Math.max(0, matchOffset - leadingContext)
+    const endOffset = Math.min(totalChars, startOffset + boundedMaxChars)
+    return {
+      ok: true,
+      mode: 'search',
+      content: outputPoints.slice(startOffset, endOffset).join(''),
+      queryFound: true,
+      matchOffset,
+      offset: startOffset,
+      endOffset,
+      totalChars,
+      hasMore: endOffset < totalChars,
+      nextOffset: endOffset < totalChars ? endOffset : null,
+    }
+  }
+
+  const endOffset = Math.min(totalChars, normalizedOffset + boundedMaxChars)
+  return {
+    ok: true,
+    mode: 'range',
+    content: outputPoints.slice(normalizedOffset, endOffset).join(''),
+    offset: normalizedOffset,
+    endOffset,
+    totalChars,
+    hasMore: endOffset < totalChars,
+    nextOffset: endOffset < totalChars ? endOffset : null,
   }
 }
 

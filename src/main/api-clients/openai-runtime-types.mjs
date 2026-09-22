@@ -97,7 +97,7 @@ export const DEFAULT_PROVIDER_RUNTIME_SETTINGS = Object.freeze({
 
 const OPENAI_REASONING_SUMMARY_VALUES = new Set(['auto', 'none'])
 const ANTHROPIC_THINKING_TYPE_VALUES = new Set(['provider_default', 'enabled', 'disabled'])
-const ANTHROPIC_REASONING_EFFORT_VALUES = new Set(['provider_default', 'low', 'medium', 'high', 'max'])
+const ANTHROPIC_REASONING_EFFORT_VALUES = new Set(['provider_default', 'low', 'medium', 'high', 'xhigh', 'max'])
 const OPENAI_REASONING_EFFORT_VALUES = new Set([
   'provider_default',
   'none',
@@ -107,6 +107,7 @@ const OPENAI_REASONING_EFFORT_VALUES = new Set([
   'high',
   'xhigh',
   'max',
+  'ultra',
 ])
 const OPENAI_TEXT_VERBOSITY_VALUES = new Set(['provider_default', 'low', 'medium', 'high'])
 const OPENAI_SERVICE_TIER_VALUES = new Set(['auto', 'flex', 'priority', 'default'])

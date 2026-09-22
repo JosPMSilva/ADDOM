@@ -123,6 +123,7 @@ export function resolveMoaDelegationTerminalStatus(activity = {}) {
 function resolveCanonicalToolKind(activity = {}) {
   const toolName = String(activity?.toolName || '').trim().toLowerCase()
   if (!toolName) return 'tool'
+  if (toolName === 'command_summary') return 'command_summary'
   if (/command|shell|terminal|exec|bash|run_terminal|^shell$/.test(toolName)) return 'command'
   if (/delete/.test(toolName)) return 'file_delete'
   if (/edit|patch|rename|str_replace|search_replace|apply_patch/.test(toolName)) return 'file_edit'
@@ -268,6 +269,22 @@ export function mapActivityToCanonicalExecutionEvents(activity = {}) {
     const toolInput = activity?.toolInput && typeof activity.toolInput === 'object'
       ? activity.toolInput
       : null
+    const rawOutput = activity?.output
+    const outputMeta = {
+      ...(rawOutput && typeof rawOutput === 'object' && !Array.isArray(rawOutput) ? rawOutput : {}),
+      ...(activity?.exitCode !== null
+        && activity?.exitCode !== undefined
+        && activity?.exitCode !== ''
+        && Number.isFinite(Number(activity.exitCode))
+        ? { exitCode: Number(activity.exitCode) }
+        : {}),
+      ...(activity?.durationMs !== null
+        && activity?.durationMs !== undefined
+        && activity?.durationMs !== ''
+        && Number.isFinite(Number(activity.durationMs))
+        ? { durationMs: Number(activity.durationMs) }
+        : {}),
+    }
     return [{
       ...base,
       kind: 'tool_result',
@@ -275,7 +292,9 @@ export function mapActivityToCanonicalExecutionEvents(activity = {}) {
       // Keep provider JSON/output text for L3; L2 identity is derived separately.
       detail: rawDetail || resultDetail || base.detail,
       ...(toolInput ? { toolInput } : {}),
-      ...(activity?.output !== undefined ? { output: activity.output } : {}),
+      ...(Object.keys(outputMeta).length > 0
+        ? { output: outputMeta }
+        : (rawOutput !== undefined ? { output: rawOutput } : {})),
     }]
   }
   if (liveKind === 'warning' || liveKind === 'error' || liveKind === 'compaction') {

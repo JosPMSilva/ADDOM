@@ -20,12 +20,14 @@ export function inferModelGroup(modelId) {
     || id.includes('moondream')
     || id.includes('minicpm-v')
   ) return 'Vision'
+  if (id.startsWith('gpt-6')) return 'GPT-6'
   if (id.startsWith('gpt-5')) return 'GPT-5'
   if (id.startsWith('codex')) return 'Codex'
   if (id.startsWith('gpt-4.1')) return 'GPT-4.1'
   if (id.startsWith('gpt-4o')) return 'GPT-4o'
   if (id.startsWith('o4') || id.startsWith('o3') || id.startsWith('o1')) return 'Reasoning'
   // Claude ï¿½ match on both hyphen forms: claude-4, claude-opus-4, claude-sonnet-4, etc.
+  if (id.startsWith('claude-5') || id.startsWith('claude-opus-5') || id.startsWith('claude-sonnet-5') || id.startsWith('claude-fable-5')) return 'Claude 5'
   if (id.startsWith('claude-opus-4') || id.startsWith('claude-sonnet-4') || id.startsWith('claude-haiku-4') || id.startsWith('claude-4')) return 'Claude 4'
   if (id.startsWith('claude-3-7')) return 'Claude 3.7'
   if (id.startsWith('claude-3-5')) return 'Claude 3.5'
@@ -38,6 +40,7 @@ export function inferModelGroup(modelId) {
   if (id.startsWith('grok-4')) return 'Grok 4'
   if (id.startsWith('grok-3')) return 'Grok 3'
   if (id.startsWith('grok-2')) return 'Grok 2'
+  if (id.startsWith('kimi-k3')) return 'Kimi K3'
   if (id.startsWith('kimi-k2.5')) return 'Kimi K2.5'
   if (id.startsWith('kimi-k2-thinking')) return 'Reasoning'
   if (id.startsWith('kimi-k2')) return 'Kimi K2'
@@ -80,17 +83,18 @@ export function inferReasoning(providerId, modelId) {
   const id = String(modelId || '').toLowerCase()
   // Anthropic extended thinking ï¿½ Claude 4+ and claude-3-7 all support it
   if (providerId === 'anthropic') {
-    if (id.startsWith('claude-4') || id.startsWith('claude-opus-4') || id.startsWith('claude-sonnet-4')
+    if (id.startsWith('claude-5') || id.startsWith('claude-opus-5') || id.startsWith('claude-sonnet-5') || id.startsWith('claude-fable-5')
+      || id.startsWith('claude-4') || id.startsWith('claude-opus-4') || id.startsWith('claude-sonnet-4')
       || id.startsWith('claude-haiku-4') || id.startsWith('claude-3-7') || id.includes('opus')) return true
   }
   // OpenAI GPT-5 with reasoningSummary (not chat variants)
-  if (providerId === 'openai' && id.startsWith('gpt-5') && !id.includes('chat')) return true
+  if (providerId === 'openai' && (id.startsWith('gpt-6') || id.startsWith('gpt-5')) && !id.includes('chat')) return true
   // OpenAI o-series and codex
   if (providerId === 'openai' && (id.startsWith('o4') || id.startsWith('o3') || id.startsWith('o1') || id.startsWith('codex'))) return true
   // Gemini 2.5+ with includeThoughts (Gemini 3.x and 2.5.x all support thinking)
   if (providerId === 'gemini' && (id.startsWith('gemini-3') || id.startsWith('gemini-2.5'))) return true
   // Grok reasoning variants
-  if (providerId === 'grok' && (id.includes('reasoning') || id.includes('mini') || id === 'grok-4-0709')) return true
+  if (providerId === 'grok' && (id.startsWith('grok-4') || id.includes('reasoning') || id.includes('mini'))) return true
   // Groq-hosted reasoning models
   if (providerId === 'groq' && (id.includes('deepseek-r') || id.includes('r1') || id.includes('qwq') || id.includes('qwen3'))) return true
   // DeepSeek native
@@ -158,4 +162,3 @@ export function canonicalizeRequestedModel(providerId, modelId) {
     reason: String(normalized.reason || 'unknown'),
   }
 }
-

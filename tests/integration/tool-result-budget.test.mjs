@@ -6,7 +6,7 @@ import path from 'node:path'
 
 import { budgetToolResultForModel } from '../../src/main/tools/tool-result-budget.mjs'
 import {
-  readToolResultSpillover,
+  retrieveToolResultSpillover,
   resolveToolResultSpilloverRoot,
 } from '../../src/main/tools/tool-result-spillover.mjs'
 import { recordToolStepOutcome } from '../../src/main/chat/chat-turn-events.mjs'
@@ -41,12 +41,36 @@ function budgetResult(overrides = {}) {
     isError: false,
     decision: 'approved',
     promptBudgetProfile: TEST_PROFILE,
+    projectRoot: 'C:/workspace/project-a',
+    threadId: 'thread-a',
+    turnId: 'turn-a',
+    userDataPath: TEST_USER_DATA_PATH,
     ...overrides,
   })
 }
 
-function readPersistedOutput(result = null) {
-  return readToolResultSpillover(result?.truncationMetadata?.persistedOutputPath || '')
+function readPersistedOutput(result = null, {
+  projectRoot = 'C:/workspace/project-a',
+  threadId = 'thread-a',
+  turnId = 'turn-a',
+} = {}) {
+  let offset = 0
+  let content = ''
+  while (true) {
+    const page = retrieveToolResultSpillover({
+      handle: result?.truncationMetadata?.persistedOutputHandle || '',
+      projectRoot,
+      threadId,
+      turnId,
+      offset,
+      maxChars: 12_000,
+      userDataPath: TEST_USER_DATA_PATH,
+    })
+    if (!page.ok) return page
+    content += page.content
+    if (!page.hasMore) return { ...page, content }
+    offset = page.nextOffset
+  }
 }
 
 test('small tool result stays unchanged', () => {
@@ -59,7 +83,8 @@ test('small tool result stays unchanged', () => {
   assert.equal(result.previewDirection, 'none')
   assert.equal(result.truncationMetadata.truncated, false)
   assert.equal(result.truncationMetadata.persistence, 'disabled')
-  assert.equal(result.truncationMetadata.persistedOutputPath, '')
+  assert.equal(result.truncationMetadata.persistedOutputHandle, '')
+  assert.equal('persistedOutputPath' in result.truncationMetadata, false)
 })
 
 test('huge successful command output uses a bounded head preview', () => {
@@ -76,10 +101,9 @@ test('huge successful command output uses a bounded head preview', () => {
   assert.doesNotMatch(result.resultText, /END/)
   assert.ok(result.omittedChars > 0)
   assert.equal(result.truncationMetadata.persistence, 'enabled')
-  assert.ok(result.truncationMetadata.persistedOutputPath.startsWith(resolveToolResultSpilloverRoot(TEST_USER_DATA_PATH)))
+  assert.match(result.truncationMetadata.persistedOutputHandle, /^spill_/)
   assert.ok(result.truncationMetadata.persistedOutputSha256)
-  assert.equal(spillover?.output, raw)
-  assert.equal(spillover?.sha256, result.truncationMetadata.persistedOutputSha256)
+  assert.equal(spillover?.content, raw)
 })
 
 test('huge failed command output uses a tail preview with final error lines', () => {
@@ -93,7 +117,7 @@ test('huge failed command output uses a tail preview with final error lines', ()
   assert.match(result.resultText, /full_output_persistence: enabled/)
   assert.match(result.resultText, /FINAL ERROR: test failed/)
   assert.doesNotMatch(result.resultText, /START/)
-  assert.equal(spillover?.output, raw)
+  assert.equal(spillover?.content, raw)
 })
 
 test('failing terminal session snapshot also uses a tail preview', () => {
@@ -193,7 +217,7 @@ test('large write success output preserves change metadata instead of file body'
   assert.match(result.resultText, /src\/app\.js: modified \(\+3 \/ -1\)/)
   assert.doesNotMatch(result.resultText, /full file body/)
   assert.equal(result.truncationMetadata.persistence, 'enabled')
-  assert.equal(spillover?.output, raw)
+  assert.equal(spillover?.content, raw)
 })
 
 test('truncated tool results expose degraded spillover cleanup metadata without failing budgeting', () => {
@@ -210,8 +234,6 @@ test('truncated tool results expose degraded spillover cleanup metadata without 
   try {
     const raw = `stdout:\nSTART\n${'a'.repeat(5_000)}\nEND`
     const result = budgetResult({ result: raw, isError: false })
-    const spillover = readPersistedOutput(result)
-
     assert.equal(result.truncationMetadata.persistence, 'enabled')
     assert.equal(result.truncationMetadata.spilloverPersistenceState, 'persisted_with_cleanup_degraded')
     assert.equal(result.truncationMetadata.spilloverCleanupState, 'failed')
@@ -219,7 +241,6 @@ test('truncated tool results expose degraded spillover cleanup metadata without 
     assert.match(result.resultText, /spillover_persistence_state: persisted_with_cleanup_degraded/)
     assert.match(result.resultText, /spillover_cleanup_state: failed/)
     assert.ok(result.truncationMetadata.spilloverFailureReasons.some((value) => String(value).startsWith('scan_failed:')))
-    assert.equal(spillover?.output, raw)
   } finally {
     fs.readdirSync = originalReaddirSync
   }
@@ -262,23 +283,31 @@ test('recordToolStepOutcome bounds the model-bound tool result and leaves UI emi
     durationMs: 10,
     threadId: 'thread_1',
     turnId: 'turn_1',
+    projectFolder: 'C:/workspace/project-a',
     errorDiagnostics: {},
   })
 
   const modelValue = history[0]?.content?.[0]?.output?.value || ''
   const uiResult = sent.find((row) => row.channel === 'chat:tool-result')?.payload?.result || ''
   const toolResultEvent = timelineEvents.find((event) => event.kind === 'tool_result')
-  const spilloverPath = turnToolResults[0]?.toolResultBudget?.persistedOutputPath || ''
-  const spillover = readToolResultSpillover(spilloverPath)
+  const spilloverHandle = turnToolResults[0]?.toolResultBudget?.persistedOutputHandle || ''
+  const spillover = readPersistedOutput({
+    truncationMetadata: { persistedOutputHandle: spilloverHandle },
+  }, {
+    threadId: 'thread_1',
+    turnId: 'turn_1',
+  })
 
   assert.ok(modelValue.length <= TEST_PROFILE.perToolOutputPreviewChars)
   assert.match(modelValue, /FINAL ERROR: test failed/)
   assert.equal(turnToolResults[0]?.toolResultBudget?.truncated, true)
   assert.equal(turnToolResults[0]?.toolResultBudget?.previewDirection, 'tail')
-  assert.ok(spilloverPath)
+  assert.ok(spilloverHandle)
   assert.equal(turnToolResults[0]?.toolResultBudget?.persistence, 'enabled')
-  assert.equal(toolResultEvent?.payload?.meta?.toolResultBudget?.persistedOutputPath, spilloverPath)
-  assert.equal(spillover?.output, raw)
+  assert.equal(toolResultEvent?.payload?.meta?.toolResultBudget?.persistedOutputHandle, spilloverHandle)
+  const persistedToolResultBudget = toolResultEvent?.payload?.meta?.toolResultBudget || {}
+  assert.equal('persistedOutputPath' in persistedToolResultBudget, false)
+  assert.equal(spillover?.content, raw)
   assert.match(uiResult, /START/)
   assert.match(uiResult, /FINAL ERROR: test failed/)
 })

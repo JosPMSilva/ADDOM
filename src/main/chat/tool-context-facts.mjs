@@ -68,17 +68,32 @@ function buildCommandOutputFact({ toolName = '', toolInput = {}, result = '', is
 function buildFailureClassFact({
   toolName = '',
   failureClass = '',
+  failureStage = '',
+  failureReasonCode = '',
+  canonicalToolName = '',
+  toolExecutionPath = '',
   lintCode = '',
   rerouteToolName = '',
   isError = false,
 } = {}) {
   const normalizedFailureClass = normalizeText(failureClass, 120)
-  if (!normalizedFailureClass || isError !== true) return null
+  const normalizedFailureStage = normalizeText(failureStage, 80)
+  const normalizedFailureReasonCode = normalizeText(failureReasonCode, 120)
+  if (
+    isError !== true
+    || (!normalizedFailureClass && !normalizedFailureStage && !normalizedFailureReasonCode)
+  ) return null
   const fact = {
     kind: 'failure_class',
     toolName: String(toolName || '').trim(),
-    failureClass: normalizedFailureClass,
   }
+  if (normalizedFailureClass) fact.failureClass = normalizedFailureClass
+  if (normalizedFailureStage) fact.failureStage = normalizedFailureStage
+  if (normalizedFailureReasonCode) fact.failureReasonCode = normalizedFailureReasonCode
+  const normalizedCanonicalToolName = normalizeText(canonicalToolName, 120)
+  const normalizedToolExecutionPath = normalizeText(toolExecutionPath, 80)
+  if (normalizedCanonicalToolName) fact.canonicalToolName = normalizedCanonicalToolName
+  if (normalizedToolExecutionPath) fact.toolExecutionPath = normalizedToolExecutionPath
   const normalizedLintCode = normalizeText(lintCode, 120)
   const normalizedRerouteToolName = normalizeText(rerouteToolName, 80)
   if (normalizedLintCode) fact.lintCode = normalizedLintCode
@@ -155,6 +170,10 @@ export function buildToolContextFacts({
   decision = '',
   writeArtifactChanges = [],
   failureClass = '',
+  failureStage = '',
+  failureReasonCode = '',
+  canonicalToolName = '',
+  toolExecutionPath = '',
   lintCode = '',
   rerouteToolName = '',
 } = {}) {
@@ -192,6 +211,10 @@ export function buildToolContextFacts({
   const failureClassFact = buildFailureClassFact({
     toolName: normalizedToolName,
     failureClass,
+    failureStage,
+    failureReasonCode,
+    canonicalToolName,
+    toolExecutionPath,
     lintCode,
     rerouteToolName,
     isError,
@@ -210,7 +233,9 @@ function buildFactSummary(fact = {}) {
     case 'command_output':
       return `Command output captured for ${fact.command}`
     case 'failure_class':
-      return `Failure class recorded: ${fact.failureClass}`
+      return fact.failureClass
+        ? `Failure class recorded: ${fact.failureClass}`
+        : `Tool failure recorded: ${fact.failureReasonCode || fact.failureStage || 'unknown'}`
     case 'terminal_session': {
       const sessionId = normalizeText(fact.sessionId, 120) || 'terminal'
       if (fact.action === 'write') {
@@ -286,7 +311,16 @@ function buildFactKey(fact = {}) {
     case 'command_output':
       return `${kind}:${normalizeText(fact.command, 260)}:${normalizeText(fact.outputHash, 24)}`
     case 'failure_class':
-      return `${kind}:${normalizeText(fact.toolName, 80)}:${normalizeText(fact.failureClass, 120)}:${normalizeText(fact.lintCode, 120)}`
+      return [
+        kind,
+        normalizeText(fact.toolName, 80),
+        normalizeText(fact.canonicalToolName, 120),
+        normalizeText(fact.failureClass, 120),
+        normalizeText(fact.failureStage, 80),
+        normalizeText(fact.failureReasonCode, 120),
+        normalizeText(fact.toolExecutionPath, 80),
+        normalizeText(fact.lintCode, 120),
+      ].filter(Boolean).join(':')
     case 'terminal_session':
       return [
         kind,
@@ -315,7 +349,7 @@ function summarizeFact(fact = {}) {
     case 'command_output':
       return `command ${fact.command}${fact.outputHash ? ` @ ${String(fact.outputHash).slice(0, 12)}` : ''}`
     case 'failure_class':
-      return `failure ${fact.toolName}${fact.failureClass ? ` (${fact.failureClass})` : ''}`
+      return `failure ${fact.toolName}${fact.failureClass || fact.failureReasonCode ? ` (${fact.failureClass || fact.failureReasonCode})` : ''}`
     case 'terminal_session': {
       const sessionId = normalizeText(fact.sessionId, 120) || 'terminal'
       if (fact.action === 'write') {

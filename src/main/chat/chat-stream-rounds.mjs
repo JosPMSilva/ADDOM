@@ -17,7 +17,7 @@ import {
 import { normalizeQuestionUserRequest } from '../../common/chat/question-user-request.mjs'
 import { runRequiredAgentDelegationBeforeRoot } from './required-agent-delegation.mjs'
 import { commitProjectedTimelineEvent } from './canonical-root-event-writer.mjs'
-import { APPROVAL_RENDERER_UNAVAILABLE_MESSAGE, buildDeniedToolCallResult, buildQuestionUserAssistantText, finalizeQuestionUserRound, getBlockedToolNames, getBlockedToolStates, isFileMutationTool, recordBlockedToolRetryStep, stopAfterConsecutiveToolErrors, stopAfterMaxToolRounds, updateToolBatchFailureState } from './chat-stream-rounds-tool-batch-helpers.mjs'
+import { APPROVAL_RENDERER_UNAVAILABLE_MESSAGE, buildDeniedToolCallResult, buildQuestionUserAssistantText, createPendingToolRecoveryOutcomeApplier, finalizeQuestionUserRound, getBlockedToolNames, getBlockedToolStates, isFileMutationTool, recordBlockedToolRetryStep, recordEditInspectionGuardStep, recordInvalidProviderToolCallStep, stopAfterConsecutiveToolErrors, stopAfterMaxToolRounds, updateToolBatchFailureState } from './chat-stream-rounds-tool-batch-helpers.mjs'
 export async function runToolCallBatchForRound({
   toolCalls = [],
   loop,
@@ -61,6 +61,7 @@ export async function runToolCallBatchForRound({
   stepSequence = 0,
   consecutiveErrorRounds = 0,
   hostFullAccessApprovedForTurn = false,
+  taskAuthorization = {},
   moaPreflightRepairRetryUsed = false,
   moaPendingPreflightRepairRetryAttempt = false,
   moaRetryState = null,
@@ -102,13 +103,14 @@ export async function runToolCallBatchForRound({
   let executedToolCallCount = 0
   const blockedToolNames = getBlockedToolNames(loop)
   const blockedToolStates = getBlockedToolStates(loop)
+  const applyPendingToolRecoveryOutcomes = createPendingToolRecoveryOutcomeApplier({ turnToolResults, loop, errorDiagnostics })
   const visibleToolNamesAtRoundStart = Object.keys(
     Object.keys(activeToolDefinitions || {}).length > 0
       ? activeToolDefinitions
       : (tools || {}),
   )
-
   for (const tc of toolCalls) {
+    applyPendingToolRecoveryOutcomes()
     if (loop.cancelled) break
     const toolInput = tc.input ?? tc.args ?? {}
     const toolEventInput = toToolEventInput(tc.name, toolInput)
@@ -121,9 +123,21 @@ export async function runToolCallBatchForRound({
       recordToolStepOutcome, recordToolWorkflowOutcome, turnToolResults,
       history, send, persistTimelineEvent, buildToolResultMessage, trimText,
       extractRunCommandMeta, stepId, stepSequence, stepStartedAt,
-      activeThreadId, activeTurnId, providerId,
+      activeThreadId, activeTurnId, projectFolder, providerId,
       model: model ?? '',
-      promptBudgetProfile, errorDiagnostics, turnStartedAt,
+      promptBudgetProfile, errorDiagnostics, turnStartedAt, toolExecutionMap,
+    })) {
+      executedToolCallCount += 1
+      continue
+    }
+
+    if (recordInvalidProviderToolCallStep({
+      tc, toolExecutionMap, recordToolStepOutcome, recordToolWorkflowOutcome,
+      turnToolResults, history, send, persistTimelineEvent,
+      buildToolResultMessage, trimText, extractRunCommandMeta,
+      stepId, stepSequence, stepStartedAt, activeThreadId, activeTurnId,
+      projectFolder, providerId, model: model ?? '', promptBudgetProfile,
+      errorDiagnostics, turnStartedAt,
     })) {
       executedToolCallCount += 1
       continue
@@ -136,7 +150,7 @@ export async function runToolCallBatchForRound({
       toolExecutionMap, errorDiagnostics, recordToolStepOutcome,
       recordToolWorkflowOutcome, turnToolResults, history, send,
       persistTimelineEvent, buildToolResultMessage, trimText,
-      extractRunCommandMeta, stepId, stepSequence, stepStartedAt, providerId,
+      extractRunCommandMeta, stepId, stepSequence, stepStartedAt, providerId, projectFolder,
       model: model ?? '',
       promptBudgetProfile, turnStartedAt,
     })
@@ -159,38 +173,14 @@ export async function runToolCallBatchForRound({
       toolInput,
       inspectedPaths: inspectedFilePathsThisTurn,
     })
-    if (editGuard.blocked) {
-      const stepFinishedAt = Date.now()
-      const durationMs = Math.max(0, stepFinishedAt - stepStartedAt)
-      recordToolStepOutcome({
-        turnToolResults,
-        history,
-        send,
-        persistTimelineEvent,
-        buildToolResultMessage,
-        trimText,
-        extractRunCommandMeta,
-        approvalId: '',
-        tc,
-        toolInput,
-        toolEventInput,
-        result: editGuard.message,
-        isError: true,
-        decision: 'approved',
-        denyReason: '',
-        missingDependencySuspected: false,
-        stepId,
-        sequence: stepSequence,
-        startedAt: stepStartedAt,
-        finishedAt: stepFinishedAt,
-        durationMs,
-        threadId: activeThreadId,
-        turnId: activeTurnId,
-        providerId,
-        model: model ?? '',
-        promptBudgetProfile,
-        errorDiagnostics,
-      })
+    if (recordEditInspectionGuardStep({
+      editGuard, tc, toolInput, toolEventInput, toolExecutionMap,
+      recordToolStepOutcome, recordToolWorkflowOutcome, turnToolResults,
+      history, send, persistTimelineEvent, buildToolResultMessage, trimText,
+      extractRunCommandMeta, stepId, stepSequence, stepStartedAt,
+      activeThreadId, activeTurnId, projectFolder, providerId,
+      model: model ?? '', promptBudgetProfile, errorDiagnostics, turnStartedAt,
+    })) {
       executedToolCallCount += 1
       continue
     }
@@ -198,6 +188,7 @@ export async function runToolCallBatchForRound({
     const lintResult = lintToolCall({
       toolName: tc.name,
       toolInput,
+      taskAuthorization,
     })
     recordToolWorkflowLintEvent(errorDiagnostics, {
       toolName: tc.name,
@@ -240,18 +231,25 @@ export async function runToolCallBatchForRound({
         finishedAt: stepFinishedAt,
         durationMs,
         threadId: activeThreadId,
-        turnId: activeTurnId,
+        turnId: activeTurnId, projectFolder,
         providerId,
         model: model ?? '',
         promptBudgetProfile,
         errorDiagnostics,
         lintResult,
+        canonicalToolName: String(toolExecutionMap?.[tc.name] || tc.name || '').trim(),
+        toolExecutionPath: 'pre_execution',
       })
+      const latestOutcome = turnToolResults[turnToolResults.length - 1] || {}
       recordToolWorkflowOutcome(errorDiagnostics, {
         toolName: tc.name,
         decision: 'approved',
         isError: true,
-        failureClass: lintResult.failureClass || '',
+        failureClass: latestOutcome.failureClass || lintResult.failureClass || '',
+        failureStage: latestOutcome.failureStage || '',
+        failureReasonCode: latestOutcome.failureReasonCode || '',
+        canonicalToolName: latestOutcome.canonicalToolName || tc.name,
+        toolExecutionPath: latestOutcome.toolExecutionPath || 'pre_execution',
         rerouteToolName: lintResult.rerouteToolName || '',
         turnStartedAt,
         finishedAt: stepFinishedAt,
@@ -377,6 +375,8 @@ export async function runToolCallBatchForRound({
     let writeArtifactMeta = null
     let writeArtifactChanges = []
     let shellWriteDiagnostics = null
+    let toolResultMedia = null
+    let executionDiagnostics = { canonicalToolName: String(toolExecutionMap?.[tc.name] || tc.name || '').trim(), toolExecutionPath: decision === 'approved' ? '' : 'approval' }
 
     if (decision === 'approved') {
       sendTurnState(isFileMutationTool(tc.name) ? 'applying_artifact' : 'running_tool', {
@@ -425,6 +425,7 @@ export async function runToolCallBatchForRound({
           approvalEffectiveCommandSafety,
           approvalCommandSafetyOverride,
           fileSystemHostFullAccess: approvalOutcome?.fileSystemHostFullAccess === true,
+          taskAuthorization,
           applyPreviewContent,
           moaRoles,
           moaPolicy,
@@ -453,6 +454,11 @@ export async function runToolCallBatchForRound({
         writeArtifactMeta = executionOutcome.writeArtifactMeta
         writeArtifactChanges = executionOutcome.writeArtifactChanges
         shellWriteDiagnostics = executionOutcome.shellWriteDiagnostics
+        toolResultMedia = executionOutcome.toolResultMedia
+        executionDiagnostics = {
+          inputValidationError: executionOutcome.inputValidationError || null, modeCapability: executionOutcome.modeCapability || null,
+          canonicalToolName: String(executionOutcome.canonicalToolName || executionDiagnostics.canonicalToolName).trim(),
+          toolExecutionPath: String(executionOutcome.toolExecutionPath || '').trim() }
       } catch (err) {
         if (loop.cancelled || isAbortError(err)) break
         throw err
@@ -518,7 +524,7 @@ export async function runToolCallBatchForRound({
       finishedAt: stepFinishedAt,
       durationMs,
       threadId: activeThreadId,
-      turnId: activeTurnId,
+      turnId: activeTurnId, projectFolder,
       providerId,
       model: model ?? '',
       promptBudgetProfile,
@@ -528,6 +534,10 @@ export async function runToolCallBatchForRound({
       writeArtifactMeta,
       writeArtifactChanges,
       shellWriteDiagnostics,
+      toolResultMedia,
+      lintResult,
+      ...executionDiagnostics,
+      cancelled: approvalOutcome?.cancelled === true,
     })
     executedToolCallCount += 1
     const latestOutcome = turnToolResults[turnToolResults.length - 1] || {}
@@ -536,6 +546,10 @@ export async function runToolCallBatchForRound({
       decision,
       isError,
       failureClass: latestOutcome.failureClass || '',
+      failureStage: latestOutcome.failureStage || '',
+      failureReasonCode: latestOutcome.failureReasonCode || '',
+      canonicalToolName: latestOutcome.canonicalToolName || executionDiagnostics.canonicalToolName,
+      toolExecutionPath: latestOutcome.toolExecutionPath || executionDiagnostics.toolExecutionPath,
       rerouteToolName: latestOutcome.rerouteToolName || '',
       writeArtifactChanges,
       shellWriteDiagnostics,
@@ -549,13 +563,6 @@ export async function runToolCallBatchForRound({
       isError,
       inspectedPaths: inspectedFilePathsThisTurn,
     })
-    if (decision === 'approved' && !isError) {
-      const normalizedToolName = String(tc?.name || '').trim().toLowerCase()
-      if (normalizedToolName === 'read_file' || normalizedToolName === 'view_file_range') {
-        blockedToolNames.delete('edit_file')
-        blockedToolStates.delete('edit_file')
-      }
-    }
     if (denyReason === 'renderer_unavailable') {
       loop.cancelled = true
       loop.cancelReason = APPROVAL_RENDERER_UNAVAILABLE_MESSAGE
@@ -576,7 +583,7 @@ export async function runToolCallBatchForRound({
       break
     }
   }
-
+  applyPendingToolRecoveryOutcomes()
   if (Array.isArray(pendingSynthesisMessages) && pendingSynthesisMessages.length > 0) {
     history.push(...pendingSynthesisMessages)
   } else if (pendingSynthesisPrompt) {
@@ -596,7 +603,7 @@ export async function runToolCallBatchForRound({
   const roundResults = executedToolCallCount > 0 ? turnToolResults.slice(-executedToolCallCount) : []
   consecutiveErrorRounds = updateToolBatchFailureState({
     roundResults, loop, consecutiveErrorRounds, maxConsecutiveErrorRounds,
-    moaSpecializedContinuationPromptInjectedThisRound, errorDiagnostics, history, buildToolRecoveryPrompt,
+    moaSpecializedContinuationPromptInjectedThisRound, errorDiagnostics, history, buildToolRecoveryPrompt, recoveryStateApplied: true,
   })
 
   if (consecutiveErrorRounds >= maxConsecutiveErrorRounds) {
@@ -607,7 +614,6 @@ export async function runToolCallBatchForRound({
     })
     shouldBreakRoundLoop = true
   }
-
   return {
     stepSequence,
     consecutiveErrorRounds,

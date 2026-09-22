@@ -62,6 +62,7 @@ const COMMAND_LIKE_TOOL_NAMES = new Set([
 
 const SEARCH_LIST_TOOL_NAMES = new Set([
   'read_file',
+  'read_tool_result',
   'view_file_range',
   'search_code',
   'grep_file',
@@ -144,6 +145,35 @@ function trimToBudget(text = '', budgetChars = DEFAULT_TOOL_RESULT_BUDGET_CHARS)
   const value = String(text || '')
   if (value.length <= limit) return value
   return value.slice(0, limit)
+}
+
+function appendRetrievalInstruction(
+  text = '',
+  handle = '',
+  budgetChars = DEFAULT_TOOL_RESULT_BUDGET_CHARS,
+  previewDirection = 'head',
+) {
+  const normalizedHandle = String(handle || '').trim()
+  if (!normalizedHandle) return trimToBudget(text, budgetChars)
+  const instruction = `\n\n[Full output: call read_tool_result with handle "${normalizedHandle}".]`
+  const availableTextChars = Math.max(0, budgetChars - instruction.length)
+  const value = String(text || '')
+  if (value.length <= availableTextChars) return `${value}${instruction}`
+  if (previewDirection === 'tail') {
+    const retentionLine = '\nspillover_retention_exceeded:'
+    const retentionLineStart = value.indexOf(retentionLine)
+    const retentionLineEnd = retentionLineStart >= 0
+      ? value.indexOf('\n', retentionLineStart + retentionLine.length)
+      : -1
+    if (retentionLineEnd >= 0) {
+      const header = value.slice(0, retentionLineEnd + 1)
+      const body = value.slice(retentionLineEnd + 1)
+      const bodyChars = Math.max(0, availableTextChars - header.length)
+      return `${header}${body.slice(Math.max(0, body.length - bodyChars))}${instruction}`
+    }
+    return `${value.slice(Math.max(0, value.length - availableTextChars))}${instruction}`
+  }
+  return `${trimToBudget(value, availableTextChars)}${instruction}`
 }
 
 function buildTruncationHeader({
@@ -287,7 +317,7 @@ function buildMetadata({
   omittedChars = 0,
   previewDirection = 'none',
   budgetChars = DEFAULT_TOOL_RESULT_BUDGET_CHARS,
-  persistedOutputPath = '',
+  persistedOutputHandle = '',
   persistedOutputSha256 = '',
   spilloverPersistenceState = '',
   spilloverCleanupState = 'none',
@@ -309,9 +339,9 @@ function buildMetadata({
     omittedChars: Math.max(0, Number(omittedChars || 0) || 0),
     previewDirection: String(previewDirection || 'none').trim(),
     budgetChars: Math.max(0, Number(budgetChars || 0) || 0),
-    persistedOutputPath: String(persistedOutputPath || ''),
+    persistedOutputHandle: String(persistedOutputHandle || ''),
     persistedOutputSha256: String(persistedOutputSha256 || ''),
-    persistence: persistedOutputPath ? 'enabled' : 'disabled',
+    persistence: persistedOutputHandle ? 'enabled' : 'disabled',
     spilloverPersistenceState: String(spilloverPersistenceState || '').trim().toLowerCase(),
     spilloverCleanupState: String(spilloverCleanupState || 'none').trim().toLowerCase(),
     spilloverCleanupDeletedFileCount: Math.max(0, Number(spilloverCleanupDeletedFileCount || 0) || 0),
@@ -344,6 +374,8 @@ export function budgetToolResultForModel({
   fileChanges = [],
   threadId = '',
   turnId = '',
+  projectRoot = '',
+  userDataPath = '',
 } = {}) {
   const normalizedToolName = normalizeToolName(toolName)
   const profile = promptBudgetProfile && typeof promptBudgetProfile === 'object' ? promptBudgetProfile : null
@@ -388,6 +420,8 @@ export function budgetToolResultForModel({
     originalChars,
     threadId,
     turnId,
+    projectRoot,
+    userDataPath,
   })
   const previewDirection = useWriteMetadataPreview
     ? 'metadata'
@@ -414,7 +448,12 @@ export function budgetToolResultForModel({
       spilloverRetentionExceeded: spillover.spilloverRetentionExceeded,
     })
   const previewText = typeof budgetedPreview === 'string' ? budgetedPreview : budgetedPreview.text
-  const boundedText = trimToBudget(previewText, resolvedBudgetChars)
+  const boundedText = appendRetrievalInstruction(
+    previewText,
+    spillover.persistedOutputHandle,
+    resolvedBudgetChars,
+    previewDirection,
+  )
   const omittedChars = typeof budgetedPreview === 'object' && budgetedPreview
     ? Math.max(0, Number(budgetedPreview.omittedChars || 0) || 0)
     : Math.max(0, originalChars - boundedText.length)
@@ -434,7 +473,7 @@ export function budgetToolResultForModel({
       omittedChars,
       previewDirection,
       budgetChars: resolvedBudgetChars,
-      persistedOutputPath: spillover.persistedOutputPath,
+      persistedOutputHandle: spillover.persistedOutputHandle,
       persistedOutputSha256: spillover.persistedOutputSha256,
       spilloverPersistenceState: spillover.spilloverPersistenceState,
       spilloverCleanupState: spillover.spilloverCleanupState,

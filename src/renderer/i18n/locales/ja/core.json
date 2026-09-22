@@ -1960,6 +1960,8 @@
         "activity": "Codex アプリサーバーアクティビティ",
         "webSearch": "Codex アプリサーバー Web 検索",
         "command": "Codex アプリサーバーコマンド: {{commandName}}",
+        "commandSummary": "{{total}} 件のコマンド · {{completed}} 件完了 · {{failed}} 件失敗",
+        "commandSummaryPending": "{{total}} 件のコマンド · 結果の詳細は利用できません",
         "fileChangeOne": "Codex アプリサーバー ファイルの変更",
         "fileChangeOther": "Codex アプリサーバー ファイルの変更",
         "mcpTool": "Codex アプリサーバー MCP ツール: {{toolName}}",

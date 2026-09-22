@@ -24,7 +24,9 @@ function normalizeState(value = '') {
 }
 
 function isSettledToolItem(item = {}) {
-  return item?.kind === 'tool' && SETTLED_STATES.has(normalizeState(item?.state))
+  return item?.kind === 'tool'
+    && item?.toolKind !== 'command_summary'
+    && SETTLED_STATES.has(normalizeState(item?.state))
 }
 
 function groupItemsByToolKind(items = []) {
@@ -160,9 +162,10 @@ export function projectExecutionStreamClusters(items = [], {
       for (const entry of clusterItems) projected.push({ ...entry })
     } else {
       const firstId = String(clusterItems[0]?.id || 'tool')
-      const lastId = String(clusterItems[clusterItems.length - 1]?.id || firstId)
       projected.push({
-        id: `cluster:${firstId}:${lastId}:${clusterItems.length}`,
+        // The first tool is the durable anchor for this contiguous run. Appending
+        // settled tools must not remount an open disclosure or discard its focus.
+        id: `cluster:${firstId}`,
         kind: 'cluster',
         label: formatToolClusterSummary(clusterItems),
         statusMark: '',

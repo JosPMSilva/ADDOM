@@ -17,6 +17,19 @@ import { SUPPORTED_ITEM_TYPES } from './ai-provider-openai-account-constants.mjs
 import { buildOpenAIAccountProtocolMeta } from './ai-provider-openai-account-protocol-registry.mjs'
 import { cloneOpenAIAccountModelRoutingState } from './ai-provider-openai-account-model-state.mjs'
 
+const MAX_ACCOUNT_NATIVE_START_DETAIL_CHARS = 2_000
+const ACCOUNT_NATIVE_START_DETAIL_TRUNCATION_MARKER = '\n[Start detail truncated]'
+
+function boundAccountNativeStartDetail(value = '') {
+  const detail = String(value || '')
+  if (detail.length <= MAX_ACCOUNT_NATIVE_START_DETAIL_CHARS) return detail
+  const retainedLength = Math.max(
+    0,
+    MAX_ACCOUNT_NATIVE_START_DETAIL_CHARS - ACCOUNT_NATIVE_START_DETAIL_TRUNCATION_MARKER.length,
+  )
+  return `${detail.slice(0, retainedLength)}${ACCOUNT_NATIVE_START_DETAIL_TRUNCATION_MARKER}`
+}
+
 export function createTurnTimeout(timeoutMs = Number(PROVIDER_POLICY.stream.timeoutMs || 0), onTimeout = () => {}) {
   const safeTimeoutMs = Math.max(0, Math.round(Number(timeoutMs || 0) || 0))
   if (safeTimeoutMs <= 0) return null
@@ -174,7 +187,10 @@ export function createProviderToolCollectors({
 export function createAccountNativeActivityEmitters({
   emitProviderToolStatus = () => {},
   emitProviderToolOutput = () => {},
+  emitProviderToolOutputChunk = () => {},
 } = {}) {
+  const outputSequenceByToolCallId = new Map()
+
   const emitAccountNativeActivityStarted = (item = null) => {
     const itemType = normalizeId(item?.type)
     const toolName = normalizeAccountNativeProviderToolName(itemType)
@@ -183,7 +199,8 @@ export function createAccountNativeActivityEmitters({
       type: 'running',
       toolCallId: normalizeId(item?.id),
       toolName,
-      delta: buildAccountNativeActivityDetail(item),
+      delta: boundAccountNativeStartDetail(buildAccountNativeActivityDetail(item)),
+      durable: true,
     })
   }
 
@@ -211,11 +228,26 @@ export function createAccountNativeActivityEmitters({
     delta = '',
   } = {}) => {
     const toolName = normalizeAccountNativeProviderToolName(itemType)
+    const toolCallId = normalizeId(itemId)
     const textDelta = String(delta || '')
     if (!toolName || !textDelta) return
+    if (itemType === 'commandExecution' || itemType === 'fileChange') {
+      const sequence = (Number(outputSequenceByToolCallId.get(toolCallId) || 0) || 0) + 1
+      outputSequenceByToolCallId.set(toolCallId, sequence)
+      emitProviderToolOutputChunk({
+        type: 'tool-output-delta',
+        toolCallId,
+        toolName,
+        stream: 'stdout',
+        chunk: textDelta,
+        sequence,
+        providerExecuted: true,
+      })
+      return
+    }
     emitProviderToolStatus({
       type: 'running',
-      toolCallId: normalizeId(itemId),
+      toolCallId,
       toolName,
       delta: textDelta,
     })

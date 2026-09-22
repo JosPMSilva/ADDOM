@@ -1960,6 +1960,8 @@
         "activity": "Активність сервера програм Codex",
         "webSearch": "Веб-пошук на сервері додатків Codex",
         "command": "Команда сервера програм Codex: {{commandName}}",
+        "commandSummary": "{{total}} команд · {{completed}} завершено · {{failed}} з помилкою",
+        "commandSummaryPending": "{{total}} команд · подробиці результатів недоступні",
         "fileChangeOne": "Зміна файлу сервера програм Codex",
         "fileChangeOther": "Codex зміни файлу сервера додатків",
         "mcpTool": "Сервер програм Codex Інструмент MCP: {{toolName}}",

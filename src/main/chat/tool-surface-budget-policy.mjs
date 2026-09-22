@@ -41,6 +41,7 @@ const LOCAL_SKILL_TOOL_NAMES = new Set([
 ])
 const CORE_TOOL_NAMES = new Set([
   'read_file',
+  'read_tool_result',
   'view_file_range',
   'grep_file',
   'search_code',

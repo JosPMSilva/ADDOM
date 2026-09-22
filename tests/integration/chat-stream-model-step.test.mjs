@@ -9,6 +9,28 @@ import {
 import { buildChatUsagePayload } from '../../src/main/chat/chat-usage-payload.mjs'
 import { emitStreamFailure } from '../../src/main/chat/chat-stream-error-output.mjs'
 import { getProviderUsageFixture } from '../fixtures/provider-usage-fixtures.mjs'
+import { createAccountNativeActivityEmitters } from '../../src/main/api-clients/ai-provider-openai-account-turn-payload.mjs'
+import { mapTimelineFromPersistedEvents } from '../../src/renderer/store/chat/timeline-hydration.mjs'
+
+test('account-native durable starts bound persisted input detail', () => {
+  const statuses = []
+  const native = createAccountNativeActivityEmitters({
+    emitProviderToolStatus: (status) => statuses.push(status),
+  })
+
+  native.emitAccountNativeActivityStarted({
+    id: 'command-large',
+    type: 'commandExecution',
+    command: `node -e "${'x'.repeat(10_000)}"`,
+    cwd: 'C:/repo',
+    status: 'inProgress',
+  })
+
+  assert.equal(statuses.length, 1)
+  assert.equal(statuses[0].durable, true)
+  assert.ok(statuses[0].delta.length <= 2_000)
+  assert.match(statuses[0].delta, /Start detail truncated/)
+})
 
 test('executeProviderModelStream passes provider-specific runtime settings to non-OpenAI providers', async () => {
   let capturedRuntimeSettings = null
@@ -163,6 +185,184 @@ test('executeProviderModelStream persists only provider statuses explicitly mark
       },
     },
   }])
+})
+
+test('executeProviderModelStream routes native command chunks through chat tool output without changing lifecycle status', async () => {
+  const sent = []
+  const persisted = []
+
+  await executeProviderModelStream({
+    providerId: 'openai',
+    apiKey: 'account',
+    history: [{ role: 'user', content: 'run the checks' }],
+    options: { model: 'gpt-6-astra', tools: {} },
+    activeProjectId: 'project_native_output',
+    activeThreadId: 'thread_native_output',
+    activeTurnId: 'turn_native_output',
+    tools: {},
+    round: 1,
+    model: 'gpt-6-astra',
+    send: (channel, payload) => sent.push({ channel, payload }),
+    persistTimelineEvent: (kind, payload) => persisted.push({ kind, payload }),
+    sendNotice: () => {},
+    createStreamWithTools: async (_providerId, _apiKey, _history, options) => {
+      options.onProviderToolStatus({
+        type: 'running',
+        toolCallId: 'command_1',
+        toolName: 'command_execution',
+        delta: 'command: npm test\ncwd: C:/repo',
+      })
+      options.onProviderToolOutputChunk({
+        toolCallId: 'command_1',
+        toolName: 'command_execution',
+        stream: 'stdout',
+        chunk: 'line one\n',
+        sequence: 1,
+        emittedAt: 1001,
+      })
+      options.onProviderToolOutputChunk({
+        toolCallId: 'command_1',
+        toolName: 'command_execution',
+        stream: 'stderr',
+        chunk: 'line two\n',
+        sequence: 2,
+        emittedAt: 1002,
+      })
+      return {
+        stopReason: 'stop',
+        text: 'done',
+        toolCalls: [],
+        usage: null,
+        reasoning: '',
+      }
+    },
+  })
+
+  assert.equal(sent.filter((entry) => entry.channel === 'chat:provider-tool-status').length, 1)
+  assert.deepEqual(
+    sent.filter((entry) => entry.channel === 'chat:tool-output'),
+    [
+      {
+        channel: 'chat:tool-output',
+        payload: {
+          threadId: 'thread_native_output',
+          turnId: 'turn_native_output',
+          stepId: 'command_1',
+          sequence: 1,
+          toolName: 'command_execution',
+          stream: 'stdout',
+          chunk: 'line one\n',
+          emittedAt: 1001,
+        },
+      },
+      {
+        channel: 'chat:tool-output',
+        payload: {
+          threadId: 'thread_native_output',
+          turnId: 'turn_native_output',
+          stepId: 'command_1',
+          sequence: 2,
+          toolName: 'command_execution',
+          stream: 'stderr',
+          chunk: 'line two\n',
+          emittedAt: 1002,
+        },
+      },
+    ],
+  )
+  assert.equal(persisted.some((entry) => entry.kind === 'provider_tool_status'), false)
+})
+
+test('native provider starts survive reload and preserve start order across reverse completion', async () => {
+  const persisted = []
+
+  await executeProviderModelStream({
+    providerId: 'openai',
+    apiKey: 'account',
+    history: [{ role: 'user', content: 'run both checks' }],
+    options: { model: 'gpt-6-astra', tools: {} },
+    activeProjectId: 'project_native_reload',
+    activeThreadId: 'thread_native_reload',
+    activeTurnId: 'turn_native_reload',
+    tools: {},
+    round: 1,
+    model: 'gpt-6-astra',
+    send: () => {},
+    persistTimelineEvent: (kind, payload) => persisted.push({ kind, payload }),
+    sendNotice: () => {},
+    createStreamWithTools: async (_providerId, _apiKey, _history, options) => {
+      const native = createAccountNativeActivityEmitters({
+        emitProviderToolStatus: options.onProviderToolStatus,
+        emitProviderToolOutput: options.onProviderToolOutput,
+        emitProviderToolOutputChunk: options.onProviderToolOutputChunk,
+      })
+      native.emitAccountNativeActivityStarted({
+        id: 'command-a',
+        type: 'commandExecution',
+        command: 'git status',
+        cwd: 'C:/repo',
+        status: 'inProgress',
+      })
+      native.emitAccountNativeActivityStarted({
+        id: 'command-b',
+        type: 'commandExecution',
+        command: 'npm test',
+        cwd: 'C:/repo',
+        status: 'inProgress',
+      })
+      native.emitAccountNativeActivityCompleted({
+        id: 'command-b',
+        type: 'commandExecution',
+        command: 'npm test',
+        cwd: 'C:/repo',
+        status: 'completed',
+        aggregatedOutput: 'tests passed',
+        exitCode: 0,
+      })
+      native.emitAccountNativeActivityCompleted({
+        id: 'command-a',
+        type: 'commandExecution',
+        command: 'git status',
+        cwd: 'C:/repo',
+        status: 'completed',
+        aggregatedOutput: 'clean',
+        exitCode: 0,
+      })
+      return { stopReason: 'stop', text: 'done', toolCalls: [], usage: null, reasoning: '' }
+    },
+  })
+
+  const persistedEvents = persisted.map((entry, index) => ({
+    eventId: index + 1,
+    kind: entry.kind,
+    content: entry.payload.content,
+    meta: entry.payload.meta,
+    turnId: 'turn_native_reload',
+    createdAt: 1_000 + index,
+  }))
+  const hydrated = mapTimelineFromPersistedEvents(persistedEvents)
+  const turn = hydrated.liveExecution.turnsById.turn_native_reload
+  const activeOnly = mapTimelineFromPersistedEvents(persistedEvents.slice(0, 2))
+  const activeTurn = activeOnly.liveExecution.turnsById.turn_native_reload
+
+  assert.deepEqual(persisted.map((entry) => entry.kind), [
+    'provider_tool_status',
+    'provider_tool_status',
+    'provider_tool_output',
+    'provider_tool_output',
+  ])
+  assert.deepEqual(turn.itemOrder, [
+    'tool:session:turn_native_reload:command-a',
+    'tool:session:turn_native_reload:command-b',
+  ])
+  assert.deepEqual(activeTurn.itemOrder, [
+    'tool:session:turn_native_reload:command-a',
+    'tool:session:turn_native_reload:command-b',
+  ])
+  assert.match(turn.sessionsById['session:turn_native_reload:command-a'].inputDetail, /command: git status/)
+  assert.match(turn.sessionsById['session:turn_native_reload:command-b'].inputDetail, /command: npm test/)
+  assert.equal(activeTurn.sessionsById['session:turn_native_reload:command-a'].state, 'active')
+  assert.equal(activeTurn.sessionsById['session:turn_native_reload:command-b'].state, 'active')
 })
 
 test('executeProviderModelStream keeps recoverable provider protocol drift out of the viewport', async () => {
@@ -324,22 +524,19 @@ test('executeProviderModelStream forwards reasoning deltas into chat events and 
   assert.equal(answerEvents[0]?.payload?.model, 'claude-sonnet-4-6')
   assert.deepEqual(
     persisted.map((entry) => entry.kind),
-    ['execution_reasoning_chunk', 'execution_reasoning_chunk', 'execution_reasoning_chunk'],
+    ['execution_reasoning_chunk', 'execution_reasoning_chunk'],
   )
-  assert.deepEqual(persisted.map((entry) => entry.payload.lifecycle), ['active', 'active', 'completed'])
+  assert.deepEqual(persisted.map((entry) => entry.payload.lifecycle), ['active', 'completed'])
   assert.equal(persisted[0]?.payload?.meta?.sequence, 1)
   assert.equal(persisted[1]?.payload?.meta?.sequence, 2)
-  assert.equal(persisted[2]?.payload?.meta?.sequence, 2)
   assert.deepEqual(
     persisted.map((entry) => entry.payload?.meta?.reasoningSegment),
-    [0, 0, 0],
+    [0, 0],
   )
   assert.equal(persisted[0]?.payload?.progressiveKey, 'execution_reasoning:1')
   assert.equal(persisted[1]?.payload?.progressiveKey, 'execution_reasoning:1')
-  assert.equal(persisted[2]?.payload?.progressiveKey, 'execution_reasoning:1')
   assert.equal(persisted[0]?.payload?.content, 'First reasoning step. ')
   assert.equal(persisted[1]?.payload?.content, 'First reasoning step. Second reasoning step.')
-  assert.equal(persisted[2]?.payload?.content, 'First reasoning step. Second reasoning step.')
 
   assert.equal(streamResult.reasoningBuffer, 'First reasoning step. Second reasoning step.')
   assert.equal(streamResult.text, 'Final answer.')

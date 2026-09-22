@@ -17,6 +17,7 @@ const RISK_RANK = Object.freeze({
 
 const DEFAULT_VISIBLE_TOOLS = new Set([
   'read_file',
+  'read_tool_result',
   'view_file_range',
   'grep_file',
   'search_code',

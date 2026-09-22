@@ -4,6 +4,7 @@ import assert from 'node:assert/strict'
 import {
   buildLintBlockedResult,
   lintToolCall,
+  resolveToolLintTaskAuthorization,
   TOOL_CALL_FAILURE_CLASSES,
   TOOL_CALL_LINT_CODES,
   TOOL_CALL_LINT_DECISIONS,
@@ -133,6 +134,40 @@ test('lintToolCall rejects generic Playwright test runner for browser automation
   assert.equal(specific.decision, TOOL_CALL_LINT_DECISIONS.PASS)
 })
 
+test('lintToolCall recognizes scoped Playwright config and project selectors', () => {
+  for (const command of [
+    'npx playwright test --config=playwright.config.ts',
+    'npx playwright test --config playwright.config.ts',
+    'npm exec playwright test -- --project=chromium',
+    'pnpm exec playwright test --project chromium',
+    'npm run test:e2e',
+  ]) {
+    const result = lintToolCall({
+      toolName: 'run_command',
+      toolInput: { command },
+    })
+    assert.equal(result.decision, TOOL_CALL_LINT_DECISIONS.PASS, command)
+  }
+})
+
+test('lintToolCall makes explicitly requested generic Playwright tests advisory', () => {
+  const taskAuthorization = resolveToolLintTaskAuthorization({
+    userMessage: 'Please run the Playwright tests and report any failures.',
+  })
+  const result = lintToolCall({
+    toolName: 'run_command',
+    toolInput: { command: 'npx playwright test --ui' },
+    taskAuthorization,
+  })
+
+  assert.equal(taskAuthorization.playwrightTestsRequested, true)
+  assert.equal(result.decision, TOOL_CALL_LINT_DECISIONS.WARN)
+  assert.equal(result.lintCode, TOOL_CALL_LINT_CODES.RUN_COMMAND_PLAYWRIGHT_TEST_RUNNER_MISUSE)
+  assert.equal(result.failureClass, '')
+  assert.equal(result.rerouteToolName, 'browser_action')
+  assert.match(result.message, /explicitly requested/i)
+})
+
 test('lintToolCall rejects direct Playwright browser install for browser automation', () => {
   const chromium = lintToolCall({
     toolName: 'run_command',
@@ -172,7 +207,6 @@ test('lintToolCall rejects Playwright CLI browser automation bypasses', () => {
     'npx playwright screenshot http://localhost:5173 output.png',
     'npx playwright pdf http://localhost:5173 output.pdf',
     'npx playwright cr http://localhost:5173',
-    'playwright install-deps chromium',
   ]) {
     const result = lintToolCall({
       toolName: 'run_command',
@@ -192,6 +226,62 @@ test('lintToolCall rejects Playwright CLI browser automation bypasses', () => {
     },
   })
   assert.equal(debugScript.decision, TOOL_CALL_LINT_DECISIONS.PASS)
+})
+
+test('lintToolCall makes explicitly requested Playwright CLI browser automation advisory', () => {
+  const taskAuthorization = resolveToolLintTaskAuthorization({
+    userMessage: 'Use the Playwright CLI screenshot command for this check.',
+  })
+  const result = lintToolCall({
+    toolName: 'run_command',
+    toolInput: {
+      command: 'npx playwright screenshot https://example.com output.png',
+    },
+    taskAuthorization,
+  })
+
+  assert.equal(taskAuthorization.playwrightCliRequested, true)
+  assert.equal(result.decision, TOOL_CALL_LINT_DECISIONS.WARN)
+  assert.equal(result.lintCode, TOOL_CALL_LINT_CODES.RUN_COMMAND_PLAYWRIGHT_CLI_BROWSER_MISUSE)
+  assert.equal(result.failureClass, '')
+  assert.equal(result.rerouteToolName, 'browser_action')
+})
+
+test('Playwright authorization never bypasses runtime-install or shell-write policy', () => {
+  const taskAuthorization = {
+    playwrightTestsRequested: true,
+    playwrightCliRequested: true,
+  }
+  const install = lintToolCall({
+    toolName: 'run_command',
+    toolInput: { command: 'npx playwright install chromium' },
+    taskAuthorization,
+  })
+  const write = lintToolCall({
+    toolName: 'run_command',
+    toolInput: { command: 'echo unsafe > result.txt' },
+    taskAuthorization,
+  })
+
+  assert.equal(install.decision, TOOL_CALL_LINT_DECISIONS.REJECT)
+  const installDeps = lintToolCall({
+    toolName: 'run_command',
+    toolInput: { command: 'playwright install-deps chromium' },
+    taskAuthorization,
+  })
+  assert.equal(installDeps.decision, TOOL_CALL_LINT_DECISIONS.REJECT)
+  assert.equal(write.decision, TOOL_CALL_LINT_DECISIONS.REJECT)
+})
+
+test('resolveToolLintTaskAuthorization ignores negated Playwright requests', () => {
+  const authorization = resolveToolLintTaskAuthorization({
+    userMessage: "Do not run Playwright tests or use the Playwright CLI.",
+  })
+
+  assert.deepEqual(authorization, {
+    playwrightTestsRequested: false,
+    playwrightCliRequested: false,
+  })
 })
 
 test('lintToolCall warns on browser automation package installs without blocking dependency work', () => {

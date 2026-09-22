@@ -3,6 +3,7 @@ import { isOpenAILocalRuntimeToolName } from '../api-clients/openai-local-runtim
 
 const BASE_TOOL_IDENTITIES = Object.freeze({
   read_file: { canonicalToolName: 'read_file', family: 'file_read', label: 'Read File', risk: 'low' },
+  read_tool_result: { canonicalToolName: 'read_tool_result', family: 'file_read', label: 'Read Tool Result', risk: 'low' },
   view_file_range: { canonicalToolName: 'view_file_range', family: 'file_read', label: 'View File Range', risk: 'low' },
   grep_file: { canonicalToolName: 'grep_file', family: 'file_read', label: 'Grep File', risk: 'low' },
   search_code: { canonicalToolName: 'search_code', family: 'file_read', label: 'Search Code', risk: 'low' },

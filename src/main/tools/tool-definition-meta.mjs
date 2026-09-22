@@ -1,5 +1,6 @@
 export const TOOL_LABELS = {
   read_file:               { label: 'Read File',               risk: 'low' },
+  read_tool_result:        { label: 'Read Tool Result',        risk: 'low' },
   write_file:              { label: 'Write File',              risk: 'high' },
   edit_file:               { label: 'Edit File',               risk: 'high' },
   delete_file:             { label: 'Delete File',             risk: 'high' },

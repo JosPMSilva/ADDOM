@@ -6,6 +6,7 @@ import {
   TIMELINE_BLOCK_VIRTUALIZE_MIN_COUNT,
   buildTimelineBlockLayout,
   buildTimelineVirtualizationState,
+  createTimelineAnchorCorrectionScheduler,
   pruneTimelineHeightCache,
   resolveTimelineAnchorCorrection,
 } from './chat-timeline-virtualization.mjs'
@@ -82,7 +83,9 @@ export default function useTimelineVirtualization({
   const [interactionPinnedBlockId, setInteractionPinnedBlockId] = React.useState('')
   const measuredBlockHeightsRef = React.useRef(measuredBlockHeights)
   const scrollMetricsFrameRef = React.useRef(0)
-  const anchorCorrectionFrameRef = React.useRef(0)
+  const anchorCorrectionSchedulerRef = React.useRef(null)
+  const scrollContainerRefRef = React.useRef(scrollContainerRef)
+  const scheduleScrollMetricsSyncRef = React.useRef(() => {})
   const visibleStartIndexRef = React.useRef(0)
   const timelineBlockIndexByIdRef = React.useRef(new Map())
   const scrollMetricsSnapshotRef = React.useRef({ viewportHeight: 0, scrollTop: 0 })
@@ -90,6 +93,7 @@ export default function useTimelineVirtualization({
     () => timelineBlocks.map((block, index) => String(block?.id || `timeline-block-${index}`)),
     [timelineBlocks],
   )
+  scrollContainerRefRef.current = scrollContainerRef
 
   React.useEffect(() => {
     setMeasuredBlockHeights((current) => (
@@ -120,6 +124,24 @@ export default function useTimelineVirtualization({
       setScrollTop((current) => (current === nextScrollTop ? current : nextScrollTop))
     })
   }, [scrollContainerRef, shouldTrackScrollMetrics])
+  scheduleScrollMetricsSyncRef.current = scheduleScrollMetricsSync
+
+  const getAnchorCorrectionScheduler = React.useCallback(() => {
+    if (anchorCorrectionSchedulerRef.current || typeof window === 'undefined') {
+      return anchorCorrectionSchedulerRef.current
+    }
+    anchorCorrectionSchedulerRef.current = createTimelineAnchorCorrectionScheduler({
+      requestFrame: (callback) => window.requestAnimationFrame(callback),
+      cancelFrame: (frameId) => window.cancelAnimationFrame(frameId),
+      applyCorrection: (correction) => {
+        const node = scrollContainerRefRef.current?.current
+        if (!node) return
+        node.scrollTop = Math.max(0, Number(node.scrollTop || 0) + correction)
+        scheduleScrollMetricsSyncRef.current()
+      },
+    })
+    return anchorCorrectionSchedulerRef.current
+  }, [])
 
   React.useEffect(() => {
     if (shouldTrackScrollMetrics) {
@@ -218,22 +240,13 @@ export default function useTimelineVirtualization({
         ? current
         : { ...current, [normalizedId]: nextHeight }
     ))
-    if (!correction || typeof window === 'undefined') return
-    if (anchorCorrectionFrameRef.current) window.cancelAnimationFrame(anchorCorrectionFrameRef.current)
-    anchorCorrectionFrameRef.current = window.requestAnimationFrame(() => {
-      anchorCorrectionFrameRef.current = 0
-      const node = scrollContainerRef?.current
-      if (!node) return
-      node.scrollTop = Math.max(0, Number(node.scrollTop || 0) + correction)
-      scheduleScrollMetricsSync()
-    })
-  }, [scheduleScrollMetricsSync, scrollContainerRef])
+    if (!correction) return
+    getAnchorCorrectionScheduler()?.schedule(correction)
+  }, [getAnchorCorrectionScheduler])
 
   React.useEffect(() => () => {
-    if (anchorCorrectionFrameRef.current) {
-      cancelAnimationFrame(anchorCorrectionFrameRef.current)
-      anchorCorrectionFrameRef.current = 0
-    }
+    anchorCorrectionSchedulerRef.current?.dispose()
+    anchorCorrectionSchedulerRef.current = null
   }, [])
 
   const wrapTimelineBlock = React.useCallback((blockKey, blockId, children) => (
@@ -242,6 +255,9 @@ export default function useTimelineVirtualization({
     </TimelineMeasuredBlock>
   ), [handleTimelineBlockMeasure])
   const handleScroll = React.useCallback(() => {
+    // A scroll that lands before the scheduled correction owns the viewport.
+    // Drop stale measurement deltas instead of pulling the user back.
+    anchorCorrectionSchedulerRef.current?.cancelPending()
     scheduleScrollMetricsSync()
   }, [scheduleScrollMetricsSync])
   const handleFocusCapture = React.useCallback((event) => {
