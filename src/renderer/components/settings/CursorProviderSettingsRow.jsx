@@ -54,7 +54,8 @@ export default function CursorProviderSettingsRow({ provider, onSave, onDelete, 
   const runtimeUpdateAvailable = runtime.updateAvailable === true
   const latestRuntimeVersion = String(runtime.latestVersion || '').trim()
   const accountConnected = String(account.status || '').trim().toLowerCase() === 'authenticated'
-  const logoUrl = getLogoUrl(provider?.logoPath || 'provider-logos/cursor.svg')
+  const darkLogoUrl = getLogoUrl(provider?.logoPath || 'provider-logos/cursor.svg')
+  const lightLogoUrl = getLogoUrl('provider-logos/cursor-light.svg')
 
   const loginPendingSeenRef = React.useRef(false)
 
@@ -201,8 +202,23 @@ export default function CursorProviderSettingsRow({ provider, onSave, onDelete, 
     <div data-ui="cursor-provider-row" className="border-b border-surface-border/55 py-3 last:border-b-0">
       <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-start">
         <div className="flex min-w-[116px] shrink-0 items-center gap-2.5 pt-0.5">
-          {logoUrl ? (
-            <img src={logoUrl} alt="Cursor logo" className="h-4 w-4 object-contain opacity-90 invert" />
+          {darkLogoUrl && lightLogoUrl ? (
+            <span role="img" aria-label="Cursor logo" className="relative h-4 w-4 shrink-0">
+              <img
+                src={darkLogoUrl}
+                alt=""
+                aria-hidden="true"
+                data-ui="cursor-logo-dark"
+                className="absolute inset-0 h-4 w-4 object-contain opacity-90"
+              />
+              <img
+                src={lightLogoUrl}
+                alt=""
+                aria-hidden="true"
+                data-ui="cursor-logo-light"
+                className="absolute inset-0 h-4 w-4 object-contain opacity-90"
+              />
+            </span>
           ) : (
             <Icon name="cursor-click" weight="fill" className="text-accent-muted" size={16} />
           )}

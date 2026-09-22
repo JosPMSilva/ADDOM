@@ -147,6 +147,10 @@ test('Cursor account access mirrors the OpenAI three-row settings grammar', () =
   const html = renderCursorProvider()
 
   assert.match(html, /data-ui="cursor-provider-row"/)
+  assert.match(html, /data-ui="cursor-logo-dark"/)
+  assert.match(html, /data-ui="cursor-logo-light"/)
+  assert.doesNotMatch(html, /cursor-logo-dark[^>]*\binvert\b/)
+  assert.doesNotMatch(html, /cursor-logo-light[^>]*\binvert\b/)
   assert.equal((html.match(/data-ui="cursor-(?:access|account|runtime)-row"/g) || []).length, 3)
   assert.match(html, /data-ui="cursor-access-row"/)
   assert.match(html, /data-ui="cursor-account-row"/)

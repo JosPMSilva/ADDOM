@@ -27,32 +27,6 @@ const PALETTE_OWNER_PATHS = new Set([
   'src/renderer/theme/specialized-theme-adapters.mjs',
 ])
 
-function parseHexColor(value) {
-  const normalized = String(value || '').replace('#', '')
-  return [0, 2, 4].map((offset) => Number.parseInt(normalized.slice(offset, offset + 2), 16))
-}
-
-function invertHexColor(value) {
-  const channels = parseHexColor(value).map((channel) => 255 - channel)
-  return `#${channels.map((channel) => channel.toString(16).padStart(2, '0')).join('')}`
-}
-
-function relativeLuminance(value) {
-  const channels = parseHexColor(value).map((channel) => {
-    const normalized = channel / 255
-    return normalized <= 0.04045
-      ? normalized / 12.92
-      : ((normalized + 0.055) / 1.055) ** 2.4
-  })
-  return (0.2126 * channels[0]) + (0.7152 * channels[1]) + (0.0722 * channels[2])
-}
-
-function contrastRatio(first, second) {
-  const lighter = Math.max(relativeLuminance(first), relativeLuminance(second))
-  const darker = Math.min(relativeLuminance(first), relativeLuminance(second))
-  return (lighter + 0.05) / (darker + 0.05)
-}
-
 function listSourceFiles(relativeRoot) {
   const absoluteRoot = join(REPO_ROOT, relativeRoot)
   return readdirSync(absoluteRoot, { recursive: true, withFileTypes: true })
@@ -144,20 +118,20 @@ test('specialized renderer adapters preserve current editor and terminal colors'
   })
 })
 
-test('Cursor logo keeps both facets visible after dark-theme inversion', () => {
-  const svg = readFileSync(join(REPO_ROOT, 'src/renderer/assets/provider-logos/cursor.svg'), 'utf8')
-  const sourceFills = [...svg.matchAll(/<path\s+fill="(#[0-9a-f]{6})"/gi)]
-    .map((match) => match[1])
-  assert.equal(sourceFills.length, 2)
+test('Cursor logo assets preserve the official 2D light and dark marks', () => {
+  const darkSvg = readFileSync(join(REPO_ROOT, 'src/renderer/assets/provider-logos/cursor.svg'), 'utf8')
+  const lightSvg = readFileSync(join(REPO_ROOT, 'src/renderer/assets/provider-logos/cursor-light.svg'), 'utf8')
+  const officialViewBox = /viewBox="0 0 466\.73 532\.09"/
+  const compoundPath = /M457\.43,125\.94L244\.42,2\.96[\s\S]*?444\.05,151\.99l-205\.63,356\.16/
 
-  const renderedFills = sourceFills.map(invertHexColor)
-  for (const fill of renderedFills) {
-    assert.ok(
-      contrastRatio(fill, DEFAULT_THEME_COLORS.surface) >= 3,
-      `${fill} disappears against ${DEFAULT_THEME_COLORS.surface}`,
-    )
-  }
-  assert.ok(contrastRatio(renderedFills[0], renderedFills[1]) >= 1.5)
+  assert.match(darkSvg, officialViewBox)
+  assert.match(lightSvg, officialViewBox)
+  assert.match(darkSvg, /fill:\s*#edecec/)
+  assert.match(lightSvg, /fill:\s*#26251e/)
+  assert.match(darkSvg, compoundPath)
+  assert.match(lightSvg, compoundPath)
+  assert.equal((darkSvg.match(/<path\b/g) || []).length, 1)
+  assert.equal((lightSvg.match(/<path\b/g) || []).length, 1)
 })
 
 test('approved palette values are owned by theme contracts rather than scattered components', () => {

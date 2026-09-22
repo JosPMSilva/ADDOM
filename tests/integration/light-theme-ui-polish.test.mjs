@@ -43,6 +43,14 @@ test('light theme applies explicit hierarchy to high-attention workspace surface
   assert.match(css, /\[data-app-theme=['"]light['"]\]\s+\[data-ui=['"]agent-navigator-panel['"]\]/)
 })
 
+test('Cursor provider logo follows the resolved app theme without color inversion', () => {
+  const css = readFileSync(join(REPO_ROOT, 'src/renderer/styles/globals-runtime.css'), 'utf8')
+
+  assert.match(css, /\[data-ui=['"]cursor-logo-light['"]\]\s*\{[^}]*display:\s*none/s)
+  assert.match(css, /\[data-app-theme=['"]light['"]\]\s+\[data-ui=['"]cursor-logo-dark['"]\]\s*\{[^}]*display:\s*none/s)
+  assert.match(css, /\[data-app-theme=['"]light['"]\]\s+\[data-ui=['"]cursor-logo-light['"]\]\s*\{[^}]*display:\s*block/s)
+})
+
 test('light agent navigator header stays aligned with the shared surface', () => {
   const css = readFileSync(join(REPO_ROOT, 'src/renderer/styles/globals-runtime.css'), 'utf8')
 

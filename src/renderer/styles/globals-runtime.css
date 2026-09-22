@@ -61,6 +61,22 @@ body,
   color-scheme: var(--theme-color-scheme);
 }
 
+[data-ui='cursor-logo-dark'] {
+  display: block;
+}
+
+[data-ui='cursor-logo-light'] {
+  display: none;
+}
+
+[data-app-theme='light'] [data-ui='cursor-logo-dark'] {
+  display: none;
+}
+
+[data-app-theme='light'] [data-ui='cursor-logo-light'] {
+  display: block;
+}
+
 /* Keyboard users should always get a visible focus ring, even when components use outline-none. */
 :where(button,
   [role="button"],
