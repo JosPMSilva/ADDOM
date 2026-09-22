@@ -13,6 +13,7 @@ import { handleVersioned, sendVersioned } from '../ipc/ipc-versioning.mjs'
 import { getSettings } from '../settings.mjs'
 import { getKey } from '../vault.mjs'
 import { createThreadFromPromotionSnapshot } from '../workspace/workspace-store.mjs'
+import { assertApplicationWorkStartAllowed } from '../application-work-quiescence.mjs'
 
 function text(value, field, maxLength = 4_000) {
   const normalized = String(value || '').trim()
@@ -94,6 +95,7 @@ export function registerAgentRunHandlers({
   resolveContinuationRoute = null,
   createProjectThreadFromPromotion = createThreadFromPromotionSnapshot,
   subscriptionIdFactory = randomUUID,
+  assertWorkStartAllowed = assertApplicationWorkStartAllowed,
 } = {}) {
   if (!ipcMain?.handle) throw new TypeError('ipcMain is required')
   const subscriptions = new Map()
@@ -248,6 +250,7 @@ export function registerAgentRunHandlers({
   })
 
   handleVersioned(ipcMain, 'agent-runs:followup', async (_event, input = {}) => {
+    assertWorkStartAllowed()
     const { query, runtime } = await readyServices()
     const scope = query.assertScope(input, { requireRun: true, requireNode: true })
     if (typeof runtime.continueConversation !== 'function') {
@@ -319,6 +322,7 @@ export function registerAgentRunHandlers({
   })
 
   handleVersioned(ipcMain, 'agent-runs:retry', async (_event, input = {}) => {
+    assertWorkStartAllowed()
     const { query, runtime } = await readyServices()
     const scope = query.assertScope(input, { requireRun: true })
     const nodeId = ensureOwnedNode(query, input, 'nodeId')
@@ -329,6 +333,7 @@ export function registerAgentRunHandlers({
   })
 
   handleVersioned(ipcMain, 'agent-runs:queue', async (_event, input = {}) => {
+    if (input.paused !== true) assertWorkStartAllowed()
     const { query, runtime } = await readyServices()
     query.assertScope(input)
     return input.paused === true

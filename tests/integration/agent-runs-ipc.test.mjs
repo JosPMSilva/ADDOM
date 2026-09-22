@@ -602,6 +602,8 @@ test('agent run IPC exposes canonical control, retry, and queue routes', async (
     const eventStore = createAgentEventStore(db)
     appendActiveRun(eventStore)
     const calls = []
+    let workStartAssertions = 0
+    let workStartBlocked = false
     const harness = createIpcMainHarness()
     registerAgentRunHandlers({
       ipcMain: harness.ipcMain,
@@ -628,6 +630,10 @@ test('agent run IPC exposes canonical control, retry, and queue routes', async (
           return { supported: true, admitted: true }
         },
       }),
+      assertWorkStartAllowed() {
+        workStartAssertions += 1
+        if (workStartBlocked) throw new Error('Update installation is in progress')
+      },
     })
     const event = { sender: createSender() }
     const scope = {
@@ -649,12 +655,28 @@ test('agent run IPC exposes canonical control, retry, and queue routes', async (
       threadId: 'thread_01',
       paused: true,
     })
+    await harness.handlers.get('v1:agent-runs:queue')(event, {
+      projectId: 'project_01',
+      threadId: 'thread_01',
+      paused: false,
+    })
 
     assert.deepEqual(calls.map(([name]) => name), [
       'stopNode',
       'retryAgent',
       'pauseQueue',
+      'resumeQueue',
     ])
+    assert.equal(workStartAssertions, 2)
+
+    workStartBlocked = true
+    await assert.rejects(harness.handlers.get('v1:agent-runs:followup')(event, {}), /Update installation/)
+    await assert.rejects(harness.handlers.get('v1:agent-runs:retry')(event, scope), /Update installation/)
+    await assert.rejects(harness.handlers.get('v1:agent-runs:queue')(event, {
+      projectId: 'project_01', threadId: 'thread_01', paused: false,
+    }), /Update installation/)
+    assert.equal(workStartAssertions, 5)
+    assert.equal(calls.length, 4)
   } finally {
     db.close()
   }
