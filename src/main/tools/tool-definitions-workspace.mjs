@@ -163,13 +163,13 @@ export const WORKSPACE_TOOLS = [
   },
   {
     name: 'apply_patch',
-    description: 'Apply a targeted patch to workspace files. Prefer write_file for whole-file replacement and edit_file for exact-text replacement. Input must be a single patch string using Codex-style markers such as "*** Begin Patch", "*** Update File: path", "@@", and "*** End Patch".',
+    description: 'Apply a targeted patch to workspace files. Prefer write_file for whole-file replacement and edit_file for exact-text replacement. Input must be a single patch string using canonical markers such as "*** Begin Patch", "*** Update File: path", "@@", and "*** End Patch".',
     parameters: {
       type: 'object',
       properties: {
         patch: {
           type: 'string',
-          description: 'Canonical patch text using Codex-style patch grammar. Supports add, update, move, and delete blocks inside one "*** Begin Patch" ... "*** End Patch" payload.',
+          description: 'Canonical patch text using ADDOM patch grammar. Supports add, update, move, and delete blocks inside one "*** Begin Patch" ... "*** End Patch" payload.',
         },
       },
       required: ['patch'],

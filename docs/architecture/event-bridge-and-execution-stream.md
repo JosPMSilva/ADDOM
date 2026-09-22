@@ -95,7 +95,7 @@ It also decides whether reasoning should render as:
 - `narrative_block`
 - `milestone_step`
 
-This is how codex-style short headings avoid rendering as giant prose cards while GPT-5.1 narrative reasoning still becomes structured prose.
+This is how short heading-only milestones avoid rendering as giant prose cards while narrative reasoning still becomes structured prose.
 
 For terminal sessions specifically:
 - `live-execution-stream-tooling.mjs` and `live-execution-stream-view-model.mjs` map explicit `terminal_session_*` tools to compact progress/result labels

@@ -420,11 +420,6 @@ test('workspace thread row and menu expose dense accessible explicit-owner contr
     new URL('../../src/renderer/styles/globals-runtime.css', import.meta.url),
     'utf8',
   )
-  const designGuide = fs.readFileSync(
-    new URL('../../DESIGN.md', import.meta.url),
-    'utf8',
-  )
-
   assert.match(rowSource, /aria-current=\{active \? 'page' : undefined\}/)
   assert.match(rowSource, /aria-haspopup="menu"/)
   assert.match(rowSource, /aria-controls=\{menuId\}/)
@@ -440,7 +435,6 @@ test('workspace thread row and menu expose dense accessible explicit-owner contr
   assert.match(menuSource, /focus-visible:outline-none/)
   assert.match(menuSource, /bg-surface-panel-alt/)
   assert.match(runtimeStyles, /\[data-ui="workspace-thread-rename-input"\]\[data-focus-origin="pointer"\]:focus-visible/)
-  assert.match(designGuide, /Mouse-initiated focus must not render an outer focus ring/)
   assert.match(treeSource, /useWorkspaceThreadActivity/)
   assert.match(controllerSource, /reportError: false, throwOnError: true/)
   assert.match(controllerSource, /loadProjectThreads\(projectId, \{ force: true \}\)/)

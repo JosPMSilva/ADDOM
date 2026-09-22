@@ -39,8 +39,6 @@ Localization is partial in `0.1.1-alpha`: supported locales cover the translatio
 
 ## Reference
 
-- [Design Contract](../DESIGN.md)
-- [Design System Workflow](./design-system.md)
 - [window.addom API](./reference/window-addom-api.md)
 - [Tool Catalog](./reference/tool-catalog.md)
 - [Settings Catalog](./reference/settings-catalog.md)

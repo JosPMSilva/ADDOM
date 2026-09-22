@@ -12,7 +12,7 @@ test('formatTokenCompact formats token counts consistently', () => {
   assert.equal(formatTokenCompact(2_250_000), '2.3M')
 })
 
-test('buildContextMeterViewModel exposes Codex-style used context window labels', () => {
+test('buildContextMeterViewModel exposes concise used-context labels', () => {
   const vm = buildContextMeterViewModel({
     usage: {
       modelLimit: 258400,

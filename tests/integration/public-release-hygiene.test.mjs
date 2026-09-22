@@ -17,6 +17,9 @@ const EXCLUDED_RELEASE_PATHS = [
   'tests/fixtures/model-catalog/opencode-reasoning-effort-matrix.json',
   'package_backup.json',
   'PLAN.md',
+  'DESIGN.md',
+  'docs/design-system.md',
+  'docs/superpowers/specs/2026-09-04-idle-safe-application-updates-design.md',
 ]
 
 const TEXT_SCAN_ROOTS = [
@@ -96,4 +99,16 @@ test('public path scanner rejects real profile names while allowing documented p
   assert.equal(containsPrivateWorkstationPath(macPrivatePath), true)
   assert.equal(containsPrivateWorkstationPath(windowsExamplePath), false)
   assert.equal(containsPrivateWorkstationPath(macExamplePath), false)
+})
+
+test('public source excludes internal design inspiration and approval-process language', () => {
+  const forbidden = /approval sandbox|codex-style|secondary polish reference|primary inspiration source|user remains the arbitrator/iu
+  const rootDocuments = ['README.md', 'CHANGELOG.md', 'CONTRIBUTING.md', 'SECURITY.md']
+    .map((relativePath) => path.join(ROOT, relativePath))
+  const violations = [...rootDocuments, ...TEXT_SCAN_ROOTS.flatMap(walkTextFiles)]
+    .filter((filePath) => path.resolve(filePath) !== path.resolve(import.meta.dirname, 'public-release-hygiene.test.mjs'))
+    .filter((filePath) => forbidden.test(fs.readFileSync(filePath, 'utf8')))
+    .map((filePath) => path.relative(ROOT, filePath).replaceAll('\\', '/'))
+
+  assert.deepEqual(violations, [])
 })

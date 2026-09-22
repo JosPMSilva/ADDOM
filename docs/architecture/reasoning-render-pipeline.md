@@ -50,7 +50,7 @@ This prevents the UI from rendering one timeline row per micro-fragment.
 - `milestone_step`
 
 That classification is shape-first:
-- short heading-only codex milestones become compact step rows
+- short heading-only milestones become compact step rows
 - heading plus prose or multi-paragraph reasoning becomes a structured reasoning block
 
 ## Final Rendering

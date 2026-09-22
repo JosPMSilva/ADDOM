@@ -93,7 +93,6 @@ Platform package commands are `npm run build:win`, `npm run build:mac`, and `npm
 - [Code signing policy](./docs/code-signing-policy.md) — release provenance,
   signing roles, and current signing status
 - [CHANGELOG.md](./CHANGELOG.md) — release notes
-- [DESIGN.md](./DESIGN.md) — visual design contract
 
 ## Architecture At A Glance
 

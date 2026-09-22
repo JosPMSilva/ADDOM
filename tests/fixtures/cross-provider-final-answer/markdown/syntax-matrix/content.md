@@ -1,6 +1,6 @@
 # Syntax Matrix
 
-Paragraph with `inline code`, [DESIGN.md](../../../DESIGN.md), and [internal file](../prose/content.md).
+Paragraph with `inline code`, [documentation](../../../../../docs/README.md), and [internal file](../prose/content.md).
 
 > Blockquotes should remain blockquotes.
 

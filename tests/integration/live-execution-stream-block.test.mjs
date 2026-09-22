@@ -297,7 +297,7 @@ test('LiveExecutionStreamBlock renders shared markdown primitives for headings, 
   assert.match(html, /data-chat-code-viewport="true"/)
 })
 
-test('LiveExecutionStreamBlock renders codex-style heading-only reasoning as milestone rows inline with tool rows', () => {
+test('LiveExecutionStreamBlock renders heading-only reasoning as milestone rows inline with tool rows', () => {
   assert.equal(typeof LiveExecutionStreamBlock, 'function')
   const html = renderToStaticMarkup(
     React.createElement(LiveExecutionStreamBlock, {
