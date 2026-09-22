@@ -98,6 +98,18 @@ test('unavailable updater state uses a calm no-results message', () => {
   assert.match(html, /No updates found\./)
 })
 
+test('disabled updater state is truthful, neutral, and exposes no dead action', () => {
+  const html = renderToStaticMarkup(React.createElement(SettingsUpdateSection, {
+    status: 'unavailable',
+    info: null,
+    pct: 0,
+    onCheck: () => {},
+  }))
+
+  assert.match(html, /Updates are unavailable in this build\./)
+  assert.doesNotMatch(html, /Check for updates|<button|text-danger/)
+})
+
 test('updater failures never render upstream response details', () => {
   const unsafeDetails = '404 GET https://github.com/example/private/releases.atom set-cookie: _gh_sess=secret authorization: Bearer token'
   const html = renderToStaticMarkup(React.createElement(SettingsUpdateSection, {
@@ -112,4 +124,37 @@ test('updater failures never render upstream response details', () => {
 
   assert.match(html, /The update service is not available yet\. Try again later\./)
   assert.doesNotMatch(html, /github\.com|set-cookie|_gh_sess|Bearer token|secret/i)
+})
+
+test('known-candidate errors retry download while blocked and installing states expose no action', () => {
+  const retryHtml = renderToStaticMarkup(React.createElement(SettingsUpdateSection, {
+    status: 'error',
+    info: { version: '2.0.0', code: 'network', installBlockers: [] },
+    pct: 0,
+    onCheck: () => {},
+    onDownload: () => {},
+  }))
+  assert.match(retryHtml, /Retry download/)
+  assert.doesNotMatch(retryHtml, /Check for updates/)
+
+  const blockedHtml = renderToStaticMarkup(React.createElement(SettingsUpdateSection, {
+    status: 'blocked',
+    info: {
+      version: '2.0.0',
+      installBlockers: [{ kind: 'running-task', label: 'One task is still running' }],
+    },
+    pct: 100,
+    onInstall: () => {},
+  }))
+  assert.match(blockedHtml, /Ready when idle/i)
+  assert.doesNotMatch(blockedHtml, /<button/)
+
+  const installingHtml = renderToStaticMarkup(React.createElement(SettingsUpdateSection, {
+    status: 'installing',
+    info: { version: '2.0.0', installBlockers: [] },
+    pct: 100,
+    onInstall: () => {},
+  }))
+  assert.match(installingHtml, /Installing update/)
+  assert.doesNotMatch(installingHtml, /<button/)
 })

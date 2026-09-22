@@ -9,7 +9,7 @@ import DocumentCompanionSearch from './DocumentCompanionSearch.jsx'
 import { createFinalAnswerMarkdownComponents } from './final-document/final-answer-markdown-components.jsx'
 import { readAbsoluteEvidenceFile, resolveDocumentCompanionReferencePath } from './evidence-file-navigation.mjs'
 import { hasPlanAnnotationTextSelection, resolvePlanAnnotationHeadingContext } from './document-companion-plan-annotation.mjs'
-import { documentReadingCursorClass, isManagedPlanReviewable, resolveManagedPlanPrimaryAction } from './document-companion-plan-review.mjs'
+import { buildManagedPlanEditorDocument, canOpenManagedPlanInEditor, documentReadingCursorClass, isManagedPlanReviewable, resolveManagedPlanPrimaryAction } from './document-companion-plan-review.mjs'
 import {
   clampPlanReviewComposerHeight,
   createPlanReviewComposerDragSession,
@@ -17,6 +17,10 @@ import {
   MIN_PLAN_REVIEW_COMPOSER_HEIGHT,
   startPlanReviewComposerDragPresentation,
 } from './document-companion-plan-review-resize.mjs'
+import {
+  SAVED_COPY_STATUS_DURATION_MS,
+  shouldShowDocumentCompanionSearch,
+} from './document-companion-toolbar-layout.mjs'
 
 function normalizedPath(value = '') {
   return String(value || '')
@@ -57,7 +61,10 @@ export default function DocumentCompanionView({ view }) {
   const [reviewComposerHeight, setReviewComposerHeight] = useState(MIN_PLAN_REVIEW_COMPOSER_HEIGHT)
   const [planActionBusy, setPlanActionBusy] = useState(false)
   const refreshTimerRef = useRef(null)
+  const savedCopyTimerRef = useRef(null)
   const markdownRootRef = useRef(null)
+  const toolbarRef = useRef(null)
+  const toolbarActionsRef = useRef(null)
   const reviewInstructionRef = useRef(null)
   const reviewComposerRef = useRef(null)
   const reviewComposerResizeSessionRef = useRef(null)
@@ -117,6 +124,7 @@ export default function DocumentCompanionView({ view }) {
     setDocumentState(view?.initialDocument || null)
     setLoading(!view?.initialDocument)
     setActionError('')
+    if (savedCopyTimerRef.current) window.clearTimeout(savedCopyTimerRef.current)
     setSavedCopyPath('')
     setActivePlanBlock(null)
     setReviewInstruction('')
@@ -156,6 +164,7 @@ export default function DocumentCompanionView({ view }) {
   useEffect(
     () => () => {
       if (refreshTimerRef.current) window.clearTimeout(refreshTimerRef.current)
+      if (savedCopyTimerRef.current) window.clearTimeout(savedCopyTimerRef.current)
       reviewComposerResizeSessionRef.current?.cleanup()
     },
     [],
@@ -163,9 +172,15 @@ export default function DocumentCompanionView({ view }) {
 
   const openInEditor = async () => {
     if (view?.sourceKind === 'managed_plan') {
+      if (!canOpenManagedPlanInEditor(documentState)) return
       setActionError('')
       try {
-        const result = await useEditorStore.getState().openEvidenceFileAtLocation(documentState?.document?.filePath)
+        const result = useEditorStore.getState().openReadOnlyContent(buildManagedPlanEditorDocument({
+          threadId: view.threadId,
+          planId: view.planId,
+          label: view.label,
+          content: documentState?.content,
+        }))
         if (!result?.ok) throw new Error('plan_document_unavailable')
         setActivePanel('editor')
       } catch {
@@ -209,6 +224,8 @@ export default function DocumentCompanionView({ view }) {
     if (fileActionBusy) return
     setFileActionBusy(true)
     setActionError('')
+    if (savedCopyTimerRef.current) window.clearTimeout(savedCopyTimerRef.current)
+    savedCopyTimerRef.current = null
     setSavedCopyPath('')
     try {
       const result = await window.addom.documents.saveManagedPlanCopy({
@@ -222,6 +239,11 @@ export default function DocumentCompanionView({ view }) {
         setActionError(t('core:companionDock.document.saveCopyFailed'))
       } else {
         setSavedCopyPath(result.filePath)
+        if (savedCopyTimerRef.current) window.clearTimeout(savedCopyTimerRef.current)
+        savedCopyTimerRef.current = window.setTimeout(() => {
+          savedCopyTimerRef.current = null
+          setSavedCopyPath('')
+        }, SAVED_COPY_STATUS_DURATION_MS)
       }
     } catch {
       setActionError(t('core:companionDock.document.saveCopyFailed'))
@@ -234,6 +256,27 @@ export default function DocumentCompanionView({ view }) {
   const pendingReviewChanges = useMemo(() => (Array.isArray(documentState?.review?.pendingChanges) ? documentState.review.pendingChanges : []), [documentState?.review?.pendingChanges])
   const planReviewable = isManagedPlanReviewable(documentState)
   const primaryPlanAction = resolveManagedPlanPrimaryAction(documentState)
+  const managedPlanEditorAvailable = view?.sourceKind === 'managed_plan'
+    && canOpenManagedPlanInEditor(documentState)
+    && !!content
+  const [searchVisible, setSearchVisible] = useState(true)
+  useEffect(() => {
+    const toolbar = toolbarRef.current
+    const actions = toolbarActionsRef.current
+    if (!toolbar || !actions) return undefined
+    const syncVisibility = () => {
+      setSearchVisible(shouldShowDocumentCompanionSearch({
+        toolbarWidth: toolbar.clientWidth,
+        actionsWidth: actions.scrollWidth,
+      }))
+    }
+    syncVisibility()
+    if (typeof ResizeObserver !== 'function') return undefined
+    const observer = new ResizeObserver(syncVisibility)
+    observer.observe(toolbar)
+    observer.observe(actions)
+    return () => observer.disconnect()
+  }, [pendingReviewChanges.length, primaryPlanAction?.kind, view?.key, view?.sourceKind])
   const annotationActionsEnabled = !activePlanBlock
   const handleReviewComposerResizePointerDown = useCallback((event) => {
     if (event.button !== 0 || event.isPrimary === false) return
@@ -444,9 +487,14 @@ export default function DocumentCompanionView({ view }) {
 
   return (
     <section className="flex h-full min-h-0 flex-col bg-surface" data-ui="document-companion-view">
-      <div className="flex min-h-9 shrink-0 items-center justify-between gap-2 border-b border-surface-border px-3">
-        <DocumentCompanionSearch content={content} contentRootRef={markdownRootRef} documentKey={view.key} />
-        <div className="flex shrink-0 items-center gap-1">
+      <div ref={toolbarRef} className="relative flex min-h-9 shrink-0 items-center gap-2 border-b border-surface-border px-3">
+        <DocumentCompanionSearch
+          compact={!searchVisible}
+          content={content}
+          contentRootRef={markdownRootRef}
+          documentKey={view.key}
+        />
+        <div ref={toolbarActionsRef} className="ml-auto flex shrink-0 items-center gap-1">
           {view?.sourceKind === 'managed_plan' && pendingReviewChanges.length > 0 ? (
             <>
               <span data-ui="managed-plan-change-count" className="px-1 text-[11px] text-text-tertiary">
@@ -496,14 +544,17 @@ export default function DocumentCompanionView({ view }) {
           ) : null}
           {view?.sourceKind === 'managed_plan' ? <button
             type="button"
+            data-ui="managed-plan-save-copy"
             onClick={saveCopy}
             disabled={fileActionBusy || !content || loading}
-            className="rounded-md px-2 py-1 text-xs text-text-secondary outline-none hover:bg-surface-panel hover:text-text-primary disabled:opacity-50 focus-visible:ring-1 focus-visible:ring-border-strong"
-          >{t('core:companionDock.document.saveCopy')}</button> : null}
-          <button
+            aria-label={t('core:companionDock.document.saveCopy')}
+            title={t('core:companionDock.document.saveCopy')}
+            className="flex size-7 items-center justify-center rounded-md text-text-tertiary outline-none hover:bg-surface-panel hover:text-text-primary disabled:opacity-50 focus-visible:ring-1 focus-visible:ring-border-strong"
+          ><Icon name="floppy-disk" size={14} /></button> : null}
+          {view?.sourceKind !== 'managed_plan' || managedPlanEditorAvailable ? <button
             type="button"
+            data-ui={view?.sourceKind === 'managed_plan' ? 'managed-plan-open-editor' : undefined}
             onClick={openInEditor}
-            disabled={view?.sourceKind === 'managed_plan' && !documentState?.document?.filePath}
             aria-label={t(view?.sourceKind === 'managed_plan' ? 'core:companionDock.document.openReadOnly' : 'core:companionDock.document.openInEditor', {
               defaultValue: 'Open in editor',
             })}
@@ -513,7 +564,7 @@ export default function DocumentCompanionView({ view }) {
             className="flex size-7 items-center justify-center rounded-md text-text-tertiary outline-none transition-colors hover:bg-surface-panel hover:text-text-primary focus-visible:ring-1 focus-visible:ring-border-strong"
           >
             <Icon name="code" size={14} />
-          </button>
+          </button> : null}
           <button
             type="button"
             onClick={() => {

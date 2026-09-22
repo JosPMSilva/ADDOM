@@ -10,6 +10,10 @@ import { startOpenAIAccountBackgroundOperation } from '../api-clients/ai-provide
 
 let singleton = null
 
+export function getManagedAgentRuntimeIfActive() {
+  return singleton
+}
+
 export function getManagedAgentRuntime() {
   if (singleton) return singleton
   const adapterRegistry = createAgentProviderRegistry()

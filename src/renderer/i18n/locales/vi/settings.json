@@ -706,11 +706,13 @@
       "description": "ADDOM tự động kiểm tra các bản cập nhật khi khởi chạy. Bạn kiểm soát thời điểm tải xuống và cài đặt các bản cập nhật.",
       "status": {
         "upToDate": "Cập nhật",
+        "unavailable": "Bản dựng này không hỗ trợ cập nhật.",
         "checking": "Đang kiểm tra cập nhật...",
         "latest": "Bạn đang dùng phiên bản mới nhất",
         "available": "Đã có bản cập nhật - v{{version}}",
         "downloading": "Đang tải xuống... {{percent}}%",
         "readyToInstall": "v{{version}} đã sẵn sàng để cài đặt",
+        "installing": "Đang cài đặt bản cập nhật...",
         "error": "Không thể kiểm tra bản cập nhật. Hãy thử lại sau.",
         "errorUnavailable": "Dịch vụ cập nhật chưa khả dụng. Hãy thử lại sau.",
         "errorNetwork": "Không thể kết nối với dịch vụ cập nhật. Hãy kiểm tra kết nối và thử lại."
@@ -719,6 +721,17 @@
         "checkForUpdates": "Kiểm tra các bản cập nhật",
         "download": "Tải xuống v{{version}}",
         "restartAndInstall": "Khởi động lại và cài đặt"
+      },
+      "sidebar": {
+        "labels": {
+          "update": "Cập nhật",
+          "restart": "Khởi động lại",
+          "waiting": "Đang chờ",
+          "retry": "Thử lại",
+          "installing": "Đang cài…"
+        },
+        "retry": "Cập nhật thất bại · Thử lại",
+        "waiting": "Sẵn sàng khi không hoạt động"
       }
     },
     "about": {

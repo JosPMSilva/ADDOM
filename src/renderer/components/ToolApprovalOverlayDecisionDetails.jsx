@@ -186,7 +186,7 @@ export function ApprovalIntentSummary({
         </div>
       )}
       {warningText && (
-        <p className="border-l-2 border-warning-border/55 pl-2.5 text-xs leading-5 text-warning-soft">
+        <p className="text-xs leading-5 text-warning-soft">
           {warningText}
         </p>
       )}

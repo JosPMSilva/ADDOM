@@ -706,11 +706,13 @@
       "description": "ADDOM memeriksa pembaruan secara otomatis saat peluncuran. Anda mengontrol kapan pembaruan diunduh dan diinstal.",
       "status": {
         "upToDate": "Terkini",
+        "unavailable": "Pembaruan tidak tersedia dalam build ini.",
         "checking": "Memeriksa pembaruan...",
         "latest": "Anda menggunakan versi terbaru",
         "available": "Pembaruan tersedia - v{{version}}",
         "downloading": "Mengunduh... {{percent}}%",
         "readyToInstall": "v{{version}} siap dipasang",
+        "installing": "Memasang pembaruan...",
         "error": "Tidak dapat memeriksa pembaruan. Coba lagi nanti.",
         "errorUnavailable": "Layanan pembaruan belum tersedia. Coba lagi nanti.",
         "errorNetwork": "Tidak dapat menjangkau layanan pembaruan. Periksa koneksi Anda dan coba lagi."
@@ -719,6 +721,17 @@
         "checkForUpdates": "Periksa pembaruan",
         "download": "Unduh v{{version}}",
         "restartAndInstall": "Mulai ulang dan Instal"
+      },
+      "sidebar": {
+        "labels": {
+          "update": "Perbarui",
+          "restart": "Mulai ulang",
+          "waiting": "Menunggu",
+          "retry": "Coba lagi",
+          "installing": "Memasang…"
+        },
+        "retry": "Pembaruan gagal · Coba lagi",
+        "waiting": "Siap saat tidak aktif"
       }
     },
     "about": {

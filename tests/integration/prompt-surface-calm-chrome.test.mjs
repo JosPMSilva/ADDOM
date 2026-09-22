@@ -16,7 +16,7 @@ after(async () => {
   await closeViteSsrLoader()
 })
 
-test('PromptSurface calm chrome: borderless tonal shell with semantic leads', () => {
+test('PromptSurface calm chrome: borderless tonal shell without semantic edge rails', () => {
   assert.equal(typeof PromptSurface, 'function')
 
   const neutral = renderToStaticMarkup(React.createElement(PromptSurface, {
@@ -33,7 +33,7 @@ test('PromptSurface calm chrome: borderless tonal shell with semantic leads', ()
   const warning = renderToStaticMarkup(React.createElement(PromptSurface, { tone: 'warning' }, 'Warn'))
   assert.match(warning, /data-tone="warning"/)
   assert.match(warning, /bg-surface-panel-alt/)
-  assert.match(warning, /inset_2px_0_0/)
+  assert.doesNotMatch(warning, /inset_2px_0_0/)
   assert.doesNotMatch(warning, /border-warning-border/)
   assert.doesNotMatch(warning, /bg-danger-bg/)
 
@@ -42,6 +42,6 @@ test('PromptSurface calm chrome: borderless tonal shell with semantic leads', ()
   assert.doesNotMatch(decision, /border-border-strong/)
 
   const danger = renderToStaticMarkup(React.createElement(PromptSurface, { tone: 'danger' }, 'Danger'))
-  assert.match(danger, /inset_2px_0_0/)
+  assert.doesNotMatch(danger, /inset_2px_0_0/)
   assert.doesNotMatch(danger, /bg-danger-bg/)
 })

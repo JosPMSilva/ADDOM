@@ -44,11 +44,12 @@ test('QuestionUserCard calm chrome: no badge cluster, quiet options, ink well, S
 
   assert.match(html, /Recommended/)
   assert.match(html, /data-ui="chat-question-user-option"/)
-  assert.match(html, /data-ui="chat-question-user-answer"/)
+  assert.match(html, /aria-pressed="true"/)
+  assert.doesNotMatch(html, /data-ui="chat-question-user-answer"/)
   assert.match(html, /data-ui="chat-question-user-submit"/)
   assert.match(html, /data-ui="approval-shortcut-enter"/)
   assert.match(html, /Send(?! Answer)/)
-  assert.match(html, /bg-surface-panel-muted-strong/)
+  assert.match(html, /bg-accent-hover/)
   // Short header stays compact; body/options use regular 12px weight.
   assert.match(html, /text-xs font-medium leading-tight text-text-primary/)
   assert.match(html, /text-xs font-normal leading-5 text-text-secondary/)
@@ -71,6 +72,19 @@ test('QuestionUserCard question-only prompt uses body weight, not a bold display
   assert.doesNotMatch(html, /font-semibold/)
   assert.match(html, /text-xs font-normal leading-5 text-text-primary/)
   assert.match(html, /Sim, cria/)
+})
+
+test('QuestionUserCard reveals freeform input for an Other option', () => {
+  const html = renderToStaticMarkup(React.createElement(QuestionUserCard, {
+    request: {
+      question: 'Which route should I use?',
+      options: [
+        { id: 'other', label: 'Other route', recommended: true },
+      ],
+    },
+  }))
+
+  assert.match(html, /data-ui="chat-question-user-answer"/)
 })
 
 test('QuestionUserCard does not submit Enter while an IME composition is active', () => {

@@ -181,6 +181,12 @@
         "none": "Aucune suggestion"
       }
     },
+    "memorySuggestion": {
+      "title": "Enregistrer l’information du terminal ?",
+      "scopeLabel": "Portée de la mémoire",
+      "projectMemory": "Mémoire du projet",
+      "save": "Enregistrer l’information"
+    },
     "banner": {
       "thisPlatform": "cette plateforme",
       "anotherPlatform": "une autre plateforme",
@@ -549,6 +555,7 @@
         "expandTitle": "Développer le panneau Problèmes",
         "collapseTitle": "Réduire le panneau Problèmes",
         "setDefaultStateTitle": "Définir l'état par défaut du panneau Problèmes",
+        "preferences": "Préférences du panneau Problèmes",
         "defaultCollapsed": "Valeur par défaut réduite",
         "noMatch": "Aucun problème ne correspond au filtre actuel.",
         "noneInFile": "Aucun problème dans ce fichier."
@@ -1036,6 +1043,10 @@
       "dispatching": "Expéditeur...",
       "executeTasks": "Exécuter la tâche {{count}}{{suffix}}"
     },
+    "timeline": {
+      "showEarlier": "Afficher les {{count}} précédentes",
+      "showEarlierAriaLabel": "Afficher jusqu’à {{count}} entrées précédentes de la chronologie. {{hiddenCount}} sont masquées."
+    },
     "questionUser": {
       "clarificationNeeded": "Clarification nécessaire",
       "waitingOnYou": "Je t'attends",
@@ -1471,6 +1482,24 @@
     "clear": "Clair",
     "clearAll": "Tout effacer",
     "cancel": "Annuler"
+  },
+  "errorBoundary": {
+    "technicalDetails": "Détails techniques",
+    "app": {
+      "unexpected": "Erreur de rendu inattendue",
+      "eyebrow": "Erreur de rendu",
+      "title": "ADDOM n’a pas pu afficher cet écran.",
+      "description": "Rechargez l’application pour restaurer l’espace de travail. Les données locales de votre projet sont inchangées.",
+      "reload": "Recharger ADDOM"
+    },
+    "panel": {
+      "fallbackLabel": "Ce panneau",
+      "unexpected": "Erreur de panneau inattendue",
+      "eyebrow": "Erreur du panneau",
+      "title": "{{panelLabel}} n’a pas pu être affiché.",
+      "description": "Réessayez d’ouvrir ce panneau. Les données de votre projet et de la conversation sont inchangées.",
+      "retry": "Réessayer"
+    }
   },
   "settingsInstructions": {
     "title": "Utilisation de ADDOM",

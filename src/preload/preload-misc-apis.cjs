@@ -37,17 +37,24 @@ function createClipboardApi({ invokeVersioned, asString }) {
   }
 }
 
-function createUpdaterApi({ invokeVersioned, subVersioned }) {
+function createUpdaterApi({ invokeVersioned, subVersioned, normalizeUpdateInstallPreflight }) {
   return {
+    getState: () => invokeVersioned('updater:getState'),
     checkForUpdates: () => invokeVersioned('updater:checkForUpdates'),
     downloadUpdate: () => invokeVersioned('updater:downloadUpdate'),
-    installUpdate: () => invokeVersioned('updater:installUpdate'),
-    onChecking: (cb) => subVersioned('updater:checking', cb),
-    onAvailable: (cb) => subVersioned('updater:available', cb),
-    onNotAvailable: (cb) => subVersioned('updater:not-available', cb),
-    onError: (cb) => subVersioned('updater:error', cb),
-    onProgress: (cb) => subVersioned('updater:progress', cb),
-    onDownloaded: (cb) => subVersioned('updater:downloaded', cb),
+    refreshInstallReadiness: (preflight) => invokeVersioned(
+      'updater:refreshInstallReadiness',
+      typeof normalizeUpdateInstallPreflight === 'function'
+        ? normalizeUpdateInstallPreflight(preflight)
+        : null,
+    ),
+    installUpdate: (preflight) => invokeVersioned(
+      'updater:installUpdate',
+      typeof normalizeUpdateInstallPreflight === 'function'
+        ? normalizeUpdateInstallPreflight(preflight)
+        : null,
+    ),
+    onStateChanged: (cb) => subVersioned('updater:state-changed', cb),
   }
 }
 

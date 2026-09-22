@@ -104,6 +104,24 @@ test('companion drag reaches half the viewport when Projects is collapsed', () =
   assert.deepEqual(previews, [600])
 })
 
+test('document companion drag respects the document-specific minimum width', () => {
+  const eventTarget = new FakeEventTarget()
+  const previews = []
+
+  createChatCompanionDragSession({
+    eventTarget,
+    pointerId: 5,
+    startClientX: 600,
+    startWidth: 520,
+    viewportWidth: 1_400,
+    layout: { companionType: 'document' },
+    onPreview: (width) => previews.push(width),
+  })
+
+  eventTarget.dispatch('pointermove', { pointerId: 5, clientX: 900 })
+  assert.deepEqual(previews, [460])
+})
+
 test('companion drag presentation disables transitions and restores prior styles', () => {
   const shellElement = { style: { transition: 'width 150ms ease-out' } }
   const bodyElement = { style: { cursor: 'default', userSelect: 'text' } }

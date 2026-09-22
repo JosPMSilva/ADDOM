@@ -6,7 +6,9 @@ Local-first desktop workspace for multi-provider AI coding, with guarded tools, 
 
 ## Project Status
 
-ADDOM `0.1.1-alpha` is early software. Preview builds are prepared for Windows, macOS, and Linux; the Windows installer has been verified locally, while macOS and Linux builds still need broader platform testing. Builds are currently unsigned. Windows builds can check, download, and install updates from ADDOM's official published GitHub releases; macOS and Linux updates remain manual while their packaging paths are hardened.
+The latest public ADDOM release is `0.1.1-alpha`. Development is underway on `0.1.2-alpha`, so documentation on the development branch may describe behavior intended for that next release. ADDOM remains early software. Preview builds are prepared for Windows, macOS, and Linux; the Windows installer has been verified locally, while macOS and Linux builds still need broader platform testing. Builds are currently unsigned. Windows builds can check, download, and install updates from ADDOM's official published GitHub releases; macOS and Linux updates remain manual while their packaging paths are hardened.
+
+Non-English UI coverage is still incomplete in `0.1.1-alpha`. The language setting translates supported renderer copy, but some newer and less common surfaces still fall back to English. Closing those gaps is part of the `0.1.2-alpha` development work. Commands, file paths, provider and model identifiers, protocol names, and other support-critical technical tokens remain canonical English by design.
 
 ## Why ADDOM
 

@@ -706,11 +706,13 @@
       "description": "ADDOM automatycznie sprawdza dostępność aktualizacji po uruchomieniu. Kontrolujesz, kiedy aktualizacje są pobierane i instalowane.",
       "status": {
         "upToDate": "Aktualne",
+        "unavailable": "Aktualizacje są niedostępne w tej kompilacji.",
         "checking": "Sprawdzam dostępność aktualizacji...",
         "latest": "Korzystasz z najnowszej wersji",
         "available": "Dostępna aktualizacja - v{{version}}",
         "downloading": "Pobieram... {{percent}}%",
         "readyToInstall": "v{{version}} gotowy do instalacji",
+        "installing": "Instalowanie aktualizacji...",
         "error": "Nie udało się sprawdzić aktualizacji. Spróbuj ponownie później.",
         "errorUnavailable": "Usługa aktualizacji nie jest jeszcze dostępna. Spróbuj ponownie później.",
         "errorNetwork": "Nie udało się połączyć z usługą aktualizacji. Sprawdź połączenie i spróbuj ponownie."
@@ -719,6 +721,17 @@
         "checkForUpdates": "Sprawdź aktualizacje",
         "download": "Pobierz v{{version}}",
         "restartAndInstall": "Uruchom ponownie i zainstaluj"
+      },
+      "sidebar": {
+        "labels": {
+          "update": "Aktualizuj",
+          "restart": "Restart",
+          "waiting": "Oczekiwanie",
+          "retry": "Ponów",
+          "installing": "Instalacja…"
+        },
+        "retry": "Aktualizacja nie powiodła się · Ponów",
+        "waiting": "Gotowe po zakończeniu pracy"
       }
     },
     "about": {

@@ -81,6 +81,28 @@ class FakeTimerQueue {
   }
 }
 
+test('terminal session manager refuses new sessions while application work is quiescing', () => {
+  const manager = createTerminalSessionManager({
+    platform: 'linux',
+    env: { SHELL: '/bin/bash' },
+    assertWorkStartAllowed() {
+      const error = new Error('Application is preparing to update.')
+      error.code = 'application_quiescing'
+      throw error
+    },
+    spawnTerminal: () => {
+      throw new Error('terminal must not spawn while quiescing')
+    },
+  })
+
+  assert.throws(
+    () => manager.createSession({ cwd: process.cwd(), shell: 'default' }),
+    (error) => error?.code === 'application_quiescing',
+  )
+  assert.deepEqual(manager.listSessions(), [])
+  manager.dispose()
+})
+
 function createNowSequence(start = 1_000) {
   let value = start
   return () => {

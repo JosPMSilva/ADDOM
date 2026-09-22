@@ -181,6 +181,12 @@
         "none": "Nessun suggerimento"
       }
     },
+    "memorySuggestion": {
+      "title": "Salvare l’informazione del terminale?",
+      "scopeLabel": "Ambito della memoria",
+      "projectMemory": "Memoria del progetto",
+      "save": "Salva informazione"
+    },
     "banner": {
       "thisPlatform": "questa piattaforma",
       "anotherPlatform": "un'altra piattaforma",
@@ -549,6 +555,7 @@
         "expandTitle": "Espandi il pannello Problemi",
         "collapseTitle": "Comprimi il pannello Problemi",
         "setDefaultStateTitle": "Imposta lo stato predefinito del pannello Problemi",
+        "preferences": "Preferenze del pannello Problemi",
         "defaultCollapsed": "L'impostazione predefinita è crollata",
         "noMatch": "Nessun problema corrisponde al filtro corrente.",
         "noneInFile": "Nessun problema in questo file."
@@ -1036,6 +1043,10 @@
       "dispatching": "Invio...",
       "executeTasks": "Esegui l'attività {{count}}{{suffix}}"
     },
+    "timeline": {
+      "showEarlier": "Mostra {{count}} precedenti",
+      "showEarlierAriaLabel": "Mostra fino a {{count}} voci precedenti della cronologia. {{hiddenCount}} sono nascoste."
+    },
     "questionUser": {
       "clarificationNeeded": "Necessario un chiarimento",
       "waitingOnYou": "Ti aspetto",
@@ -1471,6 +1482,24 @@
     "clear": "Chiaro",
     "clearAll": "Cancella tutto",
     "cancel": "Cancellare"
+  },
+  "errorBoundary": {
+    "technicalDetails": "Dettagli tecnici",
+    "app": {
+      "unexpected": "Errore imprevisto del renderer",
+      "eyebrow": "Errore del renderer",
+      "title": "ADDOM non ha potuto visualizzare questa schermata.",
+      "description": "Ricarica l’app per ripristinare l’area di lavoro. I dati locali del progetto non sono stati modificati.",
+      "reload": "Ricarica ADDOM"
+    },
+    "panel": {
+      "fallbackLabel": "Questo pannello",
+      "unexpected": "Errore imprevisto del pannello",
+      "eyebrow": "Errore del pannello",
+      "title": "Impossibile visualizzare {{panelLabel}}.",
+      "description": "Riprova per ripristinare questo pannello. I dati del progetto e della conversazione non sono stati modificati.",
+      "retry": "Riprova"
+    }
   },
   "settingsInstructions": {
     "title": "Utilizzando ADDOM",

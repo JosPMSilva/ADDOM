@@ -181,6 +181,12 @@
         "none": "No suggestion"
       }
     },
+    "memorySuggestion": {
+      "title": "Save terminal insight?",
+      "scopeLabel": "Memory scope",
+      "projectMemory": "Project memory",
+      "save": "Save insight"
+    },
     "banner": {
       "thisPlatform": "this platform",
       "anotherPlatform": "another platform",
@@ -549,6 +555,7 @@
         "expandTitle": "Expand Problems panel",
         "collapseTitle": "Collapse Problems panel",
         "setDefaultStateTitle": "Set Problems panel default state",
+        "preferences": "Problems panel preferences",
         "defaultCollapsed": "Default collapsed",
         "noMatch": "No problems match the current filter.",
         "noneInFile": "No problems in this file."
@@ -1036,6 +1043,10 @@
       "dispatching": "Dispatching...",
       "executeTasks": "Execute {{count}} task{{suffix}}"
     },
+    "timeline": {
+      "showEarlier": "Show {{count}} earlier",
+      "showEarlierAriaLabel": "Show up to {{count}} earlier timeline entries. {{hiddenCount}} hidden."
+    },
     "questionUser": {
       "clarificationNeeded": "Clarification Needed",
       "waitingOnYou": "Waiting On You",
@@ -1471,6 +1482,24 @@
     "clear": "Clear",
     "clearAll": "Clear all",
     "cancel": "Cancel"
+  },
+  "errorBoundary": {
+    "technicalDetails": "Technical details",
+    "app": {
+      "unexpected": "Unexpected renderer error",
+      "eyebrow": "Renderer error",
+      "title": "ADDOM couldn't display this screen.",
+      "description": "Reload the app to restore the workspace. Your local project data is unchanged.",
+      "reload": "Reload ADDOM"
+    },
+    "panel": {
+      "fallbackLabel": "This panel",
+      "unexpected": "Unexpected panel error",
+      "eyebrow": "Panel error",
+      "title": "{{panelLabel}} could not be displayed.",
+      "description": "Retry this panel to restore it. Your project and thread data are unchanged.",
+      "retry": "Retry panel"
+    }
   },
   "settingsInstructions": {
     "title": "Using ADDOM",

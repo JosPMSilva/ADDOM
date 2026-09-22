@@ -181,6 +181,12 @@
         "none": "Kein Vorschlag"
       }
     },
+    "memorySuggestion": {
+      "title": "Terminal-Erkenntnis speichern?",
+      "scopeLabel": "Speicherbereich",
+      "projectMemory": "Projektspeicher",
+      "save": "Erkenntnis speichern"
+    },
     "banner": {
       "thisPlatform": "diese Plattform",
       "anotherPlatform": "eine andere Plattform",
@@ -549,6 +555,7 @@
         "expandTitle": "Erweitern Sie den Bereich „Probleme“.",
         "collapseTitle": "Fenster „Probleme“ ausblenden",
         "setDefaultStateTitle": "Legen Sie den Standardstatus des Bedienfelds „Probleme“ fest",
+        "preferences": "Einstellungen des Probleme-Bereichs",
         "defaultCollapsed": "Die Standardeinstellung ist ausgeblendet",
         "noMatch": "Es gibt keine Probleme, die mit dem aktuellen Filter übereinstimmen.",
         "noneInFile": "Keine Probleme in dieser Datei."
@@ -1036,6 +1043,10 @@
       "dispatching": "Versand...",
       "executeTasks": "Führen Sie die Aufgabe {{count}}{{suffix}} aus"
     },
+    "timeline": {
+      "showEarlier": "{{count}} frühere anzeigen",
+      "showEarlierAriaLabel": "Bis zu {{count}} frühere Zeitleisteneinträge anzeigen. {{hiddenCount}} sind ausgeblendet."
+    },
     "questionUser": {
       "clarificationNeeded": "Klarstellung erforderlich",
       "waitingOnYou": "Ich warte auf dich",
@@ -1471,6 +1482,24 @@
     "clear": "Klar",
     "clearAll": "Alles löschen",
     "cancel": "Stornieren"
+  },
+  "errorBoundary": {
+    "technicalDetails": "Technische Details",
+    "app": {
+      "unexpected": "Unerwarteter Rendererfehler",
+      "eyebrow": "Rendererfehler",
+      "title": "ADDOM konnte diesen Bildschirm nicht anzeigen.",
+      "description": "Laden Sie die App neu, um den Arbeitsbereich wiederherzustellen. Ihre lokalen Projektdaten bleiben unverändert.",
+      "reload": "ADDOM neu laden"
+    },
+    "panel": {
+      "fallbackLabel": "Dieser Bereich",
+      "unexpected": "Unerwarteter Bereichsfehler",
+      "eyebrow": "Bereichsfehler",
+      "title": "{{panelLabel}} konnte nicht angezeigt werden.",
+      "description": "Versuchen Sie es erneut, um diesen Bereich wiederherzustellen. Ihre Projekt- und Thread-Daten bleiben unverändert.",
+      "retry": "Erneut versuchen"
+    }
   },
   "settingsInstructions": {
     "title": "Mit ADDOM",

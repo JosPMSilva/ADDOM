@@ -71,6 +71,24 @@ test('chat run registry keeps different thread owners active at the same time', 
   assert.equal(runB.abortController.signal.aborted, false)
 })
 
+test('chat run registry refuses new runs while application work is quiescing', () => {
+  const registry = createChatRunRegistry({
+    assertWorkStartAllowed() {
+      const error = new Error('Application is preparing to update.')
+      error.code = 'application_quiescing'
+      throw error
+    },
+  })
+
+  assert.throws(() => registry.register(createRun({
+    loopKey: '1:thread-blocked',
+    projectId: 'project-blocked',
+    threadId: 'thread-blocked',
+    turnId: 'turn-blocked',
+  })), (error) => error?.code === 'application_quiescing')
+  assert.deepEqual(registry.list(), [])
+})
+
 test('registering a newer run only replaces the same loop key', () => {
   const registry = createChatRunRegistry()
   const oldA = createRun({

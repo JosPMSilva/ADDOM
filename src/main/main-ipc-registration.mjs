@@ -59,9 +59,13 @@ export function registerMainProcessIpcHandlers({
   registerDocumentHandlers({ listProjects })
   registerEditorServiceHandlers()
   registerEditorCompletionHandlers()
-  if (!isPackagedSmoke) {
-    registerUpdaterHandlers(() => getMainWindow())
-  }
+  const disposeUpdater = registerUpdaterHandlers({
+    getMainWindow,
+    chatRunRegistry,
+    terminalSessionManager,
+    prepareForExit,
+    isPackaged: isPackagedSmoke ? false : undefined,
+  })
   ensureAdvancedConfigBootstrap()
   registerSettingsHandlers()
   registerAdvancedConfigHandlers()
@@ -273,5 +277,9 @@ export function registerMainProcessIpcHandlers({
   return {
     ...terminalSessionHandlers,
     chatRunRegistry,
+    dispose() {
+      disposeUpdater()
+      terminalSessionHandlers.dispose?.()
+    },
   }
 }

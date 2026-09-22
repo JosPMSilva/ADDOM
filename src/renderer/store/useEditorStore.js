@@ -17,10 +17,8 @@ import {
   setModelRegistrySavedContent,
   syncModelRegistryLanguage,
 } from './editor-model-registry.js'
-import {
-  createEditorGitDiffActions,
-  createInitialEditorGitDiffState,
-} from './editor-git-diff-store.js'
+import { createEditorGitDiffActions, createInitialEditorGitDiffState } from './editor-git-diff-store.js'
+import { createOpenReadOnlyContentAction } from './editor-read-only-content-store.js'
 import { resolveAbsoluteEvidenceFileReference } from '../components/chat/evidence-file-navigation.mjs'
 import {
   normalizeEditorLocation,
@@ -323,6 +321,13 @@ const useEditorStore = create((set, get) => ({
     get().clearTabGitDiff(id)
     return { ok: false, reason: errorMessage, tabId: id, modelUri }
   },
+
+  openReadOnlyContent: createOpenReadOnlyContentAction({
+    set,
+    get,
+    nextTabId,
+    onRegistryChange: () => bumpModelRegistryVersion(set),
+  }),
 
   openFileAtLocation: async (projectFolder, filePath, line, column, metadata = {}) => {
     const normalizedPath = resolveWorkspaceRelativeFilePath(projectFolder, filePath)

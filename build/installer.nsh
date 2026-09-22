@@ -13,6 +13,12 @@
   RMDir /r "${profileRoot}"
 !macroend
 
+!macro customInstall
+  # Launch the installed executable directly. Shell shortcuts are still created,
+  # but they are not a reliable process-handoff target during an in-place update.
+  StrCpy $launchLink "$appExe"
+!macroend
+
 !macro customUnWelcomePage
   !define MUI_WELCOMEPAGE_TITLE "Delete Local ADDOM Data"
   !define MUI_WELCOMEPAGE_TEXT "ADDOM stores local data on this Windows account.$\r$\n$\r$\nThat data can include encrypted API keys, conversation history, memory logs, artifacts, project sessions, settings, and cached attachment contents.$\r$\n$\r$\nFor security, uninstall will delete all local data by default.$\r$\n$\r$\nIf you keep local history and settings, API keys will still be deleted, but anyone with access to this Windows account may still be able to read retained local data."

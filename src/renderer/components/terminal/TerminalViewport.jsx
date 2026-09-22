@@ -713,7 +713,7 @@ export class TerminalViewportView extends React.Component {
                 <p className="truncate text-[13px] font-semibold text-text-primary">{sessionTitle}</p>
                 <div className="flex items-center gap-1.5">
                   <span className={[
-                    'rounded px-1.5 py-px text-[10px] font-medium tracking-wide',
+                    'rounded px-1.5 py-px font-display text-[10px] font-medium tracking-normal',
                     archived
                       ? 'bg-surface-panel/80 text-text-tertiary'
                       : 'bg-success-bg/10 text-success-soft',
@@ -721,12 +721,12 @@ export class TerminalViewportView extends React.Component {
                     {sessionStateLabel}
                   </span>
                   {archived && (
-                    <span className="rounded bg-warning-bg/10 px-1.5 py-px text-[10px] font-medium tracking-wide text-warning-soft">
+                    <span className="rounded bg-warning-bg/10 px-1.5 py-px font-display text-[10px] font-medium tracking-normal text-warning-soft">
                       {labels.readOnly || 'Read-only'}
                     </span>
                   )}
                   {modelActive && (
-                    <span className="rounded bg-success-bg/10 px-1.5 py-px text-[10px] font-medium tracking-wide text-success-soft/80">
+                    <span className="rounded bg-success-bg/10 px-1.5 py-px font-display text-[10px] font-medium tracking-normal text-success-soft/80">
                       {labels.model || 'Model'}
                     </span>
                   )}
@@ -734,7 +734,7 @@ export class TerminalViewportView extends React.Component {
                 <p className="truncate text-[11px] text-text-tertiary">{session.cwd || labels.workspaceRoot || 'workspace root'}</p>
               </div>
               {outputTruncated && (
-                <span className="shrink-0 rounded px-2 py-px text-[10px] font-medium tracking-wide bg-warning-bg/10 text-warning-soft">
+                <span className="shrink-0 rounded bg-warning-bg/10 px-2 py-px font-display text-[10px] font-medium tracking-normal text-warning-soft">
                   {labels.trimmed || 'Trimmed'}
                 </span>
               )}

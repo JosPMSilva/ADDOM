@@ -181,6 +181,12 @@
         "none": "Không có gợi ý"
       }
     },
+    "memorySuggestion": {
+      "title": "Lưu thông tin từ terminal?",
+      "scopeLabel": "Phạm vi bộ nhớ",
+      "projectMemory": "Bộ nhớ dự án",
+      "save": "Lưu thông tin"
+    },
     "banner": {
       "thisPlatform": "nền tảng này",
       "anotherPlatform": "nền tảng khác",
@@ -549,6 +555,7 @@
         "expandTitle": "Mở rộng bảng Vấn đề",
         "collapseTitle": "Thu gọn bảng vấn đề",
         "setDefaultStateTitle": "Đặt trạng thái mặc định của bảng Sự cố",
+        "preferences": "Tùy chọn bảng Sự cố",
         "defaultCollapsed": "Đã thu gọn mặc định",
         "noMatch": "Không có vấn đề nào phù hợp với bộ lọc hiện tại.",
         "noneInFile": "Không có vấn đề trong tập tin này."
@@ -1036,6 +1043,10 @@
       "dispatching": "Đang gửi...",
       "executeTasks": "Thực hiện nhiệm vụ {{count}}{{suffix}}"
     },
+    "timeline": {
+      "showEarlier": "Hiển thị {{count}} mục trước",
+      "showEarlierAriaLabel": "Hiển thị tối đa {{count}} mục trước trong dòng thời gian. {{hiddenCount}} mục đang ẩn."
+    },
     "questionUser": {
       "clarificationNeeded": "Cần làm rõ",
       "waitingOnYou": "Đang Chờ Bạn",
@@ -1471,6 +1482,24 @@
     "clear": "Thông thoáng",
     "clearAll": "Xóa tất cả",
     "cancel": "Hủy bỏ"
+  },
+  "errorBoundary": {
+    "technicalDetails": "Chi tiết kỹ thuật",
+    "app": {
+      "unexpected": "Lỗi trình kết xuất không mong muốn",
+      "eyebrow": "Lỗi trình kết xuất",
+      "title": "ADDOM không thể hiển thị màn hình này.",
+      "description": "Tải lại ứng dụng để khôi phục không gian làm việc. Dữ liệu dự án cục bộ của bạn không thay đổi.",
+      "reload": "Tải lại ADDOM"
+    },
+    "panel": {
+      "fallbackLabel": "Bảng này",
+      "unexpected": "Lỗi bảng không mong muốn",
+      "eyebrow": "Lỗi bảng",
+      "title": "Không thể hiển thị {{panelLabel}}.",
+      "description": "Thử lại để khôi phục bảng này. Dữ liệu dự án và tác vụ của bạn không thay đổi.",
+      "retry": "Thử lại"
+    }
   },
   "settingsInstructions": {
     "title": "Sử dụng ADDOM",

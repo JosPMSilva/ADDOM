@@ -76,3 +76,19 @@ test('EditorTabBar surfaces provider-aware disabled titles for setup gaps', () =
   assert.match(html, /title="Fix unavailable: uses ESLint\. Code actions require a project-configured ESLint provider\."/)
   assert.match(html, /title="Format unavailable: uses clang-format\. clang-format was not found on PATH\."/)
 })
+
+test('EditorTabBar identifies read-only documents without weakening the tab label', () => {
+  const html = renderTabBar({
+    tabs: [{
+      id: 'fixture-tab',
+      label: 'Plan.md',
+      readOnly: true,
+      dirty: false,
+      externalChanged: false,
+    }],
+  })
+
+  assert.match(html, /data-ui="editor-read-only-indicator"/)
+  assert.match(html, /title="Read-only"/)
+  assert.match(html, /aria-label="Close Plan\.md"/)
+})

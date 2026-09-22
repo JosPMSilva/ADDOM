@@ -7,6 +7,7 @@ import {
   CHAT_COMPANION_GIT,
   CHAT_COMPANION_MODE_FOCUSED,
   CHAT_COMPANION_MODE_SPLIT,
+  DOCUMENT_CHAT_COMPANION_MIN_WIDTH,
   activateChatCompanionView,
   clampChatCompanionWidth,
   closeChatCompanionView,
@@ -18,6 +19,8 @@ import {
   normalizeChatCompanion,
   openChatCompanionView,
   resolveChatCompanionMaximumWidth,
+  resolveChatCompanionMinimumWidth,
+  shouldUseChatCompanionTakeover,
   shouldCloseAgentCompanionOnThreadChange,
   shouldShowAgentCompanionTrigger,
   toggleChatCompanion,
@@ -284,6 +287,28 @@ test('split width clamps against a readable chat surface while modes stay explic
   assert.equal(clampChatCompanionWidth(120, 1400), 280)
   assert.equal(clampChatCompanionWidth(900, 1400), 760)
   assert.equal(clampChatCompanionWidth(440, 1400), 440)
+})
+
+test('document companions keep their controls readable without widening other companion types', () => {
+  assert.equal(DOCUMENT_CHAT_COMPANION_MIN_WIDTH, 460)
+  assert.equal(resolveChatCompanionMinimumWidth({ companionType: CHAT_COMPANION_DOCUMENT }), 460)
+  assert.equal(resolveChatCompanionMinimumWidth({ companionType: CHAT_COMPANION_GIT }), 280)
+  assert.equal(clampChatCompanionWidth(300, 1_400, { companionType: CHAT_COMPANION_DOCUMENT }), 460)
+  assert.equal(clampChatCompanionWidth(300, 1_400, { companionType: CHAT_COMPANION_GIT }), 300)
+})
+
+test('document companions take over only when the measured workspace cannot retain both readable panes', () => {
+  assert.equal(shouldUseChatCompanionTakeover(784, { companionType: CHAT_COMPANION_DOCUMENT }), true)
+  assert.equal(shouldUseChatCompanionTakeover(820, { companionType: CHAT_COMPANION_DOCUMENT }), false)
+  assert.equal(shouldUseChatCompanionTakeover(900, {
+    companionType: CHAT_COMPANION_DOCUMENT,
+    companionWidth: 600,
+  }), true)
+  assert.equal(shouldUseChatCompanionTakeover(960, {
+    companionType: CHAT_COMPANION_DOCUMENT,
+    companionWidth: 600,
+  }), false)
+  assert.equal(shouldUseChatCompanionTakeover(784, { companionType: CHAT_COMPANION_GIT }), false)
 })
 
 test('collapsed Projects allows a balanced 50:50 chat and companion split', () => {

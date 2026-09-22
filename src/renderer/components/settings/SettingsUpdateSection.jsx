@@ -4,11 +4,14 @@ import { useSettingsTranslator } from './settings-panel-ui-utils.mjs'
 function UpdateStatusText({ status, info, pct, t }) {
   const className = 'text-[11px] font-medium text-text-secondary'
   if (!status) return <span className={className}>{t('settings:blocks.updates.status.upToDate', { defaultValue: 'Up to date' })}</span>
+  if (status === 'unavailable') return <span className={className}>{t('settings:blocks.updates.status.unavailable', { defaultValue: 'Updates are unavailable in this build.' })}</span>
   if (status === 'checking') return <span className={className}>{t('settings:blocks.updates.status.checking', { defaultValue: 'Checking for updates...' })}</span>
   if (status === 'not-available') return <span className={className}>{t('settings:blocks.updates.status.latest', { defaultValue: 'No updates found.' })}</span>
   if (status === 'available') return <span className={className}>{t('settings:blocks.updates.status.available', { defaultValue: 'Update available - v{{version}}', version: info?.version })}</span>
   if (status === 'downloading') return <span className={className}>{t('settings:blocks.updates.status.downloading', { defaultValue: 'Downloading... {{percent}}%', percent: pct })}</span>
   if (status === 'downloaded') return <span className={className}>{t('settings:blocks.updates.status.readyToInstall', { defaultValue: 'v{{version}} ready to install', version: info?.version })}</span>
+  if (status === 'blocked') return <span className={className}>{t('settings:blocks.updates.sidebar.waiting', { defaultValue: 'Ready when idle' })}</span>
+  if (status === 'installing') return <span className={className}>{t('settings:blocks.updates.status.installing', { defaultValue: 'Installing update...' })}</span>
   if (status === 'error') {
     const errorCode = String(info?.code || '').trim()
     if (errorCode === 'unavailable') {
@@ -31,9 +34,14 @@ export default function SettingsUpdateSection({ status, info, pct, onCheck, onDo
       <div className="flex min-h-11 flex-wrap items-center justify-between gap-3 border-b border-surface-border/55 py-2.5">
         <UpdateStatusText status={status} info={info} pct={pct} t={t} />
         <div className="flex items-center gap-2">
-          {(status === null || status === 'not-available' || status === 'error') && (
+          {(status === null || status === 'not-available' || (status === 'error' && !info?.version)) && (
             <button type="button" onClick={onCheck} className={actionClass}>
               {t('settings:blocks.updates.actions.checkForUpdates', { defaultValue: 'Check for updates' })}
+            </button>
+          )}
+          {status === 'error' && info?.version && (
+            <button type="button" onClick={onDownload} className={actionClass}>
+              {t('settings:blocks.updates.actions.retryDownload', { defaultValue: 'Retry download' })}
             </button>
           )}
           {status === 'available' && (

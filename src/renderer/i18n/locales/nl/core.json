@@ -181,6 +181,12 @@
         "none": "Geen suggestie"
       }
     },
+    "memorySuggestion": {
+      "title": "Terminalinzicht opslaan?",
+      "scopeLabel": "Geheugenbereik",
+      "projectMemory": "Projectgeheugen",
+      "save": "Inzicht opslaan"
+    },
     "banner": {
       "thisPlatform": "dit platform",
       "anotherPlatform": "een ander platform",
@@ -549,6 +555,7 @@
         "expandTitle": "Vouw het paneel Problemen uit",
         "collapseTitle": "Deelvenster Problemen samenvouwen",
         "setDefaultStateTitle": "Stel de standaardstatus van het paneel Problemen in",
+        "preferences": "Voorkeuren voor het Problemen-paneel",
         "defaultCollapsed": "Standaard samengevouwen",
         "noMatch": "Er zijn geen problemen die overeenkomen met het huidige filter.",
         "noneInFile": "Geen problemen in dit bestand."
@@ -1036,6 +1043,10 @@
       "dispatching": "Verzending...",
       "executeTasks": "Voer de {{count}}-taak{{suffix}} uit"
     },
+    "timeline": {
+      "showEarlier": "{{count}} eerdere tonen",
+      "showEarlierAriaLabel": "Toon maximaal {{count}} eerdere tijdlijnitems. {{hiddenCount}} zijn verborgen."
+    },
     "questionUser": {
       "clarificationNeeded": "Verduidelijking nodig",
       "waitingOnYou": "Ik wacht op jou",
@@ -1471,6 +1482,24 @@
     "clear": "Duidelijk",
     "clearAll": "Alles wissen",
     "cancel": "Annuleren"
+  },
+  "errorBoundary": {
+    "technicalDetails": "Technische details",
+    "app": {
+      "unexpected": "Onverwachte rendererfout",
+      "eyebrow": "Rendererfout",
+      "title": "ADDOM kon dit scherm niet weergeven.",
+      "description": "Laad de app opnieuw om de werkruimte te herstellen. Je lokale projectgegevens blijven ongewijzigd.",
+      "reload": "ADDOM opnieuw laden"
+    },
+    "panel": {
+      "fallbackLabel": "Dit paneel",
+      "unexpected": "Onverwachte paneelfout",
+      "eyebrow": "Paneelfout",
+      "title": "{{panelLabel}} kon niet worden weergegeven.",
+      "description": "Probeer opnieuw om dit paneel te herstellen. Je project- en threadgegevens blijven ongewijzigd.",
+      "retry": "Opnieuw proberen"
+    }
   },
   "settingsInstructions": {
     "title": "Gebruik ADDOM",

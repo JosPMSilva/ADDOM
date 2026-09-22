@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { flattenOutlineRows, normalizeOutlineState } from './editor-monaco-helpers.mjs'
 import { buildLocalizedEditorCapabilityMessage } from './editor-setup-hints.mjs'
 import { useRendererTranslation } from '../../i18n/use-renderer-translation.mjs'
+import { MenuRow, MenuSurface } from '../ui/MenuSurface.jsx'
 import {
   EDITOR_OUTLINE_PANEL_COLLAPSED_WIDTH,
   EDITOR_OUTLINE_PANEL_WIDTH,
@@ -14,6 +15,16 @@ import {
 
 const EDITOR_OUTLINE_FILTER_INPUT_ID = 'editor-outline-filter-input'
 
+function MoreIcon() {
+  return (
+    <svg viewBox="0 0 16 16" aria-hidden="true" className="h-3.5 w-3.5">
+      <circle cx="3.5" cy="8" r="1.1" fill="currentColor" />
+      <circle cx="8" cy="8" r="1.1" fill="currentColor" />
+      <circle cx="12.5" cy="8" r="1.1" fill="currentColor" />
+    </svg>
+  )
+}
+
 export function ProblemsPanel({
   filePath,
   problems = [],
@@ -24,6 +35,9 @@ export function ProblemsPanel({
   const { t } = useRendererTranslation(['core'])
   const [defaultCollapsed, setDefaultCollapsed] = useState(readProblemsPanelDefaultCollapsed)
   const [internalCollapsed, setInternalCollapsed] = useState(readProblemsPanelDefaultCollapsed)
+  const [preferencesOpen, setPreferencesOpen] = useState(false)
+  const preferencesRootRef = useRef(null)
+  const preferencesButtonRef = useRef(null)
   const collapsed = typeof controlledCollapsed === 'boolean' ? controlledCollapsed : internalCollapsed
   const setCollapsed = useCallback((valueOrUpdater) => {
     const next = typeof valueOrUpdater === 'function'
@@ -59,18 +73,47 @@ export function ProblemsPanel({
     writeProblemsPanelDefaultCollapsed(defaultCollapsed)
   }, [defaultCollapsed])
 
+  useEffect(() => {
+    if (!preferencesOpen) return undefined
+    const closePreferences = (event) => {
+      if (event.type === 'keydown') {
+        if (event.key !== 'Escape') return
+        setPreferencesOpen(false)
+        preferencesButtonRef.current?.focus()
+        return
+      }
+      if (!preferencesRootRef.current?.contains(event.target)) setPreferencesOpen(false)
+    }
+    const frameId = window.requestAnimationFrame(() => {
+      preferencesRootRef.current?.querySelector('[role="menuitemcheckbox"]')?.focus()
+    })
+    document.addEventListener('mousedown', closePreferences)
+    document.addEventListener('keydown', closePreferences)
+    return () => {
+      window.cancelAnimationFrame(frameId)
+      document.removeEventListener('mousedown', closePreferences)
+      document.removeEventListener('keydown', closePreferences)
+    }
+  }, [preferencesOpen])
+
+  const toggleDefaultCollapsed = () => {
+    const next = !defaultCollapsed
+    setDefaultCollapsed(next)
+    setCollapsed(next)
+  }
+
   return (
     <div className="shrink-0 border-t border-surface-border bg-surface">
       <div className="flex items-center justify-between gap-2 px-3 py-2">
         <div className="flex items-center gap-2 min-w-0">
-          <p className="text-[11px] uppercase tracking-[0.14em] text-text-tertiary shrink-0">
+          <p className="shrink-0 font-display text-xs font-medium tracking-normal text-text-secondary">
             {t('editor.diagnostics.problems.title', { defaultValue: 'Problems' })}
           </p>
           <span className="text-xs text-text-muted truncate" title={filePath || undefined}>{fileName}</span>
         </div>
-        <div className="flex items-center gap-1.5 text-[10px]">
+        <div className="flex items-center gap-1.5 font-display text-[11px]">
           {counts.error > 0 && (
-            <span className="px-1.5 py-0.5 rounded border border-danger-border bg-danger-bg text-danger-soft">
+            <span className="px-1 text-danger-soft">
               {t('editor.diagnostics.problems.errorCount', {
                 defaultValue: '{{count}} error{{suffix}}',
                 count: counts.error,
@@ -79,7 +122,7 @@ export function ProblemsPanel({
             </span>
           )}
           {counts.warning > 0 && (
-            <span className="px-1.5 py-0.5 rounded border border-warning-border bg-warning-bg text-warning-soft">
+            <span className="px-1 text-warning-soft">
               {t('editor.diagnostics.problems.warningCount', {
                 defaultValue: '{{count}} warning{{suffix}}',
                 count: counts.warning,
@@ -88,7 +131,7 @@ export function ProblemsPanel({
             </span>
           )}
           {counts.info > 0 && (
-            <span className="px-1.5 py-0.5 rounded border border-info-border bg-info-bg text-info-soft">
+            <span className="px-1 text-info-soft">
               {t('editor.diagnostics.problems.infoCount', {
                 defaultValue: '{{count}} info',
                 count: counts.info,
@@ -96,14 +139,14 @@ export function ProblemsPanel({
             </span>
           )}
           {total === 0 && (
-            <span className="px-1.5 py-0.5 rounded border border-surface-border bg-surface-panel text-text-muted">
+            <span className="px-1 text-text-muted">
               {t('editor.diagnostics.problems.none', { defaultValue: 'No problems' })}
             </span>
           )}
           <button
             type="button"
             onClick={() => setCollapsed(v => !v)}
-            className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded border border-surface-border bg-surface-panel text-text-muted hover:text-text-primary hover:border-border-hover transition-colors"
+            className="inline-flex min-h-6 items-center gap-1 rounded-md px-1.5 text-text-muted transition-colors hover:bg-surface-panel hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong"
             aria-expanded={!collapsed}
             title={collapsed
               ? t('editor.diagnostics.problems.expandTitle', { defaultValue: 'Expand Problems panel' })
@@ -122,29 +165,39 @@ export function ProblemsPanel({
               <polyline points="3 4.5 6 7.5 9 4.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
-          <button
-            type="button"
-            onClick={() => {
-              setDefaultCollapsed((prev) => {
-                const next = !prev
-                setCollapsed(next)
-                return next
-              })
-            }}
-            aria-pressed={defaultCollapsed}
-            title={t('editor.diagnostics.problems.setDefaultStateTitle', {
-              defaultValue: 'Set Problems panel default state',
-            })}
-            className={[
-              'inline-flex items-center gap-1 px-1.5 py-0.5 rounded border transition-colors',
-              defaultCollapsed
-                ? 'border-accent-muted bg-accent-muted/12 text-accent-soft'
-                : 'border-surface-border bg-surface-panel text-text-muted hover:text-text-primary hover:border-border-hover',
-            ].join(' ')}
-          >
-            <span className={`w-1.5 h-1.5 rounded-full ${defaultCollapsed ? 'bg-accent-soft' : 'bg-surface-border'}`} />
-            <span>{t('editor.diagnostics.problems.defaultCollapsed', { defaultValue: 'Default collapsed' })}</span>
-          </button>
+          <div ref={preferencesRootRef} className="relative shrink-0">
+            <button
+              ref={preferencesButtonRef}
+              type="button"
+              onClick={() => setPreferencesOpen((open) => !open)}
+              aria-haspopup="menu"
+              aria-expanded={preferencesOpen}
+              aria-label={t('editor.diagnostics.problems.preferences', { defaultValue: 'Problems panel preferences' })}
+              title={t('editor.diagnostics.problems.preferences', { defaultValue: 'Problems panel preferences' })}
+              className="inline-flex h-6 w-6 items-center justify-center rounded-md text-text-muted transition-colors hover:bg-surface-panel hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong"
+            >
+              <MoreIcon />
+            </button>
+            {preferencesOpen ? (
+              <MenuSurface
+                role="menu"
+                aria-label={t('editor.diagnostics.problems.preferences', { defaultValue: 'Problems panel preferences' })}
+                className="absolute bottom-full right-0 z-40 mb-1 w-48"
+                data-ui="editor-problems-preferences-menu"
+              >
+                <MenuRow
+                  role="menuitemcheckbox"
+                  aria-checked={defaultCollapsed}
+                  active={defaultCollapsed}
+                  onClick={toggleDefaultCollapsed}
+                  className="justify-between text-[11px]"
+                >
+                  <span>{t('editor.diagnostics.problems.defaultCollapsed', { defaultValue: 'Default collapsed' })}</span>
+                  <span aria-hidden="true" className={`h-1.5 w-1.5 rounded-full ${defaultCollapsed ? 'bg-accent-soft' : 'bg-surface-border'}`} />
+                </MenuRow>
+              </MenuSurface>
+            ) : null}
+          </div>
         </div>
       </div>
       {!collapsed && (
@@ -159,10 +212,10 @@ export function ProblemsPanel({
                   onClick={() => setFilter(item.id)}
                   aria-pressed={active}
                   className={[
-                    'text-[10px] px-2 py-1 rounded-md border transition-colors',
+                    'rounded-md px-2 py-1 font-display text-[11px] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong',
                     active
-                      ? 'border-accent-muted bg-accent-muted/12 text-accent-soft'
-                      : 'border-surface-border bg-surface-panel text-text-muted hover:text-text-primary hover:border-border-hover',
+                      ? 'bg-accent-muted/12 text-accent-soft'
+                      : 'text-text-muted hover:bg-surface-panel hover:text-text-primary',
                   ].join(' ')}
                 >
                   {item.label} {item.count}
@@ -188,7 +241,7 @@ export function ProblemsPanel({
                           <span className={`mt-1 w-1.5 h-1.5 rounded-full shrink-0 ${sev.dot}`} />
                           <div className="min-w-0 flex-1">
                             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                              <span className={`text-[10px] uppercase tracking-wide ${sev.text}`}>{localizeSeverityLabel(sev.label)}</span>
+                              <span className={`font-display text-[11px] font-medium tracking-normal ${sev.text}`}>{localizeSeverityLabel(sev.label)}</span>
                               <span className="text-[10px] text-text-tertiary font-mono">
                                 L{problem.startLineNumber}:C{problem.startColumn}
                               </span>
@@ -294,7 +347,7 @@ export function OutlinePanel({
       <div className={`flex items-center gap-2 px-2.5 py-2 border-b border-surface-border shrink-0 ${collapsed ? 'justify-center' : 'justify-between'}`}>
         {!collapsed && (
           <div className="min-w-0">
-            <p className="text-[11px] uppercase tracking-[0.14em] text-text-tertiary">
+            <p className="font-display text-xs font-medium tracking-normal text-text-secondary">
               {t('editor.diagnostics.outline.title', { defaultValue: 'Outline' })}
             </p>
             <p className="text-[10px] text-text-muted truncate" title={filePath || undefined}>{fileName}</p>
@@ -347,7 +400,7 @@ export function OutlinePanel({
             {visibleSetupHints.length > 0 && (
               <div className="px-2.5 py-2 border-b border-surface-border">
                 <div className="mb-2 flex items-center justify-between gap-2">
-                  <p className="text-[10px] uppercase tracking-[0.14em] text-text-tertiary">
+                  <p className="font-display text-[11px] font-medium tracking-normal text-text-secondary">
                     {t('editor.diagnostics.outline.setupTitle', { defaultValue: 'Setup' })}
                   </p>
                   <span className="text-[10px] text-text-tertiary">{t('editor.diagnostics.outline.hintCount', {
@@ -372,8 +425,8 @@ export function OutlinePanel({
                       <div className="flex items-start gap-2">
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-1.5">
-                            <span className="text-[10px] uppercase tracking-wide text-info-soft">{actionLabel}</span>
-                            <span className="rounded border border-surface-border bg-surface-panel px-1.5 py-0.5 text-[10px] text-text-secondary">
+                            <span className="font-display text-[11px] font-medium tracking-normal text-info-soft">{actionLabel}</span>
+                            <span className="truncate text-[10px] text-text-tertiary" title={hint.providerLabel}>
                               {hint.providerLabel}
                             </span>
                           </div>
@@ -384,7 +437,7 @@ export function OutlinePanel({
                         <button
                           type="button"
                           onClick={() => onDismissSetupHint?.(hint)}
-                          className="shrink-0 rounded border border-surface-border bg-surface-panel px-1.5 py-0.5 text-[10px] text-text-muted hover:border-border-hover hover:text-text-primary transition-colors"
+                          className="shrink-0 rounded-md px-1.5 py-1 font-display text-[10px] text-text-muted transition-colors hover:bg-surface-panel hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong"
                           title={dismissSetupHintTitle}
                         >
                           {t('editor.panel.dismiss', { defaultValue: 'Dismiss' })}
@@ -436,7 +489,7 @@ export function OutlinePanel({
                       title={`${localizeSymbolLabel(row.kindLabel)} - L${row.selectionLineNumber || row.startLineNumber}:C${row.selectionColumn || row.startColumn}`}
                     >
                       <div className="flex items-start gap-2 min-w-0">
-                        <span className={`mt-0.5 inline-flex items-center justify-center min-w-[16px] h-4 px-1 rounded border text-[9px] uppercase font-semibold leading-none shrink-0 ${row.kindBadge?.className || 'border-surface-border bg-surface-panel text-text-muted'}`}>
+                        <span className={`mt-0.5 inline-flex h-4 min-w-[16px] shrink-0 items-center justify-center rounded px-1 font-display text-[9px] font-semibold leading-none tracking-normal ${row.kindBadge?.className || 'bg-surface-panel text-text-muted'}`}>
                           {row.kindBadge?.label || 's'}
                         </span>
                         <div className="min-w-0 flex-1">

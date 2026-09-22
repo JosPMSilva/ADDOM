@@ -706,11 +706,13 @@
       "description": "ADDOM は起動時に自動的にアップデートをチェックします。アップデートをいつダウンロードしてインストールするかを制御します。",
       "status": {
         "upToDate": "最新の",
+        "unavailable": "このビルドではアップデートを利用できません。",
         "checking": "アップデートをチェックしています...",
         "latest": "最新バージョンを使用しています",
         "available": "利用可能なアップデート - v{{version}}",
         "downloading": "ダウンロード中... {{percent}}%",
         "readyToInstall": "v{{version}} をインストールする準備ができました",
+        "installing": "アップデートをインストール中...",
         "error": "更新を確認できませんでした。後でもう一度お試しください。",
         "errorUnavailable": "更新サービスはまだ利用できません。後でもう一度お試しください。",
         "errorNetwork": "更新サービスに接続できませんでした。接続を確認して、もう一度お試しください。"
@@ -719,6 +721,17 @@
         "checkForUpdates": "アップデートをチェックする",
         "download": "v{{version}}をダウンロード",
         "restartAndInstall": "再起動とインストール"
+      },
+      "sidebar": {
+        "labels": {
+          "update": "更新",
+          "restart": "再起動",
+          "waiting": "待機中",
+          "retry": "再試行",
+          "installing": "インストール中…"
+        },
+        "retry": "更新に失敗 · 再試行",
+        "waiting": "アイドル時に更新可能"
       }
     },
     "about": {

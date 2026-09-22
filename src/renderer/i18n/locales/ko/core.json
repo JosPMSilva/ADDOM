@@ -181,6 +181,12 @@
         "none": "제안 없음"
       }
     },
+    "memorySuggestion": {
+      "title": "터미널 정보를 저장할까요?",
+      "scopeLabel": "메모리 범위",
+      "projectMemory": "프로젝트 메모리",
+      "save": "정보 저장"
+    },
     "banner": {
       "thisPlatform": "이 플랫폼",
       "anotherPlatform": "다른 플랫폼",
@@ -549,6 +555,7 @@
         "expandTitle": "문제 패널 확장",
         "collapseTitle": "문제 패널 축소",
         "setDefaultStateTitle": "문제 설정 패널 기본 상태",
+        "preferences": "문제 패널 환경설정",
         "defaultCollapsed": "기본 접힌 상태",
         "noMatch": "현재 필터와 일치하는 문제가 없습니다.",
         "noneInFile": "이 파일에는 문제가 없습니다."
@@ -1036,6 +1043,10 @@
       "dispatching": "파견 중...",
       "executeTasks": "{{count}} 작업 실행{{suffix}}"
     },
+    "timeline": {
+      "showEarlier": "이전 {{count}}개 표시",
+      "showEarlierAriaLabel": "타임라인에서 이전 항목을 최대 {{count}}개 표시합니다. {{hiddenCount}}개가 숨겨져 있습니다."
+    },
     "questionUser": {
       "clarificationNeeded": "설명이 필요함",
       "waitingOnYou": "당신을 기다리고 있습니다",
@@ -1471,6 +1482,24 @@
     "clear": "분명한",
     "clearAll": "모두 지우기",
     "cancel": "취소"
+  },
+  "errorBoundary": {
+    "technicalDetails": "기술 세부정보",
+    "app": {
+      "unexpected": "예기치 않은 렌더러 오류",
+      "eyebrow": "렌더러 오류",
+      "title": "ADDOM에서 이 화면을 표시할 수 없습니다.",
+      "description": "앱을 다시 로드하여 작업 공간을 복원하세요. 로컬 프로젝트 데이터는 변경되지 않습니다.",
+      "reload": "ADDOM 다시 로드"
+    },
+    "panel": {
+      "fallbackLabel": "이 패널",
+      "unexpected": "예기치 않은 패널 오류",
+      "eyebrow": "패널 오류",
+      "title": "{{panelLabel}}을(를) 표시할 수 없습니다.",
+      "description": "이 패널을 다시 시도하여 복원하세요. 프로젝트 및 작업 데이터는 변경되지 않습니다.",
+      "retry": "패널 다시 시도"
+    }
   },
   "settingsInstructions": {
     "title": "ADDOM 사용",

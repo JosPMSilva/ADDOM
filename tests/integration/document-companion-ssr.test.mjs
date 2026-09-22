@@ -43,3 +43,32 @@ test('Document companion uses the final-answer Markdown presentation for rich pl
   assert.match(html, /placeholder="Search document"/)
   assert.doesNotMatch(html, />docs\/PLAN\.md</)
 })
+
+test('managed plan actions stay compact and gate editor access until approval', () => {
+  const baseView = {
+    key: 'document:managed-plan:thread_1:plan_1',
+    type: 'document',
+    sourceKind: 'managed_plan',
+    projectRoot: 'C:/workspace/project',
+    threadId: 'thread_1',
+    planId: 'plan_1',
+    label: 'Plan.md',
+  }
+  const readyHtml = renderToStaticMarkup(React.createElement(DocumentCompanionView, {
+    view: {
+      ...baseView,
+      initialDocument: { ok: true, lifecycle: 'ready_for_review', revision: 1, content: '# Plan' },
+    },
+  }))
+  const approvedHtml = renderToStaticMarkup(React.createElement(DocumentCompanionView, {
+    view: {
+      ...baseView,
+      initialDocument: { ok: true, lifecycle: 'approved', revision: 1, content: '# Plan' },
+    },
+  }))
+
+  assert.match(readyHtml, /data-ui="managed-plan-save-copy"/)
+  assert.match(readyHtml, /ph-floppy-disk/)
+  assert.doesNotMatch(readyHtml, /data-ui="managed-plan-open-editor"/)
+  assert.match(approvedHtml, /data-ui="managed-plan-open-editor"/)
+})

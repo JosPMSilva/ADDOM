@@ -5,6 +5,8 @@ export const CHAT_COMPANION_MODE_SPLIT = 'split'
 export const CHAT_COMPANION_MODE_FOCUSED = 'focused'
 export const DEFAULT_CHAT_COMPANION_WIDTH = 360
 export const MIN_CHAT_COMPANION_WIDTH = 280
+export const DOCUMENT_CHAT_COMPANION_MIN_WIDTH = 460
+export const MIN_CHAT_WORKSPACE_WIDTH = 360
 export const MAX_CHAT_COMPANION_WIDTH = 760
 export const MAX_OPEN_DOCUMENT_COMPANIONS = 6
 
@@ -35,23 +37,42 @@ export function normalizeChatCompanionMode(value = '') {
     : CHAT_COMPANION_MODE_SPLIT
 }
 
+export function resolveChatCompanionMinimumWidth(layout = {}) {
+  return clean(layout?.companionType) === CHAT_COMPANION_DOCUMENT
+    ? DOCUMENT_CHAT_COMPANION_MIN_WIDTH
+    : MIN_CHAT_COMPANION_WIDTH
+}
+
+export function shouldUseChatCompanionTakeover(availableWidth = 0, layout = {}) {
+  if (clean(layout?.companionType) !== CHAT_COMPANION_DOCUMENT) return false
+  const width = Number(availableWidth)
+  if (!Number.isFinite(width) || width <= 0) return false
+  const requestedCompanionWidth = Number(layout?.companionWidth)
+  const companionWidth = Number.isFinite(requestedCompanionWidth) && requestedCompanionWidth > 0
+    ? Math.max(resolveChatCompanionMinimumWidth(layout), requestedCompanionWidth)
+    : resolveChatCompanionMinimumWidth(layout)
+  return width < companionWidth + MIN_CHAT_WORKSPACE_WIDTH
+}
+
 export function resolveChatCompanionMaximumWidth(viewportWidth = 0, layout = {}) {
+  const minimum = resolveChatCompanionMinimumWidth(layout)
   const viewport = Number(viewportWidth)
   if (!Number.isFinite(viewport) || viewport <= 0) return MAX_CHAT_COMPANION_WIDTH
   if (layout?.workspaceRailOpen === false) {
-    return Math.max(MIN_CHAT_COMPANION_WIDTH, Math.floor(viewport * 0.5))
+    return Math.max(minimum, Math.floor(viewport * 0.5))
   }
   return Math.min(
     MAX_CHAT_COMPANION_WIDTH,
-    Math.max(MIN_CHAT_COMPANION_WIDTH, viewport - 640),
+    Math.max(minimum, viewport - 640),
   )
 }
 
 export function clampChatCompanionWidth(value, viewportWidth = 0, layout = {}) {
+  const minimum = resolveChatCompanionMinimumWidth(layout)
   const requested = Number(value)
   const maximum = resolveChatCompanionMaximumWidth(viewportWidth, layout)
   const next = Number.isFinite(requested) ? requested : DEFAULT_CHAT_COMPANION_WIDTH
-  return Math.round(Math.min(maximum, Math.max(MIN_CHAT_COMPANION_WIDTH, next)))
+  return Math.round(Math.min(maximum, Math.max(minimum, next)))
 }
 
 export function createChatCompanionViewRegistry(descriptors = []) {

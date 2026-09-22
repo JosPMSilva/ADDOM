@@ -111,11 +111,11 @@ function formatTerminalHealthMessage(runtimeHealth = null, t) {
   }
 }
 
-const LEAD_BY_TONE = {
-  neutral: 'border-l-2 border-l-border-strong/50',
-  success: 'border-l-2 border-l-accent/45',
-  warning: 'border-l-2 border-l-warning/50',
-  danger: 'border-l-2 border-l-danger/50',
+const TEXT_BY_TONE = {
+  neutral: 'text-text-tertiary',
+  success: 'text-success-soft',
+  warning: 'text-warning-soft',
+  danger: 'text-danger-soft',
 }
 
 function QuietMetaRow({
@@ -132,8 +132,8 @@ function QuietMetaRow({
       data-tone={tone}
       title={title || undefined}
       className={[
-        'min-w-0 px-2.5 py-0.5 text-[11px] leading-snug text-text-tertiary',
-        LEAD_BY_TONE[tone] || LEAD_BY_TONE.neutral,
+        'min-w-0 px-2.5 py-0.5 text-[11px] leading-snug',
+        TEXT_BY_TONE[tone] || TEXT_BY_TONE.neutral,
       ].join(' ')}
     >
       {resolvedMessage}

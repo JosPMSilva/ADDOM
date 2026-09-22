@@ -181,6 +181,12 @@
         "none": "Tidak ada saran"
       }
     },
+    "memorySuggestion": {
+      "title": "Simpan wawasan terminal?",
+      "scopeLabel": "Cakupan memori",
+      "projectMemory": "Memori proyek",
+      "save": "Simpan wawasan"
+    },
     "banner": {
       "thisPlatform": "platform ini",
       "anotherPlatform": "platform lain",
@@ -549,6 +555,7 @@
         "expandTitle": "Luaskan panel Masalah",
         "collapseTitle": "Ciutkan panel Masalah",
         "setDefaultStateTitle": "Tetapkan status default panel Masalah",
+        "preferences": "Preferensi panel Masalah",
         "defaultCollapsed": "Defaultnya diciutkan",
         "noMatch": "Tidak ada masalah yang cocok dengan filter saat ini.",
         "noneInFile": "Tidak ada masalah dalam file ini."
@@ -1036,6 +1043,10 @@
       "dispatching": "Mengirim...",
       "executeTasks": "Jalankan tugas {{count}}{{suffix}}"
     },
+    "timeline": {
+      "showEarlier": "Tampilkan {{count}} sebelumnya",
+      "showEarlierAriaLabel": "Tampilkan hingga {{count}} entri linimasa sebelumnya. {{hiddenCount}} disembunyikan."
+    },
     "questionUser": {
       "clarificationNeeded": "Diperlukan Klarifikasi",
       "waitingOnYou": "Menunggumu",
@@ -1471,6 +1482,24 @@
     "clear": "Jernih",
     "clearAll": "Hapus semuanya",
     "cancel": "Membatalkan"
+  },
+  "errorBoundary": {
+    "technicalDetails": "Detail teknis",
+    "app": {
+      "unexpected": "Kesalahan perender yang tidak terduga",
+      "eyebrow": "Kesalahan perender",
+      "title": "ADDOM tidak dapat menampilkan layar ini.",
+      "description": "Muat ulang aplikasi untuk memulihkan ruang kerja. Data proyek lokal Anda tidak berubah.",
+      "reload": "Muat ulang ADDOM"
+    },
+    "panel": {
+      "fallbackLabel": "Panel ini",
+      "unexpected": "Kesalahan panel yang tidak terduga",
+      "eyebrow": "Kesalahan panel",
+      "title": "{{panelLabel}} tidak dapat ditampilkan.",
+      "description": "Coba lagi untuk memulihkan panel ini. Data proyek dan tugas Anda tidak berubah.",
+      "retry": "Coba lagi"
+    }
   },
   "settingsInstructions": {
     "title": "Menggunakan ADDOM",

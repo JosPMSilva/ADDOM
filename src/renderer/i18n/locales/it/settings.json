@@ -706,11 +706,13 @@
       "description": "ADDOM controlla automaticamente la presenza di aggiornamenti all'avvio. Sei tu a controllare quando gli aggiornamenti vengono scaricati e installati.",
       "status": {
         "upToDate": "Aggiornato",
+        "unavailable": "Gli aggiornamenti non sono disponibili in questa build.",
         "checking": "Controllo aggiornamenti...",
         "latest": "Sei sull'ultima versione",
         "available": "Aggiornamento disponibile: v{{version}}",
         "downloading": "Download in corso... {{percent}}%",
         "readyToInstall": "v{{version}} pronto per l'installazione",
+        "installing": "Installazione dell'aggiornamento...",
         "error": "Impossibile verificare la disponibilità di aggiornamenti. Riprova più tardi.",
         "errorUnavailable": "Il servizio di aggiornamento non è ancora disponibile. Riprova più tardi.",
         "errorNetwork": "Impossibile raggiungere il servizio di aggiornamento. Controlla la connessione e riprova."
@@ -719,6 +721,17 @@
         "checkForUpdates": "Controlla gli aggiornamenti",
         "download": "Scarica v{{version}}",
         "restartAndInstall": "Riavvia e installa"
+      },
+      "sidebar": {
+        "labels": {
+          "update": "Aggiorna",
+          "restart": "Riavvia",
+          "waiting": "In attesa",
+          "retry": "Riprova",
+          "installing": "Installando…"
+        },
+        "retry": "Aggiornamento non riuscito · Riprova",
+        "waiting": "Pronto quando inattivo"
       }
     },
     "about": {

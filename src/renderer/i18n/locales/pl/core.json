@@ -181,6 +181,12 @@
         "none": "Żadnej sugestii"
       }
     },
+    "memorySuggestion": {
+      "title": "Zapisać informację z terminala?",
+      "scopeLabel": "Zakres pamięci",
+      "projectMemory": "Pamięć projektu",
+      "save": "Zapisz informację"
+    },
     "banner": {
       "thisPlatform": "tę platformę",
       "anotherPlatform": "inna platforma",
@@ -549,6 +555,7 @@
         "expandTitle": "Rozwiń panel Problemy",
         "collapseTitle": "Zwiń panel Problemy",
         "setDefaultStateTitle": "Ustaw domyślny stan panelu Problemy",
+        "preferences": "Preferencje panelu Problemy",
         "defaultCollapsed": "Domyślne zwinięte",
         "noMatch": "Brak problemów pasuje do bieżącego filtra.",
         "noneInFile": "W tym pliku nie ma żadnych problemów."
@@ -1036,6 +1043,10 @@
       "dispatching": "Wysyłanie...",
       "executeTasks": "Wykonaj zadanie {{count}}{{suffix}}"
     },
+    "timeline": {
+      "showEarlier": "Pokaż {{count}} wcześniejszych",
+      "showEarlierAriaLabel": "Pokaż do {{count}} wcześniejszych wpisów osi czasu. Ukrytych: {{hiddenCount}}."
+    },
     "questionUser": {
       "clarificationNeeded": "Potrzebne wyjaśnienie",
       "waitingOnYou": "Czekam na Ciebie",
@@ -1471,6 +1482,24 @@
     "clear": "Jasne",
     "clearAll": "Wyczyść wszystko",
     "cancel": "Anulować"
+  },
+  "errorBoundary": {
+    "technicalDetails": "Szczegóły techniczne",
+    "app": {
+      "unexpected": "Nieoczekiwany błąd renderera",
+      "eyebrow": "Błąd renderera",
+      "title": "ADDOM nie mógł wyświetlić tego ekranu.",
+      "description": "Uruchom aplikację ponownie, aby przywrócić obszar roboczy. Lokalne dane projektu nie zostały zmienione.",
+      "reload": "Uruchom ADDOM ponownie"
+    },
+    "panel": {
+      "fallbackLabel": "Ten panel",
+      "unexpected": "Nieoczekiwany błąd panelu",
+      "eyebrow": "Błąd panelu",
+      "title": "Nie można wyświetlić: {{panelLabel}}.",
+      "description": "Spróbuj ponownie, aby przywrócić ten panel. Dane projektu i wątku nie zostały zmienione.",
+      "retry": "Spróbuj ponownie"
+    }
   },
   "settingsInstructions": {
     "title": "Używając ADDOM",

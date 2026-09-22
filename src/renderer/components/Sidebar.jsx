@@ -1,6 +1,8 @@
 import React, { startTransition } from 'react'
 import useAppStore from '../store/useAppStore.js'
 import Icon from './ui/Icon.jsx'
+import SidebarUpdateControl from './SidebarUpdateControl.jsx'
+import { SidebarUpdateButton } from './SidebarUpdateSurface.jsx'
 import { useShallow } from 'zustand/react/shallow'
 import {
   loadArtifactsPanel,
@@ -105,6 +107,7 @@ export default function Sidebar() {
       />
 
       <nav className="flex flex-col gap-1 p-2 pt-0">
+        <SidebarUpdateControl collapsed={sidebarCollapsed} activePanel={activePanel} />
         <NavItem
           item={SETTINGS_ITEM}
           active={activePanel === SETTINGS_ITEM.id}
@@ -120,6 +123,8 @@ export default function Sidebar() {
     </aside>
   )
 }
+
+export { SidebarUpdateButton }
 
 /* ── Sub-components ───────────────────────────────────────────────────────── */
 

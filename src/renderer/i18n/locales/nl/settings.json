@@ -706,11 +706,13 @@
       "description": "ADDOM controleert bij het opstarten automatisch op updates. Jij bepaalt wanneer updates worden gedownload en geïnstalleerd.",
       "status": {
         "upToDate": "Up-to-date",
+        "unavailable": "Updates zijn niet beschikbaar in deze build.",
         "checking": "Controleren op updates...",
         "latest": "U gebruikt de nieuwste versie",
         "available": "Update beschikbaar - v{{version}}",
         "downloading": "Bezig met downloaden... {{percent}}%",
         "readyToInstall": "v{{version}} klaar voor installatie",
+        "installing": "Update installeren...",
         "error": "Kan niet controleren op updates. Probeer het later opnieuw.",
         "errorUnavailable": "De updateservice is nog niet beschikbaar. Probeer het later opnieuw.",
         "errorNetwork": "Kan de updateservice niet bereiken. Controleer uw verbinding en probeer het opnieuw."
@@ -719,6 +721,17 @@
         "checkForUpdates": "Controleer op updates",
         "download": "v{{version}} downloaden",
         "restartAndInstall": "Opnieuw opstarten en installeren"
+      },
+      "sidebar": {
+        "labels": {
+          "update": "Update",
+          "restart": "Herstart",
+          "waiting": "Wachten",
+          "retry": "Opnieuw",
+          "installing": "Installeren…"
+        },
+        "retry": "Update mislukt · Opnieuw proberen",
+        "waiting": "Gereed zodra inactief"
       }
     },
     "about": {

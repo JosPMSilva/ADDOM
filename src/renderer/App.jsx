@@ -19,6 +19,7 @@ import useMemoryStore from './store/useMemoryStore.js'
 import useSettingsStore from './store/useSettingsStore.js'
 import useTerminalStore from './store/useTerminalStore.js'
 import useWorkspaceBootStore from './store/useWorkspaceBootStore.js'
+import useUpdateStore from './store/useUpdateStore.js'
 import { useRendererTranslation } from './i18n/use-renderer-translation.mjs'
 import { useShallow } from 'zustand/react/shallow'
 import { initializeRendererStateSync } from './startup/initialize-renderer-state-sync.mjs'
@@ -147,6 +148,7 @@ export default function App() {
     projectId: activeProjectId,
     threadId: activeThreadId,
   }).activeCount)
+  const updateInstalling = useUpdateStore((s) => s.snapshot.phase === 'installing')
 
   const selectedOpenAIAuthMethod = useSettingsStore((s) => (
     String(s.coreSettings?.providerAuthSettings?.openai?.authMethod || '').trim().toLowerCase() || 'api_key'
@@ -197,6 +199,11 @@ export default function App() {
 
   useEffect(() => {
     signalStartupReady()
+  }, [])
+
+  useEffect(() => {
+    void useUpdateStore.getState().initialize()
+    return () => useUpdateStore.getState().dispose()
   }, [])
 
   useEffect(() => {
@@ -423,10 +430,14 @@ export default function App() {
   }, [activePanel, chatPanelActive, workspaceActive])
 
   return (
-    <div className="flex flex-col h-full bg-surface text-text-primary">
+    <div
+      className="flex flex-col h-full bg-surface text-text-primary"
+      inert={updateInstalling ? true : undefined}
+      aria-busy={updateInstalling ? true : undefined}
+    >
       <TitleBar />
 
-      <div className="flex flex-1 overflow-hidden">
+      <div className="chat-workspace-row flex flex-1 overflow-hidden">
           <Sidebar />
           <WorkspaceRail
             activeProjectId={activeProjectId || ''}

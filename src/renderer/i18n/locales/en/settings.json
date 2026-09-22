@@ -732,11 +732,13 @@
       "description": "ADDOM checks for updates automatically on launch. You control when updates are downloaded and installed.",
       "status": {
         "upToDate": "Up to date",
+        "unavailable": "Updates are unavailable in this build.",
         "checking": "Checking for updates...",
         "latest": "No updates found.",
         "available": "Update available - v{{version}}",
         "downloading": "Downloading... {{percent}}%",
         "readyToInstall": "v{{version}} ready to install",
+        "installing": "Installing update...",
         "error": "Couldn't check for updates. Try again later.",
         "errorUnavailable": "The update service is not available yet. Try again later.",
         "errorNetwork": "Couldn't reach the update service. Check your connection and try again."
@@ -745,6 +747,17 @@
         "checkForUpdates": "Check for updates",
         "download": "Download v{{version}}",
         "restartAndInstall": "Restart and Install"
+      },
+      "sidebar": {
+        "labels": {
+          "update": "Update",
+          "restart": "Restart",
+          "waiting": "Waiting",
+          "retry": "Retry",
+          "installing": "Installing…"
+        },
+        "retry": "Update failed · Retry",
+        "waiting": "Ready when idle"
       }
     },
     "about": {

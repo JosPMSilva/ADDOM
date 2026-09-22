@@ -181,6 +181,12 @@
         "none": "Öneri yok"
       }
     },
+    "memorySuggestion": {
+      "title": "Terminal bilgisini kaydetmek ister misiniz?",
+      "scopeLabel": "Bellek kapsamı",
+      "projectMemory": "Proje belleği",
+      "save": "Bilgiyi kaydet"
+    },
     "banner": {
       "thisPlatform": "bu platform",
       "anotherPlatform": "başka bir platform",
@@ -549,6 +555,7 @@
         "expandTitle": "Sorunlar panelini genişlet",
         "collapseTitle": "Sorunları Daralt paneli",
         "setDefaultStateTitle": "Sorunlar panelinin varsayılan durumunu ayarlama",
+        "preferences": "Sorunlar paneli tercihleri",
         "defaultCollapsed": "Varsayılan daraltıldı",
         "noMatch": "Mevcut filtreyle eşleşen hiçbir sorun yok.",
         "noneInFile": "Bu dosyada sorun yok."
@@ -1036,6 +1043,10 @@
       "dispatching": "Gönderiliyor...",
       "executeTasks": "{{count}} görevini yürütün{{suffix}}"
     },
+    "timeline": {
+      "showEarlier": "Önceki {{count}} öğeyi göster",
+      "showEarlierAriaLabel": "Zaman çizelgesindeki önceki en fazla {{count}} girdiyi göster. {{hiddenCount}} girdi gizli."
+    },
     "questionUser": {
       "clarificationNeeded": "Açıklama Gerekli",
       "waitingOnYou": "Seni Bekliyorum",
@@ -1471,6 +1482,24 @@
     "clear": "Temizlemek",
     "clearAll": "Tümünü temizle",
     "cancel": "İptal etmek"
+  },
+  "errorBoundary": {
+    "technicalDetails": "Teknik ayrıntılar",
+    "app": {
+      "unexpected": "Beklenmeyen oluşturucu hatası",
+      "eyebrow": "Oluşturucu hatası",
+      "title": "ADDOM bu ekranı görüntüleyemedi.",
+      "description": "Çalışma alanını geri yüklemek için uygulamayı yeniden yükleyin. Yerel proje verileriniz değişmedi.",
+      "reload": "ADDOM'u yeniden yükle"
+    },
+    "panel": {
+      "fallbackLabel": "Bu panel",
+      "unexpected": "Beklenmeyen panel hatası",
+      "eyebrow": "Panel hatası",
+      "title": "{{panelLabel}} görüntülenemedi.",
+      "description": "Bu paneli geri yüklemek için yeniden deneyin. Proje ve görev verileriniz değişmedi.",
+      "retry": "Paneli yeniden dene"
+    }
   },
   "settingsInstructions": {
     "title": "ADDOM'yi kullanma",

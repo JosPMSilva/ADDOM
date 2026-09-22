@@ -706,11 +706,13 @@
       "description": "ADDOM sucht beim Start automatisch nach Updates. Sie steuern, wann Updates heruntergeladen und installiert werden.",
       "status": {
         "upToDate": "Auf dem neuesten Stand",
+        "unavailable": "Updates sind in diesem Build nicht verfügbar.",
         "checking": "Suche nach Updates...",
         "latest": "Sie sind auf der neuesten Version",
         "available": "Update verfügbar – v{{version}}",
         "downloading": "Wird heruntergeladen... {{percent}}%",
         "readyToInstall": "v{{version}} bereit zur Installation",
+        "installing": "Update wird installiert...",
         "error": "Updates konnten nicht geprüft werden. Versuchen Sie es später erneut.",
         "errorUnavailable": "Der Update-Dienst ist noch nicht verfügbar. Versuchen Sie es später erneut.",
         "errorNetwork": "Der Update-Dienst ist nicht erreichbar. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut."
@@ -719,6 +721,17 @@
         "checkForUpdates": "Suchen Sie nach Updates",
         "download": "Laden Sie v{{version}} herunter",
         "restartAndInstall": "Neu starten und installieren"
+      },
+      "sidebar": {
+        "labels": {
+          "update": "Update",
+          "restart": "Neustart",
+          "waiting": "Warten",
+          "retry": "Erneut",
+          "installing": "Installation…"
+        },
+        "retry": "Update fehlgeschlagen · Erneut versuchen",
+        "waiting": "Bereit, sobald inaktiv"
       }
     },
     "about": {

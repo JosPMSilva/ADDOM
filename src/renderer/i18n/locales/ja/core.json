@@ -181,6 +181,12 @@
         "none": "提案なし"
       }
     },
+    "memorySuggestion": {
+      "title": "ターミナルの知見を保存しますか？",
+      "scopeLabel": "メモリの範囲",
+      "projectMemory": "プロジェクトメモリ",
+      "save": "知見を保存"
+    },
     "banner": {
       "thisPlatform": "このプラットフォーム",
       "anotherPlatform": "別のプラットフォーム",
@@ -549,6 +555,7 @@
         "expandTitle": "「問題」パネルを展開します",
         "collapseTitle": "「問題」パネルを折りたたむ",
         "setDefaultStateTitle": "「問題」パネルのデフォルト状態を設定する",
+        "preferences": "問題パネルの設定",
         "defaultCollapsed": "デフォルトの折りたたまれた状態",
         "noMatch": "現在のフィルターに一致する問題はありません。",
         "noneInFile": "このファイルには問題はありません。"
@@ -1036,6 +1043,10 @@
       "dispatching": "派遣中...",
       "executeTasks": "{{count}}タスク{{suffix}}を実行"
     },
+    "timeline": {
+      "showEarlier": "前の {{count}} 件を表示",
+      "showEarlierAriaLabel": "タイムラインの前の項目を最大 {{count}} 件表示します。{{hiddenCount}} 件が非表示です。"
+    },
     "questionUser": {
       "clarificationNeeded": "説明が必要です",
       "waitingOnYou": "ウェイティング・オン・ユー",
@@ -1471,6 +1482,24 @@
     "clear": "クリア",
     "clearAll": "すべてクリア",
     "cancel": "キャンセル"
+  },
+  "errorBoundary": {
+    "technicalDetails": "技術的な詳細",
+    "app": {
+      "unexpected": "予期しないレンダラーエラー",
+      "eyebrow": "レンダラーエラー",
+      "title": "ADDOM はこの画面を表示できませんでした。",
+      "description": "アプリを再読み込みしてワークスペースを復元してください。ローカルのプロジェクトデータは変更されていません。",
+      "reload": "ADDOM を再読み込み"
+    },
+    "panel": {
+      "fallbackLabel": "このパネル",
+      "unexpected": "予期しないパネルエラー",
+      "eyebrow": "パネルエラー",
+      "title": "{{panelLabel}} を表示できませんでした。",
+      "description": "このパネルを再試行して復元してください。プロジェクトとスレッドのデータは変更されていません。",
+      "retry": "パネルを再試行"
+    }
   },
   "settingsInstructions": {
     "title": "ADDOMの使用",

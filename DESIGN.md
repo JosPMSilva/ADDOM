@@ -186,6 +186,8 @@ The palette is narrow and neutral.
 - **Success, Warning, Danger, Insert, Delete** are semantic only. They should mark state, not theme a whole surface.
 - Prompt and decision surfaces stay graphite even when semantic. A warning prompt may use a subdued warning label, dot, or border, but not a yellow/brown filled card.
 
+Semantic color must never wrap a surface as a vertical left-edge accent. Do not use warning, danger, success, or other state colors as a left border, rail, pseudo-element, or inset box-shadow on prompts, notices, dialogs, banners, approvals, recovery cards, or panels. Communicate state with concise text, a small icon or dot when useful, and restrained semantic color localized to that content. Neutral structural dividers remain valid, as do local insert/delete markers inside diffs; neither should become decorative surface chrome.
+
 No default blue, cyan, indigo, or slate action language. Blue-like colors may appear only as external content, Monaco/xterm syntax, provider logos, or a user-approved semantic exception.
 
 Do not use gradients, glow, bokeh, decorative orbs, or neon accents for production surfaces.
@@ -253,6 +255,8 @@ Avoid:
 If a surface already has enough structure, remove framing instead of adding more.
 
 Default to **tonal elevation separation** for product surfaces: distinguish adjacent layers with small graphite tone shifts and restrained shadow before adding an outline. Routine dialogs, cards, and popovers should not need decorative outer borders, segmented header/body/footer bands, or vertical lead-in rules when spacing and tone already communicate hierarchy. Keep borders and dividers only when they clarify real grouping, focus, or interaction. Removing chrome must not be offset with oversized padding; compact vertical rhythm is part of the preference.
+
+Colored edge accents are not an allowed elevation or state treatment. A red, yellow, green, or otherwise semantic vertical strip makes the container feel like a separate alert system and is prohibited even when implemented as an inset shadow rather than a border.
 
 ## Shape And Radius
 
@@ -563,5 +567,6 @@ Stop and ask the user before proceeding when:
 - Do not stack cards inside cards.
 - Do not use gradients, glow, decorative orbs, bokeh, or glossy effects.
 - Do not turn every state into a pill badge.
+- Do not use semantic-colored vertical edge rails or inset strips on any surface.
 - Do not let modal or panel chrome overpower the decision, object, or evidence.
 - Do not mark visual work complete without screenshots and interaction checks.

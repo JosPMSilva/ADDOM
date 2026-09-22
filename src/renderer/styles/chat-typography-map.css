@@ -298,9 +298,8 @@
 .chat-typo-exec-compaction-label {
   font-size: var(--chat-exec-row-label-size);
   line-height: var(--chat-exec-row-label-line);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-weight: 560;
+  letter-spacing: 0;
 }
 
 .chat-typo-exec-row-toggle {

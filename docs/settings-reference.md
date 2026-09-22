@@ -9,8 +9,8 @@ Project selection is not a setting. Open or switch projects and threads from the
 ### General
 
 - **Usage Guide:** Open the in-app instructions catalog.
-- **Language:** Follow the operating system language or choose a shipped locale. This changes renderer UI copy, not assistant language or backend behavior.
-- **Updates:** Check, download, and install ADDOM updates.
+- **Language:** Follow the operating system language or choose a shipped locale. This changes translation-backed renderer UI copy, not assistant language or backend behavior. Localization is partial in `0.1.1-alpha`, so some newer or less common surfaces may still fall back to English while coverage is completed for `0.1.2-alpha`. Commands, paths, provider/model IDs, protocol names, and support-critical technical tokens remain canonical English.
+- **Updates:** Check, download, and install ADDOM updates. Installation remains blocked until active work and unsaved editor tabs are clear.
 - **About:** Review version, product, license, source-notice, and third-party information.
 
 ### Appearance

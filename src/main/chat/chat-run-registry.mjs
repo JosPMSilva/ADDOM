@@ -1,4 +1,5 @@
 import { replaceActiveLoop } from './chat-turn-state.mjs'
+import { assertApplicationWorkStartAllowed } from '../application-work-quiescence.mjs'
 
 const DEFAULT_SETTLE_TIMEOUT_MS = 5_000
 
@@ -54,6 +55,7 @@ async function waitForSettlement(runs, timeoutMs) {
 export function createChatRunRegistry({
   appendEvent = () => {},
   settleTimeoutMs = DEFAULT_SETTLE_TIMEOUT_MS,
+  assertWorkStartAllowed = assertApplicationWorkStartAllowed,
 } = {}) {
   const activeLoops = new Map()
 
@@ -89,6 +91,7 @@ export function createChatRunRegistry({
     register(run) {
       if (!run || typeof run !== 'object') throw new Error('chat run is required')
       if (!String(run.loopKey || '').trim()) throw new Error('chat run loopKey is required')
+      assertWorkStartAllowed()
       ensureSettlement(run)
       replaceActiveLoop(activeLoops, run.loopKey, run)
       return run

@@ -90,18 +90,6 @@ const SETTINGS_PANEL_ALLOWED_CATEGORY_IDS = new Set(
     .filter(Boolean),
 )
 
-export function resolveUpdateCheckFallbackStatus(result = null) {
-  const status = String(result?.status || '').trim().toLowerCase()
-  if (status === 'dev-mode' || status === 'disabled') return 'not-available'
-  return result?.ok === false ? 'error' : null
-}
-
-export function resolveUpdateCheckFallbackInfo(result = null) {
-  if (result?.ok !== false) return null
-  const code = String(result?.code || '').trim().toLowerCase()
-  return { code: code === 'unavailable' || code === 'network' ? code : 'generic' }
-}
-
 function normalizeSettingsPanelActiveCategoryId(rawValue = '', fallback = SETTINGS_PANEL_DEFAULT_CATEGORY_ID) {
   const normalized = String(rawValue || '').trim().toLowerCase()
   if (SETTINGS_PANEL_ALLOWED_CATEGORY_IDS.has(normalized)) return normalized

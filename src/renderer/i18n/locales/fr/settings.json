@@ -706,11 +706,13 @@
       "description": "ADDOM recherche automatiquement les mises à jour au lancement. Vous contrôlez quand les mises à jour sont téléchargées et installées.",
       "status": {
         "upToDate": "À jour",
+        "unavailable": "Les mises à jour ne sont pas disponibles dans cette version.",
         "checking": "Vérification des mises à jour...",
         "latest": "Vous êtes sur la dernière version",
         "available": "Mise à jour disponible - v{{version}}",
         "downloading": "Téléchargement... {{percent}}%",
         "readyToInstall": "v{{version}} prêt à installer",
+        "installing": "Installation de la mise à jour...",
         "error": "Impossible de vérifier les mises à jour. Réessayez plus tard.",
         "errorUnavailable": "Le service de mise à jour n’est pas encore disponible. Réessayez plus tard.",
         "errorNetwork": "Impossible de joindre le service de mise à jour. Vérifiez votre connexion et réessayez."
@@ -719,6 +721,17 @@
         "checkForUpdates": "Vérifier les mises à jour",
         "download": "Télécharger v{{version}}",
         "restartAndInstall": "Redémarrer et installer"
+      },
+      "sidebar": {
+        "labels": {
+          "update": "Mise à jour",
+          "restart": "Redémarrer",
+          "waiting": "En attente",
+          "retry": "Réessayer",
+          "installing": "Installation…"
+        },
+        "retry": "Échec de la mise à jour · Réessayer",
+        "waiting": "Prêt après les tâches en cours"
       }
     },
     "about": {

@@ -890,17 +890,24 @@ function createClipboardApi({ invokeVersioned, asString }) {
   }
 }
 
-function createUpdaterApi({ invokeVersioned, subVersioned }) {
+function createUpdaterApi({ invokeVersioned, subVersioned, normalizeUpdateInstallPreflight }) {
   return {
+    getState: () => invokeVersioned('updater:getState'),
     checkForUpdates: () => invokeVersioned('updater:checkForUpdates'),
     downloadUpdate: () => invokeVersioned('updater:downloadUpdate'),
-    installUpdate: () => invokeVersioned('updater:installUpdate'),
-    onChecking: (cb) => subVersioned('updater:checking', cb),
-    onAvailable: (cb) => subVersioned('updater:available', cb),
-    onNotAvailable: (cb) => subVersioned('updater:not-available', cb),
-    onError: (cb) => subVersioned('updater:error', cb),
-    onProgress: (cb) => subVersioned('updater:progress', cb),
-    onDownloaded: (cb) => subVersioned('updater:downloaded', cb),
+    refreshInstallReadiness: (preflight) => invokeVersioned(
+      'updater:refreshInstallReadiness',
+      typeof normalizeUpdateInstallPreflight === 'function'
+        ? normalizeUpdateInstallPreflight(preflight)
+        : null,
+    ),
+    installUpdate: (preflight) => invokeVersioned(
+      'updater:installUpdate',
+      typeof normalizeUpdateInstallPreflight === 'function'
+        ? normalizeUpdateInstallPreflight(preflight)
+        : null,
+    ),
+    onStateChanged: (cb) => subVersioned('updater:state-changed', cb),
   }
 }
 
@@ -980,7 +987,7 @@ function resolveAppVersion() {
   if (envVersion) return envVersion
   const argvVersion = readVersionFromProcessArgs()
   if (argvVersion) return argvVersion
-  return '0.1.1-alpha'
+  return '0.1.2-alpha'
 }
 
 function resolveInitialAppearance() {
@@ -1229,6 +1236,22 @@ function normalizeHttpUrl(value) {
   return parsed.toString()
 }
 
+function normalizeUpdateInstallPreflight(value) {
+  const source = isPlainObject(value) ? value : null
+  if (!source
+    || !Number.isSafeInteger(source.dirtyTabCount)
+    || source.dirtyTabCount < 0
+    || source.dirtyTabCount > 10_000
+    || !Number.isFinite(source.capturedAt)
+    || source.capturedAt < 0) {
+    return null
+  }
+  return {
+    dirtyTabCount: source.dirtyTabCount,
+    capturedAt: source.capturedAt,
+  }
+}
+
 module.exports = {
   readVersionFromProcessArgs,
   resolveAppVersion,
@@ -1250,6 +1273,7 @@ module.exports = {
   normalizeChatTurnOptions,
   requireNonEmptyString,
   normalizeHttpUrl,
+  normalizeUpdateInstallPreflight,
 }
 
 },
@@ -1853,6 +1877,7 @@ const {
   normalizeChatTurnOptions,
   requireNonEmptyString,
   normalizeHttpUrl,
+  normalizeUpdateInstallPreflight,
 } = __preloadRequire("./preload-normalizers.cjs")
 const { createTerminalApi } = __preloadRequire("./preload-terminal-api.cjs")
 const {
@@ -2008,7 +2033,7 @@ contextBridge.exposeInMainWorld('addom', {
   }),
   file: createFileApi({ invokeVersioned, subVersioned }),
   editor: createEditorApi({ invokeVersioned, asPlainObject }),
-  updater: createUpdaterApi({ invokeVersioned, subVersioned }),
+  updater: createUpdaterApi({ invokeVersioned, subVersioned, normalizeUpdateInstallPreflight }),
   settings: createSettingsApi({ invokeVersioned, subVersioned }),
   localData: createLocalDataApi({ invokeVersioned }),
   openaiAccount: createOpenAIAccountApi({
@@ -2089,4 +2114,3 @@ function sub(channel, cb) {
     }
   }
 }
-

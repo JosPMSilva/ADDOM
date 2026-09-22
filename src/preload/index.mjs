@@ -20,6 +20,7 @@ const {
   normalizeChatTurnOptions,
   requireNonEmptyString,
   normalizeHttpUrl,
+  normalizeUpdateInstallPreflight,
 } = require('./preload-normalizers.cjs')
 const { createTerminalApi } = require('./preload-terminal-api.cjs')
 const {
@@ -175,7 +176,7 @@ contextBridge.exposeInMainWorld('addom', {
   }),
   file: createFileApi({ invokeVersioned, subVersioned }),
   editor: createEditorApi({ invokeVersioned, asPlainObject }),
-  updater: createUpdaterApi({ invokeVersioned, subVersioned }),
+  updater: createUpdaterApi({ invokeVersioned, subVersioned, normalizeUpdateInstallPreflight }),
   settings: createSettingsApi({ invokeVersioned, subVersioned }),
   localData: createLocalDataApi({ invokeVersioned }),
   openaiAccount: createOpenAIAccountApi({

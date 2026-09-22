@@ -188,6 +188,23 @@
   max-width: none;
 }
 
+.chat-workspace-row:has(> .chat-companion-shell[data-takeover='true'][data-visible='true'])
+  > [data-chat-workspace-main='true'] {
+  display: none;
+}
+
+.chat-companion-shell[data-takeover='true'] {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  border-left: 0;
+}
+
+.chat-companion-shell[data-takeover='true'] [data-companion-resizer] {
+  display: none !important;
+}
+
 @media (max-width: 1099px) {
   [data-chat-workspace-main='true'][data-companion-visible='true'] {
     display: none;

@@ -43,8 +43,8 @@ test('shared shells and dialogs use semantic token classes instead of raw palett
   assert.match(sourceByPath['src/renderer/App.jsx'], /bg-surface text-text-primary/)
   assert.match(sourceByPath['src/renderer/components/ui/AppDecisionDialog.jsx'], /bg-overlay-scrim/)
 
-  assert.match(sourceByPath['src/renderer/components/AppErrorBoundary.jsx'], /border-danger-border bg-surface-raised/)
-  assert.match(sourceByPath['src/renderer/components/PanelErrorBoundary.jsx'], /border-danger-border bg-surface-raised/)
+  assert.match(sourceByPath['src/renderer/components/AppErrorBoundary.jsx'], /bg-surface-raised[\s\S]*text-danger-soft/)
+  assert.match(sourceByPath['src/renderer/components/PanelErrorBoundary.jsx'], /bg-surface-raised[\s\S]*text-danger-soft/)
   assert.match(sourceByPath['src/renderer/components/chat/ChatThreadModals.jsx'], /bg-surface-raised/)
   assert.match(sourceByPath['src/renderer/components/chat/ChatThreadModals.jsx'], /text-text-primary/)
   assert.match(sourceByPath['src/renderer/components/chat/BackgroundJobsModal.jsx'], /bg-surface-raised/)

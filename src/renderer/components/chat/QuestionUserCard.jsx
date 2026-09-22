@@ -74,6 +74,8 @@ export default function QuestionUserCard({
 
   const canSubmit = !requestDisabled && String(draftAnswer || '').trim().length > 0
   const sending = request?.responsePending === true || isSubmitting
+  const selectedOption = options.find((option) => String(option?.id || '').trim() === selectedOptionId) || null
+  const showCustomAnswer = options.length === 0 || isCustomOptionLabel(selectedOption?.label)
 
   const handleOptionSelect = React.useCallback((option) => {
     const nextId = String(option?.id || '').trim()
@@ -129,13 +131,14 @@ export default function QuestionUserCard({
         <div className="grid gap-0.5">
           {options.map((option) => {
             const optionId = String(option?.id || '').trim()
-            const selected = optionId && optionId === selectedOptionId
+            const selected = Boolean(optionId && optionId === selectedOptionId)
             return (
               <button
                 key={optionId || option?.label}
                 type="button"
                 disabled={requestDisabled}
                 onClick={() => handleOptionSelect(option)}
+                aria-pressed={selected}
                 className={[
                   'group rounded-md border-0 px-2.5 py-1.5 text-left transition-colors',
                   selected
@@ -173,7 +176,7 @@ export default function QuestionUserCard({
         </div>
       )}
 
-      <div className="space-y-1.5">
+      {showCustomAnswer && <div className="space-y-1.5">
         <label className="block text-[11px] text-text-tertiary" htmlFor="chat-question-user-answer">
           {t('core:chat.questionUser.yourAnswer', { defaultValue: 'Your answer' })}
         </label>
@@ -188,15 +191,15 @@ export default function QuestionUserCard({
           className="w-full resize-y rounded border-0 bg-surface px-2.5 py-2 text-xs leading-5 text-text-primary outline-none transition-colors placeholder:text-text-muted focus-visible:ring-1 focus-visible:ring-border-strong disabled:cursor-not-allowed disabled:opacity-60"
           data-ui="chat-question-user-answer"
         />
-      </div>
+      </div>}
 
       <div className="flex items-center justify-end gap-1 pt-0.5">
         <ActionButton
-          variant="ghost"
+          variant="primary"
           size="sm"
           disabled={!canSubmit}
           onClick={handleSubmit}
-          className="h-7 gap-1.5 border-transparent bg-surface-panel-muted-strong px-2.5 leading-none text-text-primary hover:bg-surface-panel"
+          className="h-7 gap-1.5 px-2.5 leading-none"
           title={t('core:chat.questionUser.sendAnswerTitle', { defaultValue: 'Send answer (Enter)' })}
           data-ui="chat-question-user-submit"
         >

@@ -7,6 +7,8 @@ import TurnRunbook from './TurnRunbook.jsx'
 import TurnFileChangesCard from './TurnFileChangesCard.jsx'
 import TurnShell from './TurnShell.jsx'
 import ThreadPromotionOriginNote from './ThreadPromotionOriginNote.jsx'
+import HistoryRevealControl from '../ui/HistoryRevealControl.jsx'
+import { useRendererTranslation } from '../../i18n/use-renderer-translation.mjs'
 import { CHAT_TIMELINE_WINDOW_STEP } from './chat-utils.js'
 import { buildTimelineRenderState } from './chat-panel-timeline-render-state.mjs'
 import { hasVisibleMessageContent } from './message-content-visibility.mjs'
@@ -108,6 +110,7 @@ function ChatPanelTimelineArea({
   originInspectionError,
   onInspectThreadOrigin,
 }) {
+  const { t } = useRendererTranslation(['core'])
   const resolvedLiveExecutionTurns = React.useMemo(
     () => (liveExecutionEnabled !== false && liveExecutionTurns && typeof liveExecutionTurns === 'object'
       ? liveExecutionTurns
@@ -251,13 +254,20 @@ function ChatPanelTimelineArea({
       )}
 
       {hiddenTimelineCount > 0 && (
-        <div className="w-full flex justify-center" style={{ maxWidth: 'var(--app-chat-content-max-width)' }}>
-          <button
+        <div className="w-full" style={{ maxWidth: 'var(--app-chat-content-max-width)' }}>
+          <HistoryRevealControl
+            label={t('core:chat.timeline.showEarlier', {
+              defaultValue: 'Show {{count}} earlier',
+              count: Math.min(hiddenTimelineCount, CHAT_TIMELINE_WINDOW_STEP),
+            })}
+            ariaLabel={t('core:chat.timeline.showEarlierAriaLabel', {
+              defaultValue: 'Show up to {{count}} earlier timeline entries. {{hiddenCount}} hidden.',
+              count: Math.min(hiddenTimelineCount, CHAT_TIMELINE_WINDOW_STEP),
+              hiddenCount: hiddenTimelineCount,
+            })}
             onClick={() => onLoadOlderEntries((n) => n + CHAT_TIMELINE_WINDOW_STEP)}
-            className="text-[11px] px-2 py-1 rounded-md border border-surface-border bg-surface-panel text-text-subtle hover:border-border-hover transition-colors"
-          >
-            Load older entries ({hiddenTimelineCount} hidden)
-          </button>
+            dataUi="chat-timeline-show-earlier"
+          />
         </div>
       )}
 

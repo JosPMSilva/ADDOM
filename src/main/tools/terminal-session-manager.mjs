@@ -1,5 +1,6 @@
 import path from 'node:path'
 import crypto from 'node:crypto'
+import { assertApplicationWorkStartAllowed } from '../application-work-quiescence.mjs'
 import {
   DEFAULT_TERMINAL_SESSION_MAX_BUFFER_CHARS,
   DEFAULT_TERMINAL_EXITED_SESSION_REAP_MS,
@@ -23,8 +24,7 @@ export {
   DEFAULT_TERMINAL_CLOSE_FALLBACK_MS,
 } from './terminal-session-manager-constants.mjs'
 import {
-  asTrimmedString,
-  createTerminalSessionError,
+  asTrimmedString, createTerminalSessionError,
   normalizeProjectPathKey,
   normalizeReadSnapshotMode,
   normalizeTerminalSize,
@@ -36,11 +36,7 @@ export { resolveAvailableTerminalShells, resolveTerminalShellLaunch } from './te
 import { createTerminalOutputMatcher } from './terminal-session-output-text.mjs'
 import { buildTerminalWritePayload, markSessionIdleFromOutputBuffer, markSessionIdleFromVisibleSnapshot } from './terminal-session-command-state.mjs'
 import { createSanitizedChildProcessEnv } from './process-environment-policy.mjs'
-import {
-  attachTerminalDataListener,
-  attachTerminalErrorListener,
-  attachTerminalExitListener,
-} from './terminal-session-listeners.mjs'
+import { attachTerminalDataListener, attachTerminalErrorListener, attachTerminalExitListener } from './terminal-session-listeners.mjs'
 import {
   buildClosedSessionArchiveSnapshot,
   createOutputSnapshot,
@@ -61,6 +57,7 @@ export function createTerminalSessionManager({
   archiveClosedSession = null,
   setTimer = (fn, delay) => setTimeout(fn, delay),
   clearTimer = (timerId) => clearTimeout(timerId),
+  assertWorkStartAllowed = assertApplicationWorkStartAllowed,
 } = {}) {
   const sessions = new Map()
   const listeners = new Set()
@@ -306,6 +303,7 @@ export function createTerminalSessionManager({
     preferredSurface = '',
     sessionTitle = '',
   } = {}) {
+    assertWorkStartAllowed()
     if (envOverrides && Object.keys(envOverrides).length > 0) {
       throw createTerminalSessionError(
         'terminal_session_env_override_not_allowed',

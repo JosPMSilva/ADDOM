@@ -181,6 +181,12 @@
         "none": "没有建议"
       }
     },
+    "memorySuggestion": {
+      "title": "保存终端信息？",
+      "scopeLabel": "记忆范围",
+      "projectMemory": "项目记忆",
+      "save": "保存信息"
+    },
     "banner": {
       "thisPlatform": "这个平台",
       "anotherPlatform": "另一个平台",
@@ -549,6 +555,7 @@
         "expandTitle": "展开问题面板",
         "collapseTitle": "折叠问题面板",
         "setDefaultStateTitle": "设置问题面板默认状态",
+        "preferences": "问题面板偏好设置",
         "defaultCollapsed": "默认折叠",
         "noMatch": "没有与当前过滤器匹配的问题。",
         "noneInFile": "该文件没有问题。"
@@ -1036,6 +1043,10 @@
       "dispatching": "正在调度...",
       "executeTasks": "执行{{count}}任务{{suffix}}"
     },
+    "timeline": {
+      "showEarlier": "显示前 {{count}} 条",
+      "showEarlierAriaLabel": "最多显示时间线中前 {{count}} 条记录。另有 {{hiddenCount}} 条已隐藏。"
+    },
     "questionUser": {
       "clarificationNeeded": "需要澄清",
       "waitingOnYou": "等你",
@@ -1471,6 +1482,24 @@
     "clear": "清除",
     "clearAll": "全部清除",
     "cancel": "取消"
+  },
+  "errorBoundary": {
+    "technicalDetails": "技术详情",
+    "app": {
+      "unexpected": "意外的渲染器错误",
+      "eyebrow": "渲染器错误",
+      "title": "ADDOM 无法显示此屏幕。",
+      "description": "重新加载应用以恢复工作区。本地项目数据不会更改。",
+      "reload": "重新加载 ADDOM"
+    },
+    "panel": {
+      "fallbackLabel": "此面板",
+      "unexpected": "意外的面板错误",
+      "eyebrow": "面板错误",
+      "title": "无法显示{{panelLabel}}。",
+      "description": "重试此面板以将其恢复。项目和任务数据不会更改。",
+      "retry": "重试面板"
+    }
   },
   "settingsInstructions": {
     "title": "使用ADDOM",

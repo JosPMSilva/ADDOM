@@ -2,51 +2,25 @@ import { ipcMain, app } from 'electron'
 import { createRequire } from 'module'
 import fs from 'node:fs'
 import path from 'node:path'
-import { handleVersioned, sendVersioned } from '../ipc/ipc-versioning.mjs'
+import { sendVersioned } from '../ipc/ipc-versioning.mjs'
+import { createApplicationUpdateController } from '../updater/application-update-controller.mjs'
+import { createElectronUpdateAdapter } from '../updater/electron-update-adapter.mjs'
+import { registerUpdaterIpcHandlers } from '../updater/application-updater-ipc.mjs'
+import { createUnavailableUpdateSnapshot } from '../updater/application-update-state.mjs'
+import { createApplicationUpdateInstallCoordinator } from '../updater/application-update-install-coordinator.mjs'
+import { createProductionApplicationUpdateActivityMonitor } from '../updater/application-update-production-activity.mjs'
+import { beginApplicationWorkQuiescence } from '../application-work-quiescence.mjs'
 
 const require = createRequire(import.meta.url)
 
 const IS_DEV = process.env.ADDOM_DEV === '1' || (!app.isPackaged && process.env.ADDOM_DEV !== '0')
 const DISABLED_STATUS = Object.freeze({ status: 'disabled' })
-const ALLOWED_PACKAGED_UPDATE_PROVIDER = 'github'
-const ALLOWED_GITHUB_OWNER = 'JosPMSilva'
-const ALLOWED_GITHUB_REPOSITORY = 'ADDOM'
-const UNAVAILABLE_HTTP_STATUS_CODES = new Set([401, 403, 404])
-const NETWORK_ERROR_CODES = new Set([
-  'ECONNREFUSED',
-  'ECONNRESET',
-  'ENETDOWN',
-  'ENETUNREACH',
-  'ENOTFOUND',
-  'ETIMEDOUT',
-  'ERR_INTERNET_DISCONNECTED',
-  'ERR_NETWORK',
-])
 
 let autoUpdater = null
 
-function readUpdaterHttpStatus(error) {
-  const candidates = [error?.statusCode, error?.status, error?.response?.statusCode, error?.response?.status]
-  for (const value of candidates) {
-    const status = Number(value)
-    if (Number.isInteger(status) && status >= 100 && status <= 599) return status
-  }
-  const match = String(error?.message || '').match(/(?:status(?:Code)?["']?\s*[:=]\s*|\bHTTP\s+)(\d{3})\b/i)
-    || String(error?.message || '').match(/^\s*(\d{3})\b/)
-  return match ? Number(match[1]) : null
-}
-
-function classifyUpdaterFailure(error) {
-  const errorCode = String(error?.code || '').trim().toUpperCase()
-  const statusCode = readUpdaterHttpStatus(error)
-  if (UNAVAILABLE_HTTP_STATUS_CODES.has(statusCode)
-    || errorCode === 'ERR_UPDATER_NO_PUBLISHED_VERSIONS'
-    || errorCode === 'ERR_UPDATER_CHANNEL_FILE_NOT_FOUND') {
-    return { code: 'unavailable' }
-  }
-  if (NETWORK_ERROR_CODES.has(errorCode)) return { code: 'network' }
-  return { code: 'generic' }
-}
+const ALLOWED_PACKAGED_UPDATE_PROVIDER = 'github'
+const ALLOWED_GITHUB_OWNER = 'JosPMSilva'
+const ALLOWED_GITHUB_REPOSITORY = 'ADDOM'
 
 function getPackagedUpdateConfigPath() {
   if (!app.isPackaged) return ''
@@ -90,69 +64,72 @@ function getUpdater() {
   if (!hasSupportedPackagedUpdateConfig()) return null
   try {
     autoUpdater = require('electron-updater').autoUpdater
-    autoUpdater.autoDownload         = false
-    autoUpdater.autoInstallOnAppQuit = true
-    autoUpdater.allowPrerelease      = String(app.getVersion() || '').includes('-')
   } catch {
-    if (IS_DEV) {
-      console.warn('[updater] electron-updater is unavailable')
-    }
+    if (IS_DEV) console.warn('[updater] electron-updater is unavailable')
   }
   return autoUpdater
 }
 
-export function registerUpdaterHandlers(getMainWindow) {
-  if (IS_DEV || !hasSupportedPackagedUpdateConfig()) {
-    handleVersioned(ipcMain, 'updater:checkForUpdates', () => (IS_DEV ? { status: 'dev-mode' } : DISABLED_STATUS))
-    handleVersioned(ipcMain, 'updater:downloadUpdate',  () => (IS_DEV ? { status: 'dev-mode' } : DISABLED_STATUS))
-    handleVersioned(ipcMain, 'updater:installUpdate',   () => { /* no-op */ })
-    return
+function createDisabledController() {
+  const snapshot = createUnavailableUpdateSnapshot()
+  return {
+    start() {},
+    stop() {},
+    getSnapshot: () => snapshot,
+    checkForUpdates: async () => DISABLED_STATUS,
+    downloadUpdate: async () => DISABLED_STATUS,
+    refreshInstallBlockers: async () => DISABLED_STATUS,
+    installUpdate: async () => DISABLED_STATUS,
+  }
+}
+
+export function registerUpdaterHandlers({
+  getMainWindow,
+  isDev = IS_DEV,
+  isPackaged = app.isPackaged,
+  chatRunRegistry,
+  terminalSessionManager,
+  prepareForExit,
+} = {}) {
+  const mode = !isDev && isPackaged && hasSupportedPackagedUpdateConfig()
+    ? 'production'
+    : 'disabled'
+  const sendSnapshot = (snapshot) => {
+    const win = getMainWindow?.()
+    if (win && !win.isDestroyed()) sendVersioned(win.webContents, 'updater:state-changed', snapshot)
   }
 
-  const updater = getUpdater()
-  if (!updater) return
-
-  function send(channel, data) {
-    const win = getMainWindow()
-    if (win && !win.isDestroyed()) sendVersioned(win.webContents, channel, data)
+  let controller
+  if (mode === 'production') {
+    const updater = getUpdater()
+    const activityMonitor = updater
+      ? createProductionApplicationUpdateActivityMonitor({
+          chatRunRegistry,
+          terminalSessionManager,
+        })
+      : null
+    const installCoordinator = activityMonitor
+      ? createApplicationUpdateInstallCoordinator({
+          collectBlockers: activityMonitor.collectBlockers,
+          beginQuiescence: beginApplicationWorkQuiescence,
+          prepareForExit,
+        })
+      : null
+    controller = updater
+      ? createApplicationUpdateController({
+          adapter: createElectronUpdateAdapter(updater, {
+            allowPrerelease: String(app.getVersion() || '').includes('-'),
+          }),
+          installCoordinator,
+          installBlockerCollector: activityMonitor.collectBlockers,
+          onStateChanged: sendSnapshot,
+        })
+      : createDisabledController()
+  } else {
+    controller = createDisabledController()
   }
 
-  updater.on('checking-for-update',  ()     => send('updater:checking'))
-  updater.on('update-available',     (info) => send('updater:available',    { version: info.version }))
-  updater.on('update-not-available', ()     => send('updater:not-available'))
-  updater.on('error', (err) => {
-    const failure = classifyUpdaterFailure(err)
-    console.warn('[updater] update operation failed', failure)
-    send('updater:error', failure)
-  })
-  updater.on('download-progress',    (p)    => send('updater:progress',      { percent: Math.round(p.percent) }))
-  updater.on('update-downloaded',    (info) => send('updater:downloaded',    { version: info.version }))
-
-  handleVersioned(ipcMain, 'updater:checkForUpdates', async () => {
-    try {
-      await updater.checkForUpdates()
-      return { ok: true }
-    } catch (err) {
-      return { ok: false, ...classifyUpdaterFailure(err) }
-    }
-  })
-
-  handleVersioned(ipcMain, 'updater:downloadUpdate', async () => {
-    try {
-      await updater.downloadUpdate()
-      return { ok: true }
-    } catch (err) {
-      return { ok: false, ...classifyUpdaterFailure(err) }
-    }
-  })
-
-  handleVersioned(ipcMain, 'updater:installUpdate', () => {
-    updater.quitAndInstall(false, true)
-  })
-
-  app.whenReady().then(() => {
-    setTimeout(() => {
-      updater.checkForUpdates().catch(() => {})
-    }, 10_000)
-  })
+  registerUpdaterIpcHandlers({ ipcMain, controller })
+  if (mode !== 'disabled') app.whenReady().then(() => controller.start())
+  return () => controller.stop()
 }

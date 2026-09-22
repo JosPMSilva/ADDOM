@@ -181,6 +181,12 @@
         "none": "Nenhuma sugestão"
       }
     },
+    "memorySuggestion": {
+      "title": "Salvar informação do terminal?",
+      "scopeLabel": "Escopo da memória",
+      "projectMemory": "Memória do projeto",
+      "save": "Salvar informação"
+    },
     "banner": {
       "thisPlatform": "esta plataforma",
       "anotherPlatform": "outra plataforma",
@@ -549,6 +555,7 @@
         "expandTitle": "Expandir painel Problemas",
         "collapseTitle": "Recolher painel Problemas",
         "setDefaultStateTitle": "Definir o estado padrão do painel Problemas",
+        "preferences": "Preferências do painel Problemas",
         "defaultCollapsed": "Padrão recolhido",
         "noMatch": "Nenhum problema corresponde ao filtro atual.",
         "noneInFile": "Não há problemas neste arquivo."
@@ -1036,6 +1043,10 @@
       "dispatching": "Enviando...",
       "executeTasks": "Executar tarefa {{count}}{{suffix}}"
     },
+    "timeline": {
+      "showEarlier": "Mostrar {{count}} anteriores",
+      "showEarlierAriaLabel": "Mostrar até {{count}} entradas anteriores da linha do tempo. {{hiddenCount}} ocultas."
+    },
     "questionUser": {
       "clarificationNeeded": "Esclarecimento necessário",
       "waitingOnYou": "Esperando por você",
@@ -1471,6 +1482,24 @@
     "clear": "Claro",
     "clearAll": "Limpar tudo",
     "cancel": "Cancelar"
+  },
+  "errorBoundary": {
+    "technicalDetails": "Detalhes técnicos",
+    "app": {
+      "unexpected": "Erro inesperado do renderizador",
+      "eyebrow": "Erro do renderizador",
+      "title": "O ADDOM não conseguiu exibir esta tela.",
+      "description": "Recarregue o aplicativo para restaurar o espaço de trabalho. Os dados locais do projeto não foram alterados.",
+      "reload": "Recarregar ADDOM"
+    },
+    "panel": {
+      "fallbackLabel": "Este painel",
+      "unexpected": "Erro inesperado do painel",
+      "eyebrow": "Erro do painel",
+      "title": "Não foi possível exibir {{panelLabel}}.",
+      "description": "Tente novamente para restaurar este painel. Os dados do projeto e da conversa não foram alterados.",
+      "retry": "Tentar novamente"
+    }
   },
   "settingsInstructions": {
     "title": "Usando ADDOM",

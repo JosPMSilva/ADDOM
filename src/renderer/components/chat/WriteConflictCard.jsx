@@ -112,7 +112,7 @@ function MergeDiffView({ prevContent, newContent, label, noChangesLabel = 'No ch
 
   return (
     <div>
-      <p className="chat-typo-conflict-diff-label mb-1.5 uppercase tracking-wider text-text-secondary">{label}</p>
+      <p className="chat-typo-conflict-diff-label mb-1.5 font-display font-medium tracking-normal text-text-secondary">{label}</p>
       <div className="chat-typo-conflict-diff-body max-h-[60vh] overflow-auto rounded-lg border border-surface-border bg-surface font-mono">
         {diff.length === 0 ? (
           <p className="text-text-muted px-4 py-3">{noChangesLabel}</p>

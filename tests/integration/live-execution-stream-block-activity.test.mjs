@@ -306,7 +306,7 @@ test('LiveExecutionStreamBlock initially renders a bounded tail for long event l
   )
 
   assert.doesNotMatch(html, />90 events</)
-  assert.match(html, /Showing the latest 80 events\./)
+  assert.doesNotMatch(html, /Showing the latest/)
   assert.match(html, /Show 10 earlier events/)
   assert.match(html, /src\/file-90\.js/)
   assert.doesNotMatch(html, /src\/file-1\.js/)
@@ -364,7 +364,7 @@ test('LiveExecutionStreamBlock keeps collapsed earlier reasoning visible on long
   )
 
   assert.match(html, /Earlier reasoning collapsed/)
-  assert.match(html, /Showing the latest 79 events plus 1 collapsed earlier reasoning block\./)
+  assert.doesNotMatch(html, /Showing the latest/)
   assert.match(html, /Show 11 earlier events/)
   assert.match(html, /src\/file-90\.js/)
   assert.doesNotMatch(html, /src\/file-1\.js/)
@@ -445,7 +445,7 @@ test('LiveExecutionStreamBlock keeps collapsed earlier reasoning visible when lo
   assert.match(html, /Earlier reasoning collapsed/)
   assert.match(html, /stdout line 1/)
   assert.match(html, /stdout line 2/)
-  assert.match(html, /Showing the latest 79 events plus 1 collapsed earlier reasoning block\./)
+  assert.doesNotMatch(html, /Showing the latest/)
   assert.match(html, /Show 11 earlier events/)
   assert.match(html, /src\/file-88\.js/)
   assert.doesNotMatch(html, /src\/file-1\.js/)

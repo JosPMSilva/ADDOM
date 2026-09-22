@@ -44,7 +44,7 @@ export function RunCommandPolicyPanel({ view }) {
       <PolicyRows rows={rows} />
 
       {warnings.length > 0 && (
-        <div className="border-l border-warning-border/70 pl-3">
+        <div>
           <p className="text-[11px] font-medium text-warning-soft mb-1">{t('core:toolApprovalOverlay.policy.warnings', { defaultValue: 'Warnings' })}</p>
           <ul className="space-y-0.5">
             {warnings.map((warning, idx) => (
@@ -55,7 +55,7 @@ export function RunCommandPolicyPanel({ view }) {
       )}
 
       {requiresHostFullAccess && (
-        <div className="border-l border-danger-border/70 pl-3">
+        <div>
           <p className="text-[11px] font-medium text-danger-softer mb-1">{t('core:toolApprovalOverlay.productionPolicy.hostAccessRequired', { defaultValue: 'Host access required' })}</p>
           <p className="text-xs text-danger-softer">
             {t('core:toolApprovalOverlay.productionPolicy.hostAccessDescription', { defaultValue: 'Use an explicit host action if this should run outside workspace-safe limits.' })}
@@ -64,7 +64,7 @@ export function RunCommandPolicyPanel({ view }) {
       )}
 
       {requiresWslCompatibilityApproval && (
-        <div className="border-l border-warning-border/70 pl-3">
+        <div>
           <p className="text-[11px] font-medium text-warning-soft mb-1">{t('core:toolApprovalOverlay.productionPolicy.wslCompatibility', { defaultValue: 'WSL compatibility' })}</p>
           <p className="text-xs text-warning-soft">
             {t('core:toolApprovalOverlay.productionPolicy.wslDescription', { defaultValue: 'WSL can reach host files. Use the WSL action only when that is intended.' })}
@@ -100,7 +100,7 @@ export function BrowserActionPolicyPanel({ view }) {
       <PolicyParagraphList
         title={t('core:toolApprovalOverlay.policy.warnings', { defaultValue: 'Warnings' })}
         items={warnings}
-        boxClass="border-l border-warning-border/70 pl-3 space-y-1"
+        boxClass="space-y-1"
         titleClass="text-[11px] font-medium text-warning-soft"
         itemClass="text-xs text-warning-soft leading-relaxed"
       />
@@ -142,7 +142,7 @@ export function TerminalSessionPolicyPanel({ view }) {
       <PolicyParagraphList
         title={t('core:toolApprovalOverlay.policy.warnings', { defaultValue: 'Warnings' })}
         items={warnings}
-        boxClass="border-l border-warning-border/70 pl-3 space-y-1"
+        boxClass="space-y-1"
         titleClass="text-[11px] font-medium text-warning-soft"
         itemClass="text-xs text-warning-soft leading-relaxed"
       />

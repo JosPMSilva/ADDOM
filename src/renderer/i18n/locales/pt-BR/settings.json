@@ -706,11 +706,13 @@
       "description": "ADDOM verifica atualizações automaticamente na inicialização. Você controla quando as atualizações são baixadas e instaladas.",
       "status": {
         "upToDate": "Atualizado",
+        "unavailable": "As atualizações não estão disponíveis nesta compilação.",
         "checking": "Verificando atualizações...",
         "latest": "Você está na versão mais recente",
         "available": "Atualização disponível - v{{version}}",
         "downloading": "Baixando... {{percent}}%",
         "readyToInstall": "v{{version}} pronto para instalar",
+        "installing": "Instalando atualização...",
         "error": "Não foi possível verificar as atualizações. Tente novamente mais tarde.",
         "errorUnavailable": "O serviço de atualização ainda não está disponível. Tente novamente mais tarde.",
         "errorNetwork": "Não foi possível acessar o serviço de atualização. Verifique sua conexão e tente novamente."
@@ -719,6 +721,17 @@
         "checkForUpdates": "Verifique se há atualizações",
         "download": "Baixar v{{version}}",
         "restartAndInstall": "Reinicie e instale"
+      },
+      "sidebar": {
+        "labels": {
+          "update": "Atualizar",
+          "restart": "Reiniciar",
+          "waiting": "Aguardando",
+          "retry": "Tentar",
+          "installing": "Instalando…"
+        },
+        "retry": "Falha na atualização · Tentar novamente",
+        "waiting": "Pronto quando não houver atividade"
       }
     },
     "about": {

@@ -17,7 +17,7 @@ function resolveAppVersion() {
   if (envVersion) return envVersion
   const argvVersion = readVersionFromProcessArgs()
   if (argvVersion) return argvVersion
-  return '0.1.1-alpha'
+  return '0.1.2-alpha'
 }
 
 function resolveInitialAppearance() {
@@ -266,6 +266,22 @@ function normalizeHttpUrl(value) {
   return parsed.toString()
 }
 
+function normalizeUpdateInstallPreflight(value) {
+  const source = isPlainObject(value) ? value : null
+  if (!source
+    || !Number.isSafeInteger(source.dirtyTabCount)
+    || source.dirtyTabCount < 0
+    || source.dirtyTabCount > 10_000
+    || !Number.isFinite(source.capturedAt)
+    || source.capturedAt < 0) {
+    return null
+  }
+  return {
+    dirtyTabCount: source.dirtyTabCount,
+    capturedAt: source.capturedAt,
+  }
+}
+
 module.exports = {
   readVersionFromProcessArgs,
   resolveAppVersion,
@@ -287,4 +303,5 @@ module.exports = {
   normalizeChatTurnOptions,
   requireNonEmptyString,
   normalizeHttpUrl,
+  normalizeUpdateInstallPreflight,
 }

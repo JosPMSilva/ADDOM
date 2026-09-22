@@ -181,6 +181,12 @@
         "none": "Sin sugerencia"
       }
     },
+    "memorySuggestion": {
+      "title": "¿Guardar la información del terminal?",
+      "scopeLabel": "Ámbito de memoria",
+      "projectMemory": "Memoria del proyecto",
+      "save": "Guardar información"
+    },
     "banner": {
       "thisPlatform": "esta plataforma",
       "anotherPlatform": "otra plataforma",
@@ -549,6 +555,7 @@
         "expandTitle": "Expandir panel de problemas",
         "collapseTitle": "Contraer panel de problemas",
         "setDefaultStateTitle": "Establecer el estado predeterminado del panel de problemas",
+        "preferences": "Preferencias del panel Problemas",
         "defaultCollapsed": "Contraído por defecto",
         "noMatch": "Ningún problema coincide con el filtro actual.",
         "noneInFile": "No hay problemas en este archivo."
@@ -1036,6 +1043,10 @@
       "dispatching": "Enviando...",
       "executeTasks": "Ejecutar {{count}} tarea{{suffix}}"
     },
+    "timeline": {
+      "showEarlier": "Mostrar {{count}} anteriores",
+      "showEarlierAriaLabel": "Mostrar hasta {{count}} entradas anteriores de la cronología. Hay {{hiddenCount}} ocultas."
+    },
     "questionUser": {
       "clarificationNeeded": "Se necesita aclaración",
       "waitingOnYou": "Esperando tu respuesta",
@@ -1471,6 +1482,24 @@
     "clear": "Borrar",
     "clearAll": "Borrar todo",
     "cancel": "Cancelar"
+  },
+  "errorBoundary": {
+    "technicalDetails": "Detalles técnicos",
+    "app": {
+      "unexpected": "Error inesperado del renderizador",
+      "eyebrow": "Error del renderizador",
+      "title": "ADDOM no pudo mostrar esta pantalla.",
+      "description": "Vuelve a cargar la aplicación para restaurar el espacio de trabajo. Los datos locales del proyecto no han cambiado.",
+      "reload": "Volver a cargar ADDOM"
+    },
+    "panel": {
+      "fallbackLabel": "Este panel",
+      "unexpected": "Error inesperado del panel",
+      "eyebrow": "Error del panel",
+      "title": "No se pudo mostrar {{panelLabel}}.",
+      "description": "Reintenta este panel para restaurarlo. Los datos del proyecto y del hilo no han cambiado.",
+      "retry": "Reintentar panel"
+    }
   },
   "settingsInstructions": {
     "title": "Usar ADDOM",

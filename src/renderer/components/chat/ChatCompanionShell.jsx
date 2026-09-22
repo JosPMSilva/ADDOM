@@ -1,11 +1,12 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { useRendererTranslation } from '../../i18n/use-renderer-translation.mjs'
 import Icon from '../ui/Icon.jsx'
 import {
   CHAT_COMPANION_MODE_FOCUSED,
-  MIN_CHAT_COMPANION_WIDTH,
   clampChatCompanionWidth,
   resolveChatCompanionMaximumWidth,
+  resolveChatCompanionMinimumWidth,
+  shouldUseChatCompanionTakeover,
 } from './chat-companion-state.mjs'
 import {
   createChatCompanionDragSession,
@@ -41,6 +42,7 @@ export default function ChatCompanionShell({
   const dragSessionRef = useRef(null)
   const draggedViewKeyRef = useRef('')
   const [draggedViewKey, setDraggedViewKey] = useState('')
+  const [availableWorkspaceWidth, setAvailableWorkspaceWidth] = useState(0)
   const activeView = useMemo(
     () => views.find((view) => view.key === activeCompanion) || null,
     [activeCompanion, views],
@@ -48,9 +50,50 @@ export default function ChatCompanionShell({
   const focused = mode === CHAT_COMPANION_MODE_FOCUSED
   const showTabs = views.length > 1
   const viewportWidth = typeof window === 'undefined' ? 0 : window.innerWidth
-  const resizeLayout = useMemo(() => ({ workspaceRailOpen }), [workspaceRailOpen])
+  const resizeLayout = useMemo(() => ({
+    workspaceRailOpen,
+    companionType: activeView?.type,
+  }), [activeView?.type, workspaceRailOpen])
+  const minimumWidth = resolveChatCompanionMinimumWidth(resizeLayout)
   const maximumWidth = resolveChatCompanionMaximumWidth(viewportWidth, resizeLayout)
   const resolvedWidth = clampChatCompanionWidth(width, viewportWidth, resizeLayout)
+
+  useLayoutEffect(() => {
+    const shell = shellRef.current
+    const row = shell?.parentElement
+    if (!visible || !activeCompanion || !shell || !row) {
+      setAvailableWorkspaceWidth(0)
+      return undefined
+    }
+    const main = Array.from(row.children).find((child) => child?.getAttribute?.('data-chat-workspace-main') === 'true')
+    const syncWidth = () => {
+      const nextWidth = Math.round(
+        shell.getBoundingClientRect().width + (main?.getBoundingClientRect?.().width || 0),
+      )
+      setAvailableWorkspaceWidth((current) => current === nextWidth ? current : nextWidth)
+    }
+    syncWidth()
+    window.addEventListener('resize', syncWidth)
+    if (typeof ResizeObserver !== 'function') {
+      return () => window.removeEventListener('resize', syncWidth)
+    }
+    const observer = new ResizeObserver(syncWidth)
+    observer.observe(row)
+    observer.observe(shell)
+    if (main) observer.observe(main)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', syncWidth)
+    }
+  }, [activeCompanion, visible])
+
+  const takeover = visible
+    && !focused
+    && shouldUseChatCompanionTakeover(availableWorkspaceWidth, {
+      ...resizeLayout,
+      companionWidth: resolvedWidth,
+    })
+  const fillsWorkspace = focused || takeover
 
   useEffect(() => () => dragSessionRef.current?.cleanup(), [])
 
@@ -107,7 +150,7 @@ export default function ChatCompanionShell({
   const handleResizeKeyDown = (event) => {
     if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return
     event.preventDefault()
-    if (event.key === 'Home') onResize?.(MIN_CHAT_COMPANION_WIDTH, viewportWidth, resizeLayout)
+    if (event.key === 'Home') onResize?.(minimumWidth, viewportWidth, resizeLayout)
     else if (event.key === 'End') onResize?.(maximumWidth, viewportWidth, resizeLayout)
     else onResize?.(resolvedWidth + (event.key === 'ArrowLeft' ? 16 : -16), viewportWidth, resizeLayout)
   }
@@ -117,6 +160,7 @@ export default function ChatCompanionShell({
       ref={shellRef}
       data-chat-companion={activeCompanion}
       data-companion-mode={focused ? 'focused' : 'split'}
+      data-takeover={takeover ? 'true' : 'false'}
       data-visible={visible ? 'true' : 'false'}
       aria-hidden={visible ? undefined : true}
       inert={visible ? undefined : true}
@@ -124,19 +168,19 @@ export default function ChatCompanionShell({
         'chat-companion-shell relative flex h-full min-h-0 shrink-0 flex-col overflow-hidden bg-surface',
         'transition-[width,min-width,max-width,opacity] duration-150 ease-out motion-reduce:transition-none',
         visible ? 'opacity-100' : 'hidden',
-        focused ? 'flex-1 border-l-0' : 'border-l border-surface-border',
+        fillsWorkspace ? 'flex-1 border-l-0' : 'border-l border-surface-border',
       ].join(' ')}
       style={{
-        '--chat-companion-inline-size': visible && !focused ? `${resolvedWidth}px` : '0px',
+        '--chat-companion-inline-size': visible && !fillsWorkspace ? `${resolvedWidth}px` : '0px',
       }}
     >
-      {!focused ? (
+      {!fillsWorkspace ? (
         <div
           data-companion-resizer="true"
           role="separator"
           aria-orientation="vertical"
           aria-label={t('core:companionDock.resize', { defaultValue: 'Resize companion' })}
-          aria-valuemin={MIN_CHAT_COMPANION_WIDTH}
+          aria-valuemin={minimumWidth}
           aria-valuemax={maximumWidth}
           aria-valuenow={resolvedWidth}
           tabIndex={0}

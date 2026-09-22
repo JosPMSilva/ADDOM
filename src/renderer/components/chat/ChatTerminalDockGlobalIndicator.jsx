@@ -66,7 +66,7 @@ export default function ChatTerminalGlobalIndicator({ activeThreadId = '' }) {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className={['inline-flex items-center gap-2 rounded-full border px-2.5 py-1 text-xs', getPriorityClasses(topPriority)].join(' ')}
+        className={['inline-flex items-center gap-2 rounded-md border px-2.5 py-1 font-display text-xs transition-colors', getPriorityClasses(topPriority)].join(' ')}
         aria-expanded={open ? 'true' : 'false'}
         aria-haspopup="dialog"
         data-ui="chat-terminal-global-indicator"
@@ -81,10 +81,10 @@ export default function ChatTerminalGlobalIndicator({ activeThreadId = '' }) {
         </span>
       </button>
       {open && (
-        <div className="absolute right-0 top-[calc(100%+0.5rem)] z-40 w-80 rounded-2xl border border-surface-border bg-surface-panel-muted-strong/95 p-3 shadow-[0_24px_54px_rgb(var(--theme-cool-shadow-rgb)_/_0.36)] backdrop-blur">
+        <div className="absolute right-0 top-[calc(100%+0.5rem)] z-40 w-80 rounded-lg border border-surface-border bg-surface-panel-muted-strong/95 p-2.5 shadow-[0_18px_42px_rgb(var(--theme-cool-shadow-rgb)_/_0.3)] backdrop-blur">
           <div className="space-y-2">
             {rows.map((row) => (
-              <div key={row.threadId} className="rounded-2xl border border-surface-border bg-surface-panel/60 px-3 py-3">
+              <div key={row.threadId} className="rounded-md bg-surface-panel/60 px-3 py-2.5">
                 <div className="flex items-center justify-between gap-2">
                   <div className="min-w-0">
                     <p className="truncate text-sm font-medium text-text-primary">{row.title}</p>
@@ -96,7 +96,7 @@ export default function ChatTerminalGlobalIndicator({ activeThreadId = '' }) {
                       })}
                     </p>
                   </div>
-                  <span className={['flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-[0.12em]', getPriorityClasses(row.priority)].join(' ')}>
+                  <span className={['flex items-center gap-1 rounded-md border px-2 py-0.5 font-display text-[11px] font-medium tracking-normal', getPriorityClasses(row.priority)].join(' ')}>
                     <Icon name={getPriorityIcon(row.priority)} className="text-[11px]" />
                     {row.priority === 'approval'
                       ? t('core:terminal.globalIndicator.priority.approval', { defaultValue: 'Approval needed' })
@@ -115,7 +115,7 @@ export default function ChatTerminalGlobalIndicator({ activeThreadId = '' }) {
                       setActivePanel?.('chat')
                       setOpen(false)
                     }}
-                    className="rounded-full border border-surface-border px-3 py-1.5 text-xs text-text-secondary hover:border-border-hover hover:text-text-primary"
+                    className="rounded-md px-2.5 py-1.5 font-display text-xs text-text-secondary transition-colors hover:bg-surface-panel hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong"
                   >
                     {t('core:terminal.dock.browser.actions.openThread', { defaultValue: 'Open thread' })}
                   </button>

@@ -4,6 +4,16 @@ This changelog is maintained going forward from the current repository baseline.
 
 ## Unreleased
 
+## 0.1.2-alpha
+
+- Corrected public documentation to distinguish the `0.1.1-alpha` published baseline from the future `0.1.2-alpha` development target and documented the remaining localization gaps.
+- Added a calm sidebar update control with available, download-progress, ready, blocked, installing, and failure states.
+- Added launch and 30-minute background update checks with explicit user-controlled download and installation.
+- Prevented update installation while tasks, approvals, terminals, or unsaved editor tabs are active, with a final idle-state recheck before restart.
+- Switched Windows update handoff to silent installation and direct executable relaunch.
+- Refined intermittent history, terminal, recovery, diagnostics, question, and memory surfaces to match ADDOM's compact visual language.
+- Removed semantic-colored vertical edge accents from prompts, notices, dialogs, banners, recovery cards, and panels.
+
 ## 0.1.1-alpha
 
 - Added managed-plan reveal and save-copy actions with revision-safe document handling.

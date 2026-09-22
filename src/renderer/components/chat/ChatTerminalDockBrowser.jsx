@@ -33,9 +33,6 @@ function buildTerminalDockBrowserLabels(t) {
     emptyHistory: t('core:terminal.dock.browser.empty.history', {
       defaultValue: 'No archived terminal history is available for this workspace yet.',
     }),
-    fieldThread: t('core:terminal.dock.browser.fields.thread', { defaultValue: 'Thread' }),
-    fieldScope: t('core:terminal.dock.browser.fields.scope', { defaultValue: 'Scope' }),
-    fieldUpdated: t('core:terminal.dock.browser.fields.updated', { defaultValue: 'Updated' }),
     openThread: t('core:terminal.dock.browser.actions.openThread', { defaultValue: 'Open thread' }),
     savedToMemory: t('core:terminal.dock.browser.actions.savedToMemory', { defaultValue: 'Saved to Memory' }),
     noMemorySummary: t('core:terminal.dock.browser.actions.noMemorySummary', { defaultValue: 'No Memory summary' }),
@@ -113,7 +110,7 @@ function BrowserSectionButton({
       type="button"
       onClick={() => onClick?.()}
       className={[
-        'flex w-full items-center justify-between rounded-2xl border px-3 py-2 text-left transition-colors',
+        'flex w-full items-center justify-between rounded-lg border px-3 py-2 text-left transition-colors',
         active
           ? 'border-accent/35 bg-accent/10 text-text-primary'
           : 'border-transparent text-text-secondary hover:border-surface-border/40 hover:bg-surface-panel/45 hover:text-text-primary',
@@ -121,7 +118,7 @@ function BrowserSectionButton({
       aria-pressed={active ? 'true' : 'false'}
     >
       <span className="text-xs font-medium">{label}</span>
-      <span className="rounded-full border border-surface-border/70 bg-surface-panel/70 px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-text-tertiary">
+      <span className="font-mono text-[11px] tabular-nums text-text-tertiary">
         {count}
       </span>
     </button>
@@ -139,7 +136,7 @@ function BrowserEntryRow({
       type="button"
       onClick={() => onClick?.(entry)}
       className={[
-        'w-full rounded-2xl border px-3 py-3 text-left transition-colors',
+        'w-full rounded-lg border px-3 py-2.5 text-left transition-colors',
         active
           ? 'border-accent/35 bg-accent/10'
           : 'border-transparent bg-surface-panel/25 hover:border-surface-border/40 hover:bg-surface-panel/45',
@@ -152,27 +149,17 @@ function BrowserEntryRow({
             <p className="mt-1 truncate text-xs text-text-secondary">{entry.detail}</p>
           )}
           {entry.meta && (
-            <p className="mt-1 truncate text-[10px] uppercase tracking-[0.12em] text-text-tertiary">{entry.meta}</p>
+            <p className="mt-1 truncate text-[11px] text-text-tertiary">{entry.meta}</p>
           )}
         </div>
         {entry.stateLabel && (
-          <span className={['shrink-0 inline-flex items-center justify-center rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-[0.12em]', getPriorityClasses(entry.priority)].join(' ')} title={entry.stateLabel}>
+          <span className={['inline-flex shrink-0 items-center justify-center rounded-md border px-2 py-0.5 font-display text-[11px] font-medium tracking-normal', getPriorityClasses(entry.priority)].join(' ')} title={entry.stateLabel}>
             <Icon name={getPriorityIcon(entry.priority)} className="mr-1 text-[11px]" />
             {entry.stateLabel}
           </span>
         )}
       </div>
     </button>
-  )
-}
-
-function BrowserDetailField({ label = '', value = '' }) {
-  if (!value) return null
-  return (
-    <div>
-      <p className="text-[10px] uppercase tracking-[0.12em] text-text-tertiary">{label}</p>
-      <p className="mt-1 break-words text-xs text-text-primary">{value}</p>
-    </div>
   )
 }
 
@@ -217,6 +204,19 @@ export default function ChatTerminalDockBrowser({
     rawOutput: selectedBrowserRawOutput,
     projectFolder: selectedBrowserSession?.project,
   })
+  const browserMetadata = [
+    getThreadTitle(threads, selectedBrowserThreadId),
+    selectedBrowserSession
+      ? getTerminalScopeLabel(selectedBrowserSession, { labels: labels.terminalSessionLabels })
+      : (selectedArchivedBrowserSession
+        ? getTerminalScopeLabel(selectedArchivedBrowserSession, { labels: labels.terminalSessionLabels })
+        : ''),
+    selectedBrowserSession
+      ? getTerminalExactTimestampLabel(selectedBrowserSession?.updatedAt || selectedBrowserSession?.createdAt, { locale })
+      : (selectedArchivedBrowserSession
+        ? getTerminalExactTimestampLabel(selectedArchivedBrowserSession?.closedAt || selectedArchivedBrowserSession?.openedAt, { locale })
+        : ''),
+  ].filter(Boolean)
   return (
     <div
       style={{ height: `${browserHeight}px` }}
@@ -248,7 +248,7 @@ export default function ChatTerminalDockBrowser({
                 ))}
               </div>
             ) : (
-              <div className="rounded-2xl bg-surface-panel/30 px-3 py-4 text-xs text-text-secondary">
+              <div className="rounded-lg bg-surface-panel/30 px-3 py-4 text-xs text-text-secondary">
                 {browserSection === 'current_thread'
                   ? labels.emptyCurrentThread
                   : browserSection === 'other_live'
@@ -259,7 +259,7 @@ export default function ChatTerminalDockBrowser({
           </div>
         </aside>
 
-        <section className="flex min-h-0 flex-1 flex-col">
+        <section className="flex min-h-0 min-w-0 flex-1 flex-col">
           <div className="border-b border-surface-border/20 px-4 py-3">
             <TerminalStatusBanner runtimeHealth={runtimeHealth} actionError={actionError} />
             {selectedBrowserEntry ? (
@@ -268,39 +268,35 @@ export default function ChatTerminalDockBrowser({
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold text-text-primary">{selectedBrowserEntry.label}</p>
                     {selectedBrowserEntry.detail && (
-                      <p className="mt-1 text-xs text-text-secondary">{selectedBrowserEntry.detail}</p>
+                      <p className="mt-1 break-words text-xs text-text-secondary">{selectedBrowserEntry.detail}</p>
                     )}
                   </div>
                   {selectedBrowserEntry.stateLabel && (
-                    <span className={['rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-[0.12em]', getPriorityClasses(selectedBrowserEntry.priority)].join(' ')}>
+                    <span className={['rounded-md border px-2 py-0.5 font-display text-[11px] font-medium tracking-normal', getPriorityClasses(selectedBrowserEntry.priority)].join(' ')}>
                       {selectedBrowserEntry.stateLabel}
                     </span>
                   )}
                 </div>
-                <div className="mt-3 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-                  <BrowserDetailField label={labels.fieldThread} value={getThreadTitle(threads, selectedBrowserThreadId)} />
-                  <BrowserDetailField
-                    label={labels.fieldScope}
-                    value={selectedBrowserSession
-                      ? getTerminalScopeLabel(selectedBrowserSession, { labels: labels.terminalSessionLabels })
-                      : (selectedArchivedBrowserSession ? getTerminalScopeLabel(selectedArchivedBrowserSession, { labels: labels.terminalSessionLabels }) : '')}
-                  />
-                  <BrowserDetailField
-                    label={labels.fieldUpdated}
-                    value={selectedBrowserSession
-                      ? getTerminalExactTimestampLabel(selectedBrowserSession?.updatedAt || selectedBrowserSession?.createdAt, { locale })
-                      : (selectedArchivedBrowserSession
-                        ? getTerminalExactTimestampLabel(selectedArchivedBrowserSession?.closedAt || selectedArchivedBrowserSession?.openedAt, { locale })
-                        : '')}
-                  />
-                </div>
+                {browserMetadata.length > 0 && (
+                  <p
+                    className="mt-2 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[11px] leading-4 text-text-tertiary"
+                    data-ui="chat-terminal-browser-metadata"
+                  >
+                    {browserMetadata.map((value, index) => (
+                      <React.Fragment key={`${value}:${index}`}>
+                        {index > 0 && <span aria-hidden="true" className="text-text-muted">·</span>}
+                        <span className="min-w-0 break-words">{value}</span>
+                      </React.Fragment>
+                    ))}
+                  </p>
+                )}
                 <div className="mt-3 flex flex-wrap items-center gap-2">
                   {showBrowserOpenThreadAction && (
                     <button
                       type="button"
-                    onClick={() => void onOpenOwningThread?.(selectedBrowserThreadId)}
-                    className="rounded-full border border-surface-border/70 px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary"
-                  >
+                      onClick={() => void onOpenOwningThread?.(selectedBrowserThreadId)}
+                      className="rounded-md border border-surface-border/70 px-3 py-1.5 font-display text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong"
+                    >
                       {labels.openThread}
                     </button>
                   )}
@@ -310,7 +306,7 @@ export default function ChatTerminalDockBrowser({
                         type="button"
                         onClick={() => browserOutputActions.sendOutputToChat()}
                         disabled={!selectedBrowserRawOutput}
-                        className="rounded-full border border-surface-border/70 px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                        className="rounded-md border border-surface-border/70 px-3 py-1.5 font-display text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         {labels.sendOutputToChat}
                       </button>
@@ -318,7 +314,7 @@ export default function ChatTerminalDockBrowser({
                         type="button"
                         onClick={() => browserOutputActions.explainLastError()}
                         disabled={!selectedBrowserRawOutput}
-                        className="rounded-full border border-surface-border/70 px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                        className="rounded-md border border-surface-border/70 px-3 py-1.5 font-display text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         {labels.explainLastError}
                       </button>
@@ -326,7 +322,7 @@ export default function ChatTerminalDockBrowser({
                         type="button"
                         onClick={() => browserOutputActions.summarizeSession()}
                         disabled={!selectedBrowserRawOutput}
-                        className="rounded-full border border-surface-border/70 px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                        className="rounded-md border border-surface-border/70 px-3 py-1.5 font-display text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         {labels.summarizeSession}
                       </button>
@@ -334,7 +330,7 @@ export default function ChatTerminalDockBrowser({
                         type="button"
                         onClick={() => void browserOutputActions.saveSnapshotToMemory()}
                         disabled={!selectedBrowserRawOutput || browserOutputActions.memoryPending}
-                        className="rounded-full border border-surface-border/70 px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                        className="rounded-md border border-surface-border/70 px-3 py-1.5 font-display text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         {labels.saveSnapshotToMemory}
                       </button>
@@ -346,7 +342,7 @@ export default function ChatTerminalDockBrowser({
                         type="button"
                         onClick={() => void saveArchivedSessionToMemory?.(selectedArchivedBrowserSession.sessionId, { targetScope: 'thread' })}
                         disabled={archiveSaveAction?.disabled}
-                        className="rounded-full border border-surface-border/70 bg-surface-panel/50 px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                        className="rounded-md border border-surface-border/70 bg-surface-panel/50 px-3 py-1.5 font-display text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         {archiveSaveAction?.saved ? labels.savedToMemory : archiveSaveAction?.missing ? labels.noMemorySummary : labels.saveToThreadMemory}
                       </button>
@@ -354,7 +350,7 @@ export default function ChatTerminalDockBrowser({
                         type="button"
                         onClick={() => void saveArchivedSessionToMemory?.(selectedArchivedBrowserSession.sessionId, { targetScope: 'project' })}
                         disabled={archiveSaveAction?.disabled}
-                        className="rounded-full border border-surface-border/70 bg-surface-panel/50 px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                        className="rounded-md border border-surface-border/70 bg-surface-panel/50 px-3 py-1.5 font-display text-xs text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         {archiveSaveAction?.saved ? labels.savedToMemory : archiveSaveAction?.missing ? labels.noMemorySummary : labels.saveToProjectMemory}
                       </button>
@@ -362,7 +358,7 @@ export default function ChatTerminalDockBrowser({
                         type="button"
                         onClick={() => void onDeleteArchivedBrowserSession?.(selectedArchivedBrowserSession.sessionId)}
                         disabled={archiveDeletePendingBySessionId?.[selectedArchivedBrowserSession.sessionId] === true}
-                        className="rounded-full border border-danger/35 bg-danger/10 px-3 py-1.5 text-xs text-danger-soft transition-colors hover:border-danger/50 hover:bg-danger/15 disabled:cursor-not-allowed disabled:opacity-60"
+                        className="rounded-md border border-danger/35 bg-danger/10 px-3 py-1.5 font-display text-xs text-danger-soft transition-colors hover:border-danger/50 hover:bg-danger/15 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-danger-border disabled:cursor-not-allowed disabled:opacity-60"
                       >
                         {archiveDeletePendingBySessionId?.[selectedArchivedBrowserSession.sessionId] === true ? labels.deletingArchive : labels.deleteArchive}
                       </button>

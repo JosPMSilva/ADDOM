@@ -280,6 +280,8 @@ export default function EditorTabBar({
           const dirty = !!tab.dirty
           const externalChanged = !!tab.externalChanged
           const active = tab.id === activeTab
+          const tabLabel = tab.title || tab.name || tab.label || t('editor.tabBar.fallbackTabLabel', { defaultValue: 'tab' })
+          const readOnlyLabel = t('terminal.viewport.readOnly', { defaultValue: 'Read-only' })
           const problemCounts = countProblemsBySeverity(problemsByTab[tab.id] ?? [])
           const problemTotal = problemCounts.total
           const problemBadgeClass = problemCounts.error > 0
@@ -305,7 +307,7 @@ export default function EditorTabBar({
                 role="tab"
                 aria-selected={active}
                 tabIndex={active ? 0 : -1}
-                title={tab.title || tab.name || tab.label}
+                title={tabLabel}
                 onPointerDown={(event) => handleTabPointerDown(event, tab.id)}
                 onClick={(event) => {
                   if (suppressClickTabIdRef.current === tab.id) {
@@ -323,12 +325,22 @@ export default function EditorTabBar({
               >
                 {tab.label}
               </button>
+              {tab.readOnly ? (
+                <span
+                  data-ui="editor-read-only-indicator"
+                  aria-label={readOnlyLabel}
+                  title={readOnlyLabel}
+                  className="flex size-4 shrink-0 items-center justify-center text-text-tertiary"
+                >
+                  <Icon name="lock-simple" size={11} />
+                </span>
+              ) : null}
               {dirty && (
                 <button
                   type="button"
                   aria-label={t('editor.tabBar.saveTabAriaLabel', {
                     defaultValue: 'Save {{fileLabel}}',
-                    fileLabel: tab.title || tab.name || t('editor.tabBar.fallbackFileLabel', { defaultValue: 'file' }),
+                    fileLabel: tab.title || tab.name || tab.label || t('editor.tabBar.fallbackFileLabel', { defaultValue: 'file' }),
                   })}
                   title={t('editor.tabBar.unsavedChangesTitle', { defaultValue: 'Unsaved changes - click to save' })}
                   onClick={(e) => { e.stopPropagation(); onSave(tab.id) }}
@@ -364,7 +376,7 @@ export default function EditorTabBar({
                 type="button"
                 aria-label={t('editor.tabBar.closeTabAriaLabel', {
                   defaultValue: 'Close {{tabLabel}}',
-                  tabLabel: tab.title || tab.name || t('editor.tabBar.fallbackTabLabel', { defaultValue: 'tab' }),
+                  tabLabel,
                 })}
                 onClick={(e) => { e.stopPropagation(); onClose(tab.id) }}
                 className="opacity-0 group-hover:opacity-100 focus-visible:opacity-100 w-4 h-4 flex items-center justify-center rounded text-text-muted hover:text-danger hover:bg-surface-border transition-all shrink-0"

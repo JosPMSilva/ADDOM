@@ -706,11 +706,13 @@
       "description": "ADDOM 在启动时自动检查更新。您可以控制何时下载和安装更新。",
       "status": {
         "upToDate": "最新",
+        "unavailable": "此版本无法使用更新功能。",
         "checking": "正在检查更新...",
         "latest": "您使用的是最新版本",
         "available": "可用更新 - v{{version}}",
         "downloading": "正在下载...{{percent}}%",
         "readyToInstall": "v{{version}} 准备安装",
+        "installing": "正在安装更新...",
         "error": "无法检查更新。请稍后重试。",
         "errorUnavailable": "更新服务尚不可用。请稍后重试。",
         "errorNetwork": "无法连接更新服务。请检查网络连接后重试。"
@@ -719,6 +721,17 @@
         "checkForUpdates": "检查更新",
         "download": "下载v{{version}}",
         "restartAndInstall": "重新启动并安装"
+      },
+      "sidebar": {
+        "labels": {
+          "update": "更新",
+          "restart": "重启",
+          "waiting": "等待中",
+          "retry": "重试",
+          "installing": "安装中…"
+        },
+        "retry": "更新失败 · 重试",
+        "waiting": "空闲时可安装"
       }
     },
     "about": {

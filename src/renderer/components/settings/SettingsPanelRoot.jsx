@@ -4,6 +4,7 @@ import useAppStore, { requestAppAlert, requestAppConfirm } from '../../store/use
 import useVaultStore from '../../store/useVaultStore.js'
 import useWorkspaceStore from '../../store/useWorkspaceStore.js'
 import useSettingsStore, { readInitialSettingsPanelDrafts } from '../../store/useSettingsStore.js'
+import useUpdateStore, { toLegacyUpdatePresentation } from '../../store/useUpdateStore.js'
 import { DEFAULT_UI_LOCALE, normalizeUiLocale } from '../../../common/i18n/locale-config.mjs'
 import Icon from '../ui/Icon.jsx'
 import { normalizeAgentSettings } from '../../../common/agents/agent-settings.mjs'
@@ -36,8 +37,6 @@ import {
   normalizeAnthropicRuntimeSettingsForUi,
   normalizeOpenAIRuntimeSettingsForUi,
   readSettingsPanelActiveCategoryId,
-  resolveUpdateCheckFallbackInfo,
-  resolveUpdateCheckFallbackStatus,
   writeSettingsPanelActiveCategoryId,
   isStaleSettingsPersistError,
 } from './settings-panel-runtime-and-storage.mjs'
@@ -61,6 +60,7 @@ import {
   DEFAULT_TERMINAL_SETTINGS,
   normalizeTerminalSettings,
 } from '../../../common/terminal/terminal-settings.mjs'
+import { runConfirmedSettingsUpdateInstall } from './settings-update-install-action.mjs'
 
 function mergeOpenAIMcpServersIntoRuntimeSettings(runtimeSettings = {}, openAIMcpServers = []) {
   const normalizedServers = Array.isArray(openAIMcpServers) ? openAIMcpServers : []
@@ -180,9 +180,14 @@ export default function SettingsPanelRoot() {
   const [chatTypographySettings, setChatTypographySettings] = useState(
     () => normalizeChatTypographySettings(initialSettingsDrafts.chatTypographySettings || DEFAULT_CHAT_TYPOGRAPHY_SETTINGS),
   )
-  const [updateStatus, setUpdateStatus] = useState(null)
-  const [updateInfo, setUpdateInfo] = useState(null)
-  const [updatePct, setUpdatePct] = useState(0)
+  const updateSnapshot = useUpdateStore((state) => state.snapshot)
+  const updatePresentation = useMemo(
+    () => toLegacyUpdatePresentation(updateSnapshot),
+    [updateSnapshot],
+  )
+  const updateStatus = updatePresentation.status
+  const updateInfo = updatePresentation.info
+  const updatePct = updatePresentation.percent
   const [permissionModeChangePending, setPermissionModeChangePending] = useState(false)
   const [activeCategoryId, setActiveCategoryId] = useState(readSettingsPanelActiveCategoryId)
   const backgroundToneRestartAlertShownRef = useRef(false)
@@ -226,35 +231,29 @@ export default function SettingsPanelRoot() {
     })
     writeSettingsPanelActiveCategoryId(normalizedCategoryId)
   }, [])
-  useEffect(() => {
-    const unsubs = [
-      window.addom.updater.onChecking(() => { setUpdateStatus('checking'); setUpdateInfo(null) }),
-      window.addom.updater.onAvailable((data) => { setUpdateStatus('available'); setUpdateInfo(data) }),
-      window.addom.updater.onNotAvailable(() => { setUpdateStatus('not-available'); setUpdateInfo(null) }),
-      window.addom.updater.onProgress((data) => { setUpdateStatus('downloading'); setUpdatePct(data.percent) }),
-      window.addom.updater.onDownloaded((data) => { setUpdateStatus('downloaded'); setUpdateInfo(data) }),
-      window.addom.updater.onError((data) => { setUpdateStatus('error'); setUpdateInfo(data) }),
-    ]
-    return () => unsubs.forEach((unsubscribe) => unsubscribe())
-  }, [])
-  const handleCheckUpdate = useCallback(async () => {
-    setUpdateStatus('checking')
-    setUpdateInfo(null)
-    const result = await window.addom.updater.checkForUpdates()
-    const fallbackStatus = resolveUpdateCheckFallbackStatus(result)
-    if (fallbackStatus) {
-      setUpdateStatus(fallbackStatus)
-      setUpdateInfo(resolveUpdateCheckFallbackInfo(result))
-    }
-  }, [])
-  const handleDownloadUpdate = useCallback(async () => {
-    setUpdateStatus('downloading')
-    setUpdatePct(0)
-    await window.addom.updater.downloadUpdate()
-  }, [])
-  const handleInstallUpdate = useCallback(() => {
-    window.addom.updater.installUpdate()
-  }, [])
+  const handleCheckUpdate = useCallback(
+    () => useUpdateStore.getState().checkForUpdates(),
+    [],
+  )
+  const handleDownloadUpdate = useCallback(
+    () => useUpdateStore.getState().downloadUpdate(),
+    [],
+  )
+  const handleInstallUpdate = useCallback(async () => {
+    const action = t('settings:blocks.updates.actions.restartAndInstall', {
+      defaultValue: 'Restart and Install',
+    })
+    const message = t('settings:blocks.updates.status.readyToInstall', {
+      defaultValue: 'v{{version}} ready to install',
+      version: updateSnapshot.version,
+    })
+    return runConfirmedSettingsUpdateInstall({
+      title: action,
+      message,
+      confirm: requestAppConfirm,
+      install: () => useUpdateStore.getState().installUpdate(),
+    })
+  }, [t, updateSnapshot.version])
   const handlePermissionModeChange = useCallback(async (nextMode) => {
     if (permissionModeChangePending) return
     const normalizedMode = normalizePermissionMode(nextMode)

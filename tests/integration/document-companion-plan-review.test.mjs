@@ -2,9 +2,12 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 
 import {
+  buildManagedPlanEditorDocument,
+  canOpenManagedPlanInEditor,
   documentReadingCursorClass,
   resolveManagedPlanPrimaryAction,
 } from '../../src/renderer/components/chat/document-companion-plan-review.mjs'
+import { resolveProjectMarkdownLink } from '../../src/renderer/components/editor/editor-markdown-preview-utils.mjs'
 import {
   clampPlanReviewComposerHeight,
   createPlanReviewComposerDragSession,
@@ -33,6 +36,31 @@ test('managed plan review exposes exactly one lifecycle action', () => {
 test('managed plans use an arrow at rest and expose the text cursor only while pressing', () => {
   assert.equal(documentReadingCursorClass('managed_plan'), 'cursor-default active:cursor-text')
   assert.equal(documentReadingCursorClass('project'), 'cursor-text')
+})
+
+test('managed plans open in the editor only after implementation is accepted', () => {
+  assert.equal(canOpenManagedPlanInEditor({ lifecycle: 'ready_for_review' }), false)
+  assert.equal(canOpenManagedPlanInEditor({ lifecycle: 'revising' }), false)
+  assert.equal(canOpenManagedPlanInEditor({ lifecycle: 'approved' }), true)
+})
+
+test('accepted plan editor documents keep project-relative links rooted at the workspace', () => {
+  const editorDocument = buildManagedPlanEditorDocument({
+    threadId: 'thread_1',
+    planId: 'plan_1',
+    label: 'Plan.md',
+    content: '# Accepted plan',
+  })
+  const resolvedLink = resolveProjectMarkdownLink({
+    href: 'src/main/index.mjs',
+    currentFilePath: editorDocument.filePath,
+    projectFolder: 'C:/workspace/project',
+  })
+
+  assert.equal(editorDocument.identity, 'managed-plan:thread_1:plan_1')
+  assert.equal(editorDocument.filePath, 'Plan.md')
+  assert.equal(resolvedLink.ok, true)
+  assert.equal(resolvedLink.filePath, 'src/main/index.mjs')
 })
 
 test('plan review composer starts compact and grows to six visible lines at most', () => {

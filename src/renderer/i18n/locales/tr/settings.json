@@ -706,11 +706,13 @@
       "description": "ADDOM, başlatıldığında güncellemeleri otomatik olarak kontrol eder. Güncellemelerin ne zaman indirilip kurulacağını siz kontrol edersiniz.",
       "status": {
         "upToDate": "Güncel",
+        "unavailable": "Güncellemeler bu derlemede kullanılamıyor.",
         "checking": "Güncellemeler kontrol ediliyor...",
         "latest": "En son sürümdesiniz",
         "available": "Güncelleme mevcut - v{{version}}",
         "downloading": "İndiriliyor... {{percent}}%",
         "readyToInstall": "v{{version}} kuruluma hazır",
+        "installing": "Güncelleme yükleniyor...",
         "error": "Güncellemeler denetlenemedi. Daha sonra tekrar deneyin.",
         "errorUnavailable": "Güncelleme hizmeti henüz kullanılamıyor. Daha sonra tekrar deneyin.",
         "errorNetwork": "Güncelleme hizmetine ulaşılamadı. Bağlantınızı kontrol edip tekrar deneyin."
@@ -719,6 +721,17 @@
         "checkForUpdates": "Güncellemeleri kontrol edin",
         "download": "v{{version}}'yi indirin",
         "restartAndInstall": "Yeniden Başlatın ve Yükleyin"
+      },
+      "sidebar": {
+        "labels": {
+          "update": "Güncelle",
+          "restart": "Yeniden aç",
+          "waiting": "Bekliyor",
+          "retry": "Tekrar dene",
+          "installing": "Kuruluyor…"
+        },
+        "retry": "Güncelleme başarısız · Yeniden dene",
+        "waiting": "Boştayken hazır"
       }
     },
     "about": {

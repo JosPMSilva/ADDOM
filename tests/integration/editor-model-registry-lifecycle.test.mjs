@@ -86,6 +86,104 @@ test('reopening the same workspace file reuses one stable model registry entry',
   assert.equal(registrySnapshot[0].hasModel, true)
 })
 
+test('read-only content opens without using the project file bridge and reuses its internal tab', () => {
+  global.window = { addom: { file: {} } }
+
+  const firstOpen = useEditorStore.getState().openReadOnlyContent({
+    identity: 'managed-plan:thread_1:plan_1',
+    filePath: 'managed-plan/plan_1.md',
+    label: 'Plan.md',
+    language: 'markdown',
+    content: '# Accepted plan',
+  })
+  const reopened = useEditorStore.getState().openReadOnlyContent({
+    identity: 'managed-plan:thread_1:plan_1',
+    filePath: 'managed-plan/plan_1.md',
+    label: 'Plan.md',
+    language: 'markdown',
+    content: '# Accepted plan',
+  })
+
+  assert.equal(firstOpen.ok, true)
+  assert.equal(reopened.ok, true)
+  assert.equal(reopened.existing, true)
+  assert.equal(reopened.tabId, firstOpen.tabId)
+  assert.equal(useEditorStore.getState().tabs.length, 1)
+  const tab = useEditorStore.getState().getTabSnapshot(firstOpen.tabId)
+  assert.equal(tab.readOnly, true)
+  assert.equal(tab.content, '# Accepted plan')
+  assert.match(tab.modelUri, /^addom-readonly:\/\/document\//)
+})
+
+test('read-only content blocks edits and file saves at the store boundary', async () => {
+  let saveCalls = 0
+  global.window = {
+    addom: {
+      file: {
+        saveFile: async () => {
+          saveCalls += 1
+          return { ok: true }
+        },
+      },
+    },
+  }
+  const opened = useEditorStore.getState().openReadOnlyContent({
+    identity: 'managed-plan:thread_1:plan_1',
+    filePath: 'Plan.md',
+    label: 'Plan.md',
+    language: 'markdown',
+    content: '# Accepted plan',
+  })
+
+  useEditorStore.getState().updateContent(opened.tabId, '# Mutated plan')
+  const saveResult = await useEditorStore.getState().saveTab('C:/workspace/project', opened.tabId)
+
+  assert.equal(useEditorStore.getState().getTabSnapshot(opened.tabId).content, '# Accepted plan')
+  assert.equal(saveResult.reason, 'read_only')
+  assert.equal(saveCalls, 0)
+})
+
+test('read-only content refreshes in place and disposes its model on close', () => {
+  global.window = { addom: { file: {} } }
+  const first = useEditorStore.getState().openReadOnlyContent({
+    identity: 'managed-plan:thread_1:plan_1',
+    filePath: 'Plan.md',
+    content: '# Revision one',
+  })
+  const model = createFakeModel('# Revision one')
+  useEditorStore.getState().attachTabModel(first.tabId, model)
+  const reopened = useEditorStore.getState().openReadOnlyContent({
+    identity: 'managed-plan:thread_1:plan_1',
+    filePath: 'Plan.md',
+    content: '# Revision two',
+  })
+
+  assert.equal(reopened.existing, true)
+  assert.equal(useEditorStore.getState().tabs.length, 1)
+  assert.equal(useEditorStore.getState().getTabSnapshot(first.tabId).content, '# Revision two')
+  assert.equal(model.getValue(), '# Revision two')
+  assert.equal(useEditorStore.getState().closeTab(first.tabId).ok, true)
+  assert.equal(model.isDisposed(), true)
+  assert.equal(useEditorStore.getState().getModelRegistrySnapshot().length, 0)
+})
+
+test('read-only documents with the same display path retain distinct model identities', () => {
+  global.window = { addom: { file: {} } }
+  const first = useEditorStore.getState().openReadOnlyContent({
+    identity: 'managed-plan:thread_1:plan_1',
+    filePath: 'Plan.md',
+    content: '# Plan one',
+  })
+  const second = useEditorStore.getState().openReadOnlyContent({
+    identity: 'managed-plan:thread_2:plan_2',
+    filePath: 'Plan.md',
+    content: '# Plan two',
+  })
+
+  assert.notEqual(first.modelUri, second.modelUri)
+  assert.equal(useEditorStore.getState().tabs.length, 2)
+})
+
 test('openFile clears loading on the active tab after async read completion without requiring tab reselection', async () => {
   let resolveRead = null
   global.window = {
