@@ -2,8 +2,9 @@
 
 ## Current status
 
-ADDOM's published `0.1.0-alpha` packages are unsigned. The project is applying
-for the SignPath Foundation open-source code-signing program. This application
+ADDOM's published `0.1.0-alpha`, `0.1.1-alpha`, and `0.1.2-alpha` packages are
+unsigned. The project is applying for the
+SignPath Foundation open-source code-signing program. This application
 does not mean that SignPath Foundation has accepted or endorsed ADDOM, and no
 release should be described as signed until its downloadable artifacts carry a
 verifiable signature.

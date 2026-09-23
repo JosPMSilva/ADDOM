@@ -7,6 +7,8 @@ export const OPENAI_API_QUALIFIED_RUNTIME_MANIFEST = Object.freeze({
 
 const CURATED_OPENAI_API_MODELS = new Set([
   'gpt-6-astra',
+  'gpt-6-sol',
+  'gpt-6-luna',
   'gpt-5.6-sol',
   'gpt-5.6-terra',
   'gpt-5.6-luna',

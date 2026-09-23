@@ -95,4 +95,3 @@ export function createElectronUpdateAdapter(autoUpdater, { allowPrerelease = fal
     },
   }
 }
-

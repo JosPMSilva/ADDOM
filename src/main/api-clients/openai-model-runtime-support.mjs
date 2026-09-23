@@ -99,7 +99,7 @@ function withAccountAuthRuntimeSupport(baseSupport = {}) {
     supportsDelegatedToolSurface: contract?.capabilities?.delegated_tool_surface?.supported === true,
     ...delegationSupport,
     hostedToolSupport,
-    reasoningEffortOptions: normalizeOpenAIModelSnapshotAlias(baseSupport.modelId) === 'gpt-6-astra'
+    reasoningEffortOptions: normalizeOpenAIModelSnapshotAlias(baseSupport.modelId).startsWith('gpt-6-')
       ? ['low', 'medium', 'high', 'xhigh', 'max', 'ultra']
       : (
           Array.isArray(baseSupport.reasoningEffortOptions)
@@ -128,6 +128,7 @@ export function resolveOpenAIModelRuntimeSupport(modelId = '', { authMethod = 'a
 
   const normalizedAuthMethod = String(authMethod || '').trim().toLowerCase()
   const isAstra = canonicalModelId === 'gpt-6-astra'
+  const isGpt6 = canonicalModelId.startsWith('gpt-6-')
   const isGpt55 = canonicalModelId === 'gpt-5.5'
   const isGpt56 = canonicalModelId.startsWith('gpt-5.6-')
   const isGpt54 = canonicalModelId === 'gpt-5.4'
@@ -140,7 +141,7 @@ export function resolveOpenAIModelRuntimeSupport(modelId = '', { authMethod = 'a
   let reasoningEffortOptions = []
   if (isAstra) {
     reasoningEffortOptions = ['low', 'medium', 'high', 'xhigh', 'max']
-  } else if (isGpt56) {
+  } else if (isGpt6 || isGpt56) {
     reasoningEffortOptions = ['none', 'low', 'medium', 'high', 'xhigh', 'max']
   } else if (isGpt53Codex) {
     reasoningEffortOptions = ['low', 'medium', 'high', 'xhigh']
@@ -148,7 +149,7 @@ export function resolveOpenAIModelRuntimeSupport(modelId = '', { authMethod = 'a
     reasoningEffortOptions = ['none', 'low', 'medium', 'high', 'xhigh']
   }
 
-  const supportsProviderChainCompaction = isAstra || isGpt56 || isGpt55 || isGpt54
+  const supportsProviderChainCompaction = isGpt6 || isGpt56 || isGpt55 || isGpt54
   const supportsProviderTruncation = false
   const preferredCompactionMode = resolvePreferredCompactionMode({
     supportsProviderChainCompaction,
@@ -168,7 +169,7 @@ export function resolveOpenAIModelRuntimeSupport(modelId = '', { authMethod = 'a
     providerNativeRuntimeMode: 'none',
     isReasoningModel: true,
     supportsReasoningSummary: true,
-    supportsAssistantPhase: isAstra || isGpt56 || isGpt55 || isGpt54 || isGpt53Codex,
+    supportsAssistantPhase: isGpt6 || isGpt56 || isGpt55 || isGpt54 || isGpt53Codex,
     supportsTextVerbosity: !isGpt53Codex,
     supportsPromptCaching: true,
     supportsPromptCache24h: true,

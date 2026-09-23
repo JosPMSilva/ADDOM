@@ -296,4 +296,3 @@ test('controller stop clears scheduled checks and disposes its adapter', () => {
   assert.equal(timers.pendingCount(), 0)
   assert.equal(disposeCalls, 1)
 })
-

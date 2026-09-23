@@ -150,7 +150,7 @@ export function buildTurnLaunchParams({
   const policy = launchPolicy && typeof launchPolicy === 'object' ? launchPolicy : {}
   const normalizedModel = normalizeId(model).toLowerCase().replace(/-\d{4}-\d{2}-\d{2}$/, '')
   const normalizedEffort = normalizeId(effort).toLowerCase()
-  const allowedEfforts = normalizedModel === 'gpt-6-astra'
+  const allowedEfforts = normalizedModel.startsWith('gpt-6-')
     ? ['low', 'medium', 'high', 'xhigh', 'max', 'ultra']
     : ['none', 'minimal', 'low', 'medium', 'high', 'xhigh']
   const params = {

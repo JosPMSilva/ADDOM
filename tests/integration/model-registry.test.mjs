@@ -21,6 +21,7 @@ function modelIds(provider) {
 const APPROVED_DIRECT_PROVIDER_MODELS = Object.freeze({
   anthropic: [
     'claude-sonnet-5',
+    'claude-opus-5-5',
     'claude-opus-5',
     'claude-fable-5-1',
     'claude-opus-4-8',
@@ -28,6 +29,8 @@ const APPROVED_DIRECT_PROVIDER_MODELS = Object.freeze({
   ],
   openai: [
     'gpt-6-astra',
+    'gpt-6-sol',
+    'gpt-6-luna',
     'gpt-5.6-sol',
     'gpt-5.6-terra',
     'gpt-5.6-luna',
@@ -78,7 +81,7 @@ const APPROVED_DIRECT_PROVIDER_MODELS = Object.freeze({
   ],
 })
 
-test('direct provider registry contains exactly the approved 39 models', () => {
+test('direct provider registry contains exactly the approved 42 models', () => {
   const directModelIds = []
 
   for (const [providerId, expectedModelIds] of Object.entries(APPROVED_DIRECT_PROVIDER_MODELS)) {
@@ -89,7 +92,7 @@ test('direct provider registry contains exactly the approved 39 models', () => {
     directModelIds.push(...modelIds(provider))
   }
 
-  assert.equal(directModelIds.length, 39)
+  assert.equal(directModelIds.length, 42)
 })
 
 test('canonical registry providers/models expose normalized schema fields', () => {
@@ -205,6 +208,24 @@ test('curated remote providers use the approved defaults and high-value capabili
     cacheWriteUsdPer1M: 25,
     notes: 'Requests with more than 272K input tokens use long-context rates for the full request.',
   })
+  for (const [modelId, pricing, knowledge] of [
+    ['gpt-6-sol', [2, 0.2, 2.5, 10], '2026-04'],
+    ['gpt-6-luna', [0.1, 0.01, 0.125, 0.5], '2026-05'],
+  ]) {
+    const currentModel = openai.models.find((model) => model.id === modelId)
+    assert.ok(currentModel)
+    assert.equal(currentModel.contextWindowTokens, 1_050_000)
+    assert.equal(currentModel.maxOutputTokens, 128_000)
+    assert.equal(currentModel.structuredOutput, true)
+    assert.equal(currentModel.knowledge, knowledge)
+    assert.deepEqual([
+      currentModel.pricing.inputUsdPer1M,
+      currentModel.pricing.cacheReadUsdPer1M,
+      currentModel.pricing.cacheWriteUsdPer1M,
+      currentModel.pricing.outputUsdPer1M,
+    ], pricing)
+    assert.equal(currentModel.pricing.tiers[0].sizeUsdPer1M, 272_000)
+  }
 
   assert.equal(gemini.defaultModel, 'gemini-3.8-flash')
   assert.equal(moonshot.defaultModel, 'kimi-k3')
@@ -362,6 +383,9 @@ test('OpenRouter reviewed routes track the verified September 2026 catalog', () 
   const routeIds = new Set(OPENROUTER_SUPPORTED_ROUTE_IDS)
   for (const routeId of [
     'openai/gpt-6-astra',
+    'openai/gpt-6-sol',
+    'openai/gpt-6-luna',
+    'anthropic/claude-opus-5.5',
     'anthropic/claude-opus-5',
     'anthropic/claude-fable-5.1',
     'anthropic/claude-sonnet-5',
@@ -425,6 +449,7 @@ test('curated registry preserves provider defaults, controls, and variants for n
   const groq = getRegistryProvider('groq')
 
   const claudeOpus = anthropic.models.find((model) => model.id === 'claude-opus-4-8')
+  const claudeOpus55 = anthropic.models.find((model) => model.id === 'claude-opus-5-5')
   const claudeOpus5 = anthropic.models.find((model) => model.id === 'claude-opus-5')
   const claudeFable51 = anthropic.models.find((model) => model.id === 'claude-fable-5-1')
   const claude = anthropic.models.find((model) => model.id === 'claude-sonnet-5')
@@ -451,6 +476,33 @@ test('curated registry preserves provider defaults, controls, and variants for n
   })
   assert.equal(claudeOpus.capabilities.reasoning.providerControls.includes('anthropic:effort'), true)
   assert.equal(claudeOpus.variants.some((variant) => variant.id === 'deep'), true)
+
+  assert.ok(claudeOpus55)
+  assert.equal(claudeOpus55.contextWindowTokens, 1_000_000)
+  assert.equal(claudeOpus55.maxOutputTokens, 128_000)
+  assert.equal(claudeOpus55.structuredOutput, true)
+  assert.equal(claudeOpus55.releaseDate, '2026-09-22')
+  assert.equal(claudeOpus55.knowledge, '2026-06')
+  assert.deepEqual(claudeOpus55.defaultProviderOptions, {
+    anthropic: {
+      thinking: { type: 'adaptive', display: 'updates' },
+      effort: 'medium',
+    },
+  })
+  assert.deepEqual(
+    claudeOpus55.variants.map((variant) => variant.providerOptions?.anthropic?.effort),
+    ['low', 'medium', 'high', 'xhigh', 'max'],
+  )
+  assert.equal(claudeOpus55.variants.find((variant) => variant.providerOptions?.anthropic?.effort === 'medium')?.default, true)
+  assert.equal(claudeOpus55.capabilities.reasoning.providerControls.includes('anthropic:thinking.disable'), false)
+  assert.equal(claudeOpus55.capabilities.reasoning.providerControls.includes('anthropic:thinking.budgetTokens'), false)
+  assert.deepEqual([
+    claudeOpus55.pricing.inputUsdPer1M,
+    claudeOpus55.pricing.outputUsdPer1M,
+    claudeOpus55.pricing.cacheReadUsdPer1M,
+    claudeOpus55.pricing.cacheWriteUsdPer1M,
+    claudeOpus55.pricing.cacheWrite1hUsdPer1M,
+  ], [4, 20, 0.2, 5, 8])
 
   for (const model of [claudeOpus5, claudeFable51]) {
     assert.ok(model)

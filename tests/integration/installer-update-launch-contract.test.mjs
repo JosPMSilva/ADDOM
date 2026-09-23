@@ -9,4 +9,3 @@ test('installer launches the installed executable directly after install', () =>
   assert.match(source, /!macro customInstall[\s\S]*StrCpy \$launchLink "\$appExe"[\s\S]*!macroend/)
   assert.doesNotMatch(source, /ExecShellAsUser/)
 })
-

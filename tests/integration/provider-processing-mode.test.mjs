@@ -45,24 +45,26 @@ test('OpenAI Fast uses the auth-specific API priority or account fast service ti
   assert.deepEqual(codex.availableModes, ['standard'])
 })
 
-test('Astra Fast preserves auth-specific OpenAI service tiers', () => {
-  for (const [authMethod, serviceTier] of [['api_key', 'priority'], ['account', 'fast']]) {
-    const processing = resolveProviderProcessingMode({
-      providerId: 'openai',
-      modelId: 'gpt-6-astra',
-      authMethod,
-      providerConfigured: true,
-      requestedMode: 'fast',
-    })
+test('GPT-6 Fast preserves auth-specific OpenAI service tiers', () => {
+  for (const modelId of ['gpt-6-astra', 'gpt-6-sol', 'gpt-6-luna']) {
+    for (const [authMethod, serviceTier] of [['api_key', 'priority'], ['account', 'fast']]) {
+      const processing = resolveProviderProcessingMode({
+        providerId: 'openai',
+        modelId,
+        authMethod,
+        providerConfigured: true,
+        requestedMode: 'fast',
+      })
 
-    assert.deepEqual(processing.availableModes, ['standard', 'fast'])
-    assert.deepEqual(processing.request, { serviceTier })
-    assert.equal(processing.premiumPricing, true)
+      assert.deepEqual(processing.availableModes, ['standard', 'fast'])
+      assert.deepEqual(processing.request, { serviceTier })
+      assert.equal(processing.premiumPricing, true)
+    }
   }
 })
 
-test('Anthropic Fast is available only for Opus 5 and Opus 4.8 API-key requests', () => {
-  for (const modelId of ['claude-opus-5', 'claude-opus-4-8']) {
+test('Anthropic Fast is available only for qualified Opus API-key requests', () => {
+  for (const modelId of ['claude-opus-5-5', 'claude-opus-5', 'claude-opus-4-8']) {
     const processing = resolveProviderProcessingMode({
       providerId: 'anthropic',
       modelId,

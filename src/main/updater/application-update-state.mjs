@@ -164,4 +164,3 @@ export function reduceApplicationUpdateState(snapshot, event, now = Date.now()) 
       return current
   }
 }
-

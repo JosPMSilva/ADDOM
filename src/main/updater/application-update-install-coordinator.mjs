@@ -35,4 +35,3 @@ export function createApplicationUpdateInstallCoordinator({
 
   return Object.freeze({ run })
 }
-

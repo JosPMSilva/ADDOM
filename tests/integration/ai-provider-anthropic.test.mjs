@@ -49,6 +49,48 @@ test('Anthropic SDK serializes xhigh effort and Fast mode for supported models',
   assert.match(request.headers['anthropic-beta'], /fast-mode-2026-02-01/)
 })
 
+test('Anthropic SDK serializes Opus 5.5 adaptive thinking updates without forced tool choice', async () => {
+  let request = null
+  const model = createAnthropic({
+    apiKey: 'test-key',
+    fetch: async (_url, init) => {
+      request = {
+        body: JSON.parse(init.body),
+        headers: Object.fromEntries(new Headers(init.headers).entries()),
+      }
+      return new Response(JSON.stringify({
+        id: 'msg_opus_55',
+        type: 'message',
+        role: 'assistant',
+        model: 'claude-opus-5-5',
+        content: [{ type: 'text', text: 'ok' }],
+        stop_reason: 'end_turn',
+        stop_sequence: null,
+        usage: { input_tokens: 1, output_tokens: 1 },
+      }), {
+        status: 200,
+        headers: { 'content-type': 'application/json' },
+      })
+    },
+  })('claude-opus-5-5')
+
+  await model.doGenerate({
+    prompt: [{ role: 'user', content: [{ type: 'text', text: 'Hello' }] }],
+    providerOptions: {
+      anthropic: {
+        thinking: { type: 'adaptive', display: 'updates' },
+        effort: 'medium',
+      },
+    },
+    maxOutputTokens: 16,
+  })
+
+  assert.deepEqual(request.body.thinking, { type: 'adaptive', display: 'updates' })
+  assert.equal(request.body.output_config.effort, 'medium')
+  assert.equal(request.body.tool_choice, undefined)
+  assert.match(request.headers['anthropic-beta'], /thinking-display-updates-2026-08-18/)
+})
+
 test('Anthropic Fast client config adds the isolated beta header and Standard omits it', () => {
   assert.equal(ANTHROPIC_FAST_MODE_BETA, 'fast-mode-2026-02-01')
   assert.deepEqual(buildAnthropicClientOptions({
@@ -69,6 +111,14 @@ test('Anthropic Fast client config adds the isolated beta header and Standard om
     modelId: 'claude-fable-5-1',
     requestContext: { processingMode: 'fast' },
   }), { apiKey: 'test-key' })
+  assert.deepEqual(buildAnthropicClientOptions({
+    apiKey: 'test-key',
+    modelId: 'claude-opus-5-5',
+    requestContext: { processingMode: 'fast' },
+  }), {
+    apiKey: 'test-key',
+    headers: { 'anthropic-beta': 'fast-mode-2026-02-01' },
+  })
 })
 
 test('extractAnthropicResponseMeta normalizes Anthropic context-management compaction metadata', () => {

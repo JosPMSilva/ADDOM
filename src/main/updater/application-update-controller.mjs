@@ -193,4 +193,3 @@ export function createApplicationUpdateController({
     reset: () => publish({ type: 'reset' }),
   }
 }
-

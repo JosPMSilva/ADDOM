@@ -39,4 +39,3 @@ test('updater preload preserves invalid preflight as null so main fails closed',
     ['updater:installUpdate', null],
   ])
 })
-

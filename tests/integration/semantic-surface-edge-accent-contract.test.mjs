@@ -22,4 +22,3 @@ test('semantic surfaces do not use colored vertical edge rails', async () => {
     )
   }
 })
-

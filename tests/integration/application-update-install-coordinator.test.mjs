@@ -113,4 +113,3 @@ test('install coordinator releases quiescence when shutdown preparation or insta
     assert.equal(released, 1, failingStep)
   }
 })
-

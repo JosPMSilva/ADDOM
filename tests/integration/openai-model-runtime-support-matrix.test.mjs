@@ -5,6 +5,8 @@ import { resolveOpenAIModelRuntimeSupport } from '../../src/main/api-clients/ope
 
 const CASES = [
   ['gpt-6-astra', { shell: true, apply_patch: true, web_search: true, file_search: true, code_interpreter: true, image_generation: true, mcp: true }],
+  ['gpt-6-sol', { shell: true, apply_patch: true, web_search: true, file_search: true, code_interpreter: true, image_generation: true, mcp: true }],
+  ['gpt-6-luna', { shell: true, apply_patch: true, web_search: true, file_search: true, code_interpreter: true, image_generation: true, mcp: true }],
   ['gpt-5.6-sol', { shell: true, apply_patch: true, web_search: true, file_search: true, code_interpreter: true, image_generation: true, mcp: true }],
   ['gpt-5.6-terra', { shell: true, apply_patch: true, web_search: true, file_search: true, code_interpreter: true, image_generation: true, mcp: true }],
   ['gpt-5.6-luna', { shell: true, apply_patch: true, web_search: true, file_search: true, code_interpreter: true, image_generation: true, mcp: true }],
@@ -17,6 +19,8 @@ const CASES = [
 test('openai reasoning effort options match the exact curated model family', () => {
   const expectations = new Map([
     ['gpt-6-astra', ['low', 'medium', 'high', 'xhigh', 'max']],
+    ['gpt-6-sol', ['none', 'low', 'medium', 'high', 'xhigh', 'max']],
+    ['gpt-6-luna', ['none', 'low', 'medium', 'high', 'xhigh', 'max']],
     ['gpt-5.6-sol', ['none', 'low', 'medium', 'high', 'xhigh', 'max']],
     ['gpt-5.6-terra', ['none', 'low', 'medium', 'high', 'xhigh', 'max']],
     ['gpt-5.6-luna', ['none', 'low', 'medium', 'high', 'xhigh', 'max']],
@@ -42,11 +46,14 @@ test('account runtime omits API-only max effort until the app-server supports it
   )
 })
 
-test('Astra account runtime exposes the account-qualified effort range through ultra', () => {
-  assert.deepEqual(
-    resolveOpenAIModelRuntimeSupport('gpt-6-astra', { authMethod: 'account' }).reasoningEffortOptions,
-    ['low', 'medium', 'high', 'xhigh', 'max', 'ultra'],
-  )
+test('GPT-6 account runtime exposes the account-qualified effort range through ultra', () => {
+  for (const modelId of ['gpt-6-astra', 'gpt-6-sol', 'gpt-6-luna']) {
+    assert.deepEqual(
+      resolveOpenAIModelRuntimeSupport(modelId, { authMethod: 'account' }).reasoningEffortOptions,
+      ['low', 'medium', 'high', 'xhigh', 'max', 'ultra'],
+      modelId,
+    )
+  }
 })
 
 test('account runtime rejects GPT-5.3 Codex before dispatch', () => {

@@ -87,4 +87,3 @@ test('write conflict labels use normal tracking', () => {
   const source = readSource('src/renderer/components/chat/WriteConflictCard.jsx')
   assert.doesNotMatch(source, /uppercase tracking-wider/)
 })
-

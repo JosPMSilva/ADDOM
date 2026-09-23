@@ -1,4 +1,5 @@
 export const OPENROUTER_COMPATIBILITY_ENTRIES = Object.freeze([
+  { sourceProviderId: 'anthropic', sourceModelId: 'claude-opus-5-5', routeId: 'anthropic/claude-opus-5.5', status: 'direct', notes: 'ID punctuation differs.' },
   { sourceProviderId: 'anthropic', sourceModelId: 'claude-opus-5', routeId: 'anthropic/claude-opus-5', status: 'direct', notes: '' },
   { sourceProviderId: 'anthropic', sourceModelId: 'claude-fable-5-1', routeId: 'anthropic/claude-fable-5.1', status: 'direct', notes: 'ID punctuation differs.' },
   { sourceProviderId: 'anthropic', sourceModelId: 'claude-opus-4-8', routeId: 'anthropic/claude-opus-4.8', status: 'direct', notes: 'ID punctuation differs.' },
@@ -13,6 +14,8 @@ export const OPENROUTER_COMPATIBILITY_ENTRIES = Object.freeze([
   { sourceProviderId: 'anthropic', sourceModelId: 'claude-sonnet-4-0', routeId: 'anthropic/claude-sonnet-4', status: 'remap', notes: 'Drop trailing `.0`.' },
   { sourceProviderId: 'anthropic', sourceModelId: 'claude-opus-4-1', routeId: 'anthropic/claude-opus-4.1', status: 'direct', notes: 'ID punctuation differs.' },
   { sourceProviderId: 'openai', sourceModelId: 'gpt-6-astra', routeId: 'openai/gpt-6-astra', status: 'direct', notes: '' },
+  { sourceProviderId: 'openai', sourceModelId: 'gpt-6-sol', routeId: 'openai/gpt-6-sol', status: 'direct', notes: '' },
+  { sourceProviderId: 'openai', sourceModelId: 'gpt-6-luna', routeId: 'openai/gpt-6-luna', status: 'direct', notes: '' },
   { sourceProviderId: 'openai', sourceModelId: 'gpt-5.6-sol', routeId: 'openai/gpt-5.6-sol', status: 'direct', notes: '' },
   { sourceProviderId: 'openai', sourceModelId: 'gpt-5.6-terra', routeId: 'openai/gpt-5.6-terra', status: 'direct', notes: '' },
   { sourceProviderId: 'openai', sourceModelId: 'gpt-5.6-luna', routeId: 'openai/gpt-5.6-luna', status: 'direct', notes: '' },

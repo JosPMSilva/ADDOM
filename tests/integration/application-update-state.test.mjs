@@ -131,4 +131,3 @@ test('unknown state and events normalize to a safe hidden snapshot', () => {
 
   assert.deepEqual(snapshot, createInitialUpdateSnapshot())
 })
-

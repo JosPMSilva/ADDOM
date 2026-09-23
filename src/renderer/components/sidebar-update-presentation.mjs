@@ -68,4 +68,3 @@ export function getSidebarUpdateOffset(collapsed, gap = 8) {
     maxWidth: `calc(100vw - ${width} - ${gap * 2}px)`,
   }
 }
-

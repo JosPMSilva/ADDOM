@@ -152,9 +152,13 @@ function normalizeProviderOptionsPayload(providerOptions = {}) {
   }
 
   if (thinkingType === 'adaptive') {
+    const display = trimString(anthropicThinking.display).toLowerCase()
     normalized.anthropic = {
       ...(isPlainObject(normalized.anthropic) ? normalized.anthropic : {}),
-      thinking: { type: 'adaptive' },
+      thinking: {
+        type: 'adaptive',
+        ...(display === 'updates' ? { display } : {}),
+      },
     }
   }
 

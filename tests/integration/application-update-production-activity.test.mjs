@@ -54,4 +54,3 @@ test('production activity monitor does not initialize managed runtime just to ch
     rendererPreflight: { dirtyTabCount: 0, capturedAt: 1_000 },
   }), [])
 })
-

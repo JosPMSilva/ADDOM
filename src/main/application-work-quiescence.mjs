@@ -38,4 +38,3 @@ export function getApplicationWorkQuiescence() {
 export function resetApplicationWorkQuiescenceForTests() {
   activeLease = null
 }
-

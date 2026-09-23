@@ -34,11 +34,14 @@ const {
   trackAccountNativeActivityItem,
 } = await import('../../src/main/api-clients/ai-provider-openai-account-activity-state.mjs')
 
-test('OpenAI account launch accepts Astra max and ultra but keeps other model effort limits', () => {
-  assert.equal(buildTurnLaunchParams({ model: 'gpt-6-astra', effort: 'max' }).effort, 'max')
-  assert.equal(buildTurnLaunchParams({ model: 'gpt-6-astra', effort: 'ultra' }).effort, 'ultra')
+test('OpenAI account launch accepts GPT-6 max and ultra but keeps other model effort limits', () => {
+  for (const model of ['gpt-6-astra', 'gpt-6-sol', 'gpt-6-luna']) {
+    assert.equal(buildTurnLaunchParams({ model, effort: 'max' }).effort, 'max')
+    assert.equal(buildTurnLaunchParams({ model, effort: 'ultra' }).effort, 'ultra')
+    assert.equal(buildTurnLaunchParams({ model, effort: 'none' }).effort, 'medium')
+  }
   assert.equal(buildTurnLaunchParams({ model: 'gpt-6-astra-2026-09-15', effort: 'ultra' }).effort, 'ultra')
-  assert.equal(buildTurnLaunchParams({ model: 'gpt-6-astra', effort: 'none' }).effort, 'medium')
+  assert.equal(buildTurnLaunchParams({ model: 'gpt-6-sol-2026-09-22', effort: 'ultra' }).effort, 'ultra')
   assert.equal(buildTurnLaunchParams({ model: 'gpt-5.6-sol', effort: 'ultra' }).effort, 'medium')
 })
 

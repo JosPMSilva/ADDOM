@@ -13,22 +13,9 @@ import {
 } from './model-registry-anthropic-reasoning-data.mjs'
 import * as PROVIDER_REFRESH from './model-registry-provider-refresh-data.mjs'
 
-const OPENROUTER_VERIFIED_AT = '2026-09-16'
+const OPENROUTER_VERIFIED_AT = '2026-09-23'
 const TERMS_VERSION = '2026-02-28'
-const DELEGATION_CAPABILITY = Object.freeze({
-  supported: true,
-  notes: 'Reviewed by ADDOM for orchestrating delegated coding tasks.',
-})
-const OPENAI_FAST_PROCESSING_CAPABILITY = Object.freeze({
-  fast: {
-    authMethods: ['api_key', 'account'],
-    requestByAuthMethod: {
-      api_key: { serviceTier: 'priority' },
-      account: { serviceTier: 'fast' },
-    },
-    pricing: 'premium',
-  },
-})
+const { DELEGATION_CAPABILITY, OPENAI_FAST_PROCESSING_CAPABILITY } = PROVIDER_REFRESH
 const MOONSHOT_FAST_PROCESSING_CAPABILITY = Object.freeze({
   fast: {
     authMethods: ['api_key'],
@@ -467,6 +454,7 @@ const BASE_MODEL_PROVIDER_REGISTRY_DATA = [
     termsVersion: TERMS_VERSION,
     models: [
       model('claude-sonnet-5', 'Claude Sonnet 5', 'Claude 5', { capabilities: { reasoning: ANTHROPIC_DISABLEABLE_REASONING_CAPABILITY, delegation: DELEGATION_CAPABILITY }, defaultProviderOptions: ANTHROPIC_EFFORT_REASONING_DEFAULT_PROVIDER_OPTIONS, variants: ANTHROPIC_EFFORT_REASONING_VARIANTS }),
+      model('claude-opus-5-5', 'Claude Opus 5.5', 'Claude 5', PROVIDER_REFRESH.ANTHROPIC_OPUS_55_CATALOG_DATA),
       model('claude-opus-5', 'Claude Opus 5', 'Claude 5', {
         authoritativeFields: ['limits', 'pricing', 'reasoning', 'attachment', 'release', 'knowledge', 'structuredOutput'],
         vision: true,
@@ -566,6 +554,8 @@ const BASE_MODEL_PROVIDER_REGISTRY_DATA = [
           processing: OPENAI_FAST_PROCESSING_CAPABILITY,
         },
       }),
+      model('gpt-6-sol', 'GPT-6 Sol', 'GPT-6', PROVIDER_REFRESH.OPENAI_SOL_CATALOG_DATA),
+      model('gpt-6-luna', 'GPT-6 Luna', 'GPT-6', PROVIDER_REFRESH.OPENAI_LUNA_CATALOG_DATA),
       model('gpt-5.6-sol', 'GPT-5.6 Sol', 'GPT-5.6', { capabilities: { delegation: DELEGATION_CAPABILITY, processing: OPENAI_FAST_PROCESSING_CAPABILITY }, contextWindowTokens: 1_050_000, maxOutputTokens: 128_000 }),
       model('gpt-5.6-terra', 'GPT-5.6 Terra', 'GPT-5.6', { capabilities: { delegation: DELEGATION_CAPABILITY, processing: OPENAI_FAST_PROCESSING_CAPABILITY }, contextWindowTokens: 1_050_000, maxOutputTokens: 128_000 }),
       model('gpt-5.6-luna', 'GPT-5.6 Luna', 'GPT-5.6', { capabilities: { delegation: DELEGATION_CAPABILITY, processing: OPENAI_FAST_PROCESSING_CAPABILITY }, contextWindowTokens: 1_050_000, maxOutputTokens: 128_000 }),

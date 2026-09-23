@@ -44,6 +44,28 @@ test('anthropic adaptive-thinking models never emit legacy budget tokens', () =>
   assert.equal(transform.attachment.inputModalities.includes('image'), true)
 })
 
+test('Claude Opus 5.5 keeps always-on adaptive thinking, update display, and a medium default', () => {
+  const transform = resolveProviderModelTransform({
+    providerId: 'anthropic',
+    modelId: 'claude-opus-5-5',
+  })
+
+  assert.deepEqual(transform.buildProviderOptions(), {
+    anthropic: {
+      thinking: { type: 'adaptive', display: 'updates' },
+      effort: 'medium',
+    },
+  })
+  assert.deepEqual(transform.resolveInvocationConfig({
+    runtimeSettings: { reasoningEffort: 'xhigh', thinkingType: 'disabled' },
+  }).providerOptions, {
+    anthropic: {
+      thinking: { type: 'adaptive', display: 'updates' },
+      effort: 'xhigh',
+    },
+  })
+})
+
 test('anthropic family transform merges runtime compaction settings into Anthropic provider options', () => {
   const transform = resolveProviderModelTransform({
     providerId: 'anthropic',
@@ -95,7 +117,7 @@ test('anthropic family transform merges runtime reasoning effort into Anthropic 
 })
 
 test('anthropic family transform sends Fast only for eligible Opus models', () => {
-  for (const modelId of ['claude-opus-5', 'claude-opus-4-8']) {
+  for (const modelId of ['claude-opus-5-5', 'claude-opus-5', 'claude-opus-4-8']) {
     const transform = resolveProviderModelTransform({ providerId: 'anthropic', modelId })
     const config = transform.resolveInvocationConfig({
       requestContext: { processingMode: 'fast' },

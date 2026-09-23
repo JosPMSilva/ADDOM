@@ -1,3 +1,25 @@
+import {
+  ANTHROPIC_ADAPTIVE_REASONING_CAPABILITY,
+  ANTHROPIC_PROGRESS_ADAPTIVE_REASONING_DEFAULT_PROVIDER_OPTIONS,
+  ANTHROPIC_PROGRESS_ADAPTIVE_REASONING_VARIANTS,
+} from './model-registry-anthropic-reasoning-data.mjs'
+
+export const DELEGATION_CAPABILITY = Object.freeze({
+  supported: true,
+  notes: 'Reviewed by ADDOM for orchestrating delegated coding tasks.',
+})
+
+export const OPENAI_FAST_PROCESSING_CAPABILITY = Object.freeze({
+  fast: {
+    authMethods: ['api_key', 'account'],
+    requestByAuthMethod: {
+      api_key: { serviceTier: 'priority' },
+      account: { serviceTier: 'fast' },
+    },
+    pricing: 'premium',
+  },
+})
+
 export const ANTHROPIC_FAST_PROCESSING_CAPABILITY = Object.freeze({
   fast: {
     authMethods: ['api_key'],
@@ -22,6 +44,104 @@ export const OPENAI_ASTRA_PRICING = Object.freeze({
   }],
   notes: 'Fast mode is priced at 2x the applicable Standard or long-context rates.',
 })
+
+export const OPENAI_SOL_PRICING = Object.freeze({
+  inputUsdPer1M: 2,
+  outputUsdPer1M: 10,
+  cacheReadUsdPer1M: 0.2,
+  cacheWriteUsdPer1M: 2.5,
+  tiers: [{
+    id: 'long-context',
+    sizeUsdPer1M: 272_000,
+    inputUsdPer1M: 4,
+    outputUsdPer1M: 15,
+    cacheReadUsdPer1M: 0.4,
+    cacheWriteUsdPer1M: 5,
+    notes: 'Requests with more than 272K input tokens use long-context rates for the full request.',
+  }],
+  notes: 'Fast mode is priced at 2x the applicable Standard or long-context rates.',
+})
+
+export const OPENAI_LUNA_PRICING = Object.freeze({
+  inputUsdPer1M: 0.1,
+  outputUsdPer1M: 0.5,
+  cacheReadUsdPer1M: 0.01,
+  cacheWriteUsdPer1M: 0.125,
+  tiers: [{
+    id: 'long-context',
+    sizeUsdPer1M: 272_000,
+    inputUsdPer1M: 0.2,
+    outputUsdPer1M: 0.75,
+    cacheReadUsdPer1M: 0.02,
+    cacheWriteUsdPer1M: 0.25,
+    notes: 'Requests with more than 272K input tokens use long-context rates for the full request.',
+  }],
+  notes: 'Fast mode is priced at 2x the applicable Standard or long-context rates.',
+})
+
+export const ANTHROPIC_OPUS_55_CATALOG_DATA = Object.freeze({
+  authoritativeFields: ['limits', 'pricing', 'reasoning', 'attachment', 'release', 'knowledge', 'structuredOutput'],
+  vision: true,
+  supportsPdf: true,
+  structuredOutput: true,
+  releaseDate: '2026-09-22',
+  lastUpdated: '2026-09-22',
+  knowledge: '2026-06',
+  contextWindowTokens: 1_000_000,
+  maxOutputTokens: 128_000,
+  pricing: {
+    inputUsdPer1M: 4,
+    outputUsdPer1M: 20,
+    cacheReadUsdPer1M: 0.2,
+    cacheWriteUsdPer1M: 5,
+    cacheWrite1hUsdPer1M: 8,
+    notes: 'Cache write base price is the 5-minute rate; the 1-hour rate is recorded separately.',
+  },
+  capabilities: {
+    inputModalities: ['text', 'image'],
+    outputModalities: ['text'],
+    reasoning: ANTHROPIC_ADAPTIVE_REASONING_CAPABILITY,
+    toolCall: { supported: true },
+    attachment: { supported: true, kinds: ['image', 'pdf'], modalities: ['text', 'image', 'pdf'] },
+    delegation: DELEGATION_CAPABILITY,
+    processing: ANTHROPIC_FAST_PROCESSING_CAPABILITY,
+  },
+  defaultProviderOptions: ANTHROPIC_PROGRESS_ADAPTIVE_REASONING_DEFAULT_PROVIDER_OPTIONS,
+  variants: ANTHROPIC_PROGRESS_ADAPTIVE_REASONING_VARIANTS,
+})
+
+function openAiGpt6CatalogData({ knowledge, pricing }) {
+  return {
+    authoritativeFields: ['limits', 'pricing', 'reasoning', 'attachment', 'release', 'knowledge', 'structuredOutput'],
+    reasoning: true,
+    vision: true,
+    supportsPdf: true,
+    structuredOutput: true,
+    releaseDate: '2026-09-22',
+    lastUpdated: '2026-09-22',
+    knowledge,
+    contextWindowTokens: 1_050_000,
+    maxOutputTokens: 128_000,
+    pricing,
+    capabilities: {
+      reasoning: { supported: true },
+      toolCall: { supported: true },
+      attachment: { supported: true, kinds: ['image', 'pdf'], modalities: ['text', 'image', 'pdf'] },
+      delegation: DELEGATION_CAPABILITY,
+      processing: OPENAI_FAST_PROCESSING_CAPABILITY,
+    },
+  }
+}
+
+export const OPENAI_SOL_CATALOG_DATA = Object.freeze(openAiGpt6CatalogData({
+  knowledge: '2026-04',
+  pricing: OPENAI_SOL_PRICING,
+}))
+
+export const OPENAI_LUNA_CATALOG_DATA = Object.freeze(openAiGpt6CatalogData({
+  knowledge: '2026-05',
+  pricing: OPENAI_LUNA_PRICING,
+}))
 
 export const GROQ_COMPOUND_CUSTOM_TOOL_CAPABILITY = Object.freeze({
   supported: false,

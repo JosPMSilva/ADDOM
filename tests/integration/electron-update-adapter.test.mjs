@@ -76,4 +76,3 @@ test('updater failures are reduced to stable public error codes', () => {
   assert.equal(classifyUpdaterFailure({ code: 'ENOTFOUND' }), 'network')
   assert.equal(classifyUpdaterFailure({ message: 'private response body' }), 'generic')
 })
-

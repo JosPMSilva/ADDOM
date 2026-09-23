@@ -22,6 +22,16 @@ The machine-readable authority is [`openrouter-compatibility-data.mjs`](../../sr
 
 Existing supported and unsupported routes remain enumerated in the machine-readable compatibility file and are covered by the OpenRouter review tests. Obsolete direct-provider IDs such as `deepseek-v4-flash` and `claude-fable-5` are migration aliases only; they are not separate selector rows.
 
+## 2026-09-23 additions
+
+The OpenRouter Models API was checked again on `2026-09-23` for models released after the original review.
+
+| ADDOM provider | Curated model | OpenRouter route | Status | Notes |
+| --- | --- | --- | --- | --- |
+| `openai` | `gpt-6-sol` | `openai/gpt-6-sol` | direct | Native OpenAI Fast and account-runtime semantics do not transfer. |
+| `openai` | `gpt-6-luna` | `openai/gpt-6-luna` | direct | Native OpenAI Fast and account-runtime semantics do not transfer. |
+| `anthropic` | `claude-opus-5-5` | `anthropic/claude-opus-5.5` | direct | OpenRouter uses dotted version punctuation; native Anthropic Fast and thinking-display semantics do not transfer. |
+
 ## Status meanings
 
 - `direct`: the reviewed route is an exact OpenRouter catalog ID for the selected model.

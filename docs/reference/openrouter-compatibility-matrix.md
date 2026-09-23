@@ -1,6 +1,6 @@
 # OpenRouter Compatibility Matrix
 
-> Historical snapshot. The current reviewed additions and routing policy are recorded in [OpenRouter Compatibility Matrix — 2026-09-16](./openrouter-compatibility-matrix-2026-09-16.md). The machine-readable compatibility data is authoritative.
+> Historical snapshot. The current reviewed additions and routing policy are recorded in the [September 2026 OpenRouter compatibility review log](./openrouter-compatibility-matrix-2026-09-16.md). The machine-readable compatibility data is authoritative.
 
 ## Purpose
 This page tracks which curated ADDOM models can be routed through OpenRouter.

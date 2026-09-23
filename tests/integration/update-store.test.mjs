@@ -174,4 +174,3 @@ test('Settings presentation preserves updater errors, blockers, and installing s
     version: '2.0.0',
   })).status, 'installing')
 })
-

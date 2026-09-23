@@ -15,4 +15,3 @@ export async function runConfirmedSettingsUpdateInstall({
   if (!confirmed) return { ok: false, code: 'cancelled' }
   return install()
 }
-

@@ -62,6 +62,45 @@ export const ANTHROPIC_ADAPTIVE_REASONING_VARIANTS = Object.freeze([
     },
   },
 ])
+function anthropicProgressAdaptiveOptions(effort) {
+  return {
+    anthropic: {
+      thinking: { type: 'adaptive', display: 'updates' },
+      effort,
+    },
+  }
+}
+export const ANTHROPIC_PROGRESS_ADAPTIVE_REASONING_DEFAULT_PROVIDER_OPTIONS = Object.freeze(
+  anthropicProgressAdaptiveOptions('medium'),
+)
+export const ANTHROPIC_PROGRESS_ADAPTIVE_REASONING_VARIANTS = Object.freeze([
+  {
+    id: 'fast',
+    label: 'Fast',
+    providerOptions: anthropicProgressAdaptiveOptions('low'),
+  },
+  {
+    id: 'balanced',
+    label: 'Balanced',
+    default: true,
+    providerOptions: anthropicProgressAdaptiveOptions('medium'),
+  },
+  {
+    id: 'high',
+    label: 'High',
+    providerOptions: anthropicProgressAdaptiveOptions('high'),
+  },
+  {
+    id: 'xhigh',
+    label: 'XHigh',
+    providerOptions: anthropicProgressAdaptiveOptions('xhigh'),
+  },
+  {
+    id: 'deep',
+    label: 'Deep',
+    providerOptions: anthropicProgressAdaptiveOptions('max'),
+  },
+])
 export const ANTHROPIC_EFFORT_REASONING_DEFAULT_PROVIDER_OPTIONS = Object.freeze({
   anthropic: { effort: 'high' },
 })

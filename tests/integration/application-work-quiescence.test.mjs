@@ -32,4 +32,3 @@ test('application work quiescence blocks new work until its lease is released', 
   assert.deepEqual(getApplicationWorkQuiescence(), { active: false, reason: '' })
   assert.doesNotThrow(() => assertApplicationWorkStartAllowed())
 })
-
