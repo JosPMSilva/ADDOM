@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import ProviderSwitchContextBanner from './ProviderSwitchContextBanner.jsx'
 import PermissionModeToggle from './PermissionModeToggle.jsx'
@@ -38,6 +38,16 @@ function AgentsIcon() {
   )
 }
 
+function MoreIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
+      <circle cx="3" cy="8" r="1.2" />
+      <circle cx="8" cy="8" r="1.2" />
+      <circle cx="13" cy="8" r="1.2" />
+    </svg>
+  )
+}
+
 const GIT_POLL_MS = 10_000
 
 function GitStatusCard({ active = false, onToggle, projectFolder }) {
@@ -70,17 +80,18 @@ function GitStatusCard({ active = false, onToggle, projectFolder }) {
       data-ui="git-companion-toggle"
       aria-pressed={active}
       onClick={onToggle}
-      title={active ? 'Close Git details' : 'Open Git details'}
+      title={`${active ? 'Close Git details' : 'Open Git details'} · ${status.branch || 'Git'}`}
+      aria-label={`${active ? 'Close Git details' : 'Open Git details'} · ${status.branch || 'Git'}`}
       className={[
-        'flex h-7 shrink-0 items-center gap-2 rounded-md border border-surface-border px-2 text-[11px] outline-none transition-colors duration-100',
+        'flex h-7 min-w-0 max-w-[220px] items-center gap-2 rounded-md border border-surface-border px-2 text-[11px] outline-none transition-colors duration-100',
         'hover:border-border-hover hover:text-text-primary focus-visible:ring-1 focus-visible:ring-border-strong',
         active ? 'bg-surface-panel text-text-primary' : 'bg-transparent text-text-secondary',
       ].join(' ')}
     >
       {status.branch && (
-        <span className="flex items-center gap-1 text-text-secondary">
-          <GitBranchIcon className="h-3.5 w-3.5" />
-          <span className="font-mono">{status.branch}</span>
+        <span className="flex min-w-0 items-center gap-1 text-text-secondary">
+          <GitBranchIcon className="h-3.5 w-3.5 shrink-0" />
+          <span className="min-w-0 truncate font-mono">{status.branch}</span>
         </span>
       )}
       {(status.added > 0 || status.removed > 0) && (
@@ -125,15 +136,38 @@ export default function ChatPanelHeaderBar({
   const showAgentStatus = shouldShowAgentCompanionTrigger(agentStatus, activeChatCompanion)
   const agentStatusLabel = formatAgentCompanionLabel(t, agentStatus)
   const workspaceRailOpenLabel = formatWorkspaceRailOpenLabel(t, workspaceRailActivitySummary)
+  const [overflowOpen, setOverflowOpen] = useState(false)
+  const headerControlsRef = useRef(null)
+  const overflowTriggerRef = useRef(null)
+  const moreActionsLabel = t('core:chat.controlRail.moreActions', { defaultValue: 'More actions' })
+
+  useEffect(() => {
+    if (!overflowOpen) return undefined
+    const onPointerDown = (event) => {
+      if (!headerControlsRef.current?.contains(event.target)) setOverflowOpen(false)
+    }
+    const onKeyDown = (event) => {
+      if (event.key !== 'Escape') return
+      setOverflowOpen(false)
+      overflowTriggerRef.current?.focus()
+    }
+    window.addEventListener('mousedown', onPointerDown, true)
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      window.removeEventListener('mousedown', onPointerDown, true)
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [overflowOpen])
 
   return (
     <>
-      <div className="flex min-h-[52px] shrink-0 items-center border-b border-chat-border/60 px-4 py-2">
+      <div data-ui="chat-header" className="flex h-[52px] min-h-[52px] shrink-0 items-center border-b border-chat-border/60 px-4">
         <div
-          className="mx-auto flex w-full flex-wrap items-center justify-between gap-x-3 gap-y-2"
-          style={{ maxWidth: 'var(--app-chat-content-max-width)' }}
+          data-ui="chat-header-content"
+          className="relative mx-auto flex h-full w-full min-w-0 items-center justify-between gap-3"
+          style={{ maxWidth: 'var(--app-chat-header-max-width)' }}
         >
-          <div className="flex min-w-0 items-center gap-2">
+          <div data-ui="chat-header-identity" className="flex min-w-0 flex-1 items-center gap-2">
             {workspaceRailEnabled && !workspaceRailOpen && (
               <button
                 id={WORKSPACE_RAIL_OPEN_CONTROL_ID}
@@ -142,51 +176,71 @@ export default function ChatPanelHeaderBar({
                 title={workspaceRailOpenLabel}
                 aria-label={workspaceRailOpenLabel}
                 data-ui="workspace-rail-open"
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-surface-border bg-transparent text-text-secondary outline-none transition-colors hover:border-border-hover hover:text-text-primary focus-visible:ring-1 focus-visible:ring-border-strong md:h-7 md:w-auto md:gap-1.5 md:px-2"
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-surface-border bg-transparent text-text-secondary outline-none transition-colors hover:border-border-hover hover:text-text-primary focus-visible:ring-1 focus-visible:ring-border-strong"
               >
                 <ThreadsIcon />
-                <span className="hidden text-[11px] font-medium md:inline">{t('core:workspaceRail.title', { defaultValue: 'Projects' })}</span>
               </button>
             )}
-            {workspaceRailEnabled && !workspaceRailOpen && <span className="text-text-muted/40 text-[12px] select-none">/</span>}
-            <p className="text-[12px] font-medium font-display text-text-secondary truncate" title={activeThreadTitle || 'No active thread'}>
+            <p className="min-w-0 truncate text-[12px] font-medium font-display text-text-secondary" title={activeThreadTitle || 'No active thread'}>
               {activeThreadTitle || 'No thread'}
             </p>
           </div>
 
-          <div className="flex min-w-0 flex-wrap items-center justify-end gap-2 shrink-0">
-            <ChatTerminalGlobalIndicator activeThreadId={activeThreadId} />
+          <div ref={headerControlsRef} data-ui="chat-header-actions" className="flex shrink-0 items-center justify-end gap-2 whitespace-nowrap">
             <PermissionModeToggle
+              compact
               permissionMode={permissionMode}
               disabled={permissionModeChangePending}
               onChange={onPermissionModeChange}
             />
-            <GitStatusCard
-              active={activeChatCompanion === CHAT_COMPANION_GIT}
-              onToggle={() => toggleChatCompanion(CHAT_COMPANION_GIT)}
-              projectFolder={projectFolder}
-            />
-            {showAgentStatus ? (
-              <button
-                type="button"
-                data-ui="agents-companion-toggle"
-                aria-pressed={activeChatCompanion === CHAT_COMPANION_AGENTS}
-                onClick={() => toggleChatCompanion(CHAT_COMPANION_AGENTS)}
-                title={activeChatCompanion === CHAT_COMPANION_AGENTS
-                  ? t('core:agentTrigger.close', { defaultValue: 'Close Agents' })
-                  : t('core:agentTrigger.open', { defaultValue: 'Open Agents' })}
-                className={[
-                  'flex h-7 items-center gap-1.5 rounded-md border border-surface-border px-2 text-[11px] outline-none transition-colors duration-100',
-                  'hover:border-border-hover hover:text-text-primary focus-visible:ring-1 focus-visible:ring-border-strong',
-                  activeChatCompanion === CHAT_COMPANION_AGENTS
-                    ? 'bg-surface-panel text-text-primary'
-                    : 'bg-transparent text-text-secondary',
-                ].join(' ')}
-              >
-                <AgentsIcon />
-                <span>{agentStatusLabel}</span>
-              </button>
-            ) : null}
+            <div id="chat-header-secondary-controls" data-ui="chat-header-secondary" data-open={overflowOpen} role="group" aria-label={moreActionsLabel} className="flex min-w-0 items-center gap-2">
+              <ChatTerminalGlobalIndicator activeThreadId={activeThreadId} />
+              <GitStatusCard
+                active={activeChatCompanion === CHAT_COMPANION_GIT}
+                onToggle={() => {
+                  toggleChatCompanion(CHAT_COMPANION_GIT)
+                  setOverflowOpen(false)
+                }}
+                projectFolder={projectFolder}
+              />
+              {showAgentStatus ? (
+                <button
+                  type="button"
+                  data-ui="agents-companion-toggle"
+                  aria-pressed={activeChatCompanion === CHAT_COMPANION_AGENTS}
+                  onClick={() => {
+                    toggleChatCompanion(CHAT_COMPANION_AGENTS)
+                    setOverflowOpen(false)
+                  }}
+                  title={activeChatCompanion === CHAT_COMPANION_AGENTS
+                    ? t('core:agentTrigger.close', { defaultValue: 'Close Agents' })
+                    : t('core:agentTrigger.open', { defaultValue: 'Open Agents' })}
+                  className={[
+                    'flex h-7 items-center gap-1.5 rounded-md border border-surface-border px-2 text-[11px] outline-none transition-colors duration-100',
+                    'hover:border-border-hover hover:text-text-primary focus-visible:ring-1 focus-visible:ring-border-strong',
+                    activeChatCompanion === CHAT_COMPANION_AGENTS
+                      ? 'bg-surface-panel text-text-primary'
+                      : 'bg-transparent text-text-secondary',
+                  ].join(' ')}
+                >
+                  <AgentsIcon />
+                  <span>{agentStatusLabel}</span>
+                </button>
+              ) : null}
+            </div>
+            <button
+              ref={overflowTriggerRef}
+              type="button"
+              data-ui="chat-header-overflow-trigger"
+              aria-label={moreActionsLabel}
+              title={moreActionsLabel}
+              aria-expanded={overflowOpen}
+              aria-controls="chat-header-secondary-controls"
+              onClick={() => setOverflowOpen((value) => !value)}
+              className="h-7 w-7 shrink-0 items-center justify-center rounded-md border border-surface-border bg-transparent text-text-secondary outline-none hover:border-border-hover hover:text-text-primary focus-visible:ring-1 focus-visible:ring-border-strong"
+            >
+              <MoreIcon />
+            </button>
           </div>
         </div>
       </div>

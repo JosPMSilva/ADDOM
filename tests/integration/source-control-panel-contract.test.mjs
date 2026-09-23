@@ -105,7 +105,7 @@ test('larger Git branch surfaces share the size-tuned SVG without changing Memor
   const iconSource = readSource('src/renderer/components/ui/GitBranchIcon.jsx')
 
   assert.match(headerSource, /import GitBranchIcon from '\.\.\/ui\/GitBranchIcon\.jsx'/)
-  assert.match(headerSource, /<GitBranchIcon className="h-3\.5 w-3\.5" \/>/)
+  assert.match(headerSource, /<GitBranchIcon className="h-3\.5 w-3\.5 shrink-0" \/>/)
   assert.match(partsSource, /import GitBranchIcon from '\.\/ui\/GitBranchIcon\.jsx'/)
   assert.match(partsSource, /<GitBranchIcon className="h-\[15px\] w-\[15px\] text-text-tertiary" \/>/)
   assert.match(memorySource, /<Icon name="git-branch" size=\{10\} \/>/)

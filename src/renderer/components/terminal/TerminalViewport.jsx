@@ -596,6 +596,7 @@ export class TerminalViewportView extends React.Component {
         onZoomResetRequest: this.handleZoomResetShortcut,
         onSelectionChange: this.handleSelectionChange,
         projectFolder: this.props.projectFolder,
+        windowsPtyBuildNumber: Number(this.props.session?.windowsPtyBuildNumber || 0),
         fontSize: this.getEffectiveTerminalFontSize(),
         terminalSettings: this.props.terminalSettings,
       })
@@ -622,6 +623,7 @@ export class TerminalViewportView extends React.Component {
       nextProjectFolder: this.props.projectFolder,
       nextFontSize: this.getEffectiveTerminalFontSize(),
       nextTerminalSettings: this.props.terminalSettings,
+      nextWindowsPtyBuildNumber: Number(this.props.session?.windowsPtyBuildNumber || 0),
     })
   }
 
@@ -662,7 +664,8 @@ export class TerminalViewportView extends React.Component {
     const ownsInteractiveFocus = this.surfaceOwnsInteractiveFocus()
     const canInteract = liveSessionAvailable && ownsInteractiveFocus
     const hasSessionOutput = !!session
-    const compactHeader = normalizeSurfaceKey(surfaceKey) === 'chat_dock' && !archived
+    const compactHeader = this.props.hideChromeHeader === true
+      || (normalizeSurfaceKey(surfaceKey) === 'chat_dock' && !archived)
     const sessionStateLabel = getSessionStateLabel(session, labels)
     const sessionTitle = asTrimmedString(session?.sessionTitle) || getPathTail(session?.cwd) || labels.workspaceShell || 'Workspace shell'
     const modelActive = String(modelSessionId || '').trim() === String(session?.id || '').trim()
@@ -705,10 +708,8 @@ export class TerminalViewportView extends React.Component {
 
     return (
       <section className="flex h-full min-h-0 flex-col" data-ui={showEmptyState ? 'terminal-viewport-empty' : 'terminal-viewport'}>
-        {showEmptyState
-          ? <div aria-hidden="true" className="hidden" />
-          : (
-            <div className={compactHeader ? 'hidden' : 'flex items-center justify-between gap-3 border-b border-surface-border/20 px-4 py-2 bg-surface-panel/10'}>
+        {!showEmptyState && !compactHeader && (
+          <div className="flex items-center justify-between gap-3 border-b border-surface-border/20 bg-surface-panel/10 px-4 py-2">
               <div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1">
                 <p className="truncate text-[13px] font-semibold text-text-primary">{sessionTitle}</p>
                 <div className="flex items-center gap-1.5">
@@ -738,8 +739,8 @@ export class TerminalViewportView extends React.Component {
                   {labels.trimmed || 'Trimmed'}
                 </span>
               )}
-            </div>
-          )}
+          </div>
+        )}
 
         <div className="min-h-0 flex-1 relative bg-surface">
           <div

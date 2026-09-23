@@ -118,6 +118,7 @@ test('terminal session manager runs one deterministic interactive lifecycle', ()
   const events = []
   const manager = createTerminalSessionManager({
     platform: 'win32',
+    windowsPtyBuildNumber: 22631,
     env: { ComSpec: 'C:\\Windows\\System32\\cmd.exe' },
     now: createNowSequence(),
     generateSessionId: () => 'term_test_1',
@@ -144,6 +145,7 @@ test('terminal session manager runs one deterministic interactive lifecycle', ()
   assert.equal(created.session.id, 'term_test_1')
   assert.equal(created.session.pid, 9876)
   assert.equal(created.session.status, 'running')
+  assert.equal(created.session.windowsPtyBuildNumber, 22631)
   assert.equal(spawnCalls.length, 1)
   assert.equal(spawnCalls[0].file, 'C:\\Windows\\System32\\cmd.exe')
   assert.deepEqual(spawnCalls[0].args, [])

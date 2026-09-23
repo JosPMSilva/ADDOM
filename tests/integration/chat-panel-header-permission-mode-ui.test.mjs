@@ -68,6 +68,28 @@ test('chat header exposes exactly one workspace rail recovery control only while
   assert.doesNotMatch(open, /data-ui="workspace-rail-open"/)
 })
 
+test('chat header keeps one centered row when the projects rail is closed', () => {
+  const html = renderHeader({
+    activeThreadTitle: 'A long thread title that should yield space to controls without moving them',
+    workspaceRailEnabled: true,
+    workspaceRailOpen: false,
+    onOpenWorkspaceRail: () => {},
+  })
+
+  assert.match(html, /data-ui="chat-header"/)
+  assert.match(html, /data-ui="chat-header-content"/)
+  assert.match(html, /--app-chat-header-max-width/)
+  assert.match(html, /data-ui="chat-header-identity"/)
+  assert.match(html, /data-ui="chat-header-secondary"/)
+  assert.match(html, /data-ui="chat-header-overflow-trigger"/)
+  assert.match(html, /aria-controls="chat-header-secondary-controls"/)
+  assert.match(html, /aria-label="More actions"/)
+  assert.doesNotMatch(html, /flex-wrap/)
+  assert.doesNotMatch(html, /md:inline/)
+  assert.doesNotMatch(html, /text-text-muted\/40[^>]*>\/<\/span>/)
+  assert.match(html, /<span class="[^"]*sr-only">Permission<\/span>/)
+})
+
 test('closed rail control announces the highest-priority hidden thread state', () => {
   const closed = renderHeader({
     workspaceRailEnabled: true,
@@ -83,7 +105,7 @@ test('chat header derives Agents visibility from the active thread only', () => 
   assert.match(source, /threadId: activeThreadId,/)
   assert.match(source, /selectAgentCompanionStatus\(s, \{/)
   assert.match(source, /shouldShowAgentCompanionTrigger\(agentStatus, activeChatCompanion\)/)
-  assert.match(source, /showAgentStatus \? \(/)
+  assert.match(source, /showAgentStatus \? /)
   assert.match(source, /data-ui="agents-companion-toggle"/)
 })
 

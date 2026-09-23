@@ -58,7 +58,6 @@ export function buildTerminalDockLabels(t) {
     closeSession: t('core:terminal.dock.actions.closeSession', { defaultValue: 'Close session' }),
     archiveSession: t('core:terminal.dock.actions.archiveSession', { defaultValue: 'Archive session' }),
     hideTerminal: t('core:terminal.dock.actions.hideTerminal', { defaultValue: 'Hide terminal' }),
-    dismiss: t('core:terminal.dock.actions.dismiss', { defaultValue: 'Dismiss' }),
     forceTerminate: t('core:terminal.dock.actions.forceTerminate', { defaultValue: 'Force terminate' }),
     killProcess: t('core:terminal.dock.actions.killProcess', { defaultValue: 'Kill process' }),
     terminalSessions: t('core:terminal.dock.terminalSessions', { defaultValue: 'Terminal Sessions' }),

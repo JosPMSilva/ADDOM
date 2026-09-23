@@ -89,6 +89,7 @@ export function buildUiScalingCssVars(scale = 1) {
     '--app-thread-drawer-default-width': `${scaleDesignPixels(260, resolvedScale)}px`,
     '--app-chat-companion-width': `${scaleDesignPixels(300, resolvedScale)}px`,
     '--app-chat-content-max-width': `${scaleDesignPixels(980, resolvedScale)}px`,
+    '--app-chat-header-max-width': `${scaleDesignPixels(1280, resolvedScale)}px`,
     '--app-chat-composer-max-width': `${scaleDesignPixels(1028, resolvedScale)}px`,
   }
 }

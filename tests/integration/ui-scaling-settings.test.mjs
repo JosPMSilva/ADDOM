@@ -39,6 +39,7 @@ test('buildUiScalingCssVars scales shell geometry tokens together', () => {
   assert.equal(vars['--app-sidebar-expanded-width'], `${scaleDesignPixels(160, 0.9)}px`)
   assert.equal(vars['--app-thread-drawer-default-width'], `${scaleDesignPixels(260, 0.9)}px`)
   assert.equal(vars['--app-chat-content-max-width'], `${scaleDesignPixels(980, 0.9)}px`)
+  assert.equal(vars['--app-chat-header-max-width'], `${scaleDesignPixels(1280, 0.9)}px`)
   assert.equal(vars['--app-chat-companion-width'], `${scaleDesignPixels(300, 0.9)}px`)
   assert.equal(vars['--app-moa-panel-width'], undefined)
 })

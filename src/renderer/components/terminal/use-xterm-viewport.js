@@ -75,6 +75,7 @@ export function resolveRendererPlatform() {
 
 export function buildTerminalOptions({
   platform = resolveRendererPlatform(),
+  windowsPtyBuildNumber = 0,
   fontSize,
   terminalSettings = DEFAULT_TERMINAL_SETTINGS,
 } = {}) {
@@ -88,6 +89,12 @@ export function buildTerminalOptions({
     theme: { ...buildTerminalTheme(getResolvedAppearanceMode()) },
     // Keep native Option/dead-key composition on macOS instead of forcing Meta.
     macOptionIsMeta: normalizedPlatform === 'darwin' ? false : undefined,
+    windowsPty: normalizedPlatform === 'win32'
+      ? {
+          backend: 'conpty',
+          ...(Number(windowsPtyBuildNumber) > 0 ? { buildNumber: Math.trunc(Number(windowsPtyBuildNumber)) } : {}),
+        }
+      : undefined,
   }
 }
 
@@ -370,6 +377,7 @@ export function createXtermViewportController({
   createSearchAddon = null,
   createWebLinksAddon = null,
   platform = resolveRendererPlatform(),
+  windowsPtyBuildNumber = 0,
   projectFolder = '',
   fontSize = TERMINAL_FONT_SIZE_DEFAULT,
   terminalSettings = DEFAULT_TERMINAL_SETTINGS,
@@ -399,7 +407,7 @@ export function createXtermViewportController({
     return null
   }
 
-  const terminal = createTerminal(buildTerminalOptions({ platform, fontSize, terminalSettings }))
+  const terminal = createTerminal(buildTerminalOptions({ platform, windowsPtyBuildNumber, fontSize, terminalSettings }))
   const fitAddon = createFitAddon()
   const searchAddon = typeof createSearchAddon === 'function'
     ? createSearchAddon()
@@ -438,8 +446,8 @@ export function createXtermViewportController({
   let deferredKeyboardSelectionAction = null
   let currentTerminalSettings = normalizeTerminalSettings(terminalSettings)
   let currentFontSize = clampTerminalFontSize(fontSize ?? currentTerminalSettings.fontSize)
+  let currentWindowsPtyBuildNumber = Math.max(0, Math.trunc(Number(windowsPtyBuildNumber) || 0))
   const inputReplayState = { depth: 0 }
-
   const clearKeyboardSelectionState = () => {
     keyboardSelectionAnchor = null
     keyboardSelectionFocus = null
@@ -895,6 +903,16 @@ export function createXtermViewportController({
       terminal.options.scrollback = currentTerminalSettings.scrollback
       scheduler.schedule()
     },
+    setWindowsPtyBuildNumber(nextBuildNumber = 0) {
+      if (disposed || rendererPlatform !== 'win32') return
+      const normalizedBuildNumber = Math.max(0, Math.trunc(Number(nextBuildNumber) || 0))
+      if (normalizedBuildNumber === currentWindowsPtyBuildNumber) return
+      currentWindowsPtyBuildNumber = normalizedBuildNumber
+      terminal.options.windowsPty = buildTerminalOptions({
+        platform: rendererPlatform,
+        windowsPtyBuildNumber: normalizedBuildNumber,
+      }).windowsPty
+    },
     update({
       nextSessionId = '',
       nextRawOutput = '',
@@ -902,9 +920,11 @@ export function createXtermViewportController({
       nextProjectFolder = currentProjectFolder,
       nextFontSize = currentFontSize,
       nextTerminalSettings = currentTerminalSettings,
+      nextWindowsPtyBuildNumber = currentWindowsPtyBuildNumber,
     } = {}) {
       if (disposed) return
       controller.setTerminalSettings(nextTerminalSettings)
+      controller.setWindowsPtyBuildNumber(nextWindowsPtyBuildNumber)
       controller.setFontSize(nextFontSize)
       currentProjectFolder = asTrimmedString(nextProjectFolder)
       fitTerminalToViewport()
@@ -974,6 +994,7 @@ export function createDefaultXtermViewportController({
   onZoomOutRequest = null,
   onZoomResetRequest = null,
   projectFolder = '',
+  windowsPtyBuildNumber = 0,
   fontSize = TERMINAL_FONT_SIZE_DEFAULT,
   terminalSettings = DEFAULT_TERMINAL_SETTINGS,
   onSelectionChange = null,
@@ -985,6 +1006,7 @@ export function createDefaultXtermViewportController({
     createSearchAddon: () => new SearchAddon(),
     createWebLinksAddon: (handler) => new WebLinksAddon(handler),
     projectFolder,
+    windowsPtyBuildNumber,
     fontSize,
     terminalSettings,
     onInput,

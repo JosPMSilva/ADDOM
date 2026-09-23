@@ -21,6 +21,17 @@ export function FileTree({
   const { expandedDirs, toggleDir } = useEditorStore()
   const projectName = projectFolder?.split(/[\\/]/).pop()
     ?? t('core:editor.fileTree.projectFallback', { defaultValue: 'Project' })
+  const normalizedProjectFolder = String(projectFolder || projectName).trim()
+  const projectFolderSeparatorIndex = Math.max(
+    normalizedProjectFolder.lastIndexOf('/'),
+    normalizedProjectFolder.lastIndexOf('\\'),
+  )
+  const projectPathPrefix = projectFolderSeparatorIndex >= 0
+    ? normalizedProjectFolder.slice(0, projectFolderSeparatorIndex + 1)
+    : ''
+  const projectPathLeaf = projectFolderSeparatorIndex >= 0
+    ? normalizedProjectFolder.slice(projectFolderSeparatorIndex + 1)
+    : normalizedProjectFolder
   const visibleNodes = useMemo(() => flattenVisibleTree(tree, expandedDirs), [expandedDirs, tree])
   const showInitialLoading = loading && tree.length === 0
   const showRefreshing = loading && tree.length > 0
@@ -103,11 +114,22 @@ export function FileTree({
 
   return (
     <div style={{ width }} className="shrink-0 min-h-0 h-full flex flex-col bg-surface-panel-alt overflow-hidden">
-      <div className="flex h-[38px] items-center justify-between border-b border-surface-border px-3 shrink-0">
-        <span className="text-[11px] font-semibold font-display tracking-widest text-text-tertiary uppercase truncate mr-2">
-          {projectName}
+      <div className="flex h-[38px] min-w-0 shrink-0 items-center gap-2 border-b border-surface-border px-2">
+        <span
+          tabIndex={0}
+          title={normalizedProjectFolder}
+          aria-label={t('core:editor.fileTree.projectFolderPath', {
+            defaultValue: 'Project folder: {{path}}',
+            path: normalizedProjectFolder,
+          })}
+          className="flex min-w-0 flex-1 items-center overflow-hidden font-mono text-[11px] text-text-tertiary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-border-strong"
+        >
+          {projectPathPrefix && (
+            <span aria-hidden="true" className="min-w-0 shrink truncate">{projectPathPrefix}</span>
+          )}
+          <span aria-hidden="true" className="max-w-[48%] shrink-0 truncate">{projectPathLeaf}</span>
         </span>
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex shrink-0 items-center gap-0.5">
           {showRefreshing && (
             <span className="text-[10px] font-mono text-text-muted animate-pulse">
               {t('core:editor.fileTree.syncing', { defaultValue: 'Syncing' })}
@@ -118,7 +140,7 @@ export function FileTree({
             onClick={onOpenProjectFolder}
             aria-label={t('core:editor.fileTree.openProjectFolder', { defaultValue: 'Open project folder' })}
             title={t('core:editor.fileTree.openProjectFolder', { defaultValue: 'Open project folder' })}
-            className="text-text-muted hover:text-text-primary transition-colors shrink-0"
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-text-muted transition-colors hover:bg-surface-panel hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong"
           >
             <Icon name="folder-open" className="text-[14px]" />
           </button>
@@ -127,7 +149,7 @@ export function FileTree({
             onClick={onRefresh}
             aria-label={t('core:editor.fileTree.refresh', { defaultValue: 'Refresh file tree' })}
             title={t('core:editor.fileTree.refresh', { defaultValue: 'Refresh file tree' })}
-            className="text-text-muted hover:text-text-primary transition-colors shrink-0"
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-text-muted transition-colors hover:bg-surface-panel hover:text-text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-strong"
           >
             <Icon name="arrows-clockwise" className={`text-[14px] ${showRefreshing ? 'animate-spin' : ''}`} />
           </button>

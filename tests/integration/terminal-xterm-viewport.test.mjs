@@ -1220,6 +1220,22 @@ test('xterm terminal options keep native macOS Option and dead-key composition e
   assert.equal(winOptions.macOptionIsMeta, undefined)
 })
 
+test('xterm terminal options match the Windows ConPTY backend and OS build on resize', () => {
+  const windowsOptions = buildTerminalOptions({ platform: 'win32', windowsPtyBuildNumber: 22631 })
+  const unknownBuildOptions = buildTerminalOptions({ platform: 'win32' })
+  const linuxOptions = buildTerminalOptions({ platform: 'linux', windowsPtyBuildNumber: 22631 })
+
+  assert.deepEqual(windowsOptions.windowsPty, { backend: 'conpty', buildNumber: 22631 })
+  assert.deepEqual(unknownBuildOptions.windowsPty, { backend: 'conpty' })
+  assert.equal(linuxOptions.windowsPty, undefined)
+})
+
+test('chat terminal dock passes PTY output through without trimming control whitespace', () => {
+  const source = fs.readFileSync(path.resolve('src/renderer/components/chat/ChatTerminalDock.jsx'), 'utf8')
+  assert.doesNotMatch(source, /asTrimmedString\(rawOutputBySessionId\?/)
+  assert.match(source, /String\(rawOutputBySessionId\?\.\[selectedSession\.id\]\?\.rawOutput \|\| ''\)/)
+})
+
 test('xterm terminal font size is locally clamped', () => {
   assert.equal(clampTerminalFontSize(4), 9)
   assert.equal(clampTerminalFontSize(17.6), 18)

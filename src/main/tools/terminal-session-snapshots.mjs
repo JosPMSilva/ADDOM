@@ -61,6 +61,7 @@ export function toPublicSession(session) {
     turnId: session.turnId,
     shell: session.shell,
     shellKind: session.shellKind,
+    windowsPtyBuildNumber: session.windowsPtyBuildNumber,
     cwd: session.cwd,
     scope,
     cols: session.cols,
@@ -130,6 +131,7 @@ export function buildClosedSessionArchiveSnapshot(session, {
     cwd: session.cwd,
     shell: session.shell,
     shellKind: session.shellKind,
+    windowsPtyBuildNumber: session.windowsPtyBuildNumber,
     profileHint: session.policy?.profileHint || '',
     hostAccessRequired: session.policy?.hostAccessRequired === true,
     scope: session.policy?.hostAccessRequired === true ? 'host' : 'workspace',
@@ -159,6 +161,7 @@ export function buildClosedSessionArchiveSnapshot(session, {
     metadata: {
       pid: session.pid,
       updatedAt: session.updatedAt,
+      windowsPtyBuildNumber: session.windowsPtyBuildNumber,
     },
     lastError: session.lastError,
   }

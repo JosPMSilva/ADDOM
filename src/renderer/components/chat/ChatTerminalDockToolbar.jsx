@@ -491,14 +491,6 @@ export default function ChatTerminalDockToolbar({
                 ))}
               </>
             )}
-            <TerminalMenuItem
-              label={labels.hideTerminal}
-              hint={labels.dismiss}
-              onClick={() => {
-                setUtilityMenuOpen(false)
-                void onHideTerminal?.()
-              }}
-            />
             {!browserOpen && selectedSession && (
               <TerminalMenuItem
                 label={labels.forceTerminate}
@@ -514,6 +506,15 @@ export default function ChatTerminalDockToolbar({
           </div>
         )}
       </div>
+      <button
+        type="button"
+        onClick={() => onHideTerminal?.()}
+        className={TOOLBAR_ICON_CLASS}
+        aria-label={labels.hideTerminal}
+        title={labels.hideTerminal}
+      >
+        <Icon name="x" className="text-[15px]" />
+      </button>
     </div>
   )
 }

@@ -449,6 +449,7 @@ test('chat terminal dock SSR renders the expanded browser with exactly Current T
   assert.match(html, />History</)
   assert.match(html, /api \(pwsh\)/)
   assert.match(html, /terminal-viewport-shell/)
+  assert.match(html, /aria-label="Hide terminal"/)
 })
 
 test('chat terminal dock SSR keeps archive browsing in the expanded browser and renders archived sessions read-only', () => {
@@ -483,11 +484,43 @@ test('chat terminal dock SSR keeps archive browsing in the expanded browser and 
     permissionMode: 'ask',
   }))
 
-  assert.match(html, /Saved to Memory|Save to thread memory|Save to project memory|No Memory summary/)
-  assert.match(html, /Timeline suggestion cards stay separate from this browser|Keep the failure tail for later/)
+  assert.match(html, /Terminal actions/)
+  assert.match(html, /Keep the failure tail for later/)
+  assert.doesNotMatch(html, /Timeline suggestion cards stay separate from this browser/)
   assert.match(html, /Archived/)
   assert.match(html, /Read-only/)
   assert.match(html, /Open thread/)
+})
+
+test('chat terminal browser omits unavailable archive actions and explanatory filler', () => {
+  seedDockState({
+    archivedSessions: [{
+      sessionId: 'archive_without_memory',
+      threadId: 'thread_2',
+      cwd: 'C:\\repo\\packages\\history',
+      shellKind: 'cmd',
+      status: 'terminated',
+      outputTail: [{ sequence: 1, data: 'history\n' }],
+      archived: true,
+    }],
+    threads: [{ id: 'thread_2', title: 'History thread' }],
+    terminalDock: {
+      collapsed: false,
+      browserOpen: true,
+      browserSection: 'history',
+      browserSelectionSessionId: 'archive_without_memory',
+    },
+  })
+
+  const html = renderToStaticMarkup(React.createElement(ChatTerminalDock, {
+    activeThreadId: 'thread_1',
+    projectFolder: 'C:\\repo',
+    permissionMode: 'ask',
+  }))
+
+  assert.match(html, /Terminal actions/)
+  assert.doesNotMatch(html, /No Memory summary/)
+  assert.doesNotMatch(html, /Timeline suggestion cards stay separate from this browser/)
 })
 
 test('chat terminal dock SSR keeps a launcher visible when only browser history remains in chat', () => {
@@ -519,6 +552,7 @@ test('chat terminal dock SSR keeps a launcher visible when only browser history 
 
   assert.match(html, /Terminal browser/)
   assert.match(html, /Browse sessions/)
+  assert.match(html, /aria-label="Hide terminal"/)
   assert.doesNotMatch(html, /role="tablist"/)
   assert.doesNotMatch(html, /chat-terminal-browser/)
 })
@@ -570,6 +604,9 @@ test('chat terminal dock source keeps tabs, takeover handoff, and destructive co
   assert.match(source, /requestAppConfirm/)
   assert.doesNotMatch(source, /window\.confirm/)
   assert.match(source, /requestSessionSurfaceFocus\(tab\.id,\s*'chat_dock'\)/)
+  assert.match(source, /aria-label=\{labels\.hideTerminal\}/)
+  assert.match(source, /onClick=\{\(\) => onHideTerminal\?\.\(\)\}/)
+  assert.doesNotMatch(source, /<TerminalMenuItem\s+label=\{labels\.hideTerminal\}/)
 })
 
 test('chat terminal dock source renames sessions with an inline editor instead of a blocking browser prompt', () => {
@@ -606,7 +643,7 @@ test('chat terminal dock source includes duplicate-label disambiguation and unre
   assert.match(combinedSource, /Current Thread/)
   assert.match(combinedSource, /Other Live/)
   assert.match(combinedSource, /History/)
-  assert.match(browserSource, /Timeline suggestion cards stay separate from this browser/)
+  assert.doesNotMatch(browserSource, /Timeline suggestion cards stay separate from this browser/)
   assert.match(titleAreaSource, /Unread/)
   assert.match(utilsSource, /approvalSuffix/)
   assert.match(dockSource, /useToolStore\(useShallow\(\(state\) => state\.getPendingListForThread\(activeThreadId\)\)\)/)

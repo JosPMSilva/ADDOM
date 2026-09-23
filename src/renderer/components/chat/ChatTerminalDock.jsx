@@ -524,7 +524,7 @@ function ChatTerminalDockInner({
   if (collapsed) return null
 
   const rawOutput = selectedSession?.id
-    ? asTrimmedString(rawOutputBySessionId?.[selectedSession.id]?.rawOutput)
+    ? String(rawOutputBySessionId?.[selectedSession.id]?.rawOutput || '')
     : ''
   const outputTruncated = selectedSession?.id
     ? rawOutputBySessionId?.[selectedSession.id]?.truncated === true
@@ -577,7 +577,7 @@ function ChatTerminalDockInner({
   const showCompactSessionChrome = !browserOpen && !!selectedTab
   const browserHeight = Math.max(dockHeight, 360)
   const selectedBrowserRawOutput = selectedBrowserSession?.id
-    ? asTrimmedString(rawOutputBySessionId?.[selectedBrowserSession.id]?.rawOutput)
+    ? String(rawOutputBySessionId?.[selectedBrowserSession.id]?.rawOutput || '')
     : ''
   const selectedBrowserOutputTruncated = selectedBrowserSession?.id
     ? rawOutputBySessionId?.[selectedBrowserSession.id]?.truncated === true

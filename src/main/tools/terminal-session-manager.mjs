@@ -1,5 +1,6 @@
-import path from 'node:path'
 import crypto from 'node:crypto'
+import os from 'node:os'
+import path from 'node:path'
 import { assertApplicationWorkStartAllowed } from '../application-work-quiescence.mjs'
 import {
   DEFAULT_TERMINAL_SESSION_MAX_BUFFER_CHARS,
@@ -47,6 +48,7 @@ import {
 function defaultGenerateSessionId() { return `term_${crypto.randomUUID()}` }
 export function createTerminalSessionManager({
   platform = process.platform,
+  windowsPtyBuildNumber = platform === 'win32' ? Number(os.release().split('.').at(-1)) : 0,
   env = process.env,
   now = () => Date.now(),
   spawnTerminal = defaultSpawnTerminal,
@@ -64,7 +66,6 @@ export function createTerminalSessionManager({
   const effectiveMaxBufferChars = Math.max(1, Math.round(Number(maxBufferChars) || DEFAULT_TERMINAL_SESSION_MAX_BUFFER_CHARS))
   const effectiveExitedSessionReapMs = Math.max(0, Math.round(Number(exitedSessionReapMs) || 0))
   const effectiveCloseFallbackMs = Math.max(1, Math.round(Number(closeFallbackMs) || DEFAULT_TERMINAL_CLOSE_FALLBACK_MS))
-
   function emit(event) {
     for (const listener of listeners) {
       try {
@@ -345,6 +346,7 @@ export function createTerminalSessionManager({
       turnId: asTrimmedString(turnId),
       shell: shellLaunch.shellId,
       shellKind: shellLaunch.shellKind,
+      windowsPtyBuildNumber: platform === 'win32' ? Math.max(0, Math.trunc(Number(windowsPtyBuildNumber) || 0)) : 0,
       cwd: path.resolve(String(cwd || process.cwd())),
       cols: size.cols,
       rows: size.rows,

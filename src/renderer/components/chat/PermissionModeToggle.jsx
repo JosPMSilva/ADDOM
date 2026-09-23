@@ -81,6 +81,7 @@ export default function PermissionModeToggle({
   align = 'end',
   disabled = false,
   neutralTones = false,
+  compact = false,
   onChange,
 }) {
   const { t } = useRendererTranslation(['core', 'settings'])
@@ -137,8 +138,8 @@ export default function PermissionModeToggle({
   }, [buttonsDisabled])
 
   return (
-    <div className={`flex min-w-0 flex-wrap items-center ${containerAlignmentClass} gap-1.5`} data-ui="chat-permission-mode">
-      <span className="shrink-0 text-[11px] text-text-secondary">{t('core:chat.permissionMode.label', { defaultValue: '[[canon:permission]]' })}</span>
+    <div className={`flex min-w-0 items-center ${compact ? '' : 'flex-wrap'} ${containerAlignmentClass} gap-1.5`} data-ui="chat-permission-mode">
+      <span className={`shrink-0 text-[11px] text-text-secondary ${compact ? 'sr-only' : ''}`}>{t('core:chat.permissionMode.label', { defaultValue: '[[canon:permission]]' })}</span>
 
       <div
         ref={menuRef}

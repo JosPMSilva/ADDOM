@@ -173,7 +173,60 @@
   --app-thread-drawer-default-width: 260px;
   --app-chat-companion-width: 300px;
   --app-chat-content-max-width: 980px;
+  --app-chat-header-max-width: 1280px;
   --app-chat-composer-max-width: 1028px;
+}
+
+/* The title yields first; secondary controls move below only when this header is narrow. */
+[data-ui='chat-header'] {
+  container-type: inline-size;
+}
+
+[data-ui='chat-header-overflow-trigger'] {
+  display: none;
+}
+
+@container (max-width: 760px) {
+  [data-ui='chat-header-overflow-trigger'] {
+    display: flex;
+  }
+
+  [data-ui='chat-header-content']:not(:has([data-ui='chat-terminal-global-indicator'], [data-ui='git-companion-toggle'], [data-ui='agents-companion-toggle'])) [data-ui='chat-header-overflow-trigger'] {
+    display: none;
+  }
+
+  [data-ui='chat-header-secondary'] {
+    display: none;
+    position: absolute;
+    z-index: 40;
+    top: calc(100% + 6px);
+    right: 0;
+    width: min(260px, calc(100cqw - 32px));
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 8px;
+    border: 1px solid var(--color-surface-border);
+    border-radius: 8px;
+    background: var(--color-surface-panel);
+    box-shadow: 0 12px 28px rgb(var(--theme-shadow-rgb) / 0.24);
+  }
+
+  [data-ui='chat-header-secondary'][data-open='true'] {
+    display: flex;
+  }
+
+  [data-ui='chat-header-secondary'] > [data-ui='git-companion-toggle'],
+  [data-ui='chat-header-secondary'] > [data-ui='agents-companion-toggle'] {
+    width: 100%;
+    max-width: none;
+    justify-content: flex-start;
+  }
+
+  [data-ui='chat-header-secondary'] [data-ui='chat-terminal-global-indicator'] {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 
 .chat-companion-shell {
