@@ -1,6 +1,6 @@
 'use strict'
 /**
- * make-icon.js — generates assets/tray-icon.png and assets/icon.ico
+ * make-icon.js — generates desktop, tray, and Microsoft Store package icons
  *
  * No external dependencies — uses only built-in Node.js modules.
  * The ICO contains two BMP images: 16x16 and 32x32.
@@ -12,6 +12,7 @@ const cp = require('child_process')
 
 const ASSETS = path.join(__dirname, '..', 'assets')
 const ICONSET = path.join(ASSETS, 'icon.iconset')
+const APPX_ASSETS = path.join(ASSETS, 'appx')
 fs.mkdirSync(ASSETS, { recursive: true })
 
 // ── PNG helpers ───────────────────────────────────────────────────────────────
@@ -94,6 +95,29 @@ function drawAddomIcon(size) {
     for (let dy = 0; dy < Math.max(1, round(2*s)); dy++) sp(x, round(8*s) + dy)
   }
 
+  return pixels
+}
+
+function drawAddomWideIcon(width, height) {
+  const pixels = new Uint8Array(width * height * 4)
+  for (let i = 0; i < width * height; i++) {
+    pixels[i*4] = 0x0b; pixels[i*4+1] = 0x0c; pixels[i*4+2] = 0x0c; pixels[i*4+3] = 0xff
+  }
+
+  const size = Math.min(width, height)
+  const square = drawAddomIcon(size)
+  const offsetX = Math.floor((width - size) / 2)
+  const offsetY = Math.floor((height - size) / 2)
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const source = (y * size + x) * 4
+      const target = ((offsetY + y) * width + offsetX + x) * 4
+      pixels[target] = square[source]
+      pixels[target+1] = square[source+1]
+      pixels[target+2] = square[source+2]
+      pixels[target+3] = square[source+3]
+    }
+  }
   return pixels
 }
 
@@ -197,6 +221,22 @@ for (const size of pngSizes) {
 const linuxPng = makePNG(drawAddomIcon(512), 512, 512)
 fs.writeFileSync(path.join(ASSETS, 'icon.png'), linuxPng)
 console.log('Wrote assets/icon.png (' + linuxPng.length + ' bytes)')
+
+fs.mkdirSync(APPX_ASSETS, { recursive: true })
+const appxAssets = [
+  ['StoreLogo.png', 50, 50],
+  ['Square44x44Logo.png', 44, 44],
+  ['Square150x150Logo.png', 150, 150],
+  ['Wide310x150Logo.png', 310, 150],
+]
+for (const [filename, width, height] of appxAssets) {
+  const pixels = width === height
+    ? drawAddomIcon(width)
+    : drawAddomWideIcon(width, height)
+  const png = makePNG(pixels, width, height)
+  fs.writeFileSync(path.join(APPX_ASSETS, filename), png)
+  console.log(`Wrote assets/appx/${filename} (${png.length} bytes)`)
+}
 
 fs.rmSync(ICONSET, { recursive: true, force: true })
 fs.mkdirSync(ICONSET, { recursive: true })

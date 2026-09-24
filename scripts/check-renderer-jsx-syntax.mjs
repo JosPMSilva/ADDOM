@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { stop as stopEsbuild } from 'esbuild'
 import { createServer } from 'vite'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -70,11 +71,15 @@ async function main() {
     process.stdout.write(`Renderer syntax OK (${rendererSourceFiles.length} files)\n`)
   } finally {
     await server.close()
+    await stopEsbuild()
   }
 }
 
-main().catch((error) => {
-  const message = error?.stack || error?.message || String(error)
-  process.stderr.write(`${message}\n`)
-  process.exitCode = 1
-})
+main().then(
+  () => process.exit(0),
+  (error) => {
+    const message = error?.stack || error?.message || String(error)
+    process.stderr.write(`${message}\n`)
+    process.exit(1)
+  },
+)

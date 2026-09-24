@@ -707,6 +707,7 @@
       "status": {
         "upToDate": "Up-to-date",
         "unavailable": "Updates zijn niet beschikbaar in deze build.",
+        "managed": "Updates worden automatisch beheerd door Microsoft Store.",
         "checking": "Controleren op updates...",
         "latest": "U gebruikt de nieuwste versie",
         "available": "Update beschikbaar - v{{version}}",

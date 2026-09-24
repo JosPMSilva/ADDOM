@@ -107,9 +107,9 @@ Symptoms:
 Actions:
 1. Verify `inlineCompletionEnabled` is on in settings.
 2. Confirm provider API key is valid for the selected inline model.
-3. Open inline completion telemetry in settings to check error/empty rates.
+3. Open the inline-completion local diagnostics in settings to check error/empty rates.
 4. If error rate is high, try a different provider or model.
-5. Clear telemetry counters and retry to isolate transient failures.
+5. Clear the local diagnostic counters and retry to isolate transient failures.
 
 ## Common Pitfalls
 ### What Can Go Wrong

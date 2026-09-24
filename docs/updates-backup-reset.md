@@ -14,9 +14,20 @@ Provides update controls, thread export/import, and scoped data reset actions.
 ## Step-by-Step Tasks
 
 ### 1. Check and Install Updates
-Windows release builds use ADDOM's official published GitHub releases as their update source. ADDOM checks shortly after launch and every 30 minutes in the background, but does not download an update until you choose to do so. Draft releases are not offered. macOS and Linux updates are currently manual.
+The available update controls depend on how ADDOM was installed:
 
-1. Open `Settings > General > Updates`.
+- Windows builds downloaded from GitHub use ADDOM's official published GitHub
+  releases. ADDOM checks shortly after launch and every 30 minutes in the
+  background, but does not download an update until you choose to do so. Draft
+  releases are not offered.
+- Microsoft Store builds are signed, delivered, and updated by Microsoft Store.
+  **Settings > General > Updates** identifies the managed channel and does not
+  offer the GitHub download or install actions.
+- macOS and Linux updates are currently manual.
+
+For a GitHub-distributed Windows build:
+
+1. Open **Settings > General > Updates**.
 2. Check manually, or use the update control that appears above Settings when a candidate is found.
 3. Download the update when available. The icon shows circular progress without opening a separate progress panel.
 4. Install after the download completes. ADDOM requires confirmation and waits until tasks, approvals, terminals, and unsaved editor tabs are clear before restarting.

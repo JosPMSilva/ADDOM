@@ -707,6 +707,7 @@
       "status": {
         "upToDate": "最新",
         "unavailable": "此版本无法使用更新功能。",
+        "managed": "更新由 Microsoft Store 自动管理。",
         "checking": "正在检查更新...",
         "latest": "您使用的是最新版本",
         "available": "可用更新 - v{{version}}",

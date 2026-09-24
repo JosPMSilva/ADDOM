@@ -707,6 +707,7 @@
       "status": {
         "upToDate": "Terkini",
         "unavailable": "Pembaruan tidak tersedia dalam build ini.",
+        "managed": "Pembaruan dikelola secara otomatis oleh Microsoft Store.",
         "checking": "Memeriksa pembaruan...",
         "latest": "Anda menggunakan versi terbaru",
         "available": "Pembaruan tersedia - v{{version}}",

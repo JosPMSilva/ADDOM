@@ -146,6 +146,7 @@ test('shared snapshots map onto the existing Settings update presentation', () =
   })
   assert.equal(toLegacyUpdatePresentation(snapshot(2, 'hidden')).status, null)
   assert.equal(toLegacyUpdatePresentation(snapshot(3, 'unavailable')).status, 'unavailable')
+  assert.equal(toLegacyUpdatePresentation(snapshot(4, 'managed')).status, 'managed')
 })
 
 test('Settings presentation preserves updater errors, blockers, and installing state', () => {

@@ -707,6 +707,7 @@
       "status": {
         "upToDate": "Güncel",
         "unavailable": "Güncellemeler bu derlemede kullanılamıyor.",
+        "managed": "Güncellemeler Microsoft Store tarafından otomatik olarak yönetilir.",
         "checking": "Güncellemeler kontrol ediliyor...",
         "latest": "En son sürümdesiniz",
         "available": "Güncelleme mevcut - v{{version}}",

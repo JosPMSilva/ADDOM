@@ -110,7 +110,7 @@ Language-service availability is detected per workspace and shown directly in th
 1. Keep inline completion enabled in settings.
 2. Type normally to receive ghost-text suggestions.
 3. Accept/dismiss suggestions as needed.
-4. Review telemetry counters in settings.
+4. Review the local diagnostic counters in settings.
 
 ### 6. Preview Markdown Files
 1. Open a `.md` file in Editor.
@@ -182,7 +182,7 @@ Language-service availability is detected per workspace and shown directly in th
 ## Related Settings
 - `inlineCompletionEnabled`
 - `editorLanguageServicePlatform`
-- Editor assist telemetry controls.
+- Editor assist local-diagnostics controls.
 - Command palette and editor action shortcuts.
 
 ## Related References

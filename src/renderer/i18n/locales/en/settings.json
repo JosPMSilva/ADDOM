@@ -733,6 +733,7 @@
       "status": {
         "upToDate": "Up to date",
         "unavailable": "Updates are unavailable in this build.",
+        "managed": "Updates are managed automatically by Microsoft Store.",
         "checking": "Checking for updates...",
         "latest": "No updates found.",
         "available": "Update available - v{{version}}",

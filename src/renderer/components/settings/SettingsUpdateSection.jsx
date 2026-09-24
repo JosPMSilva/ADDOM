@@ -5,6 +5,7 @@ function UpdateStatusText({ status, info, pct, t }) {
   const className = 'text-[11px] font-medium text-text-secondary'
   if (!status) return <span className={className}>{t('settings:blocks.updates.status.upToDate', { defaultValue: 'Up to date' })}</span>
   if (status === 'unavailable') return <span className={className}>{t('settings:blocks.updates.status.unavailable', { defaultValue: 'Updates are unavailable in this build.' })}</span>
+  if (status === 'managed') return <span className={className}>{t('settings:blocks.updates.status.managed', { defaultValue: 'Updates are managed automatically by Microsoft Store.' })}</span>
   if (status === 'checking') return <span className={className}>{t('settings:blocks.updates.status.checking', { defaultValue: 'Checking for updates...' })}</span>
   if (status === 'not-available') return <span className={className}>{t('settings:blocks.updates.status.latest', { defaultValue: 'No updates found.' })}</span>
   if (status === 'available') return <span className={className}>{t('settings:blocks.updates.status.available', { defaultValue: 'Update available - v{{version}}', version: info?.version })}</span>

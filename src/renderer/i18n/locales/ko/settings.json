@@ -707,6 +707,7 @@
       "status": {
         "upToDate": "최신",
         "unavailable": "이 빌드에서는 업데이트를 사용할 수 없습니다.",
+        "managed": "업데이트는 Microsoft Store에서 자동으로 관리됩니다.",
         "checking": "업데이트 확인 중...",
         "latest": "최신 버전을 사용 중입니다.",
         "available": "업데이트 가능 - v{{version}}",

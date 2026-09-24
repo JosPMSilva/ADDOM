@@ -3,10 +3,19 @@ import assert from 'node:assert/strict'
 
 import {
   createInitialUpdateSnapshot,
+  createMicrosoftStoreManagedUpdateSnapshot,
   createUnavailableUpdateSnapshot,
   normalizeUpdateSnapshot,
   reduceApplicationUpdateState,
 } from '../../src/main/updater/application-update-state.mjs'
+
+test('Microsoft Store update ownership is explicit and actionless', () => {
+  assert.deepEqual(createMicrosoftStoreManagedUpdateSnapshot(), {
+    ...createInitialUpdateSnapshot(),
+    phase: 'managed',
+  })
+  assert.equal(normalizeUpdateSnapshot({ phase: 'managed' }).phase, 'managed')
+})
 
 test('unavailable updater state is explicit without exposing a reason', () => {
   assert.deepEqual(createUnavailableUpdateSnapshot(), {

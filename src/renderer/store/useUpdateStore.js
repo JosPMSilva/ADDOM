@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import useEditorStore from './useEditorStore.js'
 
-const PHASES = new Set(['hidden', 'unavailable', 'checking', 'available', 'downloading', 'ready', 'installing', 'error'])
+const PHASES = new Set(['hidden', 'unavailable', 'managed', 'checking', 'available', 'downloading', 'ready', 'installing', 'error'])
 const ERROR_CODES = new Set(['generic', 'network', 'operation_in_progress', 'unavailable'])
 const BLOCKER_KINDS = new Set(['running-task', 'pending-approval', 'active-terminal', 'unsaved-work'])
 
@@ -69,6 +69,7 @@ export function toLegacyUpdatePresentation(value) {
   const statusByPhase = {
     hidden: snapshot.errorCode ? 'error' : null,
     unavailable: 'unavailable',
+    managed: 'managed',
     checking: 'checking',
     available: 'available',
     downloading: 'downloading',

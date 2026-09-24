@@ -707,6 +707,7 @@
       "status": {
         "upToDate": "Cập nhật",
         "unavailable": "Bản dựng này không hỗ trợ cập nhật.",
+        "managed": "Các bản cập nhật được Microsoft Store tự động quản lý.",
         "checking": "Đang kiểm tra cập nhật...",
         "latest": "Bạn đang dùng phiên bản mới nhất",
         "available": "Đã có bản cập nhật - v{{version}}",

@@ -50,7 +50,9 @@ Localization remains partial in `0.1.2-alpha`: supported locales cover the trans
 
 - [Contributing Guide](../CONTRIBUTING.md)
 - [Security Policy](../SECURITY.md)
+- [Privacy Policy](../PRIVACY.md)
 - [Code Signing Policy](./code-signing-policy.md)
+- [Microsoft Store Packaging](./microsoft-store-packaging.md)
 - [Security CSP Threat Model](./security-csp-threat-model.md)
 - [Changelog](../CHANGELOG.md)
 

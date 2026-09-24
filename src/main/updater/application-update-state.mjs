@@ -1,6 +1,7 @@
 const UPDATE_PHASES = new Set([
   'hidden',
   'unavailable',
+  'managed',
   'checking',
   'available',
   'downloading',
@@ -81,6 +82,13 @@ export function createUnavailableUpdateSnapshot() {
   return {
     ...createInitialUpdateSnapshot(),
     phase: 'unavailable',
+  }
+}
+
+export function createMicrosoftStoreManagedUpdateSnapshot() {
+  return {
+    ...createInitialUpdateSnapshot(),
+    phase: 'managed',
   }
 }
 

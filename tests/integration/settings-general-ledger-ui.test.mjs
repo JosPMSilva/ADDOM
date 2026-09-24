@@ -110,6 +110,18 @@ test('disabled updater state is truthful, neutral, and exposes no dead action', 
   assert.doesNotMatch(html, /Check for updates|<button|text-danger/)
 })
 
+test('Microsoft Store updater state names Store ownership and exposes no dead action', () => {
+  const html = renderToStaticMarkup(React.createElement(SettingsUpdateSection, {
+    status: 'managed',
+    info: null,
+    pct: 0,
+    onCheck: () => {},
+  }))
+
+  assert.match(html, /Updates are managed automatically by Microsoft Store\./)
+  assert.doesNotMatch(html, /Check for updates|<button|text-danger/)
+})
+
 test('updater failures never render upstream response details', () => {
   const unsafeDetails = '404 GET https://github.com/example/private/releases.atom set-cookie: _gh_sess=secret authorization: Bearer token'
   const html = renderToStaticMarkup(React.createElement(SettingsUpdateSection, {

@@ -6,7 +6,10 @@ import { sendVersioned } from '../ipc/ipc-versioning.mjs'
 import { createApplicationUpdateController } from '../updater/application-update-controller.mjs'
 import { createElectronUpdateAdapter } from '../updater/electron-update-adapter.mjs'
 import { registerUpdaterIpcHandlers } from '../updater/application-updater-ipc.mjs'
-import { createUnavailableUpdateSnapshot } from '../updater/application-update-state.mjs'
+import {
+  createMicrosoftStoreManagedUpdateSnapshot,
+  createUnavailableUpdateSnapshot,
+} from '../updater/application-update-state.mjs'
 import { createApplicationUpdateInstallCoordinator } from '../updater/application-update-install-coordinator.mjs'
 import { createProductionApplicationUpdateActivityMonitor } from '../updater/application-update-production-activity.mjs'
 import { beginApplicationWorkQuiescence } from '../application-work-quiescence.mjs'
@@ -70,8 +73,7 @@ function getUpdater() {
   return autoUpdater
 }
 
-function createDisabledController() {
-  const snapshot = createUnavailableUpdateSnapshot()
+function createStaticController(snapshot) {
   return {
     start() {},
     stop() {},
@@ -87,11 +89,12 @@ export function registerUpdaterHandlers({
   getMainWindow,
   isDev = IS_DEV,
   isPackaged = app.isPackaged,
+  isMicrosoftStore = process.windowsStore === true,
   chatRunRegistry,
   terminalSessionManager,
   prepareForExit,
 } = {}) {
-  const mode = !isDev && isPackaged && hasSupportedPackagedUpdateConfig()
+  const mode = isMicrosoftStore ? 'microsoft-store' : !isDev && isPackaged && hasSupportedPackagedUpdateConfig()
     ? 'production'
     : 'disabled'
   const sendSnapshot = (snapshot) => {
@@ -124,12 +127,14 @@ export function registerUpdaterHandlers({
           installBlockerCollector: activityMonitor.collectBlockers,
           onStateChanged: sendSnapshot,
         })
-      : createDisabledController()
+      : createStaticController(createUnavailableUpdateSnapshot())
+  } else if (mode === 'microsoft-store') {
+    controller = createStaticController(createMicrosoftStoreManagedUpdateSnapshot())
   } else {
-    controller = createDisabledController()
+    controller = createStaticController(createUnavailableUpdateSnapshot())
   }
 
   registerUpdaterIpcHandlers({ ipcMain, controller })
-  if (mode !== 'disabled') app.whenReady().then(() => controller.start())
+  if (mode === 'production') app.whenReady().then(() => controller.start())
   return () => controller.stop()
 }

@@ -707,6 +707,7 @@
       "status": {
         "upToDate": "Actualizado",
         "unavailable": "Las actualizaciones no están disponibles en esta compilación.",
+        "managed": "Las actualizaciones se administran automáticamente mediante Microsoft Store.",
         "checking": "Comprobando actualizaciones...",
         "latest": "Estás en la última versión",
         "available": "Actualización disponible - v{{version}}",
