@@ -8,6 +8,12 @@ const PRIMARY_PACKAGE_EXTENSIONS = Object.freeze({
   win32: ['.exe'],
 })
 
+const DISTRIBUTION_PACKAGE_EXTENSIONS = Object.freeze({
+  'microsoft-store': Object.freeze({
+    win32: ['.appx'],
+  }),
+})
+
 const UPDATE_METADATA_FILE_NAMES = Object.freeze({
   darwin: 'latest-mac.yml',
   linux: 'latest-linux.yml',
@@ -16,9 +22,12 @@ const UPDATE_METADATA_FILE_NAMES = Object.freeze({
 
 export function findPrimaryPackageOutputs({
   directory,
+  distributionChannel = '',
   platform = process.platform,
 } = {}) {
-  const extensions = PRIMARY_PACKAGE_EXTENSIONS[platform]
+  const normalizedDistributionChannel = String(distributionChannel || '').trim()
+  const distributionExtensions = DISTRIBUTION_PACKAGE_EXTENSIONS[normalizedDistributionChannel]
+  const extensions = distributionExtensions?.[platform] || PRIMARY_PACKAGE_EXTENSIONS[platform]
   if (!extensions) {
     throw new Error(`Unsupported package platform: ${platform}`)
   }
@@ -47,13 +56,32 @@ export function findUpdateMetadataOutput({
   return fs.existsSync(outputPath) && fs.statSync(outputPath).isFile() ? outputPath : ''
 }
 
+export function assertPrimaryPackageOutputVersions({ expectedVersion, outputs } = {}) {
+  const normalizedExpectedVersion = String(expectedVersion || '').trim()
+  if (!normalizedExpectedVersion) {
+    throw new Error('Expected package version is required.')
+  }
+
+  const mismatches = (Array.isArray(outputs) ? outputs : [])
+    .filter((output) => !path.basename(output).includes(normalizedExpectedVersion))
+  if (mismatches.length > 0) {
+    throw new Error(`Stale or mixed-version package output detected: ${mismatches.map((output) => path.basename(output)).join(', ')}`)
+  }
+}
+
 function main() {
   const outputs = findPrimaryPackageOutputs({
     directory: process.argv[2],
+    distributionChannel: process.env.ADDOM_DISTRIBUTION_CHANNEL,
   })
   if (outputs.length === 0) {
     throw new Error(`No primary ${process.platform} package output was produced.`)
   }
+  const packageJson = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf8'))
+  assertPrimaryPackageOutputVersions({
+    expectedVersion: packageJson.version,
+    outputs,
+  })
   console.log(`Verified ${outputs.length} primary package output(s):`)
   for (const output of outputs) {
     console.log(`- ${output}`)

@@ -1,8 +1,8 @@
 # ADDOM Documentation
 
-These guides describe the current `0.1.2-alpha` release. Start with the setup path, then use the task guides and references for the surface you are working with.
+These guides describe the current `0.1.3-alpha` release. Start with the setup path, then use the task guides and references for the surface you are working with.
 
-Localization remains partial in `0.1.2-alpha`: supported locales cover the translation-backed application shell and many primary workflows, but some newer or infrequent renderer surfaces still fall back to English. Commands, paths, provider/model IDs, protocols, and support-critical technical tokens remain canonical English.
+Localization remains partial in `0.1.3-alpha`: supported locales cover the translation-backed application shell and many primary workflows, but some newer or infrequent renderer surfaces still fall back to English. Commands, paths, provider/model IDs, protocols, and support-critical technical tokens remain canonical English.
 
 ## Start Here
 

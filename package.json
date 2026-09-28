@@ -1,6 +1,6 @@
 {
   "name": "addom",
-  "version": "0.1.2-alpha",
+  "version": "0.1.3-alpha",
   "private": true,
   "description": "Local-first multi-provider AI coding workspace with guarded tools, delegated agents, and no developer telemetry",
   "author": "JosPMSilva",
@@ -67,8 +67,8 @@
     "i18n:generate:pseudo": "node scripts/generate-pseudo-locale.mjs",
     "hooks:install": "node scripts/install-git-hooks.mjs",
     "build": "npm run build:win",
-    "build:win": "npm run build:runtime-assets && npm run make-icon && cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 electron-builder --win --config electron-builder.config.cjs && npm run test:live-smoke:packaged",
-    "build:store:win": "npm run build:runtime-assets && npm run make-icon && cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 ADDOM_DISTRIBUTION_CHANNEL=microsoft-store electron-builder --win --config electron-builder.config.cjs --publish never",
+    "build:win": "node scripts/clean-package-output.mjs github && npm run build:runtime-assets && npm run make-icon && cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 electron-builder --win --config electron-builder.config.cjs && npm run test:live-smoke:packaged",
+    "build:store:win": "node scripts/clean-package-output.mjs microsoft-store && npm run build:runtime-assets && npm run make-icon && cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 ADDOM_DISTRIBUTION_CHANNEL=microsoft-store electron-builder --win --config electron-builder.config.cjs --publish never",
     "build:mac": "npm run build:runtime-assets && npm run make-icon && cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 electron-builder --mac --config electron-builder.config.cjs",
     "build:linux": "npm run build:runtime-assets && npm run make-icon && cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 electron-builder --linux --config electron-builder.config.cjs",
     "build:all": "npm run build:runtime-assets && npm run make-icon && cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false node scripts/run-electron-builder-host-check.mjs --config electron-builder.config.cjs",

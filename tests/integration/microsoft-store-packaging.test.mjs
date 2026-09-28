@@ -25,6 +25,7 @@ test('Microsoft Store package versions remain monotonic and Store-valid', () => 
   } = require('../../scripts/prepare-microsoft-store-manifest.cjs')
 
   assert.equal(resolveMicrosoftStorePackageVersion('0.1.2-alpha'), '1.1.2.0')
+  assert.equal(resolveMicrosoftStorePackageVersion('0.1.3-alpha'), '1.1.3.0')
   assert.equal(resolveMicrosoftStorePackageVersion('1.0.0'), '2.0.0.0')
   assert.equal(validateMicrosoftStorePackageVersion('1.1.2.0'), '1.1.2.0')
   assert.throws(() => validateMicrosoftStorePackageVersion('0.1.2.0'), /first field/i)
@@ -39,16 +40,16 @@ test('Microsoft Store manifest hook replaces only the package identity version',
   await writeFile(manifestPath, [
     '<?xml version="1.0" encoding="utf-8"?>',
     '<Package>',
-    '  <Identity Name="JosPMSilva.Addom" Publisher="CN=example" Version="0.1.2.0" />',
-    '  <Properties><DisplayName>ADDOM 0.1.2-alpha</DisplayName></Properties>',
+    '  <Identity Name="JosPMSilva.Addom" Publisher="CN=example" Version="0.1.3.0" />',
+    '  <Properties><DisplayName>ADDOM 0.1.3-alpha</DisplayName></Properties>',
     '</Package>',
   ].join('\n'), 'utf8')
 
   try {
-    await prepareManifest(manifestPath, { appVersion: '0.1.2-alpha' })
+    await prepareManifest(manifestPath, { appVersion: '0.1.3-alpha' })
     const result = await readFile(manifestPath, 'utf8')
-    assert.match(result, /Version="1\.1\.2\.0"/)
-    assert.match(result, /ADDOM 0\.1\.2-alpha/)
+    assert.match(result, /Version="1\.1\.3\.0"/)
+    assert.match(result, /ADDOM 0\.1\.3-alpha/)
   } finally {
     await rm(tempDir, { recursive: true, force: true })
   }

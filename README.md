@@ -8,9 +8,9 @@ Local-first desktop workspace for multi-provider AI coding, with guarded tools, 
 
 ## Project Status
 
-The current ADDOM release is `0.1.2-alpha`. ADDOM remains early software. Preview builds are prepared for Windows, macOS, and Linux; the Windows installer has been qualified locally, while macOS and Linux builds need broader platform testing. GitHub-hosted packages are currently unsigned. Windows builds distributed through GitHub can check, download, and install updates from ADDOM's official published GitHub releases. Packages acquired through Microsoft Store are signed and updated by Microsoft instead; the in-app update controls identify that managed channel. macOS and Linux updates remain manual while their packaging paths are hardened.
+The current ADDOM release is `0.1.3-alpha`. ADDOM remains early software. Preview builds are prepared for Windows, macOS, and Linux; the Windows installer has been qualified locally, while macOS and Linux builds need broader platform testing. GitHub-hosted packages are currently unsigned. Windows builds distributed through GitHub can check, download, and install updates from ADDOM's official published GitHub releases. Packages acquired through Microsoft Store are signed and updated by Microsoft instead; the in-app update controls identify that managed channel. macOS and Linux updates remain manual while their packaging paths are hardened.
 
-Non-English UI coverage is still incomplete in `0.1.2-alpha`. The language setting translates supported renderer copy, but some newer and less common surfaces still fall back to English. Commands, file paths, provider and model identifiers, protocol names, and other support-critical technical tokens remain canonical English by design. Provider and model paths have automated coverage, but live qualification with paid API credits is incomplete.
+Non-English UI coverage is still incomplete in `0.1.3-alpha`. The language setting translates supported renderer copy, but some newer and less common surfaces still fall back to English. Commands, file paths, provider and model identifiers, protocol names, and other support-critical technical tokens remain canonical English by design. Provider and model paths have automated coverage, but live qualification with paid API credits is incomplete.
 
 ## Install on Windows
 

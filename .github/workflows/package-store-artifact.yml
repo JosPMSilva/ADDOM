@@ -1,0 +1,46 @@
+name: Package Microsoft Store Artifact
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: package-store-artifact-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  package:
+    name: Windows Store x64
+    runs-on: windows-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Package Microsoft Store artifact
+        run: npm run build:store:win
+
+      - name: Verify Store package output
+        env:
+          ADDOM_DISTRIBUTION_CHANNEL: microsoft-store
+        run: node scripts/check-ci-package-output.mjs dist-electron/store
+
+      - name: Upload Store package
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: ADDOM-Microsoft-Store-x64
+          path: dist-electron/store/*.appx
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30

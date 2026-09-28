@@ -2,8 +2,8 @@
 
 ## Current status
 
-ADDOM's GitHub-hosted `0.1.0-alpha`, `0.1.1-alpha`, and `0.1.2-alpha` packages
-are unsigned. Packages acquired through Microsoft Store are signed by Microsoft
+ADDOM's GitHub-hosted packages are currently unsigned. Packages acquired
+through Microsoft Store are signed by Microsoft
 during Store certification; that signature does not apply to GitHub release
 assets. The project is separately applying for the
 SignPath Foundation open-source code-signing program. This application

@@ -4,10 +4,19 @@ This changelog is maintained going forward from the current repository baseline.
 
 ## Unreleased
 
+## 0.1.3-alpha
+
 - Added single-instance startup handling that focuses the existing window and
   explains why a second launch did not open another workspace.
 - Hardened startup visibility, renderer-load failure handling, chat setup
   failures, provider capability cancellation, and large-workspace shell scans.
+- Added release hygiene checks that keep internal planning and operational
+  documents out of the public repository.
+- Added a manually triggered Microsoft Store artifact workflow with AppX-aware
+  output validation; it never publishes or submits a package automatically.
+- Made Windows package entry points clean only their selected output channel and
+  reject stale or mixed-version artifacts before upload.
+- Added packaged-terminal smoke coverage to the Windows CI qualification path.
 
 ## 0.1.2-alpha
 

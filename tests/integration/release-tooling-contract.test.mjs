@@ -57,7 +57,7 @@ test('release build scripts route multi-target packaging through the host-aware 
   const preCommitHookSource = fs.readFileSync(path.join(ROOT, '.githooks', 'pre-commit'), 'utf8')
   const ciWorkflowSource = fs.readFileSync(path.join(ROOT, '.github', 'workflows', 'ci-cross-platform.yml'), 'utf8')
 
-  assert.equal(packageJson.version, '0.1.2-alpha')
+  assert.equal(packageJson.version, '0.1.3-alpha')
   assert.deepEqual(packageJson.engines, { node: '>=24' })
   assert.equal(String(scripts['native:node'] || ''), 'node scripts/ensure-native-runtime.mjs node')
   assert.equal(String(scripts['native:electron'] || ''), 'node scripts/ensure-native-runtime.mjs electron')
@@ -110,6 +110,8 @@ test('release build scripts route multi-target packaging through the host-aware 
   assert.match(ciWorkflowSource, /actions\/setup-node@[a-f0-9]{40} # v7/)
   assert.match(ciWorkflowSource, /Reject high-severity dependency advisories[\s\S]*npm audit --audit-level=high/)
   assert.match(String(scripts['build:win'] || ''), /npm run test:live-smoke:packaged/)
+  assert.match(String(scripts['build:win'] || ''), /node scripts\/clean-package-output\.mjs github/)
+  assert.match(String(scripts['build:store:win'] || ''), /node scripts\/clean-package-output\.mjs microsoft-store/)
   assert.match(String(scripts['build:dir'] || ''), /npm run test:live-smoke:packaged/)
   assert.match(String(scripts['build:win'] || ''), /ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1/)
   assert.match(String(scripts['build:mac'] || ''), /ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1/)
@@ -254,6 +256,23 @@ test('manual release artifact workflow packages native targets without publishin
   assert.match(workflowSource, /if-no-files-found: error/)
   assert.match(workflowSource, /retention-days: 30/)
   assert.match(workflowSource, /electron-builder[^\r\n]+--publish never/)
+})
+
+test('manual Store artifact workflow packages without publishing or submitting', () => {
+  const workflowSource = fs.readFileSync(
+    path.join(ROOT, '.github', 'workflows', 'package-store-artifact.yml'),
+    'utf8',
+  )
+
+  assert.match(workflowSource, /workflow_dispatch:/)
+  assert.doesNotMatch(workflowSource, /\n\s+push:/)
+  assert.match(workflowSource, /permissions:\s*\n\s+contents: read/)
+  assert.match(workflowSource, /runs-on: windows-latest/)
+  assert.match(workflowSource, /npm run build:store:win/)
+  assert.match(workflowSource, /ADDOM_DISTRIBUTION_CHANNEL: microsoft-store/)
+  assert.match(workflowSource, /node scripts\/check-ci-package-output\.mjs dist-electron\/store/)
+  assert.match(workflowSource, /dist-electron\/store\/\*\.appx/)
+  assert.doesNotMatch(workflowSource, /gh release|Partner Center|publish now/iu)
 })
 
 test('release architecture override limits every configured macOS target', () => {
