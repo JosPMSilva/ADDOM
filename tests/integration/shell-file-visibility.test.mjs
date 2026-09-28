@@ -261,6 +261,46 @@ test('shell change detector suppresses truncated snapshots', async () => {
   }
 })
 
+test('shell snapshots skip dependency trees that cannot contain an explicit command target', async () => {
+  const projectRoot = makeTempProject('addom-shell-dependencies-')
+  try {
+    const dependencyRoot = path.join(projectRoot, 'node_modules', 'fixture')
+    fs.mkdirSync(dependencyRoot, { recursive: true })
+    for (let index = 0; index < 32; index += 1) {
+      fs.writeFileSync(path.join(dependencyRoot, `seed-${index}.js`), 'seed', 'utf8')
+    }
+    fs.writeFileSync(path.join(projectRoot, 'source.js'), 'source', 'utf8')
+
+    const snapshot = await takeShellWriteSnapshot(projectRoot, { commandText: 'node source.js' })
+
+    assert.equal(snapshot.truncated, false)
+    assert.deepEqual(Array.from(snapshot.entries.keys()), ['source.js'])
+  } finally {
+    fs.rmSync(projectRoot, { recursive: true, force: true })
+  }
+})
+
+test('shell snapshots still hydrate an explicit target inside a dependency tree', async () => {
+  const projectRoot = makeTempProject('addom-shell-explicit-dependency-')
+  try {
+    const targetDir = path.join(projectRoot, 'node_modules', 'fixture')
+    const targetPath = path.join(targetDir, 'index.js')
+    fs.mkdirSync(targetDir, { recursive: true })
+    fs.writeFileSync(targetPath, 'before', 'utf8')
+
+    const outcome = await detectShellChanges(
+      projectRoot,
+      'Set-Content -Path "node_modules/fixture/index.js" -Value "after"',
+      async () => fs.writeFileSync(targetPath, 'after', 'utf8'),
+    )
+
+    assert.equal(outcome.diagnostics?.status, 'hydrated')
+    assert.equal(outcome.changes[0]?.filePath, 'node_modules/fixture/index.js')
+  } finally {
+    fs.rmSync(projectRoot, { recursive: true, force: true })
+  }
+})
+
 test('shell command hints without a provable diff stay command-only', async () => {
   const projectRoot = makeTempProject('addom-shell-hint-only-')
   try {

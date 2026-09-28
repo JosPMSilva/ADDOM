@@ -103,10 +103,14 @@ test('public path scanner rejects real profile names while allowing documented p
 
 test('public source excludes internal design inspiration and approval-process language', () => {
   const forbidden = /approval sandbox|codex-style|secondary polish reference|primary inspiration source|user remains the arbitrator/iu
+  const hygieneImplementations = new Set([
+    path.resolve(import.meta.dirname, 'public-release-hygiene.test.mjs'),
+    path.resolve(ROOT, 'scripts/check-public-documents.mjs'),
+  ])
   const rootDocuments = ['README.md', 'CHANGELOG.md', 'CONTRIBUTING.md', 'SECURITY.md']
     .map((relativePath) => path.join(ROOT, relativePath))
   const violations = [...rootDocuments, ...TEXT_SCAN_ROOTS.flatMap(walkTextFiles)]
-    .filter((filePath) => path.resolve(filePath) !== path.resolve(import.meta.dirname, 'public-release-hygiene.test.mjs'))
+    .filter((filePath) => !hygieneImplementations.has(path.resolve(filePath)))
     .filter((filePath) => forbidden.test(fs.readFileSync(filePath, 'utf8')))
     .map((filePath) => path.relative(ROOT, filePath).replaceAll('\\', '/'))
 

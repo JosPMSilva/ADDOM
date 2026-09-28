@@ -1,5 +1,9 @@
 {
   "app": {
+    "singleInstanceNotice": {
+      "message": "[ADDOM ïš àľřëàďÿ õþëñ. Šŵïŧçħëď ŧõ ŧħë ëẋïšŧïñğ ŵïñďõŵ. ~~~~~]",
+      "dismiss": "[Ďïšṁïšš ñõŧïƒïçàŧïõñ ~~]"
+    },
     "workspacePanelSkeleton": {
       "ariaLabel": "[Ľõàďïñğ {{panelLabel}} ~~]",
       "text": "[Ľõàďïñğ {{panelLabel}}... ~~]"

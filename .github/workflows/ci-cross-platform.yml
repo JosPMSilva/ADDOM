@@ -60,6 +60,9 @@ jobs:
       - name: Check docs links
         run: npm run check:docs-links
 
+      - name: Check public documentation inventory
+        run: npm run check:public-docs
+
       - name: Verify generated model catalog artifacts
         run: npm run catalog:check:generated
 
@@ -115,6 +118,7 @@ jobs:
           npx vite build
           npx cross-env CSC_IDENTITY_AUTO_DISCOVERY=false ADDOM_ELECTRON_BUILDER_FORCE_TRAVERSAL=1 electron-builder --win --config electron-builder.config.cjs --publish never
           npm run test:live-smoke:packaged
+          npm run test:live-smoke:packaged:terminal
 
       - name: Build macOS app
         if: matrix.os == 'macos-latest'

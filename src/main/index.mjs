@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Tray, Menu, nativeImage, shell, session, protocol, net, screen } from 'electron'
+import { app, BrowserWindow, Tray, Menu, nativeImage, shell, session, protocol, net, screen, dialog } from 'electron'
 import path from 'path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { recoverPersistedOpenAIBackgroundJobs } from './api-clients/openai-background-jobs.mjs'
@@ -36,6 +36,12 @@ import { prepareAppRuntimeShutdown } from './app-runtime-shutdown.mjs'
 import { resolveThemePalette } from '../common/ui/theme-color-contract.mjs'
 import { getSettings } from './settings.mjs'
 import { getNativeResolvedAppearance, startNativeAppearanceSync } from './native-appearance.mjs'
+import { installSingleInstanceBehavior } from './single-instance-guard.mjs'
+import {
+  installRendererLoadFailureRecovery,
+  prepareStartupWindows,
+} from './app-startup-hardening.mjs'
+import { installContentSecurityPolicy } from './app-content-security-policy.mjs'
 import { installBrokenConsolePipeGuards } from './utils/safe-console.mjs'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname  = path.dirname(__filename)
@@ -127,7 +133,6 @@ registerPrivilegedSchemes({
   rendererAppScheme: RENDERER_APP_SCHEME,
   attachmentPreviewScheme: ATTACHMENT_PREVIEW_SCHEME,
 })
-
 let mainWindow = null
 let startupSplashWindow = null
 let tray = null
@@ -141,6 +146,18 @@ let rendererStartupReady = false
 let mainWindowReadyToShow = false
 let startupRevealFallbackTimer = null
 let startupBoundsEnforcementTimer = null
+const {
+  acquired: HAS_SINGLE_INSTANCE_LOCK,
+  markRendererReady: markSingleInstanceRendererReady,
+  markRendererUnavailable: markSingleInstanceRendererUnavailable,
+} = installSingleInstanceBehavior({
+  app,
+  enabled: !IS_PACKAGED_SMOKE,
+  getMainWindow: () => mainWindow,
+  getStartupSplashWindow: () => startupSplashWindow,
+  sendNotice: (webContents) => sendVersioned(webContents, 'app:second-instance', {}),
+  openWindow: () => app.isReady?.() && createMainWindow(),
+})
 const workspaceFileWatcher = createWorkspaceFileWatcher({
   onChange: (payload = {}) => {
     for (const win of BrowserWindow.getAllWindows()) {
@@ -582,6 +599,7 @@ function registerRendererAppProtocol() {
 // Window
 function createMainWindow() {
   clearStartupRevealFallbackTimer()
+  markSingleInstanceRendererUnavailable()
   mainWindowReadyToShow = false
   rendererStartupReady = false
   const launchBounds = SHOULD_LAUNCH_FULLSCREEN ? resolvePrimaryDisplayBounds() : null
@@ -615,14 +633,36 @@ function createMainWindow() {
     openExternal: (url) => shell.openExternal(url),
   })
 
-  // Load renderer
-  if (IS_DEV) {
-    mainWindow.loadURL('http://localhost:5173')
-    if (SHOULD_OPEN_DEVTOOLS) {
-      mainWindow.webContents.openDevTools({ mode: 'detach' })
+  const loadRenderer = () => {
+    if (IS_DEV) {
+      return mainWindow.loadURL('http://localhost:5173')
     }
-  } else {
-    mainWindow.loadURL(buildRendererAppUrl())
+    return mainWindow.loadURL(buildRendererAppUrl())
+  }
+
+  installRendererLoadFailureRecovery({
+    webContents: mainWindow.webContents,
+    showFailureDialog: ({ errorCode, errorDescription }) => dialog.showMessageBox({
+      type: 'error',
+      title: 'ADDOM',
+      message: "ADDOM couldn't display this screen.",
+      detail: `${String(errorDescription || 'Renderer failed to load.')} (${Number(errorCode || 0)})`,
+      buttons: ['Reload ADDOM', 'Quit'],
+      defaultId: 0,
+      cancelId: 1,
+      noLink: true,
+    }),
+    retryRenderer: () => {
+      void loadRenderer().catch(() => {})
+    },
+    quitApp: () => app.quit(),
+    logFailure: (failure) => logStartupEvent('main.did-fail-load', failure),
+  })
+
+  // Load renderer
+  void loadRenderer().catch(() => {})
+  if (IS_DEV && SHOULD_OPEN_DEVTOOLS) {
+    mainWindow.webContents.openDevTools({ mode: 'detach' })
   }
 
   mainWindow.once('ready-to-show', () => {
@@ -642,6 +682,7 @@ function createMainWindow() {
     clearStartupRevealFallbackTimer()
     clearStartupBoundsEnforcementTimer()
     closeStartupSplashWindow()
+    markSingleInstanceRendererUnavailable()
     mainWindow = null
   })
 
@@ -697,101 +738,60 @@ function createTray() {
   })
 }
 
-// CSP header injection
-// In PRODUCTION: inject a strict CSP HTTP header on every response so Electron
-// sees it as a real header (meta tags alone don't satisfy Electron's check).
-//
-// In DEV: Vite's dev server injects its own HMR bootstrap as an inline script
-// which would be blocked by any script-src that lacks 'unsafe-inline'. Rather
-// than fighting Vite, we skip header injection entirely in dev and instead
-// silence Electron's cosmetic warning with the env var â€” the warning explicitly
-// says it won't appear in packaged builds anyway.
-
-function installCSPHeader() {
-  if (IS_DEV) {
-    // Suppress the dev-only security warning â€” it is cosmetic and irrelevant
-    // for a locally running dev server that never ships to users.
-    process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
-    return
-  }
-
-  // Tight production CSP. Monaco is bundled as local ESM plus dedicated agents,
-  // so the packaged renderer does not need an eval allowance.
-  const PROD_CSP = [
-    "default-src 'self'",
-    "script-src 'self'",
-    "worker-src 'self' blob:",
-    "style-src 'self' 'unsafe-inline'",
-    "font-src 'self' data:",
-    `img-src 'self' data: blob: ${ATTACHMENT_PREVIEW_SCHEME}:`,
-    "connect-src 'self'",
-    "object-src 'none'",
-    "frame-src 'none'",
-    "frame-ancestors 'none'",
-    "base-uri 'self'",
-    "form-action 'self'",
-  ].join('; ')
-
-  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-    callback({
-      responseHeaders: {
-        ...details.responseHeaders,
-        'Content-Security-Policy': [PROD_CSP],
-      },
+if (HAS_SINGLE_INSTANCE_LOCK) {
+  app.whenReady().then(async () => {
+    startNativeAppearanceSync(getSettings)
+    installDenyAllWebPermissions(session.defaultSession)
+    registerRendererAppProtocol()
+    registerAttachmentPreviewProtocol()
+    installContentSecurityPolicy({
+      isDev: IS_DEV,
+      defaultSession: session.defaultSession,
+      attachmentPreviewScheme: ATTACHMENT_PREVIEW_SCHEME,
     })
+    if (!IS_PACKAGED_SMOKE) {
+      await prepareStartupWindows({
+        createSplash: createStartupSplashWindow,
+        reconcileWorkspaceTurns: reconcileWorkspaceTurnsOnStartup,
+        createMainWindow,
+      })
+    } else {
+      createMainWindow()
+    }
+    if (!IS_PACKAGED_SMOKE) {
+      createTray()
+      scheduleAttachmentTempCleanup()
+      scheduleAttachmentCacheOrphanCleanup('startup')
+      void recoverOpenAIBackgroundJobsOnStartup()
+    } else {
+      runPackagedRuntimeSmoke({
+        app,
+        mainWindow,
+        isBrowserSmoke: IS_PACKAGED_BROWSER_SMOKE,
+      })
+    }
+
+    app.on('activate', () => { if (BrowserWindow.getAllWindows().length === 0) createMainWindow() })
+  })
+
+  // Keep ADDOM available in the dock or tray until the user explicitly quits.
+  app.on('window-all-closed', () => {})
+  app.on('before-quit', appQuitCoordinator.handleBeforeQuit)
+
+  // A rejected secondary process must not own IPC handlers or shared resources.
+  terminalSessionHandlers = registerMainProcessIpcHandlers({
+    getMainWindow: () => mainWindow,
+    isPackagedSmoke: IS_PACKAGED_SMOKE,
+    terminalSessionManager,
+    workspaceFileWatcher,
+    attachmentTempDir: ATTACHMENT_TEMP_DIR,
+    prepareForExit: appQuitCoordinator.prepareForExit,
+    logStartupEvent,
+    setRendererStartupReady: () => {
+      rendererStartupReady = true
+      markSingleInstanceRendererReady()
+    },
+    tryFinishStartupTransition,
+    resolveLegalDocumentPath,
   })
 }
-
-// App lifecycle
-app.whenReady().then(async () => {
-  startNativeAppearanceSync(getSettings)
-  installDenyAllWebPermissions(session.defaultSession)
-  registerRendererAppProtocol()
-  registerAttachmentPreviewProtocol()
-  installCSPHeader()
-  if (!IS_PACKAGED_SMOKE) {
-    await reconcileWorkspaceTurnsOnStartup().catch((error) => console.warn(`[workspace] failed to reconcile interrupted turns: ${String(error?.message || error || 'recovery_failed')}`))
-    createStartupSplashWindow()
-  }
-  createMainWindow()
-  if (!IS_PACKAGED_SMOKE) {
-    createTray()
-    scheduleAttachmentTempCleanup()
-    scheduleAttachmentCacheOrphanCleanup('startup')
-    void recoverOpenAIBackgroundJobsOnStartup()
-  } else {
-    runPackagedRuntimeSmoke({
-      app,
-      mainWindow,
-      isBrowserSmoke: IS_PACKAGED_BROWSER_SMOKE,
-    })
-  }
-
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createMainWindow()
-  })
-})
-
-app.on('window-all-closed', () => {
-  // On macOS the convention is to keep the app in the dock
-  // On Windows we keep it in the tray â€” do NOT quit
-  // Only quit if the user explicitly chooses Quit from the tray menu
-})
-
-app.on('before-quit', appQuitCoordinator.handleBeforeQuit)
-
-// IPC handlers
-terminalSessionHandlers = registerMainProcessIpcHandlers({
-  getMainWindow: () => mainWindow,
-  isPackagedSmoke: IS_PACKAGED_SMOKE,
-  terminalSessionManager,
-  workspaceFileWatcher,
-  attachmentTempDir: ATTACHMENT_TEMP_DIR,
-  prepareForExit: appQuitCoordinator.prepareForExit,
-  logStartupEvent,
-  setRendererStartupReady: () => {
-    rendererStartupReady = true
-  },
-  tryFinishStartupTransition,
-  resolveLegalDocumentPath,
-})

@@ -16,13 +16,14 @@ const geminiProviderAdapter = {
       adapterProfile,
     }).buildProviderOptions({ runtimeSettings, requestContext })
   },
-  resolveCapabilities({ apiKey, modelId, forceRefresh = false, failOnProbeError = false }) {
+  resolveCapabilities({ apiKey, modelId, forceRefresh = false, failOnProbeError = false, abortSignal = null }) {
     return resolveProviderCapabilities({
       providerId: 'gemini',
       apiKey,
       modelId,
       forceRefresh,
       failOnProbeError,
+      abortSignal,
     })
   },
   normalizeMessages({ messages, modelId, adapterProfile }) {

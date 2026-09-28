@@ -11,9 +11,15 @@ export async function resolveModelCapabilitiesWithTimeout({
   abortSignal = null,
   resolveCapabilities = resolveModelCapabilities,
 } = {}) {
-  if (abortSignal?.aborted) {
-    throw new Error('Capability probe aborted.')
+  const createAbortError = () => {
+    const error = new Error('Capability probe aborted.')
+    error.name = 'AbortError'
+    return error
   }
+  if (abortSignal?.aborted) {
+    throw createAbortError()
+  }
+  const probeAbortController = new AbortController()
   const probePromise = Promise.resolve().then(() => resolveCapabilities(
     providerId,
     apiKey,
@@ -22,7 +28,7 @@ export async function resolveModelCapabilitiesWithTimeout({
       authMethod,
       forceRefresh,
       failOnProbeError,
-      abortSignal,
+      abortSignal: probeAbortController.signal,
     },
   ))
   const normalizedTimeoutMs = Math.max(1_000, Number(timeoutMs || 0) || 45_000)
@@ -33,10 +39,17 @@ export async function resolveModelCapabilitiesWithTimeout({
       probePromise,
       new Promise((_, reject) => {
         timer = setTimeout(() => {
-          reject(new Error(`Capability probe timed out after ${normalizedTimeoutMs}ms.`))
+          const error = new Error(`Capability probe timed out after ${normalizedTimeoutMs}ms.`)
+          error.name = 'TimeoutError'
+          reject(error)
+          probeAbortController.abort(error)
         }, normalizedTimeoutMs)
         if (abortSignal?.addEventListener) {
-          onAbort = () => reject(new Error('Capability probe aborted.'))
+          onAbort = () => {
+            const error = createAbortError()
+            reject(error)
+            probeAbortController.abort(abortSignal.reason || error)
+          }
           abortSignal.addEventListener('abort', onAbort, { once: true })
         }
       }),

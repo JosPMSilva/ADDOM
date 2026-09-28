@@ -1,5 +1,9 @@
 {
   "app": {
+    "singleInstanceNotice": {
+      "message": "ADDOM è già aperto. È stata attivata la finestra esistente.",
+      "dismiss": "Chiudi notifica"
+    },
     "workspacePanelSkeleton": {
       "ariaLabel": "Caricamento {{panelLabel}}",
       "text": "Caricamento {{panelLabel}}..."

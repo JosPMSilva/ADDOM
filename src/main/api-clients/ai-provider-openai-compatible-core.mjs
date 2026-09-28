@@ -69,7 +69,7 @@ export function createOpenAICompatibleProviderAdapter({
         adapterProfile,
       }).buildProviderOptions({ runtimeSettings, requestContext })
     },
-    resolveCapabilities({ apiKey, modelId, forceRefresh = false, failOnProbeError = false }) {
+    resolveCapabilities({ apiKey, modelId, forceRefresh = false, failOnProbeError = false, abortSignal = null }) {
       const sharedProbe = typeof probeCapabilities === 'function'
         ? probeCapabilities
         : CAPABILITY_PROBE_BY_PROVIDER[normalizedProviderId] || null
@@ -79,6 +79,7 @@ export function createOpenAICompatibleProviderAdapter({
         modelId,
         forceRefresh,
         failOnProbeError,
+        abortSignal,
         probeCapabilities: sharedProbe,
       })
     },

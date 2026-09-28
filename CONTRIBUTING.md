@@ -33,6 +33,21 @@ npm run dev
 
 Avoid mixing unrelated cleanup into a contribution. Remove obsolete paths made unnecessary by the change instead of preserving duplicate implementations.
 
+## Public Documentation Boundary
+
+Documentation committed to this repository must directly serve users,
+contributors, public API or architecture reference consumers, or required
+policy disclosure. Internal design rationale, product inspiration,
+investigation reports, audit evidence, implementation plans, release rehearsal
+material, certification or submission runbooks, unpublished roadmaps, and
+maintainer approval procedures belong in the private development repository.
+
+Every root-level or `docs/` Markdown file must be classified in
+`config/public-documents.json` with an allowed public audience and a concrete
+purpose. Run `npm run check:public-docs` after adding, moving, or renaming public
+documentation. The check is enforced by the pre-commit hook, CI, and the
+release-freeze gate.
+
 ## Tests And Checks
 
 Useful focused and repository-wide commands include:
@@ -43,6 +58,7 @@ npm run check:renderer-syntax
 npm run check:eslint
 npm run i18n:check
 npm run check:docs-links
+npm run check:public-docs
 npm run check:max-lines
 npm run test:integration
 npm run build:renderer

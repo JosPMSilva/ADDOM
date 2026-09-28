@@ -440,6 +440,7 @@ export async function prepareOpenAIBackgroundTurnPayload({
   onProviderWarning = null,
   buildProviderOptions = null,
   resolveCapabilities = null,
+  abortSignal = null,
 } = {}) {
   const effectiveModelId = canonicalizeRequestedModel('openai', modelId).effectiveModelId
   const authMethod = resolveOpenAIBackgroundAuthMethod(apiKey)
@@ -485,6 +486,7 @@ export async function prepareOpenAIBackgroundTurnPayload({
       modelId: effectiveModelId,
       forceRefresh: false,
       failOnProbeError: true,
+      abortSignal,
     })
     if (!canExecuteResolvedToolSurface(capabilities)) {
       resolvedActiveTools = {}

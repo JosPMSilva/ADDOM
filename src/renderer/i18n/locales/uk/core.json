@@ -1,5 +1,9 @@
 {
   "app": {
+    "singleInstanceNotice": {
+      "message": "ADDOM уже запущено. Переключено на наявне вікно.",
+      "dismiss": "Закрити сповіщення"
+    },
     "workspacePanelSkeleton": {
       "ariaLabel": "Завантаження {{panelLabel}}",
       "text": "Завантаження {{panelLabel}}..."

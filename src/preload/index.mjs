@@ -119,7 +119,7 @@ contextBridge.exposeInMainWorld('addom', {
   _version: APP_VERSION,
   _initialAppearance: INITIAL_APPEARANCE,
   _ipcVersion: IPC_API_VERSION,
-  app: createAppApi({ invokeVersioned, sendVersioned, requireNonEmptyString }),
+  app: createAppApi({ invokeVersioned, sendVersioned, subVersioned, requireNonEmptyString }),
   window: createWindowApi({ sendVersioned }),
   dialog: createDialogApi({ invokeVersioned }),
   shell: createShellApi({ invokeVersioned, requireNonEmptyString, normalizeHttpUrl }),

@@ -43,6 +43,7 @@
     "build:preload": "node scripts/build-preload-bundle.mjs",
     "build:runtime-assets": "npm run build:preload && npm run native:electron && npm run check:blocked-packages && npm run build:legal && node scripts/prepare-electron-builder-runtime.mjs",
     "check:docs-links": "node scripts/check-doc-links.mjs",
+    "check:public-docs": "node scripts/check-public-documents.mjs",
     "check:release-freeze": "node scripts/check-release-freeze.mjs",
     "check:release-reproducibility": "node scripts/check-release-reproducibility.mjs",
     "check:blocked-packages": "node scripts/check-blocked-packages.mjs",

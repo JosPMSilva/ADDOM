@@ -49,6 +49,7 @@ export function buildReleaseFreezeSteps({ includeInstall = false, platform = pro
   }
 
   steps.push(
+    createNpmStep('public documentation hygiene', ['run', 'check:public-docs']),
     createNpmStep('release reproducibility', ['run', 'check:release-reproducibility']),
     createNpmStep('native electron runtime', ['run', 'native:electron']),
     createNpmStep('integration tests', ['run', 'test:integration']),

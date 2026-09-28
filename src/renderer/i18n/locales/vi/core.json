@@ -1,5 +1,9 @@
 {
   "app": {
+    "singleInstanceNotice": {
+      "message": "ADDOM đang chạy. Đã chuyển sang cửa sổ hiện có.",
+      "dismiss": "Đóng thông báo"
+    },
     "workspacePanelSkeleton": {
       "ariaLabel": "Đang tải {{panelLabel}}",
       "text": "Đang tải {{panelLabel}}..."

@@ -81,17 +81,24 @@ test('parseGitHubTreeUrl extracts repo, ref, and path from a GitHub tree URL', (
 })
 
 test('resolveCodexHomePath infers the managed AppData codex-home from the installer module path', async () => {
-  await withTempDir('addom-openai-managed-codex-home-', async (tempRootPath) => {
-    const codexHomePath = path.join(tempRootPath, 'codex-home')
-    const installerPath = path.join(codexHomePath, 'skills', '.system', 'skill-installer')
-    const modulePath = path.join(installerPath, 'scripts', 'github-skill-installer-lib.mjs')
-    fs.mkdirSync(path.dirname(modulePath), { recursive: true })
-    fs.writeFileSync(path.join(installerPath, 'SKILL.md'), '# managed installer\n', 'utf8')
+  const previousCodexHome = process.env.CODEX_HOME
+  delete process.env.CODEX_HOME
+  try {
+    await withTempDir('addom-openai-managed-codex-home-', async (tempRootPath) => {
+      const codexHomePath = path.join(tempRootPath, 'codex-home')
+      const installerPath = path.join(codexHomePath, 'skills', '.system', 'skill-installer')
+      const modulePath = path.join(installerPath, 'scripts', 'github-skill-installer-lib.mjs')
+      fs.mkdirSync(path.dirname(modulePath), { recursive: true })
+      fs.writeFileSync(path.join(installerPath, 'SKILL.md'), '# managed installer\n', 'utf8')
 
-    const moduleUrl = pathToFileURL(modulePath).href
-    assert.equal(inferManagedCodexHomeFromModuleUrl(moduleUrl), codexHomePath)
-    assert.equal(resolveCodexHomePath({ moduleUrl }), codexHomePath)
-  })
+      const moduleUrl = pathToFileURL(modulePath).href
+      assert.equal(inferManagedCodexHomeFromModuleUrl(moduleUrl), codexHomePath)
+      assert.equal(resolveCodexHomePath({ moduleUrl }), codexHomePath)
+    })
+  } finally {
+    if (previousCodexHome === undefined) delete process.env.CODEX_HOME
+    else process.env.CODEX_HOME = previousCodexHome
+  }
 })
 
 test('listSkills annotates installed curated skills from the managed Codex home', async () => {

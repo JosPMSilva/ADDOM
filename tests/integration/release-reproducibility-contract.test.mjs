@@ -81,6 +81,7 @@ test('release freeze script exists and protects the documented platform-specific
   assert.deepEqual(
     buildReleaseFreezeSteps({ platform: 'linux' }).map((step) => step.display),
     [
+      'npm run check:public-docs',
       'npm run check:release-reproducibility',
       'npm run native:electron',
       'npm run test:integration',
@@ -91,6 +92,7 @@ test('release freeze script exists and protects the documented platform-specific
     buildReleaseFreezeSteps({ includeInstall: true, platform: 'linux' }).map((step) => step.display),
     [
       'npm install',
+      'npm run check:public-docs',
       'npm run check:release-reproducibility',
       'npm run native:electron',
       'npm run test:integration',
@@ -100,6 +102,7 @@ test('release freeze script exists and protects the documented platform-specific
   assert.deepEqual(
     buildReleaseFreezeSteps({ platform: 'win32' }).map((step) => step.display),
     [
+      'npm run check:public-docs',
       'npm run check:release-reproducibility',
       'npm run native:electron',
       'npm run test:integration',

@@ -4,6 +4,10 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { resolveModelCapabilitiesWithTimeout } from '../../src/main/chat/chat-capability-probe.mjs'
+import {
+  __resetDynamicModelCache,
+  resolveProviderCapabilities,
+} from '../../src/main/api-clients/ai-provider-capability-probes.mjs'
 
 test('resolveModelCapabilitiesWithTimeout returns the probe result when it completes in time', async () => {
   const expected = { supportsTools: true, source: 'provider_probe' }
@@ -19,31 +23,88 @@ test('resolveModelCapabilitiesWithTimeout returns the probe result when it compl
 })
 
 test('resolveModelCapabilitiesWithTimeout rejects stalled capability probes', async () => {
+  let receivedSignal = null
   await assert.rejects(
     resolveModelCapabilitiesWithTimeout({
       providerId: 'openai',
       apiKey: 'sk-test',
       modelId: 'gpt-5.2',
       timeoutMs: 25,
-      resolveCapabilities: async () => new Promise(() => {}),
+      resolveCapabilities: async (_providerId, _apiKey, _modelId, { abortSignal } = {}) => {
+        receivedSignal = abortSignal
+        return new Promise(() => {})
+      },
     }),
     /Capability probe timed out/i,
   )
+  assert.equal(receivedSignal?.aborted, true)
 })
 
 test('resolveModelCapabilitiesWithTimeout aborts when the outer signal is cancelled', async () => {
   const controller = new AbortController()
+  let receivedSignal = null
   const probePromise = resolveModelCapabilitiesWithTimeout({
     providerId: 'openai',
     apiKey: 'sk-test',
     modelId: 'gpt-5.2',
     timeoutMs: 5_000,
     abortSignal: controller.signal,
-    resolveCapabilities: async () => new Promise(() => {}),
+    resolveCapabilities: async (_providerId, _apiKey, _modelId, { abortSignal } = {}) => {
+      receivedSignal = abortSignal
+      return new Promise(() => {})
+    },
   })
   controller.abort()
 
   await assert.rejects(probePromise, /Capability probe aborted/i)
+  assert.equal(receivedSignal?.aborted, true)
+})
+
+test('provider capability resolution forwards cancellation to the live probe', async () => {
+  __resetDynamicModelCache()
+  const controller = new AbortController()
+  let receivedSignal = null
+
+  await resolveProviderCapabilities({
+    providerId: 'openrouter',
+    apiKey: 'test-key',
+    modelId: 'vendor/model-not-in-catalog',
+    forceRefresh: true,
+    abortSignal: controller.signal,
+    probeCapabilities: async (_modelId, { abortSignal } = {}) => {
+      receivedSignal = abortSignal
+      return {
+        providerId: 'openrouter',
+        modelId: 'vendor/model-not-in-catalog',
+        supportsTools: true,
+        source: 'provider_probe',
+      }
+    },
+  })
+
+  assert.equal(receivedSignal, controller.signal)
+})
+
+test('provider capability resolution does not convert cancellation into a cached fallback', async () => {
+  __resetDynamicModelCache()
+  const controller = new AbortController()
+
+  await assert.rejects(
+    resolveProviderCapabilities({
+      providerId: 'openrouter',
+      apiKey: 'test-key',
+      modelId: 'vendor/cancelled-model',
+      forceRefresh: true,
+      abortSignal: controller.signal,
+      probeCapabilities: async () => {
+        controller.abort()
+        const error = new Error('request aborted')
+        error.name = 'AbortError'
+        throw error
+      },
+    }),
+    /request aborted/i,
+  )
 })
 
 test('chat stream handler emits turn started before waiting on capability probing', () => {

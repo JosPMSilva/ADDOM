@@ -12,6 +12,7 @@ import PanelErrorBoundary from './components/PanelErrorBoundary.jsx'
 import AgentFanoutConfirmOverlay from './components/agents/AgentFanoutConfirmOverlay.jsx'
 import CommandPalette from './components/CommandPalette.jsx'
 import AppDecisionDialog from './components/ui/AppDecisionDialog.jsx'
+import AppSecondInstanceNotice from './components/AppSecondInstanceNotice.jsx'
 import useAppStore, { requestAppAlert } from './store/useAppStore.js'
 import useVaultStore from './store/useVaultStore.js'
 import useWorkspaceStore from './store/useWorkspaceStore.js'
@@ -574,6 +575,7 @@ export default function App() {
       />
 
       <ChatEventBridge />
+      <AppSecondInstanceNotice />
       <ToolApprovalOverlay />
       <AgentFanoutConfirmOverlay />
       <CommandPalette

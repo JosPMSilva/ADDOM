@@ -1,7 +1,8 @@
-function createAppApi({ invokeVersioned, sendVersioned, requireNonEmptyString }) {
+function createAppApi({ invokeVersioned, sendVersioned, subVersioned, requireNonEmptyString }) {
   return {
     openLegalDocument: (documentId) => invokeVersioned('app:openLegalDocument', requireNonEmptyString(documentId, 'documentId')),
     startupReady: () => sendVersioned('app:startup-ready'),
+    onSecondInstance: (cb) => subVersioned('app:second-instance', cb),
   }
 }
 

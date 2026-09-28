@@ -9,7 +9,7 @@ function extractProdCspArraySource(source = '') {
 }
 
 test('production CSP keeps required hardening invariants', () => {
-  const source = fs.readFileSync(path.resolve('src/main/index.mjs'), 'utf8')
+  const source = fs.readFileSync(path.resolve('src/main/app-content-security-policy.mjs'), 'utf8')
   const cspArraySource = extractProdCspArraySource(source)
   assert.ok(cspArraySource, 'PROD_CSP definition should exist in main process source')
 
@@ -18,7 +18,7 @@ test('production CSP keeps required hardening invariants', () => {
   assert.match(cspArraySource, /"worker-src 'self' blob:"/)
   assert.match(cspArraySource, /"style-src 'self' 'unsafe-inline'"/)
   assert.match(cspArraySource, /"font-src 'self' data:"/)
-  assert.match(cspArraySource, /img-src 'self' data: blob: \$\{ATTACHMENT_PREVIEW_SCHEME\}:/)
+  assert.match(cspArraySource, /img-src 'self' data: blob: \$\{attachmentPreviewScheme\}:/)
   assert.match(cspArraySource, /"connect-src 'self'"/)
   assert.match(cspArraySource, /"object-src 'none'"/)
   assert.match(cspArraySource, /"frame-src 'none'"/)

@@ -260,7 +260,7 @@ const openaiProviderAdapter = {
       adapterProfile,
     }).buildProviderOptions({ runtimeSettings, requestContext })
   },
-  resolveCapabilities({ apiKey, modelId, authMethod = 'api_key', forceRefresh = false, failOnProbeError = false }) {
+  resolveCapabilities({ apiKey, modelId, authMethod = 'api_key', forceRefresh = false, failOnProbeError = false, abortSignal = null }) {
     return resolveProviderCapabilities({
       providerId: 'openai',
       apiKey,
@@ -268,6 +268,7 @@ const openaiProviderAdapter = {
       authMethod,
       forceRefresh,
       failOnProbeError,
+      abortSignal,
     })
   },
   normalizeMessages({ messages, modelId, adapterProfile }) {
@@ -292,6 +293,7 @@ const openaiProviderAdapter = {
     requestContext,
     providerOptions,
     onProviderWarning,
+    abortSignal,
   }) {
     return prepareOpenAIBackgroundTurnPayload({
       apiKey,
@@ -305,6 +307,7 @@ const openaiProviderAdapter = {
       requestContext,
       providerOptions,
       onProviderWarning,
+      abortSignal,
       buildProviderOptions: (payload = {}) => openaiProviderAdapter.buildProviderOptions(payload),
       resolveCapabilities: (payload = {}) => openaiProviderAdapter.resolveCapabilities(payload),
     })

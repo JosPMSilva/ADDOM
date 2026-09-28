@@ -7,10 +7,11 @@ Localization remains partial in `0.1.2-alpha`: supported locales cover the trans
 ## Start Here
 
 1. [Quickstart](./quickstart.md)
-2. [Core Concepts](./core-concepts.md)
-3. [Chat Guide](./chat-guide.md)
-4. [Tools and Approvals](./tools-and-approvals.md)
-5. [Editor Guide](./editor-guide.md)
+2. [Windows Store and WinGet](./windows-store-and-winget.md)
+3. [Core Concepts](./core-concepts.md)
+4. [Chat Guide](./chat-guide.md)
+5. [Tools and Approvals](./tools-and-approvals.md)
+6. [Editor Guide](./editor-guide.md)
 
 ## Workspace Guides
 
@@ -52,8 +53,7 @@ Localization remains partial in `0.1.2-alpha`: supported locales cover the trans
 - [Security Policy](../SECURITY.md)
 - [Privacy Policy](../PRIVACY.md)
 - [Code Signing Policy](./code-signing-policy.md)
-- [Microsoft Store Packaging](./microsoft-store-packaging.md)
 - [Security CSP Threat Model](./security-csp-threat-model.md)
 - [Changelog](../CHANGELOG.md)
 
-Run `npm run check:docs-links` after documentation changes. The check validates local links, anchors, tracked targets, and documented `npm run` commands against `package.json`.
+Run `npm run check:docs-links` and `npm run check:public-docs` after documentation changes. These checks validate links, anchors, tracked targets, documented npm commands, and the explicit public-document inventory.

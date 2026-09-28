@@ -851,10 +851,11 @@ module.exports = {
 
 },
 "./preload-misc-apis.cjs": function(module, exports) {
-function createAppApi({ invokeVersioned, sendVersioned, requireNonEmptyString }) {
+function createAppApi({ invokeVersioned, sendVersioned, subVersioned, requireNonEmptyString }) {
   return {
     openLegalDocument: (documentId) => invokeVersioned('app:openLegalDocument', requireNonEmptyString(documentId, 'documentId')),
     startupReady: () => sendVersioned('app:startup-ready'),
+    onSecondInstance: (cb) => subVersioned('app:second-instance', cb),
   }
 }
 
@@ -1976,7 +1977,7 @@ contextBridge.exposeInMainWorld('addom', {
   _version: APP_VERSION,
   _initialAppearance: INITIAL_APPEARANCE,
   _ipcVersion: IPC_API_VERSION,
-  app: createAppApi({ invokeVersioned, sendVersioned, requireNonEmptyString }),
+  app: createAppApi({ invokeVersioned, sendVersioned, subVersioned, requireNonEmptyString }),
   window: createWindowApi({ sendVersioned }),
   dialog: createDialogApi({ invokeVersioned }),
   shell: createShellApi({ invokeVersioned, requireNonEmptyString, normalizeHttpUrl }),

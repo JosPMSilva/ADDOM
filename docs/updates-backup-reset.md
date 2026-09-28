@@ -22,7 +22,9 @@ The available update controls depend on how ADDOM was installed:
   releases are not offered.
 - Microsoft Store builds are signed, delivered, and updated by Microsoft Store.
   **Settings > General > Updates** identifies the managed channel and does not
-  offer the GitHub download or install actions.
+  offer the GitHub download or install actions. Store updates normally install
+  automatically; you can also use
+  `winget upgrade --id 9N3MG7BJRSRB --exact --source msstore`.
 - macOS and Linux updates are currently manual.
 
 For a GitHub-distributed Windows build:
@@ -72,5 +74,6 @@ not read that backup; ADDOM preserves it only as local rollback evidence.
 
 ## Related References
 - [Workspace and Threads Guide](./workspace-threads-guide.md)
+- [Microsoft Store and WinGet](./windows-store-and-winget.md)
 - [Settings Catalog](./reference/settings-catalog.md)
 - [window.addom API](./reference/window-addom-api.md)

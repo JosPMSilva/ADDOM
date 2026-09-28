@@ -13,6 +13,7 @@ import { createChatRunRegistry } from '../chat/chat-run-registry.mjs'
 import { trimText } from '../chat/tool-event-mapper.mjs'
 import { handleVersioned, onVersioned } from '../ipc/ipc-versioning.mjs'
 import { handleChatStream } from './chat-stream-handler.mjs'
+import { runChatStreamWithFailureBoundary } from './chat-stream-entrypoint.mjs'
 
 const COMPLIANCE_NOTICE_ACTION_TO_KIND = {
   shown: 'compliance_notice_shown',
@@ -72,7 +73,12 @@ export { handleChatStream }
 export function registerChatHandlers({ runRegistry = null } = {}) {
   const registry = runRegistry || createChatRunRegistry({ appendEvent })
   onVersioned(ipcMain, 'chat:stream', async (event, payload = {}) => {
-    await handleChatStream(event, payload, registry)
+    await runChatStreamWithFailureBoundary({
+      event,
+      payload,
+      runRegistry: registry,
+      handleStream: (event, payload, registry) => handleChatStream(event, payload, registry),
+    })
   })
   handleVersioned(ipcMain, 'chat:getPendingQuestionUser', async (_event, payload = {}) => (
     getOpenAIAccountPendingQuestionUserRequest({

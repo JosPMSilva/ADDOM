@@ -1,5 +1,9 @@
 {
   "app": {
+    "singleInstanceNotice": {
+      "message": "ADDOM이 이미 열려 있습니다. 기존 창으로 전환했습니다.",
+      "dismiss": "알림 닫기"
+    },
     "workspacePanelSkeleton": {
       "ariaLabel": "{{panelLabel}} 로드 중",
       "text": "{{panelLabel}} 로드 중..."

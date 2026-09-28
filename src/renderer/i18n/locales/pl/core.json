@@ -1,5 +1,9 @@
 {
   "app": {
+    "singleInstanceNotice": {
+      "message": "ADDOM jest już otwarty. Przełączono do istniejącego okna.",
+      "dismiss": "Zamknij powiadomienie"
+    },
     "workspacePanelSkeleton": {
       "ariaLabel": "Ładowanie {{panelLabel}}",
       "text": "Ładowanie {{panelLabel}}..."

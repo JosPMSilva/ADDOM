@@ -4,8 +4,15 @@ This changelog is maintained going forward from the current repository baseline.
 
 ## Unreleased
 
+- Added single-instance startup handling that focuses the existing window and
+  explains why a second launch did not open another workspace.
+- Hardened startup visibility, renderer-load failure handling, chat setup
+  failures, provider capability cancellation, and large-workspace shell scans.
+
 ## 0.1.2-alpha
 
+- Added a signed Microsoft Store package with Store-managed updates and WinGet
+  installation through Store product ID `9N3MG7BJRSRB`.
 - Refreshed the curated provider/model catalog, including GPT-6 Astra, GPT-6 Sol, GPT-6 Luna, Claude Opus 5.5, and current Gemini, xAI, and OpenRouter entries, with model-specific reasoning, Fast processing, attachment/tool, pricing, and capability settings.
 - Hardened tool-call schemas, input validation, result retrieval, edit recovery, and provider-specific image delivery across account and API transports.
 - Separated native command output from tool lifecycle events, batched high-volume streaming, and kept command identities and execution rows stable.

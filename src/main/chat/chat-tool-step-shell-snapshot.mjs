@@ -7,7 +7,19 @@ import { buildPreviewableUnifiedDiff } from '../tools/apply-patch-core.mjs'
 const MAX_PREVIEW_FILE_BYTES = 1_048_576
 const MAX_SHELL_SNAPSHOT_FILES = 6_000
 const MAX_SHELL_TRACKED_CHANGES = 64
-const SHELL_SNAPSHOT_IGNORED_DIRS = new Set(['.git'])
+const SHELL_SNAPSHOT_IGNORED_DIRS = new Set([
+  '.cache',
+  '.git',
+  '.mypy_cache',
+  '.next',
+  '.pytest_cache',
+  '.ruff_cache',
+  '.turbo',
+  '.venv',
+  '__pycache__',
+  'node_modules',
+  'venv',
+])
 const SHELL_BROAD_CHURN_COMMAND_RE = /\b(?:npm|pnpm|yarn|bun|pip|pip3|poetry|composer|cargo|dotnet|go)\s+(?:install|add|update|upgrade|restore|sync|vendor)\b|\b(?:prettier|eslint|stylelint|black|ruff|isort|goimports|gofmt|rustfmt)\b[\s\S]*(?:--write|--fix)?|\b(?:create|scaffold|generate|init)\b/i
 const SHELL_STATE_KIND_PRESENT = 'present'
 const SHELL_STATE_KIND_MISSING = 'missing'
@@ -266,6 +278,11 @@ function buildShellMutationHints(projectFolder = '', commandText = '') {
   }
 }
 
+function ignoredDirectoryContainsCandidate(childRelPosix = '', candidatePaths = []) {
+  const directoryPrefix = `${String(childRelPosix || '').replace(/\/+$/, '')}/`
+  return candidatePaths.some((candidatePath) => String(candidatePath || '').startsWith(directoryPrefix))
+}
+
 async function readProvableShellFileState(absPath = '') {
   const targetPath = String(absPath || '').trim()
   if (!targetPath) return { kind: SHELL_STATE_KIND_MISSING }
@@ -332,6 +349,7 @@ async function snapshotProjectFilesForShellTracking(projectFolder = '', { comman
   const queue = ['']
   let truncated = false
   const commandHints = buildShellMutationHints(root, commandText)
+  const candidatePaths = Array.isArray(commandHints.candidatePaths) ? commandHints.candidatePaths : []
 
   while (queue.length > 0 && !truncated) {
     const relDir = queue.shift()
@@ -351,7 +369,10 @@ async function snapshotProjectFilesForShellTracking(projectFolder = '', { comman
       const childRelPosix = toPosixRelative(childRel)
 
       if (dirent.isDirectory()) {
-        if (SHELL_SNAPSHOT_IGNORED_DIRS.has(name)) continue
+        if (
+          SHELL_SNAPSHOT_IGNORED_DIRS.has(name)
+          && !ignoredDirectoryContainsCandidate(childRelPosix, candidatePaths)
+        ) continue
         queue.push(childRel)
         continue
       }
@@ -663,7 +684,7 @@ export async function detectShellWriteArtifactChanges({
       })
     }
 
-    const afterSnapshot = await snapshotProjectFilesForShellTracking(root)
+    const afterSnapshot = await snapshotProjectFilesForShellTracking(root, { commandText })
     const snapshotTruncated = beforeSnapshot?.truncated === true || afterSnapshot?.truncated === true
     const snapshotDiff = buildShellSnapshotDiff(beforeSnapshot, afterSnapshot)
     const changedPaths = Array.isArray(snapshotDiff?.changedPaths) ? snapshotDiff.changedPaths : []

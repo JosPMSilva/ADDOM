@@ -2,6 +2,8 @@
 
 Local-first desktop workspace for multi-provider AI coding, with guarded tools, an integrated editor, memory, and delegated agents. No telemetry or data collection by the ADDOM developer.
 
+[Website](https://www.addom.app) · [Microsoft Store](https://apps.microsoft.com/detail/9N3MG7BJRSRB) · [Releases](https://github.com/JosPMSilva/ADDOM/releases)
+
 ![ADDOM desktop workspace showing a project-aware AI coding conversation with permission mode, provider selection, and thread history in one window](./docs/media/addom-workspace.png)
 
 ## Project Status
@@ -9,6 +11,22 @@ Local-first desktop workspace for multi-provider AI coding, with guarded tools, 
 The current ADDOM release is `0.1.2-alpha`. ADDOM remains early software. Preview builds are prepared for Windows, macOS, and Linux; the Windows installer has been qualified locally, while macOS and Linux builds need broader platform testing. GitHub-hosted packages are currently unsigned. Windows builds distributed through GitHub can check, download, and install updates from ADDOM's official published GitHub releases. Packages acquired through Microsoft Store are signed and updated by Microsoft instead; the in-app update controls identify that managed channel. macOS and Linux updates remain manual while their packaging paths are hardened.
 
 Non-English UI coverage is still incomplete in `0.1.2-alpha`. The language setting translates supported renderer copy, but some newer and less common surfaces still fall back to English. Commands, file paths, provider and model identifiers, protocol names, and other support-critical technical tokens remain canonical English by design. Provider and model paths have automated coverage, but live qualification with paid API credits is incomplete.
+
+## Install on Windows
+
+[Get ADDOM from Microsoft Store](https://apps.microsoft.com/detail/9N3MG7BJRSRB)
+for a signed Windows package with Store-managed updates. The same package is
+available from the terminal through WinGet:
+
+```powershell
+winget install --id 9N3MG7BJRSRB --exact --source msstore
+```
+
+The Store package is signed and updated by Microsoft. The GitHub release also
+provides an unsigned Windows installer for users who prefer the independent
+GitHub distribution and its in-app update channel. See
+[Windows Store and WinGet](./docs/windows-store-and-winget.md) for installation,
+updates, channel differences, and troubleshooting.
 
 ## Why ADDOM
 
@@ -67,11 +85,12 @@ npm run check:syntax
 npm run check:eslint
 npm run i18n:check
 npm run check:docs-links
+npm run check:public-docs
 npm run test:integration
 npm run build:renderer
 ```
 
-Platform package commands are `npm run build:win`, `npm run build:mac`, and `npm run build:linux`. Build a platform target on its native host; generated packages are unsigned unless signing is configured externally. The separate `npm run build:store:win` flavor uses Microsoft Store identity and update ownership; see [Microsoft Store Packaging](./docs/microsoft-store-packaging.md).
+Platform package commands are `npm run build:win`, `npm run build:mac`, and `npm run build:linux`. Build a platform target on its native host; generated packages are unsigned unless signing is configured externally. The separate `npm run build:store:win` flavor uses Microsoft Store identity and update ownership; see [Windows Store and WinGet](./docs/windows-store-and-winget.md).
 
 ## Screenshots
 

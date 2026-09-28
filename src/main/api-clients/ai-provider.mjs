@@ -78,6 +78,7 @@ export async function resolveModelCapabilities(providerId, apiKey, modelId, {
   authMethod = 'api_key',
   forceRefresh = false,
   failOnProbeError = false,
+  abortSignal = null,
 } = {}) {
   const adapter = resolveProviderAdapter(providerId, { allowMissing: true })
   if (!adapter?.resolveCapabilities) {
@@ -88,6 +89,7 @@ export async function resolveModelCapabilities(providerId, apiKey, modelId, {
       authMethod,
       forceRefresh,
       failOnProbeError,
+      abortSignal,
     })
   }
   return adapter.resolveCapabilities({
@@ -96,6 +98,7 @@ export async function resolveModelCapabilities(providerId, apiKey, modelId, {
     authMethod,
     forceRefresh,
     failOnProbeError,
+    abortSignal,
   })
 }
 
@@ -119,6 +122,7 @@ export async function prepareOpenAIBackgroundTurn(providerId, apiKey, messages, 
     tools: options?.tools,
     providerRuntimeSettings: options?.providerRuntimeSettings,
     requestContext: options?.requestContext,
+    abortSignal: options?.abortSignal,
     buildProviderOptions: (args = {}) => adapter.buildProviderOptions({
       ...args,
       adapterProfile: resolveProviderModelAdapter('openai', args.modelId),

@@ -1,5 +1,9 @@
 {
   "app": {
+    "singleInstanceNotice": {
+      "message": "ADDOM sudah terbuka. Beralih ke jendela yang sudah ada.",
+      "dismiss": "Tutup notifikasi"
+    },
     "workspacePanelSkeleton": {
       "ariaLabel": "Memuat {{panelLabel}}",
       "text": "Memuat {{panelLabel}}..."

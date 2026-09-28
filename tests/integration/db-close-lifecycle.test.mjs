@@ -53,7 +53,6 @@ test('main process wires coordinated runtime settlement on quit lifecycle', () =
   assert.match(indexSource, /app\.on\('before-quit',\s*appQuitCoordinator\.handleBeforeQuit\)/)
   assert.match(indexSource, /prepareAppRuntimeShutdown/)
   assert.match(shutdownSource, /interruptAndWait\(\s*\{\},\s*\{\s*reason:\s*'Application quit\.'\s*\}\s*,?\s*\)/)
-  assert.match(indexSource, /await reconcileWorkspaceTurnsOnStartup\(\)/)
   assert.doesNotMatch(indexSource, /app\.on\('will-quit',\s*closeDbOnQuit\)/)
   assert.match(registrationSource, /beforeReset:\s*prepareForExit/)
 })

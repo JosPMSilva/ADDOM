@@ -66,6 +66,10 @@ test('release build scripts route multi-target packaging through the host-aware 
     'node scripts/check-release-reproducibility.mjs',
   )
   assert.equal(
+    String(scripts['check:public-docs'] || ''),
+    'node scripts/check-public-documents.mjs',
+  )
+  assert.equal(
     String(scripts['check:release-freeze'] || ''),
     'node scripts/check-release-freeze.mjs',
   )
@@ -200,6 +204,7 @@ test('release build scripts route multi-target packaging through the host-aware 
     'node scripts/accept-model-catalog-refresh.mjs',
   )
   assert.match(preCommitHookSource, /npm run check:docs-links/)
+  assert.match(preCommitHookSource, /npm run check:public-docs/)
   assert.match(preCommitHookSource, /npm run check:staged-syntax/)
   assert.doesNotMatch(preCommitHookSource, /npm run check:syntax/)
   assert.doesNotMatch(preCommitHookSource, /check:eslint/)
@@ -210,6 +215,7 @@ test('release build scripts route multi-target packaging through the host-aware 
   assert.match(ciWorkflowSource, /validate:[\s\S]*- name: Check syntax[\s\S]*npm run check:syntax/)
   assert.match(ciWorkflowSource, /validate:[\s\S]*- name: Check renderer[\s\S]*npm run check:renderer/)
   assert.match(ciWorkflowSource, /validate:[\s\S]*- name: Check ESLint[\s\S]*npm run check:eslint/)
+  assert.match(ciWorkflowSource, /validate:[\s\S]*- name: Check public documentation inventory[\s\S]*npm run check:public-docs/)
   assert.doesNotMatch(ciWorkflowSource, /package:[\s\S]*- name: Check syntax[\s\S]*npm run check:syntax/)
   assert.doesNotMatch(ciWorkflowSource, /package:[\s\S]*- name: Check renderer[\s\S]*npm run check:renderer/)
   assert.doesNotMatch(ciWorkflowSource, /package:[\s\S]*- name: Check ESLint[\s\S]*npm run check:eslint/)
@@ -393,6 +399,7 @@ test('release freeze keeps build:dir semantics unchanged and owns the Windows-on
   assert.deepEqual(
     buildReleaseFreezeSteps({ platform: 'win32' }).map((step) => step.display),
     [
+      'npm run check:public-docs',
       'npm run check:release-reproducibility',
       'npm run native:electron',
       'npm run test:integration',
@@ -403,6 +410,7 @@ test('release freeze keeps build:dir semantics unchanged and owns the Windows-on
   assert.deepEqual(
     buildReleaseFreezeSteps({ platform: 'linux' }).map((step) => step.display),
     [
+      'npm run check:public-docs',
       'npm run check:release-reproducibility',
       'npm run native:electron',
       'npm run test:integration',

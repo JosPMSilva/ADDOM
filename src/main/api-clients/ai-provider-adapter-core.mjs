@@ -225,6 +225,7 @@ export async function createSharedStreamWithTools({
         modelId: effectiveModelId,
         forceRefresh: false,
         failOnProbeError: true,
+        abortSignal,
       })
       if (!canExecuteResolvedToolSurface(capabilities)) {
         activeTools = {}
@@ -247,6 +248,7 @@ export async function createSharedStreamWithTools({
     providerOptions: activeProviderOptions,
     adapterProfile: resolvedAdapterProfile,
     onProviderWarning,
+    abortSignal,
   }))
 
   if (backgroundTurn?.warning && typeof onProviderWarning === 'function') {

@@ -1,5 +1,9 @@
 {
   "app": {
+    "singleInstanceNotice": {
+      "message": "ADDOM zaten açık. Mevcut pencereye geçildi.",
+      "dismiss": "Bildirimi kapat"
+    },
     "workspacePanelSkeleton": {
       "ariaLabel": "{{panelLabel}} yükleniyor",
       "text": "{{panelLabel}} yükleniyor..."

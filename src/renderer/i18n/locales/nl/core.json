@@ -1,5 +1,9 @@
 {
   "app": {
+    "singleInstanceNotice": {
+      "message": "ADDOM is al geopend. Het bestaande venster is geactiveerd.",
+      "dismiss": "Melding sluiten"
+    },
     "workspacePanelSkeleton": {
       "ariaLabel": "{{panelLabel}} laden",
       "text": "{{panelLabel}} laden..."

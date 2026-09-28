@@ -43,10 +43,25 @@ export function __resetDynamicModelCache() {
   modelCapabilityCache.clear()
 }
 
+function isAbortError(error, abortSignal = null) {
+  return abortSignal?.aborted === true
+    || String(error?.name || '').trim() === 'AbortError'
+    || String(error?.code || '').trim() === 'ABORT_ERR'
+}
+
+function throwIfAborted(abortSignal) {
+  if (!abortSignal?.aborted) return
+  if (abortSignal.reason instanceof Error) throw abortSignal.reason
+  const error = new Error('Capability probe aborted.')
+  error.name = 'AbortError'
+  throw error
+}
+
 async function resolveOpenRouterLiveCapabilities({
   apiKey = '',
   modelId = '',
   forceRefresh = false,
+  abortSignal = null,
 } = {}) {
   const normalizedModelId = String(modelId || '').trim()
   if (!normalizedModelId) return null
@@ -55,14 +70,15 @@ async function resolveOpenRouterLiveCapabilities({
   let models = forceRefresh ? [] : cachedModels
   if (models.length === 0) {
     try {
-      models = await fetchOpenRouterManifestModels()
+      models = await fetchOpenRouterManifestModels({ abortSignal })
       if (models.length > 0) {
         dynamicRemoteModelCache.set(dynamicModelCacheKey('openrouter', apiKey), {
           models: cloneModels(models),
           fetchedAt: Date.now(),
         })
       }
-    } catch {
+    } catch (error) {
+      if (isAbortError(error, abortSignal)) throw error
       models = cachedModels
     }
   }
@@ -172,7 +188,7 @@ async function fetchJson(url, init = {}) {
   return fetchJsonWithPolicy(url, init, PROVIDER_POLICY.modelFetch)
 }
 
-export async function probeOllamaModelCapabilities(modelId) {
+export async function probeOllamaModelCapabilities(modelId, { abortSignal = null } = {}) {
   const model = String(modelId || '').trim()
   if (!model) return null
   try {
@@ -180,6 +196,7 @@ export async function probeOllamaModelCapabilities(modelId) {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ name: model }),
+      signal: abortSignal,
     })
     const rawCaps = Array.isArray(data?.capabilities) ? data.capabilities : []
     const caps = rawCaps.map((value) => String(value || '').trim().toLowerCase()).filter(Boolean)
@@ -196,6 +213,7 @@ export async function probeOllamaModelCapabilities(modelId) {
       note: `Ollama capabilities: ${caps.join(', ')}`,
     }
   } catch (err) {
+    if (isAbortError(err, abortSignal)) throw err
     if (!isOllamaCloudAliasModelId(model)) throw err
     return {
       providerId: 'ollama',
@@ -209,10 +227,10 @@ export async function probeOllamaModelCapabilities(modelId) {
   }
 }
 
-export async function probeLMStudioModelCapabilities(modelId) {
+export async function probeLMStudioModelCapabilities(modelId, { abortSignal = null } = {}) {
   const model = String(modelId || '').trim()
   if (!model) return null
-  const data = await fetchJson('http://localhost:1234/v1/models')
+  const data = await fetchJson('http://localhost:1234/v1/models', { signal: abortSignal })
   const rows = Array.isArray(data?.data) ? data.data : []
   const match = rows.find((row) => String(row?.id || '').trim().toLowerCase() === model.toLowerCase())
   if (!match || !Array.isArray(match.capabilities)) {
@@ -248,8 +266,10 @@ export async function resolveProviderCapabilities({
   forceRefresh = false,
   failOnProbeError = false,
   probeCapabilities = null,
+  abortSignal = null,
 } = {}) {
   void apiKey
+  throwIfAborted(abortSignal)
   const canonical = canonicalizeRequestedModel(providerId, modelId)
   const provider = canonical.providerId
   const model = canonical.effectiveModelId
@@ -270,13 +290,14 @@ export async function resolveProviderCapabilities({
 
   try {
     const probe = typeof probeCapabilities === 'function'
-      ? await probeCapabilities(model)
+      ? await probeCapabilities(model, { abortSignal })
       : (
         provider === 'openrouter' && fallback.source !== 'merged_catalog'
           ? await resolveOpenRouterLiveCapabilities({
             apiKey,
             modelId: model,
             forceRefresh,
+            abortSignal,
           })
           : null
       )
@@ -285,6 +306,7 @@ export async function resolveProviderCapabilities({
       authMethod,
     }, { authMethod })
   } catch (err) {
+    if (isAbortError(err, abortSignal)) throw err
     if (failOnProbeError) {
       throw new Error(String(err?.message || `Capability probe failed for ${provider}:${model}.`))
     }
@@ -353,8 +375,8 @@ async function probeLMStudioManifestEntry(entry) {
   }
 }
 
-async function fetchOpenRouterManifestModels() {
-  const data = await fetchJson('https://openrouter.ai/api/v1/models')
+async function fetchOpenRouterManifestModels({ abortSignal = null } = {}) {
+  const data = await fetchJson('https://openrouter.ai/api/v1/models', { signal: abortSignal })
   const rows = Array.isArray(data?.data) ? data.data : []
   return normalizeModelList(
     rows
