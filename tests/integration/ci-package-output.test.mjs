@@ -15,7 +15,7 @@ test('CI package output gate recognizes each platform primary installer', () => 
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'addom-ci-package-output-'))
   try {
     for (const name of [
-      'ADDOM 1.1.3.0.appx',
+      'ADDOM 1.2.0.0.appx',
       'ADDOM-1.0.0-mac-x64.dmg',
       'ADDOM-1.0.0-linux-x86_64.AppImage',
       'ADDOM Setup 1.0.0.exe',
@@ -42,7 +42,7 @@ test('CI package output gate recognizes each platform primary installer', () => 
         distributionChannel: 'microsoft-store',
         platform: 'win32',
       }).map((filePath) => path.basename(filePath)),
-      ['ADDOM 1.1.3.0.appx'],
+      ['ADDOM 1.2.0.0.appx'],
     )
     assert.equal(
       path.basename(findUpdateMetadataOutput({ directory: root, platform: 'win32' })),

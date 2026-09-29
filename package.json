@@ -1,6 +1,6 @@
 {
   "name": "addom",
-  "version": "0.1.3-alpha",
+  "version": "0.2.0-beta",
   "private": true,
   "description": "Local-first multi-provider AI coding workspace with guarded tools, delegated agents, and no developer telemetry",
   "author": "JosPMSilva",

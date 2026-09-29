@@ -4,7 +4,7 @@ This changelog is maintained going forward from the current repository baseline.
 
 ## Unreleased
 
-## 0.1.3-alpha
+## 0.2.0-beta
 
 - Added single-instance startup handling that focuses the existing window and
   explains why a second launch did not open another workspace.
